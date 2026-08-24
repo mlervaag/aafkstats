@@ -20,13 +20,13 @@ externalReports:
   - publisher: Sunnmørsposten
     title: Sunnmørsposten 1947-06-17 s. 2
     date: 1947-06-17
-    url: https://www.nb.no/items/df0e19babdb39bed17297c49680c04ed?page=2
+    url: https://www.nb.no/items/df0e19babdb39bed17297c49680c04ed?page=1
   - publisher: Sunnmørsposten
-    url: https://www.nb.no/items/c3c9bfecd495882ac4d0dc44abc9ae8e?page=5
+    url: https://www.nb.no/items/c3c9bfecd495882ac4d0dc44abc9ae8e?page=4
     date: 1947-06-14
 providers:
   - providerId: nasjonalbiblioteket
-    url: https://www.nb.no/items/df0e19babdb39bed17297c49680c04ed?page=2
+    url: https://www.nb.no/items/df0e19babdb39bed17297c49680c04ed?page=1
     retrievedAt: 2026-08-21
     fields:
       - date
@@ -37,7 +37,7 @@ providers:
       - home.score
       - away.score
   - providerId: nasjonalbiblioteket
-    url: https://www.nb.no/items/c3c9bfecd495882ac4d0dc44abc9ae8e?page=5
+    url: https://www.nb.no/items/c3c9bfecd495882ac4d0dc44abc9ae8e?page=4
     retrievedAt: 2026-08-23
     fields:
       - externalReports

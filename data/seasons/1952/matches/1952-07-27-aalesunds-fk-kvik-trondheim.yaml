@@ -19,7 +19,7 @@ neutralVenue: false
 events: []
 externalReports:
   - publisher: Sunnmørsposten
-    url: https://www.nb.no/items/06c4aa55a60f08921c473c9cb2e3a994?page=2
+    url: https://www.nb.no/items/06c4aa55a60f08921c473c9cb2e3a994?page=1
     date: 1952-07-29
 providers:
   - providerId: rsssf
@@ -47,7 +47,7 @@ providers:
       - competition.round
     note: Årsrapporten oppgir ikke kampdato.
   - providerId: nasjonalbiblioteket
-    url: https://www.nb.no/items/06c4aa55a60f08921c473c9cb2e3a994?page=2
+    url: https://www.nb.no/items/06c4aa55a60f08921c473c9cb2e3a994?page=1
     retrievedAt: 2026-08-23
     fields:
       - externalReports

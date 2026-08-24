@@ -1,6 +1,6 @@
 # Sunnmørsposten-pilot 1979
 
-Piloten kjørte alle 39 canonical AaFK-kamper med eksakt dato og resultat gjennom den datoankrede NB-løypa. Reviewgrunnlaget i ledgeren er NB sitt OCR-API. Derfor er alle 39 ført med `facsimileReviewed: false`; ingen post hevder at alle faksimilene er kontrollert.
+Piloten kjørte alle 39 canonical AaFK-kamper med eksakt dato og resultat gjennom den datoankrede NB-løypa. Reviewgrunnlaget er NB sitt OCR-API. AaFK–Hødd 29. april er senere visuelt kontrollert som kalibreringssak; de øvrige postene har `facsimileReviewed: false`.
 
 Et manuelt kontrollert utvalg av 1979-faksimilene viste 100 prosent korrekt kampkobling. Dette kalibreringsresultatet er grunnlaget for produksjonspolicyen som tillater OCR-review i den datoankrede canonical-løypa, men utvalget skal ikke forveksles med kontroll av alle 39 kamper.
 
@@ -15,7 +15,7 @@ Et manuelt kontrollert utvalg av 1979-faksimilene viste 100 prosent korrekt kamp
 | Kampreferat klassifisert | 23 |
 | Ingen lokal OCR-kandidat | 8 |
 | Mulig resultatkonflikt | 1 |
-| Faksimileverifisert | 0 |
+| Faksimileverifisert | 1 |
 
 Statusen skiller omtale fra ferdig berikelse: 31 kamper har en koblet samtidig Sunnmørsposten-omtale, 24 har klassifisert kampreferat eller resultatnotis, og 28 har etterkampbevis. Med den konservative terminalregelen er 22 komplette; 17 står igjen fordi de mangler OCR-kandidat, bare har svak/perifer omtale, har tidsmessig uforenlig rapportklassifisering eller har konflikt.
 
@@ -39,7 +39,7 @@ Ingen lagoppstillinger, spillere, målscorere, hendelser eller historiske observ
 | Kandidatutgaver funnet i søkene | 136 |
 | Kandidater bevart i reviewrapporten | 130 |
 | Gjennomsnitt kandidater per kamp | 3,33 |
-| Visuelt kontrollerte sider registrert per kamp i ledgeren | 0 |
+| Visuelt kontrollerte sider registrert i ledgeren | 1 |
 | OCR-false positives klassifisert | 0 |
 | Kandidater klassifisert som annen kamp | 0 |
 

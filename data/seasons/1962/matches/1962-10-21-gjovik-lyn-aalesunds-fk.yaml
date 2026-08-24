@@ -18,7 +18,7 @@ neutralVenue: false
 events: []
 externalReports:
   - publisher: Sunnmørsposten
-    url: https://www.nb.no/items/8b1bf6508899704c12d95bd7e9532881?page=3
+    url: https://www.nb.no/items/8b1bf6508899704c12d95bd7e9532881?page=2
     date: 1962-10-23
 providers:
   - providerId: rsssf
@@ -42,7 +42,7 @@ providers:
       - home.score
       - away.score
   - providerId: nasjonalbiblioteket
-    url: https://www.nb.no/items/8b1bf6508899704c12d95bd7e9532881?page=3
+    url: https://www.nb.no/items/8b1bf6508899704c12d95bd7e9532881?page=2
     retrievedAt: 2026-08-23
     fields:
       - externalReports

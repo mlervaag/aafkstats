@@ -18,7 +18,7 @@ neutralVenue: false
 events: []
 externalReports:
   - publisher: Sunnmørsposten
-    url: https://www.nb.no/items/f1fe0fd578a85cf5478e6378376ceb35?page=1
+    url: https://www.nb.no/items/f1fe0fd578a85cf5478e6378376ceb35?page=0
     date: 1940-09-23
 providers:
   - providerId: rsssf
@@ -34,7 +34,7 @@ providers:
       - away.score
       - competition.stage
   - providerId: nasjonalbiblioteket
-    url: https://www.nb.no/items/f1fe0fd578a85cf5478e6378376ceb35?page=1
+    url: https://www.nb.no/items/f1fe0fd578a85cf5478e6378376ceb35?page=0
     retrievedAt: 2026-08-23
     fields:
       - externalReports

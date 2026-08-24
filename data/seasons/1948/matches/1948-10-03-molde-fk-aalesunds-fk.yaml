@@ -22,7 +22,7 @@ externalReports:
     date: 1948-10-05
     url: https://www.nb.no/items/fc779a42f527bb18aed76dd96cbfb9ea?page=2
   - publisher: Sunnmørsposten
-    url: https://www.nb.no/items/eb0da9e52128e8e55e61d2d3328c11fc?page=2
+    url: https://www.nb.no/items/eb0da9e52128e8e55e61d2d3328c11fc?page=1
     date: 1948-10-04
 providers:
   - providerId: nasjonalbiblioteket
@@ -37,7 +37,7 @@ providers:
       - home.score
       - away.score
   - providerId: nasjonalbiblioteket
-    url: https://www.nb.no/items/eb0da9e52128e8e55e61d2d3328c11fc?page=2
+    url: https://www.nb.no/items/eb0da9e52128e8e55e61d2d3328c11fc?page=1
     retrievedAt: 2026-08-23
     fields:
       - externalReports

@@ -5,7 +5,7 @@ import { repoRoot } from "../load.js";
 import type { NewspaperEnrichmentStatus } from "../historical/newspaper-enrichment-status.js";
 
 type EvidenceIssue = { issueId: string; issued?: string; canonicalLinked: boolean };
-type Review = { matchId: string; status: string; canonicalLinked: boolean; evidenceIssues: EvidenceIssue[]; issueId?: string; issued?: string; page?: string; genres: string[]; fieldsAdded: string[]; searchedIssues: number; ocrCandidates: number; conflict?: { canonical: string; newspaper: string } };
+type Review = { matchId: string; status: string; canonicalLinked: boolean; facsimileReviewed: boolean; evidenceIssues: EvidenceIssue[]; issueId?: string; issued?: string; page?: string; genres: string[]; fieldsAdded: string[]; searchedIssues: number; ocrCandidates: number; conflict?: { canonical: string; newspaper: string } };
 const root = repoRoot(), from = 1915, to = 1962, id = "sunnmorsposten-1915-1962-production";
 const blocks = [[1915, 1924], [1925, 1934], [1935, 1944], [1945, 1951], [1952, 1962]] as const;
 const status = parseYaml(await readFile(join(root, "data/discovery/newspaper-enrichment-status.yaml"), "utf8"), { schema: "core" }) as NewspaperEnrichmentStatus;
@@ -21,6 +21,7 @@ const sourceInventory = await Promise.all(sourceIds.map(async (sourceId) => {
   return { sourceId, title: source.title, year: source.year, reviewStatus: "reviewed" };
 }));
 const conflicts = reviews.filter((entry) => entry.conflict && entry.issueId && entry.issued);
+const facsimileReviews = reviews.filter((entry) => entry.facsimileReviewed);
 const findingId = (entry: Review) => `conflict-${entry.matchId.slice(0, 10)}-${entry.issueId!.slice(0, 8)}`;
 
 const manifest = {
@@ -28,14 +29,14 @@ const manifest = {
   scope: { years: { from, to }, sourceIds }, sourceInventory,
   coverage: { mode: "sections", expected: entries.length, reviewed: reviews.length },
   passes: {
-    facsimile_review: { status: "skipped", findings: 0, note: "Produksjonspolicyen godkjenner NB OCR-API; facsimileReviewed er false." },
+    facsimile_review: { status: "skipped", findings: facsimileReviews.length, note: `Produksjonspolicyen bruker NB OCR-API; ${facsimileReviews.length} kampjobber er i tillegg visuelt kontrollert som kalibreringsutvalg.` },
     explicit_results: { status: "reviewed", findings: linked.length, note: `${entries.length} kampjobber; ${linked.length} kampkoblinger til ${sourceIds.length} aviskilder.` },
     people_and_roles: { status: "skipped", findings: 0, note: "Ingen personer uten entydig rolle- og identitetsbinding." },
     organization: { status: "skipped", findings: 0, note: "Ikke del av kampberikelsen." },
     retrospectives_and_claims: { status: "skipped", findings: 0, note: "Ikke del av datoankret samtidig omtale." },
     observations: { status: "skipped", findings: 0, note: "Ingen historiske observasjoner skrevet." },
   },
-  reviewMethod: { facsimile: "unavailable", reason: "Canonical datoankret avisberikelse bruker NB OCR-API; ingen poster er merket visuelt kontrollert." },
+  reviewMethod: { facsimile: "unavailable", reason: `Batchen krever ikke full faksimiledekning; ${facsimileReviews.length} kampjobber er visuelt kontrollert som kalibreringsutvalg.` },
   review: { file: `docs/data/reviews/${id}.md` },
   findings: conflicts.map((entry) => ({ id: findingId(entry), source: { sourceId: sourceId(entry), ...(entry.page ? { page: entry.page } : {}) }, type: "source_conflict", claim: { text: `OCR leser ${entry.conflict!.newspaper}; canonical har ${entry.conflict!.canonical}.` }, confidence: "uncertain", disposition: "no_structured_action", status: "unresolved" })),
   unresolved: conflicts.map((entry) => ({ findingId: findingId(entry), type: "score-conflict-candidate", note: `${entry.matchId}: canonical resultat er ikke endret.` })),
@@ -48,13 +49,13 @@ await writeFile(join(root, "docs/data/reviews", `${id}.md`), markdown(), "utf8")
 console.log(`Skrev ${entries.length} jobber, ${sourceIds.length} kilder og ${conflicts.length} konflikter.`);
 
 function markdown(): string {
-  const lines = ["# Review: Datoankret Sunnmørsposten-berikelse 1915–1962", "", "Reviewgrunnlag: NB OCR-API. `facsimileReviewed: false`. Ingen OCR-tekst er lagret.", "", "## Per sesong", "", "| År | Scope | OCR | Smp | Referat | Resultatnotis | Preview | Ingen kandidat | Ikke digitalisert | Konflikt | Nye fakta | Complete | Residual |", "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |"];
+  const lines = ["# Review: Datoankret Sunnmørsposten-berikelse 1915–1962", "", `Reviewgrunnlag: NB OCR-API, supplert med ${facsimileReviews.length} visuelt kontrollerte kampjobber. Ingen OCR-tekst er lagret.`, "", "## Per sesong", "", "| År | Scope | OCR | Smp | Referat | Resultatnotis | Preview | Ingen kandidat | Ikke digitalisert | Konflikt | Nye fakta | Complete | Residual |", "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |"];
   for (let season = from; season <= to; season += 1) lines.push(seasonRow(season, season));
   lines.push(seasonRow(from, to, "**Sum**"), "", "## Produksjonsblokker", "", "| Periode | Scope | Smp | Referat | Ingen kandidat | Ikke digitalisert | Complete | Residual | D+1 | Hovedvindu | Kandidater/kamp |", "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |");
   for (const [start, end] of blocks) lines.push(blockRow(start, end));
   lines.push("", "## Historisk sammenligning", "", "| Periode | Omtale | Referat | Complete | Ingen OCR | Konflikt | D+1 | Hovedvindu | Kandidater/kamp | Skalar-yield |", "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |");
   for (const [start, end] of [...blocks, [1963, 1971], [1972, 1978], [1979, 1979]] as Array<readonly [number, number]>) lines.push(compareRow(start, end));
-  lines.push("", "## Kvalitet og avstemming", "", `${conflicts.length} resultatavvik er uløste konfliktkandidater; ingen canonical resultater ble overskrevet. Ingen nye skalarfakta ble skrevet.`, "", `${sum(reviews, "searchedIssues")} utgaver ble undersøkt og ${sum(reviews, "ocrCandidates")} OCR-kandidater bevart. ${linked.filter((entry) => offset(entry) === 1).length}/${linked.length} koblinger var D+1; ${linked.filter((entry) => Math.abs(offset(entry)) <= 2).length}/${linked.length} lå innen D−2 til D+2.`, "", "Regresjonssettene 1963–1979 er uendret. PR #212-ledgeren regenereres og sammenlignes maskinelt.", "", "## Source Inventory", "", `Manifestet er autoritativt for ${sourceIds.length} unike utgaver: [${id}.yaml](../../../data/harvests/${id}.yaml).`);
+  lines.push("", "## Kvalitet og avstemming", "", `${conflicts.length} resultatavvik er uløste konfliktkandidater. ${facsimileReviews.length} kampjobber er visuelt kontrollert; sikre skalarfakta er skrevet additivt.`, "", `${sum(reviews, "searchedIssues")} utgaver ble undersøkt og ${sum(reviews, "ocrCandidates")} OCR-kandidater bevart. ${linked.filter((entry) => offset(entry) === 1).length}/${linked.length} koblinger var D+1; ${linked.filter((entry) => Math.abs(offset(entry)) <= 2).length}/${linked.length} lå innen D−2 til D+2.`, "", "Regresjonssettene 1963–1979 er uendret. PR #212-ledgeren regenereres og sammenlignes maskinelt.", "", "## Source Inventory", "", `Manifestet er autoritativt for ${sourceIds.length} unike utgaver: [${id}.yaml](../../../data/harvests/${id}.yaml).`);
   return `${lines.join("\n")}\n`;
 }
 function seasonRow(start: number, end: number, label = String(start)): string { const current = status.entries.filter((e) => inRange(e.season, start, end)), currentReviews = ledger.entries.filter((e) => inRange(year(e), start, end)); const count = (fn: (e: typeof current[number]) => boolean) => current.filter(fn).length; return `| ${label} | ${current.length} | ${count((e) => e.reviewStatus === "ocr_correlated")} | ${count((e) => e.hasSmpMention)} | ${count((e) => e.hasMatchReport)} | ${currentReviews.filter((e) => e.genres.includes("result_note")).length} | ${count((e) => e.residualReason === "preview_only")} | ${count((e) => e.reviewStatus === "no_ocr_candidate")} | ${count((e) => e.reviewStatus === "not_digitized")} | ${count((e) => e.conflictCandidate)} | ${currentReviews.filter((e) => e.fieldsAdded.length > 0).length} | ${count((e) => e.enrichmentStatus === "complete")} | ${count((e) => e.enrichmentStatus === "residual")} |`; }

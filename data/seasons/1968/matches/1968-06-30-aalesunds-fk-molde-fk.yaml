@@ -19,7 +19,7 @@ neutralVenue: false
 events: []
 externalReports:
   - publisher: Sunnmørsposten
-    url: https://www.nb.no/items/ef4a36f7aee35868409b81ff964d350e?page=6
+    url: https://www.nb.no/items/ef4a36f7aee35868409b81ff964d350e?page=5
     date: 1968-06-28
 providers:
   - providerId: rsssf
@@ -45,7 +45,7 @@ providers:
       - home.score
       - away.score
   - providerId: nasjonalbiblioteket
-    url: https://www.nb.no/items/ef4a36f7aee35868409b81ff964d350e?page=6
+    url: https://www.nb.no/items/ef4a36f7aee35868409b81ff964d350e?page=5
     retrievedAt: 2026-08-23
     fields:
       - externalReports

@@ -19,7 +19,7 @@ attendance: 3200
 events: []
 externalReports:
   - publisher: Sunnmørsposten
-    url: https://www.nb.no/items/4ca25c03ac1afc9a1975883024c8be41?page=6
+    url: https://www.nb.no/items/4ca25c03ac1afc9a1975883024c8be41?page=5
     date: 1962-10-15
 providers:
   - providerId: rsssf
@@ -43,7 +43,7 @@ providers:
       - home.score
       - away.score
   - providerId: nasjonalbiblioteket
-    url: https://www.nb.no/items/4ca25c03ac1afc9a1975883024c8be41?page=6
+    url: https://www.nb.no/items/4ca25c03ac1afc9a1975883024c8be41?page=5
     retrievedAt: 2026-08-23
     fields:
       - externalReports

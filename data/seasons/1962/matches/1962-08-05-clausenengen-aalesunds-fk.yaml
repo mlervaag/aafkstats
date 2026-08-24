@@ -17,19 +17,19 @@ away:
 events: []
 externalReports:
   - publisher: Sunnmørsposten
-    url: https://www.nb.no/items/7b09f7ba71f1a3d0a05aa408320917b0?page=2
+    url: https://www.nb.no/items/7b09f7ba71f1a3d0a05aa408320917b0?page=1
     date: 1962-08-06
   - publisher: Sunnmørsposten
-    url: https://www.nb.no/items/51686921650b60342ca4762f4eae27b3?page=6
+    url: https://www.nb.no/items/51686921650b60342ca4762f4eae27b3?page=5
     date: 1962-08-07
 providers:
   - providerId: nasjonalbiblioteket
-    url: https://www.nb.no/items/7b09f7ba71f1a3d0a05aa408320917b0?page=2
+    url: https://www.nb.no/items/7b09f7ba71f1a3d0a05aa408320917b0?page=1
     retrievedAt: 2026-08-23
     fields:
       - externalReports
   - providerId: nasjonalbiblioteket
-    url: https://www.nb.no/items/51686921650b60342ca4762f4eae27b3?page=6
+    url: https://www.nb.no/items/51686921650b60342ca4762f4eae27b3?page=5
     retrievedAt: 2026-08-23
     fields:
       - externalReports

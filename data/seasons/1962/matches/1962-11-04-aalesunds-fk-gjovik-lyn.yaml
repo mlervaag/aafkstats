@@ -34,7 +34,7 @@ lineups:
 events: []
 externalReports:
   - publisher: Sunnmørsposten
-    url: https://www.nb.no/items/d6bbeacfc0855c5ac120e41ecea40d5a?page=9
+    url: https://www.nb.no/items/d6bbeacfc0855c5ac120e41ecea40d5a?page=8
     date: 1962-11-06
 providers:
   - providerId: rsssf
@@ -58,7 +58,7 @@ providers:
       - home.score
       - away.score
   - providerId: nasjonalbiblioteket
-    url: https://www.nb.no/items/d6bbeacfc0855c5ac120e41ecea40d5a?page=9
+    url: https://www.nb.no/items/d6bbeacfc0855c5ac120e41ecea40d5a?page=8
     retrievedAt: 2026-08-23
     fields:
       - externalReports

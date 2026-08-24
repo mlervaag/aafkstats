@@ -2,18 +2,18 @@ contract: newspaper-enrichment-reviews@2
 entries:
   - matchId: 1915-06-06-aalesunds-fk-rollon
     status: ocr_correlated
-    reviewMethod: ocr_api
-    facsimileReviewed: false
-    confidence: medium
+    reviewMethod: facsimile
+    facsimileReviewed: true
+    confidence: high
     canonicalLinked: true
     evidenceIssues:
       - issueId: 678ad7069a0a1617240792e71bce6b9d
         urn: URN:NBN:no-nb_digavis_soendmoersposten_null_null_19150607_33_127_1
-        url: https://www.nb.no/items/678ad7069a0a1617240792e71bce6b9d?page=3
+        url: https://www.nb.no/items/678ad7069a0a1617240792e71bce6b9d?page=2
         issued: 1915-06-07
         page: "3"
-        reviewMethod: ocr_api
-        facsimileReviewed: false
+        reviewMethod: facsimile
+        facsimileReviewed: true
         canonicalLinked: true
         confidence: medium
         genres: &a1
@@ -21,12 +21,12 @@ entries:
           - fixture_list
     issueId: 678ad7069a0a1617240792e71bce6b9d
     urn: URN:NBN:no-nb_digavis_soendmoersposten_null_null_19150607_33_127_1
-    url: https://www.nb.no/items/678ad7069a0a1617240792e71bce6b9d?page=3
+    url: https://www.nb.no/items/678ad7069a0a1617240792e71bce6b9d?page=2
     issued: 1915-06-07
     page: "3"
     searchedIssues: 5
     ocrCandidates: 5
-    visuallyReviewedPages: 0
+    visuallyReviewedPages: 1
     genres: *a1
     fieldsAdded: []
     newPlayers: 0
@@ -34,25 +34,41 @@ entries:
     newHistoricalObservations: 0
     falsePositive: false
     differentMatch: false
-    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+    note: Faksimilen på trykt side 3 bekrefter AaFK–Rollon og sluttresultatet 2–2.
   - matchId: 1917-08-26-aalesunds-fk-sk-brann
-    status: no_ocr_candidate
-    reviewMethod: ocr_api
-    facsimileReviewed: false
-    confidence: low
-    canonicalLinked: false
-    evidenceIssues: []
+    status: ocr_correlated
+    reviewMethod: facsimile
+    facsimileReviewed: true
+    confidence: high
+    canonicalLinked: true
+    evidenceIssues:
+      - issueId: 3d6b8fc047e7a6c781962ff1d274bff3
+        urn: URN:NBN:no-nb_digavis_soendmoersposten_null_null_19170827_35_200_1
+        url: https://www.nb.no/items/3d6b8fc047e7a6c781962ff1d274bff3?page=3
+        issued: 1917-08-27
+        page: "4"
+        reviewMethod: facsimile
+        facsimileReviewed: true
+        canonicalLinked: true
+        confidence: high
+        genres: &facsimile1917
+          - match_report
+    issueId: 3d6b8fc047e7a6c781962ff1d274bff3
+    urn: URN:NBN:no-nb_digavis_soendmoersposten_null_null_19170827_35_200_1
+    url: https://www.nb.no/items/3d6b8fc047e7a6c781962ff1d274bff3?page=3
+    issued: 1917-08-27
+    page: "4"
     searchedIssues: 3
     ocrCandidates: 3
-    visuallyReviewedPages: 0
-    genres: []
+    visuallyReviewedPages: 1
+    genres: *facsimile1917
     fieldsAdded: []
     newPlayers: 0
     newEvents: 0
     newHistoricalObservations: 0
     falsePositive: false
     differentMatch: false
-    note: Ingen OCR-kandidat bandt begge klubber lokalt i relevant avisstoff.
+    note: Faksimilen på trykt side 4 har et samtidig kampreferat som bekrefter AaFK–Brann 0–14.
   - matchId: 1918-09-08-aalesunds-fk-sverre
     status: ocr_correlated
     reviewMethod: ocr_api
@@ -62,7 +78,7 @@ entries:
     evidenceIssues:
       - issueId: ecd7ceb2751ea8ef8da2e6713ac714d0
         urn: URN:NBN:no-nb_digavis_soendmoersposten_null_null_19180909_36_214_1
-        url: https://www.nb.no/items/ecd7ceb2751ea8ef8da2e6713ac714d0?page=3
+        url: https://www.nb.no/items/ecd7ceb2751ea8ef8da2e6713ac714d0?page=2
         issued: 1918-09-09
         page: "3"
         reviewMethod: ocr_api
@@ -75,7 +91,7 @@ entries:
           - match_report
     issueId: ecd7ceb2751ea8ef8da2e6713ac714d0
     urn: URN:NBN:no-nb_digavis_soendmoersposten_null_null_19180909_36_214_1
-    url: https://www.nb.no/items/ecd7ceb2751ea8ef8da2e6713ac714d0?page=3
+    url: https://www.nb.no/items/ecd7ceb2751ea8ef8da2e6713ac714d0?page=2
     issued: 1918-09-09
     page: "3"
     searchedIssues: 4
@@ -98,7 +114,7 @@ entries:
     evidenceIssues:
       - issueId: 3e05e6890d610f305b02497a7bd58383
         urn: URN:NBN:no-nb_digavis_soendmoersposten_null_null_19190908_37_215_1
-        url: https://www.nb.no/items/3e05e6890d610f305b02497a7bd58383?page=4
+        url: https://www.nb.no/items/3e05e6890d610f305b02497a7bd58383?page=3
         issued: 1919-09-08
         page: "4"
         reviewMethod: ocr_api
@@ -111,7 +127,7 @@ entries:
           - fixture_list
     issueId: 3e05e6890d610f305b02497a7bd58383
     urn: URN:NBN:no-nb_digavis_soendmoersposten_null_null_19190908_37_215_1
-    url: https://www.nb.no/items/3e05e6890d610f305b02497a7bd58383?page=4
+    url: https://www.nb.no/items/3e05e6890d610f305b02497a7bd58383?page=3
     issued: 1919-09-08
     page: "4"
     searchedIssues: 1
@@ -170,7 +186,7 @@ entries:
     evidenceIssues:
       - issueId: d367b485c5f55e27f684a0243890cb41
         urn: URN:NBN:no-nb_digavis_soendmoersposten_null_null_19200531_38_122_1
-        url: https://www.nb.no/items/d367b485c5f55e27f684a0243890cb41?page=2
+        url: https://www.nb.no/items/d367b485c5f55e27f684a0243890cb41?page=1
         issued: 1920-05-31
         page: "2"
         reviewMethod: ocr_api
@@ -183,7 +199,7 @@ entries:
           - unknown
     issueId: d367b485c5f55e27f684a0243890cb41
     urn: URN:NBN:no-nb_digavis_soendmoersposten_null_null_19200531_38_122_1
-    url: https://www.nb.no/items/d367b485c5f55e27f684a0243890cb41?page=2
+    url: https://www.nb.no/items/d367b485c5f55e27f684a0243890cb41?page=1
     issued: 1920-05-31
     page: "2"
     searchedIssues: 3
@@ -206,7 +222,7 @@ entries:
     evidenceIssues:
       - issueId: 3c5a94ce042e6c4992219d21e59fece9
         urn: URN:NBN:no-nb_digavis_soendmoersposten_null_null_19200612_38_133_1
-        url: https://www.nb.no/items/3c5a94ce042e6c4992219d21e59fece9?page=3
+        url: https://www.nb.no/items/3c5a94ce042e6c4992219d21e59fece9?page=2
         issued: 1920-06-12
         page: "3"
         reviewMethod: ocr_api
@@ -218,7 +234,7 @@ entries:
           - preview
     issueId: 3c5a94ce042e6c4992219d21e59fece9
     urn: URN:NBN:no-nb_digavis_soendmoersposten_null_null_19200612_38_133_1
-    url: https://www.nb.no/items/3c5a94ce042e6c4992219d21e59fece9?page=3
+    url: https://www.nb.no/items/3c5a94ce042e6c4992219d21e59fece9?page=2
     issued: 1920-06-12
     page: "3"
     searchedIssues: 2
@@ -277,7 +293,7 @@ entries:
     evidenceIssues:
       - issueId: 85086d15d7792fbcb14a9ebca196a689
         urn: URN:NBN:no-nb_digavis_soendmoersposten_null_null_19200803_38_177_1
-        url: https://www.nb.no/items/85086d15d7792fbcb14a9ebca196a689?page=4
+        url: https://www.nb.no/items/85086d15d7792fbcb14a9ebca196a689?page=3
         issued: 1920-08-03
         page: "4"
         reviewMethod: ocr_api
@@ -289,7 +305,7 @@ entries:
           - match_report
     issueId: 85086d15d7792fbcb14a9ebca196a689
     urn: URN:NBN:no-nb_digavis_soendmoersposten_null_null_19200803_38_177_1
-    url: https://www.nb.no/items/85086d15d7792fbcb14a9ebca196a689?page=4
+    url: https://www.nb.no/items/85086d15d7792fbcb14a9ebca196a689?page=3
     issued: 1920-08-03
     page: "4"
     searchedIssues: 5
@@ -312,7 +328,7 @@ entries:
     evidenceIssues:
       - issueId: 603ada2555691303c68cf925c1b27d58
         urn: URN:NBN:no-nb_digavis_soendmoersposten_null_null_19200913_38_212_1
-        url: https://www.nb.no/items/603ada2555691303c68cf925c1b27d58?page=4
+        url: https://www.nb.no/items/603ada2555691303c68cf925c1b27d58?page=3
         issued: 1920-09-13
         page: "4"
         reviewMethod: ocr_api
@@ -324,7 +340,7 @@ entries:
           - match_report
     issueId: 603ada2555691303c68cf925c1b27d58
     urn: URN:NBN:no-nb_digavis_soendmoersposten_null_null_19200913_38_212_1
-    url: https://www.nb.no/items/603ada2555691303c68cf925c1b27d58?page=4
+    url: https://www.nb.no/items/603ada2555691303c68cf925c1b27d58?page=3
     issued: 1920-09-13
     page: "4"
     searchedIssues: 2
@@ -401,7 +417,7 @@ entries:
     evidenceIssues:
       - issueId: f56660529b2b0c241f7e29f05d959191
         urn: URN:NBN:no-nb_digavis_soendmoersposten_null_null_19220821_40_97_1
-        url: https://www.nb.no/items/f56660529b2b0c241f7e29f05d959191?page=3
+        url: https://www.nb.no/items/f56660529b2b0c241f7e29f05d959191?page=2
         issued: 1922-08-21
         page: "3"
         reviewMethod: ocr_api
@@ -414,7 +430,7 @@ entries:
           - results_board
     issueId: f56660529b2b0c241f7e29f05d959191
     urn: URN:NBN:no-nb_digavis_soendmoersposten_null_null_19220821_40_97_1
-    url: https://www.nb.no/items/f56660529b2b0c241f7e29f05d959191?page=3
+    url: https://www.nb.no/items/f56660529b2b0c241f7e29f05d959191?page=2
     issued: 1922-08-21
     page: "3"
     searchedIssues: 2
@@ -429,19 +445,19 @@ entries:
     differentMatch: false
     note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1922-09-03-aalesunds-fk-drafn
-    status: conflict_candidate
-    reviewMethod: ocr_api
-    facsimileReviewed: false
+    status: ocr_correlated
+    reviewMethod: facsimile
+    facsimileReviewed: true
     confidence: high
     canonicalLinked: true
     evidenceIssues:
       - issueId: ed591ad4a2216bdd3aa749c21a4b4ce9
         urn: URN:NBN:no-nb_digavis_soendmoersposten_null_null_19220904_40_103_1
-        url: https://www.nb.no/items/ed591ad4a2216bdd3aa749c21a4b4ce9?page=3
+        url: https://www.nb.no/items/ed591ad4a2216bdd3aa749c21a4b4ce9?page=2
         issued: 1922-09-04
         page: "3"
-        reviewMethod: ocr_api
-        facsimileReviewed: false
+        reviewMethod: facsimile
+        facsimileReviewed: true
         canonicalLinked: true
         confidence: high
         genres: &a9
@@ -451,24 +467,22 @@ entries:
           - unknown
     issueId: ed591ad4a2216bdd3aa749c21a4b4ce9
     urn: URN:NBN:no-nb_digavis_soendmoersposten_null_null_19220904_40_103_1
-    url: https://www.nb.no/items/ed591ad4a2216bdd3aa749c21a4b4ce9?page=3
+    url: https://www.nb.no/items/ed591ad4a2216bdd3aa749c21a4b4ce9?page=2
     issued: 1922-09-04
     page: "3"
     searchedIssues: 1
     ocrCandidates: 1
-    visuallyReviewedPages: 0
+    visuallyReviewedPages: 1
     genres: *a9
-    fieldsAdded: []
+    fieldsAdded:
+      - home.halfTimeScore
+      - away.halfTimeScore
     newPlayers: 0
     newEvents: 0
     newHistoricalObservations: 0
     falsePositive: false
     differentMatch: false
-    conflict:
-      field: score
-      canonical: 0-3
-      newspaper: 2-0
-    note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.
+    note: Faksimilen på trykt side 3 oppgir 3–0 (2–0) til Drafn. Canonical sluttresultat er korrekt; OCR tok pauseresultatet som sluttresultat.
   - matchId: 1923-08-26-sk-brann-aalesunds-fk
     status: no_ocr_candidate
     reviewMethod: ocr_api
@@ -532,7 +546,7 @@ entries:
     evidenceIssues:
       - issueId: 3a18f58efa66ed6a4b13690a05c1ebd3
         urn: URN:NBN:no-nb_digavis_soendmoersposten_null_null_19250603_43_126_1
-        url: https://www.nb.no/items/3a18f58efa66ed6a4b13690a05c1ebd3?page=5
+        url: https://www.nb.no/items/3a18f58efa66ed6a4b13690a05c1ebd3?page=4
         issued: 1925-06-03
         page: "5"
         reviewMethod: ocr_api
@@ -545,7 +559,7 @@ entries:
           - unknown
     issueId: 3a18f58efa66ed6a4b13690a05c1ebd3
     urn: URN:NBN:no-nb_digavis_soendmoersposten_null_null_19250603_43_126_1
-    url: https://www.nb.no/items/3a18f58efa66ed6a4b13690a05c1ebd3?page=5
+    url: https://www.nb.no/items/3a18f58efa66ed6a4b13690a05c1ebd3?page=4
     issued: 1925-06-03
     page: "5"
     searchedIssues: 3
@@ -586,7 +600,7 @@ entries:
     evidenceIssues:
       - issueId: f1b68d1de44b904a1c0e7ed8d8010a4e
         urn: URN:NBN:no-nb_digavis_soendmoersposten_null_null_19250916_43_217_1
-        url: https://www.nb.no/items/f1b68d1de44b904a1c0e7ed8d8010a4e?page=3
+        url: https://www.nb.no/items/f1b68d1de44b904a1c0e7ed8d8010a4e?page=2
         issued: 1925-09-16
         page: "3"
         reviewMethod: ocr_api
@@ -599,7 +613,7 @@ entries:
           - unknown
     issueId: f1b68d1de44b904a1c0e7ed8d8010a4e
     urn: URN:NBN:no-nb_digavis_soendmoersposten_null_null_19250916_43_217_1
-    url: https://www.nb.no/items/f1b68d1de44b904a1c0e7ed8d8010a4e?page=3
+    url: https://www.nb.no/items/f1b68d1de44b904a1c0e7ed8d8010a4e?page=2
     issued: 1925-09-16
     page: "3"
     searchedIssues: 3
@@ -622,7 +636,7 @@ entries:
     evidenceIssues:
       - issueId: 88cb85c15a5067aee5fd3c089913cd98
         urn: URN:NBN:no-nb_digavis_soendmoersposten_null_null_19260906_44_208_1
-        url: https://www.nb.no/items/88cb85c15a5067aee5fd3c089913cd98?page=1
+        url: https://www.nb.no/items/88cb85c15a5067aee5fd3c089913cd98?page=0
         issued: 1926-09-06
         page: "1"
         reviewMethod: ocr_api
@@ -636,7 +650,7 @@ entries:
           - match_report
     issueId: 88cb85c15a5067aee5fd3c089913cd98
     urn: URN:NBN:no-nb_digavis_soendmoersposten_null_null_19260906_44_208_1
-    url: https://www.nb.no/items/88cb85c15a5067aee5fd3c089913cd98?page=1
+    url: https://www.nb.no/items/88cb85c15a5067aee5fd3c089913cd98?page=0
     issued: 1926-09-06
     page: "1"
     searchedIssues: 4
@@ -713,7 +727,7 @@ entries:
     evidenceIssues:
       - issueId: f4997dd07e6d1b8196898be8b6c96fa1
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19280827_46_201_1
-        url: https://www.nb.no/items/f4997dd07e6d1b8196898be8b6c96fa1?page=5
+        url: https://www.nb.no/items/f4997dd07e6d1b8196898be8b6c96fa1?page=4
         issued: 1928-08-27
         page: "5"
         reviewMethod: ocr_api
@@ -726,7 +740,7 @@ entries:
           - unknown
     issueId: f4997dd07e6d1b8196898be8b6c96fa1
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19280827_46_201_1
-    url: https://www.nb.no/items/f4997dd07e6d1b8196898be8b6c96fa1?page=5
+    url: https://www.nb.no/items/f4997dd07e6d1b8196898be8b6c96fa1?page=4
     issued: 1928-08-27
     page: "5"
     searchedIssues: 2
@@ -767,7 +781,7 @@ entries:
     evidenceIssues:
       - issueId: a1e0dfcd8b68d032cc5c22568510b153
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19290521_47_114_1
-        url: https://www.nb.no/items/a1e0dfcd8b68d032cc5c22568510b153?page=3
+        url: https://www.nb.no/items/a1e0dfcd8b68d032cc5c22568510b153?page=2
         issued: 1929-05-21
         page: "3"
         reviewMethod: ocr_api
@@ -779,7 +793,7 @@ entries:
           - fixture_list
     issueId: a1e0dfcd8b68d032cc5c22568510b153
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19290521_47_114_1
-    url: https://www.nb.no/items/a1e0dfcd8b68d032cc5c22568510b153?page=3
+    url: https://www.nb.no/items/a1e0dfcd8b68d032cc5c22568510b153?page=2
     issued: 1929-05-21
     page: "3"
     searchedIssues: 4
@@ -802,7 +816,7 @@ entries:
     evidenceIssues:
       - issueId: 59cbd92ee3b6f4fe7bb494c9ea463608
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19290805_47_179_1
-        url: https://www.nb.no/items/59cbd92ee3b6f4fe7bb494c9ea463608?page=3
+        url: https://www.nb.no/items/59cbd92ee3b6f4fe7bb494c9ea463608?page=2
         issued: 1929-08-05
         page: "3"
         reviewMethod: ocr_api
@@ -814,7 +828,7 @@ entries:
           - fixture_list
     issueId: 59cbd92ee3b6f4fe7bb494c9ea463608
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19290805_47_179_1
-    url: https://www.nb.no/items/59cbd92ee3b6f4fe7bb494c9ea463608?page=3
+    url: https://www.nb.no/items/59cbd92ee3b6f4fe7bb494c9ea463608?page=2
     issued: 1929-08-05
     page: "3"
     searchedIssues: 2
@@ -873,7 +887,7 @@ entries:
     evidenceIssues:
       - issueId: d414002cccb9f5a807736ed6f6b2c115
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19300901_48_202_1
-        url: https://www.nb.no/items/d414002cccb9f5a807736ed6f6b2c115?page=7
+        url: https://www.nb.no/items/d414002cccb9f5a807736ed6f6b2c115?page=6
         issued: 1930-09-01
         page: "7"
         reviewMethod: ocr_api
@@ -885,7 +899,7 @@ entries:
           - fixture_list
     issueId: d414002cccb9f5a807736ed6f6b2c115
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19300901_48_202_1
-    url: https://www.nb.no/items/d414002cccb9f5a807736ed6f6b2c115?page=7
+    url: https://www.nb.no/items/d414002cccb9f5a807736ed6f6b2c115?page=6
     issued: 1930-09-01
     page: "7"
     searchedIssues: 3
@@ -962,7 +976,7 @@ entries:
     evidenceIssues:
       - issueId: bb2b6b86523e44a6dafdd2f41b495408
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19330711_51_158_1
-        url: https://www.nb.no/items/bb2b6b86523e44a6dafdd2f41b495408?page=3
+        url: https://www.nb.no/items/bb2b6b86523e44a6dafdd2f41b495408?page=2
         issued: 1933-07-11
         page: "3"
         reviewMethod: ocr_api
@@ -974,7 +988,7 @@ entries:
           - fixture_list
     issueId: bb2b6b86523e44a6dafdd2f41b495408
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19330711_51_158_1
-    url: https://www.nb.no/items/bb2b6b86523e44a6dafdd2f41b495408?page=3
+    url: https://www.nb.no/items/bb2b6b86523e44a6dafdd2f41b495408?page=2
     issued: 1933-07-11
     page: "3"
     searchedIssues: 3
@@ -997,7 +1011,7 @@ entries:
     evidenceIssues:
       - issueId: fb7e017f67ae6769862d37bc937c2183
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19330814_51_187_1
-        url: https://www.nb.no/items/fb7e017f67ae6769862d37bc937c2183?page=6
+        url: https://www.nb.no/items/fb7e017f67ae6769862d37bc937c2183?page=5
         issued: 1933-08-14
         page: "6"
         reviewMethod: ocr_api
@@ -1010,7 +1024,7 @@ entries:
           - results_board
     issueId: fb7e017f67ae6769862d37bc937c2183
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19330814_51_187_1
-    url: https://www.nb.no/items/fb7e017f67ae6769862d37bc937c2183?page=6
+    url: https://www.nb.no/items/fb7e017f67ae6769862d37bc937c2183?page=5
     issued: 1933-08-14
     page: "6"
     searchedIssues: 3
@@ -1033,7 +1047,7 @@ entries:
     evidenceIssues:
       - issueId: c33a056e51c4e4b03a14b1d4cd107036
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19330828_51_199_1
-        url: https://www.nb.no/items/c33a056e51c4e4b03a14b1d4cd107036?page=8
+        url: https://www.nb.no/items/c33a056e51c4e4b03a14b1d4cd107036?page=7
         issued: 1933-08-28
         page: "8"
         reviewMethod: ocr_api
@@ -1045,7 +1059,7 @@ entries:
           - fixture_list
     issueId: c33a056e51c4e4b03a14b1d4cd107036
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19330828_51_199_1
-    url: https://www.nb.no/items/c33a056e51c4e4b03a14b1d4cd107036?page=8
+    url: https://www.nb.no/items/c33a056e51c4e4b03a14b1d4cd107036?page=7
     issued: 1933-08-28
     page: "8"
     searchedIssues: 4
@@ -1086,7 +1100,7 @@ entries:
     evidenceIssues:
       - issueId: 8f387f00c1f1e59ce19bc43495baba3d
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19340828_52_199_1
-        url: https://www.nb.no/items/8f387f00c1f1e59ce19bc43495baba3d?page=6
+        url: https://www.nb.no/items/8f387f00c1f1e59ce19bc43495baba3d?page=5
         issued: 1934-08-28
         page: "6"
         reviewMethod: ocr_api
@@ -1098,7 +1112,7 @@ entries:
           - fixture_list
     issueId: 8f387f00c1f1e59ce19bc43495baba3d
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19340828_52_199_1
-    url: https://www.nb.no/items/8f387f00c1f1e59ce19bc43495baba3d?page=6
+    url: https://www.nb.no/items/8f387f00c1f1e59ce19bc43495baba3d?page=5
     issued: 1934-08-28
     page: "6"
     searchedIssues: 4
@@ -1211,7 +1225,7 @@ entries:
     evidenceIssues:
       - issueId: 731d362d9330ca61c2132bccd407c878
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19360926_54_226_1
-        url: https://www.nb.no/items/731d362d9330ca61c2132bccd407c878?page=4
+        url: https://www.nb.no/items/731d362d9330ca61c2132bccd407c878?page=3
         issued: 1936-09-26
         page: "4"
         reviewMethod: ocr_api
@@ -1224,7 +1238,7 @@ entries:
           - unknown
     issueId: 731d362d9330ca61c2132bccd407c878
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19360926_54_226_1
-    url: https://www.nb.no/items/731d362d9330ca61c2132bccd407c878?page=4
+    url: https://www.nb.no/items/731d362d9330ca61c2132bccd407c878?page=3
     issued: 1936-09-26
     page: "4"
     searchedIssues: 4
@@ -1247,7 +1261,7 @@ entries:
     evidenceIssues:
       - issueId: 2694a8cc6f6077b18eedc32f1dfa804e
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19370629_55_150_1
-        url: https://www.nb.no/items/2694a8cc6f6077b18eedc32f1dfa804e?page=5
+        url: https://www.nb.no/items/2694a8cc6f6077b18eedc32f1dfa804e?page=4
         issued: 1937-06-29
         page: "5"
         reviewMethod: ocr_api
@@ -1259,7 +1273,7 @@ entries:
           - fixture_list
     issueId: 2694a8cc6f6077b18eedc32f1dfa804e
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19370629_55_150_1
-    url: https://www.nb.no/items/2694a8cc6f6077b18eedc32f1dfa804e?page=5
+    url: https://www.nb.no/items/2694a8cc6f6077b18eedc32f1dfa804e?page=4
     issued: 1937-06-29
     page: "5"
     searchedIssues: 4
@@ -1318,7 +1332,7 @@ entries:
     evidenceIssues:
       - issueId: f45d12f207dc3cfb82b480e4041184ed
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19400904_58_204_1
-        url: https://www.nb.no/items/f45d12f207dc3cfb82b480e4041184ed?page=6
+        url: https://www.nb.no/items/f45d12f207dc3cfb82b480e4041184ed?page=5
         issued: 1940-09-04
         page: "6"
         reviewMethod: ocr_api
@@ -1330,7 +1344,7 @@ entries:
           - fixture_list
     issueId: f45d12f207dc3cfb82b480e4041184ed
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19400904_58_204_1
-    url: https://www.nb.no/items/f45d12f207dc3cfb82b480e4041184ed?page=6
+    url: https://www.nb.no/items/f45d12f207dc3cfb82b480e4041184ed?page=5
     issued: 1940-09-04
     page: "6"
     searchedIssues: 3
@@ -1353,7 +1367,7 @@ entries:
     evidenceIssues:
       - issueId: 1922fd4aab842ac0ba6a5adaebb517ef
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19400909_58_208_1
-        url: https://www.nb.no/items/1922fd4aab842ac0ba6a5adaebb517ef?page=5
+        url: https://www.nb.no/items/1922fd4aab842ac0ba6a5adaebb517ef?page=4
         issued: 1940-09-09
         page: "5"
         reviewMethod: ocr_api
@@ -1367,7 +1381,7 @@ entries:
           - unknown
     issueId: 1922fd4aab842ac0ba6a5adaebb517ef
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19400909_58_208_1
-    url: https://www.nb.no/items/1922fd4aab842ac0ba6a5adaebb517ef?page=5
+    url: https://www.nb.no/items/1922fd4aab842ac0ba6a5adaebb517ef?page=4
     issued: 1940-09-09
     page: "5"
     searchedIssues: 3
@@ -1390,7 +1404,7 @@ entries:
     evidenceIssues:
       - issueId: f1fe0fd578a85cf5478e6378376ceb35
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19400923_58_220_1
-        url: https://www.nb.no/items/f1fe0fd578a85cf5478e6378376ceb35?page=1
+        url: https://www.nb.no/items/f1fe0fd578a85cf5478e6378376ceb35?page=0
         issued: 1940-09-23
         page: "1"
         reviewMethod: ocr_api
@@ -1403,7 +1417,7 @@ entries:
           - unknown
     issueId: f1fe0fd578a85cf5478e6378376ceb35
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19400923_58_220_1
-    url: https://www.nb.no/items/f1fe0fd578a85cf5478e6378376ceb35?page=1
+    url: https://www.nb.no/items/f1fe0fd578a85cf5478e6378376ceb35?page=0
     issued: 1940-09-23
     page: "1"
     searchedIssues: 4
@@ -1426,7 +1440,7 @@ entries:
     evidenceIssues:
       - issueId: 765a56686c17016d340469b4ffcf71af
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19450706_63_153_1
-        url: https://www.nb.no/items/765a56686c17016d340469b4ffcf71af?page=2
+        url: https://www.nb.no/items/765a56686c17016d340469b4ffcf71af?page=1
         issued: 1945-07-06
         page: "2"
         reviewMethod: ocr_api
@@ -1439,7 +1453,7 @@ entries:
           - fixture_list
     issueId: 765a56686c17016d340469b4ffcf71af
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19450706_63_153_1
-    url: https://www.nb.no/items/765a56686c17016d340469b4ffcf71af?page=2
+    url: https://www.nb.no/items/765a56686c17016d340469b4ffcf71af?page=1
     issued: 1945-07-06
     page: "2"
     searchedIssues: 4
@@ -1462,7 +1476,7 @@ entries:
     evidenceIssues:
       - issueId: 996171a08ad98118ad1097f4f42254ab
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19450709_63_155_1
-        url: https://www.nb.no/items/996171a08ad98118ad1097f4f42254ab?page=2
+        url: https://www.nb.no/items/996171a08ad98118ad1097f4f42254ab?page=1
         issued: 1945-07-09
         page: "2"
         reviewMethod: ocr_api
@@ -1475,7 +1489,7 @@ entries:
           - fixture_list
     issueId: 996171a08ad98118ad1097f4f42254ab
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19450709_63_155_1
-    url: https://www.nb.no/items/996171a08ad98118ad1097f4f42254ab?page=2
+    url: https://www.nb.no/items/996171a08ad98118ad1097f4f42254ab?page=1
     issued: 1945-07-09
     page: "2"
     searchedIssues: 4
@@ -1498,7 +1512,7 @@ entries:
     evidenceIssues:
       - issueId: cd629b2edfcad8274f4733965722c1b4
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19450714_63_160_1
-        url: https://www.nb.no/items/cd629b2edfcad8274f4733965722c1b4?page=4
+        url: https://www.nb.no/items/cd629b2edfcad8274f4733965722c1b4?page=3
         issued: 1945-07-14
         page: "4"
         reviewMethod: ocr_api
@@ -1512,7 +1526,7 @@ entries:
           - unknown
     issueId: cd629b2edfcad8274f4733965722c1b4
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19450714_63_160_1
-    url: https://www.nb.no/items/cd629b2edfcad8274f4733965722c1b4?page=4
+    url: https://www.nb.no/items/cd629b2edfcad8274f4733965722c1b4?page=3
     issued: 1945-07-14
     page: "4"
     searchedIssues: 3
@@ -1535,7 +1549,7 @@ entries:
     evidenceIssues:
       - issueId: 60424741dbae0cb92cc4bd2f47f52bf1
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19450730_63_173_1
-        url: https://www.nb.no/items/60424741dbae0cb92cc4bd2f47f52bf1?page=4
+        url: https://www.nb.no/items/60424741dbae0cb92cc4bd2f47f52bf1?page=3
         issued: 1945-07-30
         page: "4"
         reviewMethod: ocr_api
@@ -1547,7 +1561,7 @@ entries:
           - fixture_list
     issueId: 60424741dbae0cb92cc4bd2f47f52bf1
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19450730_63_173_1
-    url: https://www.nb.no/items/60424741dbae0cb92cc4bd2f47f52bf1?page=4
+    url: https://www.nb.no/items/60424741dbae0cb92cc4bd2f47f52bf1?page=3
     issued: 1945-07-30
     page: "4"
     searchedIssues: 1
@@ -1588,7 +1602,7 @@ entries:
     evidenceIssues:
       - issueId: e379c545feff7b09b6b5b9f68b03cb4e
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19450831_63_201_1
-        url: https://www.nb.no/items/e379c545feff7b09b6b5b9f68b03cb4e?page=2
+        url: https://www.nb.no/items/e379c545feff7b09b6b5b9f68b03cb4e?page=1
         issued: 1945-08-31
         page: "2"
         reviewMethod: ocr_api
@@ -1601,7 +1615,7 @@ entries:
           - unknown
     issueId: e379c545feff7b09b6b5b9f68b03cb4e
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19450831_63_201_1
-    url: https://www.nb.no/items/e379c545feff7b09b6b5b9f68b03cb4e?page=2
+    url: https://www.nb.no/items/e379c545feff7b09b6b5b9f68b03cb4e?page=1
     issued: 1945-08-31
     page: "2"
     searchedIssues: 3
@@ -1624,7 +1638,7 @@ entries:
     evidenceIssues:
       - issueId: 07c78784d6a99f667ae461b8201d3299
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19450921_63_218_1
-        url: https://www.nb.no/items/07c78784d6a99f667ae461b8201d3299?page=2
+        url: https://www.nb.no/items/07c78784d6a99f667ae461b8201d3299?page=1
         issued: 1945-09-21
         page: "2"
         reviewMethod: ocr_api
@@ -1638,7 +1652,7 @@ entries:
           - unknown
       - issueId: ac1930ce85ae61e7d60b0d3b61161fd0
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19450924_63_220_1
-        url: https://www.nb.no/items/ac1930ce85ae61e7d60b0d3b61161fd0?page=2
+        url: https://www.nb.no/items/ac1930ce85ae61e7d60b0d3b61161fd0?page=1
         issued: 1945-09-24
         page: "2"
         reviewMethod: ocr_api
@@ -1652,7 +1666,7 @@ entries:
           - unknown
     issueId: ac1930ce85ae61e7d60b0d3b61161fd0
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19450924_63_220_1
-    url: https://www.nb.no/items/ac1930ce85ae61e7d60b0d3b61161fd0?page=2
+    url: https://www.nb.no/items/ac1930ce85ae61e7d60b0d3b61161fd0?page=1
     issued: 1945-09-24
     page: "2"
     searchedIssues: 6
@@ -1675,7 +1689,7 @@ entries:
     evidenceIssues:
       - issueId: ac1930ce85ae61e7d60b0d3b61161fd0
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19450924_63_220_1
-        url: https://www.nb.no/items/ac1930ce85ae61e7d60b0d3b61161fd0?page=2
+        url: https://www.nb.no/items/ac1930ce85ae61e7d60b0d3b61161fd0?page=1
         issued: 1945-09-24
         page: "2"
         reviewMethod: ocr_api
@@ -1687,7 +1701,7 @@ entries:
           - fixture_list
     issueId: ac1930ce85ae61e7d60b0d3b61161fd0
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19450924_63_220_1
-    url: https://www.nb.no/items/ac1930ce85ae61e7d60b0d3b61161fd0?page=2
+    url: https://www.nb.no/items/ac1930ce85ae61e7d60b0d3b61161fd0?page=1
     issued: 1945-09-24
     page: "2"
     searchedIssues: 4
@@ -1710,7 +1724,7 @@ entries:
     evidenceIssues:
       - issueId: e0f36d21423b5538a6acd28c751c55f7
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19451001_63_226_1
-        url: https://www.nb.no/items/e0f36d21423b5538a6acd28c751c55f7?page=2
+        url: https://www.nb.no/items/e0f36d21423b5538a6acd28c751c55f7?page=1
         issued: 1945-10-01
         page: "2"
         reviewMethod: ocr_api
@@ -1723,7 +1737,7 @@ entries:
           - unknown
     issueId: e0f36d21423b5538a6acd28c751c55f7
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19451001_63_226_1
-    url: https://www.nb.no/items/e0f36d21423b5538a6acd28c751c55f7?page=2
+    url: https://www.nb.no/items/e0f36d21423b5538a6acd28c751c55f7?page=1
     issued: 1945-10-01
     page: "2"
     searchedIssues: 6
@@ -1746,7 +1760,7 @@ entries:
     evidenceIssues:
       - issueId: 4076b5718933169ce47626e61f265d43
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19451022_63_244_1
-        url: https://www.nb.no/items/4076b5718933169ce47626e61f265d43?page=2
+        url: https://www.nb.no/items/4076b5718933169ce47626e61f265d43?page=1
         issued: 1945-10-22
         page: "2"
         reviewMethod: ocr_api
@@ -1758,7 +1772,7 @@ entries:
           - fixture_list
     issueId: 4076b5718933169ce47626e61f265d43
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19451022_63_244_1
-    url: https://www.nb.no/items/4076b5718933169ce47626e61f265d43?page=2
+    url: https://www.nb.no/items/4076b5718933169ce47626e61f265d43?page=1
     issued: 1945-10-22
     page: "2"
     searchedIssues: 3
@@ -1781,7 +1795,7 @@ entries:
     evidenceIssues:
       - issueId: 9bd2e67d47eb15e7a525b64565e6e9e3
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19460527_64_130_1
-        url: https://www.nb.no/items/9bd2e67d47eb15e7a525b64565e6e9e3?page=2
+        url: https://www.nb.no/items/9bd2e67d47eb15e7a525b64565e6e9e3?page=1
         issued: 1946-05-27
         page: "2"
         reviewMethod: ocr_api
@@ -1794,7 +1808,7 @@ entries:
           - fixture_list
     issueId: 9bd2e67d47eb15e7a525b64565e6e9e3
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19460527_64_130_1
-    url: https://www.nb.no/items/9bd2e67d47eb15e7a525b64565e6e9e3?page=2
+    url: https://www.nb.no/items/9bd2e67d47eb15e7a525b64565e6e9e3?page=1
     issued: 1946-05-27
     page: "2"
     searchedIssues: 4
@@ -1817,7 +1831,7 @@ entries:
     evidenceIssues:
       - issueId: af8f813e3c216326b9ee3e0de58ae934
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19460617_64_146_1
-        url: https://www.nb.no/items/af8f813e3c216326b9ee3e0de58ae934?page=2
+        url: https://www.nb.no/items/af8f813e3c216326b9ee3e0de58ae934?page=1
         issued: 1946-06-17
         page: "2"
         reviewMethod: ocr_api
@@ -1829,7 +1843,7 @@ entries:
           - fixture_list
     issueId: af8f813e3c216326b9ee3e0de58ae934
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19460617_64_146_1
-    url: https://www.nb.no/items/af8f813e3c216326b9ee3e0de58ae934?page=2
+    url: https://www.nb.no/items/af8f813e3c216326b9ee3e0de58ae934?page=1
     issued: 1946-06-17
     page: "2"
     searchedIssues: 2
@@ -1852,7 +1866,7 @@ entries:
     evidenceIssues:
       - issueId: 8308a93a2da1e40182258f1f90969044
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19460624_64_152_1
-        url: https://www.nb.no/items/8308a93a2da1e40182258f1f90969044?page=2
+        url: https://www.nb.no/items/8308a93a2da1e40182258f1f90969044?page=1
         issued: 1946-06-24
         page: "2"
         reviewMethod: ocr_api
@@ -1865,7 +1879,7 @@ entries:
           - unknown
     issueId: 8308a93a2da1e40182258f1f90969044
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19460624_64_152_1
-    url: https://www.nb.no/items/8308a93a2da1e40182258f1f90969044?page=2
+    url: https://www.nb.no/items/8308a93a2da1e40182258f1f90969044?page=1
     issued: 1946-06-24
     page: "2"
     searchedIssues: 3
@@ -1888,7 +1902,7 @@ entries:
     evidenceIssues:
       - issueId: f2d44fed3dcf1329cb90f15591dc87a2
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19460628_64_156_1
-        url: https://www.nb.no/items/f2d44fed3dcf1329cb90f15591dc87a2?page=3
+        url: https://www.nb.no/items/f2d44fed3dcf1329cb90f15591dc87a2?page=2
         issued: 1946-06-28
         page: "3"
         reviewMethod: ocr_api
@@ -1901,7 +1915,7 @@ entries:
           - fixture_list
     issueId: f2d44fed3dcf1329cb90f15591dc87a2
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19460628_64_156_1
-    url: https://www.nb.no/items/f2d44fed3dcf1329cb90f15591dc87a2?page=3
+    url: https://www.nb.no/items/f2d44fed3dcf1329cb90f15591dc87a2?page=2
     issued: 1946-06-28
     page: "3"
     searchedIssues: 5
@@ -1924,7 +1938,7 @@ entries:
     evidenceIssues:
       - issueId: 64e7e414e8d045f5e3f470cdc226b68d
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19460703_64_160_1
-        url: https://www.nb.no/items/64e7e414e8d045f5e3f470cdc226b68d?page=2
+        url: https://www.nb.no/items/64e7e414e8d045f5e3f470cdc226b68d?page=1
         issued: 1946-07-03
         page: "2"
         reviewMethod: ocr_api
@@ -1937,7 +1951,7 @@ entries:
           - fixture_list
     issueId: 64e7e414e8d045f5e3f470cdc226b68d
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19460703_64_160_1
-    url: https://www.nb.no/items/64e7e414e8d045f5e3f470cdc226b68d?page=2
+    url: https://www.nb.no/items/64e7e414e8d045f5e3f470cdc226b68d?page=1
     issued: 1946-07-03
     page: "2"
     searchedIssues: 3
@@ -1978,7 +1992,7 @@ entries:
     evidenceIssues:
       - issueId: ee4ec332eb33fc5f8b82d0e5708a7262
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19460712_64_168_1
-        url: https://www.nb.no/items/ee4ec332eb33fc5f8b82d0e5708a7262?page=2
+        url: https://www.nb.no/items/ee4ec332eb33fc5f8b82d0e5708a7262?page=1
         issued: 1946-07-12
         page: "2"
         reviewMethod: ocr_api
@@ -1990,7 +2004,7 @@ entries:
           - fixture_list
     issueId: ee4ec332eb33fc5f8b82d0e5708a7262
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19460712_64_168_1
-    url: https://www.nb.no/items/ee4ec332eb33fc5f8b82d0e5708a7262?page=2
+    url: https://www.nb.no/items/ee4ec332eb33fc5f8b82d0e5708a7262?page=1
     issued: 1946-07-12
     page: "2"
     searchedIssues: 3
@@ -2013,7 +2027,7 @@ entries:
     evidenceIssues:
       - issueId: dfb43e3d1a08e151a41e9d144093a731
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19460812_64_194_1
-        url: https://www.nb.no/items/dfb43e3d1a08e151a41e9d144093a731?page=2
+        url: https://www.nb.no/items/dfb43e3d1a08e151a41e9d144093a731?page=1
         issued: 1946-08-12
         page: "2"
         reviewMethod: ocr_api
@@ -2027,7 +2041,7 @@ entries:
           - results_board
     issueId: dfb43e3d1a08e151a41e9d144093a731
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19460812_64_194_1
-    url: https://www.nb.no/items/dfb43e3d1a08e151a41e9d144093a731?page=2
+    url: https://www.nb.no/items/dfb43e3d1a08e151a41e9d144093a731?page=1
     issued: 1946-08-12
     page: "2"
     searchedIssues: 3
@@ -2050,7 +2064,7 @@ entries:
     evidenceIssues:
       - issueId: b2d57b4ca37b95f78d562ec85ec2ac90
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19460823_64_204_1
-        url: https://www.nb.no/items/b2d57b4ca37b95f78d562ec85ec2ac90?page=3
+        url: https://www.nb.no/items/b2d57b4ca37b95f78d562ec85ec2ac90?page=2
         issued: 1946-08-23
         page: "3"
         reviewMethod: ocr_api
@@ -2063,7 +2077,7 @@ entries:
           - unknown
     issueId: b2d57b4ca37b95f78d562ec85ec2ac90
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19460823_64_204_1
-    url: https://www.nb.no/items/b2d57b4ca37b95f78d562ec85ec2ac90?page=3
+    url: https://www.nb.no/items/b2d57b4ca37b95f78d562ec85ec2ac90?page=2
     issued: 1946-08-23
     page: "3"
     searchedIssues: 5
@@ -2086,7 +2100,7 @@ entries:
     evidenceIssues:
       - issueId: 7852425365a790514b2beede31dc0ba7
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19460909_64_218_1
-        url: https://www.nb.no/items/7852425365a790514b2beede31dc0ba7?page=2
+        url: https://www.nb.no/items/7852425365a790514b2beede31dc0ba7?page=1
         issued: 1946-09-09
         page: "2"
         reviewMethod: ocr_api
@@ -2099,7 +2113,7 @@ entries:
           - fixture_list
     issueId: 7852425365a790514b2beede31dc0ba7
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19460909_64_218_1
-    url: https://www.nb.no/items/7852425365a790514b2beede31dc0ba7?page=2
+    url: https://www.nb.no/items/7852425365a790514b2beede31dc0ba7?page=1
     issued: 1946-09-09
     page: "2"
     searchedIssues: 4
@@ -2122,7 +2136,7 @@ entries:
     evidenceIssues:
       - issueId: 40cfa2eaed29bfd2d3fbf079d35fb813
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19470513_65_109_1
-        url: https://www.nb.no/items/40cfa2eaed29bfd2d3fbf079d35fb813?page=2
+        url: https://www.nb.no/items/40cfa2eaed29bfd2d3fbf079d35fb813?page=1
         issued: 1947-05-13
         page: "2"
         reviewMethod: ocr_api
@@ -2135,7 +2149,7 @@ entries:
           - unknown
     issueId: 40cfa2eaed29bfd2d3fbf079d35fb813
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19470513_65_109_1
-    url: https://www.nb.no/items/40cfa2eaed29bfd2d3fbf079d35fb813?page=2
+    url: https://www.nb.no/items/40cfa2eaed29bfd2d3fbf079d35fb813?page=1
     issued: 1947-05-13
     page: "2"
     searchedIssues: 4
@@ -2158,7 +2172,7 @@ entries:
     evidenceIssues:
       - issueId: 09ea0074947dcf87a3989d629c6a3d1b
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19470527_65_118_1
-        url: https://www.nb.no/items/09ea0074947dcf87a3989d629c6a3d1b?page=1
+        url: https://www.nb.no/items/09ea0074947dcf87a3989d629c6a3d1b?page=0
         issued: 1947-05-27
         page: "1"
         reviewMethod: ocr_api
@@ -2171,7 +2185,7 @@ entries:
           - fixture_list
     issueId: 09ea0074947dcf87a3989d629c6a3d1b
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19470527_65_118_1
-    url: https://www.nb.no/items/09ea0074947dcf87a3989d629c6a3d1b?page=1
+    url: https://www.nb.no/items/09ea0074947dcf87a3989d629c6a3d1b?page=0
     issued: 1947-05-27
     page: "1"
     searchedIssues: 4
@@ -2194,7 +2208,7 @@ entries:
     evidenceIssues:
       - issueId: 615037d700dcdbd7d732b0f4198039a2
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19470609_65_129_1
-        url: https://www.nb.no/items/615037d700dcdbd7d732b0f4198039a2?page=2
+        url: https://www.nb.no/items/615037d700dcdbd7d732b0f4198039a2?page=1
         issued: 1947-06-09
         page: "2"
         reviewMethod: ocr_api
@@ -2206,7 +2220,7 @@ entries:
           - fixture_list
     issueId: 615037d700dcdbd7d732b0f4198039a2
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19470609_65_129_1
-    url: https://www.nb.no/items/615037d700dcdbd7d732b0f4198039a2?page=2
+    url: https://www.nb.no/items/615037d700dcdbd7d732b0f4198039a2?page=1
     issued: 1947-06-09
     page: "2"
     searchedIssues: 3
@@ -2229,7 +2243,7 @@ entries:
     evidenceIssues:
       - issueId: c3c9bfecd495882ac4d0dc44abc9ae8e
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19470614_65_134_1
-        url: https://www.nb.no/items/c3c9bfecd495882ac4d0dc44abc9ae8e?page=5
+        url: https://www.nb.no/items/c3c9bfecd495882ac4d0dc44abc9ae8e?page=4
         issued: 1947-06-14
         page: "5"
         reviewMethod: ocr_api
@@ -2242,7 +2256,7 @@ entries:
           - unknown
     issueId: c3c9bfecd495882ac4d0dc44abc9ae8e
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19470614_65_134_1
-    url: https://www.nb.no/items/c3c9bfecd495882ac4d0dc44abc9ae8e?page=5
+    url: https://www.nb.no/items/c3c9bfecd495882ac4d0dc44abc9ae8e?page=4
     issued: 1947-06-14
     page: "5"
     searchedIssues: 4
@@ -2265,7 +2279,7 @@ entries:
     evidenceIssues:
       - issueId: b9f26b17b28591454cc2728abf168881
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19470616_65_135_1
-        url: https://www.nb.no/items/b9f26b17b28591454cc2728abf168881?page=2
+        url: https://www.nb.no/items/b9f26b17b28591454cc2728abf168881?page=1
         issued: 1947-06-16
         page: "2"
         reviewMethod: ocr_api
@@ -2277,7 +2291,7 @@ entries:
           - fixture_list
     issueId: b9f26b17b28591454cc2728abf168881
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19470616_65_135_1
-    url: https://www.nb.no/items/b9f26b17b28591454cc2728abf168881?page=2
+    url: https://www.nb.no/items/b9f26b17b28591454cc2728abf168881?page=1
     issued: 1947-06-16
     page: "2"
     searchedIssues: 4
@@ -2300,7 +2314,7 @@ entries:
     evidenceIssues:
       - issueId: df0e19babdb39bed17297c49680c04ed
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19470617_65_136_1
-        url: https://www.nb.no/items/df0e19babdb39bed17297c49680c04ed?page=2
+        url: https://www.nb.no/items/df0e19babdb39bed17297c49680c04ed?page=1
         issued: 1947-06-17
         page: "2"
         reviewMethod: ocr_api
@@ -2314,7 +2328,7 @@ entries:
           - unknown
     issueId: df0e19babdb39bed17297c49680c04ed
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19470617_65_136_1
-    url: https://www.nb.no/items/df0e19babdb39bed17297c49680c04ed?page=2
+    url: https://www.nb.no/items/df0e19babdb39bed17297c49680c04ed?page=1
     issued: 1947-06-17
     page: "2"
     searchedIssues: 4
@@ -2341,7 +2355,7 @@ entries:
     evidenceIssues:
       - issueId: b6cced862a3349fd201a3489760ec6ce
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19470623_65_141_1
-        url: https://www.nb.no/items/b6cced862a3349fd201a3489760ec6ce?page=3
+        url: https://www.nb.no/items/b6cced862a3349fd201a3489760ec6ce?page=2
         issued: 1947-06-23
         page: "3"
         reviewMethod: ocr_api
@@ -2354,7 +2368,7 @@ entries:
           - fixture_list
     issueId: b6cced862a3349fd201a3489760ec6ce
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19470623_65_141_1
-    url: https://www.nb.no/items/b6cced862a3349fd201a3489760ec6ce?page=3
+    url: https://www.nb.no/items/b6cced862a3349fd201a3489760ec6ce?page=2
     issued: 1947-06-23
     page: "3"
     searchedIssues: 3
@@ -2395,7 +2409,7 @@ entries:
     evidenceIssues:
       - issueId: e9be772c18dce1d34feb4ba1024a0c3c
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19470826_65_196_1
-        url: https://www.nb.no/items/e9be772c18dce1d34feb4ba1024a0c3c?page=4
+        url: https://www.nb.no/items/e9be772c18dce1d34feb4ba1024a0c3c?page=3
         issued: 1947-08-26
         page: "4"
         reviewMethod: ocr_api
@@ -2408,7 +2422,7 @@ entries:
           - results_board
     issueId: e9be772c18dce1d34feb4ba1024a0c3c
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19470826_65_196_1
-    url: https://www.nb.no/items/e9be772c18dce1d34feb4ba1024a0c3c?page=4
+    url: https://www.nb.no/items/e9be772c18dce1d34feb4ba1024a0c3c?page=3
     issued: 1947-08-26
     page: "4"
     searchedIssues: 6
@@ -2431,7 +2445,7 @@ entries:
     evidenceIssues:
       - issueId: e9be772c18dce1d34feb4ba1024a0c3c
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19470826_65_196_1
-        url: https://www.nb.no/items/e9be772c18dce1d34feb4ba1024a0c3c?page=5
+        url: https://www.nb.no/items/e9be772c18dce1d34feb4ba1024a0c3c?page=4
         issued: 1947-08-26
         page: "5"
         reviewMethod: ocr_api
@@ -2445,7 +2459,7 @@ entries:
           - standings
     issueId: e9be772c18dce1d34feb4ba1024a0c3c
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19470826_65_196_1
-    url: https://www.nb.no/items/e9be772c18dce1d34feb4ba1024a0c3c?page=5
+    url: https://www.nb.no/items/e9be772c18dce1d34feb4ba1024a0c3c?page=4
     issued: 1947-08-26
     page: "5"
     searchedIssues: 4
@@ -2468,7 +2482,7 @@ entries:
     evidenceIssues:
       - issueId: f1735aff0cc9b6f9f36cfc04be4bafe5
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19470908_65_207_1
-        url: https://www.nb.no/items/f1735aff0cc9b6f9f36cfc04be4bafe5?page=2
+        url: https://www.nb.no/items/f1735aff0cc9b6f9f36cfc04be4bafe5?page=1
         issued: 1947-09-08
         page: "2"
         reviewMethod: ocr_api
@@ -2482,7 +2496,7 @@ entries:
           - fixture_list
     issueId: f1735aff0cc9b6f9f36cfc04be4bafe5
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19470908_65_207_1
-    url: https://www.nb.no/items/f1735aff0cc9b6f9f36cfc04be4bafe5?page=2
+    url: https://www.nb.no/items/f1735aff0cc9b6f9f36cfc04be4bafe5?page=1
     issued: 1947-09-08
     page: "2"
     searchedIssues: 3
@@ -2523,7 +2537,7 @@ entries:
     evidenceIssues:
       - issueId: 263f3a579ba0ea66eb4ee13948e22293
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19471006_65_231_1
-        url: https://www.nb.no/items/263f3a579ba0ea66eb4ee13948e22293?page=2
+        url: https://www.nb.no/items/263f3a579ba0ea66eb4ee13948e22293?page=1
         issued: 1947-10-06
         page: "2"
         reviewMethod: ocr_api
@@ -2537,7 +2551,7 @@ entries:
           - standings
     issueId: 263f3a579ba0ea66eb4ee13948e22293
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19471006_65_231_1
-    url: https://www.nb.no/items/263f3a579ba0ea66eb4ee13948e22293?page=2
+    url: https://www.nb.no/items/263f3a579ba0ea66eb4ee13948e22293?page=1
     issued: 1947-10-06
     page: "2"
     searchedIssues: 4
@@ -2578,7 +2592,7 @@ entries:
     evidenceIssues:
       - issueId: b107ba78b88ee1481d0fdd46f1eb03ba
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19480420_66_90_1
-        url: https://www.nb.no/items/b107ba78b88ee1481d0fdd46f1eb03ba?page=2
+        url: https://www.nb.no/items/b107ba78b88ee1481d0fdd46f1eb03ba?page=1
         issued: 1948-04-20
         page: "2"
         reviewMethod: ocr_api
@@ -2591,7 +2605,7 @@ entries:
           - fixture_list
     issueId: b107ba78b88ee1481d0fdd46f1eb03ba
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19480420_66_90_1
-    url: https://www.nb.no/items/b107ba78b88ee1481d0fdd46f1eb03ba?page=2
+    url: https://www.nb.no/items/b107ba78b88ee1481d0fdd46f1eb03ba?page=1
     issued: 1948-04-20
     page: "2"
     searchedIssues: 2
@@ -2614,7 +2628,7 @@ entries:
     evidenceIssues:
       - issueId: 08c9a0530843ba6b7e1c703f4ac0b582
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19480422_66_92_1
-        url: https://www.nb.no/items/08c9a0530843ba6b7e1c703f4ac0b582?page=2
+        url: https://www.nb.no/items/08c9a0530843ba6b7e1c703f4ac0b582?page=1
         issued: 1948-04-22
         page: "2"
         reviewMethod: ocr_api
@@ -2628,7 +2642,7 @@ entries:
           - results_board
     issueId: 08c9a0530843ba6b7e1c703f4ac0b582
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19480422_66_92_1
-    url: https://www.nb.no/items/08c9a0530843ba6b7e1c703f4ac0b582?page=2
+    url: https://www.nb.no/items/08c9a0530843ba6b7e1c703f4ac0b582?page=1
     issued: 1948-04-22
     page: "2"
     searchedIssues: 6
@@ -2651,7 +2665,7 @@ entries:
     evidenceIssues:
       - issueId: 7cda78a78859ee7142e92f2c724d4122
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19480507_66_103_1
-        url: https://www.nb.no/items/7cda78a78859ee7142e92f2c724d4122?page=3
+        url: https://www.nb.no/items/7cda78a78859ee7142e92f2c724d4122?page=2
         issued: 1948-05-07
         page: "3"
         reviewMethod: ocr_api
@@ -2666,7 +2680,7 @@ entries:
           - unknown
     issueId: 7cda78a78859ee7142e92f2c724d4122
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19480507_66_103_1
-    url: https://www.nb.no/items/7cda78a78859ee7142e92f2c724d4122?page=3
+    url: https://www.nb.no/items/7cda78a78859ee7142e92f2c724d4122?page=2
     issued: 1948-05-07
     page: "3"
     searchedIssues: 4
@@ -2689,7 +2703,7 @@ entries:
     evidenceIssues:
       - issueId: 7296eeedf43258308f8872c3ab3b4fda
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19480520_66_113_1
-        url: https://www.nb.no/items/7296eeedf43258308f8872c3ab3b4fda?page=3
+        url: https://www.nb.no/items/7296eeedf43258308f8872c3ab3b4fda?page=2
         issued: 1948-05-20
         page: "3"
         reviewMethod: ocr_api
@@ -2701,7 +2715,7 @@ entries:
           - fixture_list
     issueId: 7296eeedf43258308f8872c3ab3b4fda
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19480520_66_113_1
-    url: https://www.nb.no/items/7296eeedf43258308f8872c3ab3b4fda?page=3
+    url: https://www.nb.no/items/7296eeedf43258308f8872c3ab3b4fda?page=2
     issued: 1948-05-20
     page: "3"
     searchedIssues: 5
@@ -2724,7 +2738,7 @@ entries:
     evidenceIssues:
       - issueId: d18a465b9bac52c306b69640aa565014
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19480519_66_112_1
-        url: https://www.nb.no/items/d18a465b9bac52c306b69640aa565014?page=3
+        url: https://www.nb.no/items/d18a465b9bac52c306b69640aa565014?page=2
         issued: 1948-05-19
         page: "3"
         reviewMethod: ocr_api
@@ -2740,7 +2754,7 @@ entries:
           - unknown
     issueId: d18a465b9bac52c306b69640aa565014
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19480519_66_112_1
-    url: https://www.nb.no/items/d18a465b9bac52c306b69640aa565014?page=3
+    url: https://www.nb.no/items/d18a465b9bac52c306b69640aa565014?page=2
     issued: 1948-05-19
     page: "3"
     searchedIssues: 5
@@ -2785,7 +2799,7 @@ entries:
     evidenceIssues:
       - issueId: 18f6aff284a3e24eac2da32f40cef895
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19480524_66_116_1
-        url: https://www.nb.no/items/18f6aff284a3e24eac2da32f40cef895?page=2
+        url: https://www.nb.no/items/18f6aff284a3e24eac2da32f40cef895?page=1
         issued: 1948-05-24
         page: "2"
         reviewMethod: ocr_api
@@ -2800,7 +2814,7 @@ entries:
           - unknown
     issueId: 18f6aff284a3e24eac2da32f40cef895
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19480524_66_116_1
-    url: https://www.nb.no/items/18f6aff284a3e24eac2da32f40cef895?page=2
+    url: https://www.nb.no/items/18f6aff284a3e24eac2da32f40cef895?page=1
     issued: 1948-05-24
     page: "2"
     searchedIssues: 6
@@ -2823,7 +2837,7 @@ entries:
     evidenceIssues:
       - issueId: 72b8ec34ebd51bf2fd363c894e2c23a0
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19480531_66_122_1
-        url: https://www.nb.no/items/72b8ec34ebd51bf2fd363c894e2c23a0?page=3
+        url: https://www.nb.no/items/72b8ec34ebd51bf2fd363c894e2c23a0?page=2
         issued: 1948-05-31
         page: "3"
         reviewMethod: ocr_api
@@ -2835,7 +2849,7 @@ entries:
           - match_report
     issueId: 72b8ec34ebd51bf2fd363c894e2c23a0
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19480531_66_122_1
-    url: https://www.nb.no/items/72b8ec34ebd51bf2fd363c894e2c23a0?page=3
+    url: https://www.nb.no/items/72b8ec34ebd51bf2fd363c894e2c23a0?page=2
     issued: 1948-05-31
     page: "3"
     searchedIssues: 4
@@ -2858,7 +2872,7 @@ entries:
     evidenceIssues:
       - issueId: 832385a0c5b7df46d002cbdad244ab2c
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19480607_66_128_1
-        url: https://www.nb.no/items/832385a0c5b7df46d002cbdad244ab2c?page=3
+        url: https://www.nb.no/items/832385a0c5b7df46d002cbdad244ab2c?page=2
         issued: 1948-06-07
         page: "3"
         reviewMethod: ocr_api
@@ -2870,7 +2884,7 @@ entries:
           - fixture_list
     issueId: 832385a0c5b7df46d002cbdad244ab2c
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19480607_66_128_1
-    url: https://www.nb.no/items/832385a0c5b7df46d002cbdad244ab2c?page=3
+    url: https://www.nb.no/items/832385a0c5b7df46d002cbdad244ab2c?page=2
     issued: 1948-06-07
     page: "3"
     searchedIssues: 4
@@ -2929,7 +2943,7 @@ entries:
     evidenceIssues:
       - issueId: f54e090366a31bf62854d5ddd9e7d71e
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19480810_66_183_1
-        url: https://www.nb.no/items/f54e090366a31bf62854d5ddd9e7d71e?page=3
+        url: https://www.nb.no/items/f54e090366a31bf62854d5ddd9e7d71e?page=2
         issued: 1948-08-10
         page: "3"
         reviewMethod: ocr_api
@@ -2943,7 +2957,7 @@ entries:
           - results_board
     issueId: f54e090366a31bf62854d5ddd9e7d71e
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19480810_66_183_1
-    url: https://www.nb.no/items/f54e090366a31bf62854d5ddd9e7d71e?page=3
+    url: https://www.nb.no/items/f54e090366a31bf62854d5ddd9e7d71e?page=2
     issued: 1948-08-10
     page: "3"
     searchedIssues: 3
@@ -2966,7 +2980,7 @@ entries:
     evidenceIssues:
       - issueId: 6b6e4b54e59bd08b8e45c40b11f63cfb
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19480816_66_188_1
-        url: https://www.nb.no/items/6b6e4b54e59bd08b8e45c40b11f63cfb?page=1
+        url: https://www.nb.no/items/6b6e4b54e59bd08b8e45c40b11f63cfb?page=0
         issued: 1948-08-16
         page: "1"
         reviewMethod: ocr_api
@@ -2979,7 +2993,7 @@ entries:
           - fixture_list
     issueId: 6b6e4b54e59bd08b8e45c40b11f63cfb
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19480816_66_188_1
-    url: https://www.nb.no/items/6b6e4b54e59bd08b8e45c40b11f63cfb?page=1
+    url: https://www.nb.no/items/6b6e4b54e59bd08b8e45c40b11f63cfb?page=0
     issued: 1948-08-16
     page: "1"
     searchedIssues: 4
@@ -3038,7 +3052,7 @@ entries:
     evidenceIssues:
       - issueId: eb0da9e52128e8e55e61d2d3328c11fc
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19481004_66_230_1
-        url: https://www.nb.no/items/eb0da9e52128e8e55e61d2d3328c11fc?page=2
+        url: https://www.nb.no/items/eb0da9e52128e8e55e61d2d3328c11fc?page=1
         issued: 1948-10-04
         page: "2"
         reviewMethod: ocr_api
@@ -3051,7 +3065,7 @@ entries:
           - fixture_list
     issueId: eb0da9e52128e8e55e61d2d3328c11fc
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19481004_66_230_1
-    url: https://www.nb.no/items/eb0da9e52128e8e55e61d2d3328c11fc?page=2
+    url: https://www.nb.no/items/eb0da9e52128e8e55e61d2d3328c11fc?page=1
     issued: 1948-10-04
     page: "2"
     searchedIssues: 6
@@ -3092,7 +3106,7 @@ entries:
     evidenceIssues:
       - issueId: 91ccd057a5ebf1ad9ae97ba6101aea32
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19490627_67_144_1
-        url: https://www.nb.no/items/91ccd057a5ebf1ad9ae97ba6101aea32?page=2
+        url: https://www.nb.no/items/91ccd057a5ebf1ad9ae97ba6101aea32?page=1
         issued: 1949-06-27
         page: "2"
         reviewMethod: ocr_api
@@ -3106,7 +3120,7 @@ entries:
           - unknown
     issueId: 91ccd057a5ebf1ad9ae97ba6101aea32
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19490627_67_144_1
-    url: https://www.nb.no/items/91ccd057a5ebf1ad9ae97ba6101aea32?page=2
+    url: https://www.nb.no/items/91ccd057a5ebf1ad9ae97ba6101aea32?page=1
     issued: 1949-06-27
     page: "2"
     searchedIssues: 4
@@ -3129,7 +3143,7 @@ entries:
     evidenceIssues:
       - issueId: ccc608592b713b4338a54a48a2822378
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19490711_67_156_1
-        url: https://www.nb.no/items/ccc608592b713b4338a54a48a2822378?page=2
+        url: https://www.nb.no/items/ccc608592b713b4338a54a48a2822378?page=1
         issued: 1949-07-11
         page: "2"
         reviewMethod: ocr_api
@@ -3142,7 +3156,7 @@ entries:
           - unknown
     issueId: ccc608592b713b4338a54a48a2822378
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19490711_67_156_1
-    url: https://www.nb.no/items/ccc608592b713b4338a54a48a2822378?page=2
+    url: https://www.nb.no/items/ccc608592b713b4338a54a48a2822378?page=1
     issued: 1949-07-11
     page: "2"
     searchedIssues: 3
@@ -3165,7 +3179,7 @@ entries:
     evidenceIssues:
       - issueId: a1efff2a2736d0d087dd209b230312f2
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19490729_67_172_1
-        url: https://www.nb.no/items/a1efff2a2736d0d087dd209b230312f2?page=2
+        url: https://www.nb.no/items/a1efff2a2736d0d087dd209b230312f2?page=1
         issued: 1949-07-29
         page: "2"
         reviewMethod: ocr_api
@@ -3180,7 +3194,7 @@ entries:
           - match_report
     issueId: a1efff2a2736d0d087dd209b230312f2
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19490729_67_172_1
-    url: https://www.nb.no/items/a1efff2a2736d0d087dd209b230312f2?page=2
+    url: https://www.nb.no/items/a1efff2a2736d0d087dd209b230312f2?page=1
     issued: 1949-07-29
     page: "2"
     searchedIssues: 4
@@ -3203,7 +3217,7 @@ entries:
     evidenceIssues:
       - issueId: 8f77f6a54287930c55cd7ae462aca146
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19500703_68_150_1
-        url: https://www.nb.no/items/8f77f6a54287930c55cd7ae462aca146?page=5
+        url: https://www.nb.no/items/8f77f6a54287930c55cd7ae462aca146?page=4
         issued: 1950-07-03
         page: "5"
         reviewMethod: ocr_api
@@ -3216,7 +3230,7 @@ entries:
           - fixture_list
     issueId: 8f77f6a54287930c55cd7ae462aca146
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19500703_68_150_1
-    url: https://www.nb.no/items/8f77f6a54287930c55cd7ae462aca146?page=5
+    url: https://www.nb.no/items/8f77f6a54287930c55cd7ae462aca146?page=4
     issued: 1950-07-03
     page: "5"
     searchedIssues: 3
@@ -3239,7 +3253,7 @@ entries:
     evidenceIssues:
       - issueId: eb4e6f74219804db85616d63058298c2
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19510416_69_87_1
-        url: https://www.nb.no/items/eb4e6f74219804db85616d63058298c2?page=2
+        url: https://www.nb.no/items/eb4e6f74219804db85616d63058298c2?page=1
         issued: 1951-04-16
         page: "2"
         reviewMethod: ocr_api
@@ -3252,7 +3266,7 @@ entries:
           - results_board
     issueId: eb4e6f74219804db85616d63058298c2
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19510416_69_87_1
-    url: https://www.nb.no/items/eb4e6f74219804db85616d63058298c2?page=2
+    url: https://www.nb.no/items/eb4e6f74219804db85616d63058298c2?page=1
     issued: 1951-04-16
     page: "2"
     searchedIssues: 3
@@ -3279,7 +3293,7 @@ entries:
     evidenceIssues:
       - issueId: 6db05bc1e3d62a9f209e868d019d9dbe
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19510604_69_125_1
-        url: https://www.nb.no/items/6db05bc1e3d62a9f209e868d019d9dbe?page=2
+        url: https://www.nb.no/items/6db05bc1e3d62a9f209e868d019d9dbe?page=1
         issued: 1951-06-04
         page: "2"
         reviewMethod: ocr_api
@@ -3291,7 +3305,7 @@ entries:
           - fixture_list
     issueId: 6db05bc1e3d62a9f209e868d019d9dbe
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19510604_69_125_1
-    url: https://www.nb.no/items/6db05bc1e3d62a9f209e868d019d9dbe?page=2
+    url: https://www.nb.no/items/6db05bc1e3d62a9f209e868d019d9dbe?page=1
     issued: 1951-06-04
     page: "2"
     searchedIssues: 6
@@ -3350,7 +3364,7 @@ entries:
     evidenceIssues:
       - issueId: 3d3779ef2adaada5fd001bebb43a1dd8
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19510714_69_160_1
-        url: https://www.nb.no/items/3d3779ef2adaada5fd001bebb43a1dd8?page=6
+        url: https://www.nb.no/items/3d3779ef2adaada5fd001bebb43a1dd8?page=5
         issued: 1951-07-14
         page: "6"
         reviewMethod: ocr_api
@@ -3362,7 +3376,7 @@ entries:
           - fixture_list
     issueId: 3d3779ef2adaada5fd001bebb43a1dd8
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19510714_69_160_1
-    url: https://www.nb.no/items/3d3779ef2adaada5fd001bebb43a1dd8?page=6
+    url: https://www.nb.no/items/3d3779ef2adaada5fd001bebb43a1dd8?page=5
     issued: 1951-07-14
     page: "6"
     searchedIssues: 4
@@ -3385,7 +3399,7 @@ entries:
     evidenceIssues:
       - issueId: d7a10b62ef94ef64e0a182f4d0493918
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19510813_69_185_1
-        url: https://www.nb.no/items/d7a10b62ef94ef64e0a182f4d0493918?page=2
+        url: https://www.nb.no/items/d7a10b62ef94ef64e0a182f4d0493918?page=1
         issued: 1951-08-13
         page: "2"
         reviewMethod: ocr_api
@@ -3398,7 +3412,7 @@ entries:
           - fixture_list
     issueId: d7a10b62ef94ef64e0a182f4d0493918
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19510813_69_185_1
-    url: https://www.nb.no/items/d7a10b62ef94ef64e0a182f4d0493918?page=2
+    url: https://www.nb.no/items/d7a10b62ef94ef64e0a182f4d0493918?page=1
     issued: 1951-08-13
     page: "2"
     searchedIssues: 3
@@ -3421,7 +3435,7 @@ entries:
     evidenceIssues:
       - issueId: cd15e336fc5e052e60f76147bd4dc967
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19510917_69_215_1
-        url: https://www.nb.no/items/cd15e336fc5e052e60f76147bd4dc967?page=2
+        url: https://www.nb.no/items/cd15e336fc5e052e60f76147bd4dc967?page=1
         issued: 1951-09-17
         page: "2"
         reviewMethod: ocr_api
@@ -3433,7 +3447,7 @@ entries:
           - fixture_list
     issueId: cd15e336fc5e052e60f76147bd4dc967
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19510917_69_215_1
-    url: https://www.nb.no/items/cd15e336fc5e052e60f76147bd4dc967?page=2
+    url: https://www.nb.no/items/cd15e336fc5e052e60f76147bd4dc967?page=1
     issued: 1951-09-17
     page: "2"
     searchedIssues: 3
@@ -3456,7 +3470,7 @@ entries:
     evidenceIssues:
       - issueId: f50a5c21758697a0c4102caf395fc6e6
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19520421_70_92_1
-        url: https://www.nb.no/items/f50a5c21758697a0c4102caf395fc6e6?page=3
+        url: https://www.nb.no/items/f50a5c21758697a0c4102caf395fc6e6?page=2
         issued: 1952-04-21
         page: "3"
         reviewMethod: ocr_api
@@ -3469,7 +3483,7 @@ entries:
           - fixture_list
     issueId: f50a5c21758697a0c4102caf395fc6e6
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19520421_70_92_1
-    url: https://www.nb.no/items/f50a5c21758697a0c4102caf395fc6e6?page=3
+    url: https://www.nb.no/items/f50a5c21758697a0c4102caf395fc6e6?page=2
     issued: 1952-04-21
     page: "3"
     searchedIssues: 4
@@ -3510,7 +3524,7 @@ entries:
     evidenceIssues:
       - issueId: 5838c120616850d6720345f70eec0e9c
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19520502_70_101_1
-        url: https://www.nb.no/items/5838c120616850d6720345f70eec0e9c?page=3
+        url: https://www.nb.no/items/5838c120616850d6720345f70eec0e9c?page=2
         issued: 1952-05-02
         page: "3"
         reviewMethod: ocr_api
@@ -3522,7 +3536,7 @@ entries:
           - fixture_list
     issueId: 5838c120616850d6720345f70eec0e9c
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19520502_70_101_1
-    url: https://www.nb.no/items/5838c120616850d6720345f70eec0e9c?page=3
+    url: https://www.nb.no/items/5838c120616850d6720345f70eec0e9c?page=2
     issued: 1952-05-02
     page: "3"
     searchedIssues: 3
@@ -3545,7 +3559,7 @@ entries:
     evidenceIssues:
       - issueId: 5b8959a8ca5ec6b642000e0a06061afa
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19520505_70_103_1
-        url: https://www.nb.no/items/5b8959a8ca5ec6b642000e0a06061afa?page=3
+        url: https://www.nb.no/items/5b8959a8ca5ec6b642000e0a06061afa?page=2
         issued: 1952-05-05
         page: "3"
         reviewMethod: ocr_api
@@ -3559,7 +3573,7 @@ entries:
           - standings
     issueId: 5b8959a8ca5ec6b642000e0a06061afa
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19520505_70_103_1
-    url: https://www.nb.no/items/5b8959a8ca5ec6b642000e0a06061afa?page=3
+    url: https://www.nb.no/items/5b8959a8ca5ec6b642000e0a06061afa?page=2
     issued: 1952-05-05
     page: "3"
     searchedIssues: 3
@@ -3582,7 +3596,7 @@ entries:
     evidenceIssues:
       - issueId: 32c4a03b1520514829ea890dcddc9ec1
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19520513_70_110_1
-        url: https://www.nb.no/items/32c4a03b1520514829ea890dcddc9ec1?page=2
+        url: https://www.nb.no/items/32c4a03b1520514829ea890dcddc9ec1?page=1
         issued: 1952-05-13
         page: "2"
         reviewMethod: ocr_api
@@ -3594,7 +3608,7 @@ entries:
           - fixture_list
     issueId: 32c4a03b1520514829ea890dcddc9ec1
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19520513_70_110_1
-    url: https://www.nb.no/items/32c4a03b1520514829ea890dcddc9ec1?page=2
+    url: https://www.nb.no/items/32c4a03b1520514829ea890dcddc9ec1?page=1
     issued: 1952-05-13
     page: "2"
     searchedIssues: 4
@@ -3635,7 +3649,7 @@ entries:
     evidenceIssues:
       - issueId: 70ba5cfee65e45a0c9318b6e1ee8455d
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19520523_70_117_1
-        url: https://www.nb.no/items/70ba5cfee65e45a0c9318b6e1ee8455d?page=3
+        url: https://www.nb.no/items/70ba5cfee65e45a0c9318b6e1ee8455d?page=2
         issued: 1952-05-23
         page: "3"
         reviewMethod: ocr_api
@@ -3647,7 +3661,7 @@ entries:
           - fixture_list
     issueId: 70ba5cfee65e45a0c9318b6e1ee8455d
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19520523_70_117_1
-    url: https://www.nb.no/items/70ba5cfee65e45a0c9318b6e1ee8455d?page=3
+    url: https://www.nb.no/items/70ba5cfee65e45a0c9318b6e1ee8455d?page=2
     issued: 1952-05-23
     page: "3"
     searchedIssues: 4
@@ -3688,7 +3702,7 @@ entries:
     evidenceIssues:
       - issueId: d8a17ff56d2c49d69b2a1efb2ed354dc
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19520705_70_153_1
-        url: https://www.nb.no/items/d8a17ff56d2c49d69b2a1efb2ed354dc?page=3
+        url: https://www.nb.no/items/d8a17ff56d2c49d69b2a1efb2ed354dc?page=2
         issued: 1952-07-05
         page: "3"
         reviewMethod: ocr_api
@@ -3700,7 +3714,7 @@ entries:
           - fixture_list
     issueId: d8a17ff56d2c49d69b2a1efb2ed354dc
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19520705_70_153_1
-    url: https://www.nb.no/items/d8a17ff56d2c49d69b2a1efb2ed354dc?page=3
+    url: https://www.nb.no/items/d8a17ff56d2c49d69b2a1efb2ed354dc?page=2
     issued: 1952-07-05
     page: "3"
     searchedIssues: 4
@@ -3723,7 +3737,7 @@ entries:
     evidenceIssues:
       - issueId: a127a05d28e31b9829490c8feb733637
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19520711_70_158_1
-        url: https://www.nb.no/items/a127a05d28e31b9829490c8feb733637?page=5
+        url: https://www.nb.no/items/a127a05d28e31b9829490c8feb733637?page=4
         issued: 1952-07-11
         page: "5"
         reviewMethod: ocr_api
@@ -3736,7 +3750,7 @@ entries:
           - unknown
     issueId: a127a05d28e31b9829490c8feb733637
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19520711_70_158_1
-    url: https://www.nb.no/items/a127a05d28e31b9829490c8feb733637?page=5
+    url: https://www.nb.no/items/a127a05d28e31b9829490c8feb733637?page=4
     issued: 1952-07-11
     page: "5"
     searchedIssues: 1
@@ -3759,7 +3773,7 @@ entries:
     evidenceIssues:
       - issueId: 06c4aa55a60f08921c473c9cb2e3a994
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19520729_70_173_1
-        url: https://www.nb.no/items/06c4aa55a60f08921c473c9cb2e3a994?page=2
+        url: https://www.nb.no/items/06c4aa55a60f08921c473c9cb2e3a994?page=1
         issued: 1952-07-29
         page: "2"
         reviewMethod: ocr_api
@@ -3771,7 +3785,7 @@ entries:
           - fixture_list
     issueId: 06c4aa55a60f08921c473c9cb2e3a994
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19520729_70_173_1
-    url: https://www.nb.no/items/06c4aa55a60f08921c473c9cb2e3a994?page=2
+    url: https://www.nb.no/items/06c4aa55a60f08921c473c9cb2e3a994?page=1
     issued: 1952-07-29
     page: "2"
     searchedIssues: 4
@@ -3794,7 +3808,7 @@ entries:
     evidenceIssues:
       - issueId: b97694a34074db019578c785cee664dd
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19530708_71_154_1
-        url: https://www.nb.no/items/b97694a34074db019578c785cee664dd?page=3
+        url: https://www.nb.no/items/b97694a34074db019578c785cee664dd?page=2
         issued: 1953-07-08
         page: "3"
         reviewMethod: ocr_api
@@ -3806,7 +3820,7 @@ entries:
           - fixture_list
     issueId: b97694a34074db019578c785cee664dd
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19530708_71_154_1
-    url: https://www.nb.no/items/b97694a34074db019578c785cee664dd?page=3
+    url: https://www.nb.no/items/b97694a34074db019578c785cee664dd?page=2
     issued: 1953-07-08
     page: "3"
     searchedIssues: 3
@@ -3829,7 +3843,7 @@ entries:
     evidenceIssues:
       - issueId: dd7a9b1eb4db00a7752eebc9aa569ae4
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19530824_71_194_1
-        url: https://www.nb.no/items/dd7a9b1eb4db00a7752eebc9aa569ae4?page=2
+        url: https://www.nb.no/items/dd7a9b1eb4db00a7752eebc9aa569ae4?page=1
         issued: 1953-08-24
         page: "2"
         reviewMethod: ocr_api
@@ -3842,7 +3856,7 @@ entries:
           - fixture_list
     issueId: dd7a9b1eb4db00a7752eebc9aa569ae4
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19530824_71_194_1
-    url: https://www.nb.no/items/dd7a9b1eb4db00a7752eebc9aa569ae4?page=2
+    url: https://www.nb.no/items/dd7a9b1eb4db00a7752eebc9aa569ae4?page=1
     issued: 1953-08-24
     page: "2"
     searchedIssues: 3
@@ -3865,7 +3879,7 @@ entries:
     evidenceIssues:
       - issueId: 250782ca6afad76eda44be9f74ab7aa6
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19530907_71_206_1
-        url: https://www.nb.no/items/250782ca6afad76eda44be9f74ab7aa6?page=2
+        url: https://www.nb.no/items/250782ca6afad76eda44be9f74ab7aa6?page=1
         issued: 1953-09-07
         page: "2"
         reviewMethod: ocr_api
@@ -3876,7 +3890,7 @@ entries:
           - match_report
     issueId: 250782ca6afad76eda44be9f74ab7aa6
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19530907_71_206_1
-    url: https://www.nb.no/items/250782ca6afad76eda44be9f74ab7aa6?page=2
+    url: https://www.nb.no/items/250782ca6afad76eda44be9f74ab7aa6?page=1
     issued: 1953-09-07
     page: "2"
     searchedIssues: 3
@@ -3899,7 +3913,7 @@ entries:
     evidenceIssues:
       - issueId: 5f869335686f667da9ee8545db347ce1
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19540809_72_181_1
-        url: https://www.nb.no/items/5f869335686f667da9ee8545db347ce1?page=5
+        url: https://www.nb.no/items/5f869335686f667da9ee8545db347ce1?page=4
         issued: 1954-08-09
         page: "5"
         reviewMethod: ocr_api
@@ -3913,7 +3927,7 @@ entries:
           - results_board
     issueId: 5f869335686f667da9ee8545db347ce1
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19540809_72_181_1
-    url: https://www.nb.no/items/5f869335686f667da9ee8545db347ce1?page=5
+    url: https://www.nb.no/items/5f869335686f667da9ee8545db347ce1?page=4
     issued: 1954-08-09
     page: "5"
     searchedIssues: 4
@@ -3954,7 +3968,7 @@ entries:
     evidenceIssues:
       - issueId: 7356e8553f2494d1ffa4fb88a7cd7be0
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19550425_73_94_1
-        url: https://www.nb.no/items/7356e8553f2494d1ffa4fb88a7cd7be0?page=2
+        url: https://www.nb.no/items/7356e8553f2494d1ffa4fb88a7cd7be0?page=1
         issued: 1955-04-25
         page: "2"
         reviewMethod: ocr_api
@@ -3966,7 +3980,7 @@ entries:
           - fixture_list
     issueId: 7356e8553f2494d1ffa4fb88a7cd7be0
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19550425_73_94_1
-    url: https://www.nb.no/items/7356e8553f2494d1ffa4fb88a7cd7be0?page=2
+    url: https://www.nb.no/items/7356e8553f2494d1ffa4fb88a7cd7be0?page=1
     issued: 1955-04-25
     page: "2"
     searchedIssues: 2
@@ -3993,7 +4007,7 @@ entries:
     evidenceIssues:
       - issueId: 4d863e801d0be7f77540793da36ed141
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19550516_73_112_1
-        url: https://www.nb.no/items/4d863e801d0be7f77540793da36ed141?page=2
+        url: https://www.nb.no/items/4d863e801d0be7f77540793da36ed141?page=1
         issued: 1955-05-16
         page: "2"
         reviewMethod: ocr_api
@@ -4006,7 +4020,7 @@ entries:
           - fixture_list
     issueId: 4d863e801d0be7f77540793da36ed141
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19550516_73_112_1
-    url: https://www.nb.no/items/4d863e801d0be7f77540793da36ed141?page=2
+    url: https://www.nb.no/items/4d863e801d0be7f77540793da36ed141?page=1
     issued: 1955-05-16
     page: "2"
     searchedIssues: 4
@@ -4029,7 +4043,7 @@ entries:
     evidenceIssues:
       - issueId: c5e5988d379d5ea705113f0833418f88
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19550520_73_114_1
-        url: https://www.nb.no/items/c5e5988d379d5ea705113f0833418f88?page=2
+        url: https://www.nb.no/items/c5e5988d379d5ea705113f0833418f88?page=1
         issued: 1955-05-20
         page: "2"
         reviewMethod: ocr_api
@@ -4042,7 +4056,7 @@ entries:
           - fixture_list
     issueId: c5e5988d379d5ea705113f0833418f88
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19550520_73_114_1
-    url: https://www.nb.no/items/c5e5988d379d5ea705113f0833418f88?page=2
+    url: https://www.nb.no/items/c5e5988d379d5ea705113f0833418f88?page=1
     issued: 1955-05-20
     page: "2"
     searchedIssues: 3
@@ -4065,7 +4079,7 @@ entries:
     evidenceIssues:
       - issueId: dba658412ebb2075db8ee91cb3f1a2d1
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19550531_73_122_1
-        url: https://www.nb.no/items/dba658412ebb2075db8ee91cb3f1a2d1?page=2
+        url: https://www.nb.no/items/dba658412ebb2075db8ee91cb3f1a2d1?page=1
         issued: 1955-05-31
         page: "2"
         reviewMethod: ocr_api
@@ -4079,7 +4093,7 @@ entries:
           - unknown
     issueId: dba658412ebb2075db8ee91cb3f1a2d1
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19550531_73_122_1
-    url: https://www.nb.no/items/dba658412ebb2075db8ee91cb3f1a2d1?page=2
+    url: https://www.nb.no/items/dba658412ebb2075db8ee91cb3f1a2d1?page=1
     issued: 1955-05-31
     page: "2"
     searchedIssues: 3
@@ -4102,7 +4116,7 @@ entries:
     evidenceIssues:
       - issueId: d722a0fd7209e7619b820218ec0cefe8
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19550606_73_127_1
-        url: https://www.nb.no/items/d722a0fd7209e7619b820218ec0cefe8?page=2
+        url: https://www.nb.no/items/d722a0fd7209e7619b820218ec0cefe8?page=1
         issued: 1955-06-06
         page: "2"
         reviewMethod: ocr_api
@@ -4114,7 +4128,7 @@ entries:
           - fixture_list
     issueId: d722a0fd7209e7619b820218ec0cefe8
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19550606_73_127_1
-    url: https://www.nb.no/items/d722a0fd7209e7619b820218ec0cefe8?page=2
+    url: https://www.nb.no/items/d722a0fd7209e7619b820218ec0cefe8?page=1
     issued: 1955-06-06
     page: "2"
     searchedIssues: 4
@@ -4137,7 +4151,7 @@ entries:
     evidenceIssues:
       - issueId: 72ce25c9d52ad9c0c0937ee36af075e5
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19550712_73_158_1
-        url: https://www.nb.no/items/72ce25c9d52ad9c0c0937ee36af075e5?page=3
+        url: https://www.nb.no/items/72ce25c9d52ad9c0c0937ee36af075e5?page=2
         issued: 1955-07-12
         page: "3"
         reviewMethod: ocr_api
@@ -4150,7 +4164,7 @@ entries:
           - fixture_list
     issueId: 72ce25c9d52ad9c0c0937ee36af075e5
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19550712_73_158_1
-    url: https://www.nb.no/items/72ce25c9d52ad9c0c0937ee36af075e5?page=3
+    url: https://www.nb.no/items/72ce25c9d52ad9c0c0937ee36af075e5?page=2
     issued: 1955-07-12
     page: "3"
     searchedIssues: 2
@@ -4173,7 +4187,7 @@ entries:
     evidenceIssues:
       - issueId: 5e6a96f781d36f3370b73553dbf331fe
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19550725_73_169_1
-        url: https://www.nb.no/items/5e6a96f781d36f3370b73553dbf331fe?page=2
+        url: https://www.nb.no/items/5e6a96f781d36f3370b73553dbf331fe?page=1
         issued: 1955-07-25
         page: "2"
         reviewMethod: ocr_api
@@ -4186,7 +4200,7 @@ entries:
           - fixture_list
     issueId: 5e6a96f781d36f3370b73553dbf331fe
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19550725_73_169_1
-    url: https://www.nb.no/items/5e6a96f781d36f3370b73553dbf331fe?page=2
+    url: https://www.nb.no/items/5e6a96f781d36f3370b73553dbf331fe?page=1
     issued: 1955-07-25
     page: "2"
     searchedIssues: 2
@@ -4209,7 +4223,7 @@ entries:
     evidenceIssues:
       - issueId: 4d9e84e740e2ec7eabec81360c84b413
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19550815_73_187_1
-        url: https://www.nb.no/items/4d9e84e740e2ec7eabec81360c84b413?page=2
+        url: https://www.nb.no/items/4d9e84e740e2ec7eabec81360c84b413?page=1
         issued: 1955-08-15
         page: "2"
         reviewMethod: ocr_api
@@ -4221,7 +4235,7 @@ entries:
           - fixture_list
     issueId: 4d9e84e740e2ec7eabec81360c84b413
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19550815_73_187_1
-    url: https://www.nb.no/items/4d9e84e740e2ec7eabec81360c84b413?page=2
+    url: https://www.nb.no/items/4d9e84e740e2ec7eabec81360c84b413?page=1
     issued: 1955-08-15
     page: "2"
     searchedIssues: 3
@@ -4244,7 +4258,7 @@ entries:
     evidenceIssues:
       - issueId: f25f16820b9ba21e4af3720d4e8b2f19
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19550913_73_212_1
-        url: https://www.nb.no/items/f25f16820b9ba21e4af3720d4e8b2f19?page=5
+        url: https://www.nb.no/items/f25f16820b9ba21e4af3720d4e8b2f19?page=4
         issued: 1955-09-13
         page: "5"
         reviewMethod: ocr_api
@@ -4256,7 +4270,7 @@ entries:
           - fixture_list
     issueId: f25f16820b9ba21e4af3720d4e8b2f19
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19550913_73_212_1
-    url: https://www.nb.no/items/f25f16820b9ba21e4af3720d4e8b2f19?page=5
+    url: https://www.nb.no/items/f25f16820b9ba21e4af3720d4e8b2f19?page=4
     issued: 1955-09-13
     page: "5"
     searchedIssues: 4
@@ -4279,7 +4293,7 @@ entries:
     evidenceIssues:
       - issueId: 42bce078984125437bdf8b777334c675
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19550926_73_223_1
-        url: https://www.nb.no/items/42bce078984125437bdf8b777334c675?page=2
+        url: https://www.nb.no/items/42bce078984125437bdf8b777334c675?page=1
         issued: 1955-09-26
         page: "2"
         reviewMethod: ocr_api
@@ -4292,7 +4306,7 @@ entries:
           - unknown
     issueId: 42bce078984125437bdf8b777334c675
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19550926_73_223_1
-    url: https://www.nb.no/items/42bce078984125437bdf8b777334c675?page=2
+    url: https://www.nb.no/items/42bce078984125437bdf8b777334c675?page=1
     issued: 1955-09-26
     page: "2"
     searchedIssues: 4
@@ -4315,7 +4329,7 @@ entries:
     evidenceIssues:
       - issueId: a9aedb2a5737c37138532bb2910ad384
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19551010_73_235_1
-        url: https://www.nb.no/items/a9aedb2a5737c37138532bb2910ad384?page=2
+        url: https://www.nb.no/items/a9aedb2a5737c37138532bb2910ad384?page=1
         issued: 1955-10-10
         page: "2"
         reviewMethod: ocr_api
@@ -4328,7 +4342,7 @@ entries:
           - fixture_list
     issueId: a9aedb2a5737c37138532bb2910ad384
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19551010_73_235_1
-    url: https://www.nb.no/items/a9aedb2a5737c37138532bb2910ad384?page=2
+    url: https://www.nb.no/items/a9aedb2a5737c37138532bb2910ad384?page=1
     issued: 1955-10-10
     page: "2"
     searchedIssues: 2
@@ -4351,7 +4365,7 @@ entries:
     evidenceIssues:
       - issueId: 0618e8ea83cbc8b5739f892f5d280755
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19551107_73_259_1
-        url: https://www.nb.no/items/0618e8ea83cbc8b5739f892f5d280755?page=2
+        url: https://www.nb.no/items/0618e8ea83cbc8b5739f892f5d280755?page=1
         issued: 1955-11-07
         page: "2"
         reviewMethod: ocr_api
@@ -4365,7 +4379,7 @@ entries:
           - unknown
     issueId: 0618e8ea83cbc8b5739f892f5d280755
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19551107_73_259_1
-    url: https://www.nb.no/items/0618e8ea83cbc8b5739f892f5d280755?page=2
+    url: https://www.nb.no/items/0618e8ea83cbc8b5739f892f5d280755?page=1
     issued: 1955-11-07
     page: "2"
     searchedIssues: 2
@@ -4388,7 +4402,7 @@ entries:
     evidenceIssues:
       - issueId: 84977f41aa99b45805fa180739426d6b
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19560507_74_105_1
-        url: https://www.nb.no/items/84977f41aa99b45805fa180739426d6b?page=2
+        url: https://www.nb.no/items/84977f41aa99b45805fa180739426d6b?page=1
         issued: 1956-05-07
         page: "2"
         reviewMethod: ocr_api
@@ -4402,7 +4416,7 @@ entries:
           - match_report
     issueId: 84977f41aa99b45805fa180739426d6b
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19560507_74_105_1
-    url: https://www.nb.no/items/84977f41aa99b45805fa180739426d6b?page=2
+    url: https://www.nb.no/items/84977f41aa99b45805fa180739426d6b?page=1
     issued: 1956-05-07
     page: "2"
     searchedIssues: 4
@@ -4425,7 +4439,7 @@ entries:
     evidenceIssues:
       - issueId: 15bd51f31401c0a184efcc350feee452
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19560511_74_108_1
-        url: https://www.nb.no/items/15bd51f31401c0a184efcc350feee452?page=2
+        url: https://www.nb.no/items/15bd51f31401c0a184efcc350feee452?page=1
         issued: 1956-05-11
         page: "2"
         reviewMethod: ocr_api
@@ -4439,7 +4453,7 @@ entries:
           - unknown
     issueId: 15bd51f31401c0a184efcc350feee452
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19560511_74_108_1
-    url: https://www.nb.no/items/15bd51f31401c0a184efcc350feee452?page=2
+    url: https://www.nb.no/items/15bd51f31401c0a184efcc350feee452?page=1
     issued: 1956-05-11
     page: "2"
     searchedIssues: 5
@@ -4462,7 +4476,7 @@ entries:
     evidenceIssues:
       - issueId: 229bf18755022959aa7e4cbdce889d30
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19560514_74_110_1
-        url: https://www.nb.no/items/229bf18755022959aa7e4cbdce889d30?page=2
+        url: https://www.nb.no/items/229bf18755022959aa7e4cbdce889d30?page=1
         issued: 1956-05-14
         page: "2"
         reviewMethod: ocr_api
@@ -4475,7 +4489,7 @@ entries:
           - unknown
     issueId: 229bf18755022959aa7e4cbdce889d30
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19560514_74_110_1
-    url: https://www.nb.no/items/229bf18755022959aa7e4cbdce889d30?page=2
+    url: https://www.nb.no/items/229bf18755022959aa7e4cbdce889d30?page=1
     issued: 1956-05-14
     page: "2"
     searchedIssues: 4
@@ -4498,7 +4512,7 @@ entries:
     evidenceIssues:
       - issueId: ce9283667ba2bc0d859fdd99ea77c5bc
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19560522_74_115_1
-        url: https://www.nb.no/items/ce9283667ba2bc0d859fdd99ea77c5bc?page=2
+        url: https://www.nb.no/items/ce9283667ba2bc0d859fdd99ea77c5bc?page=1
         issued: 1956-05-22
         page: "2"
         reviewMethod: ocr_api
@@ -4511,7 +4525,7 @@ entries:
           - standings
     issueId: ce9283667ba2bc0d859fdd99ea77c5bc
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19560522_74_115_1
-    url: https://www.nb.no/items/ce9283667ba2bc0d859fdd99ea77c5bc?page=2
+    url: https://www.nb.no/items/ce9283667ba2bc0d859fdd99ea77c5bc?page=1
     issued: 1956-05-22
     page: "2"
     searchedIssues: 3
@@ -4534,7 +4548,7 @@ entries:
     evidenceIssues:
       - issueId: e5adfb28199e29d05ac52bceab6fdd09
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19560528_74_120_1
-        url: https://www.nb.no/items/e5adfb28199e29d05ac52bceab6fdd09?page=2
+        url: https://www.nb.no/items/e5adfb28199e29d05ac52bceab6fdd09?page=1
         issued: 1956-05-28
         page: "2"
         reviewMethod: ocr_api
@@ -4548,7 +4562,7 @@ entries:
           - unknown
     issueId: e5adfb28199e29d05ac52bceab6fdd09
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19560528_74_120_1
-    url: https://www.nb.no/items/e5adfb28199e29d05ac52bceab6fdd09?page=2
+    url: https://www.nb.no/items/e5adfb28199e29d05ac52bceab6fdd09?page=1
     issued: 1956-05-28
     page: "2"
     searchedIssues: 4
@@ -4571,7 +4585,7 @@ entries:
     evidenceIssues:
       - issueId: 665b7de7458e20a10c992e57bfc2aff1
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19570506_75_103_1
-        url: https://www.nb.no/items/665b7de7458e20a10c992e57bfc2aff1?page=2
+        url: https://www.nb.no/items/665b7de7458e20a10c992e57bfc2aff1?page=1
         issued: 1957-05-06
         page: "2"
         reviewMethod: ocr_api
@@ -4584,7 +4598,7 @@ entries:
           - results_board
     issueId: 665b7de7458e20a10c992e57bfc2aff1
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19570506_75_103_1
-    url: https://www.nb.no/items/665b7de7458e20a10c992e57bfc2aff1?page=2
+    url: https://www.nb.no/items/665b7de7458e20a10c992e57bfc2aff1?page=1
     issued: 1957-05-06
     page: "2"
     searchedIssues: 3
@@ -4607,7 +4621,7 @@ entries:
     evidenceIssues:
       - issueId: b38a14f7bbd906ba00ee431970931dc8
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19570513_75_109_1
-        url: https://www.nb.no/items/b38a14f7bbd906ba00ee431970931dc8?page=2
+        url: https://www.nb.no/items/b38a14f7bbd906ba00ee431970931dc8?page=1
         issued: 1957-05-13
         page: "2"
         reviewMethod: ocr_api
@@ -4620,7 +4634,7 @@ entries:
           - fixture_list
     issueId: b38a14f7bbd906ba00ee431970931dc8
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19570513_75_109_1
-    url: https://www.nb.no/items/b38a14f7bbd906ba00ee431970931dc8?page=2
+    url: https://www.nb.no/items/b38a14f7bbd906ba00ee431970931dc8?page=1
     issued: 1957-05-13
     page: "2"
     searchedIssues: 3
@@ -4661,7 +4675,7 @@ entries:
     evidenceIssues:
       - issueId: 7ddff643a17e4d54af5b9b1cc7202151
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19580512_76_108_1
-        url: https://www.nb.no/items/7ddff643a17e4d54af5b9b1cc7202151?page=2
+        url: https://www.nb.no/items/7ddff643a17e4d54af5b9b1cc7202151?page=1
         issued: 1958-05-12
         page: "2"
         reviewMethod: ocr_api
@@ -4673,7 +4687,7 @@ entries:
           - fixture_list
     issueId: 7ddff643a17e4d54af5b9b1cc7202151
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19580512_76_108_1
-    url: https://www.nb.no/items/7ddff643a17e4d54af5b9b1cc7202151?page=2
+    url: https://www.nb.no/items/7ddff643a17e4d54af5b9b1cc7202151?page=1
     issued: 1958-05-12
     page: "2"
     searchedIssues: 3
@@ -4696,7 +4710,7 @@ entries:
     evidenceIssues:
       - issueId: 12efee99acb4d0850ab51f32b8fe6fa9
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590504_77_101_1
-        url: https://www.nb.no/items/12efee99acb4d0850ab51f32b8fe6fa9?page=6
+        url: https://www.nb.no/items/12efee99acb4d0850ab51f32b8fe6fa9?page=5
         issued: 1959-05-04
         page: "6"
         reviewMethod: ocr_api
@@ -4710,7 +4724,7 @@ entries:
           - standings
     issueId: 12efee99acb4d0850ab51f32b8fe6fa9
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590504_77_101_1
-    url: https://www.nb.no/items/12efee99acb4d0850ab51f32b8fe6fa9?page=6
+    url: https://www.nb.no/items/12efee99acb4d0850ab51f32b8fe6fa9?page=5
     issued: 1959-05-04
     page: "6"
     searchedIssues: 3
@@ -4733,7 +4747,7 @@ entries:
     evidenceIssues:
       - issueId: caf3b3ba501af2928095bced072aff97
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590508_77_104_1
-        url: https://www.nb.no/items/caf3b3ba501af2928095bced072aff97?page=2
+        url: https://www.nb.no/items/caf3b3ba501af2928095bced072aff97?page=1
         issued: 1959-05-08
         page: "2"
         reviewMethod: ocr_api
@@ -4746,7 +4760,7 @@ entries:
           - standings
     issueId: caf3b3ba501af2928095bced072aff97
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590508_77_104_1
-    url: https://www.nb.no/items/caf3b3ba501af2928095bced072aff97?page=2
+    url: https://www.nb.no/items/caf3b3ba501af2928095bced072aff97?page=1
     issued: 1959-05-08
     page: "2"
     searchedIssues: 5
@@ -4769,7 +4783,7 @@ entries:
     evidenceIssues:
       - issueId: c36a6a59caa72339fa5572cdd39da2aa
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590511_77_106_1
-        url: https://www.nb.no/items/c36a6a59caa72339fa5572cdd39da2aa?page=2
+        url: https://www.nb.no/items/c36a6a59caa72339fa5572cdd39da2aa?page=1
         issued: 1959-05-11
         page: "2"
         reviewMethod: ocr_api
@@ -4781,7 +4795,7 @@ entries:
           - match_report
     issueId: c36a6a59caa72339fa5572cdd39da2aa
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590511_77_106_1
-    url: https://www.nb.no/items/c36a6a59caa72339fa5572cdd39da2aa?page=2
+    url: https://www.nb.no/items/c36a6a59caa72339fa5572cdd39da2aa?page=1
     issued: 1959-05-11
     page: "2"
     searchedIssues: 4
@@ -4822,7 +4836,7 @@ entries:
     evidenceIssues:
       - issueId: ada96ee6fbb74f3919e76c2a5957feac
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590601_77_123_1
-        url: https://www.nb.no/items/ada96ee6fbb74f3919e76c2a5957feac?page=5
+        url: https://www.nb.no/items/ada96ee6fbb74f3919e76c2a5957feac?page=4
         issued: 1959-06-01
         page: "5"
         reviewMethod: ocr_api
@@ -4834,7 +4848,7 @@ entries:
           - fixture_list
     issueId: ada96ee6fbb74f3919e76c2a5957feac
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590601_77_123_1
-    url: https://www.nb.no/items/ada96ee6fbb74f3919e76c2a5957feac?page=5
+    url: https://www.nb.no/items/ada96ee6fbb74f3919e76c2a5957feac?page=4
     issued: 1959-06-01
     page: "5"
     searchedIssues: 6
@@ -4875,7 +4889,7 @@ entries:
     evidenceIssues:
       - issueId: 57fe28ee9f99d55aaab18f6bb2c2a52a
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19600509_78_107_1
-        url: https://www.nb.no/items/57fe28ee9f99d55aaab18f6bb2c2a52a?page=5
+        url: https://www.nb.no/items/57fe28ee9f99d55aaab18f6bb2c2a52a?page=4
         issued: 1960-05-09
         page: "5"
         reviewMethod: ocr_api
@@ -4889,7 +4903,7 @@ entries:
           - match_report
     issueId: 57fe28ee9f99d55aaab18f6bb2c2a52a
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19600509_78_107_1
-    url: https://www.nb.no/items/57fe28ee9f99d55aaab18f6bb2c2a52a?page=5
+    url: https://www.nb.no/items/57fe28ee9f99d55aaab18f6bb2c2a52a?page=4
     issued: 1960-05-09
     page: "5"
     searchedIssues: 6
@@ -4912,7 +4926,7 @@ entries:
     evidenceIssues:
       - issueId: 9cedf3e498ab0bf26b183df47694dc37
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19600516_78_113_1
-        url: https://www.nb.no/items/9cedf3e498ab0bf26b183df47694dc37?page=6
+        url: https://www.nb.no/items/9cedf3e498ab0bf26b183df47694dc37?page=5
         issued: 1960-05-16
         page: "6"
         reviewMethod: ocr_api
@@ -4926,7 +4940,7 @@ entries:
           - fixture_list
     issueId: 9cedf3e498ab0bf26b183df47694dc37
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19600516_78_113_1
-    url: https://www.nb.no/items/9cedf3e498ab0bf26b183df47694dc37?page=6
+    url: https://www.nb.no/items/9cedf3e498ab0bf26b183df47694dc37?page=5
     issued: 1960-05-16
     page: "6"
     searchedIssues: 1
@@ -4953,7 +4967,7 @@ entries:
     evidenceIssues:
       - issueId: 548315c78608312cb783a126dca6a565
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19600523_78_118_1
-        url: https://www.nb.no/items/548315c78608312cb783a126dca6a565?page=6
+        url: https://www.nb.no/items/548315c78608312cb783a126dca6a565?page=5
         issued: 1960-05-23
         page: "6"
         reviewMethod: ocr_api
@@ -4967,7 +4981,7 @@ entries:
           - unknown
     issueId: 548315c78608312cb783a126dca6a565
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19600523_78_118_1
-    url: https://www.nb.no/items/548315c78608312cb783a126dca6a565?page=6
+    url: https://www.nb.no/items/548315c78608312cb783a126dca6a565?page=5
     issued: 1960-05-23
     page: "6"
     searchedIssues: 3
@@ -4994,7 +5008,7 @@ entries:
     evidenceIssues:
       - issueId: 29c24c0aa3f49f41c0a4a36618f67665
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19600725_78_170_1
-        url: https://www.nb.no/items/29c24c0aa3f49f41c0a4a36618f67665?page=6
+        url: https://www.nb.no/items/29c24c0aa3f49f41c0a4a36618f67665?page=5
         issued: 1960-07-25
         page: "6"
         reviewMethod: ocr_api
@@ -5006,7 +5020,7 @@ entries:
           - match_report
     issueId: 29c24c0aa3f49f41c0a4a36618f67665
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19600725_78_170_1
-    url: https://www.nb.no/items/29c24c0aa3f49f41c0a4a36618f67665?page=6
+    url: https://www.nb.no/items/29c24c0aa3f49f41c0a4a36618f67665?page=5
     issued: 1960-07-25
     page: "6"
     searchedIssues: 6
@@ -5101,7 +5115,7 @@ entries:
     evidenceIssues:
       - issueId: 7042d892bb1b50791f446be4ee84779b
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19620507_80_103_1
-        url: https://www.nb.no/items/7042d892bb1b50791f446be4ee84779b?page=8
+        url: https://www.nb.no/items/7042d892bb1b50791f446be4ee84779b?page=7
         issued: 1962-05-07
         page: "8"
         reviewMethod: ocr_api
@@ -5114,7 +5128,7 @@ entries:
           - fixture_list
     issueId: 7042d892bb1b50791f446be4ee84779b
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19620507_80_103_1
-    url: https://www.nb.no/items/7042d892bb1b50791f446be4ee84779b?page=8
+    url: https://www.nb.no/items/7042d892bb1b50791f446be4ee84779b?page=7
     issued: 1962-05-07
     page: "8"
     searchedIssues: 3
@@ -5155,7 +5169,7 @@ entries:
     evidenceIssues:
       - issueId: e8cfaf8298746fb2984241bf382df744
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19620521_80_115_1
-        url: https://www.nb.no/items/e8cfaf8298746fb2984241bf382df744?page=1
+        url: https://www.nb.no/items/e8cfaf8298746fb2984241bf382df744?page=0
         issued: 1962-05-21
         page: "1"
         reviewMethod: ocr_api
@@ -5169,7 +5183,7 @@ entries:
           - fixture_list
     issueId: e8cfaf8298746fb2984241bf382df744
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19620521_80_115_1
-    url: https://www.nb.no/items/e8cfaf8298746fb2984241bf382df744?page=1
+    url: https://www.nb.no/items/e8cfaf8298746fb2984241bf382df744?page=0
     issued: 1962-05-21
     page: "1"
     searchedIssues: 4
@@ -5210,7 +5224,7 @@ entries:
     evidenceIssues:
       - issueId: db75fd38d8b97dc67e64e3ef0f76a370
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19620601_80_124_1
-        url: https://www.nb.no/items/db75fd38d8b97dc67e64e3ef0f76a370?page=6
+        url: https://www.nb.no/items/db75fd38d8b97dc67e64e3ef0f76a370?page=5
         issued: 1962-06-01
         page: "6"
         reviewMethod: ocr_api
@@ -5224,7 +5238,7 @@ entries:
           - fixture_list
     issueId: db75fd38d8b97dc67e64e3ef0f76a370
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19620601_80_124_1
-    url: https://www.nb.no/items/db75fd38d8b97dc67e64e3ef0f76a370?page=6
+    url: https://www.nb.no/items/db75fd38d8b97dc67e64e3ef0f76a370?page=5
     issued: 1962-06-01
     page: "6"
     searchedIssues: 4
@@ -5247,7 +5261,7 @@ entries:
     evidenceIssues:
       - issueId: db75fd38d8b97dc67e64e3ef0f76a370
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19620601_80_124_1
-        url: https://www.nb.no/items/db75fd38d8b97dc67e64e3ef0f76a370?page=6
+        url: https://www.nb.no/items/db75fd38d8b97dc67e64e3ef0f76a370?page=5
         issued: 1962-06-01
         page: "6"
         reviewMethod: ocr_api
@@ -5259,7 +5273,7 @@ entries:
           - preview
     issueId: db75fd38d8b97dc67e64e3ef0f76a370
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19620601_80_124_1
-    url: https://www.nb.no/items/db75fd38d8b97dc67e64e3ef0f76a370?page=6
+    url: https://www.nb.no/items/db75fd38d8b97dc67e64e3ef0f76a370?page=5
     issued: 1962-06-01
     page: "6"
     searchedIssues: 4
@@ -5336,7 +5350,7 @@ entries:
     evidenceIssues:
       - issueId: 51686921650b60342ca4762f4eae27b3
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19620807_80_180_1
-        url: https://www.nb.no/items/51686921650b60342ca4762f4eae27b3?page=6
+        url: https://www.nb.no/items/51686921650b60342ca4762f4eae27b3?page=5
         issued: 1962-08-07
         page: "6"
         reviewMethod: ocr_api
@@ -5348,7 +5362,7 @@ entries:
           - fixture_list
       - issueId: 7b09f7ba71f1a3d0a05aa408320917b0
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19620806_80_179_1
-        url: https://www.nb.no/items/7b09f7ba71f1a3d0a05aa408320917b0?page=2
+        url: https://www.nb.no/items/7b09f7ba71f1a3d0a05aa408320917b0?page=1
         issued: 1962-08-06
         page: "2"
         reviewMethod: ocr_api
@@ -5361,7 +5375,7 @@ entries:
           - standings
     issueId: 51686921650b60342ca4762f4eae27b3
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19620807_80_180_1
-    url: https://www.nb.no/items/51686921650b60342ca4762f4eae27b3?page=6
+    url: https://www.nb.no/items/51686921650b60342ca4762f4eae27b3?page=5
     issued: 1962-08-07
     page: "6"
     searchedIssues: 3
@@ -5406,7 +5420,7 @@ entries:
     evidenceIssues:
       - issueId: 9cd83c306754841e0b5c601dbac221aa
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19620817_80_189_1
-        url: https://www.nb.no/items/9cd83c306754841e0b5c601dbac221aa?page=6
+        url: https://www.nb.no/items/9cd83c306754841e0b5c601dbac221aa?page=5
         issued: 1962-08-17
         page: "6"
         reviewMethod: ocr_api
@@ -5420,7 +5434,7 @@ entries:
           - unknown
     issueId: 9cd83c306754841e0b5c601dbac221aa
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19620817_80_189_1
-    url: https://www.nb.no/items/9cd83c306754841e0b5c601dbac221aa?page=6
+    url: https://www.nb.no/items/9cd83c306754841e0b5c601dbac221aa?page=5
     issued: 1962-08-17
     page: "6"
     searchedIssues: 6
@@ -5443,7 +5457,7 @@ entries:
     evidenceIssues:
       - issueId: 64aa44b5160ea36c01026642aa125f97
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19620903_80_203_1
-        url: https://www.nb.no/items/64aa44b5160ea36c01026642aa125f97?page=2
+        url: https://www.nb.no/items/64aa44b5160ea36c01026642aa125f97?page=1
         issued: 1962-09-03
         page: "2"
         reviewMethod: ocr_api
@@ -5456,7 +5470,7 @@ entries:
           - fixture_list
     issueId: 64aa44b5160ea36c01026642aa125f97
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19620903_80_203_1
-    url: https://www.nb.no/items/64aa44b5160ea36c01026642aa125f97?page=2
+    url: https://www.nb.no/items/64aa44b5160ea36c01026642aa125f97?page=1
     issued: 1962-09-03
     page: "2"
     searchedIssues: 3
@@ -5483,7 +5497,7 @@ entries:
     evidenceIssues:
       - issueId: 64aa44b5160ea36c01026642aa125f97
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19620903_80_203_1
-        url: https://www.nb.no/items/64aa44b5160ea36c01026642aa125f97?page=2
+        url: https://www.nb.no/items/64aa44b5160ea36c01026642aa125f97?page=1
         issued: 1962-09-03
         page: "2"
         reviewMethod: ocr_api
@@ -5497,7 +5511,7 @@ entries:
           - fixture_list
     issueId: 64aa44b5160ea36c01026642aa125f97
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19620903_80_203_1
-    url: https://www.nb.no/items/64aa44b5160ea36c01026642aa125f97?page=2
+    url: https://www.nb.no/items/64aa44b5160ea36c01026642aa125f97?page=1
     issued: 1962-09-03
     page: "2"
     searchedIssues: 4
@@ -5520,7 +5534,7 @@ entries:
     evidenceIssues:
       - issueId: 4f0445715b278790f48c24d6b8cf9e55
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19620910_80_209_1
-        url: https://www.nb.no/items/4f0445715b278790f48c24d6b8cf9e55?page=2
+        url: https://www.nb.no/items/4f0445715b278790f48c24d6b8cf9e55?page=1
         issued: 1962-09-10
         page: "2"
         reviewMethod: ocr_api
@@ -5534,7 +5548,7 @@ entries:
           - fixture_list
     issueId: 4f0445715b278790f48c24d6b8cf9e55
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19620910_80_209_1
-    url: https://www.nb.no/items/4f0445715b278790f48c24d6b8cf9e55?page=2
+    url: https://www.nb.no/items/4f0445715b278790f48c24d6b8cf9e55?page=1
     issued: 1962-09-10
     page: "2"
     searchedIssues: 5
@@ -5561,7 +5575,7 @@ entries:
     evidenceIssues:
       - issueId: 6db46db382f6c1aed1deb3d303b7cd36
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19620924_80_221_1
-        url: https://www.nb.no/items/6db46db382f6c1aed1deb3d303b7cd36?page=8
+        url: https://www.nb.no/items/6db46db382f6c1aed1deb3d303b7cd36?page=7
         issued: 1962-09-24
         page: "8"
         reviewMethod: ocr_api
@@ -5574,7 +5588,7 @@ entries:
           - fixture_list
     issueId: 6db46db382f6c1aed1deb3d303b7cd36
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19620924_80_221_1
-    url: https://www.nb.no/items/6db46db382f6c1aed1deb3d303b7cd36?page=8
+    url: https://www.nb.no/items/6db46db382f6c1aed1deb3d303b7cd36?page=7
     issued: 1962-09-24
     page: "8"
     searchedIssues: 4
@@ -5597,7 +5611,7 @@ entries:
     evidenceIssues:
       - issueId: 18586f12ec0a927ed4a3c0305d7b0f30
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19620928_80_224_1
-        url: https://www.nb.no/items/18586f12ec0a927ed4a3c0305d7b0f30?page=9
+        url: https://www.nb.no/items/18586f12ec0a927ed4a3c0305d7b0f30?page=8
         issued: 1962-09-28
         page: "9"
         reviewMethod: ocr_api
@@ -5609,7 +5623,7 @@ entries:
           - fixture_list
     issueId: 18586f12ec0a927ed4a3c0305d7b0f30
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19620928_80_224_1
-    url: https://www.nb.no/items/18586f12ec0a927ed4a3c0305d7b0f30?page=9
+    url: https://www.nb.no/items/18586f12ec0a927ed4a3c0305d7b0f30?page=8
     issued: 1962-09-28
     page: "9"
     searchedIssues: 2
@@ -5632,7 +5646,7 @@ entries:
     evidenceIssues:
       - issueId: a9708a37bf68d712d996f914112a9794
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19621008_80_232_1
-        url: https://www.nb.no/items/a9708a37bf68d712d996f914112a9794?page=7
+        url: https://www.nb.no/items/a9708a37bf68d712d996f914112a9794?page=6
         issued: 1962-10-08
         page: "7"
         reviewMethod: ocr_api
@@ -5645,7 +5659,7 @@ entries:
           - fixture_list
     issueId: a9708a37bf68d712d996f914112a9794
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19621008_80_232_1
-    url: https://www.nb.no/items/a9708a37bf68d712d996f914112a9794?page=7
+    url: https://www.nb.no/items/a9708a37bf68d712d996f914112a9794?page=6
     issued: 1962-10-08
     page: "7"
     searchedIssues: 4
@@ -5668,7 +5682,7 @@ entries:
     evidenceIssues:
       - issueId: 4ca25c03ac1afc9a1975883024c8be41
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19621015_80_238_1
-        url: https://www.nb.no/items/4ca25c03ac1afc9a1975883024c8be41?page=6
+        url: https://www.nb.no/items/4ca25c03ac1afc9a1975883024c8be41?page=5
         issued: 1962-10-15
         page: "6"
         reviewMethod: ocr_api
@@ -5681,7 +5695,7 @@ entries:
           - fixture_list
     issueId: 4ca25c03ac1afc9a1975883024c8be41
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19621015_80_238_1
-    url: https://www.nb.no/items/4ca25c03ac1afc9a1975883024c8be41?page=6
+    url: https://www.nb.no/items/4ca25c03ac1afc9a1975883024c8be41?page=5
     issued: 1962-10-15
     page: "6"
     searchedIssues: 3
@@ -5704,7 +5718,7 @@ entries:
     evidenceIssues:
       - issueId: 8b1bf6508899704c12d95bd7e9532881
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19621023_80_245_1
-        url: https://www.nb.no/items/8b1bf6508899704c12d95bd7e9532881?page=3
+        url: https://www.nb.no/items/8b1bf6508899704c12d95bd7e9532881?page=2
         issued: 1962-10-23
         page: "3"
         reviewMethod: ocr_api
@@ -5717,7 +5731,7 @@ entries:
           - unknown
     issueId: 8b1bf6508899704c12d95bd7e9532881
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19621023_80_245_1
-    url: https://www.nb.no/items/8b1bf6508899704c12d95bd7e9532881?page=3
+    url: https://www.nb.no/items/8b1bf6508899704c12d95bd7e9532881?page=2
     issued: 1962-10-23
     page: "3"
     searchedIssues: 6
@@ -5740,7 +5754,7 @@ entries:
     evidenceIssues:
       - issueId: d6bbeacfc0855c5ac120e41ecea40d5a
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19621106_80_257_1
-        url: https://www.nb.no/items/d6bbeacfc0855c5ac120e41ecea40d5a?page=9
+        url: https://www.nb.no/items/d6bbeacfc0855c5ac120e41ecea40d5a?page=8
         issued: 1962-11-06
         page: "9"
         reviewMethod: ocr_api
@@ -5753,7 +5767,7 @@ entries:
           - unknown
     issueId: d6bbeacfc0855c5ac120e41ecea40d5a
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19621106_80_257_1
-    url: https://www.nb.no/items/d6bbeacfc0855c5ac120e41ecea40d5a?page=9
+    url: https://www.nb.no/items/d6bbeacfc0855c5ac120e41ecea40d5a?page=8
     issued: 1962-11-06
     page: "9"
     searchedIssues: 6
@@ -5776,7 +5790,7 @@ entries:
     evidenceIssues:
       - issueId: 6f8b89454d952a0de56b2e2c04ef899f
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19630325_81_71_1
-        url: https://www.nb.no/items/6f8b89454d952a0de56b2e2c04ef899f?page=3
+        url: https://www.nb.no/items/6f8b89454d952a0de56b2e2c04ef899f?page=2
         issued: 1963-03-25
         page: "3"
         reviewMethod: ocr_api
@@ -5788,7 +5802,7 @@ entries:
           - fixture_list
     issueId: 6f8b89454d952a0de56b2e2c04ef899f
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19630325_81_71_1
-    url: https://www.nb.no/items/6f8b89454d952a0de56b2e2c04ef899f?page=3
+    url: https://www.nb.no/items/6f8b89454d952a0de56b2e2c04ef899f?page=2
     issued: 1963-03-25
     page: "3"
     searchedIssues: 6
@@ -5811,7 +5825,7 @@ entries:
     evidenceIssues:
       - issueId: 10f82ed8295833c176f6c603a88007e9
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19630506_81_103_1
-        url: https://www.nb.no/items/10f82ed8295833c176f6c603a88007e9?page=2
+        url: https://www.nb.no/items/10f82ed8295833c176f6c603a88007e9?page=1
         issued: 1963-05-06
         page: "2"
         reviewMethod: ocr_api
@@ -5823,7 +5837,7 @@ entries:
           - fixture_list
     issueId: 10f82ed8295833c176f6c603a88007e9
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19630506_81_103_1
-    url: https://www.nb.no/items/10f82ed8295833c176f6c603a88007e9?page=2
+    url: https://www.nb.no/items/10f82ed8295833c176f6c603a88007e9?page=1
     issued: 1963-05-06
     page: "2"
     searchedIssues: 3
@@ -5846,7 +5860,7 @@ entries:
     evidenceIssues:
       - issueId: 32aea16a3c0b35d79e4313b52d9cea98
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19630624_81_142_1
-        url: https://www.nb.no/items/32aea16a3c0b35d79e4313b52d9cea98?page=3
+        url: https://www.nb.no/items/32aea16a3c0b35d79e4313b52d9cea98?page=2
         issued: 1963-06-24
         page: "3"
         reviewMethod: ocr_api
@@ -5858,7 +5872,7 @@ entries:
           - fixture_list
     issueId: 32aea16a3c0b35d79e4313b52d9cea98
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19630624_81_142_1
-    url: https://www.nb.no/items/32aea16a3c0b35d79e4313b52d9cea98?page=3
+    url: https://www.nb.no/items/32aea16a3c0b35d79e4313b52d9cea98?page=2
     issued: 1963-06-24
     page: "3"
     searchedIssues: 3
@@ -5881,7 +5895,7 @@ entries:
     evidenceIssues:
       - issueId: 10e9775744a50cdc21aa7e90591dc7b3
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19630701_81_148_1
-        url: https://www.nb.no/items/10e9775744a50cdc21aa7e90591dc7b3?page=2
+        url: https://www.nb.no/items/10e9775744a50cdc21aa7e90591dc7b3?page=1
         issued: 1963-07-01
         page: "2"
         reviewMethod: ocr_api
@@ -5895,7 +5909,7 @@ entries:
           - unknown
     issueId: 10e9775744a50cdc21aa7e90591dc7b3
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19630701_81_148_1
-    url: https://www.nb.no/items/10e9775744a50cdc21aa7e90591dc7b3?page=2
+    url: https://www.nb.no/items/10e9775744a50cdc21aa7e90591dc7b3?page=1
     issued: 1963-07-01
     page: "2"
     searchedIssues: 2
@@ -5922,7 +5936,7 @@ entries:
     evidenceIssues:
       - issueId: 4ec32ae7ea9824af72ed1ef01dc8a888
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19630722_81_166_1
-        url: https://www.nb.no/items/4ec32ae7ea9824af72ed1ef01dc8a888?page=3
+        url: https://www.nb.no/items/4ec32ae7ea9824af72ed1ef01dc8a888?page=2
         issued: 1963-07-22
         page: "3"
         reviewMethod: ocr_api
@@ -5935,7 +5949,7 @@ entries:
           - fixture_list
     issueId: 4ec32ae7ea9824af72ed1ef01dc8a888
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19630722_81_166_1
-    url: https://www.nb.no/items/4ec32ae7ea9824af72ed1ef01dc8a888?page=3
+    url: https://www.nb.no/items/4ec32ae7ea9824af72ed1ef01dc8a888?page=2
     issued: 1963-07-22
     page: "3"
     searchedIssues: 5
@@ -5958,7 +5972,7 @@ entries:
     evidenceIssues:
       - issueId: 512fa3ae75a99ac6388202d8f9052140
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19630805_81_178_1
-        url: https://www.nb.no/items/512fa3ae75a99ac6388202d8f9052140?page=2
+        url: https://www.nb.no/items/512fa3ae75a99ac6388202d8f9052140?page=1
         issued: 1963-08-05
         page: "2"
         reviewMethod: ocr_api
@@ -5973,7 +5987,7 @@ entries:
           - standings
     issueId: 512fa3ae75a99ac6388202d8f9052140
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19630805_81_178_1
-    url: https://www.nb.no/items/512fa3ae75a99ac6388202d8f9052140?page=2
+    url: https://www.nb.no/items/512fa3ae75a99ac6388202d8f9052140?page=1
     issued: 1963-08-05
     page: "2"
     searchedIssues: 4
@@ -5996,7 +6010,7 @@ entries:
     evidenceIssues:
       - issueId: 8b5400967e0db728dad3d9b08ad0aaa6
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19630819_81_190_1
-        url: https://www.nb.no/items/8b5400967e0db728dad3d9b08ad0aaa6?page=2
+        url: https://www.nb.no/items/8b5400967e0db728dad3d9b08ad0aaa6?page=1
         issued: 1963-08-19
         page: "2"
         reviewMethod: ocr_api
@@ -6010,7 +6024,7 @@ entries:
           - fixture_list
     issueId: 8b5400967e0db728dad3d9b08ad0aaa6
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19630819_81_190_1
-    url: https://www.nb.no/items/8b5400967e0db728dad3d9b08ad0aaa6?page=2
+    url: https://www.nb.no/items/8b5400967e0db728dad3d9b08ad0aaa6?page=1
     issued: 1963-08-19
     page: "2"
     searchedIssues: 2
@@ -6037,7 +6051,7 @@ entries:
     evidenceIssues:
       - issueId: 21f4201f3a7bfc63f1aa4807cfda8c3f
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19630909_81_208_1
-        url: https://www.nb.no/items/21f4201f3a7bfc63f1aa4807cfda8c3f?page=2
+        url: https://www.nb.no/items/21f4201f3a7bfc63f1aa4807cfda8c3f?page=1
         issued: 1963-09-09
         page: "2"
         reviewMethod: ocr_api
@@ -6052,7 +6066,7 @@ entries:
           - unknown
     issueId: 21f4201f3a7bfc63f1aa4807cfda8c3f
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19630909_81_208_1
-    url: https://www.nb.no/items/21f4201f3a7bfc63f1aa4807cfda8c3f?page=2
+    url: https://www.nb.no/items/21f4201f3a7bfc63f1aa4807cfda8c3f?page=1
     issued: 1963-09-09
     page: "2"
     searchedIssues: 4
@@ -6075,7 +6089,7 @@ entries:
     evidenceIssues:
       - issueId: 19487f9ee69ed326bca1b4e93ae20c7a
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19630930_81_226_1
-        url: https://www.nb.no/items/19487f9ee69ed326bca1b4e93ae20c7a?page=2
+        url: https://www.nb.no/items/19487f9ee69ed326bca1b4e93ae20c7a?page=1
         issued: 1963-09-30
         page: "2"
         reviewMethod: ocr_api
@@ -6088,7 +6102,7 @@ entries:
           - fixture_list
     issueId: 19487f9ee69ed326bca1b4e93ae20c7a
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19630930_81_226_1
-    url: https://www.nb.no/items/19487f9ee69ed326bca1b4e93ae20c7a?page=2
+    url: https://www.nb.no/items/19487f9ee69ed326bca1b4e93ae20c7a?page=1
     issued: 1963-09-30
     page: "2"
     searchedIssues: 3
@@ -6111,7 +6125,7 @@ entries:
     evidenceIssues:
       - issueId: 6637461fd4997dff99668dadd021d44e
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19631016_81_240_1
-        url: https://www.nb.no/items/6637461fd4997dff99668dadd021d44e?page=9
+        url: https://www.nb.no/items/6637461fd4997dff99668dadd021d44e?page=8
         issued: 1963-10-16
         page: "9"
         reviewMethod: ocr_api
@@ -6123,7 +6137,7 @@ entries:
           - fixture_list
     issueId: 6637461fd4997dff99668dadd021d44e
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19631016_81_240_1
-    url: https://www.nb.no/items/6637461fd4997dff99668dadd021d44e?page=9
+    url: https://www.nb.no/items/6637461fd4997dff99668dadd021d44e?page=8
     issued: 1963-10-16
     page: "9"
     searchedIssues: 5
@@ -6182,7 +6196,7 @@ entries:
     evidenceIssues:
       - issueId: d9c8cddedbfbd314610918f2b88dae3e
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19640525_82_118_1
-        url: https://www.nb.no/items/d9c8cddedbfbd314610918f2b88dae3e?page=2
+        url: https://www.nb.no/items/d9c8cddedbfbd314610918f2b88dae3e?page=1
         issued: 1964-05-25
         page: "2"
         reviewMethod: ocr_api
@@ -6195,7 +6209,7 @@ entries:
           - fixture_list
     issueId: d9c8cddedbfbd314610918f2b88dae3e
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19640525_82_118_1
-    url: https://www.nb.no/items/d9c8cddedbfbd314610918f2b88dae3e?page=2
+    url: https://www.nb.no/items/d9c8cddedbfbd314610918f2b88dae3e?page=1
     issued: 1964-05-25
     page: "2"
     searchedIssues: 3
@@ -6218,7 +6232,7 @@ entries:
     evidenceIssues:
       - issueId: 407f748470b9cc075f4127aaef03c64e
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19640601_82_124_1
-        url: https://www.nb.no/items/407f748470b9cc075f4127aaef03c64e?page=3
+        url: https://www.nb.no/items/407f748470b9cc075f4127aaef03c64e?page=2
         issued: 1964-06-01
         page: "3"
         reviewMethod: ocr_api
@@ -6232,7 +6246,7 @@ entries:
           - fixture_list
     issueId: 407f748470b9cc075f4127aaef03c64e
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19640601_82_124_1
-    url: https://www.nb.no/items/407f748470b9cc075f4127aaef03c64e?page=3
+    url: https://www.nb.no/items/407f748470b9cc075f4127aaef03c64e?page=2
     issued: 1964-06-01
     page: "3"
     searchedIssues: 4
@@ -6255,7 +6269,7 @@ entries:
     evidenceIssues:
       - issueId: 7f97181e379880fafaaf1a3f713c6755
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19640615_82_136_1
-        url: https://www.nb.no/items/7f97181e379880fafaaf1a3f713c6755?page=2
+        url: https://www.nb.no/items/7f97181e379880fafaaf1a3f713c6755?page=1
         issued: 1964-06-15
         page: "2"
         reviewMethod: ocr_api
@@ -6269,7 +6283,7 @@ entries:
           - fixture_list
     issueId: 7f97181e379880fafaaf1a3f713c6755
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19640615_82_136_1
-    url: https://www.nb.no/items/7f97181e379880fafaaf1a3f713c6755?page=2
+    url: https://www.nb.no/items/7f97181e379880fafaaf1a3f713c6755?page=1
     issued: 1964-06-15
     page: "2"
     searchedIssues: 3
@@ -6328,7 +6342,7 @@ entries:
     evidenceIssues:
       - issueId: 07ddd40c04152b51b259cf3c46e8d152
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19650518_83_112_1
-        url: https://www.nb.no/items/07ddd40c04152b51b259cf3c46e8d152?page=2
+        url: https://www.nb.no/items/07ddd40c04152b51b259cf3c46e8d152?page=1
         issued: 1965-05-18
         page: "2"
         reviewMethod: ocr_api
@@ -6341,7 +6355,7 @@ entries:
           - match_report
     issueId: 07ddd40c04152b51b259cf3c46e8d152
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19650518_83_112_1
-    url: https://www.nb.no/items/07ddd40c04152b51b259cf3c46e8d152?page=2
+    url: https://www.nb.no/items/07ddd40c04152b51b259cf3c46e8d152?page=1
     issued: 1965-05-18
     page: "2"
     searchedIssues: 5
@@ -6364,7 +6378,7 @@ entries:
     evidenceIssues:
       - issueId: c865a23572bf922b1f789bb03e3e3656
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19650524_83_117_1
-        url: https://www.nb.no/items/c865a23572bf922b1f789bb03e3e3656?page=2
+        url: https://www.nb.no/items/c865a23572bf922b1f789bb03e3e3656?page=1
         issued: 1965-05-24
         page: "2"
         reviewMethod: ocr_api
@@ -6378,7 +6392,7 @@ entries:
           - fixture_list
     issueId: c865a23572bf922b1f789bb03e3e3656
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19650524_83_117_1
-    url: https://www.nb.no/items/c865a23572bf922b1f789bb03e3e3656?page=2
+    url: https://www.nb.no/items/c865a23572bf922b1f789bb03e3e3656?page=1
     issued: 1965-05-24
     page: "2"
     searchedIssues: 5
@@ -6401,7 +6415,7 @@ entries:
     evidenceIssues:
       - issueId: d5f31de4f519d29bd5dbb64494622de4
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19650621_83_139_1
-        url: https://www.nb.no/items/d5f31de4f519d29bd5dbb64494622de4?page=2
+        url: https://www.nb.no/items/d5f31de4f519d29bd5dbb64494622de4?page=1
         issued: 1965-06-21
         page: "2"
         reviewMethod: ocr_api
@@ -6416,7 +6430,7 @@ entries:
           - results_board
     issueId: d5f31de4f519d29bd5dbb64494622de4
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19650621_83_139_1
-    url: https://www.nb.no/items/d5f31de4f519d29bd5dbb64494622de4?page=2
+    url: https://www.nb.no/items/d5f31de4f519d29bd5dbb64494622de4?page=1
     issued: 1965-06-21
     page: "2"
     searchedIssues: 4
@@ -6439,7 +6453,7 @@ entries:
     evidenceIssues:
       - issueId: b394ddeeddf27f6116e62011da54e0e0
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19650628_83_145_1
-        url: https://www.nb.no/items/b394ddeeddf27f6116e62011da54e0e0?page=3
+        url: https://www.nb.no/items/b394ddeeddf27f6116e62011da54e0e0?page=2
         issued: 1965-06-28
         page: "3"
         reviewMethod: ocr_api
@@ -6452,7 +6466,7 @@ entries:
           - fixture_list
     issueId: b394ddeeddf27f6116e62011da54e0e0
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19650628_83_145_1
-    url: https://www.nb.no/items/b394ddeeddf27f6116e62011da54e0e0?page=3
+    url: https://www.nb.no/items/b394ddeeddf27f6116e62011da54e0e0?page=2
     issued: 1965-06-28
     page: "3"
     searchedIssues: 4
@@ -6475,7 +6489,7 @@ entries:
     evidenceIssues:
       - issueId: 6254a1a9054ba3c3e852293b098cd6cc
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19650713_83_158_1
-        url: https://www.nb.no/items/6254a1a9054ba3c3e852293b098cd6cc?page=6
+        url: https://www.nb.no/items/6254a1a9054ba3c3e852293b098cd6cc?page=5
         issued: 1965-07-13
         page: "6"
         reviewMethod: ocr_api
@@ -6488,7 +6502,7 @@ entries:
           - fixture_list
     issueId: 6254a1a9054ba3c3e852293b098cd6cc
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19650713_83_158_1
-    url: https://www.nb.no/items/6254a1a9054ba3c3e852293b098cd6cc?page=6
+    url: https://www.nb.no/items/6254a1a9054ba3c3e852293b098cd6cc?page=5
     issued: 1965-07-13
     page: "6"
     searchedIssues: 2
@@ -6565,7 +6579,7 @@ entries:
     evidenceIssues:
       - issueId: 111e03a78b75d782bb8adbbbfdbcf1e5
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19660801_84_175_1
-        url: https://www.nb.no/items/111e03a78b75d782bb8adbbbfdbcf1e5?page=2
+        url: https://www.nb.no/items/111e03a78b75d782bb8adbbbfdbcf1e5?page=1
         issued: 1966-08-01
         page: "2"
         reviewMethod: ocr_api
@@ -6579,7 +6593,7 @@ entries:
           - results_board
     issueId: 111e03a78b75d782bb8adbbbfdbcf1e5
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19660801_84_175_1
-    url: https://www.nb.no/items/111e03a78b75d782bb8adbbbfdbcf1e5?page=2
+    url: https://www.nb.no/items/111e03a78b75d782bb8adbbbfdbcf1e5?page=1
     issued: 1966-08-01
     page: "2"
     searchedIssues: 4
@@ -6620,7 +6634,7 @@ entries:
     evidenceIssues:
       - issueId: b25b5bba1990f2921947dd6c0ecf6be8
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19670522_85_114_1
-        url: https://www.nb.no/items/b25b5bba1990f2921947dd6c0ecf6be8?page=2
+        url: https://www.nb.no/items/b25b5bba1990f2921947dd6c0ecf6be8?page=1
         issued: 1967-05-22
         page: "2"
         reviewMethod: ocr_api
@@ -6634,7 +6648,7 @@ entries:
           - match_report
     issueId: b25b5bba1990f2921947dd6c0ecf6be8
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19670522_85_114_1
-    url: https://www.nb.no/items/b25b5bba1990f2921947dd6c0ecf6be8?page=2
+    url: https://www.nb.no/items/b25b5bba1990f2921947dd6c0ecf6be8?page=1
     issued: 1967-05-22
     page: "2"
     searchedIssues: 4
@@ -6747,7 +6761,7 @@ entries:
     evidenceIssues:
       - issueId: 7be953cc92b9aa384d37680809a680c6
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19670821_85_192_1
-        url: https://www.nb.no/items/7be953cc92b9aa384d37680809a680c6?page=2
+        url: https://www.nb.no/items/7be953cc92b9aa384d37680809a680c6?page=1
         issued: 1967-08-21
         page: "2"
         reviewMethod: ocr_api
@@ -6761,7 +6775,7 @@ entries:
           - unknown
     issueId: 7be953cc92b9aa384d37680809a680c6
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19670821_85_192_1
-    url: https://www.nb.no/items/7be953cc92b9aa384d37680809a680c6?page=2
+    url: https://www.nb.no/items/7be953cc92b9aa384d37680809a680c6?page=1
     issued: 1967-08-21
     page: "2"
     searchedIssues: 4
@@ -6802,7 +6816,7 @@ entries:
     evidenceIssues:
       - issueId: 442e3fe69984bea9f6c6d3f5fc5c25b2
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19670911_85_210_1
-        url: https://www.nb.no/items/442e3fe69984bea9f6c6d3f5fc5c25b2?page=2
+        url: https://www.nb.no/items/442e3fe69984bea9f6c6d3f5fc5c25b2?page=1
         issued: 1967-09-11
         page: "2"
         reviewMethod: ocr_api
@@ -6817,7 +6831,7 @@ entries:
           - fixture_list
     issueId: 442e3fe69984bea9f6c6d3f5fc5c25b2
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19670911_85_210_1
-    url: https://www.nb.no/items/442e3fe69984bea9f6c6d3f5fc5c25b2?page=2
+    url: https://www.nb.no/items/442e3fe69984bea9f6c6d3f5fc5c25b2?page=1
     issued: 1967-09-11
     page: "2"
     searchedIssues: 6
@@ -6840,7 +6854,7 @@ entries:
     evidenceIssues:
       - issueId: 7a86ad63afa4f1de06f4ec55d0ffa55d
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19670930_85_227_1
-        url: https://www.nb.no/items/7a86ad63afa4f1de06f4ec55d0ffa55d?page=6
+        url: https://www.nb.no/items/7a86ad63afa4f1de06f4ec55d0ffa55d?page=5
         issued: 1967-09-30
         page: "6"
         reviewMethod: ocr_api
@@ -6852,7 +6866,7 @@ entries:
           - fixture_list
     issueId: 7a86ad63afa4f1de06f4ec55d0ffa55d
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19670930_85_227_1
-    url: https://www.nb.no/items/7a86ad63afa4f1de06f4ec55d0ffa55d?page=6
+    url: https://www.nb.no/items/7a86ad63afa4f1de06f4ec55d0ffa55d?page=5
     issued: 1967-09-30
     page: "6"
     searchedIssues: 1
@@ -6875,7 +6889,7 @@ entries:
     evidenceIssues:
       - issueId: 27900a530c582e3b4903219c6edb4e38
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19671010_85_235_1
-        url: https://www.nb.no/items/27900a530c582e3b4903219c6edb4e38?page=5
+        url: https://www.nb.no/items/27900a530c582e3b4903219c6edb4e38?page=4
         issued: 1967-10-10
         page: "5"
         reviewMethod: ocr_api
@@ -6888,7 +6902,7 @@ entries:
           - unknown
     issueId: 27900a530c582e3b4903219c6edb4e38
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19671010_85_235_1
-    url: https://www.nb.no/items/27900a530c582e3b4903219c6edb4e38?page=5
+    url: https://www.nb.no/items/27900a530c582e3b4903219c6edb4e38?page=4
     issued: 1967-10-10
     page: "5"
     searchedIssues: 6
@@ -6911,7 +6925,7 @@ entries:
     evidenceIssues:
       - issueId: 019a6c0b38ec8a065e7cac91b9474715
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19671014_85_239_1
-        url: https://www.nb.no/items/019a6c0b38ec8a065e7cac91b9474715?page=6
+        url: https://www.nb.no/items/019a6c0b38ec8a065e7cac91b9474715?page=5
         issued: 1967-10-14
         page: "6"
         reviewMethod: ocr_api
@@ -6925,7 +6939,7 @@ entries:
           - unknown
     issueId: 019a6c0b38ec8a065e7cac91b9474715
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19671014_85_239_1
-    url: https://www.nb.no/items/019a6c0b38ec8a065e7cac91b9474715?page=6
+    url: https://www.nb.no/items/019a6c0b38ec8a065e7cac91b9474715?page=5
     issued: 1967-10-14
     page: "6"
     searchedIssues: 4
@@ -6948,7 +6962,7 @@ entries:
     evidenceIssues:
       - issueId: ef4a36f7aee35868409b81ff964d350e
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19680628_86_147_1
-        url: https://www.nb.no/items/ef4a36f7aee35868409b81ff964d350e?page=6
+        url: https://www.nb.no/items/ef4a36f7aee35868409b81ff964d350e?page=5
         issued: 1968-06-28
         page: "6"
         reviewMethod: ocr_api
@@ -6961,7 +6975,7 @@ entries:
           - fixture_list
     issueId: ef4a36f7aee35868409b81ff964d350e
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19680628_86_147_1
-    url: https://www.nb.no/items/ef4a36f7aee35868409b81ff964d350e?page=6
+    url: https://www.nb.no/items/ef4a36f7aee35868409b81ff964d350e?page=5
     issued: 1968-06-28
     page: "6"
     searchedIssues: 6
@@ -6984,7 +6998,7 @@ entries:
     evidenceIssues:
       - issueId: 99980ccc4318be062c0f476a4d7758f5
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19710731_89_174_1
-        url: https://www.nb.no/items/99980ccc4318be062c0f476a4d7758f5?page=12
+        url: https://www.nb.no/items/99980ccc4318be062c0f476a4d7758f5?page=11
         issued: 1971-07-31
         page: "12"
         reviewMethod: ocr_api
@@ -6996,7 +7010,7 @@ entries:
           - fixture_list
     issueId: 99980ccc4318be062c0f476a4d7758f5
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19710731_89_174_1
-    url: https://www.nb.no/items/99980ccc4318be062c0f476a4d7758f5?page=12
+    url: https://www.nb.no/items/99980ccc4318be062c0f476a4d7758f5?page=11
     issued: 1971-07-31
     page: "12"
     searchedIssues: 3
@@ -7037,7 +7051,7 @@ entries:
     evidenceIssues:
       - issueId: 002f89f098db9d26927f113ff3fadf7f
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19720502_90_100_1
-        url: https://www.nb.no/items/002f89f098db9d26927f113ff3fadf7f?page=6
+        url: https://www.nb.no/items/002f89f098db9d26927f113ff3fadf7f?page=5
         issued: 1972-05-02
         page: "6"
         reviewMethod: ocr_api
@@ -7051,7 +7065,7 @@ entries:
           - results_board
     issueId: 002f89f098db9d26927f113ff3fadf7f
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19720502_90_100_1
-    url: https://www.nb.no/items/002f89f098db9d26927f113ff3fadf7f?page=6
+    url: https://www.nb.no/items/002f89f098db9d26927f113ff3fadf7f?page=5
     issued: 1972-05-02
     page: "6"
     searchedIssues: 1
@@ -7074,7 +7088,7 @@ entries:
     evidenceIssues:
       - issueId: 6fd019eda2dad5437035e0c1fd0d4644
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19720505_90_103_1
-        url: https://www.nb.no/items/6fd019eda2dad5437035e0c1fd0d4644?page=6
+        url: https://www.nb.no/items/6fd019eda2dad5437035e0c1fd0d4644?page=5
         issued: 1972-05-05
         page: "6"
         reviewMethod: ocr_api
@@ -7087,7 +7101,7 @@ entries:
           - unknown
     issueId: 6fd019eda2dad5437035e0c1fd0d4644
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19720505_90_103_1
-    url: https://www.nb.no/items/6fd019eda2dad5437035e0c1fd0d4644?page=6
+    url: https://www.nb.no/items/6fd019eda2dad5437035e0c1fd0d4644?page=5
     issued: 1972-05-05
     page: "6"
     searchedIssues: 4
@@ -7110,7 +7124,7 @@ entries:
     evidenceIssues:
       - issueId: dacbe2b045e95f7a39bba7702d9fdfc9
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19720515_90_110_1
-        url: https://www.nb.no/items/dacbe2b045e95f7a39bba7702d9fdfc9?page=6
+        url: https://www.nb.no/items/dacbe2b045e95f7a39bba7702d9fdfc9?page=5
         issued: 1972-05-15
         page: "6"
         reviewMethod: ocr_api
@@ -7124,7 +7138,7 @@ entries:
           - match_report
     issueId: dacbe2b045e95f7a39bba7702d9fdfc9
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19720515_90_110_1
-    url: https://www.nb.no/items/dacbe2b045e95f7a39bba7702d9fdfc9?page=6
+    url: https://www.nb.no/items/dacbe2b045e95f7a39bba7702d9fdfc9?page=5
     issued: 1972-05-15
     page: "6"
     searchedIssues: 3
@@ -7183,7 +7197,7 @@ entries:
     evidenceIssues:
       - issueId: c75cc5ba67ef5ae8fa5fdde9a77206b5
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19720626_90_144_1
-        url: https://www.nb.no/items/c75cc5ba67ef5ae8fa5fdde9a77206b5?page=6
+        url: https://www.nb.no/items/c75cc5ba67ef5ae8fa5fdde9a77206b5?page=5
         issued: 1972-06-26
         page: "6"
         reviewMethod: ocr_api
@@ -7196,7 +7210,7 @@ entries:
           - standings
     issueId: c75cc5ba67ef5ae8fa5fdde9a77206b5
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19720626_90_144_1
-    url: https://www.nb.no/items/c75cc5ba67ef5ae8fa5fdde9a77206b5?page=6
+    url: https://www.nb.no/items/c75cc5ba67ef5ae8fa5fdde9a77206b5?page=5
     issued: 1972-06-26
     page: "6"
     searchedIssues: 3
@@ -7255,7 +7269,7 @@ entries:
     evidenceIssues:
       - issueId: 8f2a53d73c1314f858dec79c5818520d
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19730604_91_126_1
-        url: https://www.nb.no/items/8f2a53d73c1314f858dec79c5818520d?page=6
+        url: https://www.nb.no/items/8f2a53d73c1314f858dec79c5818520d?page=5
         issued: 1973-06-04
         page: "6"
         reviewMethod: ocr_api
@@ -7269,7 +7283,7 @@ entries:
           - fixture_list
     issueId: 8f2a53d73c1314f858dec79c5818520d
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19730604_91_126_1
-    url: https://www.nb.no/items/8f2a53d73c1314f858dec79c5818520d?page=6
+    url: https://www.nb.no/items/8f2a53d73c1314f858dec79c5818520d?page=5
     issued: 1973-06-04
     page: "6"
     searchedIssues: 4
@@ -7310,7 +7324,7 @@ entries:
     evidenceIssues:
       - issueId: 087df7c7372fb742fe9f0834f2a51a47
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740429_92_98_1
-        url: https://www.nb.no/items/087df7c7372fb742fe9f0834f2a51a47?page=1
+        url: https://www.nb.no/items/087df7c7372fb742fe9f0834f2a51a47?page=0
         issued: 1974-04-29
         page: "1"
         reviewMethod: ocr_api
@@ -7323,7 +7337,7 @@ entries:
           - fixture_list
     issueId: 087df7c7372fb742fe9f0834f2a51a47
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740429_92_98_1
-    url: https://www.nb.no/items/087df7c7372fb742fe9f0834f2a51a47?page=1
+    url: https://www.nb.no/items/087df7c7372fb742fe9f0834f2a51a47?page=0
     issued: 1974-04-29
     page: "1"
     searchedIssues: 3
@@ -7346,7 +7360,7 @@ entries:
     evidenceIssues:
       - issueId: 56ada4c9d6c7079f4326c3294522688e
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740506_92_103_1
-        url: https://www.nb.no/items/56ada4c9d6c7079f4326c3294522688e?page=6
+        url: https://www.nb.no/items/56ada4c9d6c7079f4326c3294522688e?page=5
         issued: 1974-05-06
         page: "6"
         reviewMethod: ocr_api
@@ -7362,7 +7376,7 @@ entries:
           - unknown
     issueId: 56ada4c9d6c7079f4326c3294522688e
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740506_92_103_1
-    url: https://www.nb.no/items/56ada4c9d6c7079f4326c3294522688e?page=6
+    url: https://www.nb.no/items/56ada4c9d6c7079f4326c3294522688e?page=5
     issued: 1974-05-06
     page: "6"
     searchedIssues: 3
@@ -7385,7 +7399,7 @@ entries:
     evidenceIssues:
       - issueId: 6dedb88fbcb676acf528273727a04f38
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740513_92_109_1
-        url: https://www.nb.no/items/6dedb88fbcb676acf528273727a04f38?page=6
+        url: https://www.nb.no/items/6dedb88fbcb676acf528273727a04f38?page=5
         issued: 1974-05-13
         page: "6"
         reviewMethod: ocr_api
@@ -7400,7 +7414,7 @@ entries:
           - fixture_list
     issueId: 6dedb88fbcb676acf528273727a04f38
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740513_92_109_1
-    url: https://www.nb.no/items/6dedb88fbcb676acf528273727a04f38?page=6
+    url: https://www.nb.no/items/6dedb88fbcb676acf528273727a04f38?page=5
     issued: 1974-05-13
     page: "6"
     searchedIssues: 4
@@ -7427,7 +7441,7 @@ entries:
     evidenceIssues:
       - issueId: bf7a1d8933c42fc527df9c00bbd07635
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740520_92_114_1
-        url: https://www.nb.no/items/bf7a1d8933c42fc527df9c00bbd07635?page=6
+        url: https://www.nb.no/items/bf7a1d8933c42fc527df9c00bbd07635?page=5
         issued: 1974-05-20
         page: "6"
         reviewMethod: ocr_api
@@ -7442,7 +7456,7 @@ entries:
           - match_report
     issueId: bf7a1d8933c42fc527df9c00bbd07635
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740520_92_114_1
-    url: https://www.nb.no/items/bf7a1d8933c42fc527df9c00bbd07635?page=6
+    url: https://www.nb.no/items/bf7a1d8933c42fc527df9c00bbd07635?page=5
     issued: 1974-05-20
     page: "6"
     searchedIssues: 4
@@ -7465,7 +7479,7 @@ entries:
     evidenceIssues:
       - issueId: bb55adf047e69bf6bfaac8cbaf2a3e07
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740527_92_119_1
-        url: https://www.nb.no/items/bb55adf047e69bf6bfaac8cbaf2a3e07?page=6
+        url: https://www.nb.no/items/bb55adf047e69bf6bfaac8cbaf2a3e07?page=5
         issued: 1974-05-27
         page: "6"
         reviewMethod: ocr_api
@@ -7477,7 +7491,7 @@ entries:
           - fixture_list
     issueId: bb55adf047e69bf6bfaac8cbaf2a3e07
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740527_92_119_1
-    url: https://www.nb.no/items/bb55adf047e69bf6bfaac8cbaf2a3e07?page=6
+    url: https://www.nb.no/items/bb55adf047e69bf6bfaac8cbaf2a3e07?page=5
     issued: 1974-05-27
     page: "6"
     searchedIssues: 4
@@ -7500,7 +7514,7 @@ entries:
     evidenceIssues:
       - issueId: 2933de88b36573496d46fd8713074dd3
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740604_92_125_1
-        url: https://www.nb.no/items/2933de88b36573496d46fd8713074dd3?page=6
+        url: https://www.nb.no/items/2933de88b36573496d46fd8713074dd3?page=5
         issued: 1974-06-04
         page: "6"
         reviewMethod: ocr_api
@@ -7514,7 +7528,7 @@ entries:
           - match_report
     issueId: 2933de88b36573496d46fd8713074dd3
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740604_92_125_1
-    url: https://www.nb.no/items/2933de88b36573496d46fd8713074dd3?page=6
+    url: https://www.nb.no/items/2933de88b36573496d46fd8713074dd3?page=5
     issued: 1974-06-04
     page: "6"
     searchedIssues: 5
@@ -7537,7 +7551,7 @@ entries:
     evidenceIssues:
       - issueId: 08359e53bbf8dc83521fa5c7aceaf4fa
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19750428_93_97_1
-        url: https://www.nb.no/items/08359e53bbf8dc83521fa5c7aceaf4fa?page=1
+        url: https://www.nb.no/items/08359e53bbf8dc83521fa5c7aceaf4fa?page=0
         issued: 1975-04-28
         page: "1"
         reviewMethod: ocr_api
@@ -7551,7 +7565,7 @@ entries:
           - fixture_list
     issueId: 08359e53bbf8dc83521fa5c7aceaf4fa
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19750428_93_97_1
-    url: https://www.nb.no/items/08359e53bbf8dc83521fa5c7aceaf4fa?page=1
+    url: https://www.nb.no/items/08359e53bbf8dc83521fa5c7aceaf4fa?page=0
     issued: 1975-04-28
     page: "1"
     searchedIssues: 3
@@ -7574,7 +7588,7 @@ entries:
     evidenceIssues:
       - issueId: 4977d80dc21d1aa72d2f562cfd8aa040
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19750502_93_100_1
-        url: https://www.nb.no/items/4977d80dc21d1aa72d2f562cfd8aa040?page=7
+        url: https://www.nb.no/items/4977d80dc21d1aa72d2f562cfd8aa040?page=6
         issued: 1975-05-02
         page: "7"
         reviewMethod: ocr_api
@@ -7586,7 +7600,7 @@ entries:
           - fixture_list
     issueId: 4977d80dc21d1aa72d2f562cfd8aa040
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19750502_93_100_1
-    url: https://www.nb.no/items/4977d80dc21d1aa72d2f562cfd8aa040?page=7
+    url: https://www.nb.no/items/4977d80dc21d1aa72d2f562cfd8aa040?page=6
     issued: 1975-05-02
     page: "7"
     searchedIssues: 3
@@ -7609,7 +7623,7 @@ entries:
     evidenceIssues:
       - issueId: 59afb070ebc147db97a8c2bfa6b9e387
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19750509_93_105_1
-        url: https://www.nb.no/items/59afb070ebc147db97a8c2bfa6b9e387?page=8
+        url: https://www.nb.no/items/59afb070ebc147db97a8c2bfa6b9e387?page=7
         issued: 1975-05-09
         page: "8"
         reviewMethod: ocr_api
@@ -7623,7 +7637,7 @@ entries:
           - results_board
     issueId: 59afb070ebc147db97a8c2bfa6b9e387
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19750509_93_105_1
-    url: https://www.nb.no/items/59afb070ebc147db97a8c2bfa6b9e387?page=8
+    url: https://www.nb.no/items/59afb070ebc147db97a8c2bfa6b9e387?page=7
     issued: 1975-05-09
     page: "8"
     searchedIssues: 3
@@ -7646,7 +7660,7 @@ entries:
     evidenceIssues:
       - issueId: 0b911b2a223d8848f72e06df3f60df6d
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19750529_93_120_1
-        url: https://www.nb.no/items/0b911b2a223d8848f72e06df3f60df6d?page=6
+        url: https://www.nb.no/items/0b911b2a223d8848f72e06df3f60df6d?page=5
         issued: 1975-05-29
         page: "6"
         reviewMethod: ocr_api
@@ -7659,7 +7673,7 @@ entries:
           - preview
     issueId: 0b911b2a223d8848f72e06df3f60df6d
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19750529_93_120_1
-    url: https://www.nb.no/items/0b911b2a223d8848f72e06df3f60df6d?page=6
+    url: https://www.nb.no/items/0b911b2a223d8848f72e06df3f60df6d?page=5
     issued: 1975-05-29
     page: "6"
     searchedIssues: 4
@@ -7718,7 +7732,7 @@ entries:
     evidenceIssues:
       - issueId: 1e2080cebac365255ca09725f75fdacd
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19750613_93_133_1
-        url: https://www.nb.no/items/1e2080cebac365255ca09725f75fdacd?page=6
+        url: https://www.nb.no/items/1e2080cebac365255ca09725f75fdacd?page=5
         issued: 1975-06-13
         page: "6"
         reviewMethod: ocr_api
@@ -7730,7 +7744,7 @@ entries:
           - fixture_list
     issueId: 1e2080cebac365255ca09725f75fdacd
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19750613_93_133_1
-    url: https://www.nb.no/items/1e2080cebac365255ca09725f75fdacd?page=6
+    url: https://www.nb.no/items/1e2080cebac365255ca09725f75fdacd?page=5
     issued: 1975-06-13
     page: "6"
     searchedIssues: 5
@@ -7753,7 +7767,7 @@ entries:
     evidenceIssues:
       - issueId: bbb5383a6fdc7e7df945415526de7a69
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19750616_93_135_1
-        url: https://www.nb.no/items/bbb5383a6fdc7e7df945415526de7a69?page=6
+        url: https://www.nb.no/items/bbb5383a6fdc7e7df945415526de7a69?page=5
         issued: 1975-06-16
         page: "6"
         reviewMethod: ocr_api
@@ -7768,7 +7782,7 @@ entries:
           - match_report
     issueId: bbb5383a6fdc7e7df945415526de7a69
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19750616_93_135_1
-    url: https://www.nb.no/items/bbb5383a6fdc7e7df945415526de7a69?page=6
+    url: https://www.nb.no/items/bbb5383a6fdc7e7df945415526de7a69?page=5
     issued: 1975-06-16
     page: "6"
     searchedIssues: 6
@@ -7791,7 +7805,7 @@ entries:
     evidenceIssues:
       - issueId: 4b291efe8351de0dd201b380cc90a80b
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19750626_93_144_1
-        url: https://www.nb.no/items/4b291efe8351de0dd201b380cc90a80b?page=1
+        url: https://www.nb.no/items/4b291efe8351de0dd201b380cc90a80b?page=0
         issued: 1975-06-26
         page: "1"
         reviewMethod: ocr_api
@@ -7803,7 +7817,7 @@ entries:
           - fixture_list
     issueId: 4b291efe8351de0dd201b380cc90a80b
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19750626_93_144_1
-    url: https://www.nb.no/items/4b291efe8351de0dd201b380cc90a80b?page=1
+    url: https://www.nb.no/items/4b291efe8351de0dd201b380cc90a80b?page=0
     issued: 1975-06-26
     page: "1"
     searchedIssues: 4
@@ -7844,7 +7858,7 @@ entries:
     evidenceIssues:
       - issueId: c11c2e4168731cd68985f77c4ad2c19a
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19750818_93_189_1
-        url: https://www.nb.no/items/c11c2e4168731cd68985f77c4ad2c19a?page=6
+        url: https://www.nb.no/items/c11c2e4168731cd68985f77c4ad2c19a?page=5
         issued: 1975-08-18
         page: "6"
         reviewMethod: ocr_api
@@ -7857,7 +7871,7 @@ entries:
           - unknown
     issueId: c11c2e4168731cd68985f77c4ad2c19a
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19750818_93_189_1
-    url: https://www.nb.no/items/c11c2e4168731cd68985f77c4ad2c19a?page=6
+    url: https://www.nb.no/items/c11c2e4168731cd68985f77c4ad2c19a?page=5
     issued: 1975-08-18
     page: "6"
     searchedIssues: 4
@@ -7880,7 +7894,7 @@ entries:
     evidenceIssues:
       - issueId: f40d9fa2d00da5f577c52ea4d52a7251
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19760514_94_110_1
-        url: https://www.nb.no/items/f40d9fa2d00da5f577c52ea4d52a7251?page=6
+        url: https://www.nb.no/items/f40d9fa2d00da5f577c52ea4d52a7251?page=5
         issued: 1976-05-14
         page: "6"
         reviewMethod: ocr_api
@@ -7894,7 +7908,7 @@ entries:
           - unknown
     issueId: f40d9fa2d00da5f577c52ea4d52a7251
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19760514_94_110_1
-    url: https://www.nb.no/items/f40d9fa2d00da5f577c52ea4d52a7251?page=6
+    url: https://www.nb.no/items/f40d9fa2d00da5f577c52ea4d52a7251?page=5
     issued: 1976-05-14
     page: "6"
     searchedIssues: 4
@@ -7917,7 +7931,7 @@ entries:
     evidenceIssues:
       - issueId: 215fc85ea29191350b3e3dbad6a1d2eb
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19760531_94_122_1
-        url: https://www.nb.no/items/215fc85ea29191350b3e3dbad6a1d2eb?page=7
+        url: https://www.nb.no/items/215fc85ea29191350b3e3dbad6a1d2eb?page=6
         issued: 1976-05-31
         page: "7"
         reviewMethod: ocr_api
@@ -7932,7 +7946,7 @@ entries:
           - standings
     issueId: 215fc85ea29191350b3e3dbad6a1d2eb
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19760531_94_122_1
-    url: https://www.nb.no/items/215fc85ea29191350b3e3dbad6a1d2eb?page=7
+    url: https://www.nb.no/items/215fc85ea29191350b3e3dbad6a1d2eb?page=6
     issued: 1976-05-31
     page: "7"
     searchedIssues: 4
@@ -7957,7 +7971,7 @@ entries:
     evidenceIssues:
       - issueId: 4168abf2efb85c783876940384be99fd
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19760614_94_133_1
-        url: https://www.nb.no/items/4168abf2efb85c783876940384be99fd?page=6
+        url: https://www.nb.no/items/4168abf2efb85c783876940384be99fd?page=5
         issued: 1976-06-14
         page: "6"
         reviewMethod: ocr_api
@@ -7972,7 +7986,7 @@ entries:
           - match_report
     issueId: 4168abf2efb85c783876940384be99fd
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19760614_94_133_1
-    url: https://www.nb.no/items/4168abf2efb85c783876940384be99fd?page=6
+    url: https://www.nb.no/items/4168abf2efb85c783876940384be99fd?page=5
     issued: 1976-06-14
     page: "6"
     searchedIssues: 2
@@ -7995,7 +8009,7 @@ entries:
     evidenceIssues:
       - issueId: 5dabbfa494f5e2e0da13802dcc4505ab
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19760626_94_144_1
-        url: https://www.nb.no/items/5dabbfa494f5e2e0da13802dcc4505ab?page=17
+        url: https://www.nb.no/items/5dabbfa494f5e2e0da13802dcc4505ab?page=16
         issued: 1976-06-26
         page: "17"
         reviewMethod: ocr_api
@@ -8007,7 +8021,7 @@ entries:
           - fixture_list
     issueId: 5dabbfa494f5e2e0da13802dcc4505ab
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19760626_94_144_1
-    url: https://www.nb.no/items/5dabbfa494f5e2e0da13802dcc4505ab?page=17
+    url: https://www.nb.no/items/5dabbfa494f5e2e0da13802dcc4505ab?page=16
     issued: 1976-06-26
     page: "17"
     searchedIssues: 3
@@ -8030,7 +8044,7 @@ entries:
     evidenceIssues:
       - issueId: e6f17e09ddbc2f2c3983b7367528dd47
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19760726_94_169_1
-        url: https://www.nb.no/items/e6f17e09ddbc2f2c3983b7367528dd47?page=6
+        url: https://www.nb.no/items/e6f17e09ddbc2f2c3983b7367528dd47?page=5
         issued: 1976-07-26
         page: "6"
         reviewMethod: ocr_api
@@ -8044,7 +8058,7 @@ entries:
           - fixture_list
     issueId: e6f17e09ddbc2f2c3983b7367528dd47
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19760726_94_169_1
-    url: https://www.nb.no/items/e6f17e09ddbc2f2c3983b7367528dd47?page=6
+    url: https://www.nb.no/items/e6f17e09ddbc2f2c3983b7367528dd47?page=5
     issued: 1976-07-26
     page: "6"
     searchedIssues: 2
@@ -8067,7 +8081,7 @@ entries:
     evidenceIssues:
       - issueId: a780635f4e111c01794f9ccabed36ddf
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19760730_94_173_1
-        url: https://www.nb.no/items/a780635f4e111c01794f9ccabed36ddf?page=9
+        url: https://www.nb.no/items/a780635f4e111c01794f9ccabed36ddf?page=8
         issued: 1976-07-30
         page: "9"
         reviewMethod: ocr_api
@@ -8080,7 +8094,7 @@ entries:
           - fixture_list
     issueId: a780635f4e111c01794f9ccabed36ddf
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19760730_94_173_1
-    url: https://www.nb.no/items/a780635f4e111c01794f9ccabed36ddf?page=9
+    url: https://www.nb.no/items/a780635f4e111c01794f9ccabed36ddf?page=8
     issued: 1976-07-30
     page: "9"
     searchedIssues: 2
@@ -8121,7 +8135,7 @@ entries:
     evidenceIssues:
       - issueId: 61f826c64730e751920ef282f34f20a3
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19760809_94_181_1
-        url: https://www.nb.no/items/61f826c64730e751920ef282f34f20a3?page=6
+        url: https://www.nb.no/items/61f826c64730e751920ef282f34f20a3?page=5
         issued: 1976-08-09
         page: "6"
         reviewMethod: ocr_api
@@ -8134,7 +8148,7 @@ entries:
           - standings
     issueId: 61f826c64730e751920ef282f34f20a3
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19760809_94_181_1
-    url: https://www.nb.no/items/61f826c64730e751920ef282f34f20a3?page=6
+    url: https://www.nb.no/items/61f826c64730e751920ef282f34f20a3?page=5
     issued: 1976-08-09
     page: "6"
     searchedIssues: 3
@@ -8157,7 +8171,7 @@ entries:
     evidenceIssues:
       - issueId: 6a6285b9b2aec16faae2309f74a7b995
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19760813_94_185_1
-        url: https://www.nb.no/items/6a6285b9b2aec16faae2309f74a7b995?page=6
+        url: https://www.nb.no/items/6a6285b9b2aec16faae2309f74a7b995?page=5
         issued: 1976-08-13
         page: "6"
         reviewMethod: ocr_api
@@ -8170,7 +8184,7 @@ entries:
           - fixture_list
     issueId: 6a6285b9b2aec16faae2309f74a7b995
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19760813_94_185_1
-    url: https://www.nb.no/items/6a6285b9b2aec16faae2309f74a7b995?page=6
+    url: https://www.nb.no/items/6a6285b9b2aec16faae2309f74a7b995?page=5
     issued: 1976-08-13
     page: "6"
     searchedIssues: 3
@@ -8193,7 +8207,7 @@ entries:
     evidenceIssues:
       - issueId: 3164360bda62d529f6e5c194e8ea048e
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19760823_94_193_1
-        url: https://www.nb.no/items/3164360bda62d529f6e5c194e8ea048e?page=6
+        url: https://www.nb.no/items/3164360bda62d529f6e5c194e8ea048e?page=5
         issued: 1976-08-23
         page: "6"
         reviewMethod: ocr_api
@@ -8207,7 +8221,7 @@ entries:
           - match_report
     issueId: 3164360bda62d529f6e5c194e8ea048e
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19760823_94_193_1
-    url: https://www.nb.no/items/3164360bda62d529f6e5c194e8ea048e?page=6
+    url: https://www.nb.no/items/3164360bda62d529f6e5c194e8ea048e?page=5
     issued: 1976-08-23
     page: "6"
     searchedIssues: 3
@@ -8266,7 +8280,7 @@ entries:
     evidenceIssues:
       - issueId: 0285dd33df575cee3de59d621eb2a09f
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19770622_95_139_1
-        url: https://www.nb.no/items/0285dd33df575cee3de59d621eb2a09f?page=7
+        url: https://www.nb.no/items/0285dd33df575cee3de59d621eb2a09f?page=6
         issued: 1977-06-22
         page: "7"
         reviewMethod: ocr_api
@@ -8278,7 +8292,7 @@ entries:
           - fixture_list
     issueId: 0285dd33df575cee3de59d621eb2a09f
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19770622_95_139_1
-    url: https://www.nb.no/items/0285dd33df575cee3de59d621eb2a09f?page=7
+    url: https://www.nb.no/items/0285dd33df575cee3de59d621eb2a09f?page=6
     issued: 1977-06-22
     page: "7"
     searchedIssues: 4
@@ -8301,7 +8315,7 @@ entries:
     evidenceIssues:
       - issueId: 79d5d00433370bc257cd2307d9a8a503
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19770728_95_170_1
-        url: https://www.nb.no/items/79d5d00433370bc257cd2307d9a8a503?page=6
+        url: https://www.nb.no/items/79d5d00433370bc257cd2307d9a8a503?page=5
         issued: 1977-07-28
         page: "6"
         reviewMethod: ocr_api
@@ -8314,7 +8328,7 @@ entries:
           - match_report
     issueId: 79d5d00433370bc257cd2307d9a8a503
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19770728_95_170_1
-    url: https://www.nb.no/items/79d5d00433370bc257cd2307d9a8a503?page=6
+    url: https://www.nb.no/items/79d5d00433370bc257cd2307d9a8a503?page=5
     issued: 1977-07-28
     page: "6"
     searchedIssues: 4
@@ -8339,7 +8353,7 @@ entries:
     evidenceIssues:
       - issueId: 75651e9433166714a59915e86fc4ea16
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19770801_95_173_1
-        url: https://www.nb.no/items/75651e9433166714a59915e86fc4ea16?page=6
+        url: https://www.nb.no/items/75651e9433166714a59915e86fc4ea16?page=5
         issued: 1977-08-01
         page: "6"
         reviewMethod: ocr_api
@@ -8352,7 +8366,7 @@ entries:
           - fixture_list
     issueId: 75651e9433166714a59915e86fc4ea16
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19770801_95_173_1
-    url: https://www.nb.no/items/75651e9433166714a59915e86fc4ea16?page=6
+    url: https://www.nb.no/items/75651e9433166714a59915e86fc4ea16?page=5
     issued: 1977-08-01
     page: "6"
     searchedIssues: 5
@@ -8379,7 +8393,7 @@ entries:
     evidenceIssues:
       - issueId: a4b4cba558dc9a6531ce1d57ab9f9e3c
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19770808_95_178_1
-        url: https://www.nb.no/items/a4b4cba558dc9a6531ce1d57ab9f9e3c?page=6
+        url: https://www.nb.no/items/a4b4cba558dc9a6531ce1d57ab9f9e3c?page=5
         issued: 1977-08-08
         page: "6"
         reviewMethod: ocr_api
@@ -8394,7 +8408,7 @@ entries:
           - match_report
     issueId: a4b4cba558dc9a6531ce1d57ab9f9e3c
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19770808_95_178_1
-    url: https://www.nb.no/items/a4b4cba558dc9a6531ce1d57ab9f9e3c?page=6
+    url: https://www.nb.no/items/a4b4cba558dc9a6531ce1d57ab9f9e3c?page=5
     issued: 1977-08-08
     page: "6"
     searchedIssues: 4
@@ -8421,7 +8435,7 @@ entries:
     evidenceIssues:
       - issueId: 9ea1547ddaa2d4647e13216bad368402
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19770812_95_182_1
-        url: https://www.nb.no/items/9ea1547ddaa2d4647e13216bad368402?page=6
+        url: https://www.nb.no/items/9ea1547ddaa2d4647e13216bad368402?page=5
         issued: 1977-08-12
         page: "6"
         reviewMethod: ocr_api
@@ -8433,7 +8447,7 @@ entries:
           - fixture_list
     issueId: 9ea1547ddaa2d4647e13216bad368402
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19770812_95_182_1
-    url: https://www.nb.no/items/9ea1547ddaa2d4647e13216bad368402?page=6
+    url: https://www.nb.no/items/9ea1547ddaa2d4647e13216bad368402?page=5
     issued: 1977-08-12
     page: "6"
     searchedIssues: 4
@@ -8474,7 +8488,7 @@ entries:
     evidenceIssues:
       - issueId: a8397b62eec951bd7d0af907961aeff0
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19770919_95_216_1
-        url: https://www.nb.no/items/a8397b62eec951bd7d0af907961aeff0?page=7
+        url: https://www.nb.no/items/a8397b62eec951bd7d0af907961aeff0?page=6
         issued: 1977-09-19
         page: "7"
         reviewMethod: ocr_api
@@ -8489,7 +8503,7 @@ entries:
           - results_board
     issueId: a8397b62eec951bd7d0af907961aeff0
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19770919_95_216_1
-    url: https://www.nb.no/items/a8397b62eec951bd7d0af907961aeff0?page=7
+    url: https://www.nb.no/items/a8397b62eec951bd7d0af907961aeff0?page=6
     issued: 1977-09-19
     page: "7"
     searchedIssues: 3
@@ -8512,7 +8526,7 @@ entries:
     evidenceIssues:
       - issueId: 94a4f0a6926e32bded400e5af598463d
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19781009_96_233_1
-        url: https://www.nb.no/items/94a4f0a6926e32bded400e5af598463d?page=8
+        url: https://www.nb.no/items/94a4f0a6926e32bded400e5af598463d?page=7
         issued: 1978-10-09
         page: "8"
         reviewMethod: ocr_api
@@ -8525,7 +8539,7 @@ entries:
           - match_report
     issueId: 94a4f0a6926e32bded400e5af598463d
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19781009_96_233_1
-    url: https://www.nb.no/items/94a4f0a6926e32bded400e5af598463d?page=8
+    url: https://www.nb.no/items/94a4f0a6926e32bded400e5af598463d?page=7
     issued: 1978-10-09
     page: "8"
     searchedIssues: 4
@@ -8550,7 +8564,7 @@ entries:
     evidenceIssues:
       - issueId: 242bddbe45016cf45db57bcf4772e412
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19781016_96_239_1
-        url: https://www.nb.no/items/242bddbe45016cf45db57bcf4772e412?page=6
+        url: https://www.nb.no/items/242bddbe45016cf45db57bcf4772e412?page=5
         issued: 1978-10-16
         page: "6"
         reviewMethod: ocr_api
@@ -8563,7 +8577,7 @@ entries:
           - unknown
     issueId: 242bddbe45016cf45db57bcf4772e412
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19781016_96_239_1
-    url: https://www.nb.no/items/242bddbe45016cf45db57bcf4772e412?page=6
+    url: https://www.nb.no/items/242bddbe45016cf45db57bcf4772e412?page=5
     issued: 1978-10-16
     page: "6"
     searchedIssues: 4
@@ -8586,7 +8600,7 @@ entries:
     evidenceIssues:
       - issueId: b69711619e7850f7bb74642354d724e8
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790226_97_48_1
-        url: https://www.nb.no/items/b69711619e7850f7bb74642354d724e8?page=7
+        url: https://www.nb.no/items/b69711619e7850f7bb74642354d724e8?page=6
         issued: 1979-02-26
         page: "7"
         reviewMethod: ocr_api
@@ -8599,7 +8613,7 @@ entries:
           - fixture_list
     issueId: b69711619e7850f7bb74642354d724e8
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790226_97_48_1
-    url: https://www.nb.no/items/b69711619e7850f7bb74642354d724e8?page=7
+    url: https://www.nb.no/items/b69711619e7850f7bb74642354d724e8?page=6
     issued: 1979-02-26
     page: "7"
     searchedIssues: 6
@@ -8622,7 +8636,7 @@ entries:
     evidenceIssues:
       - issueId: 8394a1b792d587371559d8f603973230
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790302_97_52_1
-        url: https://www.nb.no/items/8394a1b792d587371559d8f603973230?page=6
+        url: https://www.nb.no/items/8394a1b792d587371559d8f603973230?page=5
         issued: 1979-03-02
         page: "6"
         reviewMethod: ocr_api
@@ -8635,7 +8649,7 @@ entries:
           - fixture_list
     issueId: 8394a1b792d587371559d8f603973230
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790302_97_52_1
-    url: https://www.nb.no/items/8394a1b792d587371559d8f603973230?page=6
+    url: https://www.nb.no/items/8394a1b792d587371559d8f603973230?page=5
     issued: 1979-03-02
     page: "6"
     searchedIssues: 4
@@ -8676,7 +8690,7 @@ entries:
     evidenceIssues:
       - issueId: 17e0ca6eba11040169a46bb2bcd44e18
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790305_97_54_1
-        url: https://www.nb.no/items/17e0ca6eba11040169a46bb2bcd44e18?page=10
+        url: https://www.nb.no/items/17e0ca6eba11040169a46bb2bcd44e18?page=9
         issued: 1979-03-05
         page: "10"
         reviewMethod: ocr_api
@@ -8689,7 +8703,7 @@ entries:
           - fixture_list
     issueId: 17e0ca6eba11040169a46bb2bcd44e18
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790305_97_54_1
-    url: https://www.nb.no/items/17e0ca6eba11040169a46bb2bcd44e18?page=10
+    url: https://www.nb.no/items/17e0ca6eba11040169a46bb2bcd44e18?page=9
     issued: 1979-03-05
     page: "10"
     searchedIssues: 1
@@ -8730,7 +8744,7 @@ entries:
     evidenceIssues:
       - issueId: 81069f6ed1d30c28b7c0448b4f580d36
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790312_97_60_1
-        url: https://www.nb.no/items/81069f6ed1d30c28b7c0448b4f580d36?page=10
+        url: https://www.nb.no/items/81069f6ed1d30c28b7c0448b4f580d36?page=9
         issued: 1979-03-12
         page: "10"
         reviewMethod: ocr_api
@@ -8742,7 +8756,7 @@ entries:
           - fixture_list
     issueId: 81069f6ed1d30c28b7c0448b4f580d36
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790312_97_60_1
-    url: https://www.nb.no/items/81069f6ed1d30c28b7c0448b4f580d36?page=10
+    url: https://www.nb.no/items/81069f6ed1d30c28b7c0448b4f580d36?page=9
     issued: 1979-03-12
     page: "10"
     searchedIssues: 1
@@ -8765,7 +8779,7 @@ entries:
     evidenceIssues:
       - issueId: 5d67ea2554b84b6ad94e9a7fb7a91956
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790319_97_66_1
-        url: https://www.nb.no/items/5d67ea2554b84b6ad94e9a7fb7a91956?page=8
+        url: https://www.nb.no/items/5d67ea2554b84b6ad94e9a7fb7a91956?page=7
         issued: 1979-03-19
         page: "8"
         reviewMethod: ocr_api
@@ -8779,7 +8793,7 @@ entries:
           - unknown
     issueId: 5d67ea2554b84b6ad94e9a7fb7a91956
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790319_97_66_1
-    url: https://www.nb.no/items/5d67ea2554b84b6ad94e9a7fb7a91956?page=8
+    url: https://www.nb.no/items/5d67ea2554b84b6ad94e9a7fb7a91956?page=7
     issued: 1979-03-19
     page: "8"
     searchedIssues: 2
@@ -8802,7 +8816,7 @@ entries:
     evidenceIssues:
       - issueId: 5d67ea2554b84b6ad94e9a7fb7a91956
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790319_97_66_1
-        url: https://www.nb.no/items/5d67ea2554b84b6ad94e9a7fb7a91956?page=8
+        url: https://www.nb.no/items/5d67ea2554b84b6ad94e9a7fb7a91956?page=7
         issued: 1979-03-19
         page: "8"
         reviewMethod: ocr_api
@@ -8816,7 +8830,7 @@ entries:
           - results_board
     issueId: 5d67ea2554b84b6ad94e9a7fb7a91956
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790319_97_66_1
-    url: https://www.nb.no/items/5d67ea2554b84b6ad94e9a7fb7a91956?page=8
+    url: https://www.nb.no/items/5d67ea2554b84b6ad94e9a7fb7a91956?page=7
     issued: 1979-03-19
     page: "8"
     searchedIssues: 1
@@ -8839,7 +8853,7 @@ entries:
     evidenceIssues:
       - issueId: 95d652d53a5e3636dfb5f433ca610c86
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790326_97_72_1
-        url: https://www.nb.no/items/95d652d53a5e3636dfb5f433ca610c86?page=7
+        url: https://www.nb.no/items/95d652d53a5e3636dfb5f433ca610c86?page=6
         issued: 1979-03-26
         page: "7"
         reviewMethod: ocr_api
@@ -8853,7 +8867,7 @@ entries:
           - result_note
     issueId: 95d652d53a5e3636dfb5f433ca610c86
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790326_97_72_1
-    url: https://www.nb.no/items/95d652d53a5e3636dfb5f433ca610c86?page=7
+    url: https://www.nb.no/items/95d652d53a5e3636dfb5f433ca610c86?page=6
     issued: 1979-03-26
     page: "7"
     searchedIssues: 3
@@ -8876,7 +8890,7 @@ entries:
     evidenceIssues:
       - issueId: 59e01fe4619207e68dbd852a0c8e70bf
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790402_97_78_1
-        url: https://www.nb.no/items/59e01fe4619207e68dbd852a0c8e70bf?page=7
+        url: https://www.nb.no/items/59e01fe4619207e68dbd852a0c8e70bf?page=6
         issued: 1979-04-02
         page: "7"
         reviewMethod: ocr_api
@@ -8890,7 +8904,7 @@ entries:
           - fixture_list
     issueId: 59e01fe4619207e68dbd852a0c8e70bf
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790402_97_78_1
-    url: https://www.nb.no/items/59e01fe4619207e68dbd852a0c8e70bf?page=7
+    url: https://www.nb.no/items/59e01fe4619207e68dbd852a0c8e70bf?page=6
     issued: 1979-04-02
     page: "7"
     searchedIssues: 3
@@ -8913,7 +8927,7 @@ entries:
     evidenceIssues:
       - issueId: 59e01fe4619207e68dbd852a0c8e70bf
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790402_97_78_1
-        url: https://www.nb.no/items/59e01fe4619207e68dbd852a0c8e70bf?page=7
+        url: https://www.nb.no/items/59e01fe4619207e68dbd852a0c8e70bf?page=6
         issued: 1979-04-02
         page: "7"
         reviewMethod: ocr_api
@@ -8927,7 +8941,7 @@ entries:
           - unknown
     issueId: 59e01fe4619207e68dbd852a0c8e70bf
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790402_97_78_1
-    url: https://www.nb.no/items/59e01fe4619207e68dbd852a0c8e70bf?page=7
+    url: https://www.nb.no/items/59e01fe4619207e68dbd852a0c8e70bf?page=6
     issued: 1979-04-02
     page: "7"
     searchedIssues: 1
@@ -8968,7 +8982,7 @@ entries:
     evidenceIssues:
       - issueId: 0412af79f28950750847b95b18347813
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790417_97_87_1
-        url: https://www.nb.no/items/0412af79f28950750847b95b18347813?page=6
+        url: https://www.nb.no/items/0412af79f28950750847b95b18347813?page=5
         issued: 1979-04-17
         page: "6"
         reviewMethod: ocr_api
@@ -8982,7 +8996,7 @@ entries:
           - result_note
     issueId: 0412af79f28950750847b95b18347813
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790417_97_87_1
-    url: https://www.nb.no/items/0412af79f28950750847b95b18347813?page=6
+    url: https://www.nb.no/items/0412af79f28950750847b95b18347813?page=5
     issued: 1979-04-17
     page: "6"
     searchedIssues: 2
@@ -9007,7 +9021,7 @@ entries:
     evidenceIssues:
       - issueId: 0412af79f28950750847b95b18347813
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790417_97_87_1
-        url: https://www.nb.no/items/0412af79f28950750847b95b18347813?page=6
+        url: https://www.nb.no/items/0412af79f28950750847b95b18347813?page=5
         issued: 1979-04-17
         page: "6"
         reviewMethod: ocr_api
@@ -9021,7 +9035,7 @@ entries:
           - unknown
     issueId: 0412af79f28950750847b95b18347813
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790417_97_87_1
-    url: https://www.nb.no/items/0412af79f28950750847b95b18347813?page=6
+    url: https://www.nb.no/items/0412af79f28950750847b95b18347813?page=5
     issued: 1979-04-17
     page: "6"
     searchedIssues: 3
@@ -9037,18 +9051,18 @@ entries:
     note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
   - matchId: 1979-04-29-aalesunds-fk-hodd
     status: ocr_correlated
-    reviewMethod: ocr_api
-    facsimileReviewed: false
+    reviewMethod: facsimile
+    facsimileReviewed: true
     confidence: high
     canonicalLinked: true
     evidenceIssues:
       - issueId: 4e1c1f44cfa796656dc1ab5fb22116ad
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790430_97_98_1
-        url: https://www.nb.no/items/4e1c1f44cfa796656dc1ab5fb22116ad?page=7
+        url: https://www.nb.no/items/4e1c1f44cfa796656dc1ab5fb22116ad?page=6
         issued: 1979-04-30
         page: "7"
-        reviewMethod: ocr_api
-        facsimileReviewed: false
+        reviewMethod: facsimile
+        facsimileReviewed: true
         canonicalLinked: true
         confidence: high
         genres: &a204
@@ -9057,12 +9071,12 @@ entries:
           - fixture_list
     issueId: 4e1c1f44cfa796656dc1ab5fb22116ad
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790430_97_98_1
-    url: https://www.nb.no/items/4e1c1f44cfa796656dc1ab5fb22116ad?page=7
+    url: https://www.nb.no/items/4e1c1f44cfa796656dc1ab5fb22116ad?page=6
     issued: 1979-04-30
     page: "7"
     searchedIssues: 3
     ocrCandidates: 3
-    visuallyReviewedPages: 0
+    visuallyReviewedPages: 1
     genres: *a204
     fieldsAdded: []
     newPlayers: 0
@@ -9070,7 +9084,7 @@ entries:
     newHistoricalObservations: 0
     falsePositive: false
     differentMatch: false
-    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+    note: Faksimilen på trykt side 7 bekrefter AaFK–Hødd og 0–1 i Sunnmørsderbyet.
   - matchId: 1979-05-06-mo-il-aalesunds-fk
     status: no_ocr_candidate
     reviewMethod: ocr_api
@@ -9098,7 +9112,7 @@ entries:
     evidenceIssues:
       - issueId: 2d377b6c6039ea0acc97346a80161152
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790514_97_109_1
-        url: https://www.nb.no/items/2d377b6c6039ea0acc97346a80161152?page=7
+        url: https://www.nb.no/items/2d377b6c6039ea0acc97346a80161152?page=6
         issued: 1979-05-14
         page: "7"
         reviewMethod: ocr_api
@@ -9111,7 +9125,7 @@ entries:
           - match_report
     issueId: 2d377b6c6039ea0acc97346a80161152
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790514_97_109_1
-    url: https://www.nb.no/items/2d377b6c6039ea0acc97346a80161152?page=7
+    url: https://www.nb.no/items/2d377b6c6039ea0acc97346a80161152?page=6
     issued: 1979-05-14
     page: "7"
     searchedIssues: 5
@@ -9134,7 +9148,7 @@ entries:
     evidenceIssues:
       - issueId: 246ad4ff8570d6263984bf944e936747
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790523_97_116_1
-        url: https://www.nb.no/items/246ad4ff8570d6263984bf944e936747?page=7
+        url: https://www.nb.no/items/246ad4ff8570d6263984bf944e936747?page=6
         issued: 1979-05-23
         page: "7"
         reviewMethod: ocr_api
@@ -9147,7 +9161,7 @@ entries:
           - unknown
     issueId: 246ad4ff8570d6263984bf944e936747
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790523_97_116_1
-    url: https://www.nb.no/items/246ad4ff8570d6263984bf944e936747?page=7
+    url: https://www.nb.no/items/246ad4ff8570d6263984bf944e936747?page=6
     issued: 1979-05-23
     page: "7"
     searchedIssues: 3
@@ -9170,7 +9184,7 @@ entries:
     evidenceIssues:
       - issueId: 43d8d52dce9d31f1a0f79833dc992ed6
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790525_97_117_1
-        url: https://www.nb.no/items/43d8d52dce9d31f1a0f79833dc992ed6?page=7
+        url: https://www.nb.no/items/43d8d52dce9d31f1a0f79833dc992ed6?page=6
         issued: 1979-05-25
         page: "7"
         reviewMethod: ocr_api
@@ -9183,7 +9197,7 @@ entries:
           - fixture_list
     issueId: 43d8d52dce9d31f1a0f79833dc992ed6
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790525_97_117_1
-    url: https://www.nb.no/items/43d8d52dce9d31f1a0f79833dc992ed6?page=7
+    url: https://www.nb.no/items/43d8d52dce9d31f1a0f79833dc992ed6?page=6
     issued: 1979-05-25
     page: "7"
     searchedIssues: 2
@@ -9206,7 +9220,7 @@ entries:
     evidenceIssues:
       - issueId: bcdd1050e987adcaa7413b0de068212f
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790526_97_118_1
-        url: https://www.nb.no/items/bcdd1050e987adcaa7413b0de068212f?page=1
+        url: https://www.nb.no/items/bcdd1050e987adcaa7413b0de068212f?page=0
         issued: 1979-05-26
         page: "1"
         reviewMethod: ocr_api
@@ -9218,7 +9232,7 @@ entries:
           - preview
     issueId: bcdd1050e987adcaa7413b0de068212f
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790526_97_118_1
-    url: https://www.nb.no/items/bcdd1050e987adcaa7413b0de068212f?page=1
+    url: https://www.nb.no/items/bcdd1050e987adcaa7413b0de068212f?page=0
     issued: 1979-05-26
     page: "1"
     searchedIssues: 5
@@ -9241,7 +9255,7 @@ entries:
     evidenceIssues:
       - issueId: b8a3b94ec3b7b54de0740b56230a5e01
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790601_97_123_1
-        url: https://www.nb.no/items/b8a3b94ec3b7b54de0740b56230a5e01?page=7
+        url: https://www.nb.no/items/b8a3b94ec3b7b54de0740b56230a5e01?page=6
         issued: 1979-06-01
         page: "7"
         reviewMethod: ocr_api
@@ -9253,7 +9267,7 @@ entries:
           - fixture_list
     issueId: b8a3b94ec3b7b54de0740b56230a5e01
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790601_97_123_1
-    url: https://www.nb.no/items/b8a3b94ec3b7b54de0740b56230a5e01?page=7
+    url: https://www.nb.no/items/b8a3b94ec3b7b54de0740b56230a5e01?page=6
     issued: 1979-06-01
     page: "7"
     searchedIssues: 5
@@ -9276,7 +9290,7 @@ entries:
     evidenceIssues:
       - issueId: 52d59cbb2329ea882bc7d4f7092f2bce
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790605_97_125_1
-        url: https://www.nb.no/items/52d59cbb2329ea882bc7d4f7092f2bce?page=7
+        url: https://www.nb.no/items/52d59cbb2329ea882bc7d4f7092f2bce?page=6
         issued: 1979-06-05
         page: "7"
         reviewMethod: ocr_api
@@ -9290,7 +9304,7 @@ entries:
           - standings
     issueId: 52d59cbb2329ea882bc7d4f7092f2bce
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790605_97_125_1
-    url: https://www.nb.no/items/52d59cbb2329ea882bc7d4f7092f2bce?page=7
+    url: https://www.nb.no/items/52d59cbb2329ea882bc7d4f7092f2bce?page=6
     issued: 1979-06-05
     page: "7"
     searchedIssues: 3
@@ -9313,7 +9327,7 @@ entries:
     evidenceIssues:
       - issueId: 0f933cca00653593e7453f6718c337a8
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790611_97_130_1
-        url: https://www.nb.no/items/0f933cca00653593e7453f6718c337a8?page=8
+        url: https://www.nb.no/items/0f933cca00653593e7453f6718c337a8?page=7
         issued: 1979-06-11
         page: "8"
         reviewMethod: ocr_api
@@ -9326,7 +9340,7 @@ entries:
           - unknown
     issueId: 0f933cca00653593e7453f6718c337a8
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790611_97_130_1
-    url: https://www.nb.no/items/0f933cca00653593e7453f6718c337a8?page=8
+    url: https://www.nb.no/items/0f933cca00653593e7453f6718c337a8?page=7
     issued: 1979-06-11
     page: "8"
     searchedIssues: 3
@@ -9353,7 +9367,7 @@ entries:
     evidenceIssues:
       - issueId: 5f31dac3eaf873cc59b8eed572fc47ba
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790618_97_136_1
-        url: https://www.nb.no/items/5f31dac3eaf873cc59b8eed572fc47ba?page=8
+        url: https://www.nb.no/items/5f31dac3eaf873cc59b8eed572fc47ba?page=7
         issued: 1979-06-18
         page: "8"
         reviewMethod: ocr_api
@@ -9367,7 +9381,7 @@ entries:
           - results_board
     issueId: 5f31dac3eaf873cc59b8eed572fc47ba
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790618_97_136_1
-    url: https://www.nb.no/items/5f31dac3eaf873cc59b8eed572fc47ba?page=8
+    url: https://www.nb.no/items/5f31dac3eaf873cc59b8eed572fc47ba?page=7
     issued: 1979-06-18
     page: "8"
     searchedIssues: 4
@@ -9392,7 +9406,7 @@ entries:
     evidenceIssues:
       - issueId: f1390d74bdcf5737c4e4421dc668495c
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790625_97_142_1
-        url: https://www.nb.no/items/f1390d74bdcf5737c4e4421dc668495c?page=7
+        url: https://www.nb.no/items/f1390d74bdcf5737c4e4421dc668495c?page=6
         issued: 1979-06-25
         page: "7"
         reviewMethod: ocr_api
@@ -9406,7 +9420,7 @@ entries:
           - unknown
     issueId: f1390d74bdcf5737c4e4421dc668495c
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790625_97_142_1
-    url: https://www.nb.no/items/f1390d74bdcf5737c4e4421dc668495c?page=7
+    url: https://www.nb.no/items/f1390d74bdcf5737c4e4421dc668495c?page=6
     issued: 1979-06-25
     page: "7"
     searchedIssues: 3
@@ -9430,7 +9444,7 @@ entries:
     evidenceIssues:
       - issueId: e8ba1911021746ff066b40693491febb
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790702_97_148_1
-        url: https://www.nb.no/items/e8ba1911021746ff066b40693491febb?page=6
+        url: https://www.nb.no/items/e8ba1911021746ff066b40693491febb?page=5
         issued: 1979-07-02
         page: "6"
         reviewMethod: ocr_api
@@ -9446,7 +9460,7 @@ entries:
           - match_report
     issueId: e8ba1911021746ff066b40693491febb
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790702_97_148_1
-    url: https://www.nb.no/items/e8ba1911021746ff066b40693491febb?page=6
+    url: https://www.nb.no/items/e8ba1911021746ff066b40693491febb?page=5
     issued: 1979-07-02
     page: "6"
     searchedIssues: 4
@@ -9508,7 +9522,7 @@ entries:
     evidenceIssues:
       - issueId: e2f1010e31f46c825bf27b781a75b3c9
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790730_97_172_1
-        url: https://www.nb.no/items/e2f1010e31f46c825bf27b781a75b3c9?page=6
+        url: https://www.nb.no/items/e2f1010e31f46c825bf27b781a75b3c9?page=5
         issued: 1979-07-30
         page: "6"
         reviewMethod: ocr_api
@@ -9523,7 +9537,7 @@ entries:
           - match_report
     issueId: e2f1010e31f46c825bf27b781a75b3c9
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790730_97_172_1
-    url: https://www.nb.no/items/e2f1010e31f46c825bf27b781a75b3c9?page=6
+    url: https://www.nb.no/items/e2f1010e31f46c825bf27b781a75b3c9?page=5
     issued: 1979-07-30
     page: "6"
     searchedIssues: 6
@@ -9549,7 +9563,7 @@ entries:
     evidenceIssues:
       - issueId: 19df61960aa326426ee93930ef220ad0
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790802_97_175_1
-        url: https://www.nb.no/items/19df61960aa326426ee93930ef220ad0?page=7
+        url: https://www.nb.no/items/19df61960aa326426ee93930ef220ad0?page=6
         issued: 1979-08-02
         page: "7"
         reviewMethod: ocr_api
@@ -9562,7 +9576,7 @@ entries:
           - unknown
     issueId: 19df61960aa326426ee93930ef220ad0
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790802_97_175_1
-    url: https://www.nb.no/items/19df61960aa326426ee93930ef220ad0?page=7
+    url: https://www.nb.no/items/19df61960aa326426ee93930ef220ad0?page=6
     issued: 1979-08-02
     page: "7"
     searchedIssues: 6
@@ -9585,7 +9599,7 @@ entries:
     evidenceIssues:
       - issueId: 1e33d3bcbaa235c312f0f415cb119ffc
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790806_97_178_1
-        url: https://www.nb.no/items/1e33d3bcbaa235c312f0f415cb119ffc?page=6
+        url: https://www.nb.no/items/1e33d3bcbaa235c312f0f415cb119ffc?page=5
         issued: 1979-08-06
         page: "6"
         reviewMethod: ocr_api
@@ -9599,7 +9613,7 @@ entries:
           - match_report
     issueId: 1e33d3bcbaa235c312f0f415cb119ffc
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790806_97_178_1
-    url: https://www.nb.no/items/1e33d3bcbaa235c312f0f415cb119ffc?page=6
+    url: https://www.nb.no/items/1e33d3bcbaa235c312f0f415cb119ffc?page=5
     issued: 1979-08-06
     page: "6"
     searchedIssues: 4
@@ -9625,7 +9639,7 @@ entries:
     evidenceIssues:
       - issueId: d02ab37c3da9e9f534d70d2494612577
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790820_97_190_1
-        url: https://www.nb.no/items/d02ab37c3da9e9f534d70d2494612577?page=6
+        url: https://www.nb.no/items/d02ab37c3da9e9f534d70d2494612577?page=5
         issued: 1979-08-20
         page: "6"
         reviewMethod: ocr_api
@@ -9638,7 +9652,7 @@ entries:
           - unknown
     issueId: d02ab37c3da9e9f534d70d2494612577
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790820_97_190_1
-    url: https://www.nb.no/items/d02ab37c3da9e9f534d70d2494612577?page=6
+    url: https://www.nb.no/items/d02ab37c3da9e9f534d70d2494612577?page=5
     issued: 1979-08-20
     page: "6"
     searchedIssues: 3
@@ -9665,7 +9679,7 @@ entries:
     evidenceIssues:
       - issueId: 97a3fe28528c1cde40d562b909f98fba
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790827_97_196_1
-        url: https://www.nb.no/items/97a3fe28528c1cde40d562b909f98fba?page=6
+        url: https://www.nb.no/items/97a3fe28528c1cde40d562b909f98fba?page=5
         issued: 1979-08-27
         page: "6"
         reviewMethod: ocr_api
@@ -9679,7 +9693,7 @@ entries:
           - unknown
     issueId: 97a3fe28528c1cde40d562b909f98fba
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790827_97_196_1
-    url: https://www.nb.no/items/97a3fe28528c1cde40d562b909f98fba?page=6
+    url: https://www.nb.no/items/97a3fe28528c1cde40d562b909f98fba?page=5
     issued: 1979-08-27
     page: "6"
     searchedIssues: 4
@@ -9720,7 +9734,7 @@ entries:
     evidenceIssues:
       - issueId: d9f0bd82b5be495635b97b0b87e93bd0
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790910_97_208_1
-        url: https://www.nb.no/items/d9f0bd82b5be495635b97b0b87e93bd0?page=8
+        url: https://www.nb.no/items/d9f0bd82b5be495635b97b0b87e93bd0?page=7
         issued: 1979-09-10
         page: "8"
         reviewMethod: ocr_api
@@ -9735,7 +9749,7 @@ entries:
           - unknown
     issueId: d9f0bd82b5be495635b97b0b87e93bd0
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790910_97_208_1
-    url: https://www.nb.no/items/d9f0bd82b5be495635b97b0b87e93bd0?page=8
+    url: https://www.nb.no/items/d9f0bd82b5be495635b97b0b87e93bd0?page=7
     issued: 1979-09-10
     page: "8"
     searchedIssues: 4
@@ -9762,7 +9776,7 @@ entries:
     evidenceIssues:
       - issueId: 27d29247c3d0707f7ce90a79013d51e1
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790924_97_220_1
-        url: https://www.nb.no/items/27d29247c3d0707f7ce90a79013d51e1?page=8
+        url: https://www.nb.no/items/27d29247c3d0707f7ce90a79013d51e1?page=7
         issued: 1979-09-24
         page: "8"
         reviewMethod: ocr_api
@@ -9775,7 +9789,7 @@ entries:
           - standings
     issueId: 27d29247c3d0707f7ce90a79013d51e1
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790924_97_220_1
-    url: https://www.nb.no/items/27d29247c3d0707f7ce90a79013d51e1?page=8
+    url: https://www.nb.no/items/27d29247c3d0707f7ce90a79013d51e1?page=7
     issued: 1979-09-24
     page: "8"
     searchedIssues: 3
@@ -9798,7 +9812,7 @@ entries:
     evidenceIssues:
       - issueId: 9c55cd5bdb658cedc4a562dfb3c277e7
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790929_97_225_1
-        url: https://www.nb.no/items/9c55cd5bdb658cedc4a562dfb3c277e7?page=7
+        url: https://www.nb.no/items/9c55cd5bdb658cedc4a562dfb3c277e7?page=6
         issued: 1979-09-29
         page: "7"
         reviewMethod: ocr_api
@@ -9810,7 +9824,7 @@ entries:
           - preview
     issueId: 9c55cd5bdb658cedc4a562dfb3c277e7
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19790929_97_225_1
-    url: https://www.nb.no/items/9c55cd5bdb658cedc4a562dfb3c277e7?page=7
+    url: https://www.nb.no/items/9c55cd5bdb658cedc4a562dfb3c277e7?page=6
     issued: 1979-09-29
     page: "7"
     searchedIssues: 2
@@ -9833,7 +9847,7 @@ entries:
     evidenceIssues:
       - issueId: ccae94a38af8f0261942c28126c44573
         urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19791008_97_232_1
-        url: https://www.nb.no/items/ccae94a38af8f0261942c28126c44573?page=7
+        url: https://www.nb.no/items/ccae94a38af8f0261942c28126c44573?page=6
         issued: 1979-10-08
         page: "7"
         reviewMethod: ocr_api
@@ -9848,7 +9862,7 @@ entries:
           - unknown
     issueId: ccae94a38af8f0261942c28126c44573
     urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19791008_97_232_1
-    url: https://www.nb.no/items/ccae94a38af8f0261942c28126c44573?page=7
+    url: https://www.nb.no/items/ccae94a38af8f0261942c28126c44573?page=6
     issued: 1979-10-08
     page: "7"
     searchedIssues: 4

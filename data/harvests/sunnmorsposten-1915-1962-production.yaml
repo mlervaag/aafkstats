@@ -10,6 +10,7 @@ scope:
     to: 1962
   sourceIds:
     - sunnmorsposten-19150607-678ad7069a0a1617240792e71bce6b9d
+    - sunnmorsposten-19170827-3d6b8fc047e7a6c781962ff1d274bff3
     - sunnmorsposten-19180909-ecd7ceb2751ea8ef8da2e6713ac714d0
     - sunnmorsposten-19190908-3e05e6890d610f305b02497a7bd58383
     - sunnmorsposten-19200531-d367b485c5f55e27f684a0243890cb41
@@ -140,6 +141,10 @@ sourceInventory:
   - sourceId: sunnmorsposten-19150607-678ad7069a0a1617240792e71bce6b9d
     title: Sunnmørsposten 1915-06-07
     year: 1915
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19170827-3d6b8fc047e7a6c781962ff1d274bff3
+    title: Søndmørsposten 1917-08-27
+    year: 1917
     reviewStatus: reviewed
   - sourceId: sunnmorsposten-19180909-ecd7ceb2751ea8ef8da2e6713ac714d0
     title: Søndmørsposten 1918-09-09
@@ -652,12 +657,12 @@ coverage:
 passes:
   facsimile_review:
     status: skipped
-    findings: 0
-    note: Produksjonspolicyen godkjenner NB OCR-API; facsimileReviewed er false.
+    findings: 3
+    note: Produksjonspolicyen bruker NB OCR-API; 3 kampjobber er i tillegg visuelt kontrollert som kalibreringsutvalg.
   explicit_results:
     status: reviewed
-    findings: 129
-    note: 188 kampjobber; 129 kampkoblinger til 127 aviskilder.
+    findings: 130
+    note: 188 kampjobber; 130 kampkoblinger til 128 aviskilder.
   people_and_roles:
     status: skipped
     findings: 0
@@ -676,20 +681,10 @@ passes:
     note: Ingen historiske observasjoner skrevet.
 reviewMethod:
   facsimile: unavailable
-  reason: Canonical datoankret avisberikelse bruker NB OCR-API; ingen poster er merket visuelt kontrollert.
+  reason: Batchen krever ikke full faksimiledekning; 3 kampjobber er visuelt kontrollert som kalibreringsutvalg.
 review:
   file: docs/data/reviews/sunnmorsposten-1915-1962-production.md
 findings:
-  - id: conflict-1922-09-03-ed591ad4
-    source:
-      sourceId: sunnmorsposten-19220904-ed591ad4a2216bdd3aa749c21a4b4ce9
-      page: "3"
-    type: source_conflict
-    claim:
-      text: OCR leser 2-0; canonical har 0-3.
-    confidence: uncertain
-    disposition: no_structured_action
-    status: unresolved
   - id: conflict-1947-06-15-df0e19ba
     source:
       sourceId: sunnmorsposten-19470617-df0e19babdb39bed17297c49680c04ed
@@ -781,9 +776,6 @@ findings:
     disposition: no_structured_action
     status: unresolved
 unresolved:
-  - findingId: conflict-1922-09-03-ed591ad4
-    type: score-conflict-candidate
-    note: "1922-09-03-aalesunds-fk-drafn: canonical resultat er ikke endret."
   - findingId: conflict-1947-06-15-df0e19ba
     type: score-conflict-candidate
     note: "1947-06-15-aalesunds-fk-rollon: canonical resultat er ikke endret."
@@ -822,5 +814,5 @@ previousWork:
 baseRevision: 7616845c3ccd48e0e135b3cbb351c4bd150ebb66
 createdAt: 2026-08-23
 notes:
-  - Alle 188 kamper ble kjørt; 127 aviskilder ble koblet til 129 kampjobber.
+  - Alle 188 kamper ble kjørt; 128 aviskilder ble koblet til 130 kampjobber.
   - Ingen beskyttet OCR-tekst er lagret.
