@@ -68,6 +68,10 @@ lineups:
       - Solomon James Owello
     coach: Mons Ivar Mjelde
 externalReports: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2011
+    page: "36"
+    fields: [competition, home.clubId, away.clubId, home.score, away.score]
 providers:
   - providerId: fotmob
     url: https://www.fotmob.com/matches/aalesund-vs-start/2ryd31#1100081

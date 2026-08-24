@@ -110,6 +110,10 @@ lineups:
       - Tero Mäntylä
     coach: Trond Fredriksen
 externalReports: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2016
+    page: "35"
+    fields: [competition, home.clubId, away.clubId, home.score, away.score]
 providers:
   - providerId: fotmob
     url: https://www.fotmob.com/matches/aalesund-vs-brattvag/pr57f8#2224262

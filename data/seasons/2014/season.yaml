@@ -1,5 +1,9 @@
 year: 2014
 competitionId: eliteserien
-finalPosition: null
+finalPosition: 7
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2014
+    page: "6"
+    fields: [competitionId, finalPosition]
 promoted: false
 relegated: false

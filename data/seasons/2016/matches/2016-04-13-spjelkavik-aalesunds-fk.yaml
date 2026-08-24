@@ -95,6 +95,10 @@ lineups:
       - Tero Mäntylä
     coach: Trond Fredriksen
 externalReports: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2016
+    page: "35"
+    fields: [competition, home.clubId, away.clubId, home.score, away.score]
 providers:
   - providerId: fotmob
     url: https://www.fotmob.com/matches/spjelkavik-vs-aalesund/y8ayv#2211853

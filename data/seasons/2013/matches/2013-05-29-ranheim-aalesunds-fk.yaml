@@ -57,6 +57,10 @@ lineups:
     subs: []
     coach: Jan Jönsson
 externalReports: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2013
+    page: "34"
+    fields: [competition, home.clubId, away.clubId, home.score, away.score]
 providers:
   - providerId: fotmob
     url: https://www.fotmob.com/matches/ranheim-vs-aalesund/1up0ag#1450263

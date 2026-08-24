@@ -65,6 +65,10 @@ events:
     team: away
     player: Valmir Berisha
 externalReports: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2017
+    page: "38"
+    fields: [competition, home.clubId, away.clubId, home.score, away.score]
 providers:
   - providerId: fotmob
     url: https://www.fotmob.com/matches/aalesund-vs-byasen/2qo60s#2494771

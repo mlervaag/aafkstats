@@ -19,6 +19,10 @@ away:
 neutralVenue: false
 events: []
 externalReports: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2014
+    page: "39"
+    fields: [competition, home.clubId, away.clubId, home.score, away.score]
 providers:
   - providerId: fotmob
     url: https://www.fotmob.com/matches/traeff-vs-aalesund/1qrfrs#1696858
