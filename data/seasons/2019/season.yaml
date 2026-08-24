@@ -1,5 +1,9 @@
 year: 2019
 competitionId: forstedivisjon
 finalPosition: null
-promoted: false
+promoted: true
 relegated: false
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2019
+    page: "9"
+    fields: [promoted]

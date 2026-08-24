@@ -1,0 +1,34 @@
+sourceId: sunnmore-fotballkrets-arsrapport-2023
+scorePerspective: aafk
+seasons:
+  - year: 2023
+    page: 48
+    results:
+      - claimId: srcclaim-b934e41a4b5d0999442027cf5f03f885
+        no: 1
+        opponent: Eid
+        opponentClubId: eid-il
+        score: [4, 0]
+        competitionId: nm
+        round: 1
+        matchId: 2023-05-24-eid-il-aalesunds-fk
+        note: "NM menn 2023, 1. runde."
+      - claimId: srcclaim-87576516bd9d71185315c086e8501f15
+        no: 2
+        opponent: Byåsen
+        opponentClubId: byasen
+        score: [6, 1]
+        competitionId: nm
+        round: 2
+        matchId: 2023-06-01-byasen-aalesunds-fk
+        note: "NM menn 2023, 2. runde."
+      - claimId: srcclaim-b79b3ca89079a56eada912f48f040984
+        no: 3
+        opponent: Brann
+        opponentClubId: sk-brann
+        score: [8, 9]
+        competitionId: nm
+        round: 3
+        extraTime: true
+        matchId: 2023-06-07-aalesunds-fk-sk-brann
+        note: "NM menn 2023, 3. runde, straffesparkkonkurranse etter ekstraomganger."

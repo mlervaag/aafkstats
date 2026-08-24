@@ -47,6 +47,10 @@ providers:
       - extraTime
       - events
     note: "Kildestatus: AET"
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2024
+    page: "47"
+    fields: [home.score, away.score, competition, competition.round, extraTime]
 confidence: probable
 conflicts: []
 tags: []
