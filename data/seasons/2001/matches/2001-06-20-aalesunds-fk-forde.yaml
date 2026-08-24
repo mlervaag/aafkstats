@@ -37,3 +37,7 @@ tags: []
 aliases:
   rsssf: 2001-cup-2001-06-20-aalesunds-fk-forde
 manual: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2001
+    page: "15"
+    fields: [competition, home.clubId, away.clubId, home.score, away.score]

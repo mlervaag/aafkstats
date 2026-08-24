@@ -57,4 +57,7 @@ sources:
       - home.halfTimeScore
       - away.halfTimeScore
     note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - sourceId: sunnmore-fotballkrets-arsrapport-1998
+    page: "28"
+    fields: [competition, home.clubId, away.clubId, home.score, away.score]
 attendance: 345

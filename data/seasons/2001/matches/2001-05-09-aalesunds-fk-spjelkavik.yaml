@@ -37,3 +37,7 @@ tags: []
 aliases:
   rsssf: 2001-cup-2001-05-09-aalesunds-fk-spjelkavik
 manual: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2001
+    page: "15"
+    fields: [competition, home.clubId, away.clubId, home.score, away.score]
