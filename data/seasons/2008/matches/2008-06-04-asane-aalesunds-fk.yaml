@@ -41,4 +41,9 @@ tags: []
 aliases:
   rsssf: 2008-cup-2008-06-04-asane-aalesunds-fk
 manual: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2008
+    page: "19"
+    fields: [home.score, away.score, competition, competition.round]
+    note: Senior NM-resultat kontrollert mot original årsrapport.
 note: Resultatet er etter ekstraomganger. Kilden oppgir ikke stillingen etter ordinær tid, så fordelingen mellom ordinær tid og ekstraomganger er ukjent.

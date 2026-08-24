@@ -37,3 +37,8 @@ tags: []
 aliases:
   rsssf: 2008-cup-2008-07-30-aalesunds-fk-lyn
 manual: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2008
+    page: "19"
+    fields: [home.score, away.score, competition, competition.round]
+    note: Senior NM-resultat kontrollert mot original årsrapport.

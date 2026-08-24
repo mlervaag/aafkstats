@@ -37,3 +37,8 @@ tags: []
 aliases:
   rsssf: 2008-cup-2008-05-12-forde-aalesunds-fk
 manual: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2008
+    page: "19"
+    fields: [home.score, away.score, competition, competition.round]
+    note: Senior NM-resultat kontrollert mot original årsrapport.
