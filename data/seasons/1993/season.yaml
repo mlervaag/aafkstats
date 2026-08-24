@@ -4,3 +4,7 @@ finalPosition: 12
 teamsInLeague: 12
 promoted: false
 relegated: false
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1993
+    page: "29"
+    fields: [competitionId, finalPosition, teamsInLeague]

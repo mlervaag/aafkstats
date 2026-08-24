@@ -1,5 +1,10 @@
 year: 1994
-competitionId: nm
-finalPosition: null
-promoted: false
+competitionId: andredivisjon
+finalPosition: 1
+teamsInLeague: 12
+promoted: true
 relegated: false
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1994
+    page: "35"
+    fields: [competitionId, finalPosition, teamsInLeague, promoted]

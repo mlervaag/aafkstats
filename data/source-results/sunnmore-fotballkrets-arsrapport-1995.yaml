@@ -1,0 +1,30 @@
+sourceId: sunnmore-fotballkrets-arsrapport-1995
+scorePerspective: aafk
+seasons:
+  - year: 1995
+    page: 20
+    results:
+      - claimId: srcclaim-1a950001000000000000000000000001
+        no: 1
+        opponent: Langevåg
+        opponentClubId: langevag
+        score: [5, 0]
+        competitionId: nm
+        round: 1
+        matchId: 1995-05-10-langevag-aalesunds-fk
+      - claimId: srcclaim-1a950001000000000000000000000002
+        no: 2
+        opponent: Åndalsnes
+        opponentClubId: andalsnes
+        score: [3, 1]
+        competitionId: nm
+        round: 2
+        matchId: 1995-05-31-aalesunds-fk-andalsnes
+      - claimId: srcclaim-1a950001000000000000000000000003
+        no: 3
+        opponent: Molde
+        opponentClubId: molde-fk
+        score: [1, 2]
+        competitionId: nm
+        round: 3
+        matchId: 1995-06-21-molde-fk-aalesunds-fk

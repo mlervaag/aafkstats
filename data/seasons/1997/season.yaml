@@ -1,5 +1,10 @@
 year: 1997
-competitionId: nm
-finalPosition: null
+competitionId: forstedivisjon
+finalPosition: 10
+teamsInLeague: 14
 promoted: false
 relegated: false
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1997
+    page: "31"
+    fields: [competitionId, finalPosition, teamsInLeague]

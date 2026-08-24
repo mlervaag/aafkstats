@@ -46,6 +46,10 @@ aliases:
   rsssf: 1991-cup-1991-06-26-aalesunds-fk-molde
 manual: []
 sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1991
+    page: "20"
+    fields: [home.score, away.score, competition, competition.round]
+    note: Senior NM-resultat kontrollert mot original årsrapport.
   - sourceId: sunnmorsposten-19910627-43c0db7a1889bc8f761b011049b81a65
     page: "1"
     fields:

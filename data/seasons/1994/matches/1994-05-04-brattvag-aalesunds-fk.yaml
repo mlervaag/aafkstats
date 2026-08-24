@@ -47,6 +47,10 @@ aliases:
   rsssf: 1994-cup-1994-05-04-brattvag-aalesunds-fk
 manual: []
 sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1994
+    page: "23"
+    fields: [home.score, away.score, competition, competition.round]
+    note: Senior NM-resultat kontrollert mot original årsrapport.
   - sourceId: sunnmorsposten-19940505-2e44c66c764c23920ee050f114262298
     page: "20"
     fields:

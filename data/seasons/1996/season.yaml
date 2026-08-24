@@ -4,3 +4,7 @@ finalPosition: 4
 teamsInLeague: 12
 promoted: false
 relegated: false
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1996
+    page: "31"
+    fields: [competitionId, finalPosition, teamsInLeague]

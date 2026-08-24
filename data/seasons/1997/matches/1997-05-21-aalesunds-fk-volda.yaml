@@ -46,6 +46,10 @@ aliases:
   rsssf: 1997-cup-1997-05-21-aalesunds-fk-volda
 manual: []
 sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1997
+    page: "18"
+    fields: [home.score, away.score, competition, competition.round]
+    note: Senior NM-resultat kontrollert mot original årsrapport.
   - sourceId: sunnmorsposten-19970522-7ae2307383955b7440282c272db78f53
     page: "1"
     fields:
