@@ -134,6 +134,10 @@ table:
   points: 9
   outcome: relegated
 progression: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1983
+    page: "17"
+    fields: [table]
 providers:
 - providerId: fotball-no
   url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83034&underside=tabellen

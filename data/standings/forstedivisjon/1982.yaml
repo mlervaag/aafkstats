@@ -134,6 +134,10 @@ table:
     points: 13
     outcome: none
 progression: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1982
+    page: "15"
+    fields: [table]
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83035&underside=tabellen

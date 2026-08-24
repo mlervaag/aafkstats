@@ -51,6 +51,10 @@ aliases:
   rsssf: 1984-cup-1984-06-28-aalesunds-fk-lillestrom
 manual: []
 sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1984
+    page: "16"
+    fields: [home.score, away.score, competition.round]
+    note: Senior-NM-resultat i eksplisitt årsrapporttabell.
   - sourceId: sunnmorsposten-19840629-5f88ae23eb65c1b51acf8926a2404399
     page: "9"
     fields:

@@ -42,6 +42,10 @@ aliases:
   rsssf: 1982-cup-1982-06-23-aalesunds-fk-skarbovik
 manual: []
 sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1982
+    page: "25"
+    fields: [home.score, away.score, competition.round]
+    note: Senior-NM-resultat i eksplisitt årsrapporttabell.
   - sourceId: sunnmorsposten-19820624-e3f2f0b21086319bfd0c1d6a6e77a077
     page: "9"
     fields: []
