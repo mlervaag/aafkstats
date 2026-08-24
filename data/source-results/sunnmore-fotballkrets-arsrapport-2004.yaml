@@ -1,0 +1,31 @@
+sourceId: sunnmore-fotballkrets-arsrapport-2004
+scorePerspective: aafk
+seasons:
+  - year: 2004
+    page: 18
+    results:
+      - claimId: srcclaim-65e3edd4d5b1a3253e0794b5667ef62d
+        no: 1
+        opponent: Melhus
+        opponentClubId: melhus
+        score: [1, 6]
+        competitionId: nm
+        round: 1
+        matchId: 2004-05-05-melhus-aalesunds-fk
+      - claimId: srcclaim-04f3b7e7d2ce8467851661528ceae918
+        no: 2
+        opponent: Hovding
+        opponentClubId: hovding
+        score: [5, 1]
+        competitionId: nm
+        round: 2
+        matchId: 2004-05-26-aalesunds-fk-hovding
+      - claimId: srcclaim-f1ecd249903da7c16c19e519cac1c8e4
+        no: 3
+        opponent: Kongsvinger
+        opponentClubId: kongsvinger
+        score: [2, 2]
+        competitionId: nm
+        round: 3
+        matchId: null
+        note: Resultatet er entydig i rapporten, men canonical kamp med denne scorekoblingen er ikke entydig nok til automatisk linking.

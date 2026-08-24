@@ -31,6 +31,10 @@ providers:
       - home.score
       - away.score
       - competition.round
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2003
+    page: "12"
+    fields: [home.score, away.score, competition.round]
 confidence: probable
 conflicts: []
 tags: []

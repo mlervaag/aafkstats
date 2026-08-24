@@ -30,6 +30,10 @@ providers:
       - home.score
       - away.score
       - competition.stage
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2009
+    page: "38"
+    fields: [home.score, away.score, competition.round]
 confidence: probable
 conflicts: []
 tags: []

@@ -335,6 +335,10 @@ progression:
     points: 60
     played: 30
     goalDifference: 36
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2006
+    page: "20"
+    fields: [table]
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/2006/First.html
