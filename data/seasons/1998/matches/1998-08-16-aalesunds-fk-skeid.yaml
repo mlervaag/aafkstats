@@ -10,14 +10,17 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: skeid
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/c19d3f6291b8fec9932d62fd5533375d?page=14
+    date: 1998-08-17
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1998/First.html
@@ -31,9 +34,30 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/c19d3f6291b8fec9932d62fd5533375d?page=14
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1998-first-1998-08-16-aalesunds-fk-skeid
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19980817-c19d3f6291b8fec9932d62fd5533375d
+    page: "15"
+    fields:
+      - externalReports
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 578
+venueId: kramyra-stadion

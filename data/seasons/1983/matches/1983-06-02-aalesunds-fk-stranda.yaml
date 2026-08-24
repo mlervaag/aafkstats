@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/d026793109055baf7d72a75a1b9cb06f?page=7
+    date: 1983-06-04
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1983/Cup.html
@@ -31,9 +34,20 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/d026793109055baf7d72a75a1b9cb06f?page=7
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1983-cup-1983-06-02-aalesunds-fk-stranda
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19830604-d026793109055baf7d72a75a1b9cb06f
+    page: "8"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

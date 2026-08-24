@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/89a5cb1437cb295d151fce643e57eb81?page=0
+    date: 1997-06-16
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1997/First.html
@@ -31,9 +34,20 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/89a5cb1437cb295d151fce643e57eb81?page=0
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1997-first-1997-06-15-aalesunds-fk-drobak-frogn
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19970616-89a5cb1437cb295d151fce643e57eb81
+    page: "1"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

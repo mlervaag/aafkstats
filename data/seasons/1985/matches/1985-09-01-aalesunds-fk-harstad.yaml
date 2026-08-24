@@ -10,14 +10,17 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: harstad
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/d2cda22e3fbf810fd36c1bdf34503195?page=8
+    date: 1985-09-02
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83032&underside=kamper
@@ -32,6 +35,16 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99098.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/d2cda22e3fbf810fd36c1bdf34503195?page=8
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - referee
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +52,17 @@ aliases:
   fotball-no: "99098"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19850902-d2cda22e3fbf810fd36c1bdf34503195
+    page: "9"
+    fields:
+      - externalReports
+      - attendance
+      - referee
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 500
+referee: Knut Skoglund
+venueId: kramyra-stadion

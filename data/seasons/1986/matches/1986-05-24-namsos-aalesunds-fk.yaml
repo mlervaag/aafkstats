@@ -32,6 +32,10 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99032.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/b6bfd16b8dbc29df72e71cb8a3919331?page=8
+    retrievedAt: 2026-08-24
+    fields: []
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +43,8 @@ aliases:
   fotball-no: "99032"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19860524-b6bfd16b8dbc29df72e71cb8a3919331
+    page: "9"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

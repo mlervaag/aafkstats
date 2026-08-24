@@ -10,17 +10,20 @@ competition:
 home:
   clubId: clausenengen
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 extraTime:
   home: 0
   away: 0
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/3751cdafe11f728a5e15bade1f531f96?page=8
+    date: 1984-06-15
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1984/Cup.html
@@ -35,6 +38,14 @@ providers:
       - away.score
       - competition.round
       - extraTime
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/3751cdafe11f728a5e15bade1f531f96?page=8
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: probable
 conflicts: []
 tags: []
@@ -42,3 +53,13 @@ aliases:
   rsssf: 1984-cup-1984-06-14-clausenengen-aalesunds-fk
 manual: []
 note: Resultatet er etter ekstraomganger. Kilden oppgir ikke stillingen etter ordinær tid, så fordelingen mellom ordinær tid og ekstraomganger er ukjent.
+sources:
+  - sourceId: sunnmorsposten-19840615-3751cdafe11f728a5e15bade1f531f96
+    page: "9"
+    fields:
+      - externalReports
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 300

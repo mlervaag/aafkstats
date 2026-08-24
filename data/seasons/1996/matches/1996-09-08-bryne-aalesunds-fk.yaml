@@ -22,6 +22,9 @@ externalReports:
     title: Bryne - Aalesund 1-4
     date: 1996-09-08
     url: https://www.nifs.no/kampfakta.php?matchId=8381&countryId=1&tournamentId=6&stageId=60
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/ad9ab9b801e41245e1d482f3b1bfa873?page=0
+    date: 1996-09-09
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83065&underside=kamper
@@ -36,6 +39,11 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99110.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/ad9ab9b801e41245e1d482f3b1bfa873?page=0
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -43,3 +51,9 @@ aliases:
   fotball-no: "99110"
 manual: []
 note: Bane og klokkeslett er utelatt. Resultatet er kontrollert mot NIFS kampfakta.
+sources:
+  - sourceId: sunnmorsposten-19960909-ad9ab9b801e41245e1d482f3b1bfa873
+    page: "1"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

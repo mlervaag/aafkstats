@@ -10,14 +10,17 @@ competition:
 home:
   clubId: strommen
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/d9c1436f9cb53c7a6f04c62d0a1e3267?page=8
+    date: 1987-06-09
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83042&underside=kamper
@@ -32,6 +35,15 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99034.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/d9c1436f9cb53c7a6f04c62d0a1e3267?page=8
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +51,15 @@ aliases:
   fotball-no: "99034"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19870609-d9c1436f9cb53c7a6f04c62d0a1e3267
+    page: "9"
+    fields:
+      - externalReports
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 586
+venueId: strommen-stadion

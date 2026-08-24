@@ -10,14 +10,17 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: djerv-1919
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/0600271df108d390f14abc15b997ba1b?page=18
+    date: 1993-06-01
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83060&underside=kamper
@@ -32,6 +35,14 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99028.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/0600271df108d390f14abc15b997ba1b?page=18
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +50,13 @@ aliases:
   fotball-no: "99028"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19930601-0600271df108d390f14abc15b997ba1b
+    page: "19"
+    fields:
+      - externalReports
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 790

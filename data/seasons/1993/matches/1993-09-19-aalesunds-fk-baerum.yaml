@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/c052754ef1d84adc0b6d4c4f2cefdd95?page=14
+    date: 1993-09-20
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83060&underside=kamper
@@ -32,6 +35,12 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99115.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/c052754ef1d84adc0b6d4c4f2cefdd95?page=14
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +48,11 @@ aliases:
   fotball-no: "99115"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19930920-c052754ef1d84adc0b6d4c4f2cefdd95
+    page: "15"
+    fields:
+      - externalReports
+      - attendance
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 152

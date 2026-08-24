@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/6101e19b41c49dad455d6c5022ab0452?page=9
+    date: 1987-07-13
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83042&underside=kamper
@@ -32,6 +35,11 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99065.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/6101e19b41c49dad455d6c5022ab0452?page=9
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +47,9 @@ aliases:
   fotball-no: "99065"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19870713-6101e19b41c49dad455d6c5022ab0452
+    page: "10"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

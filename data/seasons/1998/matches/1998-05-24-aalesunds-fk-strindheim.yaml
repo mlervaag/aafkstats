@@ -10,14 +10,17 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: strindheim
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/4f8d1cdf10a7d18d2e33521092ccfe19?page=16
+    date: 1998-05-25
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1998/First.html
@@ -31,9 +34,30 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/4f8d1cdf10a7d18d2e33521092ccfe19?page=16
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1998-first-1998-05-24-aalesunds-fk-strindheim
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19980525-4f8d1cdf10a7d18d2e33521092ccfe19
+    page: "17"
+    fields:
+      - externalReports
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 548
+venueId: kramyra-stadion

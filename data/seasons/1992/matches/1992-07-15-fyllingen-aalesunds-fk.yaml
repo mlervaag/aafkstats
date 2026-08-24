@@ -10,14 +10,17 @@ competition:
 home:
   clubId: fyllingen
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/6c8d37e716da2149378e20e7eaa0ad5a?page=16
+    date: 1992-07-16
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83061&underside=kamper
@@ -32,6 +35,13 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99036.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/6c8d37e716da2149378e20e7eaa0ad5a?page=16
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +49,11 @@ aliases:
   fotball-no: "99036"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19920716-6c8d37e716da2149378e20e7eaa0ad5a
+    page: "17"
+    fields:
+      - externalReports
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

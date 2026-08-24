@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/c792a1ebb61accb633f158b9c12f1898?page=27
+    date: 1999-08-24
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=113181&underside=kamper
@@ -32,6 +35,11 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 15120206102.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/c792a1ebb61accb633f158b9c12f1898?page=27
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +47,9 @@ aliases:
   fotball-no: "15120206102"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19990824-c792a1ebb61accb633f158b9c12f1898
+    page: "28"
+    fields:
+      - externalReports
+    note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.

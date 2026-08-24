@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/d293888256c42af8ec8b06ba3c92a3c8?page=8
+    date: 1987-05-25
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83042&underside=kamper
@@ -32,6 +35,13 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99029.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/d293888256c42af8ec8b06ba3c92a3c8?page=8
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - referee
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +49,13 @@ aliases:
   fotball-no: "99029"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19870525-d293888256c42af8ec8b06ba3c92a3c8
+    page: "9"
+    fields:
+      - externalReports
+      - attendance
+      - referee
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 1500
+referee: Kåre Erlandsen

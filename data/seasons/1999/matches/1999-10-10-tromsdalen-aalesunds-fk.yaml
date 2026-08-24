@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/f15e67f870779fca91d9610ad4503a45?page=18
+    date: 1999-10-11
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83145&underside=kamper
@@ -32,15 +35,22 @@ providers:
       - home.score
       - away.score
     note: Lest av et menneske fra turneringssiden. NFF tillater ikke automatisert henting.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/f15e67f870779fca91d9610ad4503a45?page=18
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: >-
-  Returkampen. AaFK tapte kvalifiseringen 4-5 sammenlagt og ble stående i 2.
-  divisjon, slik sesongfila allerede sier med promoted: false.
-
-  Banen er utelatt med vilje. Turneringssiden oppgir «TUIL Arena», men den
-  åpnet i 2009 og kan ikke ha vært banen i 1999. Kilden viser dagens navn, ikke
-  navnet som gjaldt på kampdatoen.
+note: |-
+  Returkampen. AaFK tapte kvalifiseringen 4-5 sammenlagt og ble stående i 2. divisjon, slik sesongfila allerede sier med promoted: false.
+  Banen er utelatt med vilje. Turneringssiden oppgir «TUIL Arena», men den åpnet i 2009 og kan ikke ha vært banen i 1999. Kilden viser dagens navn, ikke navnet som gjaldt på kampdatoen.
+sources:
+  - sourceId: sunnmorsposten-19991011-f15e67f870779fca91d9610ad4503a45
+    page: "19"
+    fields:
+      - externalReports
+    note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.

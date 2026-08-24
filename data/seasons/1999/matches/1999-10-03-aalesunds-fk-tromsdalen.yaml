@@ -10,15 +10,18 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: tromsdalen
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 neutralVenue: false
 venueId: kramyra-stadion
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/84e26db039f8730da122cc6b22d659fe?page=16
+    date: 1999-10-04
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83145&underside=kamper
@@ -34,11 +37,27 @@ providers:
       - away.score
       - venueId
     note: Lest av et menneske fra turneringssiden. NFF tillater ikke automatisert henting.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/84e26db039f8730da122cc6b22d659fe?page=16
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: confirmed
 conflicts: []
 tags: []
 aliases: {}
 manual: []
-note: >-
-  Første kamp i kvalifiseringen til 1. divisjon etter at AaFK vant 2. divisjon
-  1999. Kampnummeret hos NFF er ikke lest av, så kampen har ingen fotball-no-alias.
+note: Første kamp i kvalifiseringen til 1. divisjon etter at AaFK vant 2. divisjon 1999. Kampnummeret hos NFF er ikke lest av, så kampen har ingen fotball-no-alias.
+sources:
+  - sourceId: sunnmorsposten-19991004-84e26db039f8730da122cc6b22d659fe
+    page: "17"
+    fields:
+      - externalReports
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 2000

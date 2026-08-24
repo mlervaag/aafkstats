@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/dd11be5c6b595c958426e09310b4683e?page=8
+    date: 1989-05-02
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83052&underside=kamper
@@ -32,6 +35,11 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99001.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/dd11be5c6b595c958426e09310b4683e?page=8
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +47,9 @@ aliases:
   fotball-no: "99001"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19890502-dd11be5c6b595c958426e09310b4683e
+    page: "9"
+    fields:
+      - externalReports
+    note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.

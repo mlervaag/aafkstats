@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/6ecdc2938374e91ac7449111e3f19037?page=18
+    date: 1991-05-06
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83058&underside=kamper
@@ -32,6 +35,13 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99009.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/6ecdc2938374e91ac7449111e3f19037?page=18
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - referee
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +49,13 @@ aliases:
   fotball-no: "99009"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19910506-6ecdc2938374e91ac7449111e3f19037
+    page: "19"
+    fields:
+      - externalReports
+      - attendance
+      - referee
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 2212
+referee: Terje Klungerbo

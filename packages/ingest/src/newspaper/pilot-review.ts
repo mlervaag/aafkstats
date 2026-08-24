@@ -50,6 +50,25 @@ export function prepareMatchForNewspaperWrite(match: Match): void {
   match.sources ??= [];
 }
 
+export function isPlausibleHalfTime(
+  halfTime: { home: number; away: number },
+  finalScore: { home: number | null; away: number | null },
+): boolean {
+  return finalScore.home !== null
+    && finalScore.away !== null
+    && halfTime.home <= finalScore.home
+    && halfTime.away <= finalScore.away;
+}
+
+export function isPlausibleRefereeName(value: string): boolean {
+  const normalized = value.replace(/(\p{Ll})-\s+(\p{Ll})/gu, "$1$2").replace(/\s+/gu, " ").trim();
+  const parts = normalized.split(/\s+/u);
+  if (parts.length < 2 || parts.some((part) => part.replace(/[^\p{L}]/gu, "").length < 2)) return false;
+  if (!/^[\p{L}.'’ -]+$/u.test(normalized)) return false;
+  const plain = normalized.toLocaleLowerCase("nb").normalize("NFKD").replace(/\p{M}/gu, "");
+  return !/[bcdfghjklmnpqrstvwxz]{4}/u.test(plain);
+}
+
 export function isSameNewspaperDocument(existing: Source, expected: Source): boolean {
   return existing.id === expected.id && existing.urn === expected.urn;
 }

@@ -10,14 +10,17 @@ competition:
 home:
   clubId: langevag
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 5
-  halfTimeScore: null
+  halfTimeScore: 2
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/03f3e3a753b3554d38028cd644d5a1b9?page=22
+    date: 1995-05-11
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1995/Cup.html
@@ -31,9 +34,24 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/03f3e3a753b3554d38028cd644d5a1b9?page=22
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1995-cup-1995-05-10-langevag-aalesunds-fk
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19950511-03f3e3a753b3554d38028cd644d5a1b9
+    page: "23"
+    fields:
+      - externalReports
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

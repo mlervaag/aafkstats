@@ -31,9 +31,18 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/966ce31513194bf1a20a31f2c08f943a?page=8
+    retrievedAt: 2026-08-24
+    fields: []
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1982-cup-1982-05-27-hareid-aalesunds-fk
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19820528-966ce31513194bf1a20a31f2c08f943a
+    page: "9"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

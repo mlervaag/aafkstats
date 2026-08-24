@@ -1,5 +1,5 @@
 id: 1983-08-07-molde-fk-aalesunds-fk
-date: '1983-08-07'
+date: 1983-08-07
 dateConfidence: exact
 status: played
 competition:
@@ -19,24 +19,32 @@ neutralVenue: false
 events: []
 externalReports: []
 providers:
-- providerId: fotball-no
-  url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83034&underside=kamper
-  retrievedAt: '2026-08-05'
-  fields:
-  - date
-  - status
-  - competition
-  - competition.round
-  - home.clubId
-  - away.clubId
-  - home.score
-  - away.score
-  note: NFF kampnummer 99075.
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83034&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 99075.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/6a38c79a97f9b57a9c92cb2be85d753f?page=6
+    retrievedAt: 2026-08-24
+    fields: []
 confidence: confirmed
 conflicts: []
 tags: []
 aliases:
-  fotball-no: '99075'
+  fotball-no: "99075"
 manual: []
-note: Bane og klokkeslett er bevisst utelatt. NFF-siden viser gjennomgående 00:00 og flere banefelt som
-  åpenbart tilhører andre kamper.
+note: Bane og klokkeslett er bevisst utelatt. NFF-siden viser gjennomgående 00:00 og flere banefelt som åpenbart tilhører andre kamper.
+sources:
+  - sourceId: sunnmorsposten-19830806-6a38c79a97f9b57a9c92cb2be85d753f
+    page: "7"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

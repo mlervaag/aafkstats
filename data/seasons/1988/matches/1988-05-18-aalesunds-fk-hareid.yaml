@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/2a0e1650e2c38e1e64e772c5b8a13642?page=8
+    date: 1988-05-19
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1988/Cup.html
@@ -31,9 +34,20 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/2a0e1650e2c38e1e64e772c5b8a13642?page=8
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1988-cup-1988-05-18-aalesunds-fk-hareid
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19880519-2a0e1650e2c38e1e64e772c5b8a13642
+    page: "9"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

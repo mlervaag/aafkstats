@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/5182d3581d1ce171efcad31149ff2062?page=14
+    date: 1991-09-02
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83058&underside=kamper
@@ -32,6 +35,11 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99097.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/5182d3581d1ce171efcad31149ff2062?page=14
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +47,9 @@ aliases:
   fotball-no: "99097"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19910902-5182d3581d1ce171efcad31149ff2062
+    page: "15"
+    fields:
+      - externalReports
+    note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.

@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/267d5d740d0b59e6ba80556534129752?page=0
+    date: 1987-05-16
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83042&underside=kamper
@@ -32,6 +35,11 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99017.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/267d5d740d0b59e6ba80556534129752?page=0
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +47,9 @@ aliases:
   fotball-no: "99017"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19870516-267d5d740d0b59e6ba80556534129752
+    page: "1"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

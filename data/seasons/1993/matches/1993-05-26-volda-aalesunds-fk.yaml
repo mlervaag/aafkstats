@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/b8a12b3a8407c5219b0fa7900031dea9?page=0
+    date: 1993-05-27
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1993/Cup.html
@@ -31,9 +34,20 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/b8a12b3a8407c5219b0fa7900031dea9?page=0
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1993-cup-1993-05-26-volda-aalesunds-fk
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19930527-b8a12b3a8407c5219b0fa7900031dea9
+    page: "1"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

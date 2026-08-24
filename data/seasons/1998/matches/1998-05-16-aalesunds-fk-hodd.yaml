@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/1e7ab9d141f291434442d04ade8f3dcb?page=0
+    date: 1998-05-18
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1998/First.html
@@ -31,9 +34,20 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/1e7ab9d141f291434442d04ade8f3dcb?page=0
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1998-first-1998-05-16-aalesunds-fk-hodd
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19980518-1e7ab9d141f291434442d04ade8f3dcb
+    page: "1"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

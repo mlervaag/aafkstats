@@ -10,14 +10,17 @@ competition:
 home:
   clubId: fana
   score: 5
-  halfTimeScore: null
+  halfTimeScore: 3
 away:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/91d03675825f9e57cfa7bd830e10f42a?page=17
+    date: 1995-06-26
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83064&underside=kamper
@@ -32,6 +35,14 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99050.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/91d03675825f9e57cfa7bd830e10f42a?page=17
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +50,13 @@ aliases:
   fotball-no: "99050"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19950626-91d03675825f9e57cfa7bd830e10f42a
+    page: "18"
+    fields:
+      - externalReports
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 150

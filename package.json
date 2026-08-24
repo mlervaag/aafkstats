@@ -29,6 +29,7 @@
     "data:discovery-status": "pnpm --filter @aafkstats/schema run discovery-status",
     "data:newspaper-enrichment-status": "pnpm --filter @aafkstats/schema run newspaper-enrichment-status",
     "data:newspaper-1915-1962-artifacts": "pnpm --filter @aafkstats/schema run newspaper-1915-1962-artifacts",
+    "data:newspaper-1980-1999-artifacts": "pnpm --filter @aafkstats/schema run newspaper-1980-1999-artifacts",
     "data:nb-wide-retrieval": "pnpm --filter @aafkstats/ingest run nb-wide-retrieval",
     "data:nb-visual-review": "pnpm --filter @aafkstats/ingest run nb-visual-review",
     "data:nb-visual-canonicalization": "pnpm --filter @aafkstats/ingest run nb-visual-canonicalization",

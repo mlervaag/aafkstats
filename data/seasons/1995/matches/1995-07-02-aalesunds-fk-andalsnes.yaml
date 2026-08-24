@@ -32,6 +32,10 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99057.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/4882e4e0ceb7d7fae021afe945540c22?page=16
+    retrievedAt: 2026-08-24
+    fields: []
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +43,8 @@ aliases:
   fotball-no: "99057"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19950703-4882e4e0ceb7d7fae021afe945540c22
+    page: "17"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

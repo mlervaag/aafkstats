@@ -10,14 +10,17 @@ competition:
 home:
   clubId: stabaek
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/48a06b6deeabd3d983dee8d7bcf08b15?page=24
+    date: 1998-06-05
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1998/Cup.html
@@ -31,9 +34,27 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/48a06b6deeabd3d983dee8d7bcf08b15?page=24
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1998-cup-1998-06-04-stabaek-aalesunds-fk
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19980605-48a06b6deeabd3d983dee8d7bcf08b15
+    page: "25"
+    fields:
+      - externalReports
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 345

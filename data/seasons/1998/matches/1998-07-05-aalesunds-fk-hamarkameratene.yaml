@@ -31,9 +31,18 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/2b0d394476ab1c0f093ac61da4e87158?page=18
+    retrievedAt: 2026-08-24
+    fields: []
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1998-first-1998-07-05-aalesunds-fk-hamarkameratene
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19980706-2b0d394476ab1c0f093ac61da4e87158
+    page: "19"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

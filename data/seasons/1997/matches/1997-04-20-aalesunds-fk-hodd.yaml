@@ -31,9 +31,18 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/506a119e961d9ae3179ac82fceff64c9?page=0
+    retrievedAt: 2026-08-24
+    fields: []
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1997-first-1997-04-20-aalesunds-fk-hodd
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19970421-506a119e961d9ae3179ac82fceff64c9
+    page: "1"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

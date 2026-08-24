@@ -10,14 +10,17 @@ competition:
 home:
   clubId: runar
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/c91170e8d901956291228d114aae731f?page=15
+    date: 1997-06-09
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1997/First.html
@@ -31,9 +34,27 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/c91170e8d901956291228d114aae731f?page=15
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1997-first-1997-06-08-runar-aalesunds-fk
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19970609-c91170e8d901956291228d114aae731f
+    page: "16"
+    fields:
+      - externalReports
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 565

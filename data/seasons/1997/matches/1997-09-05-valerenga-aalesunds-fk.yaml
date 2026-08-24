@@ -10,14 +10,17 @@ competition:
 home:
   clubId: valerenga
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/e33e2ac5fb555c11e88787932de1cea9?page=25
+    date: 1997-09-06
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1997/First.html
@@ -31,9 +34,33 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/e33e2ac5fb555c11e88787932de1cea9?page=25
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - referee
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1997-first-1997-09-05-valerenga-aalesunds-fk
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19970906-e33e2ac5fb555c11e88787932de1cea9
+    page: "26"
+    fields:
+      - externalReports
+      - attendance
+      - referee
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 4323
+referee: Per Ivar Staberg
+venueId: bislett-stadion

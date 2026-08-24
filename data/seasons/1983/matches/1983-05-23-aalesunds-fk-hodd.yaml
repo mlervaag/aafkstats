@@ -1,5 +1,5 @@
 id: 1983-05-23-aalesunds-fk-hodd
-date: '1983-05-23'
+date: 1983-05-23
 dateConfidence: exact
 status: played
 competition:
@@ -10,33 +10,50 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: hodd
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 1
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/41ed5933d357ff65598faf1d02990eed?page=7
+    date: 1983-05-24
 providers:
-- providerId: fotball-no
-  url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83034&underside=kamper
-  retrievedAt: '2026-08-05'
-  fields:
-  - date
-  - status
-  - competition
-  - competition.round
-  - home.clubId
-  - away.clubId
-  - home.score
-  - away.score
-  note: NFF kampnummer 99034.
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83034&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 99034.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/41ed5933d357ff65598faf1d02990eed?page=7
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: confirmed
 conflicts: []
 tags: []
 aliases:
-  fotball-no: '99034'
+  fotball-no: "99034"
 manual: []
-note: Bane og klokkeslett er bevisst utelatt. NFF-siden viser gjennomgående 00:00 og flere banefelt som
-  åpenbart tilhører andre kamper.
+note: Bane og klokkeslett er bevisst utelatt. NFF-siden viser gjennomgående 00:00 og flere banefelt som åpenbart tilhører andre kamper.
+sources:
+  - sourceId: sunnmorsposten-19830524-41ed5933d357ff65598faf1d02990eed
+    page: "8"
+    fields:
+      - externalReports
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

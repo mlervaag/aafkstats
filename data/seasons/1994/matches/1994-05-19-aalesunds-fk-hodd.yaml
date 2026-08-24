@@ -20,7 +20,10 @@ extraTime:
   away: 0
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/bc3a98c67088e9a143c3576ec410f0a9?page=16
+    date: 1994-05-20
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1994/Cup.html
@@ -35,6 +38,13 @@ providers:
       - away.score
       - competition.round
       - extraTime
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/bc3a98c67088e9a143c3576ec410f0a9?page=16
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - referee
 confidence: probable
 conflicts: []
 tags: []
@@ -42,3 +52,13 @@ aliases:
   rsssf: 1994-cup-1994-05-19-aalesunds-fk-hodd
 manual: []
 note: Resultatet er etter ekstraomganger. Kilden oppgir ikke stillingen etter ordinær tid, så fordelingen mellom ordinær tid og ekstraomganger er ukjent.
+sources:
+  - sourceId: sunnmorsposten-19940520-bc3a98c67088e9a143c3576ec410f0a9
+    page: "17"
+    fields:
+      - externalReports
+      - attendance
+      - referee
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 800
+referee: Ole Bjorn

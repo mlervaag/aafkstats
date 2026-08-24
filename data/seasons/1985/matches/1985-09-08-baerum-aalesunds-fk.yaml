@@ -10,14 +10,17 @@ competition:
 home:
   clubId: baerum
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 0
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/6a90df45c2a71cae5fc21f90d1f2c37a?page=8
+    date: 1985-09-09
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83032&underside=kamper
@@ -32,6 +35,15 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99107.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/6a90df45c2a71cae5fc21f90d1f2c37a?page=8
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +51,15 @@ aliases:
   fotball-no: "99107"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19850909-6a90df45c2a71cae5fc21f90d1f2c37a
+    page: "9"
+    fields:
+      - externalReports
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 200
+venueId: nadderud-stadion

@@ -32,6 +32,10 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99064.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/ec3886cddcbf61521fe6647c1eaf2c88?page=17
+    retrievedAt: 2026-08-24
+    fields: []
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +43,8 @@ aliases:
   fotball-no: "99064"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19890708-ec3886cddcbf61521fe6647c1eaf2c88
+    page: "18"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

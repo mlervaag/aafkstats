@@ -31,9 +31,18 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/b57bafd82ceb925dc60e3e769d6af8cc?page=1
+    retrievedAt: 2026-08-24
+    fields: []
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1997-first-1997-05-16-aalesunds-fk-bryne
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19970516-b57bafd82ceb925dc60e3e769d6af8cc
+    page: "2"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

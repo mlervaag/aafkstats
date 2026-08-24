@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/54d36698d0a1c9dc49735a889bd1edb0?page=17
+    date: 1996-07-29
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83065&underside=kamper
@@ -32,6 +35,13 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99077.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/54d36698d0a1c9dc49735a889bd1edb0?page=17
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - referee
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +49,13 @@ aliases:
   fotball-no: "99077"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19960729-54d36698d0a1c9dc49735a889bd1edb0
+    page: "18"
+    fields:
+      - externalReports
+      - attendance
+      - referee
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 240
+referee: Thor Håversen

@@ -146,10 +146,10 @@ describe("newspaper enrichment status", () => {
       .filter((entry) => Number(entry.matchId.slice(0, 4)) >= 1915 && Number(entry.matchId.slice(0, 4)) <= 1962);
 
     expect([[1915, 1924], [1925, 1934], [1935, 1944], [1945, 1951], [1952, 1962]].map(([from, to]) =>
-      scaled.filter((entry) => entry.season >= from! && entry.season <= to!).length)).toEqual([20, 22, 12, 62, 72]);
+      scaled.filter((entry) => entry.season >= from! && entry.season <= to!).length)).toEqual([20, 22, 12, 62, 73]);
     expect([1916, 1931, 1939, 1941, 1942, 1943, 1944].map((year) => scaled.filter((entry) => entry.season === year).length)).toEqual([0, 0, 0, 0, 0, 0, 0]);
-    expect(scaled).toHaveLength(188);
-    expect(scaled.filter((entry) => entry.hasSmpMention)).toHaveLength(149);
+    expect(scaled).toHaveLength(189);
+    expect(scaled.filter((entry) => entry.hasSmpMention)).toHaveLength(150);
     expect(reviews.filter((entry) => entry.canonicalLinked)).toHaveLength(130);
     expect(scaled.filter((entry) => entry.reviewStatus === "ocr_correlated")).toHaveLength(121);
     expect(scaled.filter((entry) => entry.conflictCandidate)).toHaveLength(9);
@@ -158,7 +158,7 @@ describe("newspaper enrichment status", () => {
     expect(scaled.filter((entry) => entry.hasMatchReport)).toHaveLength(121);
     expect(scaled.filter((entry) => entry.hasPostMatchEvidence)).toHaveLength(121);
     expect(scaled.filter((entry) => entry.enrichmentStatus === "complete")).toHaveLength(112);
-    expect(scaled.filter((entry) => entry.enrichmentStatus === "residual")).toHaveLength(76);
+    expect(scaled.filter((entry) => entry.enrichmentStatus === "residual")).toHaveLength(77);
     expect(scaled.filter((entry) => entry.conflictCandidate && entry.enrichmentStatus !== "residual")).toHaveLength(0);
     expect(reviews.filter((entry) => entry.fieldsAdded.length > 0)).toHaveLength(1);
     expect(scaled.find((entry) => entry.matchId === "1962-09-05-aalesunds-fk-sk-brann")).toMatchObject({
@@ -180,5 +180,22 @@ describe("newspaper enrichment status", () => {
     expect(pageLinks.filter((issue) =>
       Number(new URL(issue.url).searchParams.get("page")) !== Number(issue.page) - 1,
     )).toEqual([]);
+  });
+
+  it("låser produksjonsbatchen 1980–1999 og bevarer konfliktsemantikken", async () => {
+    const raw = await readFile(join(repoRoot(), "data", "discovery", "newspaper-enrichment-status.yaml"), "utf8");
+    const status = parseYaml(raw, { schema: "core" }) as NewspaperEnrichmentStatus;
+    const scaled = status.entries.filter((entry) => entry.season >= 1980 && entry.season <= 1999);
+
+    expect(scaled).toHaveLength(378);
+    expect(scaled.filter((entry) => entry.hasSmpMention)).toHaveLength(318);
+    expect(scaled.filter((entry) => entry.reviewStatus === "ocr_correlated")).toHaveLength(293);
+    expect(scaled.filter((entry) => entry.conflictCandidate)).toHaveLength(25);
+    expect(scaled.filter((entry) => entry.reviewStatus === "no_ocr_candidate")).toHaveLength(60);
+    expect(scaled.filter((entry) => entry.hasMatchReport)).toHaveLength(300);
+    expect(scaled.filter((entry) => entry.enrichmentStatus === "complete")).toHaveLength(275);
+    expect(scaled.filter((entry) => entry.enrichmentStatus === "residual")).toHaveLength(103);
+    expect(scaled.filter((entry) => entry.conflictCandidate && entry.enrichmentStatus !== "residual")).toHaveLength(0);
+    expect(scaled.filter((entry) => entry.facsimileReviewed)).toHaveLength(0);
   });
 });

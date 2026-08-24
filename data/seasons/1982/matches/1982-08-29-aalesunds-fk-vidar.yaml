@@ -32,6 +32,10 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99091.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/394e531e90677286930491f23b501865?page=7
+    retrievedAt: 2026-08-24
+    fields: []
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +43,8 @@ aliases:
   fotball-no: "99091"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19820830-394e531e90677286930491f23b501865
+    page: "8"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

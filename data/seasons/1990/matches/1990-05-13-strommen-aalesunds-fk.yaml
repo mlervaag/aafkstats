@@ -10,14 +10,17 @@ competition:
 home:
   clubId: strommen
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/752c2ff580f5d326638b2436387a076a?page=13
+    date: 1990-05-14
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83051&underside=kamper
@@ -32,6 +35,15 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99014.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/752c2ff580f5d326638b2436387a076a?page=13
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +51,15 @@ aliases:
   fotball-no: "99014"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19900514-752c2ff580f5d326638b2436387a076a
+    page: "14"
+    fields:
+      - externalReports
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 650
+venueId: strommen-stadion

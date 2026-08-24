@@ -10,14 +10,17 @@ competition:
 home:
   clubId: sogndal
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/c869596cb653625d34c1b338281fae95?page=16
+    date: 1995-05-29
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83064&underside=kamper
@@ -32,6 +35,13 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99030.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/c869596cb653625d34c1b338281fae95?page=16
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +49,11 @@ aliases:
   fotball-no: "99030"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19950529-c869596cb653625d34c1b338281fae95
+    page: "17"
+    fields:
+      - externalReports
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

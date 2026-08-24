@@ -10,14 +10,17 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: sunndal
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/0231d5572426e0e6016b94a07311f660?page=8
+    date: 1985-05-06
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83032&underside=kamper
@@ -32,6 +35,16 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99012.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/0231d5572426e0e6016b94a07311f660?page=8
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - referee
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +52,17 @@ aliases:
   fotball-no: "99012"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19850506-0231d5572426e0e6016b94a07311f660
+    page: "9"
+    fields:
+      - externalReports
+      - attendance
+      - referee
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 1100
+referee: Terje Blomseth
+venueId: kramyra-stadion

@@ -10,14 +10,17 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: odds-ballklubb
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/4b1a60ea855bb3357a03561013ab68e8?page=16
+    date: 1998-10-19
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1998/First.html
@@ -31,9 +34,30 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/4b1a60ea855bb3357a03561013ab68e8?page=16
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1998-first-1998-10-18-aalesunds-fk-odd
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19981019-4b1a60ea855bb3357a03561013ab68e8
+    page: "17"
+    fields:
+      - externalReports
+      - attendance
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 800
+referee: Stig Rune Krokdal

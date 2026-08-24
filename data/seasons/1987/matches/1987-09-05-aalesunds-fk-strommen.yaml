@@ -10,14 +10,17 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: strommen
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/1fc0a936768a42b7a1ce64dbe491b54a?page=10
+    date: 1987-09-07
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83042&underside=kamper
@@ -32,6 +35,14 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99100.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/1fc0a936768a42b7a1ce64dbe491b54a?page=10
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +50,13 @@ aliases:
   fotball-no: "99100"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19870907-1fc0a936768a42b7a1ce64dbe491b54a
+    page: "11"
+    fields:
+      - externalReports
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 1100

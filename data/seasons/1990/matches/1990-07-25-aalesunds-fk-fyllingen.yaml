@@ -10,14 +10,17 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: fyllingen
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/79cc00e70bf692f1d51e275f5f6af398?page=14
+    date: 1990-07-26
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1990/Cup.html
@@ -31,9 +34,30 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/79cc00e70bf692f1d51e275f5f6af398?page=14
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1990-cup-1990-07-25-aalesunds-fk-fyllingen
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19900726-79cc00e70bf692f1d51e275f5f6af398
+    page: "15"
+    fields:
+      - externalReports
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 1800
+venueId: kramyra-stadion

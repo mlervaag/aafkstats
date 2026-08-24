@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { BatchEntry, BatchReport, IssueRef } from "../src/adapters/nb-newspaper-batch.js";
-import { buildPilotReviewEntries, isSameNewspaperDocument, prepareMatchForNewspaperWrite, reconcilePrematchExternalReport } from "../src/newspaper/pilot-review.js";
+import { buildPilotReviewEntries, isPlausibleHalfTime, isPlausibleRefereeName, isSameNewspaperDocument, prepareMatchForNewspaperWrite, reconcilePrematchExternalReport } from "../src/newspaper/pilot-review.js";
 import type { Match, Source } from "@aafkstats/schema";
 
 const issue = (overrides: Partial<IssueRef> = {}): IssueRef => ({
@@ -47,6 +47,17 @@ const report = (entries: BatchEntry[]): BatchReport => ({
 });
 
 describe("1979 OCR pilot review", () => {
+  it("avviser straffesparkkonkurranse lest som pauseresultat", () => {
+    expect(isPlausibleHalfTime({ home: 3, away: 4 }, { home: 0, away: 0 })).toBe(false);
+    expect(isPlausibleHalfTime({ home: 1, away: 0 }, { home: 2, away: 1 })).toBe(true);
+  });
+
+  it("avviser rollehale og karakterer i OCR-lest dommernavn", () => {
+    expect(isPlausibleRefereeName("Stig Rune Krokdal (Rosenborg) -7")).toBe(false);
+    expect(isPlausibleRefereeName("Håkon O")).toBe(false);
+    expect(isPlausibleRefereeName("Stig Rune Krokdal")).toBe(true);
+  });
+
   it("forbereder eldre kamper som mangler valgfrie kildelister", () => {
     const match = {} as Match;
     prepareMatchForNewspaperWrite(match);

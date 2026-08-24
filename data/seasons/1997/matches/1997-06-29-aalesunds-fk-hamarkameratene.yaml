@@ -31,9 +31,18 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/2127c352531250bf8e9ed96a2b940b30?page=17
+    retrievedAt: 2026-08-24
+    fields: []
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1997-first-1997-06-29-aalesunds-fk-hamarkameratene
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19970630-2127c352531250bf8e9ed96a2b940b30
+    page: "18"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

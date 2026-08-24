@@ -10,14 +10,17 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: mjondalen
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/69b1ab872448a50f579d4d2fd942dd29?page=12
+    date: 1991-05-27
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83058&underside=kamper
@@ -32,6 +35,16 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99027.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/69b1ab872448a50f579d4d2fd942dd29?page=12
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - referee
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +52,17 @@ aliases:
   fotball-no: "99027"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19910527-69b1ab872448a50f579d4d2fd942dd29
+    page: "13"
+    fields:
+      - externalReports
+      - attendance
+      - referee
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 2000
+referee: Jarle Nilsen
+venueId: kramyra-stadion

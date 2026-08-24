@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/26dc6e50b4110a534dab855234a5f0df?page=17
+    date: 1996-07-25
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83065&underside=kamper
@@ -32,6 +35,14 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99068.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/26dc6e50b4110a534dab855234a5f0df?page=17
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - referee
+      - venueId
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +50,15 @@ aliases:
   fotball-no: "99068"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19960725-26dc6e50b4110a534dab855234a5f0df
+    page: "18"
+    fields:
+      - externalReports
+      - attendance
+      - referee
+      - venueId
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 771
+referee: Terje Singsaas
+venueId: kramyra-stadion

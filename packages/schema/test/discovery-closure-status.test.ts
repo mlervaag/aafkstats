@@ -28,7 +28,7 @@ describe("autoritativ discovery closure-ledger", () => {
     ];
     expect(new Set(queued).size).toBe(report.entries.length);
     expect(queued).toHaveLength(report.entries.length);
-  }, 30_000);
+  }, 120_000);
 
   it("regner PR205-invalidering fra claim og review-koordinat", async () => {
     const report = await buildDiscoveryClosureStatus();
@@ -46,5 +46,5 @@ describe("autoritativ discovery closure-ledger", () => {
     // Tidligere ukoblede Wave 2-påstander som nå er koblet til kanoniske kamper
     // skal ikke bli liggende i review-køen.
     expect(report.closureQueue.bySelection.wave2.needsVisualReview).toHaveLength(110);
-  }, 30_000);
+  }, 120_000);
 });

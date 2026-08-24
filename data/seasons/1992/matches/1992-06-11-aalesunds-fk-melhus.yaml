@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/b48862ab4c22a33f79243924d1375dc4?page=17
+    date: 1992-06-12
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1992/Cup.html
@@ -31,9 +34,20 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/b48862ab4c22a33f79243924d1375dc4?page=17
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1992-cup-1992-06-11-aalesunds-fk-melhus
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19920612-b48862ab4c22a33f79243924d1375dc4
+    page: "18"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

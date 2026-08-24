@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/f1ed6c318a66d3cd9d7a492668ab7093?page=14
+    date: 1986-06-16
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83043&underside=kamper
@@ -32,6 +35,13 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99054.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/f1ed6c318a66d3cd9d7a492668ab7093?page=14
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - referee
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +49,13 @@ aliases:
   fotball-no: "99054"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19860616-f1ed6c318a66d3cd9d7a492668ab7093
+    page: "15"
+    fields:
+      - externalReports
+      - attendance
+      - referee
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 1200
+referee: Tor Sunde

@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/00f4e12867aaa3be72c1199733c54cc6?page=10
+    date: 1998-05-13
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1998/Cup.html
@@ -31,9 +34,20 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/00f4e12867aaa3be72c1199733c54cc6?page=10
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1998-cup-1998-05-13-aalesunds-fk-clausenengen
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19980513-00f4e12867aaa3be72c1199733c54cc6
+    page: "11"
+    fields:
+      - externalReports
+    note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.

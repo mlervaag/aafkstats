@@ -10,14 +10,17 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: haugar
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/10c2dbf7e7c4f297e13eb7b8593f92dd?page=8
+    date: 1982-10-04
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83035&underside=kamper
@@ -32,6 +35,15 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99122.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/10c2dbf7e7c4f297e13eb7b8593f92dd?page=8
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +51,15 @@ aliases:
   fotball-no: "99122"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19821004-10c2dbf7e7c4f297e13eb7b8593f92dd
+    page: "9"
+    fields:
+      - externalReports
+      - attendance
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 1400
+referee: Arild Ødegård

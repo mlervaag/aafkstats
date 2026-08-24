@@ -10,14 +10,17 @@ competition:
 home:
   clubId: hodd
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/55041ac502669ad62fbad09cadaf1782?page=6
+    date: 1980-05-30
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1980/Cup.html
@@ -31,9 +34,27 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/55041ac502669ad62fbad09cadaf1782?page=6
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1980-cup-1980-05-29-hodd-aalesunds-fk
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19800530-55041ac502669ad62fbad09cadaf1782
+    page: "7"
+    fields:
+      - externalReports
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 500
