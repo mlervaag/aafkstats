@@ -1,0 +1,1766 @@
+contract: nb-dateless-discovery@1
+generatedAt: 2026-08-24
+scope:
+  from: 1955
+  to: 1959
+  closureQueueOnly: true
+  likelyMonthsOnly: true
+totals:
+  checked: 20
+  existing_match_candidate: 0
+  datoevidens_funnet: 0
+  kandidatliste: 20
+  ingen_treff: 0
+  ikke_digitalisert: 0
+queues:
+  existingMatchReview: []
+  dateEvidenceReview: []
+  candidateReview:
+    - srcclaim-805d7ce9721cf5ea93f96ec600b52511
+    - srcclaim-85b97c9e6e60c2b7942ff7b9a43f304e
+    - srcclaim-1b2be42c0533d26f1429b5170133b4b6
+    - srcclaim-f5691d1f8e5f3f9235cc139c133dd5c9
+    - srcclaim-89aa9eecd53e9db8a4659480e8bcdb8b
+    - srcclaim-c9e2afcf57ddb4d42d8d84aac93613c9
+    - srcclaim-b3c20ff98be1c5efeb2e72a5c67a65d3
+    - srcclaim-772fffaab7ed368d353738e32e517f16
+    - srcclaim-d820928efba656e2e4579bdc507800d3
+    - srcclaim-a9ec4782de8d37810570d72a2bbf8aef
+    - srcclaim-dc9b21c7599d508a20c610f4709b61f6
+    - srcclaim-879964fa3220bb9240d540e07c883a44
+    - srcclaim-90d385e90efa96d074576107eeb5b2e2
+    - srcclaim-9a39477f3c097408fee60de214b03f70
+    - srcclaim-f5fe8cfc003802d1cd64b8c3dadd9152
+    - srcclaim-0d1ecb3bac5ac37ba9f9d8051f0e17e1
+    - srcclaim-0ebd737e1ca232885d705cd756738d3c
+    - srcclaim-1f88da6f1ede73b465dc5b0928d35fa2
+    - srcclaim-c7029a8a05e78bb322ee782dfcb5d512
+    - srcclaim-7980447adbf76b93d7f8cab45737efc2
+  exhausted: []
+entries:
+  - sourceClaimId: srcclaim-805d7ce9721cf5ea93f96ec600b52511
+    legacyQueryId: medlemsblad-for-aalesunds-fotb-1959-515a#1959-001
+    season: 1959
+    opponent: Spjelkavik
+    score: 2-0
+    outcome: kandidatliste
+    plan: mellom nabokampene sesongstart og 1959-07-16
+    shortlist:
+      - issueId: f6dab5f1f12261de7f5eb8d341c08f17
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590522_77_115_1
+        issued: "19590522"
+        pageUrl: https://www.nb.no/items/f6dab5f1f12261de7f5eb8d341c08f17?page=5
+        page: "6"
+        month: 1959-05
+        score: 66
+        reasons:
+          - "motstander: Spjelkavik"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 4 søkevarianter traff
+        genres:
+          - match_report
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 26c6ef61b722594eb27ab9f8ab9b987a
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590526_77_118_1
+        issued: "19590526"
+        pageUrl: https://www.nb.no/items/26c6ef61b722594eb27ab9f8ab9b987a?page=2
+        page: "3"
+        month: 1959-05
+        score: 66
+        reasons:
+          - "motstander: Spjelkavik"
+          - "AaFK-navn: Aalesund"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 5 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+          - results_board
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 9e6031f071a2fea9df4c54ba1cd43d34
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590616_77_136_1
+        issued: "19590616"
+        pageUrl: https://www.nb.no/items/9e6031f071a2fea9df4c54ba1cd43d34?page=2
+        page: "3"
+        month: 1959-06
+        score: 66
+        reasons:
+          - "motstander: Spjelkavik"
+          - "AaFK-navn: Aalesund"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 103d4ea0ca29e800c8d704ae3d0e82b1
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590703_77_151_1
+        issued: "19590703"
+        pageUrl: https://www.nb.no/items/103d4ea0ca29e800c8d704ae3d0e82b1?page=2
+        page: "3"
+        month: 1959-07
+        score: 66
+        reasons:
+          - "motstander: Spjelkavik"
+          - "AaFK-navn: A.F.K."
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-85b97c9e6e60c2b7942ff7b9a43f304e
+    legacyQueryId: medlemsblad-for-aalesunds-fotb-1959-515a#1959-002
+    season: 1959
+    opponent: Guard
+    score: 6-2
+    outcome: kandidatliste
+    plan: mellom nabokampene sesongstart og 1959-07-16
+    shortlist:
+      - issueId: a2f793e502ffb3969ca77b8dd64ee53e
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590408_77_80_1
+        issued: "19590408"
+        pageUrl: https://www.nb.no/items/a2f793e502ffb3969ca77b8dd64ee53e?page=3
+        page: "4"
+        month: 1959-04
+        score: 66
+        reasons:
+          - "motstander: Guard"
+          - "AaFK-navn: A.F.K."
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 12 søkevarianter traff
+        genres:
+          - match_report
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 7252fb15c1d6652ef98d9f2175b7f7d0
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590427_77_96_1
+        issued: "19590427"
+        pageUrl: https://www.nb.no/items/7252fb15c1d6652ef98d9f2175b7f7d0?page=6
+        page: "7"
+        month: 1959-04
+        score: 66
+        reasons:
+          - "motstander: Guard"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 9 søkevarianter traff
+        genres:
+          - fixture_list
+          - preview
+          - match_report
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: c2e0cc5deefab02707fb9c89382dde53
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590512_77_107_1
+        issued: "19590512"
+        pageUrl: https://www.nb.no/items/c2e0cc5deefab02707fb9c89382dde53?page=5
+        page: "6"
+        month: 1959-05
+        score: 66
+        reasons:
+          - "motstander: Guard"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 10 søkevarianter traff
+        genres:
+          - fixture_list
+          - preview
+          - match_report
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 21d0f97d846e9409e44e2141bba97d94
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590527_77_119_1
+        issued: "19590527"
+        pageUrl: https://www.nb.no/items/21d0f97d846e9409e44e2141bba97d94?page=6
+        page: "7"
+        month: 1959-05
+        score: 66
+        reasons:
+          - "motstander: Guard"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 9 søkevarianter traff
+        genres:
+          - fixture_list
+          - advertisement
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-1b2be42c0533d26f1429b5170133b4b6
+    legacyQueryId: medlemsblad-for-aalesunds-fotb-1959-515a#1959-003
+    season: 1959
+    opponent: Skarbøvik
+    score: 3-1
+    outcome: kandidatliste
+    plan: mellom nabokampene sesongstart og 1959-07-16
+    shortlist:
+      - issueId: 4d31dde9f3bfe5996a8b1c6b47b11354
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590409_77_81_1
+        issued: "19590409"
+        pageUrl: https://www.nb.no/items/4d31dde9f3bfe5996a8b1c6b47b11354?page=3
+        page: "4"
+        month: 1959-04
+        score: 66
+        reasons:
+          - "motstander: Skarbøvik"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 3709fa3d286a5780a6bd2d073ae2c60c
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590416_77_87_1
+        issued: "19590416"
+        pageUrl: https://www.nb.no/items/3709fa3d286a5780a6bd2d073ae2c60c?page=4
+        page: "5"
+        month: 1959-04
+        score: 66
+        reasons:
+          - "motstander: Skarbøvik"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 3 søkevarianter traff
+        genres:
+          - fixture_list
+          - preview
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 15010004751e720575e9ec68b1d849b3
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590417_77_88_1
+        issued: "19590417"
+        pageUrl: https://www.nb.no/items/15010004751e720575e9ec68b1d849b3?page=9
+        page: "10"
+        month: 1959-04
+        score: 66
+        reasons:
+          - "motstander: Skarbøvik"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 3 søkevarianter traff
+        genres:
+          - preview
+          - fixture_list
+          - match_report
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: c2e0cc5deefab02707fb9c89382dde53
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590512_77_107_1
+        issued: "19590512"
+        pageUrl: https://www.nb.no/items/c2e0cc5deefab02707fb9c89382dde53?page=4
+        page: "5"
+        month: 1959-05
+        score: 66
+        reasons:
+          - "motstander: Skarbøvik"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 5 søkevarianter traff
+        genres:
+          - fixture_list
+          - preview
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-f5691d1f8e5f3f9235cc139c133dd5c9
+    legacyQueryId: medlemsblad-for-aalesunds-fotb-1959-515a#1959-004
+    season: 1959
+    opponent: Rollon
+    score: 1-0
+    outcome: kandidatliste
+    plan: mellom nabokampene sesongstart og 1959-07-16
+    shortlist:
+      - issueId: 8b7e3d0cea0cf6883859aa9e861af5ef
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590406_77_78_1
+        issued: "19590406"
+        pageUrl: https://www.nb.no/items/8b7e3d0cea0cf6883859aa9e861af5ef?page=6
+        page: "7"
+        month: 1959-04
+        score: 66
+        reasons:
+          - "motstander: Rollon"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 10 søkevarianter traff
+        genres:
+          - fixture_list
+          - match_report
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 8d3c5b1b7d40d2f719c0ebe7e409df1a
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590421_77_91_1
+        issued: "19590421"
+        pageUrl: https://www.nb.no/items/8d3c5b1b7d40d2f719c0ebe7e409df1a?page=7
+        page: "8"
+        month: 1959-04
+        score: 66
+        reasons:
+          - "motstander: Rollon"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 12 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 6dc57021db4b7a0f51695571d914aa3f
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590509_77_105_1
+        issued: "19590509"
+        pageUrl: https://www.nb.no/items/6dc57021db4b7a0f51695571d914aa3f?page=6
+        page: "7"
+        month: 1959-05
+        score: 66
+        reasons:
+          - "motstander: Rollon"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 15 søkevarianter traff
+        genres:
+          - fixture_list
+          - preview
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: fc9a3cbdbf2f4fc1ae54f0963a8d94de
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590513_77_108_1
+        issued: "19590513"
+        pageUrl: https://www.nb.no/items/fc9a3cbdbf2f4fc1ae54f0963a8d94de?page=3
+        page: "4"
+        month: 1959-05
+        score: 66
+        reasons:
+          - "motstander: Rollon"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 9 søkevarianter traff
+        genres:
+          - fixture_list
+          - preview
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-89aa9eecd53e9db8a4659480e8bcdb8b
+    legacyQueryId: medlemsblad-for-aalesunds-fotb-1959-515a#1959-005
+    season: 1959
+    opponent: Hødd
+    score: 4-0
+    outcome: kandidatliste
+    plan: mellom nabokampene sesongstart og 1959-07-16
+    shortlist:
+      - issueId: 51f1361873adda19e824f9dd90b00ac4
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590413_77_84_1
+        issued: "19590413"
+        pageUrl: https://www.nb.no/items/51f1361873adda19e824f9dd90b00ac4?page=1
+        page: "2"
+        month: 1959-04
+        score: 66
+        reasons:
+          - "motstander: Hødd"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 3 søkevarianter traff
+        genres:
+          - preview
+          - fixture_list
+          - match_report
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 7b2e95ca2db8c50260a4ed7ddc38dfed
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590420_77_90_1
+        issued: "19590420"
+        pageUrl: https://www.nb.no/items/7b2e95ca2db8c50260a4ed7ddc38dfed?page=5
+        page: "6"
+        month: 1959-04
+        score: 66
+        reasons:
+          - "motstander: Hødd"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 3 søkevarianter traff
+        genres:
+          - preview
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 8f5496b01477046a2879aa4d369f64c7
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590424_77_94_1
+        issued: "19590424"
+        pageUrl: https://www.nb.no/items/8f5496b01477046a2879aa4d369f64c7?page=2
+        page: "3"
+        month: 1959-04
+        score: 66
+        reasons:
+          - "motstander: Hødd"
+          - "AaFK-navn: A.F.K."
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 5 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 53d8fec3d5b354accab36b3a2b45e174
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590425_77_95_1
+        issued: "19590425"
+        pageUrl: https://www.nb.no/items/53d8fec3d5b354accab36b3a2b45e174?page=2
+        page: "3"
+        month: 1959-04
+        score: 66
+        reasons:
+          - "motstander: Hødd"
+          - "AaFK-navn: A.F.K."
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 5 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+          - preview
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-c9e2afcf57ddb4d42d8d84aac93613c9
+    legacyQueryId: medlemsblad-for-aalesunds-fotb-1959-515a#1959-006
+    season: 1959
+    opponent: Ørsta
+    score: 3-0
+    outcome: kandidatliste
+    plan: mellom nabokampene sesongstart og 1959-07-16
+    shortlist:
+      - issueId: 53d8fec3d5b354accab36b3a2b45e174
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590425_77_95_1
+        issued: "19590425"
+        pageUrl: https://www.nb.no/items/53d8fec3d5b354accab36b3a2b45e174?page=2
+        page: "3"
+        month: 1959-04
+        score: 66
+        reasons:
+          - "motstander: Ørsta"
+          - "AaFK-navn: Aalesund"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 5 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 7b3a83cd628ef778ec5d714d3b715959
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590605_77_127_1
+        issued: "19590605"
+        pageUrl: https://www.nb.no/items/7b3a83cd628ef778ec5d714d3b715959?page=2
+        page: "3"
+        month: 1959-06
+        score: 66
+        reasons:
+          - "motstander: Ørsta"
+          - "AaFK-navn: Aalesund"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 0f84dcdcc5ada24fa07eda42b1e5ad85
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590619_77_139_1
+        issued: "19590619"
+        pageUrl: https://www.nb.no/items/0f84dcdcc5ada24fa07eda42b1e5ad85?page=2
+        page: "3"
+        month: 1959-06
+        score: 66
+        reasons:
+          - "motstander: Ørsta"
+          - "AaFK-navn: Aalesund"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 3 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 4014f21ca182277d80cb9e5a35eb8924
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590709_77_156_1
+        issued: "19590709"
+        pageUrl: https://www.nb.no/items/4014f21ca182277d80cb9e5a35eb8924?page=0
+        page: "1"
+        month: 1959-07
+        score: 66
+        reasons:
+          - "motstander: Ørsta"
+          - "AaFK-navn: Aalesund"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 3 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-b3c20ff98be1c5efeb2e72a5c67a65d3
+    legacyQueryId: medlemsblad-for-aalesunds-fotb-1959-515a#1959-007
+    season: 1959
+    opponent: Aksla
+    score: 0-1
+    outcome: kandidatliste
+    plan: mellom nabokampene sesongstart og 1959-07-16
+    shortlist:
+      - issueId: 4d31dde9f3bfe5996a8b1c6b47b11354
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590409_77_81_1
+        issued: "19590409"
+        pageUrl: https://www.nb.no/items/4d31dde9f3bfe5996a8b1c6b47b11354?page=3
+        page: "4"
+        month: 1959-04
+        score: 66
+        reasons:
+          - "motstander: Aksla"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 12 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 29216a1664f2900e602de5dd0a78ab36
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590411_77_83_1
+        issued: "19590411"
+        pageUrl: https://www.nb.no/items/29216a1664f2900e602de5dd0a78ab36?page=4
+        page: "5"
+        month: 1959-04
+        score: 66
+        reasons:
+          - "motstander: Aksla"
+          - "AaFK-navn: A.F.K."
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 9 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 7e5f2ea18dd08013ef220cc23bd72566
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590414_77_85_1
+        issued: "19590414"
+        pageUrl: https://www.nb.no/items/7e5f2ea18dd08013ef220cc23bd72566?page=3
+        page: "4"
+        month: 1959-04
+        score: 66
+        reasons:
+          - "motstander: Aksla"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 15 søkevarianter traff
+        genres:
+          - unknown
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 8f5496b01477046a2879aa4d369f64c7
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590424_77_94_1
+        issued: "19590424"
+        pageUrl: https://www.nb.no/items/8f5496b01477046a2879aa4d369f64c7?page=2
+        page: "3"
+        month: 1959-04
+        score: 66
+        reasons:
+          - "motstander: Aksla"
+          - "AaFK-navn: A.F.K."
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 15 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-772fffaab7ed368d353738e32e517f16
+    legacyQueryId: medlemsblad-for-aalesunds-fotb-1959-515a#1959-009
+    season: 1959
+    opponent: Aksla
+    score: 2-2
+    outcome: kandidatliste
+    plan: ingen prior — hele sesongen
+    shortlist:
+      - issueId: 4d31dde9f3bfe5996a8b1c6b47b11354
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590409_77_81_1
+        issued: "19590409"
+        pageUrl: https://www.nb.no/items/4d31dde9f3bfe5996a8b1c6b47b11354?page=3
+        page: "4"
+        month: 1959-04
+        score: 64
+        reasons:
+          - "motstander: Aksla"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 29216a1664f2900e602de5dd0a78ab36
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590411_77_83_1
+        issued: "19590411"
+        pageUrl: https://www.nb.no/items/29216a1664f2900e602de5dd0a78ab36?page=4
+        page: "5"
+        month: 1959-04
+        score: 64
+        reasons:
+          - "motstander: Aksla"
+          - "AaFK-navn: A.F.K."
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 7e5f2ea18dd08013ef220cc23bd72566
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590414_77_85_1
+        issued: "19590414"
+        pageUrl: https://www.nb.no/items/7e5f2ea18dd08013ef220cc23bd72566?page=3
+        page: "4"
+        month: 1959-04
+        score: 64
+        reasons:
+          - "motstander: Aksla"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - unknown
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 8f5496b01477046a2879aa4d369f64c7
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590424_77_94_1
+        issued: "19590424"
+        pageUrl: https://www.nb.no/items/8f5496b01477046a2879aa4d369f64c7?page=2
+        page: "3"
+        month: 1959-04
+        score: 64
+        reasons:
+          - "motstander: Aksla"
+          - "AaFK-navn: A.F.K."
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-d820928efba656e2e4579bdc507800d3
+    legacyQueryId: medlemsblad-for-aalesunds-fotb-1959-515a#1959-010
+    season: 1959
+    opponent: Langevåg
+    score: 2-0
+    outcome: kandidatliste
+    plan: ingen prior — hele sesongen
+    shortlist:
+      - issueId: c43ccf4a2dffa751392025e19e0421a5
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590410_77_82_1
+        issued: "19590410"
+        pageUrl: https://www.nb.no/items/c43ccf4a2dffa751392025e19e0421a5?page=2
+        page: "3"
+        month: 1959-04
+        score: 64
+        reasons:
+          - "motstander: Langevåg"
+          - "AaFK-navn: Aalesund"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - unknown
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 12efee99acb4d0850ab51f32b8fe6fa9
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590504_77_101_1
+        issued: "19590504"
+        pageUrl: https://www.nb.no/items/12efee99acb4d0850ab51f32b8fe6fa9?page=5
+        page: "6"
+        month: 1959-05
+        score: 64
+        reasons:
+          - "motstander: Langevåg"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - preview
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 25d5215993199bd6d4ce580db02e7d99
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590505_77_102_1
+        issued: "19590505"
+        pageUrl: https://www.nb.no/items/25d5215993199bd6d4ce580db02e7d99?page=6
+        page: "7"
+        month: 1959-05
+        score: 64
+        reasons:
+          - "motstander: Langevåg"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 93fe913b4d5fd2bc17db82ccbee988ac
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590706_77_153_1
+        issued: "19590706"
+        pageUrl: https://www.nb.no/items/93fe913b4d5fd2bc17db82ccbee988ac?page=1
+        page: "2"
+        month: 1959-07
+        score: 64
+        reasons:
+          - "motstander: Langevåg"
+          - "AaFK-navn: Aalesund"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-a9ec4782de8d37810570d72a2bbf8aef
+    legacyQueryId: medlemsblad-for-aalesunds-fotb-1959-515a#1959-011
+    season: 1959
+    opponent: Spjelkavik
+    score: 6-1
+    outcome: kandidatliste
+    plan: ingen prior — hele sesongen
+    shortlist:
+      - issueId: f6dab5f1f12261de7f5eb8d341c08f17
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590522_77_115_1
+        issued: "19590522"
+        pageUrl: https://www.nb.no/items/f6dab5f1f12261de7f5eb8d341c08f17?page=5
+        page: "6"
+        month: 1959-05
+        score: 64
+        reasons:
+          - "motstander: Spjelkavik"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - match_report
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 26c6ef61b722594eb27ab9f8ab9b987a
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590526_77_118_1
+        issued: "19590526"
+        pageUrl: https://www.nb.no/items/26c6ef61b722594eb27ab9f8ab9b987a?page=2
+        page: "3"
+        month: 1959-05
+        score: 64
+        reasons:
+          - "motstander: Spjelkavik"
+          - "AaFK-navn: Aalesund"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 9e6031f071a2fea9df4c54ba1cd43d34
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590616_77_136_1
+        issued: "19590616"
+        pageUrl: https://www.nb.no/items/9e6031f071a2fea9df4c54ba1cd43d34?page=2
+        page: "3"
+        month: 1959-06
+        score: 64
+        reasons:
+          - "motstander: Spjelkavik"
+          - "AaFK-navn: Aalesund"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 103d4ea0ca29e800c8d704ae3d0e82b1
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590703_77_151_1
+        issued: "19590703"
+        pageUrl: https://www.nb.no/items/103d4ea0ca29e800c8d704ae3d0e82b1?page=2
+        page: "3"
+        month: 1959-07
+        score: 64
+        reasons:
+          - "motstander: Spjelkavik"
+          - "AaFK-navn: A.F.K."
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-dc9b21c7599d508a20c610f4709b61f6
+    legacyQueryId: medlemsblad-for-aalesunds-fotb-1959-515a#1959-012
+    season: 1959
+    opponent: Skarbøvik
+    score: 3-1
+    outcome: kandidatliste
+    plan: ingen prior — hele sesongen
+    shortlist:
+      - issueId: 4d31dde9f3bfe5996a8b1c6b47b11354
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590409_77_81_1
+        issued: "19590409"
+        pageUrl: https://www.nb.no/items/4d31dde9f3bfe5996a8b1c6b47b11354?page=3
+        page: "4"
+        month: 1959-04
+        score: 64
+        reasons:
+          - "motstander: Skarbøvik"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 15010004751e720575e9ec68b1d849b3
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590417_77_88_1
+        issued: "19590417"
+        pageUrl: https://www.nb.no/items/15010004751e720575e9ec68b1d849b3?page=9
+        page: "10"
+        month: 1959-04
+        score: 64
+        reasons:
+          - "motstander: Skarbøvik"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - preview
+          - fixture_list
+          - match_report
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: c2e0cc5deefab02707fb9c89382dde53
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590512_77_107_1
+        issued: "19590512"
+        pageUrl: https://www.nb.no/items/c2e0cc5deefab02707fb9c89382dde53?page=4
+        page: "5"
+        month: 1959-05
+        score: 64
+        reasons:
+          - "motstander: Skarbøvik"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 727183e2734069b3f6cbc57954b36030
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590516_77_111_1
+        issued: "19590516"
+        pageUrl: https://www.nb.no/items/727183e2734069b3f6cbc57954b36030?page=4
+        page: "5"
+        month: 1959-05
+        score: 64
+        reasons:
+          - "motstander: Skarbøvik"
+          - "AaFK-navn: A.F.K."
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-879964fa3220bb9240d540e07c883a44
+    legacyQueryId: medlemsblad-for-aalesunds-fotb-1959-515a#1959-013
+    season: 1959
+    opponent: Herd
+    score: 1-0
+    outcome: kandidatliste
+    plan: ingen prior — hele sesongen
+    shortlist:
+      - issueId: 8d3c5b1b7d40d2f719c0ebe7e409df1a
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590421_77_91_1
+        issued: "19590421"
+        pageUrl: https://www.nb.no/items/8d3c5b1b7d40d2f719c0ebe7e409df1a?page=7
+        page: "8"
+        month: 1959-04
+        score: 64
+        reasons:
+          - "motstander: Herd"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 12efee99acb4d0850ab51f32b8fe6fa9
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590504_77_101_1
+        issued: "19590504"
+        pageUrl: https://www.nb.no/items/12efee99acb4d0850ab51f32b8fe6fa9?page=5
+        page: "6"
+        month: 1959-05
+        score: 64
+        reasons:
+          - "motstander: Herd"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - preview
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: c2e0cc5deefab02707fb9c89382dde53
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590512_77_107_1
+        issued: "19590512"
+        pageUrl: https://www.nb.no/items/c2e0cc5deefab02707fb9c89382dde53?page=3
+        page: "4"
+        month: 1959-05
+        score: 64
+        reasons:
+          - "motstander: Herd"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - preview
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: d31adb967aa893ceb8fafafbfd8de451
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590530_77_122_1
+        issued: "19590530"
+        pageUrl: https://www.nb.no/items/d31adb967aa893ceb8fafafbfd8de451?page=6
+        page: "7"
+        month: 1959-05
+        score: 64
+        reasons:
+          - "motstander: Herd"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+          - preview
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-90d385e90efa96d074576107eeb5b2e2
+    legacyQueryId: medlemsblad-for-aalesunds-fotb-1959-515a#1959-014
+    season: 1959
+    opponent: Skarbøvik
+    score: 2-1
+    outcome: kandidatliste
+    plan: "nm runde 1: mai, april, august dekker 90 % av 46 kjente kamper"
+    shortlist:
+      - issueId: c2e0cc5deefab02707fb9c89382dde53
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590512_77_107_1
+        issued: "19590512"
+        pageUrl: https://www.nb.no/items/c2e0cc5deefab02707fb9c89382dde53?page=4
+        page: "5"
+        month: 1959-05
+        score: 64
+        reasons:
+          - "motstander: Skarbøvik"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 727183e2734069b3f6cbc57954b36030
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590516_77_111_1
+        issued: "19590516"
+        pageUrl: https://www.nb.no/items/727183e2734069b3f6cbc57954b36030?page=4
+        page: "5"
+        month: 1959-05
+        score: 64
+        reasons:
+          - "motstander: Skarbøvik"
+          - "AaFK-navn: A.F.K."
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: dc858da289d44e5050d416e1afdb2752
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590525_77_117_1
+        issued: "19590525"
+        pageUrl: https://www.nb.no/items/dc858da289d44e5050d416e1afdb2752?page=5
+        page: "6"
+        month: 1959-05
+        score: 64
+        reasons:
+          - "motstander: Skarbøvik"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+          - preview
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: b6bf8dc9af79489c718926bbca6e316e
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590528_77_120_1
+        issued: "19590528"
+        pageUrl: https://www.nb.no/items/b6bf8dc9af79489c718926bbca6e316e?page=5
+        page: "6"
+        month: 1959-05
+        score: 64
+        reasons:
+          - "motstander: Skarbøvik"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - match_report
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-9a39477f3c097408fee60de214b03f70
+    legacyQueryId: medlemsblad-for-aalesunds-fotb-1959-515a#1959-015
+    season: 1959
+    opponent: Kvik (Trondheim)
+    score: 1-2
+    outcome: kandidatliste
+    plan: "nm runde 2: juni, mai, august, april dekker 90 % av 41 kjente kamper"
+    shortlist:
+      - issueId: c634e0ca7ee9b71672768fd9280688e0
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590612_77_133_1
+        issued: "19590612"
+        pageUrl: https://www.nb.no/items/c634e0ca7ee9b71672768fd9280688e0?page=2
+        page: "3"
+        month: 1959-06
+        score: 29
+        reasons:
+          - "AaFK-navn: Aalesund"
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 9e6031f071a2fea9df4c54ba1cd43d34
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590616_77_136_1
+        issued: "19590616"
+        pageUrl: https://www.nb.no/items/9e6031f071a2fea9df4c54ba1cd43d34?page=2
+        page: "3"
+        month: 1959-06
+        score: 29
+        reasons:
+          - "AaFK-navn: Aalesund"
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: bac9bb1223b763905780fb5cfe3797c6
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590627_77_146_1
+        issued: "19590627"
+        pageUrl: https://www.nb.no/items/bac9bb1223b763905780fb5cfe3797c6?page=0
+        page: "1"
+        month: 1959-06
+        score: 29
+        reasons:
+          - "AaFK-navn: Aalesund"
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 12efee99acb4d0850ab51f32b8fe6fa9
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590504_77_101_1
+        issued: "19590504"
+        pageUrl: https://www.nb.no/items/12efee99acb4d0850ab51f32b8fe6fa9?page=1
+        page: "2"
+        month: 1959-05
+        score: 29
+        reasons:
+          - "AaFK-navn: Aalesund"
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-f5fe8cfc003802d1cd64b8c3dadd9152
+    legacyQueryId: medlemsblad-for-aalesunds-fotb-1959-515a#1959-021
+    season: 1959
+    opponent: Kristiansund Fotballklubb
+    score: 2-1
+    outcome: kandidatliste
+    plan: mellom nabokampene 1959-05-31 og sesongslutt
+    shortlist:
+      - issueId: 12efee99acb4d0850ab51f32b8fe6fa9
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590504_77_101_1
+        issued: "19590504"
+        pageUrl: https://www.nb.no/items/12efee99acb4d0850ab51f32b8fe6fa9?page=1
+        page: "2"
+        month: 1959-05
+        score: 29
+        reasons:
+          - "AaFK-navn: Aalesund"
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: c2e0cc5deefab02707fb9c89382dde53
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590512_77_107_1
+        issued: "19590512"
+        pageUrl: https://www.nb.no/items/c2e0cc5deefab02707fb9c89382dde53?page=2
+        page: "3"
+        month: 1959-05
+        score: 29
+        reasons:
+          - "AaFK-navn: Aalesund"
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 22a58cb7109f238177016802aa94bfe4
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590523_77_116_1
+        issued: "19590523"
+        pageUrl: https://www.nb.no/items/22a58cb7109f238177016802aa94bfe4?page=0
+        page: "1"
+        month: 1959-05
+        score: 29
+        reasons:
+          - "AaFK-navn: Aalesund"
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+          - results_board
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 808af8b3203307985ba7b7e6a0fe2c71
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590630_77_148_1
+        issued: "19590630"
+        pageUrl: https://www.nb.no/items/808af8b3203307985ba7b7e6a0fe2c71?page=1
+        page: "2"
+        month: 1959-06
+        score: 29
+        reasons:
+          - "AaFK-navn: Aalesund"
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-0d1ecb3bac5ac37ba9f9d8051f0e17e1
+    legacyQueryId: medlemsblad-for-aalesunds-fotb-1959-515a#1959-022
+    season: 1959
+    opponent: Langevåg
+    score: 1-0
+    outcome: kandidatliste
+    plan: mellom nabokampene 1959-05-31 og sesongslutt
+    shortlist:
+      - issueId: 12efee99acb4d0850ab51f32b8fe6fa9
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590504_77_101_1
+        issued: "19590504"
+        pageUrl: https://www.nb.no/items/12efee99acb4d0850ab51f32b8fe6fa9?page=5
+        page: "6"
+        month: 1959-05
+        score: 64
+        reasons:
+          - "motstander: Langevåg"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - preview
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 25d5215993199bd6d4ce580db02e7d99
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590505_77_102_1
+        issued: "19590505"
+        pageUrl: https://www.nb.no/items/25d5215993199bd6d4ce580db02e7d99?page=6
+        page: "7"
+        month: 1959-05
+        score: 64
+        reasons:
+          - "motstander: Langevåg"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 93fe913b4d5fd2bc17db82ccbee988ac
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590706_77_153_1
+        issued: "19590706"
+        pageUrl: https://www.nb.no/items/93fe913b4d5fd2bc17db82ccbee988ac?page=1
+        page: "2"
+        month: 1959-07
+        score: 64
+        reasons:
+          - "motstander: Langevåg"
+          - "AaFK-navn: Aalesund"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 096c3624af5635d68aa1e749fb544dc5
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590720_77_165_1
+        issued: "19590720"
+        pageUrl: https://www.nb.no/items/096c3624af5635d68aa1e749fb544dc5?page=1
+        page: "2"
+        month: 1959-07
+        score: 64
+        reasons:
+          - "motstander: Langevåg"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - results_board
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-0ebd737e1ca232885d705cd756738d3c
+    legacyQueryId: medlemsblad-for-aalesunds-fotb-1959-515a#1959-023
+    season: 1959
+    opponent: Clausenengen
+    score: 2-0
+    outcome: kandidatliste
+    plan: mellom nabokampene 1959-05-31 og sesongslutt
+    shortlist:
+      - issueId: 7d67eefee56d5d9a130bcc52de5ffe2b
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590502_77_100_1
+        issued: "19590502"
+        pageUrl: https://www.nb.no/items/7d67eefee56d5d9a130bcc52de5ffe2b?page=7
+        page: "8"
+        month: 1959-05
+        score: 64
+        reasons:
+          - "motstander: Clausenengen"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+          - preview
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 6dc57021db4b7a0f51695571d914aa3f
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590509_77_105_1
+        issued: "19590509"
+        pageUrl: https://www.nb.no/items/6dc57021db4b7a0f51695571d914aa3f?page=2
+        page: "3"
+        month: 1959-05
+        score: 64
+        reasons:
+          - "motstander: Clausenengen"
+          - "AaFK-navn: A.F.K."
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: f6dab5f1f12261de7f5eb8d341c08f17
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590522_77_115_1
+        issued: "19590522"
+        pageUrl: https://www.nb.no/items/f6dab5f1f12261de7f5eb8d341c08f17?page=5
+        page: "6"
+        month: 1959-05
+        score: 64
+        reasons:
+          - "motstander: Clausenengen"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 93fe913b4d5fd2bc17db82ccbee988ac
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590706_77_153_1
+        issued: "19590706"
+        pageUrl: https://www.nb.no/items/93fe913b4d5fd2bc17db82ccbee988ac?page=1
+        page: "2"
+        month: 1959-07
+        score: 64
+        reasons:
+          - "motstander: CFK"
+          - "AaFK-navn: Aalesund"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-1f88da6f1ede73b465dc5b0928d35fa2
+    legacyQueryId: medlemsblad-for-aalesunds-fotb-1959-515a#1959-024
+    season: 1959
+    opponent: Molde FK
+    score: 0-0
+    outcome: kandidatliste
+    plan: mellom nabokampene 1959-05-31 og sesongslutt
+    shortlist:
+      - issueId: 25d5215993199bd6d4ce580db02e7d99
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590505_77_102_1
+        issued: "19590505"
+        pageUrl: https://www.nb.no/items/25d5215993199bd6d4ce580db02e7d99?page=3
+        page: "4"
+        month: 1959-05
+        score: 64
+        reasons:
+          - "motstander: Molde"
+          - "AaFK-navn: Aalesund"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 727183e2734069b3f6cbc57954b36030
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590516_77_111_1
+        issued: "19590516"
+        pageUrl: https://www.nb.no/items/727183e2734069b3f6cbc57954b36030?page=1
+        page: "2"
+        month: 1959-05
+        score: 64
+        reasons:
+          - "motstander: Molde"
+          - "AaFK-navn: Aalesund"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: c634e0ca7ee9b71672768fd9280688e0
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590612_77_133_1
+        issued: "19590612"
+        pageUrl: https://www.nb.no/items/c634e0ca7ee9b71672768fd9280688e0?page=2
+        page: "3"
+        month: 1959-06
+        score: 64
+        reasons:
+          - "motstander: Molde"
+          - "AaFK-navn: Aalesund"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 93fe913b4d5fd2bc17db82ccbee988ac
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590706_77_153_1
+        issued: "19590706"
+        pageUrl: https://www.nb.no/items/93fe913b4d5fd2bc17db82ccbee988ac?page=1
+        page: "2"
+        month: 1959-07
+        score: 64
+        reasons:
+          - "motstander: Molde"
+          - "AaFK-navn: Aalesund"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-c7029a8a05e78bb322ee782dfcb5d512
+    legacyQueryId: medlemsblad-for-aalesunds-fotb-1959-515a#1959-025
+    season: 1959
+    opponent: Braatt
+    score: 3-0
+    outcome: kandidatliste
+    plan: mellom nabokampene 1959-05-31 og sesongslutt
+    shortlist:
+      - issueId: 93fe913b4d5fd2bc17db82ccbee988ac
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590706_77_153_1
+        issued: "19590706"
+        pageUrl: https://www.nb.no/items/93fe913b4d5fd2bc17db82ccbee988ac?page=1
+        page: "2"
+        month: 1959-07
+        score: 64
+        reasons:
+          - "motstander: Braatt"
+          - "AaFK-navn: Aalesund"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 01b79cb22e0e5d3f2b4aabcdd4db01b2
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590824_77_195_1
+        issued: "19590824"
+        pageUrl: https://www.nb.no/items/01b79cb22e0e5d3f2b4aabcdd4db01b2?page=5
+        page: "6"
+        month: 1959-08
+        score: 64
+        reasons:
+          - "motstander: Braatt"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - standings
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 1417f51373a32fc604a71a70a5daffb2
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590828_77_199_1
+        issued: "19590828"
+        pageUrl: https://www.nb.no/items/1417f51373a32fc604a71a70a5daffb2?page=7
+        page: "8"
+        month: 1959-08
+        score: 64
+        reasons:
+          - "motstander: Braatt"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 33a575a08802fd9a31ca9a0fc0cd09df
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590829_77_200_1
+        issued: "19590829"
+        pageUrl: https://www.nb.no/items/33a575a08802fd9a31ca9a0fc0cd09df?page=2
+        page: "3"
+        month: 1959-08
+        score: 64
+        reasons:
+          - "motstander: Braatt"
+          - "AaFK-navn: A.F.K."
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-7980447adbf76b93d7f8cab45737efc2
+    legacyQueryId: medlemsblad-for-aalesunds-fotb-1959-515a#1959-026
+    season: 1959
+    opponent: Hødd
+    score: 4-1
+    outcome: kandidatliste
+    plan: mellom nabokampene 1959-05-31 og sesongslutt
+    shortlist:
+      - issueId: 7d67eefee56d5d9a130bcc52de5ffe2b
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590502_77_100_1
+        issued: "19590502"
+        pageUrl: https://www.nb.no/items/7d67eefee56d5d9a130bcc52de5ffe2b?page=7
+        page: "8"
+        month: 1959-05
+        score: 64
+        reasons:
+          - "motstander: Hødd"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+          - match_report
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 6eadeca7c03d96e59b020f8467882492
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590506_77_103_1
+        issued: "19590506"
+        pageUrl: https://www.nb.no/items/6eadeca7c03d96e59b020f8467882492?page=1
+        page: "2"
+        month: 1959-05
+        score: 64
+        reasons:
+          - "motstander: Hødd"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+          - match_report
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: caf3b3ba501af2928095bced072aff97
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590508_77_104_1
+        issued: "19590508"
+        pageUrl: https://www.nb.no/items/caf3b3ba501af2928095bced072aff97?page=1
+        page: "2"
+        month: 1959-05
+        score: 64
+        reasons:
+          - "motstander: Hødd"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - unknown
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 9e6031f071a2fea9df4c54ba1cd43d34
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590616_77_136_1
+        issued: "19590616"
+        pageUrl: https://www.nb.no/items/9e6031f071a2fea9df4c54ba1cd43d34?page=3
+        page: "4"
+        month: 1959-06
+        score: 64
+        reasons:
+          - "motstander: Hødd"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1959"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB

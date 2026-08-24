@@ -1,0 +1,1771 @@
+contract: nb-dateless-discovery@1
+generatedAt: 2026-08-24
+scope:
+  from: 1965
+  to: 1974
+  closureQueueOnly: true
+  likelyMonthsOnly: true
+totals:
+  checked: 20
+  existing_match_candidate: 0
+  datoevidens_funnet: 1
+  kandidatliste: 19
+  ingen_treff: 0
+  ikke_digitalisert: 0
+queues:
+  existingMatchReview: []
+  dateEvidenceReview:
+    - srcclaim-f9563e86d02ac37a20fea19b6fcb38e1
+  candidateReview:
+    - srcclaim-ae4a41d77fb009f216104bea3443d6ca
+    - srcclaim-e3741ea7842f8965b36f8c22cf75cf12
+    - srcclaim-4dada633090f1399a05fa6b58192bd22
+    - srcclaim-64c6110da444038e0ef238cc09d58c39
+    - srcclaim-a717f05ed9c8fea01894bd11321f2884
+    - srcclaim-79bd9473ad3aee5c1c1fb75001556934
+    - srcclaim-c92e5a7633e3b91b4a1d181fd2a34645
+    - srcclaim-7e90be9364e41bff4617431ec364ab39
+    - srcclaim-0b20d39e1679b52b37acd57d8ecb0b82
+    - srcclaim-50da148424c186d40db012e4d1dc1b4b
+    - srcclaim-9f5fb6c2f784155cff5c4a09c02a8c67
+    - srcclaim-b6898825a299ef93cc174ddf8567dbde
+    - srcclaim-3411a5247d7ca7fc5f5efa94fa429055
+    - srcclaim-c360ad062f29b27423cb8f3904bddb2a
+    - srcclaim-3073ba9247f55bda44828f32ab7b2d82
+    - srcclaim-41f1f07c59bed2a02b4e0725cfce5a71
+    - srcclaim-dfc671156e11b6372ee6707706968591
+    - srcclaim-9f9ab847fb8a7391a1ea0327d17cd2ec
+    - srcclaim-4763bb72300071739b657ab3cfc77cbd
+  exhausted: []
+entries:
+  - sourceClaimId: srcclaim-ae4a41d77fb009f216104bea3443d6ca
+    legacyQueryId: sunnmore-fotballkrets-arsrapport-1966#1966-001
+    season: 1966
+    opponent: Åndalsnes
+    score: 7-1
+    outcome: kandidatliste
+    plan: mellom nabokampene sesongstart og 1966-07-31
+    shortlist:
+      - issueId: 573e4e4c76d1fe014e75bd56719fe7f4
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19660504_84_102_1
+        issued: "19660504"
+        pageUrl: https://www.nb.no/items/573e4e4c76d1fe014e75bd56719fe7f4?page=5
+        page: "6"
+        month: 1966-05
+        score: 66
+        reasons:
+          - "motstander: Åndalsnes"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1966"
+          - 5 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 21bfe93d437f23e9e1492209a406cbc0
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19660506_84_104_1
+        issued: "19660506"
+        pageUrl: https://www.nb.no/items/21bfe93d437f23e9e1492209a406cbc0?page=5
+        page: "6"
+        month: 1966-05
+        score: 66
+        reasons:
+          - "motstander: Åndalsnes"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1966"
+          - 3 søkevarianter traff
+        genres:
+          - results_board
+          - fixture_list
+          - preview
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 86fc71ffd452eeb8f6d22c4e5b670c9e
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19660528_84_121_1
+        issued: "19660528"
+        pageUrl: https://www.nb.no/items/86fc71ffd452eeb8f6d22c4e5b670c9e?page=5
+        page: "6"
+        month: 1966-05
+        score: 66
+        reasons:
+          - "motstander: Åndalsnes"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1966"
+          - 4 søkevarianter traff
+        genres:
+          - results_board
+          - advertisement
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: fd8cd1b23ea21dbd9c04bff504b7d0f7
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19660601_84_123_1
+        issued: "19660601"
+        pageUrl: https://www.nb.no/items/fd8cd1b23ea21dbd9c04bff504b7d0f7?page=5
+        page: "6"
+        month: 1966-06
+        score: 66
+        reasons:
+          - "motstander: Åndalsnes"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1966"
+          - 5 søkevarianter traff
+        genres:
+          - preview
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-e3741ea7842f8965b36f8c22cf75cf12
+    legacyQueryId: sunnmore-fotballkrets-arsrapport-1967#1967-001
+    season: 1967
+    opponent: Skarbøvik
+    score: 2-1
+    outcome: kandidatliste
+    plan: mellom nabokampene sesongstart og 1967-10-08
+    shortlist:
+      - issueId: 86c1a81181e2b84d7ef7a280d03e4c03
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19670405_85_78_1
+        issued: "19670405"
+        pageUrl: https://www.nb.no/items/86c1a81181e2b84d7ef7a280d03e4c03?page=3
+        page: "4"
+        month: 1967-04
+        score: 31
+        reasons:
+          - "motstander: Skarbøvik"
+          - "avis: Sunnmørsposten"
+          - "år: 1967"
+          - 3 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: e921c6b569bc26e78b2cddbe3ea8eb4a
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19670410_85_82_1
+        issued: "19670410"
+        pageUrl: https://www.nb.no/items/e921c6b569bc26e78b2cddbe3ea8eb4a?page=3
+        page: "4"
+        month: 1967-04
+        score: 31
+        reasons:
+          - "motstander: Skarbøvik"
+          - "avis: Sunnmørsposten"
+          - "år: 1967"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+          - preview
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: a6c427280868742f6342712c26764409
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19670414_85_86_1
+        issued: "19670414"
+        pageUrl: https://www.nb.no/items/a6c427280868742f6342712c26764409?page=3
+        page: "4"
+        month: 1967-04
+        score: 31
+        reasons:
+          - "motstander: Skarbøvik"
+          - "avis: Sunnmørsposten"
+          - "år: 1967"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: be05eca46caa7542698235111d974cc8
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19670417_85_88_1
+        issued: "19670417"
+        pageUrl: https://www.nb.no/items/be05eca46caa7542698235111d974cc8?page=5
+        page: "6"
+        month: 1967-04
+        score: 31
+        reasons:
+          - "motstander: Skarbøvik"
+          - "avis: Sunnmørsposten"
+          - "år: 1967"
+          - 3 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-4dada633090f1399a05fa6b58192bd22
+    legacyQueryId: sunnmore-fotballkrets-arsrapport-1967#1967-002
+    season: 1967
+    opponent: Herd
+    score: 1-2
+    outcome: kandidatliste
+    plan: mellom nabokampene sesongstart og 1967-10-08
+    shortlist:
+      - issueId: 5e85f3520586378f2523ea9838fc5ef2
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19670406_85_79_1
+        issued: "19670406"
+        pageUrl: https://www.nb.no/items/5e85f3520586378f2523ea9838fc5ef2?page=5
+        page: "6"
+        month: 1967-04
+        score: 66
+        reasons:
+          - "motstander: Herd"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1967"
+          - 3 søkevarianter traff
+        genres:
+          - fixture_list
+          - preview
+          - match_report
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: b7024bed3b5de9fa2f7190a8b4965f17
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19670422_85_93_1
+        issued: "19670422"
+        pageUrl: https://www.nb.no/items/b7024bed3b5de9fa2f7190a8b4965f17?page=5
+        page: "6"
+        month: 1967-04
+        score: 66
+        reasons:
+          - "motstander: Herd"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1967"
+          - 3 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 96d4c3770d87451273bf42581003e1fe
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19670503_85_101_1
+        issued: "19670503"
+        pageUrl: https://www.nb.no/items/96d4c3770d87451273bf42581003e1fe?page=3
+        page: "4"
+        month: 1967-05
+        score: 66
+        reasons:
+          - "motstander: Herd"
+          - "AaFK-navn: Aalesund"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1967"
+          - 3 søkevarianter traff
+        genres:
+          - fixture_list
+          - preview
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 1daa7616989330075429b0fe3f92e474
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19670505_85_102_1
+        issued: "19670505"
+        pageUrl: https://www.nb.no/items/1daa7616989330075429b0fe3f92e474?page=9
+        page: "10"
+        month: 1967-05
+        score: 66
+        reasons:
+          - "motstander: Herd"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1967"
+          - 5 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-64c6110da444038e0ef238cc09d58c39
+    legacyQueryId: sunnmore-fotballkrets-arsrapport-1968#1968-001
+    season: 1968
+    opponent: Velledalen/Ringen
+    score: 2-2
+    outcome: kandidatliste
+    plan: mellom nabokampene sesongstart og 1968-06-30
+    shortlist:
+      - issueId: a99f7aa1982434554eefad6030a2e0fe
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19680402_86_79_1
+        issued: "19680402"
+        pageUrl: https://www.nb.no/items/a99f7aa1982434554eefad6030a2e0fe?page=3
+        page: "4"
+        month: 1968-04
+        score: 31
+        reasons:
+          - "AaFK-navn: Aalesund"
+          - "avis: Sunnmørsposten"
+          - "år: 1968"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: f06180ae26ce807f7f13fc4e2b2694ce
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19680416_86_88_1
+        issued: "19680416"
+        pageUrl: https://www.nb.no/items/f06180ae26ce807f7f13fc4e2b2694ce?page=3
+        page: "4"
+        month: 1968-04
+        score: 31
+        reasons:
+          - "AaFK-navn: Aalesund"
+          - "avis: Sunnmørsposten"
+          - "år: 1968"
+          - 3 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+          - preview
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 1115e5378b7025f73c8dc29d954207ea
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19680419_86_91_1
+        issued: "19680419"
+        pageUrl: https://www.nb.no/items/1115e5378b7025f73c8dc29d954207ea?page=16
+        page: "17"
+        month: 1968-04
+        score: 31
+        reasons:
+          - "AaFK-navn: Aalesund"
+          - "avis: Sunnmørsposten"
+          - "år: 1968"
+          - 5 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 59de5d6c5768839588e079aa46a4ec39
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19680424_86_95_1
+        issued: "19680424"
+        pageUrl: https://www.nb.no/items/59de5d6c5768839588e079aa46a4ec39?page=4
+        page: "5"
+        month: 1968-04
+        score: 31
+        reasons:
+          - "AaFK-navn: Aalesund"
+          - "avis: Sunnmørsposten"
+          - "år: 1968"
+          - 3 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-a717f05ed9c8fea01894bd11321f2884
+    legacyQueryId: sunnmore-fotballkrets-arsrapport-1968#1968-002
+    season: 1968
+    opponent: Velledalen/Ringen
+    score: 2-0
+    outcome: kandidatliste
+    plan: mellom nabokampene sesongstart og 1968-06-30
+    shortlist:
+      - issueId: a99f7aa1982434554eefad6030a2e0fe
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19680402_86_79_1
+        issued: "19680402"
+        pageUrl: https://www.nb.no/items/a99f7aa1982434554eefad6030a2e0fe?page=3
+        page: "4"
+        month: 1968-04
+        score: 31
+        reasons:
+          - "AaFK-navn: Aalesund"
+          - "avis: Sunnmørsposten"
+          - "år: 1968"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: f06180ae26ce807f7f13fc4e2b2694ce
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19680416_86_88_1
+        issued: "19680416"
+        pageUrl: https://www.nb.no/items/f06180ae26ce807f7f13fc4e2b2694ce?page=3
+        page: "4"
+        month: 1968-04
+        score: 31
+        reasons:
+          - "AaFK-navn: Aalesund"
+          - "avis: Sunnmørsposten"
+          - "år: 1968"
+          - 3 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+          - preview
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 1115e5378b7025f73c8dc29d954207ea
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19680419_86_91_1
+        issued: "19680419"
+        pageUrl: https://www.nb.no/items/1115e5378b7025f73c8dc29d954207ea?page=16
+        page: "17"
+        month: 1968-04
+        score: 31
+        reasons:
+          - "AaFK-navn: Aalesund"
+          - "avis: Sunnmørsposten"
+          - "år: 1968"
+          - 5 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 59de5d6c5768839588e079aa46a4ec39
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19680424_86_95_1
+        issued: "19680424"
+        pageUrl: https://www.nb.no/items/59de5d6c5768839588e079aa46a4ec39?page=4
+        page: "5"
+        month: 1968-04
+        score: 31
+        reasons:
+          - "AaFK-navn: Aalesund"
+          - "avis: Sunnmørsposten"
+          - "år: 1968"
+          - 3 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-79bd9473ad3aee5c1c1fb75001556934
+    legacyQueryId: sunnmore-fotballkrets-arsrapport-1968#1968-003
+    season: 1968
+    opponent: Langevåg
+    score: 1-1
+    outcome: kandidatliste
+    plan: mellom nabokampene sesongstart og 1968-06-30
+    shortlist:
+      - issueId: f06180ae26ce807f7f13fc4e2b2694ce
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19680416_86_88_1
+        issued: "19680416"
+        pageUrl: https://www.nb.no/items/f06180ae26ce807f7f13fc4e2b2694ce?page=5
+        page: "6"
+        month: 1968-04
+        score: 66
+        reasons:
+          - "motstander: Langevåg"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1968"
+          - 3 søkevarianter traff
+        genres:
+          - unknown
+          - preview
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: d3eea17e7d567f0b95c0bf2f244e70b1
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19680426_86_97_1
+        issued: "19680426"
+        pageUrl: https://www.nb.no/items/d3eea17e7d567f0b95c0bf2f244e70b1?page=5
+        page: "6"
+        month: 1968-04
+        score: 66
+        reasons:
+          - "motstander: Langevåg"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1968"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 15d8b66421afe6c28aaec4765563a0d0
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19680508_86_106_1
+        issued: "19680508"
+        pageUrl: https://www.nb.no/items/15d8b66421afe6c28aaec4765563a0d0?page=5
+        page: "6"
+        month: 1968-05
+        score: 66
+        reasons:
+          - "motstander: Langevåg"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1968"
+          - 4 søkevarianter traff
+        genres:
+          - match_report
+          - preview
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: c9d2c6fa291d06983d001b3ee34f5a54
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19680515_86_112_1
+        issued: "19680515"
+        pageUrl: https://www.nb.no/items/c9d2c6fa291d06983d001b3ee34f5a54?page=5
+        page: "6"
+        month: 1968-05
+        score: 66
+        reasons:
+          - "motstander: Langevåg"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1968"
+          - 4 søkevarianter traff
+        genres:
+          - unknown
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-c92e5a7633e3b91b4a1d181fd2a34645
+    legacyQueryId: sunnmore-fotballkrets-arsrapport-1968#1968-004
+    season: 1968
+    opponent: Langevåg
+    score: 3-0
+    outcome: kandidatliste
+    plan: mellom nabokampene sesongstart og 1968-06-30
+    shortlist:
+      - issueId: f06180ae26ce807f7f13fc4e2b2694ce
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19680416_86_88_1
+        issued: "19680416"
+        pageUrl: https://www.nb.no/items/f06180ae26ce807f7f13fc4e2b2694ce?page=5
+        page: "6"
+        month: 1968-04
+        score: 66
+        reasons:
+          - "motstander: Langevåg"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1968"
+          - 3 søkevarianter traff
+        genres:
+          - unknown
+          - preview
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: d3eea17e7d567f0b95c0bf2f244e70b1
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19680426_86_97_1
+        issued: "19680426"
+        pageUrl: https://www.nb.no/items/d3eea17e7d567f0b95c0bf2f244e70b1?page=5
+        page: "6"
+        month: 1968-04
+        score: 66
+        reasons:
+          - "motstander: Langevåg"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1968"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 15d8b66421afe6c28aaec4765563a0d0
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19680508_86_106_1
+        issued: "19680508"
+        pageUrl: https://www.nb.no/items/15d8b66421afe6c28aaec4765563a0d0?page=5
+        page: "6"
+        month: 1968-05
+        score: 66
+        reasons:
+          - "motstander: Langevåg"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1968"
+          - 4 søkevarianter traff
+        genres:
+          - match_report
+          - preview
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: c9d2c6fa291d06983d001b3ee34f5a54
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19680515_86_112_1
+        issued: "19680515"
+        pageUrl: https://www.nb.no/items/c9d2c6fa291d06983d001b3ee34f5a54?page=5
+        page: "6"
+        month: 1968-05
+        score: 66
+        reasons:
+          - "motstander: Langevåg"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1968"
+          - 4 søkevarianter traff
+        genres:
+          - unknown
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-7e90be9364e41bff4617431ec364ab39
+    legacyQueryId: sunnmore-fotballkrets-arsrapport-1969#1969-001
+    season: 1969
+    opponent: Skarbøvik
+    score: 2-1
+    outcome: kandidatliste
+    plan: "nm runde 1: mai, april, august dekker 90 % av 46 kjente kamper"
+    shortlist:
+      - issueId: 07ed7d2f006470fddb02ef2040cdf40e
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19690424_87_94_1
+        issued: "19690424"
+        pageUrl: https://www.nb.no/items/07ed7d2f006470fddb02ef2040cdf40e?page=5
+        page: "6"
+        month: 1969-04
+        score: 66
+        reasons:
+          - "motstander: Skarbøvik"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1969"
+          - 5 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 46e4b99d6d8f7d16331a314b6f50ba02
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19690505_87_102_1
+        issued: "19690505"
+        pageUrl: https://www.nb.no/items/46e4b99d6d8f7d16331a314b6f50ba02?page=1
+        page: "2"
+        month: 1969-05
+        score: 31
+        reasons:
+          - "motstander: Skarbøvik"
+          - "avis: Sunnmørsposten"
+          - "år: 1969"
+          - 3 søkevarianter traff
+        genres:
+          - fixture_list
+          - preview
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 35e9eb26ea825afb4b730ae1c3607631
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19690506_87_103_1
+        issued: "19690506"
+        pageUrl: https://www.nb.no/items/35e9eb26ea825afb4b730ae1c3607631?page=10
+        page: "11"
+        month: 1969-05
+        score: 31
+        reasons:
+          - "motstander: Skarbøvik"
+          - "avis: Sunnmørsposten"
+          - "år: 1969"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+          - preview
+          - match_report
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: c3711f1e3f060f54315b6f7aaebf3d34
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19690507_87_104_1
+        issued: "19690507"
+        pageUrl: https://www.nb.no/items/c3711f1e3f060f54315b6f7aaebf3d34?page=1
+        page: "2"
+        month: 1969-05
+        score: 31
+        reasons:
+          - "motstander: Skarbøvik"
+          - "avis: Sunnmørsposten"
+          - "år: 1969"
+          - 4 søkevarianter traff
+        genres:
+          - preview
+          - fixture_list
+          - match_report
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-0b20d39e1679b52b37acd57d8ecb0b82
+    legacyQueryId: sunnmore-fotballkrets-arsrapport-1969#1969-002
+    season: 1969
+    opponent: Gossen
+    score: 1-2
+    outcome: kandidatliste
+    plan: "nm runde 2: juni, mai, august, april dekker 90 % av 41 kjente kamper"
+    shortlist:
+      - issueId: 4fe7783ab0ef18351d787b534ec65c9b
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19690614_87_134_1
+        issued: "19690614"
+        pageUrl: https://www.nb.no/items/4fe7783ab0ef18351d787b534ec65c9b?page=5
+        page: "6"
+        month: 1969-06
+        score: 66
+        reasons:
+          - "motstander: Gossen"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1969"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 288d857e1d835b077f8a98194c6416cb
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19690623_87_141_1
+        issued: "19690623"
+        pageUrl: https://www.nb.no/items/288d857e1d835b077f8a98194c6416cb?page=2
+        page: "3"
+        month: 1969-06
+        score: 66
+        reasons:
+          - "motstander: Gossen"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1969"
+          - 3 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 8b92f5fb1f1db890bbe0b2d6aa4b0007
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19690625_87_143_1
+        issued: "19690625"
+        pageUrl: https://www.nb.no/items/8b92f5fb1f1db890bbe0b2d6aa4b0007?page=5
+        page: "6"
+        month: 1969-06
+        score: 64
+        reasons:
+          - "motstander: Gossen"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1969"
+          - 2 søkevarianter traff
+        genres:
+          - preview
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 84d8509d762d5f36e51cc0749a5d2b32
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19690602_87_123_1
+        issued: "19690602"
+        pageUrl: https://www.nb.no/items/84d8509d762d5f36e51cc0749a5d2b32?page=1
+        page: "2"
+        month: 1969-06
+        score: 31
+        reasons:
+          - "motstander: Gossen"
+          - "avis: Sunnmørsposten"
+          - "år: 1969"
+          - 4 søkevarianter traff
+        genres:
+          - results_board
+          - standings
+          - preview
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-50da148424c186d40db012e4d1dc1b4b
+    legacyQueryId: sunnmore-fotballkrets-arsrapport-1970#1970-001
+    season: 1970
+    opponent: Langevåg
+    score: 1-2
+    outcome: kandidatliste
+    plan: "nm runde 1: mai, april, august dekker 90 % av 46 kjente kamper"
+    shortlist:
+      - issueId: 2903606d2addf723e12abacf1a67c3eb
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19700523_88_116_1
+        issued: "19700523"
+        pageUrl: https://www.nb.no/items/2903606d2addf723e12abacf1a67c3eb?page=5
+        page: "6"
+        month: 1970-05
+        score: 66
+        reasons:
+          - "motstander: Langevåg"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1970"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+          - preview
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 5b354ab21805a955811fbd724704b533
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19700406_88_78_1
+        issued: "19700406"
+        pageUrl: https://www.nb.no/items/5b354ab21805a955811fbd724704b533?page=2
+        page: "3"
+        month: 1970-04
+        score: 66
+        reasons:
+          - "motstander: Langevåg"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1970"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: bdfc10ac8684b1ef5fec2c0d4eba7a2e
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19700408_88_80_1
+        issued: "19700408"
+        pageUrl: https://www.nb.no/items/bdfc10ac8684b1ef5fec2c0d4eba7a2e?page=5
+        page: "6"
+        month: 1970-04
+        score: 66
+        reasons:
+          - "motstander: Langevåg"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1970"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: ffad61fe52da95c43e97153c6db69119
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19700417_88_88_1
+        issued: "19700417"
+        pageUrl: https://www.nb.no/items/ffad61fe52da95c43e97153c6db69119?page=5
+        page: "6"
+        month: 1970-04
+        score: 66
+        reasons:
+          - "motstander: Langevåg"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1970"
+          - 5 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-f9563e86d02ac37a20fea19b6fcb38e1
+    legacyQueryId: sunnmore-fotballkrets-arsrapport-1971#1971-001
+    season: 1971
+    opponent: Ørsta
+    score: 1-1
+    outcome: datoevidens_funnet
+    plan: mellom nabokampene sesongstart og 1971-08-01
+    confirmed:
+      issueId: cc9edf15e772ece5715e3edfe94c637b
+      issued: "19710605"
+      likelyDate: 1971-06-04
+      dateRange:
+        from: 1971-06-02
+        to: 1971-06-05
+      pageUrl: https://www.nb.no/items/cc9edf15e772ece5715e3edfe94c637b?page=5
+      page: "6"
+      score: 66
+      reasons:
+        - "motstander: Ørsta"
+        - "AaFK-navn: ÅFK"
+        - motstander og AaFK i samme avsnitt
+        - "avis: Sunnmørsposten"
+        - "år: 1971"
+        - 5 søkevarianter traff
+      genres:
+        - unknown
+        - fixture_list
+    shortlist:
+      - issueId: 0f2148d28327fc0c6c5f25fe0518a871
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19710401_89_77_1
+        issued: "19710401"
+        pageUrl: https://www.nb.no/items/0f2148d28327fc0c6c5f25fe0518a871?page=1
+        page: "2"
+        month: 1971-04
+        score: 31
+        reasons:
+          - "motstander: Ørsta"
+          - "avis: Sunnmørsposten"
+          - "år: 1971"
+          - 5 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: d15bc8269422fdb3040bf7fb0c98a6e7
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19710402_89_78_1
+        issued: "19710402"
+        pageUrl: https://www.nb.no/items/d15bc8269422fdb3040bf7fb0c98a6e7?page=3
+        page: "4"
+        month: 1971-04
+        score: 31
+        reasons:
+          - "motstander: Ørsta"
+          - "avis: Sunnmørsposten"
+          - "år: 1971"
+          - 3 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 5cf81302e84d8de8139bf8c6c41fccea
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19710403_89_79_1
+        issued: "19710403"
+        pageUrl: https://www.nb.no/items/5cf81302e84d8de8139bf8c6c41fccea?page=3
+        page: "4"
+        month: 1971-04
+        score: 31
+        reasons:
+          - "motstander: Ørsta"
+          - "avis: Sunnmørsposten"
+          - "år: 1971"
+          - 4 søkevarianter traff
+        genres:
+          - unknown
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 622f6da78f4ecdcd91320a0c36b0dd59
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19710405_89_80_1
+        issued: "19710405"
+        pageUrl: https://www.nb.no/items/622f6da78f4ecdcd91320a0c36b0dd59?page=2
+        page: "3"
+        month: 1971-04
+        score: 31
+        reasons:
+          - "motstander: Ørsta"
+          - "avis: Sunnmørsposten"
+          - "år: 1971"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-9f5fb6c2f784155cff5c4a09c02a8c67
+    legacyQueryId: sunnmore-fotballkrets-arsrapport-1971#1971-002
+    season: 1971
+    opponent: Ørsta
+    score: 3-0
+    outcome: kandidatliste
+    plan: mellom nabokampene sesongstart og 1971-08-01
+    shortlist:
+      - issueId: cc9edf15e772ece5715e3edfe94c637b
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19710605_89_126_1
+        issued: "19710605"
+        pageUrl: https://www.nb.no/items/cc9edf15e772ece5715e3edfe94c637b?page=5
+        page: "6"
+        month: 1971-06
+        score: 66
+        reasons:
+          - "motstander: Ørsta"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1971"
+          - 5 søkevarianter traff
+        genres:
+          - unknown
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 58bc96024ab12ef87fdb5617d9637d5b
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19710703_89_150_1
+        issued: "19710703"
+        pageUrl: https://www.nb.no/items/58bc96024ab12ef87fdb5617d9637d5b?page=3
+        page: "4"
+        month: 1971-07
+        score: 66
+        reasons:
+          - "motstander: Ørsta"
+          - "AaFK-navn: A.F.K."
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1971"
+          - 3 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: f2a8bde477bf78393b259fd6a6c5f982
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19710525_89_117_1
+        issued: "19710525"
+        pageUrl: https://www.nb.no/items/f2a8bde477bf78393b259fd6a6c5f982?page=3
+        page: "4"
+        month: 1971-05
+        score: 64
+        reasons:
+          - "motstander: Ørsta"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1971"
+          - 2 søkevarianter traff
+        genres:
+          - fixture_list
+          - preview
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 3c884918f46429140c4cfb7b5c6d27d0
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19710728_89_171_1
+        issued: "19710728"
+        pageUrl: https://www.nb.no/items/3c884918f46429140c4cfb7b5c6d27d0?page=5
+        page: "6"
+        month: 1971-07
+        score: 62
+        reasons:
+          - "motstander: Ørsta"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1971"
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-b6898825a299ef93cc174ddf8567dbde
+    legacyQueryId: sunnmore-fotballkrets-arsrapport-1971#1971-003
+    season: 1971
+    opponent: Skarbøvik
+    score: 2-0
+    outcome: kandidatliste
+    plan: mellom nabokampene sesongstart og 1971-08-01
+    shortlist:
+      - issueId: fa6167df85ead41e8f42a63a45612c23
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19710507_89_104_1
+        issued: "19710507"
+        pageUrl: https://www.nb.no/items/fa6167df85ead41e8f42a63a45612c23?page=17
+        page: "18"
+        month: 1971-05
+        score: 66
+        reasons:
+          - "motstander: Skarbøvik"
+          - "AaFK-navn: Aalesund"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1971"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 509536d3ed7907006b1014dc3c1120eb
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19710510_89_106_1
+        issued: "19710510"
+        pageUrl: https://www.nb.no/items/509536d3ed7907006b1014dc3c1120eb?page=4
+        page: "5"
+        month: 1971-05
+        score: 66
+        reasons:
+          - "motstander: Skarbøvik"
+          - "AaFK-navn: Aalesund"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1971"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+          - standings
+          - preview
+          - results_board
+          - match_report
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 55832979c439fc2df1be9e346e02d7e2
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19710621_89_139_1
+        issued: "19710621"
+        pageUrl: https://www.nb.no/items/55832979c439fc2df1be9e346e02d7e2?page=3
+        page: "4"
+        month: 1971-06
+        score: 66
+        reasons:
+          - "motstander: Skarbøvik"
+          - "AaFK-navn: Aalesund"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1971"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+          - preview
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 2995997ecf0e65d1f2b425922cb3cc55
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19710713_89_158_1
+        issued: "19710713"
+        pageUrl: https://www.nb.no/items/2995997ecf0e65d1f2b425922cb3cc55?page=10
+        page: "11"
+        month: 1971-07
+        score: 66
+        reasons:
+          - "motstander: Skarbøvik"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1971"
+          - 3 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-3411a5247d7ca7fc5f5efa94fa429055
+    legacyQueryId: sunnmore-fotballkrets-arsrapport-1972#1972-001
+    season: 1972
+    opponent: Herd
+    score: 1-0
+    outcome: kandidatliste
+    plan: "nm runde 1: mai, april, august dekker 90 % av 46 kjente kamper"
+    shortlist:
+      - issueId: dfb723b45292c1a717698e4c93158b62
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19720513_90_109_1
+        issued: "19720513"
+        pageUrl: https://www.nb.no/items/dfb723b45292c1a717698e4c93158b62?page=3
+        page: "4"
+        month: 1972-05
+        score: 66
+        reasons:
+          - "motstander: Herd"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1972"
+          - 5 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: a5d1a5c53c319f7d5e5fedd4085a32c1
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19720520_90_114_1
+        issued: "19720520"
+        pageUrl: https://www.nb.no/items/a5d1a5c53c319f7d5e5fedd4085a32c1?page=5
+        page: "6"
+        month: 1972-05
+        score: 66
+        reasons:
+          - "motstander: Herd"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1972"
+          - 4 søkevarianter traff
+        genres:
+          - match_report
+          - preview
+          - fixture_list
+          - advertisement
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 421f72d878defb03f6034755119f1ba7
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19720526_90_118_1
+        issued: "19720526"
+        pageUrl: https://www.nb.no/items/421f72d878defb03f6034755119f1ba7?page=12
+        page: "13"
+        month: 1972-05
+        score: 66
+        reasons:
+          - "motstander: Herd"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1972"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 9a867209e06bee78ddb9304be148592b
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19720530_90_121_1
+        issued: "19720530"
+        pageUrl: https://www.nb.no/items/9a867209e06bee78ddb9304be148592b?page=9
+        page: "10"
+        month: 1972-05
+        score: 66
+        reasons:
+          - "motstander: Herd"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1972"
+          - 4 søkevarianter traff
+        genres:
+          - unknown
+          - match_report
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-c360ad062f29b27423cb8f3904bddb2a
+    legacyQueryId: sunnmore-fotballkrets-arsrapport-1972#1972-002
+    season: 1972
+    opponent: Skarbøvik
+    score: 0-1
+    outcome: kandidatliste
+    plan: "nm runde 2: juni, mai, august, april dekker 90 % av 41 kjente kamper"
+    shortlist:
+      - issueId: dfd66f57cf850f25fe9c900f4792135a
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19720829_90_199_1
+        issued: "19720829"
+        pageUrl: https://www.nb.no/items/dfd66f57cf850f25fe9c900f4792135a?page=5
+        page: "6"
+        month: 1972-08
+        score: 66
+        reasons:
+          - "motstander: Skarbøvik"
+          - "AaFK-navn: Aalesund"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1972"
+          - 5 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: f3dc96ba11d6f7f8463a6f920c7cf499
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19720424_90_94_1
+        issued: "19720424"
+        pageUrl: https://www.nb.no/items/f3dc96ba11d6f7f8463a6f920c7cf499?page=5
+        page: "6"
+        month: 1972-04
+        score: 66
+        reasons:
+          - "motstander: Skarbøvik"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1972"
+          - 4 søkevarianter traff
+        genres:
+          - results_board
+          - fixture_list
+          - unknown
+          - preview
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 68a54477662daeec6d65e2a8e92308d1
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19720602_90_124_1
+        issued: "19720602"
+        pageUrl: https://www.nb.no/items/68a54477662daeec6d65e2a8e92308d1?page=5
+        page: "6"
+        month: 1972-06
+        score: 31
+        reasons:
+          - "motstander: Skarbøvik"
+          - "avis: Sunnmørsposten"
+          - "år: 1972"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 3cc4e544985e75860302d5062465c845
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19720603_90_125_1
+        issued: "19720603"
+        pageUrl: https://www.nb.no/items/3cc4e544985e75860302d5062465c845?page=11
+        page: "12"
+        month: 1972-06
+        score: 31
+        reasons:
+          - "motstander: Skarbøvik"
+          - "avis: Sunnmørsposten"
+          - "år: 1972"
+          - 3 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-3073ba9247f55bda44828f32ab7b2d82
+    legacyQueryId: sunnmore-fotballkrets-arsrapport-1973#1973-001
+    season: 1973
+    opponent: Gossen
+    score: 3-0
+    outcome: kandidatliste
+    plan: "nm runde 1: mai, april, august dekker 90 % av 46 kjente kamper"
+    shortlist:
+      - issueId: 7340109fd5d003bc773df2d1a1a810e2
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19730524_91_118_1
+        issued: "19730524"
+        pageUrl: https://www.nb.no/items/7340109fd5d003bc773df2d1a1a810e2?page=5
+        page: "6"
+        month: 1973-05
+        score: 66
+        reasons:
+          - "motstander: Gossen"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1973"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: d5f2bc90a681ac628da05bf22fb25179
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19730530_91_123_1
+        issued: "19730530"
+        pageUrl: https://www.nb.no/items/d5f2bc90a681ac628da05bf22fb25179?page=5
+        page: "6"
+        month: 1973-05
+        score: 66
+        reasons:
+          - "motstander: Gossen"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1973"
+          - 3 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 162488db07aeda6480c0247b948c771a
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19730507_91_104_1
+        issued: "19730507"
+        pageUrl: https://www.nb.no/items/162488db07aeda6480c0247b948c771a?page=5
+        page: "6"
+        month: 1973-05
+        score: 31
+        reasons:
+          - "motstander: Gossen"
+          - "avis: Sunnmørsposten"
+          - "år: 1973"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+          - results_board
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 1319064d6d02803dc45033c71e357a60
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19730508_91_105_1
+        issued: "19730508"
+        pageUrl: https://www.nb.no/items/1319064d6d02803dc45033c71e357a60?page=3
+        page: "4"
+        month: 1973-05
+        score: 31
+        reasons:
+          - "motstander: Gossen"
+          - "avis: Sunnmørsposten"
+          - "år: 1973"
+          - 3 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-41f1f07c59bed2a02b4e0725cfce5a71
+    legacyQueryId: sunnmore-fotballkrets-arsrapport-1973#1973-002
+    season: 1973
+    opponent: Langevåg
+    score: 0-3
+    outcome: kandidatliste
+    plan: "nm runde 2: juni, mai, august, april dekker 90 % av 41 kjente kamper"
+    shortlist:
+      - issueId: c837155468e23bab51148e3b65753359
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19730601_91_124_1
+        issued: "19730601"
+        pageUrl: https://www.nb.no/items/c837155468e23bab51148e3b65753359?page=3
+        page: "4"
+        month: 1973-06
+        score: 66
+        reasons:
+          - "motstander: Langevåg"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1973"
+          - 4 søkevarianter traff
+        genres:
+          - results_board
+          - fixture_list
+          - preview
+          - match_report
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 92b644ad09357fee130fc88be1a8e580
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19730608_91_130_1
+        issued: "19730608"
+        pageUrl: https://www.nb.no/items/92b644ad09357fee130fc88be1a8e580?page=5
+        page: "6"
+        month: 1973-06
+        score: 66
+        reasons:
+          - "motstander: Langevåg"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1973"
+          - 3 søkevarianter traff
+        genres:
+          - fixture_list
+          - results_board
+          - unknown
+          - preview
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 8a6233daaab6fa27f972612147f9176a
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19730621_91_140_1
+        issued: "19730621"
+        pageUrl: https://www.nb.no/items/8a6233daaab6fa27f972612147f9176a?page=5
+        page: "6"
+        month: 1973-06
+        score: 66
+        reasons:
+          - "motstander: Langevåg"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1973"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+          - results_board
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 24a6150fdc350d8484991a6f747a112d
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19730623_91_142_1
+        issued: "19730623"
+        pageUrl: https://www.nb.no/items/24a6150fdc350d8484991a6f747a112d?page=5
+        page: "6"
+        month: 1973-06
+        score: 66
+        reasons:
+          - "motstander: Langevåg"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1973"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-dfc671156e11b6372ee6707706968591
+    legacyQueryId: sunnmore-fotballkrets-arsrapport-1974#1974-001
+    season: 1974
+    opponent: Herd
+    score: 4-0
+    outcome: kandidatliste
+    plan: "nm runde 1: mai, april, august dekker 90 % av 46 kjente kamper"
+    shortlist:
+      - issueId: f998cb9d9d3ee921a339b7209b02c808
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740503_92_101_1
+        issued: "19740503"
+        pageUrl: https://www.nb.no/items/f998cb9d9d3ee921a339b7209b02c808?page=12
+        page: "13"
+        month: 1974-05
+        score: 66
+        reasons:
+          - "motstander: Herd"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1974"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+          - match_report
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 241db4cc7c2ccd9e3f3c632c0f2449b0
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740524_92_117_1
+        issued: "19740524"
+        pageUrl: https://www.nb.no/items/241db4cc7c2ccd9e3f3c632c0f2449b0?page=5
+        page: "6"
+        month: 1974-05
+        score: 66
+        reasons:
+          - "motstander: Herd"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1974"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+          - results_board
+          - standings
+          - match_report
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: b9a979e296e73ac59c3b9112bbb5dcab
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740528_92_120_1
+        issued: "19740528"
+        pageUrl: https://www.nb.no/items/b9a979e296e73ac59c3b9112bbb5dcab?page=5
+        page: "6"
+        month: 1974-05
+        score: 66
+        reasons:
+          - "motstander: Herd"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1974"
+          - 5 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 8c7121485a01f45f2c9a81c2a17f3d02
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740529_92_121_1
+        issued: "19740529"
+        pageUrl: https://www.nb.no/items/8c7121485a01f45f2c9a81c2a17f3d02?page=11
+        page: "12"
+        month: 1974-05
+        score: 66
+        reasons:
+          - "motstander: Herd"
+          - "AaFK-navn: A.F.K."
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1974"
+          - 5 søkevarianter traff
+        genres:
+          - fixture_list
+          - preview
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-9f9ab847fb8a7391a1ea0327d17cd2ec
+    legacyQueryId: sunnmore-fotballkrets-arsrapport-1974#1974-002
+    season: 1974
+    opponent: Ørsta
+    score: 3-3
+    outcome: kandidatliste
+    plan: "nm runde 2: juni, mai, august, april dekker 90 % av 41 kjente kamper"
+    shortlist:
+      - issueId: 237b438d818033671707e9d28e35b5c7
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740611_92_131_1
+        issued: "19740611"
+        pageUrl: https://www.nb.no/items/237b438d818033671707e9d28e35b5c7?page=9
+        page: "10"
+        month: 1974-06
+        score: 66
+        reasons:
+          - "motstander: Ørsta"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1974"
+          - 4 søkevarianter traff
+        genres:
+          - unknown
+          - fixture_list
+          - standings
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 2933de88b36573496d46fd8713074dd3
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740604_92_125_1
+        issued: "19740604"
+        pageUrl: https://www.nb.no/items/2933de88b36573496d46fd8713074dd3?page=0
+        page: "1"
+        month: 1974-06
+        score: 31
+        reasons:
+          - "motstander: Ørsta"
+          - "avis: Sunnmørsposten"
+          - "år: 1974"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: e4f8b0073bef6a4d05b4f12dc1989abb
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740605_92_126_1
+        issued: "19740605"
+        pageUrl: https://www.nb.no/items/e4f8b0073bef6a4d05b4f12dc1989abb?page=3
+        page: "4"
+        month: 1974-06
+        score: 31
+        reasons:
+          - "motstander: Ørsta"
+          - "avis: Sunnmørsposten"
+          - "år: 1974"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 863d6c26f8509dceef6245edd841dda4
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740606_92_127_1
+        issued: "19740606"
+        pageUrl: https://www.nb.no/items/863d6c26f8509dceef6245edd841dda4?page=3
+        page: "4"
+        month: 1974-06
+        score: 31
+        reasons:
+          - "motstander: Ørsta"
+          - "avis: Sunnmørsposten"
+          - "år: 1974"
+          - 5 søkevarianter traff
+        genres:
+          - fixture_list
+          - standings
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+  - sourceClaimId: srcclaim-4763bb72300071739b657ab3cfc77cbd
+    legacyQueryId: sunnmore-fotballkrets-arsrapport-1974#1974-003
+    season: 1974
+    opponent: Ørsta
+    score: 0-1
+    outcome: kandidatliste
+    plan: "nm runde 2: juni, mai, august, april dekker 90 % av 41 kjente kamper"
+    shortlist:
+      - issueId: 237b438d818033671707e9d28e35b5c7
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740611_92_131_1
+        issued: "19740611"
+        pageUrl: https://www.nb.no/items/237b438d818033671707e9d28e35b5c7?page=9
+        page: "10"
+        month: 1974-06
+        score: 66
+        reasons:
+          - "motstander: Ørsta"
+          - "AaFK-navn: ÅFK"
+          - motstander og AaFK i samme avsnitt
+          - "avis: Sunnmørsposten"
+          - "år: 1974"
+          - 4 søkevarianter traff
+        genres:
+          - unknown
+          - fixture_list
+          - standings
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 2933de88b36573496d46fd8713074dd3
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740604_92_125_1
+        issued: "19740604"
+        pageUrl: https://www.nb.no/items/2933de88b36573496d46fd8713074dd3?page=0
+        page: "1"
+        month: 1974-06
+        score: 31
+        reasons:
+          - "motstander: Ørsta"
+          - "avis: Sunnmørsposten"
+          - "år: 1974"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: e4f8b0073bef6a4d05b4f12dc1989abb
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740605_92_126_1
+        issued: "19740605"
+        pageUrl: https://www.nb.no/items/e4f8b0073bef6a4d05b4f12dc1989abb?page=3
+        page: "4"
+        month: 1974-06
+        score: 31
+        reasons:
+          - "motstander: Ørsta"
+          - "avis: Sunnmørsposten"
+          - "år: 1974"
+          - 4 søkevarianter traff
+        genres:
+          - fixture_list
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB
+      - issueId: 863d6c26f8509dceef6245edd841dda4
+        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19740606_92_127_1
+        issued: "19740606"
+        pageUrl: https://www.nb.no/items/863d6c26f8509dceef6245edd841dda4?page=3
+        page: "4"
+        month: 1974-06
+        score: 31
+        reasons:
+          - "motstander: Ørsta"
+          - "avis: Sunnmørsposten"
+          - "år: 1974"
+          - 5 søkevarianter traff
+        genres:
+          - fixture_list
+          - standings
+          - unknown
+        access:
+          viewability: NONE
+          accessAllowedFrom: NB

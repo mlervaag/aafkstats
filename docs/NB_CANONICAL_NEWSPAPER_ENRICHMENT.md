@@ -2,6 +2,8 @@
 
 Denne løypa starter med en kanonisk kamp som har eksakt dato, motstander og resultat. Den er separat fra source-result-discovery, som fortsatt brukes når oppgaven er å finne hvilken kamp en udatert kildepåstand gjelder.
 
+Den skalerte, kostnadsstyrte løypa for udaterte source-result-claims er dokumentert i [`NB_DATELESS_DISCOVERY_SCALE_PLAN.md`](NB_DATELESS_DISCOVERY_SCALE_PLAN.md).
+
 ## Produksjonsflyt
 
 1. Regenerer køen med `pnpm data:newspaper-enrichment-status`.
