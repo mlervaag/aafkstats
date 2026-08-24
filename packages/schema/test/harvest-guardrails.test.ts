@@ -226,6 +226,38 @@ describe("Strukturell additivitet i arkivet", () => {
     expect(result.destructiveChanges).toBe(0);
   });
 
+  it("godtar korrigert NB-sideparameter på samme avisitem", () => {
+    const base = {
+      id: "m-1",
+      externalReports: [{ publisher: "Sunnmørsposten", date: "1979-04-30", url: "https://www.nb.no/items/abc123?page=7" }],
+      providers: [{ providerId: "nasjonalbiblioteket", url: "https://www.nb.no/items/abc123?page=7", fields: ["externalReports"] }],
+    };
+    const head = {
+      id: "m-1",
+      externalReports: [{ publisher: "Sunnmørsposten", date: "1979-04-30", url: "https://www.nb.no/items/abc123?page=6" }],
+      providers: [{ providerId: "nasjonalbiblioteket", url: "https://www.nb.no/items/abc123?page=6", fields: ["externalReports"] }],
+    };
+
+    const result = runArchivePreservationAudit([
+      { domain: "match", base: new Map([["m-1", base]]), head: new Map([["m-1", head]]) },
+    ]);
+
+    expect(result.destructiveChanges).toBe(0);
+  });
+
+  it("stanser NB-lenker som bytter item eller annet enn sideparameter", () => {
+    const base = { id: "s-1", accessUrl: "https://www.nb.no/items/abc123?page=7&searchText=AaFK" };
+    const changedItem = { id: "s-1", accessUrl: "https://www.nb.no/items/def456?page=6&searchText=AaFK" };
+    const changedQuery = { id: "s-1", accessUrl: "https://www.nb.no/items/abc123?page=6&searchText=Brann" };
+
+    for (const head of [changedItem, changedQuery]) {
+      const result = runArchivePreservationAudit([
+        { domain: "source", base: new Map([["s-1", base]]), head: new Map([["s-1", head]]) },
+      ]);
+      expect(result.destructiveChanges).toBe(1);
+    }
+  });
+
   it("melder fortsatt en leverandørreferanse som reelt er borte", () => {
     const base = {
       id: "m-1",
