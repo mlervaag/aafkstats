@@ -2,4 +2,8 @@ year: 2023
 competitionId: eliteserien
 finalPosition: null
 promoted: false
-relegated: false
+relegated: true
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2023
+    page: "19"
+    fields: [relegated]

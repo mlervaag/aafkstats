@@ -42,6 +42,10 @@ aliases:
   rsssf: 1993-cup-1993-06-22-aalesunds-fk-vif-fotball
 manual: []
 sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1993
+    page: "19"
+    fields: [home.score, away.score, competition, competition.round]
+    note: Senior NM-resultat kontrollert mot original årsrapport.
   - sourceId: sunnmorsposten-19930624-a79e8a0b8aef957e324c4148fdb9b2df
     page: "17"
     fields: []

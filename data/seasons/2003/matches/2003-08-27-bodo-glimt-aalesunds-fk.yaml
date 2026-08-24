@@ -37,6 +37,9 @@ sources:
       - home.score
       - away.score
     note: Entydig maskinelt treff på år, motstander og resultat; bør redaksjonelt etterkontrolleres.
+  - sourceId: sunnmore-fotballkrets-arsrapport-2003
+    page: "12"
+    fields: [home.score, away.score, competition.round]
 confidence: probable
 conflicts: []
 tags: []

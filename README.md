@@ -52,14 +52,14 @@ leser fra.
 | | |
 |---|---|
 | **1 723 kamper** | Kamper registrert totalt i arkivet |
-| **1 887 kildedokumenterte resultatoppføringer** | Resultatobservasjoner bevart direkte fra historiske kilder; selve oppføringene teller ikke som kamper. **1 462 mangler fortsatt kobling til en kanonisk kamp.** |
+| **2 015 kildedokumenterte resultatoppføringer** | Resultatobservasjoner bevart direkte fra historiske kilder; selve oppføringene teller ikke som kamper. **1 481 mangler fortsatt kobling til en kanonisk kamp.** |
 | **103 år med kanoniske kamper** | 1915–2026, år med minst én registrert kamp. Enkeltkamper tilbake til 1915, cupen til 1917, regionale kretskamper til 1920 og nasjonal serie til 1951 |
 | **108 år med historisk kampinformasjon** | De kanoniske årene over, pluss år som foreløpig bare har kildedokumenterte resultater. Sesongoversikten viser disse |
 | **207 klubber · 97 stadion** | Med tidsavhengige navn, så 1975-kampen viser 1975-navnet |
 | **469 personer** | Registrerte spillere, trenere, ledere, stiftere, prosjektpersoner og hederspersoner med kildeførte detaljer eller avvikende navn |
 | **9 dataleverandører** | Der data hentes digitalt fra, hver med rettighetsstatus som data og ikke som prosa |
 | **774 historiske kilder** | Bøker, medlemsblad, årsmeldinger, nyhetssaker og andre dokumenter en enkelt opplysning kan peke på, med sidetall der det finnes |
-| **36 historiske observasjoner** | Kildeførte enkeltfakta og hendelser som ikke hører til én bestemt kamp — verv, protester, pokaler, baneåpninger — vist på personen, sesongen, kampen eller banen de gjelder |
+| **39 historiske observasjoner** | Kildeførte enkeltfakta og hendelser som ikke hører til én bestemt kamp — verv, protester, pokaler, baneåpninger — vist på personen, sesongen, kampen eller banen de gjelder |
 | **98 publikasjoner analysert** | 3 211 ALTO-sider, 139 søkbare sider og 4 814 faktakandidater uten lagret OCR-prosa |
 | **11 historiesider gjennomgått** | AaFKs offisielle leder-, utmerkelses-, stiftelses-, arkiv- og hjemmebanefakta er strukturert med lenke tilbake |
 | **Brukerbidrag** | Innsendte observasjoner og minner hentet fra redaksjonell innboks |
@@ -415,7 +415,7 @@ Kode under [MIT](LICENSE). Egne tekster og arkivets eget redaksjonelle innhold u
 ## Status
 
 Grunnmuren står: datamodell, database, guardrails, portal og datasettdokumentasjon.
-Arkivet dekker 1 722 kamper fra 1915 til i dag. FotMob gir kampdetaljer og hendelser for
+Arkivet dekker 1 723 kamper fra 1915 til i dag. FotMob gir kampdetaljer og hendelser for
 deler av perioden fra 2010, mens kampstatistikk finnes for deler av 2014–2026. Hovedfeltet
 gir direkte kamptreff mens brukeren skriver år og motstander; Enter sender i stedet teksten
 til AI-søket.

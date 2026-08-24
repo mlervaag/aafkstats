@@ -49,6 +49,10 @@ aliases:
   rsssf: 1995-cup-1995-06-21-molde-aalesunds-fk
 manual: []
 sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1995
+    page: "20"
+    fields: [home.score, away.score, competition, competition.round]
+    note: Senior NM-resultat kontrollert mot original årsrapport.
   - sourceId: sunnmorsposten-19950622-1bf990481218bd116b80ff86bd403a66
     page: "23"
     fields:

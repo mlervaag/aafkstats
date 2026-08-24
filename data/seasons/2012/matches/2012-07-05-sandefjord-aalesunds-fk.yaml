@@ -35,6 +35,10 @@ events:
     team: home
     player: Erik Lamøy
 externalReports: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2012
+    page: "36"
+    fields: [competition, home.clubId, away.clubId, home.score, away.score]
 providers:
   - providerId: fotmob
     url: https://www.fotmob.com/matches/aalesund-vs-sandefjord/2e68pk#1235805

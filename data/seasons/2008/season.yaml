@@ -1,5 +1,10 @@
 year: 2008
-competitionId: nm
-finalPosition: null
+competitionId: eliteserien
+finalPosition: 13
+teamsInLeague: 14
 promoted: false
 relegated: false
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2008
+    page: "24"
+    fields: [competitionId, finalPosition, teamsInLeague]

@@ -37,3 +37,7 @@ tags: []
 aliases:
   rsssf: 2000-cup-2000-05-24-tornado-aalesunds-fk
 manual: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2000
+    page: "15"
+    fields: [competition, home.clubId, away.clubId, home.score, away.score]

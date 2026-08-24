@@ -160,6 +160,10 @@ providers:
       - events
       - lineups
     note: "Kildestatus: FT"
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2021
+    page: "41"
+    fields: [home.score, away.score, competition, competition.round]
 confidence: probable
 conflicts: []
 tags: []

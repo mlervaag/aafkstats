@@ -51,3 +51,6 @@ sources:
     fields:
       - externalReports
     note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.
+  - sourceId: sunnmore-fotballkrets-arsrapport-1998
+    page: "28"
+    fields: [competition, home.clubId, away.clubId, home.score, away.score]

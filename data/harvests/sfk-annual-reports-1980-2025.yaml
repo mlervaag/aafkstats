@@ -1,0 +1,778 @@
+version: 1
+id: sfk-annual-reports-1980-2025
+title: SFK-årsrapporter 1980–2025
+profile: annual_report
+mode: initial
+status: normalized
+scope:
+  years:
+    from: 1980
+    to: 2025
+  sourceIds:
+    - sunnmore-fotballkrets-arsrapport-1980
+    - sunnmore-fotballkrets-arsrapport-1981
+    - sunnmore-fotballkrets-arsrapport-1982
+    - sunnmore-fotballkrets-arsrapport-1983
+    - sunnmore-fotballkrets-arsrapport-1984
+    - sunnmore-fotballkrets-arsrapport-1985
+    - sunnmore-fotballkrets-arsrapport-1986
+    - sunnmore-fotballkrets-arsrapport-1987
+    - sunnmore-fotballkrets-arsrapport-1988
+    - sunnmore-fotballkrets-arsrapport-1989
+    - sunnmore-fotballkrets-arsrapport-1990
+    - sunnmore-fotballkrets-arsrapport-1991
+    - sunnmore-fotballkrets-arsrapport-1992
+    - sunnmore-fotballkrets-arsrapport-1993
+    - sunnmore-fotballkrets-arsrapport-1994
+    - sunnmore-fotballkrets-arsrapport-1995
+    - sunnmore-fotballkrets-arsrapport-1996
+    - sunnmore-fotballkrets-arsrapport-1997
+    - sunnmore-fotballkrets-arsrapport-1998
+    - sunnmore-fotballkrets-arsrapport-1999
+    - sunnmore-fotballkrets-arsrapport-2000
+    - sunnmore-fotballkrets-arsrapport-2001
+    - sunnmore-fotballkrets-arsrapport-2002
+    - sunnmore-fotballkrets-arsrapport-2003
+    - sunnmore-fotballkrets-arsrapport-2004
+    - sunnmore-fotballkrets-arsrapport-2005
+    - sunnmore-fotballkrets-arsrapport-2006
+    - sunnmore-fotballkrets-arsrapport-2007
+    - sunnmore-fotballkrets-arsrapport-2008
+    - sunnmore-fotballkrets-arsrapport-2009
+    - sunnmore-fotballkrets-arsrapport-2010
+    - sunnmore-fotballkrets-arsrapport-2011
+    - sunnmore-fotballkrets-arsrapport-2012
+    - sunnmore-fotballkrets-arsrapport-2013
+    - sunnmore-fotballkrets-arsrapport-2014
+    - sunnmore-fotballkrets-arsrapport-2015
+    - sunnmore-fotballkrets-arsrapport-2016
+    - sunnmore-fotballkrets-arsrapport-2017
+    - sunnmore-fotballkrets-arsrapport-2018
+    - sunnmore-fotballkrets-arsrapport-2019
+    - sunnmore-fotballkrets-arsrapport-2020
+    - sunnmore-fotballkrets-arsrapport-2021
+    - sunnmore-fotballkrets-arsrapport-2022
+    - sunnmore-fotballkrets-arsrapport-2023
+    - sunnmore-fotballkrets-arsrapport-2024
+    - sunnmore-fotballkrets-arsrapport-2025
+  parentSourceId: sunnmore-fotballkrets-arsrapporter
+sourceInventory:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1980
+    title: Sunnmøre Fotballkrets - Årsrapport 1980
+    year: 1980
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-1981
+    title: Sunnmøre Fotballkrets - Årsrapport 1981
+    year: 1981
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-1982
+    title: Sunnmøre Fotballkrets - Årsrapport 1982
+    year: 1982
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-1983
+    title: Sunnmøre Fotballkrets - Årsrapport 1983
+    year: 1983
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-1984
+    title: Sunnmøre Fotballkrets - Årsrapport 1984
+    year: 1984
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-1985
+    title: Sunnmøre Fotballkrets - Årsrapport 1985
+    year: 1985
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-1986
+    title: Sunnmøre Fotballkrets - Årsrapport 1986
+    year: 1986
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-1987
+    title: Sunnmøre Fotballkrets - Årsrapport 1987
+    year: 1987
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-1988
+    title: Sunnmøre Fotballkrets - Årsrapport 1988
+    year: 1988
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-1989
+    title: Sunnmøre Fotballkrets - Årsrapport 1989
+    year: 1989
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-1990
+    title: Sunnmøre Fotballkrets - Årsrapport 1990
+    year: 1990
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-1991
+    title: Sunnmøre Fotballkrets - Årsrapport 1991
+    year: 1991
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-1992
+    title: Sunnmøre Fotballkrets - Årsrapport 1992
+    year: 1992
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-1993
+    title: Sunnmøre Fotballkrets - Årsrapport 1993
+    year: 1993
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-1994
+    title: Sunnmøre Fotballkrets - Årsrapport 1994
+    year: 1994
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-1995
+    title: Sunnmøre Fotballkrets - Årsrapport 1995
+    year: 1995
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-1996
+    title: Sunnmøre Fotballkrets - Årsrapport 1996
+    year: 1996
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-1997
+    title: Sunnmøre Fotballkrets - Årsrapport 1997
+    year: 1997
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-1998
+    title: Sunnmøre Fotballkrets - Årsrapport 1998
+    year: 1998
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-1999
+    title: Sunnmøre Fotballkrets - Årsrapport 1999
+    year: 1999
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-2000
+    title: Sunnmøre Fotballkrets - Årsrapport 2000
+    year: 2000
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-2001
+    title: Sunnmøre Fotballkrets - Årsrapport 2001
+    year: 2001
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-2002
+    title: Sunnmøre Fotballkrets - Årsrapport 2002
+    year: 2002
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-2003
+    title: Sunnmøre Fotballkrets - Årsrapport 2003
+    year: 2003
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-2004
+    title: Sunnmøre Fotballkrets - Årsrapport 2004
+    year: 2004
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-2005
+    title: Sunnmøre Fotballkrets - Årsrapport 2005
+    year: 2005
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-2006
+    title: Sunnmøre Fotballkrets - Årsrapport 2006
+    year: 2006
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-2007
+    title: Sunnmøre Fotballkrets - Årsrapport 2007
+    year: 2007
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-2008
+    title: Sunnmøre Fotballkrets - Årsrapport 2008
+    year: 2008
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-2009
+    title: Sunnmøre Fotballkrets - Årsrapport 2009
+    year: 2009
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-2010
+    title: Sunnmøre Fotballkrets - Årsrapport 2010
+    year: 2010
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-2011
+    title: Sunnmøre Fotballkrets - Årsrapport 2011
+    year: 2011
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-2012
+    title: Sunnmøre Fotballkrets - Årsrapport 2012
+    year: 2012
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-2013
+    title: Sunnmøre Fotballkrets - Årsrapport 2013
+    year: 2013
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-2014
+    title: Sunnmøre Fotballkrets - Årsrapport 2014
+    year: 2014
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-2015
+    title: Sunnmøre Fotballkrets - Årsrapport 2015
+    year: 2015
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-2016
+    title: Sunnmøre Fotballkrets - Årsrapport 2016
+    year: 2016
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-2017
+    title: Sunnmøre Fotballkrets - Årsrapport 2017
+    year: 2017
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-2018
+    title: Sunnmøre Fotballkrets - Årsrapport 2018
+    year: 2018
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-2019
+    title: Sunnmøre Fotballkrets - Årsrapport 2019
+    year: 2019
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-2020
+    title: Sunnmøre Fotballkrets - Årsrapport 2020
+    year: 2020
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-2021
+    title: Sunnmøre Fotballkrets - Årsrapport 2021
+    year: 2021
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-2022
+    title: Sunnmøre Fotballkrets - Årsrapport 2022
+    year: 2022
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-2023
+    title: Sunnmøre Fotballkrets - Årsrapport 2023
+    year: 2023
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-2024
+    title: Sunnmøre Fotballkrets - Årsrapport 2024
+    year: 2024
+    reviewStatus: reviewed
+  - sourceId: sunnmore-fotballkrets-arsrapport-2025
+    title: Sunnmøre Fotballkrets - Årsrapport 2025
+    year: 2025
+    reviewStatus: reviewed
+coverage:
+  mode: sections
+  expected: 46
+  reviewed: 46
+passes:
+  facsimile_review:
+    status: reviewed
+    findings: 46
+    note: Alle rapporter er triagert, og hver originalside som bærer en strukturert write er visuelt kontrollert. Dekningen gjelder AaFKs seniorseksjoner, ikke samtlige PDF-sider.
+  explicit_results:
+    status: complete
+    findings: 128
+    note: 128 senior-NM-resultater er avstemt; 109 er koblet til canonical kamp og 19 står uten sikker kampkobling.
+  people_and_roles:
+    status: skipped
+    findings: 0
+    note: Person- og rolleinnhøsting er uttrykkelig utenfor dette A-lagspasset og beholdes som et separat restspor.
+  organization:
+    status: skipped
+    findings: 0
+    note: Kretsorganisasjon og styreverv er utenfor dette A-lagspasset.
+  retrospectives_and_claims:
+    status: skipped
+    findings: 0
+    note: Generell retrospektiv innhøsting er utsatt; bare tre entydige A-lagsmilepæler er normalisert som observasjoner.
+  observations:
+    status: complete
+    findings: 3
+    note: Første Tippeliga-opprykk i 2002, åpningen av Color Line Stadion i 2005 og cupseieren i 2009 er kildeført.
+  senior_level_separation:
+    status: complete
+    findings: 46
+    note: AaFK 2, Fortuna, junior- og aldersbestemte lag er maskinelt triagert og holdt utenfor herrelagets canonical data.
+reviewMethod:
+  facsimile: required
+review:
+  file: docs/data/SFK_ARSRAPPORTER_REVIEW_1980_2025.md
+findings:
+- id: src-1980
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-1980
+    page: '14'
+  type: match_result
+  claim:
+    text: 2 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-1980 }
+  status: normalized
+- id: src-1981
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-1981
+    page: '13'
+  type: match_result
+  claim:
+    text: 3 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-1981 }
+  status: normalized
+- id: src-1982
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-1982
+    page: '25'
+  type: match_result
+  claim:
+    text: 2 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-1982 }
+  status: normalized
+- id: src-1983
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-1983
+    page: '27'
+  type: match_result
+  claim:
+    text: 2 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-1983 }
+  status: normalized
+- id: src-1984
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-1984
+    page: '16'
+  type: match_result
+  claim:
+    text: 4 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-1984 }
+  status: normalized
+- id: src-1985
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-1985
+    page: '14'
+  type: match_result
+  claim:
+    text: 5 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-1985 }
+  status: normalized
+- id: src-1986
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-1986
+    page: '16'
+  type: match_result
+  claim:
+    text: 3 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-1986 }
+  status: normalized
+- id: src-1987
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-1987
+    page: '16'
+  type: match_result
+  claim:
+    text: 5 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-1987 }
+  status: normalized
+- id: src-1988
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-1988
+    page: '16'
+  type: match_result
+  claim:
+    text: 2 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-1988 }
+  status: normalized
+- id: src-1989
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-1989
+    page: '22'
+  type: match_result
+  claim:
+    text: 1 senior-NM-resultat er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-1989 }
+  status: normalized
+- id: src-1990
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-1990
+    page: '17'
+  type: match_result
+  claim:
+    text: 4 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-1990 }
+  status: normalized
+- id: src-1991
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-1991
+    page: '19'
+  type: match_result
+  claim:
+    text: 3 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-1991 }
+  status: normalized
+- id: src-1992
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-1992
+    page: '18'
+  type: match_result
+  claim:
+    text: 2 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-1992 }
+  status: normalized
+- id: src-1993
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-1993
+    page: '19'
+  type: match_result
+  claim:
+    text: 3 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-1993 }
+  status: normalized
+- id: src-1994
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-1994
+    page: '23'
+  type: match_result
+  claim:
+    text: 2 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-1994 }
+  status: normalized
+- id: src-1995
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-1995
+    page: '20'
+  type: match_result
+  claim:
+    text: 3 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-1995 }
+  status: normalized
+- id: src-1996
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-1996
+    page: '19'
+  type: match_result
+  claim:
+    text: 1 senior-NM-resultat er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-1996 }
+  status: normalized
+- id: src-1997
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-1997
+    page: '18'
+  type: match_result
+  claim:
+    text: 1 senior-NM-resultat er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-1997 }
+  status: normalized
+- id: src-1998
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-1998
+    page: '28'
+  type: match_result
+  claim:
+    text: 3 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-1998 }
+  status: normalized
+- id: src-1999
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-1999
+    page: '19'
+  type: match_result
+  claim:
+    text: 1 senior-NM-resultat er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-1999 }
+  status: normalized
+- id: src-2000
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-2000
+    page: '15'
+  type: match_result
+  claim:
+    text: 1 senior-NM-resultat er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-2000 }
+  status: normalized
+- id: src-2001
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-2001
+    page: '15'
+  type: match_result
+  claim:
+    text: 3 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-2001 }
+  status: normalized
+- id: src-2003
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-2003
+    page: '12'
+  type: match_result
+  claim:
+    text: 4 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-2003 }
+  status: normalized
+- id: src-2004
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-2004
+    page: '18'
+  type: match_result
+  claim:
+    text: 3 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-2004 }
+  status: normalized
+- id: src-2005
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-2005
+    page: '18'
+  type: match_result
+  claim:
+    text: 4 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-2005 }
+  status: normalized
+- id: src-2006
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-2006
+    page: '19'
+  type: match_result
+  claim:
+    text: 4 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-2006 }
+  status: normalized
+- id: src-2007
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-2007
+    page: '20'
+  type: match_result
+  claim:
+    text: 4 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-2007 }
+  status: normalized
+- id: src-2008
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-2008
+    page: '19'
+  type: match_result
+  claim:
+    text: 4 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-2008 }
+  status: normalized
+- id: src-2009
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-2009
+    page: '38'
+  type: match_result
+  claim:
+    text: 7 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-2009 }
+  status: normalized
+- id: src-2010
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-2010
+    page: '36'
+  type: match_result
+  claim:
+    text: 3 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-2010 }
+  status: normalized
+- id: src-2011
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-2011
+    page: '36'
+  type: match_result
+  claim:
+    text: 7 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-2011 }
+  status: normalized
+- id: src-2012
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-2012
+    page: '36'
+  type: match_result
+  claim:
+    text: 4 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-2012 }
+  status: normalized
+- id: src-2013
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-2013
+    page: '34'
+  type: match_result
+  claim:
+    text: 3 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-2013 }
+  status: normalized
+- id: src-2014
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-2014
+    page: '39'
+  type: match_result
+  claim:
+    text: 4 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-2014 }
+  status: normalized
+- id: src-2015
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-2015
+    page: '33'
+  type: match_result
+  claim:
+    text: 3 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-2015 }
+  status: normalized
+- id: src-2016
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-2016
+    page: '35'
+  type: match_result
+  claim:
+    text: 3 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-2016 }
+  status: normalized
+- id: src-2017
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-2017
+    page: '38'
+  type: match_result
+  claim:
+    text: 4 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-2017 }
+  status: normalized
+- id: src-2021
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-2021
+    page: '41'
+  type: match_result
+  claim:
+    text: 3 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-2021 }
+  status: normalized
+- id: src-2023
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-2023
+    page: '48'
+  type: match_result
+  claim:
+    text: 3 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-2023 }
+  status: normalized
+- id: src-2024
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-2024
+    page: '47'
+  type: match_result
+  claim:
+    text: 1 senior-NM-resultat er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-2024 }
+  status: normalized
+- id: src-2025
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-2025
+    page: '43'
+  type: match_result
+  claim:
+    text: 4 senior-NM-resultater er registrert i source-results med AaFK-perspektiv.
+  disposition: source_result_created
+  targets:
+    - { entity: source_result, id: sunnmore-fotballkrets-arsrapport-2025 }
+  status: normalized
+- id: obs-2002
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-2002
+    page: '14'
+  type: historical_observation
+  claim:
+    text: Første opprykk til Tippeligaen er registrert som historisk observasjon.
+  disposition: historical_observation_created
+  targets:
+    - { entity: observation, id: sfk-2002-aafk-forste-tippeligaopprykk }
+  status: normalized
+- id: obs-2005
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-2005
+    page: '5'
+  type: historical_observation
+  claim:
+    text: Åpningen av Color Line Stadion er registrert som historisk observasjon.
+  disposition: historical_observation_created
+  targets:
+    - { entity: observation, id: sfk-2005-color-line-stadion-apning }
+  status: normalized
+- id: obs-2009
+  source:
+    sourceId: sunnmore-fotballkrets-arsrapport-2009
+    page: '6'
+  type: historical_observation
+  claim:
+    text: Cupseieren i 2009 er registrert som historisk observasjon.
+  disposition: historical_observation_created
+  targets:
+    - { entity: observation, id: sfk-2009-aafk-norgesmester }
+  status: normalized
+unresolved: []
+previousWork:
+  pullRequests: [136, 137, 138, 139, 141, 149, 150]
+  notes:
+    - PR-ene etablerte korpuset, teknisk dekning, kandidatindeks, OCR og normalisering av 1952–1979.
+baseRevision: f1951619f5ee42e170fb7933219e338cdc43c9a9
+createdAt: 2026-08-24
+notes:
+  - Første senior A-lagspass fullfører den tidligere normaliseringen av 1952–1979.
+  - OCR og tekstlag er arbeidsindekser; ingen rå PDF-er eller OCR-prosa er lagret i git.
+
+
+

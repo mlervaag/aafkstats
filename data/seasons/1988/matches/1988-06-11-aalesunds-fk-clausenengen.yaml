@@ -49,6 +49,10 @@ aliases:
   rsssf: 1988-cup-1988-06-11-aalesunds-fk-clausenengen
 manual: []
 sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1988
+    page: "16"
+    fields: [home.score, away.score, competition, competition.round]
+    note: Senior NM-resultat kontrollert mot original årsrapport.
   - sourceId: sunnmorsposten-19880613-f9e6d728321508b6a6770ed7094401c1
     page: "14"
     fields:

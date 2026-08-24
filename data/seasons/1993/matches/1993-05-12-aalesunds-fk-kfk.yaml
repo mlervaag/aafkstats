@@ -37,3 +37,8 @@ tags: []
 aliases:
   rsssf: 1993-cup-1993-05-12-aalesunds-fk-kristiansund
 manual: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1993
+    page: "19"
+    fields: [home.score, away.score, competition, competition.round]
+    note: Senior NM-resultat kontrollert mot original årsrapport.

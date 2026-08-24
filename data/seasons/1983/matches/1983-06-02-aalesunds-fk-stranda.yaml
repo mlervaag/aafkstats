@@ -46,6 +46,10 @@ aliases:
   rsssf: 1983-cup-1983-06-02-aalesunds-fk-stranda
 manual: []
 sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1983
+    page: "27"
+    fields: [home.score, away.score, competition.round]
+    note: Senior-NM-resultat i eksplisitt årsrapporttabell.
   - sourceId: sunnmorsposten-19830604-d026793109055baf7d72a75a1b9cb06f
     page: "8"
     fields:

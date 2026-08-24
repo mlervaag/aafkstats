@@ -159,6 +159,10 @@ providers:
       - events
       - lineups
     note: "Kildestatus: FT"
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2025
+    page: "43"
+    fields: [home.score, away.score, competition, competition.round]
 confidence: probable
 conflicts: []
 tags: []

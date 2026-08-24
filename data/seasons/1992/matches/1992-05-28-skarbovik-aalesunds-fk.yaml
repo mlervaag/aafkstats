@@ -42,6 +42,10 @@ aliases:
   rsssf: 1992-cup-1992-05-28-skarbovik-aalesunds-fk
 manual: []
 sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1992
+    page: "18"
+    fields: [home.score, away.score, competition, competition.round]
+    note: Senior NM-resultat kontrollert mot original årsrapport.
   - sourceId: sunnmorsposten-19920529-a64dac2af620968fa6cea803b79b7f37
     page: "18"
     fields: []

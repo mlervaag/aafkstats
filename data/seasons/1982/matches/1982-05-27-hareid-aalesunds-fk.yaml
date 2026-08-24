@@ -42,6 +42,10 @@ aliases:
   rsssf: 1982-cup-1982-05-27-hareid-aalesunds-fk
 manual: []
 sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1982
+    page: "25"
+    fields: [home.score, away.score, competition.round]
+    note: Senior-NM-resultat i eksplisitt årsrapporttabell.
   - sourceId: sunnmorsposten-19820528-966ce31513194bf1a20a31f2c08f943a
     page: "9"
     fields: []

@@ -46,6 +46,10 @@ aliases:
   rsssf: 1996-cup-1996-05-23-skarbovik-aalesunds-fk
 manual: []
 sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1996
+    page: "19"
+    fields: [home.score, away.score, competition, competition.round]
+    note: Senior NM-resultat kontrollert mot original årsrapport.
   - sourceId: sunnmorsposten-19960524-eb269a040aff2992d164569c9761a22b
     page: "21"
     fields:

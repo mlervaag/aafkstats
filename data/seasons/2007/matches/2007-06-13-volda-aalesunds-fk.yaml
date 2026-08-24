@@ -35,6 +35,10 @@ providers:
       - away.score
       - competition.round
       - extraTime
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2007
+    page: "20"
+    fields: [home.score, away.score, competition.round]
 confidence: probable
 conflicts: []
 tags: []

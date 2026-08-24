@@ -99,6 +99,10 @@ lineups:
       - Thomas Skog Martinussen
     coach: Jan Jönsson
 externalReports: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2014
+    page: "39"
+    fields: [competition, home.clubId, away.clubId, home.score, away.score]
 providers:
   - providerId: fotmob
     url: https://www.fotmob.com/matches/aalesund-vs-kristiansund/2e4s7a#1702532

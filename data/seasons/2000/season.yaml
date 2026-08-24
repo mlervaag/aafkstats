@@ -4,3 +4,7 @@ finalPosition: 1
 teamsInLeague: 12
 promoted: false
 relegated: false
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2000
+    page: "25"
+    fields: [competitionId, finalPosition, teamsInLeague]

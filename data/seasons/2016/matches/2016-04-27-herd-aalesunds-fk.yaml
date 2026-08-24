@@ -125,6 +125,10 @@ lineups:
       - Vebjørn Hoff
     coach: Trond Fredriksen
 externalReports: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2016
+    page: "35"
+    fields: [competition, home.clubId, away.clubId, home.score, away.score]
 providers:
   - providerId: fotmob
     url: https://www.fotmob.com/matches/aalesund-vs-herd/74usqja#2218325

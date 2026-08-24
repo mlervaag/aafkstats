@@ -56,3 +56,6 @@ sources:
     fields:
       - externalReports
     note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - sourceId: sunnmore-fotballkrets-arsrapport-1999
+    page: "19"
+    fields: [competition, home.clubId, away.clubId, home.score, away.score]

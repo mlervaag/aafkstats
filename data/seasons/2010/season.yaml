@@ -1,5 +1,9 @@
 year: 2010
 competitionId: eliteserien
-finalPosition: null
+finalPosition: 4
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2010
+    page: "6"
+    fields: [competitionId, finalPosition]
 promoted: false
 relegated: false

@@ -38,6 +38,11 @@ providers:
       - competition.stage
       - extraTime
       - penaltyShootout
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2009
+    page: "38"
+    fields: [competition.stage]
+    note: Rapporten oppgir finalen som Molde–AaFK 6–7; canonical-kampen beholder ordinær score 2–2 og straffesparkkonkurranse 5–4.
 confidence: probable
 conflicts: []
 tags: []

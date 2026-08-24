@@ -121,6 +121,10 @@ providers:
       - events
       - lineups
     note: "Kildestatus: Pen"
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2023
+    page: "48"
+    fields: [home.score, away.score, competition, competition.round, extraTime, penaltyShootout]
 confidence: probable
 conflicts: []
 tags: []

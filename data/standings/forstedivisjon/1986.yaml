@@ -134,6 +134,10 @@ table:
     points: 10
     outcome: none
 progression: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1986
+    page: "24"
+    fields: [table]
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83043&underside=tabellen

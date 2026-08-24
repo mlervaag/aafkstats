@@ -46,6 +46,10 @@ aliases:
   rsssf: 1988-cup-1988-05-18-aalesunds-fk-hareid
 manual: []
 sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1988
+    page: "16"
+    fields: [home.score, away.score, competition, competition.round]
+    note: Senior NM-resultat kontrollert mot original årsrapport.
   - sourceId: sunnmorsposten-19880519-2a0e1650e2c38e1e64e772c5b8a13642
     page: "9"
     fields:

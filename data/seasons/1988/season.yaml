@@ -1,5 +1,10 @@
 year: 1988
-competitionId: nm
-finalPosition: null
+competitionId: andredivisjon
+finalPosition: 3
+teamsInLeague: 12
 promoted: false
 relegated: false
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1988
+    page: "22"
+    fields: [competitionId, finalPosition, teamsInLeague]

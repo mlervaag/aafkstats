@@ -42,3 +42,7 @@ aliases:
   rsssf: 2001-cup-2001-06-27-start-aalesunds-fk
 manual: []
 note: Resultatet er etter ekstraomganger. Kilden oppgir ikke stillingen etter ordinær tid, så fordelingen mellom ordinær tid og ekstraomganger er ukjent.
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2001
+    page: "15"
+    fields: [competition, home.clubId, away.clubId, home.score, away.score]

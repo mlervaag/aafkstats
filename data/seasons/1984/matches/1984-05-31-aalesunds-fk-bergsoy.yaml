@@ -49,6 +49,10 @@ aliases:
   rsssf: 1984-cup-1984-05-31-aalesunds-fk-bergsoy
 manual: []
 sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1984
+    page: "16"
+    fields: [home.score, away.score, competition.round]
+    note: Senior-NM-resultat i eksplisitt årsrapporttabell.
   - sourceId: sunnmorsposten-19840601-f4fc0c47441c1f79db051c0d32aca33c
     page: "9"
     fields:

@@ -1,5 +1,9 @@
 year: 2021
 competitionId: forstedivisjon
 finalPosition: null
-promoted: false
+promoted: true
 relegated: false
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2021
+    page: "19"
+    fields: [promoted]

@@ -19,6 +19,10 @@ away:
 neutralVenue: false
 events: []
 externalReports: []
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2013
+    page: "34"
+    fields: [competition, home.clubId, away.clubId, home.score, away.score]
 providers:
   - providerId: fotmob
     url: https://www.fotmob.com/matches/floro-vs-aalesund/1c732a#1442801

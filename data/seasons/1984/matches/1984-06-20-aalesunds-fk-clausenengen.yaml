@@ -49,6 +49,10 @@ aliases:
   rsssf: 1984-cup-1984-06-20-aalesunds-fk-clausenengen
 manual: []
 sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1984
+    page: "16"
+    fields: [home.score, away.score, competition.round]
+    note: Senior-NM-resultat i eksplisitt årsrapporttabell.
   - sourceId: sunnmorsposten-19840621-482f1beb789a1fca2d835a3f8b6c83b3
     page: "10"
     fields:

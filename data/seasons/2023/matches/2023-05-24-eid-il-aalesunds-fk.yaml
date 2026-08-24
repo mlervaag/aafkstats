@@ -63,6 +63,10 @@ providers:
       - events
       - lineups
     note: "Kildestatus: FT"
+sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-2023
+    page: "48"
+    fields: [home.score, away.score, competition, competition.round]
 confidence: probable
 conflicts: []
 tags: []

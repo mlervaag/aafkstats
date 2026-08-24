@@ -46,6 +46,17 @@ export interface OcrReportOptions {
   onProgress?: (message: string) => void;
 }
 
+/** Stable, span-specific cache artifact name for OCR runs. */
+export function annualReportOcrManifestPath(from: number, to: number): string {
+  return `.cache/ingest/sfk-annual-reports/ocr-manifest-${from}-${to}.json`;
+}
+
+export function annualReportOcrSpan(results: AnnualReportOcrResult[]): string {
+  if (results.length === 0) return "årsrapporter";
+  const years = results.map((result) => result.year).sort((a, b) => a - b);
+  return years[0] === years[years.length - 1] ? `${years[0]}` : `${years[0]}–${years[years.length - 1]}`;
+}
+
 export async function ocrAnnualReportPdf(
   report: AnnualReportLink,
   bytes: Uint8Array,
@@ -132,7 +143,7 @@ export function ocrCoverageReport(results: AnnualReportOcrResult[]): string {
   const processed = sorted.reduce((total, result) => total + result.pagesProcessed, 0);
   const failed = sorted.reduce((total, result) => total + result.pagesFailed.length, 0);
   return [
-    "# SFK årsrapporter, OCR 1952–1979",
+    `# SFK årsrapporter, OCR ${annualReportOcrSpan(sorted)}`,
     "",
     "OCR-resultatene er arbeidsdata. Rapporten viser bare dekning, målekvalitet og",
     "sidebaserte temasignaler; OCR-prosa og bilder ligger i ignorert cache.",

@@ -49,6 +49,10 @@ aliases:
   rsssf: 1980-cup-1980-05-29-hodd-aalesunds-fk
 manual: []
 sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1980
+    page: "14"
+    fields: [home.score, away.score, competition.round]
+    note: Senior-NM-resultat i eksplisitt årsrapporttabell.
   - sourceId: sunnmorsposten-19800530-55041ac502669ad62fbad09cadaf1782
     page: "7"
     fields:
