@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { ocrCoverageReport, ocrManifest, type AnnualReportOcrResult } from "../src/adapters/sfk-annual-report-ocr.js";
+import {
+  annualReportOcrManifestPath,
+  annualReportOcrSpan,
+  ocrCoverageReport,
+  ocrManifest,
+  type AnnualReportOcrResult,
+} from "../src/adapters/sfk-annual-report-ocr.js";
 
 const result: AnnualReportOcrResult = {
   year: 1966,
@@ -25,6 +31,14 @@ const result: AnnualReportOcrResult = {
 };
 
 describe("SFK-årsrapport-OCR", () => {
+  it("bruker dynamisk spenn for rapporttittel og manifestnavn", () => {
+    expect(annualReportOcrSpan([result, { ...result, year: 2025 }])).toBe("1966–2025");
+    expect(annualReportOcrManifestPath(1952, 2025)).toBe(
+      ".cache/ingest/sfk-annual-reports/ocr-manifest-1952-2025.json",
+    );
+    expect(ocrCoverageReport([result, { ...result, year: 2025 }])).toContain("# SFK årsrapporter, OCR 1966–2025");
+  });
+
   it("lager et deterministisk manifest uten OCR-prosa", () => {
     const manifest = ocrManifest([result]);
     expect(manifest).toBe(ocrManifest([result]));
