@@ -1,0 +1,204 @@
+contract: nb-dateless-canonical-review@1
+generatedAt: 2026-08-24
+decisionGate: NB_DATELESS_CANONICAL_REVIEW_CLOSED
+scope:
+  localExistingMatchCandidates: 28
+  dateEvidenceCases: 2
+  prioritizedFacsimileUnits: 10
+  prioritizedFacsimileClaims: 13
+  newNbSearches: 0
+existingMatchReconciliation:
+  summary:
+    matchedExisting: 24
+    blockedDuplicateAmbiguity: 4
+  safeLinks:
+    - sourceClaimId: srcclaim-40e54ad497d240a19247467c817f7186
+      targetMatchId: 1950-07-02-freidig-aalesunds-fk
+    - sourceClaimId: srcclaim-6e1dc122ad8e00285416dc7ffce9e8d6
+      targetMatchId: 1952-04-20-langevag-aalesunds-fk
+    - sourceClaimId: srcclaim-cf8388b9602271f96d7ec924f7c6db98
+      targetMatchId: 1952-04-30-aksla-aalesunds-fk
+    - sourceClaimId: srcclaim-cfe5f6a2f273ecd6bf6df79135a12500
+      targetMatchId: 1952-05-20-herd-aalesunds-fk
+    - sourceClaimId: srcclaim-3d00f36b4126100da7b0149971e473da
+      targetMatchId: 1952-05-11-rollon-aalesunds-fk
+    - sourceClaimId: srcclaim-a144bd70aad3d4028566d7026b3f4d71
+      targetMatchId: 1952-05-25-braatt-aalesunds-fk
+    - sourceClaimId: srcclaim-2abc366fd331e2dd49c9ae533f6c3b40
+      targetMatchId: 1954-08-08-freidig-aalesunds-fk
+    - sourceClaimId: srcclaim-3c8a00ea9611c94cf4629d83ab059861
+      targetMatchId: 1955-05-30-aalesunds-fk-molde-fk
+    - sourceClaimId: srcclaim-fc95d2f504a58eac579db85560242600
+      targetMatchId: 1955-10-09-aalesunds-fk-kfk
+    - sourceClaimId: srcclaim-91344d75735abca8eae12cce4b24fcd9
+      targetMatchId: 1955-06-05-aalesunds-fk-rollon
+    - sourceClaimId: srcclaim-74800a8aa1d67992aa11a9b7c0b5c94a
+      targetMatchId: 1956-05-05-aalesunds-fk-langevag
+    - sourceClaimId: srcclaim-72720d0966f8eb3c8e2bb6d663aea9c2
+      targetMatchId: 1956-05-10-aalesunds-fk-hodd
+    - sourceClaimId: srcclaim-ea8a449d03d00b6cb5d60c098ef74e5e
+      targetMatchId: 1956-05-13-braatt-aalesunds-fk
+    - sourceClaimId: srcclaim-80a966cc687c47ec27c97b43db090464
+      targetMatchId: 1956-05-20-aalesunds-fk-clausenengen
+    - sourceClaimId: srcclaim-4f82f450fe7d2b4a09e85597936cc8ba
+      targetMatchId: 1956-05-27-molde-fk-aalesunds-fk
+    - sourceClaimId: srcclaim-c6530b77d6047d1e0b50cc9ed27d297c
+      targetMatchId: 1963-10-13-rosenborg-bk-aalesunds-fk
+    - sourceClaimId: srcclaim-f6e8f912749b4dd83535ed399beb30d9
+      targetMatchId: 1963-08-04-aalesunds-fk-kvik
+    - sourceClaimId: srcclaim-4f4a2ae7975c11748fb4416df073f5be
+      targetMatchId: 1963-08-18-lillestrom-aalesunds-fk
+    - sourceClaimId: srcclaim-51d9d34e789abff1d7843c3ae9539a7d
+      targetMatchId: 1963-09-08-ostsiden-il-aalesunds-fk
+    - sourceClaimId: srcclaim-4466175c5139b163df90401fd8a592cc
+      targetMatchId: 1964-05-10-aalesunds-fk-hodd
+    - sourceClaimId: srcclaim-516dc7d96f14cf9c351bce5fd48cc867
+      targetMatchId: 1964-08-30-aalesunds-fk-herd
+    - sourceClaimId: srcclaim-22002bf4e88521a7a833ab2b884a446d
+      targetMatchId: 1964-05-31-aalesunds-fk-langevag
+    - sourceClaimId: srcclaim-18aebe5342edff7aec459e462e6c8e45
+      targetMatchId: 1964-05-24-kfk-aalesunds-fk
+    - sourceClaimId: srcclaim-d61d9e643aea90de4c9f529fbadae1d1
+      targetMatchId: 1964-06-14-aalesunds-fk-braatt
+  blocked:
+    - sourceClaimId: srcclaim-aa9739c691b303b4a100d7f147bc5d49
+      targetMatchId: 1952-04-27-rollon-aalesunds-fk
+      reason: To udaterte Rollon-claims har samme motstander og 3–2-resultat; ingen av dem kan tildeles kampen uten søskenavklaring.
+    - sourceClaimId: srcclaim-a0295dfc77d947f850df22796b8ce824
+      targetMatchId: 1952-04-27-rollon-aalesunds-fk
+      reason: To udaterte Rollon-claims har samme motstander og 3–2-resultat; ingen av dem kan tildeles kampen uten søskenavklaring.
+    - sourceClaimId: srcclaim-c82647dbb9d913327d39cf6e237943d1
+      targetMatchId: 1963-05-05-kvik-aalesunds-fk
+      reason: To udaterte Kvik-claims har samme motstander og 1–1-resultat; ingen av dem kan tildeles kampen uten søskenavklaring.
+    - sourceClaimId: srcclaim-a1ae2dbc90c13986ea14e5ae8a589587
+      targetMatchId: 1963-05-05-kvik-aalesunds-fk
+      reason: To udaterte Kvik-claims har samme motstander og 1–1-resultat; ingen av dem kan tildeles kampen uten søskenavklaring.
+dateReviews:
+  - sourceClaimId: srcclaim-11f9adfb78cb8e87aba129f936cbf5c4
+    coordinateAtReview: { season: 1964, no: 12 }
+    actualVisualSource:
+      title: Sunnmørsposten
+      issueDate: 1964-07-24
+      printedPage: "8"
+      viewerPage: "7"
+      pageUrl: https://www.nb.no/items/4b216e8bd63234b8a2c8d4fe4dee0c36?page=7
+    observed:
+      opponentClubId: fk-sykkylven
+      score: { aafk: 3, opponent: 2 }
+      homeAway: home
+      matchDate: 1964-07-23
+      dateEvidence: Kampreferatet sier at oppgjøret på Aksla ble spilt dagen før avisutgaven.
+    claimResolution: exact_event
+    canonicalEligibility: competition_uncertain
+    canonicalAction: blocked
+    reason: Dato, arena, motstander og resultat er sikre, men konkurranseformen er ikke eksplisitt fastslått.
+  - sourceClaimId: srcclaim-f9563e86d02ac37a20fea19b6fcb38e1
+    coordinateAtReview: { season: 1971, no: 1 }
+    actualVisualSource:
+      title: Sunnmørsposten
+      issueDate: 1971-06-05
+      printedPage: "6"
+      viewerPage: "5"
+      pageUrl: https://www.nb.no/items/cc9edf15e772ece5715e3edfe94c637b?page=5
+    observed:
+      opponentClubId: orsta
+      score: { aafk: 1, opponent: 1 }
+      competitionId: nm
+      round: 1
+      extraTime: true
+      dateEvidence: Faksimilen bekrefter kamp og resultat, men oppgir ingen entydig kampdato.
+    claimResolution: exact_event
+    canonicalEligibility: date_uncertain
+    canonicalAction: blocked
+    reason: Avisutgavens dato er ikke kampdato og kan ikke brukes som erstatning.
+facsimilePilot:
+  selection: De ti høyest prioriterte atomiske enhetene fra den eksisterende kandidatlisten; ingen nye NB-søk.
+  stopRule: Stopp etter ti enheter dersom færre enn tre gir kanoniseringsklare treff.
+  result:
+    unitsReviewed: 10
+    claimsReviewed: 13
+    canonicalReady: 1
+    nonSeniorCandidatePages: 1
+    candidateSourceMismatch: 8
+    marginalYield: 0.10
+    stopped: true
+    remainingCandidateClaimsNotReviewed: 41
+  units:
+    - reviewUnitId: dateless-pilot-01-spjelkavik-1959
+      sourceClaimIds: [srcclaim-805d7ce9721cf5ea93f96ec600b52511]
+      actualVisualSource: { title: Sunnmørsposten, issueDate: 1959-05-22, printedPage: "6", viewerPage: "5", pageUrl: "https://www.nb.no/items/f6dab5f1f12261de7f5eb8d341c08f17?page=5" }
+      candidateDisposition: non_senior
+      canonicalEligibility: insufficient
+      evidenceSummary: Siden gjelder en juniorkamp som endte 4–2, ikke seniorclaimet 2–0.
+    - reviewUnitId: dateless-pilot-02-guard-1959
+      sourceClaimIds: [srcclaim-85b97c9e6e60c2b7942ff7b9a43f304e]
+      actualVisualSource: { title: Sunnmørsposten, issueDate: 1959-04-08, printedPage: "4", viewerPage: "3", pageUrl: "https://www.nb.no/items/a2f793e502ffb3969ca77b8dd64ee53e?page=3" }
+      candidateDisposition: exact_match
+      observed: { matchDate: 1959-04-07, opponentClubId: guard, score: { aafk: 6, opponent: 2 }, competitionId: treningskamp, homeAway: home, venueId: kramyra-stadion }
+      canonicalEligibility: ready
+      evidenceSummary: Faksimilen oppgir 6–2, treningskamp på Kråmyra og at kampen ble spilt dagen før avisutgaven.
+    - reviewUnitId: dateless-pilot-03-rollon-1959
+      sourceClaimIds: [srcclaim-f5691d1f8e5f3f9235cc139c133dd5c9]
+      actualVisualSource: { title: Sunnmørsposten, issueDate: 1959-04-06, printedPage: "7", viewerPage: "6", pageUrl: "https://www.nb.no/items/8b7e3d0cea0cf6883859aa9e861af5ef?page=6" }
+      candidateDisposition: source_mismatch
+      canonicalEligibility: insufficient
+      evidenceSummary: Siden omtaler treningstidene på Nørve, ikke et 1–0-resultat mot Rollon.
+    - reviewUnitId: dateless-pilot-04-skarbovik-1959
+      sourceClaimIds: [srcclaim-1b2be42c0533d26f1429b5170133b4b6, srcclaim-dc9b21c7599d508a20c610f4709b61f6]
+      actualVisualSource: { title: Sunnmørsposten, issueDate: 1959-04-09, printedPage: "4", viewerPage: "3", pageUrl: "https://www.nb.no/items/4d31dde9f3bfe5996a8b1c6b47b11354?page=3" }
+      candidateDisposition: source_mismatch
+      canonicalEligibility: insufficient
+      evidenceSummary: Siden varsler et privatoppgjør mot Skarbøvik samme kveld, men dokumenterer ikke noen 3–1-kamp.
+    - reviewUnitId: dateless-pilot-05-aksla-1959
+      sourceClaimIds: [srcclaim-b3c20ff98be1c5efeb2e72a5c67a65d3, srcclaim-772fffaab7ed368d353738e32e517f16]
+      actualVisualSource: { title: Sunnmørsposten, issueDate: 1959-04-09, printedPage: "4", viewerPage: "3", pageUrl: "https://www.nb.no/items/4d31dde9f3bfe5996a8b1c6b47b11354?page=3" }
+      candidateDisposition: source_mismatch
+      canonicalEligibility: insufficient
+      evidenceSummary: Siden varsler Rollon–Aksla samme kveld, men dokumenterer verken 0–1 eller 2–2 mot ÅFK.
+    - reviewUnitId: dateless-pilot-06-spjelkavik-1964
+      sourceClaimIds: [srcclaim-c4de4372a16a94cce11092cdfc48f39a]
+      actualVisualSource: { title: Sunnmørsposten, issueDate: 1964-04-08, printedPage: "6", viewerPage: "5", pageUrl: "https://www.nb.no/items/e2945a0c383a4f5a800393027019dbf4?page=5" }
+      candidateDisposition: source_mismatch
+      canonicalEligibility: insufficient
+      evidenceSummary: Siden inneholder termin-/førsterundeomtale, ikke et 4–0-resultat mot Spjelkavik.
+    - reviewUnitId: dateless-pilot-07-molde-1964
+      sourceClaimIds: [srcclaim-03f418ef3cd1c616a9fbe01124d2cead]
+      actualVisualSource: { title: Sunnmørsposten, issueDate: 1964-08-10, printedPage: "2", viewerPage: "1", pageUrl: "https://www.nb.no/items/617efee9bf3dd410b27fc3620c55027e?page=1" }
+      candidateDisposition: source_mismatch
+      canonicalEligibility: insufficient
+      evidenceSummary: Resultatsiden dokumenterer andre oppgjør, men ikke ÅFK–Molde 0–0.
+    - reviewUnitId: dateless-pilot-08-andalsnes-1966
+      sourceClaimIds: [srcclaim-ae4a41d77fb009f216104bea3443d6ca]
+      actualVisualSource: { title: Sunnmørsposten, issueDate: 1966-05-04, printedPage: "6", viewerPage: "5", pageUrl: "https://www.nb.no/items/573e4e4c76d1fe014e75bd56719fe7f4?page=5" }
+      candidateDisposition: source_mismatch
+      canonicalEligibility: insufficient
+      evidenceSummary: Siden viser terminlister og forhåndsstoff, ikke NM-resultatet 7–1 mot Åndalsnes.
+    - reviewUnitId: dateless-pilot-09-herd-1967
+      sourceClaimIds: [srcclaim-4dada633090f1399a05fa6b58192bd22]
+      actualVisualSource: { title: Sunnmørsposten, issueDate: 1967-04-06, printedPage: "6", viewerPage: "5", pageUrl: "https://www.nb.no/items/5e85f3520586378f2523ea9838fc5ef2?page=5" }
+      candidateDisposition: source_mismatch
+      canonicalEligibility: insufficient
+      evidenceSummary: Siden forhåndsomtaler andre treningskamper, ikke NM-kampen der Herd vant 2–1.
+    - reviewUnitId: dateless-pilot-10-vrf-1968
+      sourceClaimIds: [srcclaim-64c6110da444038e0ef238cc09d58c39, srcclaim-a717f05ed9c8fea01894bd11321f2884]
+      actualVisualSource: { title: Sunnmørsposten, issueDate: 1968-04-02, printedPage: "4", viewerPage: "3", pageUrl: "https://www.nb.no/items/a99f7aa1982434554eefad6030a2e0fe?page=3" }
+      candidateDisposition: source_mismatch
+      canonicalEligibility: insufficient
+      evidenceSummary: Siden inneholder ikke de to NM-oppgjørene mot Velledalen/Ringen.
+canonicalActions:
+  createMatches:
+    - sourceClaimId: srcclaim-85b97c9e6e60c2b7942ff7b9a43f304e
+      match:
+        id: 1959-04-07-aalesunds-fk-guard
+        date: 1959-04-07
+        competitionId: treningskamp
+        homeClubId: aalesunds-fk
+        awayClubId: guard
+        homeScore: 6
+        awayScore: 2
+        venueId: kramyra-stadion
+      newspaper:
+        title: Sunnmørsposten
+        issueDate: 1959-04-08
+        printedPage: "4"
+        pageUrl: https://www.nb.no/items/a2f793e502ffb3969ca77b8dd64ee53e?page=3

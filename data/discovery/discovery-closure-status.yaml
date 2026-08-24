@@ -36,16 +36,16 @@ totals:
   legacyAiReviewed: 247
   supersededReview: 109
   canonicalized: 50
-  matchedExisting: 32
+  matchedExisting: 57
   community: 17
   rejected: 19
-  pendingVisualReview: 617
+  pendingVisualReview: 592
   requiresRevalidation: 17
   pendingCanonicalization: 0
   candidateExhausted: 0
   noCandidate: 10
   terminal_canonicalized: 50
-  terminal_matched_existing_canonical: 32
+  terminal_matched_existing_canonical: 57
   terminal_visually_reviewed_unresolved: 17
   terminal_community_research: 17
   terminal_rejected_different_event: 16
@@ -99,10 +99,10 @@ periods:
     candidateCovered: 238
     validReview: 77
     staleReview: 17
-    needsVisualReview: 136
+    needsVisualReview: 129
     requiresRevalidation: 17
     readyForCanonicalization: 0
-    terminal: 90
+    terminal: 97
   1955-1964:
     total: 344
     pilot: 8
@@ -111,10 +111,10 @@ periods:
     candidateCovered: 339
     validReview: 8
     staleReview: 0
-    needsVisualReview: 316
+    needsVisualReview: 298
     requiresRevalidation: 0
     readyForCanonicalization: 0
-    terminal: 28
+    terminal: 46
   1965-1974:
     total: 55
     pilot: 11
@@ -293,7 +293,6 @@ closureQueue:
     - srcclaim-213745c5d7e5b6c709b9fb0ebe8b1cd1
     - srcclaim-2c02fe7f6fefb65c9b87b97ba89cf7e4
     - srcclaim-2d1bb9f54b5f97cc8572d1e14c25a73b
-    - srcclaim-40e54ad497d240a19247467c817f7186
     - srcclaim-48eaed58bb362fbd7fd82665ef0294e2
     - srcclaim-653a2c520e652cb1a39c550e7c63fffb
     - srcclaim-6fbc1e4774f10113bc14a1b46ba7112b
@@ -340,25 +339,20 @@ closureQueue:
     - srcclaim-00d8c1c5e9a04da55133298f62316ee3
     - srcclaim-244b65cfbd03c505c281322eac19b72c
     - srcclaim-27150e045427230e70d5f97f60ae335e
-    - srcclaim-3d00f36b4126100da7b0149971e473da
     - srcclaim-40cafd053aa38d3081f11ad914939212
     - srcclaim-4feeb73acbb15a83a7209d89293c0ae3
     - srcclaim-52b82e6d0201f049d2ac97308a2b51dd
     - srcclaim-54c03edee28ce338fb6c46ff2dee6a1d
     - srcclaim-596915323377a95e0d8315db918aff8e
     - srcclaim-6d152793b745ddc3f33c355abb1a30e2
-    - srcclaim-6e1dc122ad8e00285416dc7ffce9e8d6
     - srcclaim-8facfb80a89c07ba5d52122e31711433
     - srcclaim-9c6c0764b9222dcccf2c484ee68d0d5b
     - srcclaim-9c721ca2e92c895102e660678edd105a
     - srcclaim-a0295dfc77d947f850df22796b8ce824
-    - srcclaim-a144bd70aad3d4028566d7026b3f4d71
     - srcclaim-a1c6237cc7fa2a49d14754e47932473d
     - srcclaim-b1da794164d21081a96f3cdab0a3bdeb
     - srcclaim-beb3870d54393b9c1765e2a9fc659541
     - srcclaim-c3cc56253659e6c40f829a6801d888e4
-    - srcclaim-cf8388b9602271f96d7ec924f7c6db98
-    - srcclaim-cfe5f6a2f273ecd6bf6df79135a12500
     - srcclaim-d985b0d5e8c56f108d2c1e17dfe2a2bb
     - srcclaim-da66c8602817311137b4e998d67caf04
     - srcclaim-e05d562b06246d459bebbda536372260
@@ -391,7 +385,6 @@ closureQueue:
     - srcclaim-ea56c248256f18e8ee621d5733902534
     - srcclaim-0c669d04e65c6bdf6fca0a214bf6a3a0
     - srcclaim-26501b663dfd5b4d002f15a9d465b39b
-    - srcclaim-2abc366fd331e2dd49c9ae533f6c3b40
     - srcclaim-3d634a53f25dce729334372465998a41
     - srcclaim-4f4d4d1b7ba82ea8e135922cdabc1d38
     - srcclaim-51cbe87065e927c72de4cad2485330c3
@@ -410,7 +403,6 @@ closureQueue:
     - srcclaim-24df60b58f129e588dacddba7c11fe31
     - srcclaim-2ce2e129f0e223daa39ea2626d239f21
     - srcclaim-377c3fdb2226a38b307fe3d8b9a9db61
-    - srcclaim-3c8a00ea9611c94cf4629d83ab059861
     - srcclaim-5e965fb83a4bda3b06b0e1a21b9e4a95
     - srcclaim-5fd064318b6615886e388b2a3e2414cb
     - srcclaim-62185843d54cc99e8c47ddb19d30ddaf
@@ -419,19 +411,16 @@ closureQueue:
     - srcclaim-7614daf5655c99d1af75dc443a3783be
     - srcclaim-7f447e06fc9514545826432e40acd889
     - srcclaim-8e80bced1fbdf38d5d586c522fca46d4
-    - srcclaim-91344d75735abca8eae12cce4b24fcd9
     - srcclaim-cc4834d40ccb7c80fe4be39c0dc35eca
     - srcclaim-dc2d6c4cd582dc3caa133756e7220d29
     - srcclaim-e8702cfc0fe330f63fa6456ddbd09c12
     - srcclaim-f559402a957c70b5a719455ccfd9598b
-    - srcclaim-fc95d2f504a58eac579db85560242600
     - srcclaim-ff07eb3d956413c56f6d40bffd95aa46
     - srcclaim-0976955bb8a4da616511b71d695a8a96
     - srcclaim-2667337b365ae2f19aff0145be426191
     - srcclaim-272a4bdb77acf5f4436388aae8620ebc
     - srcclaim-2b33b752ba6cbac3ea505cccc0a80e23
     - srcclaim-4a26309620adec77dc6a2e230eb69b29
-    - srcclaim-4f82f450fe7d2b4a09e85597936cc8ba
     - srcclaim-52b83dfdb5d4ee63c32c66ba79de14fc
     - srcclaim-557ad9ce50a9f6ad4b58e48c6ad09d2d
     - srcclaim-6152b2e83233492f1436102976d2e451
@@ -439,9 +428,6 @@ closureQueue:
     - srcclaim-683d3a0bfcc2ac678bc3759f08f42cec
     - srcclaim-6a138143374dce94531ffec711e9125b
     - srcclaim-6f9cf067556f04d2315ece70d38b9190
-    - srcclaim-72720d0966f8eb3c8e2bb6d663aea9c2
-    - srcclaim-74800a8aa1d67992aa11a9b7c0b5c94a
-    - srcclaim-80a966cc687c47ec27c97b43db090464
     - srcclaim-9630deb798270fbefaf0457282dd947a
     - srcclaim-a9fd04f54123380ae8b5dc7a70315622
     - srcclaim-ad99ad7f9bed9db47a2383107fde7f1d
@@ -452,7 +438,6 @@ closureQueue:
     - srcclaim-cec237574255992183f3e5c822723903
     - srcclaim-d156323c156f8bfaaeb7131b0ada5231
     - srcclaim-ea0deb77c00f45b9d5df6c5ec73eab44
-    - srcclaim-ea8a449d03d00b6cb5d60c098ef74e5e
     - srcclaim-f2eba3ced47ad7a0e790813a2bc0e365
     - srcclaim-f53fa6f39144fa3f1b6e52a2dc0f4812
     - srcclaim-ff7ead93a6976ffbf2adcb53362009bf
@@ -531,7 +516,6 @@ closureQueue:
     - srcclaim-772fffaab7ed368d353738e32e517f16
     - srcclaim-7980447adbf76b93d7f8cab45737efc2
     - srcclaim-805d7ce9721cf5ea93f96ec600b52511
-    - srcclaim-85b97c9e6e60c2b7942ff7b9a43f304e
     - srcclaim-87339bf3501bb530e30352fc72b0f850
     - srcclaim-8738e048fa148d5448b742e9f9ae5120
     - srcclaim-879964fa3220bb9240d540e07c883a44
@@ -666,8 +650,6 @@ closureQueue:
     - srcclaim-41e30b3a5c052f321964291c02dac259
     - srcclaim-4372d367fc2b34116dcd1eea16aad289
     - srcclaim-4d93798e0c8b6191608bd11fd2ecd13c
-    - srcclaim-4f4a2ae7975c11748fb4416df073f5be
-    - srcclaim-51d9d34e789abff1d7843c3ae9539a7d
     - srcclaim-5f89300eee13d166262495edd3d8ab89
     - srcclaim-76cfe3382fc9e98121083bfa9b676644
     - srcclaim-80be5eb441db723ff188d3354362bb87
@@ -680,23 +662,17 @@ closureQueue:
     - srcclaim-b42dd95c5a99ada6239f228fdd22e3f9
     - srcclaim-b4c79dc2e6670c1112eb4c4eb53c5d53
     - srcclaim-bb3dbd6f5432a00fccddd728ca3a6106
-    - srcclaim-c6530b77d6047d1e0b50cc9ed27d297c
     - srcclaim-c82647dbb9d913327d39cf6e237943d1
     - srcclaim-eeda7d480a5578576f495bd77fec310e
     - srcclaim-f576144adad1f2c571ac9e0ee7ebf2aa
-    - srcclaim-f6e8f912749b4dd83535ed399beb30d9
     - srcclaim-fc22b982a52bb449bc116e1f2985c7a3
     - srcclaim-fed629a46a4dd580223c610ab6bc014b
     - srcclaim-03f418ef3cd1c616a9fbe01124d2cead
     - srcclaim-0763ca8da5e8fb4e91c07cf4ecb7dfb1
     - srcclaim-0836a617562366cfb4a9c7a725972a69
     - srcclaim-11f9adfb78cb8e87aba129f936cbf5c4
-    - srcclaim-18aebe5342edff7aec459e462e6c8e45
     - srcclaim-205b17cda1335e7f5eab4c968e6570b8
-    - srcclaim-22002bf4e88521a7a833ab2b884a446d
     - srcclaim-288594b5891b5c012af29a2f45bf3c11
-    - srcclaim-4466175c5139b163df90401fd8a592cc
-    - srcclaim-516dc7d96f14cf9c351bce5fd48cc867
     - srcclaim-715f9267bd161d0a37d9eef2eecdc4bf
     - srcclaim-73ad1ecb217bdbc8a3964fdfece97b84
     - srcclaim-784cea7ed6094beaeff3fead7f76262c
@@ -712,7 +688,6 @@ closureQueue:
     - srcclaim-c76a5bcafb70de5d3c318c80e3d2d9cb
     - srcclaim-c7f0cb17360b71c7c89f6aab70c363bd
     - srcclaim-ce4faf703ee325eba9fbb0ab8dc1468f
-    - srcclaim-d61d9e643aea90de4c9f529fbadae1d1
     - srcclaim-d7e22d2ffb53a2fcf3615344fec6b0d2
     - srcclaim-db4bce339f03d33ce853f6ccc12303e2
     - srcclaim-e02242b3b971310e5a8d3c176b8ecbef
@@ -891,25 +866,41 @@ closureQueue:
     - srcclaim-ded7557e95139185be1c1107cb15a936
     - srcclaim-f2f9a6f39fd6e2e8fbd11f472c9648f9
     - srcclaim-31ec71f60f3c09686989a98d291496db
+    - srcclaim-40e54ad497d240a19247467c817f7186
     - srcclaim-1f063361b54e5359e3fb9a58596ecf33
     - srcclaim-441cbb12a54ec320b1f75becdf0c9e9c
     - srcclaim-dfceb578c55362ab2ad80ee386c420fb
     - srcclaim-e8bdc670bfc719bf13935f9ba86535c5
+    - srcclaim-3d00f36b4126100da7b0149971e473da
+    - srcclaim-6e1dc122ad8e00285416dc7ffce9e8d6
+    - srcclaim-a144bd70aad3d4028566d7026b3f4d71
+    - srcclaim-cf8388b9602271f96d7ec924f7c6db98
+    - srcclaim-cfe5f6a2f273ecd6bf6df79135a12500
     - srcclaim-8c59ecfc4096ebb8b9502d83bab8e64c
+    - srcclaim-2abc366fd331e2dd49c9ae533f6c3b40
     - srcclaim-35acc11c998eec8bf7925bc620d7320a
     - srcclaim-009be4bcaf163e66abb07bc0fabf56d3
     - srcclaim-347022b05d3f166e383d3ed35fd1ee96
+    - srcclaim-3c8a00ea9611c94cf4629d83ab059861
     - srcclaim-4ec8c18557c9e71659c2b673916fb298
     - srcclaim-6e82be09b5f897512ad1616678eee549
     - srcclaim-873b3710fb53ecebb6822d95b27c4648
+    - srcclaim-91344d75735abca8eae12cce4b24fcd9
     - srcclaim-d36fdc42f88958491c05d29350400750
     - srcclaim-da1e14dbd8f10d859e6d8eef7fb407ee
     - srcclaim-f06c030a58de1f646e803b2465d0fc56
+    - srcclaim-fc95d2f504a58eac579db85560242600
+    - srcclaim-4f82f450fe7d2b4a09e85597936cc8ba
+    - srcclaim-72720d0966f8eb3c8e2bb6d663aea9c2
+    - srcclaim-74800a8aa1d67992aa11a9b7c0b5c94a
+    - srcclaim-80a966cc687c47ec27c97b43db090464
+    - srcclaim-ea8a449d03d00b6cb5d60c098ef74e5e
     - srcclaim-0a1e0c8c70a8f4f4cea617d012a60ba9
     - srcclaim-34c68a718ce9c6bc87c52ded223f4cd7
     - srcclaim-124d838f5e258ccd3d42b4993631648c
     - srcclaim-26b7f6d2bae24b9b991ebb10bbb446d4
     - srcclaim-2c5bf3cd70b2bf7bb93af3c15c1b1d04
+    - srcclaim-85b97c9e6e60c2b7942ff7b9a43f304e
     - srcclaim-a268d2519b6ed570e240e7771a90c650
     - srcclaim-d39a65545d6560f159966d8b07b03b5f
     - srcclaim-f12d7360af44b041ac788640fe363081
@@ -922,8 +913,17 @@ closureQueue:
     - srcclaim-463c0c37efd3d70131eea4283c25aa95
     - srcclaim-1c5ef08ed94a8af0fa16a1c9afe38b33
     - srcclaim-1fcc0a65889e806bcb91b41a6211eb6b
+    - srcclaim-4f4a2ae7975c11748fb4416df073f5be
+    - srcclaim-51d9d34e789abff1d7843c3ae9539a7d
+    - srcclaim-c6530b77d6047d1e0b50cc9ed27d297c
+    - srcclaim-f6e8f912749b4dd83535ed399beb30d9
+    - srcclaim-18aebe5342edff7aec459e462e6c8e45
+    - srcclaim-22002bf4e88521a7a833ab2b884a446d
+    - srcclaim-4466175c5139b163df90401fd8a592cc
+    - srcclaim-516dc7d96f14cf9c351bce5fd48cc867
     - srcclaim-5c22bc310a077d0d71338507bc11222c
     - srcclaim-957cca170f4c651524c6ed234a96ca7b
+    - srcclaim-d61d9e643aea90de4c9f529fbadae1d1
     - srcclaim-eacfa3b129845f6dec2d460bc9fd223f
     - srcclaim-4cf6f88cde444f2da42bdf31401006b3
     - srcclaim-6bda887d43b4e9f504e280edfa75d652
@@ -971,7 +971,6 @@ closureQueue:
       readyForCanonicalization: []
     wave2:
       needsVisualReview:
-        - srcclaim-2abc366fd331e2dd49c9ae533f6c3b40
         - srcclaim-51e736bad865b4b117af47704f883ba5
         - srcclaim-d97ba35bdbe14d7eda5557fac4c1a4a5
         - srcclaim-f4a2763a9046ea46fc077304fabf543c
@@ -982,7 +981,6 @@ closureQueue:
         - srcclaim-24df60b58f129e588dacddba7c11fe31
         - srcclaim-2ce2e129f0e223daa39ea2626d239f21
         - srcclaim-377c3fdb2226a38b307fe3d8b9a9db61
-        - srcclaim-3c8a00ea9611c94cf4629d83ab059861
         - srcclaim-5e965fb83a4bda3b06b0e1a21b9e4a95
         - srcclaim-5fd064318b6615886e388b2a3e2414cb
         - srcclaim-62185843d54cc99e8c47ddb19d30ddaf
@@ -991,19 +989,16 @@ closureQueue:
         - srcclaim-7614daf5655c99d1af75dc443a3783be
         - srcclaim-7f447e06fc9514545826432e40acd889
         - srcclaim-8e80bced1fbdf38d5d586c522fca46d4
-        - srcclaim-91344d75735abca8eae12cce4b24fcd9
         - srcclaim-cc4834d40ccb7c80fe4be39c0dc35eca
         - srcclaim-dc2d6c4cd582dc3caa133756e7220d29
         - srcclaim-e8702cfc0fe330f63fa6456ddbd09c12
         - srcclaim-f559402a957c70b5a719455ccfd9598b
-        - srcclaim-fc95d2f504a58eac579db85560242600
         - srcclaim-ff07eb3d956413c56f6d40bffd95aa46
         - srcclaim-0976955bb8a4da616511b71d695a8a96
         - srcclaim-2667337b365ae2f19aff0145be426191
         - srcclaim-272a4bdb77acf5f4436388aae8620ebc
         - srcclaim-2b33b752ba6cbac3ea505cccc0a80e23
         - srcclaim-4a26309620adec77dc6a2e230eb69b29
-        - srcclaim-4f82f450fe7d2b4a09e85597936cc8ba
         - srcclaim-52b83dfdb5d4ee63c32c66ba79de14fc
         - srcclaim-557ad9ce50a9f6ad4b58e48c6ad09d2d
         - srcclaim-6152b2e83233492f1436102976d2e451
@@ -1011,9 +1006,6 @@ closureQueue:
         - srcclaim-683d3a0bfcc2ac678bc3759f08f42cec
         - srcclaim-6a138143374dce94531ffec711e9125b
         - srcclaim-6f9cf067556f04d2315ece70d38b9190
-        - srcclaim-72720d0966f8eb3c8e2bb6d663aea9c2
-        - srcclaim-74800a8aa1d67992aa11a9b7c0b5c94a
-        - srcclaim-80a966cc687c47ec27c97b43db090464
         - srcclaim-9630deb798270fbefaf0457282dd947a
         - srcclaim-a9fd04f54123380ae8b5dc7a70315622
         - srcclaim-ad99ad7f9bed9db47a2383107fde7f1d
@@ -1024,7 +1016,6 @@ closureQueue:
         - srcclaim-cec237574255992183f3e5c822723903
         - srcclaim-d156323c156f8bfaaeb7131b0ada5231
         - srcclaim-ea0deb77c00f45b9d5df6c5ec73eab44
-        - srcclaim-ea8a449d03d00b6cb5d60c098ef74e5e
         - srcclaim-f2eba3ced47ad7a0e790813a2bc0e365
         - srcclaim-f53fa6f39144fa3f1b6e52a2dc0f4812
         - srcclaim-ff7ead93a6976ffbf2adcb53362009bf
@@ -1119,7 +1110,6 @@ closureQueue:
         - srcclaim-213745c5d7e5b6c709b9fb0ebe8b1cd1
         - srcclaim-2c02fe7f6fefb65c9b87b97ba89cf7e4
         - srcclaim-2d1bb9f54b5f97cc8572d1e14c25a73b
-        - srcclaim-40e54ad497d240a19247467c817f7186
         - srcclaim-48eaed58bb362fbd7fd82665ef0294e2
         - srcclaim-653a2c520e652cb1a39c550e7c63fffb
         - srcclaim-6fbc1e4774f10113bc14a1b46ba7112b
@@ -1166,25 +1156,20 @@ closureQueue:
         - srcclaim-00d8c1c5e9a04da55133298f62316ee3
         - srcclaim-244b65cfbd03c505c281322eac19b72c
         - srcclaim-27150e045427230e70d5f97f60ae335e
-        - srcclaim-3d00f36b4126100da7b0149971e473da
         - srcclaim-40cafd053aa38d3081f11ad914939212
         - srcclaim-4feeb73acbb15a83a7209d89293c0ae3
         - srcclaim-52b82e6d0201f049d2ac97308a2b51dd
         - srcclaim-54c03edee28ce338fb6c46ff2dee6a1d
         - srcclaim-596915323377a95e0d8315db918aff8e
         - srcclaim-6d152793b745ddc3f33c355abb1a30e2
-        - srcclaim-6e1dc122ad8e00285416dc7ffce9e8d6
         - srcclaim-8facfb80a89c07ba5d52122e31711433
         - srcclaim-9c6c0764b9222dcccf2c484ee68d0d5b
         - srcclaim-9c721ca2e92c895102e660678edd105a
         - srcclaim-a0295dfc77d947f850df22796b8ce824
-        - srcclaim-a144bd70aad3d4028566d7026b3f4d71
         - srcclaim-a1c6237cc7fa2a49d14754e47932473d
         - srcclaim-b1da794164d21081a96f3cdab0a3bdeb
         - srcclaim-beb3870d54393b9c1765e2a9fc659541
         - srcclaim-c3cc56253659e6c40f829a6801d888e4
-        - srcclaim-cf8388b9602271f96d7ec924f7c6db98
-        - srcclaim-cfe5f6a2f273ecd6bf6df79135a12500
         - srcclaim-d985b0d5e8c56f108d2c1e17dfe2a2bb
         - srcclaim-da66c8602817311137b4e998d67caf04
         - srcclaim-e05d562b06246d459bebbda536372260
@@ -1254,7 +1239,6 @@ closureQueue:
         - srcclaim-772fffaab7ed368d353738e32e517f16
         - srcclaim-7980447adbf76b93d7f8cab45737efc2
         - srcclaim-805d7ce9721cf5ea93f96ec600b52511
-        - srcclaim-85b97c9e6e60c2b7942ff7b9a43f304e
         - srcclaim-87339bf3501bb530e30352fc72b0f850
         - srcclaim-8738e048fa148d5448b742e9f9ae5120
         - srcclaim-879964fa3220bb9240d540e07c883a44
@@ -1389,8 +1373,6 @@ closureQueue:
         - srcclaim-41e30b3a5c052f321964291c02dac259
         - srcclaim-4372d367fc2b34116dcd1eea16aad289
         - srcclaim-4d93798e0c8b6191608bd11fd2ecd13c
-        - srcclaim-4f4a2ae7975c11748fb4416df073f5be
-        - srcclaim-51d9d34e789abff1d7843c3ae9539a7d
         - srcclaim-5f89300eee13d166262495edd3d8ab89
         - srcclaim-76cfe3382fc9e98121083bfa9b676644
         - srcclaim-80be5eb441db723ff188d3354362bb87
@@ -1403,23 +1385,17 @@ closureQueue:
         - srcclaim-b42dd95c5a99ada6239f228fdd22e3f9
         - srcclaim-b4c79dc2e6670c1112eb4c4eb53c5d53
         - srcclaim-bb3dbd6f5432a00fccddd728ca3a6106
-        - srcclaim-c6530b77d6047d1e0b50cc9ed27d297c
         - srcclaim-c82647dbb9d913327d39cf6e237943d1
         - srcclaim-eeda7d480a5578576f495bd77fec310e
         - srcclaim-f576144adad1f2c571ac9e0ee7ebf2aa
-        - srcclaim-f6e8f912749b4dd83535ed399beb30d9
         - srcclaim-fc22b982a52bb449bc116e1f2985c7a3
         - srcclaim-fed629a46a4dd580223c610ab6bc014b
         - srcclaim-03f418ef3cd1c616a9fbe01124d2cead
         - srcclaim-0763ca8da5e8fb4e91c07cf4ecb7dfb1
         - srcclaim-0836a617562366cfb4a9c7a725972a69
         - srcclaim-11f9adfb78cb8e87aba129f936cbf5c4
-        - srcclaim-18aebe5342edff7aec459e462e6c8e45
         - srcclaim-205b17cda1335e7f5eab4c968e6570b8
-        - srcclaim-22002bf4e88521a7a833ab2b884a446d
         - srcclaim-288594b5891b5c012af29a2f45bf3c11
-        - srcclaim-4466175c5139b163df90401fd8a592cc
-        - srcclaim-516dc7d96f14cf9c351bce5fd48cc867
         - srcclaim-715f9267bd161d0a37d9eef2eecdc4bf
         - srcclaim-73ad1ecb217bdbc8a3964fdfece97b84
         - srcclaim-784cea7ed6094beaeff3fead7f76262c
@@ -1435,7 +1411,6 @@ closureQueue:
         - srcclaim-c76a5bcafb70de5d3c318c80e3d2d9cb
         - srcclaim-c7f0cb17360b71c7c89f6aab70c363bd
         - srcclaim-ce4faf703ee325eba9fbb0ab8dc1468f
-        - srcclaim-d61d9e643aea90de4c9f529fbadae1d1
         - srcclaim-d7e22d2ffb53a2fcf3615344fec6b0d2
         - srcclaim-db4bce339f03d33ce853f6ccc12303e2
         - srcclaim-e02242b3b971310e5a8d3c176b8ecbef
@@ -10765,13 +10740,13 @@ entries:
       claimResolution: insufficient
       canonicalEligibility: insufficient
     canonical:
-      status: not_canonicalized
-      matchId: null
+      status: existing_match
+      matchId: 1950-07-02-freidig-aalesunds-fk
     community:
       status: none
       caseIds: []
-    workflowStatus: needs_visual_review
-    terminalStatus: null
+    workflowStatus: matched_existing_canonical
+    terminalStatus: matched_existing_canonical
   - sourceClaimId: srcclaim-48eaed58bb362fbd7fd82665ef0294e2
     relatedSourceClaimIds: []
     sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -12674,13 +12649,13 @@ entries:
       claimResolution: insufficient
       canonicalEligibility: insufficient
     canonical:
-      status: not_canonicalized
-      matchId: null
+      status: existing_match
+      matchId: 1952-05-11-rollon-aalesunds-fk
     community:
       status: none
       caseIds: []
-    workflowStatus: needs_visual_review
-    terminalStatus: null
+    workflowStatus: matched_existing_canonical
+    terminalStatus: matched_existing_canonical
   - sourceClaimId: srcclaim-40cafd053aa38d3081f11ad914939212
     relatedSourceClaimIds:
       - srcclaim-15d616eaffb37716297a9fc08803b2f7
@@ -12935,13 +12910,13 @@ entries:
       claimResolution: insufficient
       canonicalEligibility: insufficient
     canonical:
-      status: not_canonicalized
-      matchId: null
+      status: existing_match
+      matchId: 1952-04-20-langevag-aalesunds-fk
     community:
       status: none
       caseIds: []
-    workflowStatus: needs_visual_review
-    terminalStatus: null
+    workflowStatus: matched_existing_canonical
+    terminalStatus: matched_existing_canonical
   - sourceClaimId: srcclaim-8facfb80a89c07ba5d52122e31711433
     relatedSourceClaimIds: []
     sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -13124,13 +13099,13 @@ entries:
       claimResolution: insufficient
       canonicalEligibility: insufficient
     canonical:
-      status: not_canonicalized
-      matchId: null
+      status: existing_match
+      matchId: 1952-05-25-braatt-aalesunds-fk
     community:
       status: none
       caseIds: []
-    workflowStatus: needs_visual_review
-    terminalStatus: null
+    workflowStatus: matched_existing_canonical
+    terminalStatus: matched_existing_canonical
   - sourceClaimId: srcclaim-a1c6237cc7fa2a49d14754e47932473d
     relatedSourceClaimIds: []
     sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -13309,13 +13284,13 @@ entries:
       claimResolution: insufficient
       canonicalEligibility: insufficient
     canonical:
-      status: not_canonicalized
-      matchId: null
+      status: existing_match
+      matchId: 1952-04-30-aksla-aalesunds-fk
     community:
       status: none
       caseIds: []
-    workflowStatus: needs_visual_review
-    terminalStatus: null
+    workflowStatus: matched_existing_canonical
+    terminalStatus: matched_existing_canonical
   - sourceClaimId: srcclaim-cfe5f6a2f273ecd6bf6df79135a12500
     relatedSourceClaimIds: []
     sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -13346,13 +13321,13 @@ entries:
       claimResolution: insufficient
       canonicalEligibility: insufficient
     canonical:
-      status: not_canonicalized
-      matchId: null
+      status: existing_match
+      matchId: 1952-05-20-herd-aalesunds-fk
     community:
       status: none
       caseIds: []
-    workflowStatus: needs_visual_review
-    terminalStatus: null
+    workflowStatus: matched_existing_canonical
+    terminalStatus: matched_existing_canonical
   - sourceClaimId: srcclaim-d985b0d5e8c56f108d2c1e17dfe2a2bb
     relatedSourceClaimIds: []
     sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -14708,13 +14683,13 @@ entries:
       claimResolution: insufficient
       canonicalEligibility: insufficient
     canonical:
-      status: not_canonicalized
-      matchId: null
+      status: existing_match
+      matchId: 1954-08-08-freidig-aalesunds-fk
     community:
       status: none
       caseIds: []
-    workflowStatus: needs_visual_review
-    terminalStatus: null
+    workflowStatus: matched_existing_canonical
+    terminalStatus: matched_existing_canonical
   - sourceClaimId: srcclaim-32cac211b4766e67cea54a4789e12bc7
     relatedSourceClaimIds: []
     sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -16166,13 +16141,13 @@ entries:
       claimResolution: insufficient
       canonicalEligibility: insufficient
     canonical:
-      status: not_canonicalized
-      matchId: null
+      status: existing_match
+      matchId: 1955-05-30-aalesunds-fk-molde-fk
     community:
       status: none
       caseIds: []
-    workflowStatus: needs_visual_review
-    terminalStatus: null
+    workflowStatus: matched_existing_canonical
+    terminalStatus: matched_existing_canonical
   - sourceClaimId: srcclaim-4ec8c18557c9e71659c2b673916fb298
     relatedSourceClaimIds: []
     sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -16639,13 +16614,13 @@ entries:
       claimResolution: insufficient
       canonicalEligibility: insufficient
     canonical:
-      status: not_canonicalized
-      matchId: null
+      status: existing_match
+      matchId: 1955-06-05-aalesunds-fk-rollon
     community:
       status: none
       caseIds: []
-    workflowStatus: needs_visual_review
-    terminalStatus: null
+    workflowStatus: matched_existing_canonical
+    terminalStatus: matched_existing_canonical
   - sourceClaimId: srcclaim-cc4834d40ccb7c80fe4be39c0dc35eca
     relatedSourceClaimIds: []
     sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -16951,13 +16926,13 @@ entries:
       claimResolution: insufficient
       canonicalEligibility: insufficient
     canonical:
-      status: not_canonicalized
-      matchId: null
+      status: existing_match
+      matchId: 1955-10-09-aalesunds-fk-kfk
     community:
       status: none
       caseIds: []
-    workflowStatus: needs_visual_review
-    terminalStatus: null
+    workflowStatus: matched_existing_canonical
+    terminalStatus: matched_existing_canonical
   - sourceClaimId: srcclaim-ff07eb3d956413c56f6d40bffd95aa46
     relatedSourceClaimIds: []
     sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -17217,13 +17192,13 @@ entries:
       claimResolution: insufficient
       canonicalEligibility: insufficient
     canonical:
-      status: not_canonicalized
-      matchId: null
+      status: existing_match
+      matchId: 1956-05-27-molde-fk-aalesunds-fk
     community:
       status: none
       caseIds: []
-    workflowStatus: needs_visual_review
-    terminalStatus: null
+    workflowStatus: matched_existing_canonical
+    terminalStatus: matched_existing_canonical
   - sourceClaimId: srcclaim-52b83dfdb5d4ee63c32c66ba79de14fc
     relatedSourceClaimIds: []
     sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -17521,13 +17496,13 @@ entries:
       claimResolution: insufficient
       canonicalEligibility: insufficient
     canonical:
-      status: not_canonicalized
-      matchId: null
+      status: existing_match
+      matchId: 1956-05-10-aalesunds-fk-hodd
     community:
       status: none
       caseIds: []
-    workflowStatus: needs_visual_review
-    terminalStatus: null
+    workflowStatus: matched_existing_canonical
+    terminalStatus: matched_existing_canonical
   - sourceClaimId: srcclaim-74800a8aa1d67992aa11a9b7c0b5c94a
     relatedSourceClaimIds: []
     sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -17559,13 +17534,13 @@ entries:
       claimResolution: insufficient
       canonicalEligibility: insufficient
     canonical:
-      status: not_canonicalized
-      matchId: null
+      status: existing_match
+      matchId: 1956-05-05-aalesunds-fk-langevag
     community:
       status: none
       caseIds: []
-    workflowStatus: needs_visual_review
-    terminalStatus: null
+    workflowStatus: matched_existing_canonical
+    terminalStatus: matched_existing_canonical
   - sourceClaimId: srcclaim-80a966cc687c47ec27c97b43db090464
     relatedSourceClaimIds: []
     sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -17597,13 +17572,13 @@ entries:
       claimResolution: insufficient
       canonicalEligibility: insufficient
     canonical:
-      status: not_canonicalized
-      matchId: null
+      status: existing_match
+      matchId: 1956-05-20-aalesunds-fk-clausenengen
     community:
       status: none
       caseIds: []
-    workflowStatus: needs_visual_review
-    terminalStatus: null
+    workflowStatus: matched_existing_canonical
+    terminalStatus: matched_existing_canonical
   - sourceClaimId: srcclaim-9630deb798270fbefaf0457282dd947a
     relatedSourceClaimIds: []
     sourceId: sunnmore-fotballkrets-arsrapport-1956
@@ -18021,13 +17996,13 @@ entries:
       claimResolution: insufficient
       canonicalEligibility: insufficient
     canonical:
-      status: not_canonicalized
-      matchId: null
+      status: existing_match
+      matchId: 1956-05-13-braatt-aalesunds-fk
     community:
       status: none
       caseIds: []
-    workflowStatus: needs_visual_review
-    terminalStatus: null
+    workflowStatus: matched_existing_canonical
+    terminalStatus: matched_existing_canonical
   - sourceClaimId: srcclaim-f2eba3ced47ad7a0e790813a2bc0e365
     relatedSourceClaimIds: []
     sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -21243,13 +21218,13 @@ entries:
       claimResolution: insufficient
       canonicalEligibility: insufficient
     canonical:
-      status: not_canonicalized
-      matchId: null
+      status: existing_match
+      matchId: 1959-04-07-aalesunds-fk-guard
     community:
       status: none
       caseIds: []
-    workflowStatus: needs_visual_review
-    terminalStatus: null
+    workflowStatus: matched_existing_canonical
+    terminalStatus: matched_existing_canonical
   - sourceClaimId: srcclaim-87339bf3501bb530e30352fc72b0f850
     relatedSourceClaimIds:
       - srcclaim-0827524e59cb20069cee8b657f041d88
@@ -26768,13 +26743,13 @@ entries:
       claimResolution: insufficient
       canonicalEligibility: insufficient
     canonical:
-      status: not_canonicalized
-      matchId: null
+      status: existing_match
+      matchId: 1963-08-18-lillestrom-aalesunds-fk
     community:
       status: none
       caseIds: []
-    workflowStatus: needs_visual_review
-    terminalStatus: null
+    workflowStatus: matched_existing_canonical
+    terminalStatus: matched_existing_canonical
   - sourceClaimId: srcclaim-51d9d34e789abff1d7843c3ae9539a7d
     relatedSourceClaimIds: []
     sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -26805,13 +26780,13 @@ entries:
       claimResolution: insufficient
       canonicalEligibility: insufficient
     canonical:
-      status: not_canonicalized
-      matchId: null
+      status: existing_match
+      matchId: 1963-09-08-ostsiden-il-aalesunds-fk
     community:
       status: none
       caseIds: []
-    workflowStatus: needs_visual_review
-    terminalStatus: null
+    workflowStatus: matched_existing_canonical
+    terminalStatus: matched_existing_canonical
   - sourceClaimId: srcclaim-5f89300eee13d166262495edd3d8ab89
     relatedSourceClaimIds: []
     sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -27295,13 +27270,13 @@ entries:
       claimResolution: insufficient
       canonicalEligibility: insufficient
     canonical:
-      status: not_canonicalized
-      matchId: null
+      status: existing_match
+      matchId: 1963-10-13-rosenborg-bk-aalesunds-fk
     community:
       status: none
       caseIds: []
-    workflowStatus: needs_visual_review
-    terminalStatus: null
+    workflowStatus: matched_existing_canonical
+    terminalStatus: matched_existing_canonical
   - sourceClaimId: srcclaim-c82647dbb9d913327d39cf6e237943d1
     relatedSourceClaimIds: []
     sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -27443,13 +27418,13 @@ entries:
       claimResolution: insufficient
       canonicalEligibility: insufficient
     canonical:
-      status: not_canonicalized
-      matchId: null
+      status: existing_match
+      matchId: 1963-08-04-aalesunds-fk-kvik
     community:
       status: none
       caseIds: []
-    workflowStatus: needs_visual_review
-    terminalStatus: null
+    workflowStatus: matched_existing_canonical
+    terminalStatus: matched_existing_canonical
   - sourceClaimId: srcclaim-fc22b982a52bb449bc116e1f2985c7a3
     relatedSourceClaimIds: []
     sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -27702,13 +27677,13 @@ entries:
       claimResolution: insufficient
       canonicalEligibility: insufficient
     canonical:
-      status: not_canonicalized
-      matchId: null
+      status: existing_match
+      matchId: 1964-05-24-kfk-aalesunds-fk
     community:
       status: none
       caseIds: []
-    workflowStatus: needs_visual_review
-    terminalStatus: null
+    workflowStatus: matched_existing_canonical
+    terminalStatus: matched_existing_canonical
   - sourceClaimId: srcclaim-205b17cda1335e7f5eab4c968e6570b8
     relatedSourceClaimIds: []
     sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -27778,13 +27753,13 @@ entries:
       claimResolution: insufficient
       canonicalEligibility: insufficient
     canonical:
-      status: not_canonicalized
-      matchId: null
+      status: existing_match
+      matchId: 1964-05-31-aalesunds-fk-langevag
     community:
       status: none
       caseIds: []
-    workflowStatus: needs_visual_review
-    terminalStatus: null
+    workflowStatus: matched_existing_canonical
+    terminalStatus: matched_existing_canonical
   - sourceClaimId: srcclaim-288594b5891b5c012af29a2f45bf3c11
     relatedSourceClaimIds: []
     sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -27852,13 +27827,13 @@ entries:
       claimResolution: insufficient
       canonicalEligibility: insufficient
     canonical:
-      status: not_canonicalized
-      matchId: null
+      status: existing_match
+      matchId: 1964-05-10-aalesunds-fk-hodd
     community:
       status: none
       caseIds: []
-    workflowStatus: needs_visual_review
-    terminalStatus: null
+    workflowStatus: matched_existing_canonical
+    terminalStatus: matched_existing_canonical
   - sourceClaimId: srcclaim-516dc7d96f14cf9c351bce5fd48cc867
     relatedSourceClaimIds: []
     sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9
@@ -27889,13 +27864,13 @@ entries:
       claimResolution: insufficient
       canonicalEligibility: insufficient
     canonical:
-      status: not_canonicalized
-      matchId: null
+      status: existing_match
+      matchId: 1964-08-30-aalesunds-fk-herd
     community:
       status: none
       caseIds: []
-    workflowStatus: needs_visual_review
-    terminalStatus: null
+    workflowStatus: matched_existing_canonical
+    terminalStatus: matched_existing_canonical
   - sourceClaimId: srcclaim-5c22bc310a077d0d71338507bc11222c
     relatedSourceClaimIds: []
     sourceId: sunnmore-fotballkrets-arsrapport-1964
@@ -28565,13 +28540,13 @@ entries:
       claimResolution: insufficient
       canonicalEligibility: insufficient
     canonical:
-      status: not_canonicalized
-      matchId: null
+      status: existing_match
+      matchId: 1964-06-14-aalesunds-fk-braatt
     community:
       status: none
       caseIds: []
-    workflowStatus: needs_visual_review
-    terminalStatus: null
+    workflowStatus: matched_existing_canonical
+    terminalStatus: matched_existing_canonical
   - sourceClaimId: srcclaim-d7e22d2ffb53a2fcf3615344fec6b0d2
     relatedSourceClaimIds: []
     sourceId: medlemsblad-for-aalesunds-fotb-1965-a2c9

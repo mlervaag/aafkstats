@@ -1,0 +1,26 @@
+providerId: nasjonalbiblioteket
+externalId: sunnmorsposten-1959-04-08-s4-guard
+matchId: 1959-04-07-aalesunds-fk-guard
+retrievedAt: 2026-08-24
+adapter: nasjonalbiblioteket@1
+payloadHash: sha256:ca1bb7b12a3a02a824643a57161b2215492577d6c08738233783611bd51ef5a9
+raw:
+  avis: Sunnmørsposten
+  dato: 1959-04-08
+  side: "4"
+  tittel: ÅFK–Guard 6–2
+  kamp: aalesunds-fk - guard 6-2
+  url: https://www.nb.no/items/a2f793e502ffb3969ca77b8dd64ee53e?page=3
+normalized:
+  date: 1959-04-07
+  home.clubId: aalesunds-fk
+  away.clubId: guard
+  home.score: 6
+  away.score: 2
+fields:
+  - date
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+warnings: []

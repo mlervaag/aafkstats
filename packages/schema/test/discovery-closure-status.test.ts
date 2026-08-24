@@ -43,8 +43,8 @@ describe("autoritativ discovery closure-ledger", () => {
     expect(wave2.filter((entry) => entry.currentCoordinate.season >= 1945 && entry.currentCoordinate.season <= 1954)).toHaveLength(67);
     expect(wave2.filter((entry) => entry.currentCoordinate.season >= 1955 && entry.currentCoordinate.season <= 1964)).toHaveLength(100);
     expect(wave2.filter((entry) => entry.currentCoordinate.season >= 1965 && entry.currentCoordinate.season <= 1974)).toHaveLength(16);
-    // To tidligere ukoblede Wave 2-påstander er nå koblet til kanoniske kamper
-    // fra medlemsbladene i PR #216 og skal derfor ikke bli liggende i review-køen.
-    expect(report.closureQueue.bySelection.wave2.needsVisualReview).toHaveLength(119);
+    // Tidligere ukoblede Wave 2-påstander som nå er koblet til kanoniske kamper
+    // skal ikke bli liggende i review-køen.
+    expect(report.closureQueue.bySelection.wave2.needsVisualReview).toHaveLength(110);
   }, 30_000);
 });

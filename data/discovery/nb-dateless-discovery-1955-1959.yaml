@@ -6,10 +6,10 @@ scope:
   closureQueueOnly: true
   likelyMonthsOnly: true
 totals:
-  checked: 20
+  checked: 19
   existing_match_candidate: 0
   datoevidens_funnet: 0
-  kandidatliste: 20
+  kandidatliste: 19
   ingen_treff: 0
   ikke_digitalisert: 0
 queues:
@@ -17,7 +17,6 @@ queues:
   dateEvidenceReview: []
   candidateReview:
     - srcclaim-805d7ce9721cf5ea93f96ec600b52511
-    - srcclaim-85b97c9e6e60c2b7942ff7b9a43f304e
     - srcclaim-1b2be42c0533d26f1429b5170133b4b6
     - srcclaim-f5691d1f8e5f3f9235cc139c133dd5c9
     - srcclaim-89aa9eecd53e9db8a4659480e8bcdb8b
@@ -122,97 +121,6 @@ entries:
           - 4 søkevarianter traff
         genres:
           - fixture_list
-        access:
-          viewability: NONE
-          accessAllowedFrom: NB
-  - sourceClaimId: srcclaim-85b97c9e6e60c2b7942ff7b9a43f304e
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1959-515a#1959-002
-    season: 1959
-    opponent: Guard
-    score: 6-2
-    outcome: kandidatliste
-    plan: mellom nabokampene sesongstart og 1959-07-16
-    shortlist:
-      - issueId: a2f793e502ffb3969ca77b8dd64ee53e
-        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590408_77_80_1
-        issued: "19590408"
-        pageUrl: https://www.nb.no/items/a2f793e502ffb3969ca77b8dd64ee53e?page=3
-        page: "4"
-        month: 1959-04
-        score: 66
-        reasons:
-          - "motstander: Guard"
-          - "AaFK-navn: A.F.K."
-          - motstander og AaFK i samme avsnitt
-          - "avis: Sunnmørsposten"
-          - "år: 1959"
-          - 12 søkevarianter traff
-        genres:
-          - match_report
-          - fixture_list
-        access:
-          viewability: NONE
-          accessAllowedFrom: NB
-      - issueId: 7252fb15c1d6652ef98d9f2175b7f7d0
-        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590427_77_96_1
-        issued: "19590427"
-        pageUrl: https://www.nb.no/items/7252fb15c1d6652ef98d9f2175b7f7d0?page=6
-        page: "7"
-        month: 1959-04
-        score: 66
-        reasons:
-          - "motstander: Guard"
-          - "AaFK-navn: ÅFK"
-          - motstander og AaFK i samme avsnitt
-          - "avis: Sunnmørsposten"
-          - "år: 1959"
-          - 9 søkevarianter traff
-        genres:
-          - fixture_list
-          - preview
-          - match_report
-        access:
-          viewability: NONE
-          accessAllowedFrom: NB
-      - issueId: c2e0cc5deefab02707fb9c89382dde53
-        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590512_77_107_1
-        issued: "19590512"
-        pageUrl: https://www.nb.no/items/c2e0cc5deefab02707fb9c89382dde53?page=5
-        page: "6"
-        month: 1959-05
-        score: 66
-        reasons:
-          - "motstander: Guard"
-          - "AaFK-navn: ÅFK"
-          - motstander og AaFK i samme avsnitt
-          - "avis: Sunnmørsposten"
-          - "år: 1959"
-          - 10 søkevarianter traff
-        genres:
-          - fixture_list
-          - preview
-          - match_report
-        access:
-          viewability: NONE
-          accessAllowedFrom: NB
-      - issueId: 21d0f97d846e9409e44e2141bba97d94
-        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19590527_77_119_1
-        issued: "19590527"
-        pageUrl: https://www.nb.no/items/21d0f97d846e9409e44e2141bba97d94?page=6
-        page: "7"
-        month: 1959-05
-        score: 66
-        reasons:
-          - "motstander: Guard"
-          - "AaFK-navn: ÅFK"
-          - motstander og AaFK i samme avsnitt
-          - "avis: Sunnmørsposten"
-          - "år: 1959"
-          - 9 søkevarianter traff
-        genres:
-          - fixture_list
-          - advertisement
-          - unknown
         access:
           viewability: NONE
           accessAllowedFrom: NB

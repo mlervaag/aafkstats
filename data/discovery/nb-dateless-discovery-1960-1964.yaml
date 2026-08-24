@@ -6,18 +6,14 @@ scope:
   closureQueueOnly: true
   likelyMonthsOnly: true
 totals:
-  checked: 20
-  existing_match_candidate: 4
+  checked: 15
+  existing_match_candidate: 0
   datoevidens_funnet: 1
-  kandidatliste: 15
+  kandidatliste: 14
   ingen_treff: 0
   ikke_digitalisert: 0
 queues:
-  existingMatchReview:
-    - srcclaim-516dc7d96f14cf9c351bce5fd48cc867
-    - srcclaim-22002bf4e88521a7a833ab2b884a446d
-    - srcclaim-18aebe5342edff7aec459e462e6c8e45
-    - srcclaim-d61d9e643aea90de4c9f529fbadae1d1
+  existingMatchReview: []
   dateEvidenceReview:
     - srcclaim-11f9adfb78cb8e87aba129f936cbf5c4
   candidateReview:
@@ -34,7 +30,6 @@ queues:
     - srcclaim-947501f999434b808d6a0bc5b0cb6b75
     - srcclaim-fb9c0c23dde028d1066be67621c8e3c4
     - srcclaim-288594b5891b5c012af29a2f45bf3c11
-    - srcclaim-4466175c5139b163df90401fd8a592cc
     - srcclaim-03f418ef3cd1c616a9fbe01124d2cead
   exhausted: []
 entries:
@@ -1233,121 +1228,6 @@ entries:
         access:
           viewability: NONE
           accessAllowedFrom: NB
-  - sourceClaimId: srcclaim-4466175c5139b163df90401fd8a592cc
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1964-017
-    season: 1964
-    opponent: Hødd
-    score: 1-1
-    outcome: kandidatliste
-    plan: mellom nabokampene 1964-07-16 og sesongslutt
-    shortlist:
-      - issueId: 0a14481638b321c8ba31ce8bf248ae60
-        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19640702_82_151_1
-        issued: "19640702"
-        pageUrl: https://www.nb.no/items/0a14481638b321c8ba31ce8bf248ae60?page=2
-        page: "3"
-        month: 1964-07
-        score: 66
-        reasons:
-          - "motstander: Hødd"
-          - "AaFK-navn: ÅFK"
-          - motstander og AaFK i samme avsnitt
-          - "avis: Sunnmørsposten"
-          - "år: 1964"
-          - 5 søkevarianter traff
-        genres:
-          - fixture_list
-          - unknown
-          - match_report
-          - preview
-        access:
-          viewability: NONE
-          accessAllowedFrom: NB
-      - issueId: a2ff42e17ce29d186323cfaf930d80bf
-        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19640706_82_154_1
-        issued: "19640706"
-        pageUrl: https://www.nb.no/items/a2ff42e17ce29d186323cfaf930d80bf?page=5
-        page: "6"
-        month: 1964-07
-        score: 66
-        reasons:
-          - "motstander: Hødd"
-          - "AaFK-navn: ÅFK"
-          - motstander og AaFK i samme avsnitt
-          - "avis: Sunnmørsposten"
-          - "år: 1964"
-          - 3 søkevarianter traff
-        genres:
-          - unknown
-          - fixture_list
-        access:
-          viewability: NONE
-          accessAllowedFrom: NB
-      - issueId: c26bd94041cd042a81045152b0676e92
-        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19640709_82_157_1
-        issued: "19640709"
-        pageUrl: https://www.nb.no/items/c26bd94041cd042a81045152b0676e92?page=5
-        page: "6"
-        month: 1964-07
-        score: 66
-        reasons:
-          - "motstander: Hødd"
-          - "AaFK-navn: ÅFK"
-          - motstander og AaFK i samme avsnitt
-          - "avis: Sunnmørsposten"
-          - "år: 1964"
-          - 3 søkevarianter traff
-        genres:
-          - fixture_list
-          - unknown
-        access:
-          viewability: NONE
-          accessAllowedFrom: NB
-      - issueId: a29963f1cc3b0eb48d836c8aaa71e2de
-        urn: URN:NBN:no-nb_digavis_sunnmorsposten_null_null_19640710_82_158_1
-        issued: "19640710"
-        pageUrl: https://www.nb.no/items/a29963f1cc3b0eb48d836c8aaa71e2de?page=6
-        page: "7"
-        month: 1964-07
-        score: 66
-        reasons:
-          - "motstander: Hødd"
-          - "AaFK-navn: ÅFK"
-          - motstander og AaFK i samme avsnitt
-          - "avis: Sunnmørsposten"
-          - "år: 1964"
-          - 4 søkevarianter traff
-        genres:
-          - fixture_list
-          - match_report
-          - unknown
-        access:
-          viewability: NONE
-          accessAllowedFrom: NB
-  - sourceClaimId: srcclaim-516dc7d96f14cf9c351bce5fd48cc867
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1964-018
-    season: 1964
-    opponent: Herd
-    score: 1-1
-    outcome: existing_match_candidate
-    existingMatchId: 1964-08-30-aalesunds-fk-herd
-    shortlist: []
-  - sourceClaimId: srcclaim-22002bf4e88521a7a833ab2b884a446d
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1964-019
-    season: 1964
-    opponent: Langevåg
-    score: 1-2
-    outcome: existing_match_candidate
-    existingMatchId: 1964-05-31-aalesunds-fk-langevag
-    shortlist: []
-  - sourceClaimId: srcclaim-18aebe5342edff7aec459e462e6c8e45
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1964-020
-    season: 1964
-    opponent: Kristiansund Fotballklubb
-    score: 1-2
-    outcome: existing_match_candidate
-    existingMatchId: 1964-05-24-kfk-aalesunds-fk
-    shortlist: []
   - sourceClaimId: srcclaim-03f418ef3cd1c616a9fbe01124d2cead
     legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1964-021
     season: 1964
@@ -1437,11 +1317,3 @@ entries:
         access:
           viewability: NONE
           accessAllowedFrom: NB
-  - sourceClaimId: srcclaim-d61d9e643aea90de4c9f529fbadae1d1
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1964-022
-    season: 1964
-    opponent: Braatt
-    score: 2-0
-    outcome: existing_match_candidate
-    existingMatchId: 1964-06-14-aalesunds-fk-braatt
-    shortlist: []
