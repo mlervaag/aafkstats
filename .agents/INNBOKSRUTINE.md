@@ -42,6 +42,11 @@ Disse gjelder hver sakstype, uansett hva en sak eller et underdokument måtte si
 
 1. **Innboksrepoet** (`mlervaag/aafkstats-inbox`): åpne issues med etiketten `bidrag` eller
    `verifisering`. Bland aldri inn pull requests eller lukkede saker.
+   - **Alt fra `/mangler` kommer som `verifisering`.** Skjemaet legger på to ekstra
+     etiketter — svaret (`yes`/`no`/`inconclusive`) og sakskategorien — men det er `verifisering`
+     som fanger dem. Hent derfor på `verifisering` alene, så får du hver kategori (ufylte
+     kampfelt, kildedokumenterte resultater uten kampidentitet, personkonflikter,
+     lagoppstillingskandidater og NB-avissaker) og hvert svar, inkludert «kan ikke bestemmes».
 2. **Hovedrepoet** (`mlervaag/aafkstats`): åpne issues som kommer fra malene — etikettene
    `data` og `bug`, samt forslag/spørsmål som er uten etikett. Hopp over pull requests og
    saker som allerede er merket ferdig behandlet (se «Idempotens» nederst).
