@@ -46,6 +46,10 @@ aliases:
   rsssf: 1981-cup-1981-05-28-aalesunds-fk-tornado
 manual: []
 sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1981
+    page: "13"
+    fields: [home.score, away.score, competition.round]
+    note: Senior-NM-resultat i eksplisitt årsrapporttabell.
   - sourceId: sunnmorsposten-19810529-69bc396d769ecba6ccaf207ddb012b66
     page: "9"
     fields:

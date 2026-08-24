@@ -46,6 +46,10 @@ aliases:
   rsssf: 1981-cup-1981-07-08-aalesunds-fk-molde
 manual: []
 sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1981
+    page: "14"
+    fields: [home.score, away.score, competition.round]
+    note: Omkampens senior-NM-resultat i eksplisitt årsrapporttabell.
   - sourceId: sunnmorsposten-19810709-96f73e040cb62728c7e9c5efa6e31ddf
     page: "7"
     fields:

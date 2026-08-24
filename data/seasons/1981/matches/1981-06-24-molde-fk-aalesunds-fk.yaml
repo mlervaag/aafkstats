@@ -51,6 +51,10 @@ aliases:
 manual: []
 note: Resultatet er etter ekstraomganger. Kilden oppgir ikke stillingen etter ordinær tid, så fordelingen mellom ordinær tid og ekstraomganger er ukjent.
 sources:
+  - sourceId: sunnmore-fotballkrets-arsrapport-1981
+    page: "14"
+    fields: [home.score, away.score, competition.round]
+    note: Senior-NM-resultat i eksplisitt årsrapporttabell.
   - sourceId: sunnmorsposten-19810625-4dd4461c565f6a59ef0cad73937e66bc
     page: "9"
     fields:
