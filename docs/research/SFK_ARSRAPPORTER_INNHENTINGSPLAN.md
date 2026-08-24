@@ -5,6 +5,24 @@ Sunnmøre Fotballkrets publiserer én årsrapport for hvert år fra 1952 til 202
 Serien består av 74 rapporter uten årshull. Den skal behandles som ett avgrenset
 kildekorpus, med 1966-rapporten som kontrollert testgrunnlag.
 
+## Produksjonsstatus
+
+Første A-lagspass er fullført for hele korpuset 1952–2025. Rapportene fra
+1952–1979 ble normalisert i tre tidligere produksjonsrunder. Resten, 1980–2025,
+er behandlet samlet med samme kildekritiske grense:
+
+- 1980–2001 og 2008 er OCR-lest fordi PDF-ene mangler brukbart tekstlag;
+- 2002–2007 og 2009–2025 er indeksert fra eksisterende tekstlag;
+- OCR og tekstuttrekk er bare arbeidsindekser;
+- hver PDF-side som ligger til grunn for en write er kontrollert visuelt;
+- reserve-, junior-, aldersbestemte og andre lag er ikke blandet inn i AaFKs
+  senior A-lagsdata;
+- rå PDF-er og OCR-tekst ligger bare i ignorert cache.
+
+Kontrollrapportene under `docs/data/` viser hvilke år og sider som ga strukturerte
+resultater, tabellproveniens eller historiske observasjoner. Personfunn og øvrige
+lagtyper er fortsatt separate, utsatte spor.
+
 Målet er å finne AaFK-fakta i alle rapportene uten å blande ungdoms-, reserve- og
 kretslagsdata inn i A-lagets kampstatistikk. PDF-ene skal ikke legges i git. Arkivet
 lagrer stabile kilde-ID-er, den offisielle lenken, korte faktapunkter og presis
@@ -104,7 +122,7 @@ bare sidepekere, treffantall, kategorier og korte nøkkelord.
 
 ### 4. Menneskelig kontroll og normalisering
 
-Før normalisering OCR-leses den avgrensede skannede blokken 1952–1979. Én norsk
+Før normalisering OCR-leses skannede rapporter. Én norsk
 Tesseract-worker gjenbrukes sekvensielt, og hver side lagres atomisk i ignorert cache slik
 at en avbrutt kjøring kan fortsette. Den committede OCR-rapporten inneholder bare dekning,
 confidence, feilsider, temasignaler og sidepekere. Samme kandidatregler som ble utviklet
@@ -125,7 +143,7 @@ Siden inneholder tre senior-NM-resultater og den fulle tabellen for 3. divisjon 
 udaterte NM-kampene ligger i `source-results`, mens Frigg-kampen kobles til den eksisterende
 kampfilen.
 
-## Prioritering
+## Gjennomført prioritering
 
 Første pass kartlegger den kjente baselinen og eventuelle nyere rapporter. Deretter
 behandles periodene etter hullene i AaFK-arkivet, med eldre skannede rapporter først:
@@ -138,10 +156,10 @@ behandles periodene etter hullene i AaFK-arkivet, med eldre skannede rapporter f
 6. 2000–2009
 7. 2010–høyeste oppdagede rapportår
 
-Hver periode deles videre slik at én PR normalt dekker ett år eller ett lite,
-sammenhengende årsspenn. En periode er ferdig når alle rapportene har teknisk status,
-alle AaFK-treff er kontrollert, alle publiserte fakta har sidehenvisning, og alle bevisste
-utelatelser er forklart.
+Periodene 1952–1979 ble levert i små, sammenhengende produksjonsrunder. Perioden
+1980–2025 ble kjørt som én samlet runde etter at kandidat- og OCR-løypene var
+stabile. En side kan bare gi publiserte fakta når lagtype og kampkontekst er visuelt
+kontrollert; maskinelt triagerte person- og ungdomstreff er ikke kanonisert.
 
 ## Kontroller som skal automatiseres
 
