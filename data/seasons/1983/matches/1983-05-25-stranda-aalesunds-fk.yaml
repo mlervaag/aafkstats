@@ -35,6 +35,10 @@ providers:
       - away.score
       - competition.round
       - extraTime
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/5a775581de694183b26ca91cd96ea684?page=8
+    retrievedAt: 2026-08-24
+    fields: []
 confidence: probable
 conflicts: []
 tags: []
@@ -42,3 +46,8 @@ aliases:
   rsssf: 1983-cup-1983-05-25-stranda-aalesunds-fk
 manual: []
 note: Resultatet er etter ekstraomganger. Kilden oppgir ikke stillingen etter ordinær tid, så fordelingen mellom ordinær tid og ekstraomganger er ukjent.
+sources:
+  - sourceId: sunnmorsposten-19830526-5a775581de694183b26ca91cd96ea684
+    page: "9"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

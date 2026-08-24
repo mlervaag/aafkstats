@@ -10,14 +10,17 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: moss
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 0
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/b88b196d165a8c11cf9ecac11af43e79?page=16
+    date: 1997-08-11
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1997/First.html
@@ -31,9 +34,33 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/b88b196d165a8c11cf9ecac11af43e79?page=16
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - referee
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1997-first-1997-08-10-aalesunds-fk-moss
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19970811-b88b196d165a8c11cf9ecac11af43e79
+    page: "17"
+    fields:
+      - externalReports
+      - attendance
+      - referee
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 850
+referee: Jarle Nilsen
+venueId: kramyra-stadion

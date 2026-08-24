@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/3a44a75d4f17f237ec4163e7cb7b8f98?page=12
+    date: 1990-07-02
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1990/Cup.html
@@ -31,9 +34,20 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/3a44a75d4f17f237ec4163e7cb7b8f98?page=12
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1990-cup-1990-07-01-hodd-aalesunds-fk
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19900702-3a44a75d4f17f237ec4163e7cb7b8f98
+    page: "13"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/dc46f43897b6662871ffb3796aadc1db?page=16
+    date: 1995-06-06
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83064&underside=kamper
@@ -32,6 +35,14 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99036.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/dc46f43897b6662871ffb3796aadc1db?page=16
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - referee
+      - venueId
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +50,15 @@ aliases:
   fotball-no: "99036"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19950606-dc46f43897b6662871ffb3796aadc1db
+    page: "17"
+    fields:
+      - externalReports
+      - attendance
+      - referee
+      - venueId
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 974
+referee: Kjell Alseth
+venueId: kramyra-stadion

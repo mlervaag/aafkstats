@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/96f73e040cb62728c7e9c5efa6e31ddf?page=6
+    date: 1981-07-09
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1981/Cup.html
@@ -31,9 +34,20 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/96f73e040cb62728c7e9c5efa6e31ddf?page=6
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1981-cup-1981-07-08-aalesunds-fk-molde
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19810709-96f73e040cb62728c7e9c5efa6e31ddf
+    page: "7"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

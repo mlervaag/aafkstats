@@ -10,14 +10,17 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 4
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: bergsoy
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/f4fc0c47441c1f79db051c0d32aca33c?page=8
+    date: 1984-06-01
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1984/Cup.html
@@ -31,9 +34,27 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/f4fc0c47441c1f79db051c0d32aca33c?page=8
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1984-cup-1984-05-31-aalesunds-fk-bergsoy
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19840601-f4fc0c47441c1f79db051c0d32aca33c
+    page: "9"
+    fields:
+      - externalReports
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 400

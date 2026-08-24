@@ -32,6 +32,10 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99085.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/a2523428d113990a0ed4324ae2919c2c?page=12
+    retrievedAt: 2026-08-24
+    fields: []
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +43,8 @@ aliases:
   fotball-no: "99085"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19890814-a2523428d113990a0ed4324ae2919c2c
+    page: "13"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

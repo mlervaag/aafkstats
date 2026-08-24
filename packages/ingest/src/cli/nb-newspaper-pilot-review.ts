@@ -5,7 +5,7 @@ import { parse as parseYaml, stringify as stringifyYaml } from "yaml";
 import { dataDir, loadArchive, repoRoot } from "@aafkstats/schema/load";
 import type { Match, Source } from "@aafkstats/schema";
 import type { BatchReport } from "../adapters/nb-newspaper-batch.js";
-import { buildPilotReviewEntries, isSameNewspaperDocument, prepareMatchForNewspaperWrite, reconcilePrematchExternalReport } from "../newspaper/pilot-review.js";
+import { buildPilotReviewEntries, isPlausibleHalfTime, isPlausibleRefereeName, isSameNewspaperDocument, prepareMatchForNewspaperWrite, reconcilePrematchExternalReport } from "../newspaper/pilot-review.js";
 import { assertMayPublish } from "../policy.js";
 
 const args = parseArgs({
@@ -149,7 +149,7 @@ function applyFacts(match: Match, entry: BatchReport["entries"][number], venues:
     match.attendance = facts.attendance;
     fields.push("attendance");
   }
-  if (match.referee === undefined && facts.referee !== undefined && isSafeRefereeName(facts.referee)) {
+  if (match.referee === undefined && facts.referee !== undefined && isPlausibleRefereeName(facts.referee)) {
     match.referee = normalizeOcrName(facts.referee);
     fields.push("referee");
   }
@@ -160,7 +160,10 @@ function applyFacts(match: Match, entry: BatchReport["entries"][number], venues:
       fields.push("venueId");
     }
   }
-  if (facts.halfTime && match.home.halfTimeScore === null && match.away.halfTimeScore === null) {
+  if (facts.halfTime
+    && match.home.halfTimeScore === null
+    && match.away.halfTimeScore === null
+    && isPlausibleHalfTime(facts.halfTime, { home: match.home.score, away: match.away.score })) {
     match.home.halfTimeScore = facts.halfTime.home;
     match.away.halfTimeScore = facts.halfTime.away;
     fields.push("home.halfTimeScore", "away.halfTimeScore");
@@ -174,13 +177,6 @@ function normalizeName(value: string): string {
 
 function normalizeOcrName(value: string): string {
   return value.replace(/(\p{Ll})-\s+(\p{Ll})/gu, "$1$2").replace(/\s+/gu, " ").trim();
-}
-
-function isSafeRefereeName(value: string): boolean {
-  const normalized = normalizeOcrName(value);
-  if (normalized.split(/\s+/u).length < 2) return false;
-  const plain = normalized.toLocaleLowerCase("nb").normalize("NFKD").replace(/\p{M}/gu, "");
-  return !/[bcdfghjklmnpqrstvwxz]{4}/u.test(plain);
 }
 
 function mergeEvidence<T extends { issueId: string }>(prior: T[], current: T[]): T[] {

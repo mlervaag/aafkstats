@@ -10,14 +10,17 @@ competition:
 home:
   clubId: kjelsas
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/34268fd70ab397f5be99a55034ec597f?page=23
+    date: 1998-06-15
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1998/First.html
@@ -31,9 +34,27 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/34268fd70ab397f5be99a55034ec597f?page=23
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1998-first-1998-06-14-kjelsas-aalesunds-fk
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19980615-34268fd70ab397f5be99a55034ec597f
+    page: "24"
+    fields:
+      - externalReports
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 458

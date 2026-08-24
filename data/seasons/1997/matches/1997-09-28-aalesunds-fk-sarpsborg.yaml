@@ -10,14 +10,17 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 3
-  halfTimeScore: null
+  halfTimeScore: 2
 away:
   clubId: sarpsborg
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/8f8cc9fd4d6564a2a20a1e353827f319?page=16
+    date: 1997-09-29
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1997/First.html
@@ -31,9 +34,27 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/8f8cc9fd4d6564a2a20a1e353827f319?page=16
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1997-first-1997-09-28-aalesunds-fk-sarpsborg
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19970929-8f8cc9fd4d6564a2a20a1e353827f319
+    page: "17"
+    fields:
+      - externalReports
+      - attendance
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 823

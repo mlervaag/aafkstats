@@ -1,5 +1,5 @@
 id: 1983-09-04-aalesunds-fk-mjolner
-date: '1983-09-04'
+date: 1983-09-04
 dateConfidence: exact
 status: played
 competition:
@@ -10,33 +10,56 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 1
 away:
   clubId: mjolner
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 2
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/a986ba8dc3870d9e5a2b99e88e77cc79?page=8
+    date: 1983-09-05
 providers:
-- providerId: fotball-no
-  url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83034&underside=kamper
-  retrievedAt: '2026-08-05'
-  fields:
-  - date
-  - status
-  - competition
-  - competition.round
-  - home.clubId
-  - away.clubId
-  - home.score
-  - away.score
-  note: NFF kampnummer 99099.
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83034&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 99099.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/a986ba8dc3870d9e5a2b99e88e77cc79?page=8
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: confirmed
 conflicts: []
 tags: []
 aliases:
-  fotball-no: '99099'
+  fotball-no: "99099"
 manual: []
-note: Bane og klokkeslett er bevisst utelatt. NFF-siden viser gjennomgående 00:00 og flere banefelt som
-  åpenbart tilhører andre kamper.
+note: Bane og klokkeslett er bevisst utelatt. NFF-siden viser gjennomgående 00:00 og flere banefelt som åpenbart tilhører andre kamper.
+sources:
+  - sourceId: sunnmorsposten-19830905-a986ba8dc3870d9e5a2b99e88e77cc79
+    page: "9"
+    fields:
+      - externalReports
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 300
+venueId: kramyra-stadion

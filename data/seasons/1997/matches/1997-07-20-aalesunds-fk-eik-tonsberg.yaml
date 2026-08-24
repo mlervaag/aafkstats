@@ -31,9 +31,18 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/7c2f5c920f2053934b8f5d6a3c31bff4?page=16
+    retrievedAt: 2026-08-24
+    fields: []
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1997-first-1997-07-20-aalesunds-fk-eik-tonsberg
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19970721-7c2f5c920f2053934b8f5d6a3c31bff4
+    page: "17"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

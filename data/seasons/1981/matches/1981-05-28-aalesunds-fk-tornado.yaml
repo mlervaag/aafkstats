@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/69bc396d769ecba6ccaf207ddb012b66?page=8
+    date: 1981-05-29
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1981/Cup.html
@@ -31,9 +34,20 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/69bc396d769ecba6ccaf207ddb012b66?page=8
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1981-cup-1981-05-28-aalesunds-fk-tornado
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19810529-69bc396d769ecba6ccaf207ddb012b66
+    page: "9"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

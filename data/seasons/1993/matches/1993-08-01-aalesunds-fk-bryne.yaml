@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/58ddb4af6f0a3e1e737fd679d9e57e04?page=12
+    date: 1993-08-02
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83060&underside=kamper
@@ -32,6 +35,14 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99076.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/58ddb4af6f0a3e1e737fd679d9e57e04?page=12
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - referee
+      - venueId
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +50,15 @@ aliases:
   fotball-no: "99076"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19930802-58ddb4af6f0a3e1e737fd679d9e57e04
+    page: "13"
+    fields:
+      - externalReports
+      - attendance
+      - referee
+      - venueId
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 800
+referee: Per Ivar Staberg
+venueId: kramyra-stadion

@@ -26,7 +26,8 @@
     "source-claim": "tsx src/cli/source-claim.ts",
     "discovery-status": "tsx src/cli/discovery-status.ts",
     "newspaper-enrichment-status": "tsx src/cli/newspaper-enrichment-status.ts",
-    "newspaper-1915-1962-artifacts": "tsx src/cli/newspaper-1915-1962-artifacts.ts"
+    "newspaper-1915-1962-artifacts": "tsx src/cli/newspaper-1915-1962-artifacts.ts",
+    "newspaper-1980-1999-artifacts": "tsx src/cli/newspaper-1980-1999-artifacts.ts"
   },
   "dependencies": {
     "yaml": "^2.6.1",

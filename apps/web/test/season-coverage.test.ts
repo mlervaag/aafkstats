@@ -51,15 +51,15 @@ describe("hva dekningsmerket kan si", () => {
 
   /**
    * Det merket ikke måler. 1982 er en komplett kampliste der ingen av de 22
-   * kampene har lagoppstilling, dommer eller tilskuertall — sesongen er hel og
+   * kampene har lagoppstilling eller kampreferat — sesongen er hel og
    * tynn på samme tid, og bare det ene av de to sto på sida.
    */
   it("finner feltene som mangler på hver eneste kamp i en komplett sesong", () => {
     const detail = loadSeasonDetailLevel(1982, "forstedivisjon");
     expect(detail.played).toBe(22);
     expect(detail.missingOnAll).toContain("lineups");
-    expect(detail.missingOnAll).toContain("referee");
-    expect(detail.missingOnAll).toContain("attendance");
+    expect(detail.missingOnAll).not.toContain("referee");
+    expect(detail.missingOnAll).not.toContain("attendance");
     expect(detail.missingOnAll).not.toContain("score");
   });
 

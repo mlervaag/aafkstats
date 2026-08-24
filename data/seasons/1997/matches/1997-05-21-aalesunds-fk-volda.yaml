@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/7ae2307383955b7440282c272db78f53?page=0
+    date: 1997-05-22
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1997/Cup.html
@@ -31,9 +34,20 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/7ae2307383955b7440282c272db78f53?page=0
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1997-cup-1997-05-21-aalesunds-fk-volda
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19970522-7ae2307383955b7440282c272db78f53
+    page: "1"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

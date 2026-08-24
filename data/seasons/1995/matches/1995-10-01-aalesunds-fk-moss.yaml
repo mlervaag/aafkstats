@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/af077092985e4874d28596893a6620c9?page=16
+    date: 1995-10-02
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83064&underside=kamper
@@ -32,6 +35,14 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99130.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/af077092985e4874d28596893a6620c9?page=16
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - referee
+      - venueId
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +50,15 @@ aliases:
   fotball-no: "99130"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19951002-af077092985e4874d28596893a6620c9
+    page: "17"
+    fields:
+      - externalReports
+      - attendance
+      - referee
+      - venueId
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 991
+referee: Tommy Skjerven
+venueId: kramyra-stadion

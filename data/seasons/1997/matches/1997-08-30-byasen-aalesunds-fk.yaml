@@ -10,14 +10,17 @@ competition:
 home:
   clubId: byasen
   score: 2
-  halfTimeScore: null
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
   score: 1
-  halfTimeScore: null
+  halfTimeScore: 1
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/e2fa59b3f1099cb3e5c7c5ef5af0ab6e?page=16
+    date: 1997-09-01
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1997/First.html
@@ -31,9 +34,24 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/e2fa59b3f1099cb3e5c7c5ef5af0ab6e?page=16
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1997-first-1997-08-30-byasen-aalesunds-fk
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19970901-e2fa59b3f1099cb3e5c7c5ef5af0ab6e
+    page: "17"
+    fields:
+      - externalReports
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

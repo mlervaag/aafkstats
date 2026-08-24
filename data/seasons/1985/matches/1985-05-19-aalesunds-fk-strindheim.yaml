@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/b3edc027d1b1a0e42817f92ae9256004?page=7
+    date: 1985-05-20
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83032&underside=kamper
@@ -32,6 +35,12 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99030.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/b3edc027d1b1a0e42817f92ae9256004?page=7
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +48,11 @@ aliases:
   fotball-no: "99030"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19850520-b3edc027d1b1a0e42817f92ae9256004
+    page: "8"
+    fields:
+      - externalReports
+      - attendance
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 1000

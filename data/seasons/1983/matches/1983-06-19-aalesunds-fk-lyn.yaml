@@ -1,5 +1,5 @@
 id: 1983-06-19-aalesunds-fk-lyn
-date: '1983-06-19'
+date: 1983-06-19
 dateConfidence: exact
 status: played
 competition:
@@ -19,24 +19,32 @@ neutralVenue: false
 events: []
 externalReports: []
 providers:
-- providerId: fotball-no
-  url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83034&underside=kamper
-  retrievedAt: '2026-08-05'
-  fields:
-  - date
-  - status
-  - competition
-  - competition.round
-  - home.clubId
-  - away.clubId
-  - home.score
-  - away.score
-  note: NFF kampnummer 99059.
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83034&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 99059.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/93c3cd10c45798c4631f6f07dd9e1683?page=7
+    retrievedAt: 2026-08-24
+    fields: []
 confidence: confirmed
 conflicts: []
 tags: []
 aliases:
-  fotball-no: '99059'
+  fotball-no: "99059"
 manual: []
-note: Bane og klokkeslett er bevisst utelatt. NFF-siden viser gjennomgående 00:00 og flere banefelt som
-  åpenbart tilhører andre kamper.
+note: Bane og klokkeslett er bevisst utelatt. NFF-siden viser gjennomgående 00:00 og flere banefelt som åpenbart tilhører andre kamper.
+sources:
+  - sourceId: sunnmorsposten-19830620-93c3cd10c45798c4631f6f07dd9e1683
+    page: "8"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

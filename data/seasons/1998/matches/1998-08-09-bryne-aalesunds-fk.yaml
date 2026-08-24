@@ -31,9 +31,18 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/c41426bb3a73c7dca220a75990aa09d2?page=18
+    retrievedAt: 2026-08-24
+    fields: []
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1998-first-1998-08-09-bryne-aalesunds-fk
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19980810-c41426bb3a73c7dca220a75990aa09d2
+    page: "19"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

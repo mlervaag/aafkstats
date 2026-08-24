@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/163f01e120f9977c570c753171a08255?page=0
+    date: 1996-08-19
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83065&underside=kamper
@@ -32,6 +35,14 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99091.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/163f01e120f9977c570c753171a08255?page=0
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - referee
+      - venueId
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +50,15 @@ aliases:
   fotball-no: "99091"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19960819-163f01e120f9977c570c753171a08255
+    page: "1"
+    fields:
+      - externalReports
+      - attendance
+      - referee
+      - venueId
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 694
+referee: Per Ivar Staberg
+venueId: kramyra-stadion

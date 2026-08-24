@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/173b3fc2bd1ecb12063748741fc40339?page=8
+    date: 1987-06-29
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83042&underside=kamper
@@ -32,6 +35,13 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99054.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/173b3fc2bd1ecb12063748741fc40339?page=8
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - referee
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +49,13 @@ aliases:
   fotball-no: "99054"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19870629-173b3fc2bd1ecb12063748741fc40339
+    page: "9"
+    fields:
+      - externalReports
+      - attendance
+      - referee
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 811
+referee: Frank Aase

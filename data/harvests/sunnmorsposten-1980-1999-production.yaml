@@ -1,0 +1,1978 @@
+version: 1
+id: sunnmorsposten-1980-1999-production
+title: Datoankret Sunnmørsposten-berikelse 1980–1999
+profile: generic_publication
+mode: initial
+status: normalized
+scope:
+  years:
+    from: 1980
+    to: 1999
+  sourceIds:
+    - sunnmorsposten-19800530-55041ac502669ad62fbad09cadaf1782
+    - sunnmorsposten-19810529-69bc396d769ecba6ccaf207ddb012b66
+    - sunnmorsposten-19810625-4dd4461c565f6a59ef0cad73937e66bc
+    - sunnmorsposten-19810709-96f73e040cb62728c7e9c5efa6e31ddf
+    - sunnmorsposten-19820426-e59945b6ba0cb34aa13e406605d16767
+    - sunnmorsposten-19820503-1ee913e82809210c87ce8ad582f37dbe
+    - sunnmorsposten-19820521-52aebfc1462238ea836ffdd7e523ac5e
+    - sunnmorsposten-19820528-966ce31513194bf1a20a31f2c08f943a
+    - sunnmorsposten-19820607-7db830a5c5e4d98347f84b31a72acfb1
+    - sunnmorsposten-19820614-8d3978ac24526910bb40b3d5c75b4b85
+    - sunnmorsposten-19820621-d57b43b3b55b7be5bde55fe7741522ea
+    - sunnmorsposten-19820624-e3f2f0b21086319bfd0c1d6a6e77a077
+    - sunnmorsposten-19820809-3ef7ef99bf971c17e9acd6f571141368
+    - sunnmorsposten-19820830-394e531e90677286930491f23b501865
+    - sunnmorsposten-19820920-587f9485217a8c6628993b6edc6d2bab
+    - sunnmorsposten-19820927-5872306a0352d1667afcffb5bf335365
+    - sunnmorsposten-19821004-10c2dbf7e7c4f297e13eb7b8593f92dd
+    - sunnmorsposten-19830425-93d25378c683513a1f1c68d7b27e2090
+    - sunnmorsposten-19830502-d2d7ffda948568c7556373c9a846a6a3
+    - sunnmorsposten-19830509-69e65441d424909045e4168e61011992
+    - sunnmorsposten-19830513-063149e170d64f91c82ce46e5339b974
+    - sunnmorsposten-19830516-acdf1fc6f971fe1e386be9a67327d91e
+    - sunnmorsposten-19830524-41ed5933d357ff65598faf1d02990eed
+    - sunnmorsposten-19830526-5a775581de694183b26ca91cd96ea684
+    - sunnmorsposten-19830530-608b2d028cd93494f5b8e29c115808d4
+    - sunnmorsposten-19830604-d026793109055baf7d72a75a1b9cb06f
+    - sunnmorsposten-19830613-a0bc7adf63ac54539eb2eb14baa40cfe
+    - sunnmorsposten-19830620-93c3cd10c45798c4631f6f07dd9e1683
+    - sunnmorsposten-19830627-80c9dc0ffdec3c319e06b8cd69740a73
+    - sunnmorsposten-19830801-cd21dffcf03b36b57221b9e968d05eed
+    - sunnmorsposten-19830806-6a38c79a97f9b57a9c92cb2be85d753f
+    - sunnmorsposten-19830815-5c6cf07c684130e7a7c6a509e5e1ddfc
+    - sunnmorsposten-19830822-04e855f364502eb72ecb07c1eb274fdc
+    - sunnmorsposten-19830829-ef64711bee4ca7ddac3e2c5c11e11455
+    - sunnmorsposten-19830905-a986ba8dc3870d9e5a2b99e88e77cc79
+    - sunnmorsposten-19830912-3c9e1cb20b89b7bc288bd2f4bcd514c8
+    - sunnmorsposten-19830927-cf1db10c2032997970ef4274240c4f91
+    - sunnmorsposten-19831003-8e71c172b2392d84ea74de03f1419011
+    - sunnmorsposten-19831010-346272997b750e7ea4d22d113f2f9dc8
+    - sunnmorsposten-19840601-f4fc0c47441c1f79db051c0d32aca33c
+    - sunnmorsposten-19840615-3751cdafe11f728a5e15bade1f531f96
+    - sunnmorsposten-19840621-482f1beb789a1fca2d835a3f8b6c83b3
+    - sunnmorsposten-19840629-5f88ae23eb65c1b51acf8926a2404399
+    - sunnmorsposten-19850506-0231d5572426e0e6016b94a07311f660
+    - sunnmorsposten-19850513-d1f74597a89ba239c5161b3a4a3da21c
+    - sunnmorsposten-19850518-f8092ec31720e1f8e1d89703c0ad06c2
+    - sunnmorsposten-19850520-b3edc027d1b1a0e42817f92ae9256004
+    - sunnmorsposten-19850528-ed37158cbe052f7e18462de02c18823a
+    - sunnmorsposten-19850603-b7135eb2581d056045936c4689dab1ad
+    - sunnmorsposten-19850610-a2183de4c457dcfb0235f816f5666bc6
+    - sunnmorsposten-19850617-aadbb8d57856e833e7aaa8e586ead4bb
+    - sunnmorsposten-19850624-459f5456aecfbecd0984010723e504a4
+    - sunnmorsposten-19850701-e52a8ae13e10b94f38486555549e5927
+    - sunnmorsposten-19850812-1559effe2d4a1cf0a520ad6a4b1acc89
+    - sunnmorsposten-19850819-b5296b182cb1951a589a9e7e12f16bb3
+    - sunnmorsposten-19850826-dd64799a90a4fe9f5f365cbb5db7d25f
+    - sunnmorsposten-19850830-759275b8d5e96b5b3c9c364bb87f4361
+    - sunnmorsposten-19850902-d2cda22e3fbf810fd36c1bdf34503195
+    - sunnmorsposten-19850909-6a90df45c2a71cae5fc21f90d1f2c37a
+    - sunnmorsposten-19850912-e5b764fd0d14548b271f11ef42a5b432
+    - sunnmorsposten-19850916-7a0f8f5abaea6fb91661095f92266aa8
+    - sunnmorsposten-19850930-0f309e8070e65e5e065294ab3881abe1
+    - sunnmorsposten-19851007-84840b006a46b85567bba45b332a6571
+    - sunnmorsposten-19860428-0b73e7abceed64ac5c7ae8f060a33303
+    - sunnmorsposten-19860505-b0182679e0c1b08fd490a19838eba196
+    - sunnmorsposten-19860509-2fa197bfc42ca00bf7407f0b0c2e6bba
+    - sunnmorsposten-19860516-933eea532233403d987ba41b5fa85254
+    - sunnmorsposten-19860524-b6bfd16b8dbc29df72e71cb8a3919331
+    - sunnmorsposten-19860602-132711b6eb0ac72503edeb2813865d82
+    - sunnmorsposten-19860609-3fc656179f4083aece19d83a215d7c02
+    - sunnmorsposten-19860616-f1ed6c318a66d3cd9d7a492668ab7093
+    - sunnmorsposten-19860804-6919035404a3896a52fd40d6bd003bd8
+    - sunnmorsposten-19860811-92a8f8918b474177651ed7072ff9b636
+    - sunnmorsposten-19860818-5109adf4ae165fca1656c1273fd11cf9
+    - sunnmorsposten-19860830-8bc4c129bbcc3d3c854bd228ad9960b7
+    - sunnmorsposten-19860908-8f7ce734d324a9c3d07b859dbbefff5c
+    - sunnmorsposten-19860913-41214bc545320ecba8ec209a747d7c2c
+    - sunnmorsposten-19860922-0a29361fb64760822f8730e0a53dcb2f
+    - sunnmorsposten-19860929-4cd6adfcf99355d580e3e0982a7913f6
+    - sunnmorsposten-19870502-333b5349a97b8402253642d76547123a
+    - sunnmorsposten-19870516-267d5d740d0b59e6ba80556534129752
+    - sunnmorsposten-19870521-c2836732303d97e4b6bd176637b190df
+    - sunnmorsposten-19870525-d293888256c42af8ec8b06ba3c92a3c8
+    - sunnmorsposten-19870609-d9c1436f9cb53c7a6f04c62d0a1e3267
+    - sunnmorsposten-19870615-1de2180cf1f22253bd3861c56affb691
+    - sunnmorsposten-19870629-173b3fc2bd1ecb12063748741fc40339
+    - sunnmorsposten-19870706-91e3e0997c6aedf1050ac04276e2f43b
+    - sunnmorsposten-19870713-6101e19b41c49dad455d6c5022ab0452
+    - sunnmorsposten-19870720-28683d60555f9d1b7e0ea536476f00f4
+    - sunnmorsposten-19870817-0601a4c14af124bcea1aa1a3f2d7c71f
+    - sunnmorsposten-19870824-ee3891e11e34c5558e2a6b6d0db69889
+    - sunnmorsposten-19870831-d5a8e3c957aa9acb366340f54ef2d205
+    - sunnmorsposten-19870907-1fc0a936768a42b7a1ce64dbe491b54a
+    - sunnmorsposten-19870914-2b6e3387d771ecdf373f25e3b03b16eb
+    - sunnmorsposten-19870928-9e6eb5fecf60c5d0920c1a96f8429066
+    - sunnmorsposten-19871005-2d44e64fabd53d0e3737bbf952c39bef
+    - sunnmorsposten-19871012-fe9547763260e3823e43f5b564fce04c
+    - sunnmorsposten-19880519-2a0e1650e2c38e1e64e772c5b8a13642
+    - sunnmorsposten-19880613-f9e6d728321508b6a6770ed7094401c1
+    - sunnmorsposten-19890502-dd11be5c6b595c958426e09310b4683e
+    - sunnmorsposten-19890508-509333a483bca2e147329a343f83752a
+    - sunnmorsposten-19890516-df2f60f05e06de63454c31f991176609
+    - sunnmorsposten-19890522-11d6e87c3d39c01ae9c968dad49a3382
+    - sunnmorsposten-19890529-f994f469c9f3f14d4a9fa7a08b8bb831
+    - sunnmorsposten-19890605-c8d05c45299facb55714d443bf4c0983
+    - sunnmorsposten-19890619-21a2cd305b230f8f28a7790de04cba95
+    - sunnmorsposten-19890708-ec3886cddcbf61521fe6647c1eaf2c88
+    - sunnmorsposten-19890717-cb1e0c4bec956b621b5339f43712fc84
+    - sunnmorsposten-19890731-57684d9b32520066438ba5da3cce5cd0
+    - sunnmorsposten-19890807-7172587b8963e692326c245276fc2795
+    - sunnmorsposten-19890814-a2523428d113990a0ed4324ae2919c2c
+    - sunnmorsposten-19890821-9c0f26d600cf102e2a3d3e33d25b716b
+    - sunnmorsposten-19890828-6c33274523a622274359f65302ed81ea
+    - sunnmorsposten-19890902-3fba0febfc1261248cecc906e8156099
+    - sunnmorsposten-19890911-7d18c6a6d8cc73586db0b88238fdb04a
+    - sunnmorsposten-19891009-420cf51e14000236508f06283d1ea612
+    - sunnmorsposten-19900430-fcf48771047d8e498cd8465335a140be
+    - sunnmorsposten-19900507-39848fa743ade67b859d45567d903f7d
+    - sunnmorsposten-19900514-752c2ff580f5d326638b2436387a076a
+    - sunnmorsposten-19900518-31cdb0cb3e2156a0b261a493c9e7d696
+    - sunnmorsposten-19900521-0e2247873e571212dcac2afb7cffd884
+    - sunnmorsposten-19900526-1d1f8eff34908c6ce8ba131b1e252506
+    - sunnmorsposten-19900528-4cb441a9a829ec857c3024081ff29399
+    - sunnmorsposten-19900605-0d21a03339d2129ac950561309e21ac1
+    - sunnmorsposten-19900607-71c9456f3fe5f0eb7f1d89967a957ae5
+    - sunnmorsposten-19900609-e549f6c1b950e24d476ccfbff8b46416
+    - sunnmorsposten-19900618-3ee5e8d99f1386bf9baf74335c236bf9
+    - sunnmorsposten-19900625-c2cecbfbd516aad566a02f5a38ad7d01
+    - sunnmorsposten-19900702-3a44a75d4f17f237ec4163e7cb7b8f98
+    - sunnmorsposten-19900723-5724abe81d53210c2448c4e5617ad074
+    - sunnmorsposten-19900726-79cc00e70bf692f1d51e275f5f6af398
+    - sunnmorsposten-19900730-98909c2e8898884fb79a89eb999f147d
+    - sunnmorsposten-19900807-101ec7be5cccc09fed1d5bd3a16cbaa7
+    - sunnmorsposten-19900813-4266f2753545d777d3847cb77a095df2
+    - sunnmorsposten-19900820-91cdc51f78609baffd5093997c494bc6
+    - sunnmorsposten-19900827-339b9b9c66469e1b0a0ca151cfdda5c2
+    - sunnmorsposten-19900903-02d1cdbcacdeb856f2078e29300a5a69
+    - sunnmorsposten-19900908-6b7b9a4804e890c71ecb3a973533037c
+    - sunnmorsposten-19900917-1d2b3456c11ae48df052d5370d5c4e31
+    - sunnmorsposten-19900924-d78fae0793932d346b39bdd59ce0237c
+    - sunnmorsposten-19901001-55ce406c3ba4fe022bd30737c54d3454
+    - sunnmorsposten-19910429-d2898d5562d066f6efc72e98996259a7
+    - sunnmorsposten-19910506-6ecdc2938374e91ac7449111e3f19037
+    - sunnmorsposten-19910513-91d201888e0b2eb975a4fdfb2d637311
+    - sunnmorsposten-19910521-cfbd5a9c350da4d88aaec7f9349b14f0
+    - sunnmorsposten-19910527-69b1ab872448a50f579d4d2fd942dd29
+    - sunnmorsposten-19910530-7a1952e5e2aa6afd384bc348c0aac4d5
+    - sunnmorsposten-19910603-600ac355dc22f62a0759c9ab01c3edd0
+    - sunnmorsposten-19910617-29d74956c8ba4512212db30f22c17e48
+    - sunnmorsposten-19910624-d45bd3aaffddb196bc1be61d91f13687
+    - sunnmorsposten-19910627-43c0db7a1889bc8f761b011049b81a65
+    - sunnmorsposten-19910715-557dc50bb5ec52c8ba815d5e5d7f8af6
+    - sunnmorsposten-19910722-ab373771a00a0c4321394c0d3d77a837
+    - sunnmorsposten-19910730-239523a2eaf4bc7e99a09ca2f3f58bee
+    - sunnmorsposten-19910805-a61171a1e8673ffe3a3fd247f334b1c2
+    - sunnmorsposten-19910810-58421ec24fa3ea7fbba80ea1fb7d369b
+    - sunnmorsposten-19910819-0d1596d310482eb32fb84c7e74e26145
+    - sunnmorsposten-19910826-333dcae56f35d19a5a1793e6a45d3cb1
+    - sunnmorsposten-19910902-5182d3581d1ce171efcad31149ff2062
+    - sunnmorsposten-19910909-cd90c98e69c5b08e2d4ad22de343b0a2
+    - sunnmorsposten-19910916-9ceca56f58530b22310294929f0fa5dd
+    - sunnmorsposten-19910923-c13435da4440b05c643921463bc2588e
+    - sunnmorsposten-19910930-758146ae28c4526136c14ece6b2cc9e6
+    - sunnmorsposten-19911007-23c7ec674bf85a0d584f96ecbc53bfa5
+    - sunnmorsposten-19920427-fd52cbcf4709fe00ddecb34d94cfeaae
+    - sunnmorsposten-19920504-435e9275a37e44f27836b10f8ef2528f
+    - sunnmorsposten-19920518-0035f108262f8ca45aa7f8de3c45b143
+    - sunnmorsposten-19920521-3aa28b02c29bb14227f19a83b07d6d8c
+    - sunnmorsposten-19920525-921c58d24802e990d0f7803a9086aa43
+    - sunnmorsposten-19920529-a64dac2af620968fa6cea803b79b7f37
+    - sunnmorsposten-19920609-54facd7b38785920b9826dfb9348e383
+    - sunnmorsposten-19920612-b48862ab4c22a33f79243924d1375dc4
+    - sunnmorsposten-19920622-cb498f629915277a5f49bf67da9aac63
+    - sunnmorsposten-19920713-8f9daade9efeaf822d6b2a37b0ae41a8
+    - sunnmorsposten-19920716-6c8d37e716da2149378e20e7eaa0ad5a
+    - sunnmorsposten-19920720-49cd2ae5258b46580d92128c7134ea8a
+    - sunnmorsposten-19920727-5059cbe9def4ab38a04fdf96ae786123
+    - sunnmorsposten-19920803-282ff5ccd2ce1098c31f44fa081b7a59
+    - sunnmorsposten-19920810-117e663c804d5756ae7a4704b6f25eb3
+    - sunnmorsposten-19920817-122a8f93b87e5881c045015925389ba8
+    - sunnmorsposten-19920824-3608324aee30a0963eef889eb299366b
+    - sunnmorsposten-19920831-52233326edb637bc9f0f4a512e3997f7
+    - sunnmorsposten-19920907-4338ea7da24a102d1ccdbc47adf4aa10
+    - sunnmorsposten-19920921-1ce8ca86f927164dd2201c9b562545db
+    - sunnmorsposten-19920925-02c044d75c4c52ef438b988095f542d1
+    - sunnmorsposten-19921005-e2f192b8ef32f8b3eb24ab20b84fc2b5
+    - sunnmorsposten-19930503-74e58a6f0643ee8f391288814168c6e7
+    - sunnmorsposten-19930510-6621571165b677adeb3f1e3270528cfe
+    - sunnmorsposten-19930518-2be40bf7d4756b067bca7e014faa5eef
+    - sunnmorsposten-19930524-a690d3c0d6353d7645feaf2375ba4042
+    - sunnmorsposten-19930527-b8a12b3a8407c5219b0fa7900031dea9
+    - sunnmorsposten-19930601-0600271df108d390f14abc15b997ba1b
+    - sunnmorsposten-19930614-cfa32762790768d85fc5ea14c837c30b
+    - sunnmorsposten-19930617-fb237351e298b4ae7a7c437ceb060673
+    - sunnmorsposten-19930621-e2f7d0a08b940cd93374d6738b518444
+    - sunnmorsposten-19930624-a79e8a0b8aef957e324c4148fdb9b2df
+    - sunnmorsposten-19930629-4f587cef7b0ef59314f1732c5fb5ceec
+    - sunnmorsposten-19930720-719da68f3db36dd31210702866269e1c
+    - sunnmorsposten-19930726-1267a3b9f200659fe649f910b3a918a4
+    - sunnmorsposten-19930802-58ddb4af6f0a3e1e737fd679d9e57e04
+    - sunnmorsposten-19930809-3f0ee19cda7a43eb1ceee72d4d197a1e
+    - sunnmorsposten-19930816-069793f74a922ad0768a96a8462528d1
+    - sunnmorsposten-19930823-4f112ec1b350d16b068db3c478bd1437
+    - sunnmorsposten-19930830-38452a431b44c9901eceb1bc0612edcc
+    - sunnmorsposten-19930906-194344591adc6281c73f87716b7ccabc
+    - sunnmorsposten-19930913-bc765cbe1d042fef8879d727fdccec01
+    - sunnmorsposten-19930920-c052754ef1d84adc0b6d4c4f2cefdd95
+    - sunnmorsposten-19931004-b101d7e81b2535f5baf22aeb30d91d01
+    - sunnmorsposten-19940505-2e44c66c764c23920ee050f114262298
+    - sunnmorsposten-19940520-bc3a98c67088e9a143c3576ec410f0a9
+    - sunnmorsposten-19950502-38b1a575da5f5b47dd2b8086017f17c4
+    - sunnmorsposten-19950508-bafda5250b0505f25adfbba01e455eb0
+    - sunnmorsposten-19950511-03f3e3a753b3554d38028cd644d5a1b9
+    - sunnmorsposten-19950512-8f0425010eb8ae398549a129cfd56e0a
+    - sunnmorsposten-19950522-f62665abcd18780180e3f78a9924499a
+    - sunnmorsposten-19950529-c869596cb653625d34c1b338281fae95
+    - sunnmorsposten-19950601-9dd017b1e79a884ea38fd5e0f6a36c69
+    - sunnmorsposten-19950606-dc46f43897b6662871ffb3796aadc1db
+    - sunnmorsposten-19950612-ed1e05391ff2306986266636a3edfa99
+    - sunnmorsposten-19950619-46c5c64ee727dc92ec2cecc06fae4112
+    - sunnmorsposten-19950622-1bf990481218bd116b80ff86bd403a66
+    - sunnmorsposten-19950626-91d03675825f9e57cfa7bd830e10f42a
+    - sunnmorsposten-19950703-4882e4e0ceb7d7fae021afe945540c22
+    - sunnmorsposten-19950710-c5b10b9dd03261226994853ab6ed598b
+    - sunnmorsposten-19950724-3cc9eddac9e7f07cad1fd35066681946
+    - sunnmorsposten-19950731-577403d9c28c01e09911bea784d60dba
+    - sunnmorsposten-19950807-3a5a30f383018dfe131929e98bc9d273
+    - sunnmorsposten-19950812-e50434b22f8c3dd5940b233a2c921e0b
+    - sunnmorsposten-19950821-409badd0597778b6e314107467738046
+    - sunnmorsposten-19950828-3a1cf74f80a567475d488142ab53c1f7
+    - sunnmorsposten-19950904-4adea18990f42011088b68b69103728b
+    - sunnmorsposten-19950918-03fbe6c80cbef62ca97c46d7e8b0bcef
+    - sunnmorsposten-19950925-2df168625ba5df7688558e8dc74d3577
+    - sunnmorsposten-19951002-af077092985e4874d28596893a6620c9
+    - sunnmorsposten-19960429-1783c21c9b8ea856c6eb7d4985fdfa76
+    - sunnmorsposten-19960506-1113b459b2eea8b25edb59055381e440
+    - sunnmorsposten-19960513-1eb844bc114b595b5403a5c5d2568c6b
+    - sunnmorsposten-19960518-9d4d42b2eba8048da19a5abf4e2af27c
+    - sunnmorsposten-19960520-edfb955de1bfc93ab18b876b7aa46d02
+    - sunnmorsposten-19960524-eb269a040aff2992d164569c9761a22b
+    - sunnmorsposten-19960528-512e6d0c5a507d2e951e2e13b0468a52
+    - sunnmorsposten-19960603-ba40c12812f145b4a45d67ef5346bce1
+    - sunnmorsposten-19960617-8ca4e8bc064184bba10741c1bbfe8bd5
+    - sunnmorsposten-19960624-e739831b9d5b95a121590efc53c33133
+    - sunnmorsposten-19960701-7ec8e8365a2bd26a24f378cf2fb5e934
+    - sunnmorsposten-19960725-26dc6e50b4110a534dab855234a5f0df
+    - sunnmorsposten-19960729-54d36698d0a1c9dc49735a889bd1edb0
+    - sunnmorsposten-19960805-509fbb5500998e95e0a31f768349269c
+    - sunnmorsposten-19960812-8b9d3dce72749c18ef145bb83ac4146c
+    - sunnmorsposten-19960819-163f01e120f9977c570c753171a08255
+    - sunnmorsposten-19960826-b62f385dfdd079dcd86463d1e6dffca7
+    - sunnmorsposten-19960902-dcda312bb06b7a6fd806ad4487636793
+    - sunnmorsposten-19960909-ad9ab9b801e41245e1d482f3b1bfa873
+    - sunnmorsposten-19960916-13e545860bcd6b0fe279b7250c59e032
+    - sunnmorsposten-19960923-6f8b7c45fcb5eecb2b792674902223be
+    - sunnmorsposten-19970421-506a119e961d9ae3179ac82fceff64c9
+    - sunnmorsposten-19970507-947929ba32d051b627bf4628a0c9f1f5
+    - sunnmorsposten-19970509-e546051cadec9bade890309a951ef97a
+    - sunnmorsposten-19970516-b57bafd82ceb925dc60e3e769d6af8cc
+    - sunnmorsposten-19970522-7ae2307383955b7440282c272db78f53
+    - sunnmorsposten-19970526-4425377f61a6a5d62b098369f5ea6bf1
+    - sunnmorsposten-19970602-1bf82caaac45a9d3e3726c885b39fe01
+    - sunnmorsposten-19970609-c91170e8d901956291228d114aae731f
+    - sunnmorsposten-19970616-89a5cb1437cb295d151fce643e57eb81
+    - sunnmorsposten-19970623-257d692e31b57cdb9f8f473134195da3
+    - sunnmorsposten-19970630-2127c352531250bf8e9ed96a2b940b30
+    - sunnmorsposten-19970707-9a593fab267aec8d5445b5089411d63d
+    - sunnmorsposten-19970715-c643bdf883231f1b34798018e8324f73
+    - sunnmorsposten-19970721-7c2f5c920f2053934b8f5d6a3c31bff4
+    - sunnmorsposten-19970801-d04279bb4f14683a3f6ad8caa859b69c
+    - sunnmorsposten-19970811-b88b196d165a8c11cf9ecac11af43e79
+    - sunnmorsposten-19970818-34a0c6540a9f00b6f62ca00a150b2848
+    - sunnmorsposten-19970825-62cdf137db0909ffd2f27a1dff4b442c
+    - sunnmorsposten-19970901-e2fa59b3f1099cb3e5c7c5ef5af0ab6e
+    - sunnmorsposten-19970906-e33e2ac5fb555c11e88787932de1cea9
+    - sunnmorsposten-19970915-83fa9e60bc23747b239791b26c0ce0d3
+    - sunnmorsposten-19970922-3c9b4d11d28f631099dcd3d0795f7db4
+    - sunnmorsposten-19970929-8f8cc9fd4d6564a2a20a1e353827f319
+    - sunnmorsposten-19971013-319f74c658ab8135231bcfd2653e01b0
+    - sunnmorsposten-19980420-8eb436f50230307c23a93167e3232ded
+    - sunnmorsposten-19980427-0db67c6b14833c1e07998c892a31d1c3
+    - sunnmorsposten-19980504-1290e77ffaa4706638b7f48e3b3a0d84
+    - sunnmorsposten-19980511-68d9f846b40253d4345f3f3a8d995051
+    - sunnmorsposten-19980513-00f4e12867aaa3be72c1199733c54cc6
+    - sunnmorsposten-19980518-1e7ab9d141f291434442d04ade8f3dcb
+    - sunnmorsposten-19980522-283cdd3e6cabe0f256c3c461ad389d6a
+    - sunnmorsposten-19980525-4f8d1cdf10a7d18d2e33521092ccfe19
+    - sunnmorsposten-19980530-e047c03eda7c43ff359f2569cf3e261e
+    - sunnmorsposten-19980602-fba39abb2cd38a7de1ec890168783aea
+    - sunnmorsposten-19980605-48a06b6deeabd3d983dee8d7bcf08b15
+    - sunnmorsposten-19980608-41f73b0c8385002719c9c3352163b252
+    - sunnmorsposten-19980615-34268fd70ab397f5be99a55034ec597f
+    - sunnmorsposten-19980622-5ae2e8f00d918f0298db71731f12631b
+    - sunnmorsposten-19980706-2b0d394476ab1c0f093ac61da4e87158
+    - sunnmorsposten-19980713-dd16580df74ceb74837d08dacd85f107
+    - sunnmorsposten-19980803-0f641e3012daa063fc75abbc168832db
+    - sunnmorsposten-19980810-c41426bb3a73c7dca220a75990aa09d2
+    - sunnmorsposten-19980817-c19d3f6291b8fec9932d62fd5533375d
+    - sunnmorsposten-19980824-61ca75d799b395315d2caf3a1601df93
+    - sunnmorsposten-19980907-6e79f2d0b83748f7f09a38d8be4e05e9
+    - sunnmorsposten-19980914-f4aab34723258938f281072e387fd908
+    - sunnmorsposten-19980921-a970fd32fd62864199c167402789995b
+    - sunnmorsposten-19980928-015e52f597aae84aa296c14d83bbc3b1
+    - sunnmorsposten-19981005-4706ee4813ec1484663d90516ba7b553
+    - sunnmorsposten-19981019-4b1a60ea855bb3357a03561013ab68e8
+    - sunnmorsposten-19990503-a42bb829256e2dcd2cdba7e5b3a50c5f
+    - sunnmorsposten-19990506-5cd6eada1adbfcc93c1606e6e2cf1b31
+    - sunnmorsposten-19990510-df8d1b790cfb83971840f178e9b58720
+    - sunnmorsposten-19990525-37cec61c0683346b58d667de9ce1233c
+    - sunnmorsposten-19990708-58dfcb628880a36ed481b40c7ade5346
+    - sunnmorsposten-19990712-18904b4981867d1d1cb84f437d1a69d3
+    - sunnmorsposten-19990802-4a7afd1ff9c62553f3ec27d1bac0924e
+    - sunnmorsposten-19990814-94be228d478ef246160beb807ce47155
+    - sunnmorsposten-19990824-c792a1ebb61accb633f158b9c12f1898
+    - sunnmorsposten-19990913-3fe97412b1c3fac8ab3c4884b18dcecc
+    - sunnmorsposten-19990920-81cd5ae813c8084b82277761675caea1
+    - sunnmorsposten-19991004-84e26db039f8730da122cc6b22d659fe
+    - sunnmorsposten-19991011-f15e67f870779fca91d9610ad4503a45
+sourceInventory:
+  - sourceId: sunnmorsposten-19800530-55041ac502669ad62fbad09cadaf1782
+    title: Sunnmørsposten 1980-05-30
+    year: 1980
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19810529-69bc396d769ecba6ccaf207ddb012b66
+    title: Sunnmørsposten 1981-05-29
+    year: 1981
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19810625-4dd4461c565f6a59ef0cad73937e66bc
+    title: Sunnmørsposten 1981-06-25
+    year: 1981
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19810709-96f73e040cb62728c7e9c5efa6e31ddf
+    title: Sunnmørsposten 1981-07-09
+    year: 1981
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19820426-e59945b6ba0cb34aa13e406605d16767
+    title: Sunnmørsposten 1982-04-26
+    year: 1982
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19820503-1ee913e82809210c87ce8ad582f37dbe
+    title: Sunnmørsposten 1982-05-03
+    year: 1982
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19820521-52aebfc1462238ea836ffdd7e523ac5e
+    title: Sunnmørsposten 1982-05-21
+    year: 1982
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19820528-966ce31513194bf1a20a31f2c08f943a
+    title: Sunnmørsposten 1982-05-28
+    year: 1982
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19820607-7db830a5c5e4d98347f84b31a72acfb1
+    title: Sunnmørsposten 1982-06-07
+    year: 1982
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19820614-8d3978ac24526910bb40b3d5c75b4b85
+    title: Sunnmørsposten 1982-06-14
+    year: 1982
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19820621-d57b43b3b55b7be5bde55fe7741522ea
+    title: Sunnmørsposten 1982-06-21
+    year: 1982
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19820624-e3f2f0b21086319bfd0c1d6a6e77a077
+    title: Sunnmørsposten 1982-06-24
+    year: 1982
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19820809-3ef7ef99bf971c17e9acd6f571141368
+    title: Sunnmørsposten 1982-08-09
+    year: 1982
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19820830-394e531e90677286930491f23b501865
+    title: Sunnmørsposten 1982-08-30
+    year: 1982
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19820920-587f9485217a8c6628993b6edc6d2bab
+    title: Sunnmørsposten 1982-09-20
+    year: 1982
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19820927-5872306a0352d1667afcffb5bf335365
+    title: Sunnmørsposten 1982-09-27
+    year: 1982
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19821004-10c2dbf7e7c4f297e13eb7b8593f92dd
+    title: Sunnmørsposten 1982-10-04
+    year: 1982
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19830425-93d25378c683513a1f1c68d7b27e2090
+    title: Sunnmørsposten 1983-04-25
+    year: 1983
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19830502-d2d7ffda948568c7556373c9a846a6a3
+    title: Sunnmørsposten 1983-05-02
+    year: 1983
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19830509-69e65441d424909045e4168e61011992
+    title: Sunnmørsposten 1983-05-09
+    year: 1983
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19830513-063149e170d64f91c82ce46e5339b974
+    title: Sunnmørsposten 1983-05-13
+    year: 1983
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19830516-acdf1fc6f971fe1e386be9a67327d91e
+    title: Sunnmørsposten 1983-05-16
+    year: 1983
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19830524-41ed5933d357ff65598faf1d02990eed
+    title: Sunnmørsposten 1983-05-24
+    year: 1983
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19830526-5a775581de694183b26ca91cd96ea684
+    title: Sunnmørsposten 1983-05-26
+    year: 1983
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19830530-608b2d028cd93494f5b8e29c115808d4
+    title: Sunnmørsposten 1983-05-30
+    year: 1983
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19830604-d026793109055baf7d72a75a1b9cb06f
+    title: Sunnmørsposten 1983-06-04
+    year: 1983
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19830613-a0bc7adf63ac54539eb2eb14baa40cfe
+    title: Sunnmørsposten 1983-06-13
+    year: 1983
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19830620-93c3cd10c45798c4631f6f07dd9e1683
+    title: Sunnmørsposten 1983-06-20
+    year: 1983
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19830627-80c9dc0ffdec3c319e06b8cd69740a73
+    title: Sunnmørsposten 1983-06-27
+    year: 1983
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19830801-cd21dffcf03b36b57221b9e968d05eed
+    title: Sunnmørsposten 1983-08-01
+    year: 1983
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19830806-6a38c79a97f9b57a9c92cb2be85d753f
+    title: Sunnmørsposten 1983-08-06
+    year: 1983
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19830815-5c6cf07c684130e7a7c6a509e5e1ddfc
+    title: Sunnmørsposten 1983-08-15
+    year: 1983
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19830822-04e855f364502eb72ecb07c1eb274fdc
+    title: Sunnmørsposten 1983-08-22
+    year: 1983
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19830829-ef64711bee4ca7ddac3e2c5c11e11455
+    title: Sunnmørsposten 1983-08-29
+    year: 1983
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19830905-a986ba8dc3870d9e5a2b99e88e77cc79
+    title: Sunnmørsposten 1983-09-05
+    year: 1983
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19830912-3c9e1cb20b89b7bc288bd2f4bcd514c8
+    title: Sunnmørsposten 1983-09-12
+    year: 1983
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19830927-cf1db10c2032997970ef4274240c4f91
+    title: Sunnmørsposten 1983-09-27
+    year: 1983
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19831003-8e71c172b2392d84ea74de03f1419011
+    title: Sunnmørsposten 1983-10-03
+    year: 1983
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19831010-346272997b750e7ea4d22d113f2f9dc8
+    title: Sunnmørsposten 1983-10-10
+    year: 1983
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19840601-f4fc0c47441c1f79db051c0d32aca33c
+    title: Sunnmørsposten 1984-06-01
+    year: 1984
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19840615-3751cdafe11f728a5e15bade1f531f96
+    title: Sunnmørsposten 1984-06-15
+    year: 1984
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19840621-482f1beb789a1fca2d835a3f8b6c83b3
+    title: Sunnmørsposten 1984-06-21
+    year: 1984
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19840629-5f88ae23eb65c1b51acf8926a2404399
+    title: Sunnmørsposten 1984-06-29
+    year: 1984
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19850506-0231d5572426e0e6016b94a07311f660
+    title: Sunnmørsposten 1985-05-06
+    year: 1985
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19850513-d1f74597a89ba239c5161b3a4a3da21c
+    title: Sunnmørsposten 1985-05-13
+    year: 1985
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19850518-f8092ec31720e1f8e1d89703c0ad06c2
+    title: Sunnmørsposten 1985-05-18
+    year: 1985
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19850520-b3edc027d1b1a0e42817f92ae9256004
+    title: Sunnmørsposten 1985-05-20
+    year: 1985
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19850528-ed37158cbe052f7e18462de02c18823a
+    title: Sunnmørsposten 1985-05-28
+    year: 1985
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19850603-b7135eb2581d056045936c4689dab1ad
+    title: Sunnmørsposten 1985-06-03
+    year: 1985
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19850610-a2183de4c457dcfb0235f816f5666bc6
+    title: Sunnmørsposten 1985-06-10
+    year: 1985
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19850617-aadbb8d57856e833e7aaa8e586ead4bb
+    title: Sunnmørsposten 1985-06-17
+    year: 1985
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19850624-459f5456aecfbecd0984010723e504a4
+    title: Sunnmørsposten 1985-06-24
+    year: 1985
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19850701-e52a8ae13e10b94f38486555549e5927
+    title: Sunnmørsposten 1985-07-01
+    year: 1985
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19850812-1559effe2d4a1cf0a520ad6a4b1acc89
+    title: Sunnmørsposten 1985-08-12
+    year: 1985
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19850819-b5296b182cb1951a589a9e7e12f16bb3
+    title: Sunnmørsposten 1985-08-19
+    year: 1985
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19850826-dd64799a90a4fe9f5f365cbb5db7d25f
+    title: Sunnmørsposten 1985-08-26
+    year: 1985
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19850830-759275b8d5e96b5b3c9c364bb87f4361
+    title: Sunnmørsposten 1985-08-30
+    year: 1985
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19850902-d2cda22e3fbf810fd36c1bdf34503195
+    title: Sunnmørsposten 1985-09-02
+    year: 1985
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19850909-6a90df45c2a71cae5fc21f90d1f2c37a
+    title: Sunnmørsposten 1985-09-09
+    year: 1985
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19850912-e5b764fd0d14548b271f11ef42a5b432
+    title: Sunnmørsposten 1985-09-12
+    year: 1985
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19850916-7a0f8f5abaea6fb91661095f92266aa8
+    title: Sunnmørsposten 1985-09-16
+    year: 1985
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19850930-0f309e8070e65e5e065294ab3881abe1
+    title: Sunnmørsposten 1985-09-30
+    year: 1985
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19851007-84840b006a46b85567bba45b332a6571
+    title: Sunnmørsposten 1985-10-07
+    year: 1985
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19860428-0b73e7abceed64ac5c7ae8f060a33303
+    title: Sunnmørsposten 1986-04-28
+    year: 1986
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19860505-b0182679e0c1b08fd490a19838eba196
+    title: Sunnmørsposten 1986-05-05
+    year: 1986
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19860509-2fa197bfc42ca00bf7407f0b0c2e6bba
+    title: Sunnmørsposten 1986-05-09
+    year: 1986
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19860516-933eea532233403d987ba41b5fa85254
+    title: Sunnmørsposten 1986-05-16
+    year: 1986
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19860524-b6bfd16b8dbc29df72e71cb8a3919331
+    title: Sunnmørsposten 1986-05-24
+    year: 1986
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19860602-132711b6eb0ac72503edeb2813865d82
+    title: Sunnmørsposten 1986-06-02
+    year: 1986
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19860609-3fc656179f4083aece19d83a215d7c02
+    title: Sunnmørsposten 1986-06-09
+    year: 1986
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19860616-f1ed6c318a66d3cd9d7a492668ab7093
+    title: Sunnmørsposten 1986-06-16
+    year: 1986
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19860804-6919035404a3896a52fd40d6bd003bd8
+    title: Sunnmørsposten 1986-08-04
+    year: 1986
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19860811-92a8f8918b474177651ed7072ff9b636
+    title: Sunnmørsposten 1986-08-11
+    year: 1986
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19860818-5109adf4ae165fca1656c1273fd11cf9
+    title: Sunnmørsposten 1986-08-18
+    year: 1986
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19860830-8bc4c129bbcc3d3c854bd228ad9960b7
+    title: Sunnmørsposten 1986-08-30
+    year: 1986
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19860908-8f7ce734d324a9c3d07b859dbbefff5c
+    title: Sunnmørsposten 1986-09-08
+    year: 1986
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19860913-41214bc545320ecba8ec209a747d7c2c
+    title: Sunnmørsposten 1986-09-13
+    year: 1986
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19860922-0a29361fb64760822f8730e0a53dcb2f
+    title: Sunnmørsposten 1986-09-22
+    year: 1986
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19860929-4cd6adfcf99355d580e3e0982a7913f6
+    title: Sunnmørsposten 1986-09-29
+    year: 1986
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19870502-333b5349a97b8402253642d76547123a
+    title: Sunnmørsposten 1987-05-02
+    year: 1987
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19870516-267d5d740d0b59e6ba80556534129752
+    title: Sunnmørsposten 1987-05-16
+    year: 1987
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19870521-c2836732303d97e4b6bd176637b190df
+    title: Sunnmørsposten 1987-05-21
+    year: 1987
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19870525-d293888256c42af8ec8b06ba3c92a3c8
+    title: Sunnmørsposten 1987-05-25
+    year: 1987
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19870609-d9c1436f9cb53c7a6f04c62d0a1e3267
+    title: Sunnmørsposten 1987-06-09
+    year: 1987
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19870615-1de2180cf1f22253bd3861c56affb691
+    title: Sunnmørsposten 1987-06-15
+    year: 1987
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19870629-173b3fc2bd1ecb12063748741fc40339
+    title: Sunnmørsposten 1987-06-29
+    year: 1987
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19870706-91e3e0997c6aedf1050ac04276e2f43b
+    title: Sunnmørsposten 1987-07-06
+    year: 1987
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19870713-6101e19b41c49dad455d6c5022ab0452
+    title: Sunnmørsposten 1987-07-13
+    year: 1987
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19870720-28683d60555f9d1b7e0ea536476f00f4
+    title: Sunnmørsposten 1987-07-20
+    year: 1987
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19870817-0601a4c14af124bcea1aa1a3f2d7c71f
+    title: Sunnmørsposten 1987-08-17
+    year: 1987
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19870824-ee3891e11e34c5558e2a6b6d0db69889
+    title: Sunnmørsposten 1987-08-24
+    year: 1987
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19870831-d5a8e3c957aa9acb366340f54ef2d205
+    title: Sunnmørsposten 1987-08-31
+    year: 1987
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19870907-1fc0a936768a42b7a1ce64dbe491b54a
+    title: Sunnmørsposten 1987-09-07
+    year: 1987
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19870914-2b6e3387d771ecdf373f25e3b03b16eb
+    title: Sunnmørsposten 1987-09-14
+    year: 1987
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19870928-9e6eb5fecf60c5d0920c1a96f8429066
+    title: Sunnmørsposten 1987-09-28
+    year: 1987
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19871005-2d44e64fabd53d0e3737bbf952c39bef
+    title: Sunnmørsposten 1987-10-05
+    year: 1987
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19871012-fe9547763260e3823e43f5b564fce04c
+    title: Sunnmørsposten 1987-10-12
+    year: 1987
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19880519-2a0e1650e2c38e1e64e772c5b8a13642
+    title: Sunnmørsposten 1988-05-19
+    year: 1988
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19880613-f9e6d728321508b6a6770ed7094401c1
+    title: Sunnmørsposten 1988-06-13
+    year: 1988
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19890502-dd11be5c6b595c958426e09310b4683e
+    title: Sunnmørsposten 1989-05-02
+    year: 1989
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19890508-509333a483bca2e147329a343f83752a
+    title: Sunnmørsposten 1989-05-08
+    year: 1989
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19890516-df2f60f05e06de63454c31f991176609
+    title: Sunnmørsposten 1989-05-16
+    year: 1989
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19890522-11d6e87c3d39c01ae9c968dad49a3382
+    title: Sunnmørsposten 1989-05-22
+    year: 1989
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19890529-f994f469c9f3f14d4a9fa7a08b8bb831
+    title: Sunnmørsposten 1989-05-29
+    year: 1989
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19890605-c8d05c45299facb55714d443bf4c0983
+    title: Sunnmørsposten 1989-06-05
+    year: 1989
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19890619-21a2cd305b230f8f28a7790de04cba95
+    title: Sunnmørsposten 1989-06-19
+    year: 1989
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19890708-ec3886cddcbf61521fe6647c1eaf2c88
+    title: Sunnmørsposten 1989-07-08
+    year: 1989
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19890717-cb1e0c4bec956b621b5339f43712fc84
+    title: Sunnmørsposten 1989-07-17
+    year: 1989
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19890731-57684d9b32520066438ba5da3cce5cd0
+    title: Sunnmørsposten 1989-07-31
+    year: 1989
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19890807-7172587b8963e692326c245276fc2795
+    title: Sunnmørsposten 1989-08-07
+    year: 1989
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19890814-a2523428d113990a0ed4324ae2919c2c
+    title: Sunnmørsposten 1989-08-14
+    year: 1989
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19890821-9c0f26d600cf102e2a3d3e33d25b716b
+    title: Sunnmørsposten 1989-08-21
+    year: 1989
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19890828-6c33274523a622274359f65302ed81ea
+    title: Sunnmørsposten 1989-08-28
+    year: 1989
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19890902-3fba0febfc1261248cecc906e8156099
+    title: Sunnmørsposten 1989-09-02
+    year: 1989
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19890911-7d18c6a6d8cc73586db0b88238fdb04a
+    title: Sunnmørsposten 1989-09-11
+    year: 1989
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19891009-420cf51e14000236508f06283d1ea612
+    title: Sunnmørsposten 1989-10-09
+    year: 1989
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19900430-fcf48771047d8e498cd8465335a140be
+    title: Sunnmørsposten 1990-04-30
+    year: 1990
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19900507-39848fa743ade67b859d45567d903f7d
+    title: Sunnmørsposten 1990-05-07
+    year: 1990
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19900514-752c2ff580f5d326638b2436387a076a
+    title: Sunnmørsposten 1990-05-14
+    year: 1990
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19900518-31cdb0cb3e2156a0b261a493c9e7d696
+    title: Sunnmørsposten 1990-05-18
+    year: 1990
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19900521-0e2247873e571212dcac2afb7cffd884
+    title: Sunnmørsposten 1990-05-21
+    year: 1990
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19900526-1d1f8eff34908c6ce8ba131b1e252506
+    title: Sunnmørsposten 1990-05-26
+    year: 1990
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19900528-4cb441a9a829ec857c3024081ff29399
+    title: Sunnmørsposten 1990-05-28
+    year: 1990
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19900605-0d21a03339d2129ac950561309e21ac1
+    title: Sunnmørsposten 1990-06-05
+    year: 1990
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19900607-71c9456f3fe5f0eb7f1d89967a957ae5
+    title: Sunnmørsposten 1990-06-07
+    year: 1990
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19900609-e549f6c1b950e24d476ccfbff8b46416
+    title: Sunnmørsposten 1990-06-09
+    year: 1990
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19900618-3ee5e8d99f1386bf9baf74335c236bf9
+    title: Sunnmørsposten 1990-06-18
+    year: 1990
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19900625-c2cecbfbd516aad566a02f5a38ad7d01
+    title: Sunnmørsposten 1990-06-25
+    year: 1990
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19900702-3a44a75d4f17f237ec4163e7cb7b8f98
+    title: Sunnmørsposten 1990-07-02
+    year: 1990
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19900723-5724abe81d53210c2448c4e5617ad074
+    title: Sunnmørsposten 1990-07-23
+    year: 1990
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19900726-79cc00e70bf692f1d51e275f5f6af398
+    title: Sunnmørsposten 1990-07-26
+    year: 1990
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19900730-98909c2e8898884fb79a89eb999f147d
+    title: Sunnmørsposten 1990-07-30
+    year: 1990
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19900807-101ec7be5cccc09fed1d5bd3a16cbaa7
+    title: Sunnmørsposten 1990-08-07
+    year: 1990
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19900813-4266f2753545d777d3847cb77a095df2
+    title: Sunnmørsposten 1990-08-13
+    year: 1990
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19900820-91cdc51f78609baffd5093997c494bc6
+    title: Sunnmørsposten 1990-08-20
+    year: 1990
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19900827-339b9b9c66469e1b0a0ca151cfdda5c2
+    title: Sunnmørsposten 1990-08-27
+    year: 1990
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19900903-02d1cdbcacdeb856f2078e29300a5a69
+    title: Sunnmørsposten 1990-09-03
+    year: 1990
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19900908-6b7b9a4804e890c71ecb3a973533037c
+    title: Sunnmørsposten 1990-09-08
+    year: 1990
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19900917-1d2b3456c11ae48df052d5370d5c4e31
+    title: Sunnmørsposten 1990-09-17
+    year: 1990
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19900924-d78fae0793932d346b39bdd59ce0237c
+    title: Sunnmørsposten 1990-09-24
+    year: 1990
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19901001-55ce406c3ba4fe022bd30737c54d3454
+    title: Sunnmørsposten 1990-10-01
+    year: 1990
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19910429-d2898d5562d066f6efc72e98996259a7
+    title: Sunnmørsposten 1991-04-29
+    year: 1991
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19910506-6ecdc2938374e91ac7449111e3f19037
+    title: Sunnmørsposten 1991-05-06
+    year: 1991
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19910513-91d201888e0b2eb975a4fdfb2d637311
+    title: Sunnmørsposten 1991-05-13
+    year: 1991
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19910521-cfbd5a9c350da4d88aaec7f9349b14f0
+    title: Sunnmørsposten 1991-05-21
+    year: 1991
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19910527-69b1ab872448a50f579d4d2fd942dd29
+    title: Sunnmørsposten 1991-05-27
+    year: 1991
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19910530-7a1952e5e2aa6afd384bc348c0aac4d5
+    title: Sunnmørsposten 1991-05-30
+    year: 1991
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19910603-600ac355dc22f62a0759c9ab01c3edd0
+    title: Sunnmørsposten 1991-06-03
+    year: 1991
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19910617-29d74956c8ba4512212db30f22c17e48
+    title: Sunnmørsposten 1991-06-17
+    year: 1991
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19910624-d45bd3aaffddb196bc1be61d91f13687
+    title: Sunnmørsposten 1991-06-24
+    year: 1991
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19910627-43c0db7a1889bc8f761b011049b81a65
+    title: Sunnmørsposten 1991-06-27
+    year: 1991
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19910715-557dc50bb5ec52c8ba815d5e5d7f8af6
+    title: Sunnmørsposten 1991-07-15
+    year: 1991
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19910722-ab373771a00a0c4321394c0d3d77a837
+    title: Sunnmørsposten 1991-07-22
+    year: 1991
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19910730-239523a2eaf4bc7e99a09ca2f3f58bee
+    title: Sunnmørsposten 1991-07-30
+    year: 1991
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19910805-a61171a1e8673ffe3a3fd247f334b1c2
+    title: Sunnmørsposten 1991-08-05
+    year: 1991
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19910810-58421ec24fa3ea7fbba80ea1fb7d369b
+    title: Sunnmørsposten 1991-08-10
+    year: 1991
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19910819-0d1596d310482eb32fb84c7e74e26145
+    title: Sunnmørsposten 1991-08-19
+    year: 1991
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19910826-333dcae56f35d19a5a1793e6a45d3cb1
+    title: Sunnmørsposten 1991-08-26
+    year: 1991
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19910902-5182d3581d1ce171efcad31149ff2062
+    title: Sunnmørsposten 1991-09-02
+    year: 1991
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19910909-cd90c98e69c5b08e2d4ad22de343b0a2
+    title: Sunnmørsposten 1991-09-09
+    year: 1991
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19910916-9ceca56f58530b22310294929f0fa5dd
+    title: Sunnmørsposten 1991-09-16
+    year: 1991
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19910923-c13435da4440b05c643921463bc2588e
+    title: Sunnmørsposten 1991-09-23
+    year: 1991
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19910930-758146ae28c4526136c14ece6b2cc9e6
+    title: Sunnmørsposten 1991-09-30
+    year: 1991
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19911007-23c7ec674bf85a0d584f96ecbc53bfa5
+    title: Sunnmørsposten 1991-10-07
+    year: 1991
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19920427-fd52cbcf4709fe00ddecb34d94cfeaae
+    title: Sunnmørsposten 1992-04-27
+    year: 1992
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19920504-435e9275a37e44f27836b10f8ef2528f
+    title: Sunnmørsposten 1992-05-04
+    year: 1992
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19920518-0035f108262f8ca45aa7f8de3c45b143
+    title: Sunnmørsposten 1992-05-18
+    year: 1992
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19920521-3aa28b02c29bb14227f19a83b07d6d8c
+    title: Sunnmørsposten 1992-05-21
+    year: 1992
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19920525-921c58d24802e990d0f7803a9086aa43
+    title: Sunnmørsposten 1992-05-25
+    year: 1992
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19920529-a64dac2af620968fa6cea803b79b7f37
+    title: Sunnmørsposten 1992-05-29
+    year: 1992
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19920609-54facd7b38785920b9826dfb9348e383
+    title: Sunnmørsposten 1992-06-09
+    year: 1992
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19920612-b48862ab4c22a33f79243924d1375dc4
+    title: Sunnmørsposten 1992-06-12
+    year: 1992
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19920622-cb498f629915277a5f49bf67da9aac63
+    title: Sunnmørsposten 1992-06-22
+    year: 1992
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19920713-8f9daade9efeaf822d6b2a37b0ae41a8
+    title: Sunnmørsposten 1992-07-13
+    year: 1992
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19920716-6c8d37e716da2149378e20e7eaa0ad5a
+    title: Sunnmørsposten 1992-07-16
+    year: 1992
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19920720-49cd2ae5258b46580d92128c7134ea8a
+    title: Sunnmørsposten 1992-07-20
+    year: 1992
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19920727-5059cbe9def4ab38a04fdf96ae786123
+    title: Sunnmørsposten 1992-07-27
+    year: 1992
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19920803-282ff5ccd2ce1098c31f44fa081b7a59
+    title: Sunnmørsposten 1992-08-03
+    year: 1992
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19920810-117e663c804d5756ae7a4704b6f25eb3
+    title: Sunnmørsposten 1992-08-10
+    year: 1992
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19920817-122a8f93b87e5881c045015925389ba8
+    title: Sunnmørsposten 1992-08-17
+    year: 1992
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19920824-3608324aee30a0963eef889eb299366b
+    title: Sunnmørsposten 1992-08-24
+    year: 1992
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19920831-52233326edb637bc9f0f4a512e3997f7
+    title: Sunnmørsposten 1992-08-31
+    year: 1992
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19920907-4338ea7da24a102d1ccdbc47adf4aa10
+    title: Sunnmørsposten 1992-09-07
+    year: 1992
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19920921-1ce8ca86f927164dd2201c9b562545db
+    title: Sunnmørsposten 1992-09-21
+    year: 1992
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19920925-02c044d75c4c52ef438b988095f542d1
+    title: Sunnmørsposten 1992-09-25
+    year: 1992
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19921005-e2f192b8ef32f8b3eb24ab20b84fc2b5
+    title: Sunnmørsposten 1992-10-05
+    year: 1992
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19930503-74e58a6f0643ee8f391288814168c6e7
+    title: Sunnmørsposten 1993-05-03
+    year: 1993
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19930510-6621571165b677adeb3f1e3270528cfe
+    title: Sunnmørsposten 1993-05-10
+    year: 1993
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19930518-2be40bf7d4756b067bca7e014faa5eef
+    title: Sunnmørsposten 1993-05-18
+    year: 1993
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19930524-a690d3c0d6353d7645feaf2375ba4042
+    title: Sunnmørsposten 1993-05-24
+    year: 1993
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19930527-b8a12b3a8407c5219b0fa7900031dea9
+    title: Sunnmørsposten 1993-05-27
+    year: 1993
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19930601-0600271df108d390f14abc15b997ba1b
+    title: Sunnmørsposten 1993-06-01
+    year: 1993
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19930614-cfa32762790768d85fc5ea14c837c30b
+    title: Sunnmørsposten 1993-06-14
+    year: 1993
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19930617-fb237351e298b4ae7a7c437ceb060673
+    title: Sunnmørsposten 1993-06-17
+    year: 1993
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19930621-e2f7d0a08b940cd93374d6738b518444
+    title: Sunnmørsposten 1993-06-21
+    year: 1993
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19930624-a79e8a0b8aef957e324c4148fdb9b2df
+    title: Sunnmørsposten 1993-06-24
+    year: 1993
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19930629-4f587cef7b0ef59314f1732c5fb5ceec
+    title: Sunnmørsposten 1993-06-29
+    year: 1993
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19930720-719da68f3db36dd31210702866269e1c
+    title: Sunnmørsposten 1993-07-20
+    year: 1993
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19930726-1267a3b9f200659fe649f910b3a918a4
+    title: Sunnmørsposten 1993-07-26
+    year: 1993
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19930802-58ddb4af6f0a3e1e737fd679d9e57e04
+    title: Sunnmørsposten 1993-08-02
+    year: 1993
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19930809-3f0ee19cda7a43eb1ceee72d4d197a1e
+    title: Sunnmørsposten 1993-08-09
+    year: 1993
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19930816-069793f74a922ad0768a96a8462528d1
+    title: Sunnmørsposten 1993-08-16
+    year: 1993
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19930823-4f112ec1b350d16b068db3c478bd1437
+    title: Sunnmørsposten 1993-08-23
+    year: 1993
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19930830-38452a431b44c9901eceb1bc0612edcc
+    title: Sunnmørsposten 1993-08-30
+    year: 1993
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19930906-194344591adc6281c73f87716b7ccabc
+    title: Sunnmørsposten 1993-09-06
+    year: 1993
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19930913-bc765cbe1d042fef8879d727fdccec01
+    title: Sunnmørsposten 1993-09-13
+    year: 1993
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19930920-c052754ef1d84adc0b6d4c4f2cefdd95
+    title: Sunnmørsposten 1993-09-20
+    year: 1993
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19931004-b101d7e81b2535f5baf22aeb30d91d01
+    title: Sunnmørsposten 1993-10-04
+    year: 1993
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19940505-2e44c66c764c23920ee050f114262298
+    title: Sunnmørsposten 1994-05-05
+    year: 1994
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19940520-bc3a98c67088e9a143c3576ec410f0a9
+    title: Sunnmørsposten 1994-05-20
+    year: 1994
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19950502-38b1a575da5f5b47dd2b8086017f17c4
+    title: Sunnmørsposten 1995-05-02
+    year: 1995
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19950508-bafda5250b0505f25adfbba01e455eb0
+    title: Sunnmørsposten 1995-05-08
+    year: 1995
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19950511-03f3e3a753b3554d38028cd644d5a1b9
+    title: Sunnmørsposten 1995-05-11
+    year: 1995
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19950512-8f0425010eb8ae398549a129cfd56e0a
+    title: Sunnmørsposten 1995-05-12
+    year: 1995
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19950522-f62665abcd18780180e3f78a9924499a
+    title: Sunnmørsposten 1995-05-22
+    year: 1995
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19950529-c869596cb653625d34c1b338281fae95
+    title: Sunnmørsposten 1995-05-29
+    year: 1995
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19950601-9dd017b1e79a884ea38fd5e0f6a36c69
+    title: Sunnmørsposten 1995-06-01
+    year: 1995
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19950606-dc46f43897b6662871ffb3796aadc1db
+    title: Sunnmørsposten 1995-06-06
+    year: 1995
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19950612-ed1e05391ff2306986266636a3edfa99
+    title: Sunnmørsposten 1995-06-12
+    year: 1995
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19950619-46c5c64ee727dc92ec2cecc06fae4112
+    title: Sunnmørsposten 1995-06-19
+    year: 1995
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19950622-1bf990481218bd116b80ff86bd403a66
+    title: Sunnmørsposten 1995-06-22
+    year: 1995
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19950626-91d03675825f9e57cfa7bd830e10f42a
+    title: Sunnmørsposten 1995-06-26
+    year: 1995
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19950703-4882e4e0ceb7d7fae021afe945540c22
+    title: Sunnmørsposten 1995-07-03
+    year: 1995
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19950710-c5b10b9dd03261226994853ab6ed598b
+    title: Sunnmørsposten 1995-07-10
+    year: 1995
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19950724-3cc9eddac9e7f07cad1fd35066681946
+    title: Sunnmørsposten 1995-07-24
+    year: 1995
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19950731-577403d9c28c01e09911bea784d60dba
+    title: Sunnmørsposten 1995-07-31
+    year: 1995
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19950807-3a5a30f383018dfe131929e98bc9d273
+    title: Sunnmørsposten 1995-08-07
+    year: 1995
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19950812-e50434b22f8c3dd5940b233a2c921e0b
+    title: Sunnmørsposten 1995-08-12
+    year: 1995
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19950821-409badd0597778b6e314107467738046
+    title: Sunnmørsposten 1995-08-21
+    year: 1995
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19950828-3a1cf74f80a567475d488142ab53c1f7
+    title: Sunnmørsposten 1995-08-28
+    year: 1995
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19950904-4adea18990f42011088b68b69103728b
+    title: Sunnmørsposten 1995-09-04
+    year: 1995
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19950918-03fbe6c80cbef62ca97c46d7e8b0bcef
+    title: Sunnmørsposten 1995-09-18
+    year: 1995
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19950925-2df168625ba5df7688558e8dc74d3577
+    title: Sunnmørsposten 1995-09-25
+    year: 1995
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19951002-af077092985e4874d28596893a6620c9
+    title: Sunnmørsposten 1995-10-02
+    year: 1995
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19960429-1783c21c9b8ea856c6eb7d4985fdfa76
+    title: Sunnmørsposten 1996-04-29
+    year: 1996
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19960506-1113b459b2eea8b25edb59055381e440
+    title: Sunnmørsposten 1996-05-06
+    year: 1996
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19960513-1eb844bc114b595b5403a5c5d2568c6b
+    title: Sunnmørsposten 1996-05-13
+    year: 1996
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19960518-9d4d42b2eba8048da19a5abf4e2af27c
+    title: Sunnmørsposten 1996-05-18
+    year: 1996
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19960520-edfb955de1bfc93ab18b876b7aa46d02
+    title: Sunnmørsposten 1996-05-20
+    year: 1996
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19960524-eb269a040aff2992d164569c9761a22b
+    title: Sunnmørsposten 1996-05-24
+    year: 1996
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19960528-512e6d0c5a507d2e951e2e13b0468a52
+    title: Sunnmørsposten 1996-05-28
+    year: 1996
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19960603-ba40c12812f145b4a45d67ef5346bce1
+    title: Sunnmørsposten 1996-06-03
+    year: 1996
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19960617-8ca4e8bc064184bba10741c1bbfe8bd5
+    title: Sunnmørsposten 1996-06-17
+    year: 1996
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19960624-e739831b9d5b95a121590efc53c33133
+    title: Sunnmørsposten 1996-06-24
+    year: 1996
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19960701-7ec8e8365a2bd26a24f378cf2fb5e934
+    title: Sunnmørsposten 1996-07-01
+    year: 1996
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19960725-26dc6e50b4110a534dab855234a5f0df
+    title: Sunnmørsposten 1996-07-25
+    year: 1996
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19960729-54d36698d0a1c9dc49735a889bd1edb0
+    title: Sunnmørsposten 1996-07-29
+    year: 1996
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19960805-509fbb5500998e95e0a31f768349269c
+    title: Sunnmørsposten 1996-08-05
+    year: 1996
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19960812-8b9d3dce72749c18ef145bb83ac4146c
+    title: Sunnmørsposten 1996-08-12
+    year: 1996
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19960819-163f01e120f9977c570c753171a08255
+    title: Sunnmørsposten 1996-08-19
+    year: 1996
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19960826-b62f385dfdd079dcd86463d1e6dffca7
+    title: Sunnmørsposten 1996-08-26
+    year: 1996
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19960902-dcda312bb06b7a6fd806ad4487636793
+    title: Sunnmørsposten 1996-09-02
+    year: 1996
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19960909-ad9ab9b801e41245e1d482f3b1bfa873
+    title: Sunnmørsposten 1996-09-09
+    year: 1996
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19960916-13e545860bcd6b0fe279b7250c59e032
+    title: Sunnmørsposten 1996-09-16
+    year: 1996
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19960923-6f8b7c45fcb5eecb2b792674902223be
+    title: Sunnmørsposten 1996-09-23
+    year: 1996
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19970421-506a119e961d9ae3179ac82fceff64c9
+    title: Sunnmørsposten 1997-04-21
+    year: 1997
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19970507-947929ba32d051b627bf4628a0c9f1f5
+    title: Sunnmørsposten 1997-05-07
+    year: 1997
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19970509-e546051cadec9bade890309a951ef97a
+    title: Sunnmørsposten 1997-05-09
+    year: 1997
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19970516-b57bafd82ceb925dc60e3e769d6af8cc
+    title: Sunnmørsposten 1997-05-16
+    year: 1997
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19970522-7ae2307383955b7440282c272db78f53
+    title: Sunnmørsposten 1997-05-22
+    year: 1997
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19970526-4425377f61a6a5d62b098369f5ea6bf1
+    title: Sunnmørsposten 1997-05-26
+    year: 1997
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19970602-1bf82caaac45a9d3e3726c885b39fe01
+    title: Sunnmørsposten 1997-06-02
+    year: 1997
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19970609-c91170e8d901956291228d114aae731f
+    title: Sunnmørsposten 1997-06-09
+    year: 1997
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19970616-89a5cb1437cb295d151fce643e57eb81
+    title: Sunnmørsposten 1997-06-16
+    year: 1997
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19970623-257d692e31b57cdb9f8f473134195da3
+    title: Sunnmørsposten 1997-06-23
+    year: 1997
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19970630-2127c352531250bf8e9ed96a2b940b30
+    title: Sunnmørsposten 1997-06-30
+    year: 1997
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19970707-9a593fab267aec8d5445b5089411d63d
+    title: Sunnmørsposten 1997-07-07
+    year: 1997
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19970715-c643bdf883231f1b34798018e8324f73
+    title: Sunnmørsposten 1997-07-15
+    year: 1997
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19970721-7c2f5c920f2053934b8f5d6a3c31bff4
+    title: Sunnmørsposten 1997-07-21
+    year: 1997
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19970801-d04279bb4f14683a3f6ad8caa859b69c
+    title: Sunnmørsposten 1997-08-01
+    year: 1997
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19970811-b88b196d165a8c11cf9ecac11af43e79
+    title: Sunnmørsposten 1997-08-11
+    year: 1997
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19970818-34a0c6540a9f00b6f62ca00a150b2848
+    title: Sunnmørsposten 1997-08-18
+    year: 1997
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19970825-62cdf137db0909ffd2f27a1dff4b442c
+    title: Sunnmørsposten 1997-08-25
+    year: 1997
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19970901-e2fa59b3f1099cb3e5c7c5ef5af0ab6e
+    title: Sunnmørsposten 1997-09-01
+    year: 1997
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19970906-e33e2ac5fb555c11e88787932de1cea9
+    title: Sunnmørsposten 1997-09-06
+    year: 1997
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19970915-83fa9e60bc23747b239791b26c0ce0d3
+    title: Sunnmørsposten 1997-09-15
+    year: 1997
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19970922-3c9b4d11d28f631099dcd3d0795f7db4
+    title: Sunnmørsposten 1997-09-22
+    year: 1997
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19970929-8f8cc9fd4d6564a2a20a1e353827f319
+    title: Sunnmørsposten 1997-09-29
+    year: 1997
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19971013-319f74c658ab8135231bcfd2653e01b0
+    title: Sunnmørsposten 1997-10-13
+    year: 1997
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19980420-8eb436f50230307c23a93167e3232ded
+    title: Sunnmørsposten 1998-04-20
+    year: 1998
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19980427-0db67c6b14833c1e07998c892a31d1c3
+    title: Sunnmørsposten 1998-04-27
+    year: 1998
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19980504-1290e77ffaa4706638b7f48e3b3a0d84
+    title: Sunnmørsposten 1998-05-04
+    year: 1998
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19980511-68d9f846b40253d4345f3f3a8d995051
+    title: Sunnmørsposten 1998-05-11
+    year: 1998
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19980513-00f4e12867aaa3be72c1199733c54cc6
+    title: Sunnmørsposten 1998-05-13
+    year: 1998
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19980518-1e7ab9d141f291434442d04ade8f3dcb
+    title: Sunnmørsposten 1998-05-18
+    year: 1998
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19980522-283cdd3e6cabe0f256c3c461ad389d6a
+    title: Sunnmørsposten 1998-05-22
+    year: 1998
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19980525-4f8d1cdf10a7d18d2e33521092ccfe19
+    title: Sunnmørsposten 1998-05-25
+    year: 1998
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19980530-e047c03eda7c43ff359f2569cf3e261e
+    title: Sunnmørsposten 1998-05-30
+    year: 1998
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19980602-fba39abb2cd38a7de1ec890168783aea
+    title: Sunnmørsposten 1998-06-02
+    year: 1998
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19980605-48a06b6deeabd3d983dee8d7bcf08b15
+    title: Sunnmørsposten 1998-06-05
+    year: 1998
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19980608-41f73b0c8385002719c9c3352163b252
+    title: Sunnmørsposten 1998-06-08
+    year: 1998
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19980615-34268fd70ab397f5be99a55034ec597f
+    title: Sunnmørsposten 1998-06-15
+    year: 1998
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19980622-5ae2e8f00d918f0298db71731f12631b
+    title: Sunnmørsposten 1998-06-22
+    year: 1998
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19980706-2b0d394476ab1c0f093ac61da4e87158
+    title: Sunnmørsposten 1998-07-06
+    year: 1998
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19980713-dd16580df74ceb74837d08dacd85f107
+    title: Sunnmørsposten 1998-07-13
+    year: 1998
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19980803-0f641e3012daa063fc75abbc168832db
+    title: Sunnmørsposten 1998-08-03
+    year: 1998
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19980810-c41426bb3a73c7dca220a75990aa09d2
+    title: Sunnmørsposten 1998-08-10
+    year: 1998
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19980817-c19d3f6291b8fec9932d62fd5533375d
+    title: Sunnmørsposten 1998-08-17
+    year: 1998
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19980824-61ca75d799b395315d2caf3a1601df93
+    title: Sunnmørsposten 1998-08-24
+    year: 1998
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19980907-6e79f2d0b83748f7f09a38d8be4e05e9
+    title: Sunnmørsposten 1998-09-07
+    year: 1998
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19980914-f4aab34723258938f281072e387fd908
+    title: Sunnmørsposten 1998-09-14
+    year: 1998
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19980921-a970fd32fd62864199c167402789995b
+    title: Sunnmørsposten 1998-09-21
+    year: 1998
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19980928-015e52f597aae84aa296c14d83bbc3b1
+    title: Sunnmørsposten 1998-09-28
+    year: 1998
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19981005-4706ee4813ec1484663d90516ba7b553
+    title: Sunnmørsposten 1998-10-05
+    year: 1998
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19981019-4b1a60ea855bb3357a03561013ab68e8
+    title: Sunnmørsposten 1998-10-19
+    year: 1998
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19990503-a42bb829256e2dcd2cdba7e5b3a50c5f
+    title: Sunnmørsposten 1999-05-03
+    year: 1999
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19990506-5cd6eada1adbfcc93c1606e6e2cf1b31
+    title: Sunnmørsposten 1999-05-06
+    year: 1999
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19990510-df8d1b790cfb83971840f178e9b58720
+    title: Sunnmørsposten 1999-05-10
+    year: 1999
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19990525-37cec61c0683346b58d667de9ce1233c
+    title: Sunnmørsposten 1999-05-25
+    year: 1999
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19990708-58dfcb628880a36ed481b40c7ade5346
+    title: Sunnmørsposten 1999-07-08
+    year: 1999
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19990712-18904b4981867d1d1cb84f437d1a69d3
+    title: Sunnmørsposten 1999-07-12
+    year: 1999
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19990802-4a7afd1ff9c62553f3ec27d1bac0924e
+    title: Sunnmørsposten 1999-08-02
+    year: 1999
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19990814-94be228d478ef246160beb807ce47155
+    title: Sunnmørsposten 1999-08-14
+    year: 1999
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19990824-c792a1ebb61accb633f158b9c12f1898
+    title: Sunnmørsposten 1999-08-24
+    year: 1999
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19990913-3fe97412b1c3fac8ab3c4884b18dcecc
+    title: Sunnmørsposten 1999-09-13
+    year: 1999
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19990920-81cd5ae813c8084b82277761675caea1
+    title: Sunnmørsposten 1999-09-20
+    year: 1999
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19991004-84e26db039f8730da122cc6b22d659fe
+    title: Sunnmørsposten 1999-10-04
+    year: 1999
+    reviewStatus: reviewed
+  - sourceId: sunnmorsposten-19991011-f15e67f870779fca91d9610ad4503a45
+    title: Sunnmørsposten 1999-10-11
+    year: 1999
+    reviewStatus: reviewed
+coverage:
+  mode: sections
+  expected: 378
+  reviewed: 378
+passes:
+  facsimile_review:
+    status: skipped
+    findings: 0
+    note: Produksjonspolicyen bruker NB OCR-API uten obligatorisk faksimilekontroll per kamp.
+  explicit_results:
+    status: reviewed
+    findings: 318
+    note: 378 kampjobber; 318 kampkoblinger til 318 aviskilder.
+  people_and_roles:
+    status: skipped
+    findings: 0
+    note: Ingen personer uten entydig rolle- og identitetsbinding.
+  organization:
+    status: skipped
+    findings: 0
+    note: Ikke del av kampberikelsen.
+  retrospectives_and_claims:
+    status: skipped
+    findings: 0
+    note: Ikke del av datoankret samtidig omtale.
+  observations:
+    status: skipped
+    findings: 0
+    note: Ingen historiske observasjoner skrevet.
+reviewMethod:
+  facsimile: unavailable
+  reason: Batchen følger den kalibrerte policyen for datoankret canonical avisberikelse og bruker NB OCR-API.
+review:
+  file: docs/data/reviews/sunnmorsposten-1980-1999-production.md
+findings:
+  - id: conflict-1981-06-24-4dd4461c
+    source:
+      sourceId: sunnmorsposten-19810625-4dd4461c565f6a59ef0cad73937e66bc
+      page: "9"
+    type: source_conflict
+    claim:
+      text: OCR leser 3-0; canonical har 0-0.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+  - id: conflict-1983-08-14-5c6cf07c
+    source:
+      sourceId: sunnmorsposten-19830815-5c6cf07c684130e7a7c6a509e5e1ddfc
+      page: "10"
+    type: source_conflict
+    claim:
+      text: OCR leser 1-1; canonical har 3-2.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+  - id: conflict-1985-08-29-759275b8
+    source:
+      sourceId: sunnmorsposten-19850830-759275b8d5e96b5b3c9c364bb87f4361
+      page: "1"
+    type: source_conflict
+    claim:
+      text: OCR leser 0-0; canonical har 0-1.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+  - id: conflict-1986-08-17-5109adf4
+    source:
+      sourceId: sunnmorsposten-19860818-5109adf4ae165fca1656c1273fd11cf9
+      page: "9"
+    type: source_conflict
+    claim:
+      text: OCR leser 1-0; canonical har 3-2.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+  - id: conflict-1987-10-04-2d44e64f
+    source:
+      sourceId: sunnmorsposten-19871005-2d44e64fabd53d0e3737bbf952c39bef
+      page: "10"
+    type: source_conflict
+    claim:
+      text: OCR leser 2-1; canonical har 2-2.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+  - id: conflict-1989-04-30-dd11be5c
+    source:
+      sourceId: sunnmorsposten-19890502-dd11be5c6b595c958426e09310b4683e
+      page: "9"
+    type: source_conflict
+    claim:
+      text: OCR leser 9-14; canonical har 2-0.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+  - id: conflict-1989-06-04-c8d05c45
+    source:
+      sourceId: sunnmorsposten-19890605-c8d05c45299facb55714d443bf4c0983
+      page: "14"
+    type: source_conflict
+    claim:
+      text: OCR leser 2-0; canonical har 2-1.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+  - id: conflict-1989-06-18-21a2cd30
+    source:
+      sourceId: sunnmorsposten-19890619-21a2cd305b230f8f28a7790de04cba95
+      page: "15"
+    type: source_conflict
+    claim:
+      text: OCR leser 2-2; canonical har 4-2.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+  - id: conflict-1990-05-20-0e224787
+    source:
+      sourceId: sunnmorsposten-19900521-0e2247873e571212dcac2afb7cffd884
+      page: "14"
+    type: source_conflict
+    claim:
+      text: OCR leser 0-0; canonical har 0-1.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+  - id: conflict-1991-09-01-5182d358
+    source:
+      sourceId: sunnmorsposten-19910902-5182d3581d1ce171efcad31149ff2062
+      page: "15"
+    type: source_conflict
+    claim:
+      text: OCR leser 1-0; canonical har 3-1.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+  - id: conflict-1992-05-24-921c58d2
+    source:
+      sourceId: sunnmorsposten-19920525-921c58d24802e990d0f7803a9086aa43
+      page: "1"
+    type: source_conflict
+    claim:
+      text: OCR leser 5-0; canonical har 7-0.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+  - id: conflict-1992-06-08-54facd7b
+    source:
+      sourceId: sunnmorsposten-19920609-54facd7b38785920b9826dfb9348e383
+      page: "21"
+    type: source_conflict
+    claim:
+      text: OCR leser 6-0; canonical har 1-1.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+  - id: conflict-1992-10-04-e2f192b8
+    source:
+      sourceId: sunnmorsposten-19921005-e2f192b8ef32f8b3eb24ab20b84fc2b5
+      page: "15"
+    type: source_conflict
+    claim:
+      text: OCR leser 1-2; canonical har 2-2.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+  - id: conflict-1993-05-16-2be40bf7
+    source:
+      sourceId: sunnmorsposten-19930518-2be40bf7d4756b067bca7e014faa5eef
+      page: "18"
+    type: source_conflict
+    claim:
+      text: OCR leser 8-0; canonical har 0-4.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+  - id: conflict-1993-06-12-cfa32762
+    source:
+      sourceId: sunnmorsposten-19930614-cfa32762790768d85fc5ea14c837c30b
+      page: "18"
+    type: source_conflict
+    claim:
+      text: OCR leser 2-1; canonical har 4-2.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+  - id: conflict-1995-09-03-4adea189
+    source:
+      sourceId: sunnmorsposten-19950904-4adea18990f42011088b68b69103728b
+      page: "17"
+    type: source_conflict
+    claim:
+      text: OCR leser 3-3; canonical har 4-2.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+  - id: conflict-1995-09-16-03fbe6c8
+    source:
+      sourceId: sunnmorsposten-19950918-03fbe6c80cbef62ca97c46d7e8b0bcef
+      page: "19"
+    type: source_conflict
+    claim:
+      text: OCR leser 5-3; canonical har 5-0.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+  - id: conflict-1996-05-05-1113b459
+    source:
+      sourceId: sunnmorsposten-19960506-1113b459b2eea8b25edb59055381e440
+      page: "1"
+    type: source_conflict
+    claim:
+      text: OCR leser 0-7; canonical har 1-1.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+  - id: conflict-1996-06-16-8ca4e8bc
+    source:
+      sourceId: sunnmorsposten-19960617-8ca4e8bc064184bba10741c1bbfe8bd5
+      page: "1"
+    type: source_conflict
+    claim:
+      text: OCR leser 1-6; canonical har 2-2.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+  - id: conflict-1996-06-23-e739831b
+    source:
+      sourceId: sunnmorsposten-19960624-e739831b9d5b95a121590efc53c33133
+      page: "17"
+    type: source_conflict
+    claim:
+      text: OCR leser 2-0; canonical har 3-2.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+  - id: conflict-1998-05-03-1290e77f
+    source:
+      sourceId: sunnmorsposten-19980504-1290e77ffaa4706638b7f48e3b3a0d84
+      page: "17"
+    type: source_conflict
+    claim:
+      text: OCR leser 2-0; canonical har 3-0.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+  - id: conflict-1998-05-13-00f4e128
+    source:
+      sourceId: sunnmorsposten-19980513-00f4e12867aaa3be72c1199733c54cc6
+      page: "11"
+    type: source_conflict
+    claim:
+      text: OCR leser 4-0; canonical har 4-1.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+  - id: conflict-1998-06-07-41f73b0c
+    source:
+      sourceId: sunnmorsposten-19980608-41f73b0c8385002719c9c3352163b252
+      page: "19"
+    type: source_conflict
+    claim:
+      text: OCR leser 1-0; canonical har 2-1.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+  - id: conflict-1999-08-22-c792a1eb
+    source:
+      sourceId: sunnmorsposten-19990824-c792a1ebb61accb633f158b9c12f1898
+      page: "28"
+    type: source_conflict
+    claim:
+      text: OCR leser 2-0; canonical har 5-0.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+  - id: conflict-1999-10-10-f15e67f8
+    source:
+      sourceId: sunnmorsposten-19991011-f15e67f870779fca91d9610ad4503a45
+      page: "19"
+    type: source_conflict
+    claim:
+      text: OCR leser 8-1; canonical har 4-1.
+    confidence: uncertain
+    disposition: no_structured_action
+    status: unresolved
+unresolved:
+  - findingId: conflict-1981-06-24-4dd4461c
+    type: score-conflict-candidate
+    note: "1981-06-24-molde-fk-aalesunds-fk: canonical resultat er ikke endret."
+  - findingId: conflict-1983-08-14-5c6cf07c
+    type: score-conflict-candidate
+    note: "1983-08-14-steinkjer-aalesunds-fk: canonical resultat er ikke endret."
+  - findingId: conflict-1985-08-29-759275b8
+    type: score-conflict-candidate
+    note: "1985-08-29-strindheim-aalesunds-fk: canonical resultat er ikke endret."
+  - findingId: conflict-1986-08-17-5109adf4
+    type: score-conflict-candidate
+    note: "1986-08-17-hodd-aalesunds-fk: canonical resultat er ikke endret."
+  - findingId: conflict-1987-10-04-2d44e64f
+    type: score-conflict-candidate
+    note: "1987-10-04-skeid-aalesunds-fk: canonical resultat er ikke endret."
+  - findingId: conflict-1989-04-30-dd11be5c
+    type: score-conflict-candidate
+    note: "1989-04-30-stord-aalesunds-fk: canonical resultat er ikke endret."
+  - findingId: conflict-1989-06-04-c8d05c45
+    type: score-conflict-candidate
+    note: "1989-06-04-bryne-aalesunds-fk: canonical resultat er ikke endret."
+  - findingId: conflict-1989-06-18-21a2cd30
+    type: score-conflict-candidate
+    note: "1989-06-18-fyllingen-aalesunds-fk: canonical resultat er ikke endret."
+  - findingId: conflict-1990-05-20-0e224787
+    type: score-conflict-candidate
+    note: "1990-05-20-stord-aalesunds-fk: canonical resultat er ikke endret."
+  - findingId: conflict-1991-09-01-5182d358
+    type: score-conflict-candidate
+    note: "1991-09-01-aalesunds-fk-haugar: canonical resultat er ikke endret."
+  - findingId: conflict-1992-05-24-921c58d2
+    type: score-conflict-candidate
+    note: "1992-05-24-aalesunds-fk-haugar: canonical resultat er ikke endret."
+  - findingId: conflict-1992-06-08-54facd7b
+    type: score-conflict-candidate
+    note: "1992-06-08-aalesunds-fk-fana: canonical resultat er ikke endret."
+  - findingId: conflict-1992-10-04-e2f192b8
+    type: score-conflict-candidate
+    note: "1992-10-04-aalesunds-fk-os: canonical resultat er ikke endret."
+  - findingId: conflict-1993-05-16-2be40bf7
+    type: score-conflict-candidate
+    note: "1993-05-16-aalesunds-fk-asane: canonical resultat er ikke endret."
+  - findingId: conflict-1993-06-12-cfa32762
+    type: score-conflict-candidate
+    note: "1993-06-12-fana-aalesunds-fk: canonical resultat er ikke endret."
+  - findingId: conflict-1995-09-03-4adea189
+    type: score-conflict-candidate
+    note: "1995-09-03-aalesunds-fk-fyllingen: canonical resultat er ikke endret."
+  - findingId: conflict-1995-09-16-03fbe6c8
+    type: score-conflict-candidate
+    note: "1995-09-16-aalesunds-fk-fana: canonical resultat er ikke endret."
+  - findingId: conflict-1996-05-05-1113b459
+    type: score-conflict-candidate
+    note: "1996-05-05-aalesunds-fk-fyllingen: canonical resultat er ikke endret."
+  - findingId: conflict-1996-06-16-8ca4e8bc
+    type: score-conflict-candidate
+    note: "1996-06-16-aalesunds-fk-bryne: canonical resultat er ikke endret."
+  - findingId: conflict-1996-06-23-e739831b
+    type: score-conflict-candidate
+    note: "1996-06-23-sogndal-aalesunds-fk: canonical resultat er ikke endret."
+  - findingId: conflict-1998-05-03-1290e77f
+    type: score-conflict-candidate
+    note: "1998-05-03-aalesunds-fk-bryne: canonical resultat er ikke endret."
+  - findingId: conflict-1998-05-13-00f4e128
+    type: score-conflict-candidate
+    note: "1998-05-13-aalesunds-fk-clausenengen: canonical resultat er ikke endret."
+  - findingId: conflict-1998-06-07-41f73b0c
+    type: score-conflict-candidate
+    note: "1998-06-07-aalesunds-fk-raufoss-il: canonical resultat er ikke endret."
+  - findingId: conflict-1999-08-22-c792a1eb
+    type: score-conflict-candidate
+    note: "1999-08-22-aalesunds-fk-traeff: canonical resultat er ikke endret."
+  - findingId: conflict-1999-10-10-f15e67f8
+    type: score-conflict-candidate
+    note: "1999-10-10-tromsdalen-aalesunds-fk: canonical resultat er ikke endret."
+previousWork:
+  pullRequests:
+    - 217
+    - 219
+    - 220
+    - 221
+    - 223
+    - 226
+  notes:
+    - "PR #217–#223 etablerte og skalerte produksjonsløypa til 1915–1979; PR #226 korrigerte permanente avissidelenker."
+baseRevision: "4108e926"
+createdAt: 2026-08-24
+notes:
+  - Alle 378 kamper ble kjørt; 318 aviskilder ble koblet til 318 kampjobber.
+  - Ingen beskyttet OCR-tekst er lagret.

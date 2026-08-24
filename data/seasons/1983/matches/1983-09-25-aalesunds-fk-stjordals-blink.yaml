@@ -1,5 +1,5 @@
 id: 1983-09-25-aalesunds-fk-stjordals-blink
-date: '1983-09-25'
+date: 1983-09-25
 dateConfidence: exact
 status: played
 competition:
@@ -17,26 +17,39 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/cf1db10c2032997970ef4274240c4f91?page=7
+    date: 1983-09-27
 providers:
-- providerId: fotball-no
-  url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83034&underside=kamper
-  retrievedAt: '2026-08-05'
-  fields:
-  - date
-  - status
-  - competition
-  - competition.round
-  - home.clubId
-  - away.clubId
-  - home.score
-  - away.score
-  note: NFF kampnummer 99117.
+  - providerId: fotball-no
+    url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83034&underside=kamper
+    retrievedAt: 2026-08-05
+    fields:
+      - date
+      - status
+      - competition
+      - competition.round
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: NFF kampnummer 99117.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/cf1db10c2032997970ef4274240c4f91?page=7
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
 confidence: confirmed
 conflicts: []
 tags: []
 aliases:
-  fotball-no: '99117'
+  fotball-no: "99117"
 manual: []
-note: Bane og klokkeslett er bevisst utelatt. NFF-siden viser gjennomgående 00:00 og flere banefelt som
-  åpenbart tilhører andre kamper.
+note: Bane og klokkeslett er bevisst utelatt. NFF-siden viser gjennomgående 00:00 og flere banefelt som åpenbart tilhører andre kamper.
+sources:
+  - sourceId: sunnmorsposten-19830927-cf1db10c2032997970ef4274240c4f91
+    page: "8"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/2e44c66c764c23920ee050f114262298?page=19
+    date: 1994-05-05
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1994/Cup.html
@@ -31,9 +34,23 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/2e44c66c764c23920ee050f114262298?page=19
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1994-cup-1994-05-04-brattvag-aalesunds-fk
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19940505-2e44c66c764c23920ee050f114262298
+    page: "20"
+    fields:
+      - externalReports
+      - attendance
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 200

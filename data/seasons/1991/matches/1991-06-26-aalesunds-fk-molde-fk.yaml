@@ -17,7 +17,10 @@ away:
   halfTimeScore: null
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/43c0db7a1889bc8f761b011049b81a65?page=0
+    date: 1991-06-27
 providers:
   - providerId: rsssf
     url: http://www.rsssf.no/1991/Cup.html
@@ -31,9 +34,20 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/43c0db7a1889bc8f761b011049b81a65?page=0
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1991-cup-1991-06-26-aalesunds-fk-molde
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19910627-43c0db7a1889bc8f761b011049b81a65
+    page: "1"
+    fields:
+      - externalReports
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.

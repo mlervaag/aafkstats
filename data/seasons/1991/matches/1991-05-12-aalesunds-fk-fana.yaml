@@ -10,14 +10,17 @@ competition:
 home:
   clubId: aalesunds-fk
   score: 6
-  halfTimeScore: null
+  halfTimeScore: 3
 away:
   clubId: fana
   score: 0
-  halfTimeScore: null
+  halfTimeScore: 0
 neutralVenue: false
 events: []
-externalReports: []
+externalReports:
+  - publisher: Sunnmørsposten
+    url: https://www.nb.no/items/91d201888e0b2eb975a4fdfb2d637311?page=14
+    date: 1991-05-13
 providers:
   - providerId: fotball-no
     url: https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=83058&underside=kamper
@@ -32,6 +35,15 @@ providers:
       - home.score
       - away.score
     note: NFF kampnummer 99015.
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/91d201888e0b2eb975a4fdfb2d637311?page=14
+    retrievedAt: 2026-08-24
+    fields:
+      - externalReports
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
 confidence: confirmed
 conflicts: []
 tags: []
@@ -39,3 +51,15 @@ aliases:
   fotball-no: "99015"
 manual: []
 note: Bane og klokkeslett er utelatt. Kontroller disse feltene manuelt før eventuell import.
+sources:
+  - sourceId: sunnmorsposten-19910513-91d201888e0b2eb975a4fdfb2d637311
+    page: "15"
+    fields:
+      - externalReports
+      - attendance
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+attendance: 1400
+venueId: kramyra-stadion

@@ -31,9 +31,18 @@ providers:
       - home.score
       - away.score
       - competition.round
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/0db67c6b14833c1e07998c892a31d1c3?page=20
+    retrievedAt: 2026-08-24
+    fields: []
 confidence: probable
 conflicts: []
 tags: []
 aliases:
   rsssf: 1998-first-1998-04-26-aalesunds-fk-start
 manual: []
+sources:
+  - sourceId: sunnmorsposten-19980427-0db67c6b14833c1e07998c892a31d1c3
+    page: "21"
+    fields: []
+    note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
