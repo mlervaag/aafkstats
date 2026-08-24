@@ -53,6 +53,7 @@
     "data:nb-newspaper-review": "pnpm --filter @aafkstats/ingest run nb-newspaper-review",
     "ingest:nb-newspaper-discover": "pnpm --filter @aafkstats/ingest run nb-newspaper-discover",
     "ingest:nb-newspaper-sibling-pilot": "pnpm --filter @aafkstats/ingest run nb-newspaper-sibling-pilot",
+    "data:nb-dateless-canonical-review": "pnpm --filter @aafkstats/ingest run nb-dateless-canonical-review",
     "ingest:sfk-annual-reports": "pnpm --filter @aafkstats/ingest run sfk-annual-reports",
 
     "ingest:sfk-annual-report-analysis": "pnpm --filter @aafkstats/ingest run sfk-annual-report-analysis",

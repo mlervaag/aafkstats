@@ -1,0 +1,53 @@
+id: 1959-04-07-aalesunds-fk-guard
+date: 1959-04-07
+dateConfidence: exact
+status: played
+competition:
+  id: treningskamp
+  season: 1959
+  stage: regular_season
+home:
+  clubId: aalesunds-fk
+  score: 6
+  halfTimeScore: null
+away:
+  clubId: guard
+  score: 2
+  halfTimeScore: null
+neutralVenue: false
+venueId: kramyra-stadion
+events: []
+externalReports:
+  - publisher: Sunnmørsposten
+    title: "Sunnmørsposten: ÅFK–Guard 6–2"
+    date: 1959-04-08
+    url: https://www.nb.no/items/a2f793e502ffb3969ca77b8dd64ee53e?page=3
+providers:
+  - providerId: nasjonalbiblioteket
+    url: https://www.nb.no/items/a2f793e502ffb3969ca77b8dd64ee53e?page=3
+    retrievedAt: 2026-08-24
+    fields:
+      - date
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - venueId
+sources:
+  - sourceId: medlemsblad-for-aalesunds-fotb-1959-515a
+    page: "60"
+    fields:
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+    note: Sesongoversikten dokumenterer privatkampen; faksimilen fastsetter dato, kampform og bane.
+confidence: confirmed
+conflicts: []
+tags: []
+aliases: {}
+manual: []

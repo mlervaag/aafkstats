@@ -6,62 +6,22 @@ scope:
   closureQueueOnly: true
   likelyMonthsOnly: false
 totals:
-  checked: 28
-  existing_match_candidate: 28
+  checked: 4
+  existing_match_candidate: 4
   datoevidens_funnet: 0
   kandidatliste: 0
   ingen_treff: 0
   ikke_digitalisert: 0
 queues:
   existingMatchReview:
-    - srcclaim-40e54ad497d240a19247467c817f7186
-    - srcclaim-6e1dc122ad8e00285416dc7ffce9e8d6
     - srcclaim-aa9739c691b303b4a100d7f147bc5d49
-    - srcclaim-cf8388b9602271f96d7ec924f7c6db98
-    - srcclaim-cfe5f6a2f273ecd6bf6df79135a12500
     - srcclaim-a0295dfc77d947f850df22796b8ce824
-    - srcclaim-3d00f36b4126100da7b0149971e473da
-    - srcclaim-a144bd70aad3d4028566d7026b3f4d71
-    - srcclaim-2abc366fd331e2dd49c9ae533f6c3b40
-    - srcclaim-3c8a00ea9611c94cf4629d83ab059861
-    - srcclaim-fc95d2f504a58eac579db85560242600
-    - srcclaim-91344d75735abca8eae12cce4b24fcd9
-    - srcclaim-74800a8aa1d67992aa11a9b7c0b5c94a
-    - srcclaim-72720d0966f8eb3c8e2bb6d663aea9c2
-    - srcclaim-ea8a449d03d00b6cb5d60c098ef74e5e
-    - srcclaim-80a966cc687c47ec27c97b43db090464
-    - srcclaim-4f82f450fe7d2b4a09e85597936cc8ba
     - srcclaim-c82647dbb9d913327d39cf6e237943d1
     - srcclaim-a1ae2dbc90c13986ea14e5ae8a589587
-    - srcclaim-c6530b77d6047d1e0b50cc9ed27d297c
-    - srcclaim-f6e8f912749b4dd83535ed399beb30d9
-    - srcclaim-4f4a2ae7975c11748fb4416df073f5be
-    - srcclaim-51d9d34e789abff1d7843c3ae9539a7d
-    - srcclaim-4466175c5139b163df90401fd8a592cc
-    - srcclaim-516dc7d96f14cf9c351bce5fd48cc867
-    - srcclaim-22002bf4e88521a7a833ab2b884a446d
-    - srcclaim-18aebe5342edff7aec459e462e6c8e45
-    - srcclaim-d61d9e643aea90de4c9f529fbadae1d1
   dateEvidenceReview: []
   candidateReview: []
   exhausted: []
 entries:
-  - sourceClaimId: srcclaim-40e54ad497d240a19247467c817f7186
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1950-021
-    season: 1950
-    opponent: Freidig
-    score: 0-2
-    outcome: existing_match_candidate
-    existingMatchId: 1950-07-02-freidig-aalesunds-fk
-    shortlist: []
-  - sourceClaimId: srcclaim-6e1dc122ad8e00285416dc7ffce9e8d6
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1952-001
-    season: 1952
-    opponent: Langevåg
-    score: 1-3
-    outcome: existing_match_candidate
-    existingMatchId: 1952-04-20-langevag-aalesunds-fk
-    shortlist: []
   - sourceClaimId: srcclaim-aa9739c691b303b4a100d7f147bc5d49
     legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1952-002
     season: 1952
@@ -70,22 +30,6 @@ entries:
     outcome: existing_match_candidate
     existingMatchId: 1952-04-27-rollon-aalesunds-fk
     shortlist: []
-  - sourceClaimId: srcclaim-cf8388b9602271f96d7ec924f7c6db98
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1952-003
-    season: 1952
-    opponent: Aksla
-    score: 1-2
-    outcome: existing_match_candidate
-    existingMatchId: 1952-04-30-aksla-aalesunds-fk
-    shortlist: []
-  - sourceClaimId: srcclaim-cfe5f6a2f273ecd6bf6df79135a12500
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1952-005
-    season: 1952
-    opponent: Herd
-    score: 2-1
-    outcome: existing_match_candidate
-    existingMatchId: 1952-05-20-herd-aalesunds-fk
-    shortlist: []
   - sourceClaimId: srcclaim-a0295dfc77d947f850df22796b8ce824
     legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1952-006
     season: 1952
@@ -93,94 +37,6 @@ entries:
     score: 3-2
     outcome: existing_match_candidate
     existingMatchId: 1952-04-27-rollon-aalesunds-fk
-    shortlist: []
-  - sourceClaimId: srcclaim-3d00f36b4126100da7b0149971e473da
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1952-017
-    season: 1952
-    opponent: Rollon
-    score: 0-2
-    outcome: existing_match_candidate
-    existingMatchId: 1952-05-11-rollon-aalesunds-fk
-    shortlist: []
-  - sourceClaimId: srcclaim-a144bd70aad3d4028566d7026b3f4d71
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1952-018
-    season: 1952
-    opponent: Braatt
-    score: 1-1
-    outcome: existing_match_candidate
-    existingMatchId: 1952-05-25-braatt-aalesunds-fk
-    shortlist: []
-  - sourceClaimId: srcclaim-2abc366fd331e2dd49c9ae533f6c3b40
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-032
-    season: 1954
-    opponent: Freidig
-    score: 1-3
-    outcome: existing_match_candidate
-    existingMatchId: 1954-08-08-freidig-aalesunds-fk
-    shortlist: []
-  - sourceClaimId: srcclaim-3c8a00ea9611c94cf4629d83ab059861
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-018
-    season: 1955
-    opponent: Molde FK
-    score: 1-1
-    outcome: existing_match_candidate
-    existingMatchId: 1955-05-30-aalesunds-fk-molde-fk
-    shortlist: []
-  - sourceClaimId: srcclaim-fc95d2f504a58eac579db85560242600
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-027
-    season: 1955
-    opponent: Kristiansund Fotballklubb
-    score: 2-3
-    outcome: existing_match_candidate
-    existingMatchId: 1955-10-09-aalesunds-fk-kfk
-    shortlist: []
-  - sourceClaimId: srcclaim-91344d75735abca8eae12cce4b24fcd9
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-028
-    season: 1955
-    opponent: Rollon
-    score: 2-0
-    outcome: existing_match_candidate
-    existingMatchId: 1955-06-05-aalesunds-fk-rollon
-    shortlist: []
-  - sourceClaimId: srcclaim-74800a8aa1d67992aa11a9b7c0b5c94a
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-014
-    season: 1956
-    opponent: Langevåg
-    score: 2-2
-    outcome: existing_match_candidate
-    existingMatchId: 1956-05-05-aalesunds-fk-langevag
-    shortlist: []
-  - sourceClaimId: srcclaim-72720d0966f8eb3c8e2bb6d663aea9c2
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-015
-    season: 1956
-    opponent: Hødd
-    score: 1-2
-    outcome: existing_match_candidate
-    existingMatchId: 1956-05-10-aalesunds-fk-hodd
-    shortlist: []
-  - sourceClaimId: srcclaim-ea8a449d03d00b6cb5d60c098ef74e5e
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-016
-    season: 1956
-    opponent: Braatt
-    score: 1-1
-    outcome: existing_match_candidate
-    existingMatchId: 1956-05-13-braatt-aalesunds-fk
-    shortlist: []
-  - sourceClaimId: srcclaim-80a966cc687c47ec27c97b43db090464
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-017
-    season: 1956
-    opponent: Clausenengen
-    score: 2-2
-    outcome: existing_match_candidate
-    existingMatchId: 1956-05-20-aalesunds-fk-clausenengen
-    shortlist: []
-  - sourceClaimId: srcclaim-4f82f450fe7d2b4a09e85597936cc8ba
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1956-018
-    season: 1956
-    opponent: Molde FK
-    score: 0-1
-    outcome: existing_match_candidate
-    existingMatchId: 1956-05-27-molde-fk-aalesunds-fk
     shortlist: []
   - sourceClaimId: srcclaim-c82647dbb9d913327d39cf6e237943d1
     legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1963-019
@@ -197,76 +53,4 @@ entries:
     score: 1-1
     outcome: existing_match_candidate
     existingMatchId: 1963-05-05-kvik-aalesunds-fk
-    shortlist: []
-  - sourceClaimId: srcclaim-c6530b77d6047d1e0b50cc9ed27d297c
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1963-025
-    season: 1963
-    opponent: Rosenborg BK
-    score: 0-2
-    outcome: existing_match_candidate
-    existingMatchId: 1963-10-13-rosenborg-bk-aalesunds-fk
-    shortlist: []
-  - sourceClaimId: srcclaim-f6e8f912749b4dd83535ed399beb30d9
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1963-028
-    season: 1963
-    opponent: Kvik
-    score: 2-0
-    outcome: existing_match_candidate
-    existingMatchId: 1963-08-04-aalesunds-fk-kvik
-    shortlist: []
-  - sourceClaimId: srcclaim-4f4a2ae7975c11748fb4416df073f5be
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1963-029
-    season: 1963
-    opponent: Lillestrøm
-    score: 0-4
-    outcome: existing_match_candidate
-    existingMatchId: 1963-08-18-lillestrom-aalesunds-fk
-    shortlist: []
-  - sourceClaimId: srcclaim-51d9d34e789abff1d7843c3ae9539a7d
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1963-031
-    season: 1963
-    opponent: Østsiden Idrettslag
-    score: 1-4
-    outcome: existing_match_candidate
-    existingMatchId: 1963-09-08-ostsiden-il-aalesunds-fk
-    shortlist: []
-  - sourceClaimId: srcclaim-4466175c5139b163df90401fd8a592cc
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1964-017
-    season: 1964
-    opponent: Hødd
-    score: 1-1
-    outcome: existing_match_candidate
-    existingMatchId: 1964-05-10-aalesunds-fk-hodd
-    shortlist: []
-  - sourceClaimId: srcclaim-516dc7d96f14cf9c351bce5fd48cc867
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1964-018
-    season: 1964
-    opponent: Herd
-    score: 1-1
-    outcome: existing_match_candidate
-    existingMatchId: 1964-08-30-aalesunds-fk-herd
-    shortlist: []
-  - sourceClaimId: srcclaim-22002bf4e88521a7a833ab2b884a446d
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1964-019
-    season: 1964
-    opponent: Langevåg
-    score: 1-2
-    outcome: existing_match_candidate
-    existingMatchId: 1964-05-31-aalesunds-fk-langevag
-    shortlist: []
-  - sourceClaimId: srcclaim-18aebe5342edff7aec459e462e6c8e45
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1964-020
-    season: 1964
-    opponent: Kristiansund Fotballklubb
-    score: 1-2
-    outcome: existing_match_candidate
-    existingMatchId: 1964-05-24-kfk-aalesunds-fk
-    shortlist: []
-  - sourceClaimId: srcclaim-d61d9e643aea90de4c9f529fbadae1d1
-    legacyQueryId: medlemsblad-for-aalesunds-fotb-1965-a2c9#1964-022
-    season: 1964
-    opponent: Braatt
-    score: 2-0
-    outcome: existing_match_candidate
-    existingMatchId: 1964-06-14-aalesunds-fk-braatt
     shortlist: []

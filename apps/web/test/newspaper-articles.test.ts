@@ -25,8 +25,8 @@ afterAll(() => {
 describe("Avisartikler i webarkivet", () => {
   it("lister alle kampkoblede artikler med kamp og faksimile", () => {
     const articles = getNewspaperArticles();
-    expect(articles).toHaveLength(240);
-    expect(new Set(articles.map((article) => article.matchId)).size).toBe(223);
+    expect(articles).toHaveLength(241);
+    expect(new Set(articles.map((article) => article.matchId)).size).toBe(224);
     expect(articles.every((article) => ["Søndmørsposten", "Sunnmørsposten"].includes(article.publisher))).toBe(true);
     expect(articles.every((article) => article.url?.startsWith("https://www.nb.no/"))).toBe(true);
   });
