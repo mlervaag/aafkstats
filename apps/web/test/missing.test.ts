@@ -36,8 +36,12 @@ describe("den offentlige arbeidskøen", () => {
   it("grupperer historiske resultater og lenker dem til riktig sesong", () => {
     const missing = loadMissingOverview();
     expect(missing.historicalResults).toEqual({
-      total: 1,
-      seasons: [{ season: 1914, results: 1 }],
+      total: 8,
+      seasons: [
+        { season: 1914, results: 1 },
+        { season: 1946, results: 1 },
+        { season: 1955, results: 6 },
+      ],
     });
   });
 

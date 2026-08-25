@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { communityCaseRetirement } from "./community-case-retirement.js";
 import { isoDate, slug } from "./primitives.js";
 
 export const nbResearchCategory = z.enum([
@@ -52,6 +53,7 @@ export const nbCommunityResearchTask = z.object({
 
 export const nbCommunityResearchItem = z.object({
   id: slug,
+  retirement: communityCaseRetirement.optional(),
   hypothesisId: z.string().min(1).max(220),
   season: z.number().int().min(1900).max(2100),
   category: nbResearchCategory,
