@@ -37,3 +37,8 @@ tags: []
 aliases:
   rsssf: 1923-cup-1923-08-26-brann-aalesunds-fk
 manual: []
+sources:
+  - sourceId: nff-arbok-1923
+    page: "95"
+    fields: [home.clubId, away.clubId, home.score, away.score, competition.id, competition.round]
+    note: Manuelt lest av NM-diagrammet. Stjernen fører Brann som hjemmelag.

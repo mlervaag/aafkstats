@@ -1,0 +1,770 @@
+version: 1
+id: nff-arboker-1921-1924
+title: NFF-årbøker 1921–1924
+profile: yearbook
+mode: initial
+status: normalized
+
+scope:
+  years:
+    from: 1921
+    to: 1924
+  parentSourceId: nff-arbok
+  sourceIds:
+    - nff-arbok-1921
+    - nff-arbok-1922
+    - nff-arbok-1923
+    - nff-arbok-1924
+
+sourceInventory:
+  - sourceId: nff-arbok-1921
+    title: "Årbok (Norges fotballforbund). 1921"
+    year: 1921
+    reviewStatus: reviewed
+  - sourceId: nff-arbok-1922
+    title: "Årbok (Norges fotballforbund). 1922"
+    year: 1922
+    reviewStatus: reviewed
+  - sourceId: nff-arbok-1923
+    title: "Årbok (Norges fotballforbund). 1923"
+    year: 1923
+    reviewStatus: reviewed
+  - sourceId: nff-arbok-1924
+    title: "Årbok (Norges fotballforbund). 1924"
+    year: 1924
+    reviewStatus: reviewed
+
+# Gjennomgangen er seksjonsbasert, ikke side for side. De tolv seksjonene er
+# NM-diagrammet, kretskampene, pokalkampene, Klasse B og regnskapet i hver
+# utgave, pluss forbundstingsreferatet i 1922-utgaven.
+coverage:
+  mode: sections
+  expected: 21
+  reviewed: 21
+
+reviewMethod:
+  facsimile: required
+
+passes:
+  facsimile_review:
+    status: complete
+    findings: 21
+    note: >
+      Seksjonene i dekningen er lest mot faksimilen i Nasjonalbiblioteket. En
+      fullstendig side-for-side-gjennomgang av alle fire utgavene er ikke gjort,
+      og batchen står derfor ikke som complete.
+  explicit_results:
+    status: complete
+    findings: 12
+  people_and_roles:
+    status: complete
+    findings: 3
+  organization:
+    status: complete
+    findings: 1
+  retrospectives_and_claims:
+    status: complete
+    findings: 0
+    note: Årbøkene er samtidige beretninger; ingen retrospektive påstander ble funnet.
+  observations:
+    status: complete
+    findings: 21
+
+findings:
+  - id: f-1921-resultater
+    source:
+      sourceId: nff-arbok-1921
+      page: "89"
+    type: match_result
+    claim:
+      text: >
+        Åtte kildedokumenterte resultater: tre NM-kamper, to kretskamper i Klasse A og tre pokalkamper.
+    confidence: certain
+    disposition: source_result_created
+    targets:
+      - entity: source_result
+        id: nff-arbok-1921
+    status: normalized
+  - id: f-1922-resultater
+    source:
+      sourceId: nff-arbok-1922
+      page: "75"
+    type: match_result
+    claim:
+      text: >
+        Ti kildedokumenterte resultater: fire NM-kamper, fire kretskamper i Klasse A og to pokalkamper.
+    confidence: certain
+    disposition: source_result_created
+    targets:
+      - entity: source_result
+        id: nff-arbok-1922
+    status: normalized
+  - id: f-1923-resultater
+    source:
+      sourceId: nff-arbok-1923
+      page: "95"
+    type: match_result
+    claim:
+      text: >
+        Elleve kildedokumenterte resultater: tre NM-kamper, seks kretsoppgjør i Klasse A og to oppgjør under «Andre kampe».
+    confidence: certain
+    disposition: source_result_created
+    targets:
+      - entity: source_result
+        id: nff-arbok-1923
+    status: normalized
+  - id: f-1924-resultater
+    source:
+      sourceId: nff-arbok-1924
+      page: "75"
+    type: match_result
+    claim:
+      text: >
+        Ni kildedokumenterte resultater: fire NM-kamper, tre kretsoppgjør i Klasse A og to pokalkamper.
+    confidence: certain
+    disposition: source_result_created
+    targets:
+      - entity: source_result
+        id: nff-arbok-1924
+    status: normalized
+  - id: f-1921-1921-08-14-aalesunds-fk-rollon
+    source:
+      sourceId: nff-arbok-1921
+      page: "89"
+    type: match_result
+    claim:
+      text: >
+        Første runde i NM: Aalesund 3–0 Rollon, med AaFK stjernemerket som hjemmelag.
+    confidence: certain
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1921-08-14-aalesunds-fk-rollon
+    status: normalized
+    notes:
+      - >
+        Kampen lå kanonisk i arkivet fra før med samme lag, resultat og runde. Årboka er lagt til som kilde uten at noe er endret.
+  - id: f-1921-1921-08-28-aalesunds-fk-rapp
+    source:
+      sourceId: nff-arbok-1921
+      page: "89"
+    type: match_result
+    claim:
+      text: >
+        Andre runde i NM: Aalesund 5–2 Rapp etter forlenget spilletid.
+    confidence: certain
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1921-08-28-aalesunds-fk-rapp
+    status: normalized
+    notes:
+      - >
+        Kampen lå kanonisk i arkivet fra før med samme lag, resultat og runde. Årboka er lagt til som kilde uten at noe er endret.
+  - id: f-1921-1921-09-11-gjovik-lyn-aalesunds-fk
+    source:
+      sourceId: nff-arbok-1921
+      page: "89"
+    type: match_result
+    claim:
+      text: >
+        Tredje runde i NM: Lyn, Gjøvik 5–2 Aalesund.
+    confidence: certain
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1921-09-11-gjovik-lyn-aalesunds-fk
+    status: normalized
+    notes:
+      - >
+        Kampen lå kanonisk i arkivet fra før med samme lag, resultat og runde. Årboka er lagt til som kilde uten at noe er endret.
+  - id: f-1922-1922-08-20-aalesunds-fk-rollon
+    source:
+      sourceId: nff-arbok-1922
+      page: "75"
+    type: match_result
+    claim:
+      text: >
+        Tredje runde i NM: Aalesund 5–1 Rollon.
+    confidence: certain
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1922-08-20-aalesunds-fk-rollon
+    status: normalized
+    notes:
+      - >
+        Kampen lå kanonisk i arkivet fra før med samme lag, resultat og runde. Årboka er lagt til som kilde uten at noe er endret.
+  - id: f-1922-1922-09-03-aalesunds-fk-drafn
+    source:
+      sourceId: nff-arbok-1922
+      page: "75"
+    type: match_result
+    claim:
+      text: >
+        Fjerde runde i NM: Aalesund 0–3 Drafn.
+    confidence: certain
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1922-09-03-aalesunds-fk-drafn
+    status: normalized
+    notes:
+      - >
+        Kampen lå kanonisk i arkivet fra før med samme lag, resultat og runde. Årboka er lagt til som kilde uten at noe er endret.
+  - id: f-1923-1923-08-26-sk-brann-aalesunds-fk
+    source:
+      sourceId: nff-arbok-1923
+      page: "95"
+    type: match_result
+    claim:
+      text: >
+        Tredje runde i NM: Brann 4–1 Aalesund.
+    confidence: certain
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1923-08-26-sk-brann-aalesunds-fk
+    status: normalized
+    notes:
+      - >
+        Kampen lå kanonisk i arkivet fra før med samme lag, resultat og runde. Årboka er lagt til som kilde uten at noe er endret.
+  - id: f-1924-1924-08-31-falk-aalesunds-fk
+    source:
+      sourceId: nff-arbok-1924
+      page: "75"
+    type: match_result
+    claim:
+      text: >
+        Tredje runde i NM: Falk 0–1 Aalesund.
+    confidence: certain
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1924-08-31-falk-aalesunds-fk
+    status: normalized
+    notes:
+      - >
+        Kampen lå kanonisk i arkivet fra før med samme lag, resultat og runde. Årboka er lagt til som kilde uten at noe er endret.
+  - id: f-1924-1924-09-07-gjovik-lyn-aalesunds-fk
+    source:
+      sourceId: nff-arbok-1924
+      page: "75"
+    type: match_result
+    claim:
+      text: >
+        Fjerde runde i NM etter årbokas telling: Lyn, Gjøvik 3–2 Aalesund.
+    confidence: certain
+    disposition: canonical_enriched
+    targets:
+      - entity: match
+        id: 1924-09-07-gjovik-lyn-aalesunds-fk
+    status: normalized
+    notes:
+      - >
+        Kampen lå kanonisk i arkivet fra før med samme lag, resultat og runde. Årboka er lagt til som kilde uten at noe er endret.
+  - id: f-1921-nff-banelan-aafk-1921
+    source:
+      sourceId: nff-arbok-1921
+      page: "51"
+    type: historical_observation
+    claim:
+      text: >
+        NFFs status per 1. juli 1921 fører «Aalesund» med 8 000 kroner under Aktiva, Debitorer, Banelaan.
+    confidence: certain
+    disposition: historical_observation_created
+    targets:
+      - entity: observation
+        id: nff-banelan-aafk-1921
+    status: normalized
+  - id: f-1921-aafk-kretsmester-1921
+    source:
+      sourceId: nff-arbok-1921
+      page: "111"
+    type: historical_observation
+    claim:
+      text: >
+        «Kredsmester Aalesunds Fotballklub med 4 ptc.» i Søndmøre kreds, Klasse A.
+    confidence: certain
+    disposition: historical_observation_created
+    targets:
+      - entity: observation
+        id: aafk-kretsmester-1921
+    status: normalized
+  - id: f-1921-aafk-more-distriktslagspokal-1921
+    source:
+      sourceId: nff-arbok-1921
+      page: "112-113"
+    type: historical_observation
+    claim:
+      text: >
+        «Vinder av pokalen i 1921. Aalesund Fotballklub.»
+    confidence: certain
+    disposition: historical_observation_created
+    targets:
+      - entity: observation
+        id: aafk-more-distriktslagspokal-1921
+    status: normalized
+  - id: f-1922-nff-banelan-aafk-1922
+    source:
+      sourceId: nff-arbok-1922
+      page: "55"
+    type: historical_observation
+    claim:
+      text: >
+        Balansekontoen per 1. juli 1922 fører «Aalesund» med 6 000 kroner under Debitorer, Banelaan.
+    confidence: certain
+    disposition: historical_observation_created
+    targets:
+      - entity: observation
+        id: nff-banelan-aafk-1922
+    status: normalized
+  - id: f-1922-aafk-kretsmester-1922
+    source:
+      sourceId: nff-arbok-1922
+      page: "95"
+    type: historical_observation
+    claim:
+      text: >
+        «Kredsmester: Aalesunds fotballklub.»
+    confidence: certain
+    disposition: historical_observation_created
+    targets:
+      - entity: observation
+        id: aafk-kretsmester-1922
+    status: normalized
+  - id: f-1922-aafk-more-distriktslagspokal-1922
+    source:
+      sourceId: nff-arbok-1922
+      page: "95"
+    type: historical_observation
+    claim:
+      text: >
+        «Pokalvinder 1922: Aalesunds fotballklub.»
+    confidence: certain
+    disposition: historical_observation_created
+    targets:
+      - entity: observation
+        id: aafk-more-distriktslagspokal-1922
+    status: normalized
+  - id: f-1922-forbundstinget-1922-aafk-representanter
+    source:
+      sourceId: nff-arbok-1922
+      page: "43"
+    type: historical_observation
+    claim:
+      text: >
+        Representantlisten fører R. Eck Olsen og Edvard Skudvig for Aalesund Fotballklub og Olaf Uri for Søndmøre Fotballkreds.
+    confidence: certain
+    disposition: historical_observation_created
+    targets:
+      - entity: observation
+        id: forbundstinget-1922-aafk-representanter
+    status: normalized
+  - id: f-1922-olaf-uri-1922-sondmore-fotballkreds
+    source:
+      sourceId: nff-arbok-1922
+      page: "43"
+    type: historical_observation
+    claim:
+      text: >
+        Olaf Uri møtte for Søndmøre Fotballkreds.
+    confidence: certain
+    disposition: historical_observation_created
+    targets:
+      - entity: observation
+        id: olaf-uri-1922-sondmore-fotballkreds
+    status: normalized
+  - id: f-1922-eck-olsen-1922-nm-kampbegrensning
+    source:
+      sourceId: nff-arbok-1922
+      page: "47-48"
+    type: historical_observation
+    claim:
+      text: >
+        Eck Olsen mente et forslag om å begrense antall mesterskapskamper per klubb var overflødig; Ramm sa seg enig.
+    confidence: certain
+    disposition: historical_observation_created
+    targets:
+      - entity: observation
+        id: eck-olsen-1922-nm-kampbegrensning
+    status: normalized
+  - id: f-1922-eck-olsen-1922-fjerde-runde-i-alesund
+    source:
+      sourceId: nff-arbok-1922
+      page: "50"
+    type: historical_observation
+    claim:
+      text: >
+        Eck Olsen forsvarte at fjerde runde ble lagt til Ålesund og forklarte hvor vanskelig det var å få utenbys klubber på besøk.
+    confidence: certain
+    disposition: historical_observation_created
+    targets:
+      - entity: observation
+        id: eck-olsen-1922-fjerde-runde-i-alesund
+    status: normalized
+  - id: f-1922-eck-olsen-1922-loddtrekningsordningen
+    source:
+      sourceId: nff-arbok-1922
+      page: "53"
+    type: historical_observation
+    claim:
+      text: >
+        Eck Olsen ville prøve den nye loddtrekningsordningen i ett år, ikke to.
+    confidence: certain
+    disposition: historical_observation_created
+    targets:
+      - entity: observation
+        id: eck-olsen-1922-loddtrekningsordningen
+    status: normalized
+  - id: f-1922-eck-olsen-1922-finalested-og-landskamper
+    source:
+      sourceId: nff-arbok-1922
+      page: "54"
+    type: historical_observation
+    claim:
+      text: >
+        Eck Olsen anbefalte Trondhjem som finalested og mente landskamper burde legges til Kristiania.
+    confidence: certain
+    disposition: historical_observation_created
+    targets:
+      - entity: observation
+        id: eck-olsen-1922-finalested-og-landskamper
+    status: normalized
+  - id: f-1922-eck-olsen-1922-distriktslag-og-saerkrets
+    source:
+      sourceId: nff-arbok-1922
+      page: "56"
+    type: historical_observation
+    claim:
+      text: >
+        Eck Olsen mente ingen klubb burde tvinges inn i en særkrets, og støttet gjenvalg av presidenten.
+    confidence: certain
+    disposition: historical_observation_created
+    targets:
+      - entity: observation
+        id: eck-olsen-1922-distriktslag-og-saerkrets
+    status: normalized
+  - id: f-1922-eck-olsen-1922-presisering-om-sam-knutzen
+    source:
+      sourceId: nff-arbok-1922
+      page: "57"
+    type: historical_observation
+    claim:
+      text: >
+        Eck Olsen presiserte at han ikke hadde betvilt Sam. Knutzens gode vilje.
+    confidence: certain
+    disposition: historical_observation_created
+    targets:
+      - entity: observation
+        id: eck-olsen-1922-presisering-om-sam-knutzen
+    status: normalized
+  - id: f-1923-nff-banelan-aafk-1923
+    source:
+      sourceId: nff-arbok-1923
+      page: "49"
+    type: historical_observation
+    claim:
+      text: >
+        Balansekontoen 1. juli 1923 fører «Aalesund» med 4 000 kroner under Banefondets laantagere.
+    confidence: certain
+    disposition: historical_observation_created
+    targets:
+      - entity: observation
+        id: nff-banelan-aafk-1923
+    status: normalized
+  - id: f-1923-aafk-kretsmester-1923
+    source:
+      sourceId: nff-arbok-1923
+      page: "97"
+    type: historical_observation
+    claim:
+      text: >
+        «Kredsmester: Aalesunds Fotballklub.»
+    confidence: certain
+    disposition: historical_observation_created
+    targets:
+      - entity: observation
+        id: aafk-kretsmester-1923
+    status: normalized
+  - id: f-1923-aafk-klasse-b-kretsmester-1923
+    source:
+      sourceId: nff-arbok-1923
+      page: "97"
+    type: historical_observation
+    claim:
+      text: >
+        Aalesund er også ført som kretsmester i Klasse B.
+    confidence: certain
+    disposition: historical_observation_created
+    targets:
+      - entity: observation
+        id: aafk-klasse-b-kretsmester-1923
+    status: normalized
+  - id: f-1924-nff-banefond-aafk-1924
+    source:
+      sourceId: nff-arbok-1924
+      page: "33"
+    type: historical_observation
+    claim:
+      text: >
+        Aalesund står ikke lenger oppført blant Banefondets låntakere i regnskapet per 30. september 1924.
+    confidence: certain
+    disposition: historical_observation_created
+    targets:
+      - entity: observation
+        id: nff-banefond-aafk-1924
+    status: normalized
+  - id: f-1924-aafk-kretsmester-1924
+    source:
+      sourceId: nff-arbok-1924
+      page: "87"
+    type: historical_observation
+    claim:
+      text: >
+        «Kredsmester: Aalesund fotballklub.»
+    confidence: certain
+    disposition: historical_observation_created
+    targets:
+      - entity: observation
+        id: aafk-kretsmester-1924
+    status: normalized
+  - id: f-1924-aafk-more-distriktslagspokal-1924
+    source:
+      sourceId: nff-arbok-1924
+      page: "88"
+    type: historical_observation
+    claim:
+      text: >
+        «Seierherre: Aalesund fotballklub» i pokalkampene i Klasse A.
+    confidence: certain
+    disposition: historical_observation_created
+    targets:
+      - entity: observation
+        id: aafk-more-distriktslagspokal-1924
+    status: normalized
+  - id: f-1924-aafk-klasse-b-distriktslagspokal-odel-og-eie-1924
+    source:
+      sourceId: nff-arbok-1924
+      page: "88"
+    type: historical_observation
+    claim:
+      text: >
+        «Seierherre: Aalesund fotballkl.» og «Distriktslagets pokal til odel og eie» i Klasse B.
+    confidence: certain
+    disposition: historical_observation_created
+    targets:
+      - entity: observation
+        id: aafk-klasse-b-distriktslagspokal-odel-og-eie-1924
+    status: normalized
+  - id: f-1922-eck-olsen-forbundstinget
+    source:
+      sourceId: nff-arbok-1922
+      page: "43"
+    type: person_role
+    subject:
+      text: R. Eck Olsen
+    claim:
+      text: >
+        R. Eck Olsen møtte for Aalesund Fotballklub på forbundstinget i Bergen 14. oktober 1922.
+    confidence: certain
+    disposition: role_created
+    targets:
+      - entity: person
+        id: rasmus-eck-olsen
+        path: roles/forbundstingsrepresentant-1922
+    status: normalized
+    notes:
+      - >
+        Kilden dokumenterer representasjonen, ikke et bestemt verv i klubben.
+  - id: f-1922-skudvig-forbundstinget
+    source:
+      sourceId: nff-arbok-1922
+      page: "43"
+    type: person_role
+    subject:
+      text: Edvard Skudvig
+    claim:
+      text: >
+        Edvard Skudvig møtte for Aalesund Fotballklub på forbundstinget i Bergen 14. oktober 1922.
+    confidence: certain
+    disposition: role_created
+    targets:
+      - entity: person
+        id: edvard-skugvik
+        path: roles/forbundstingsrepresentant-1922
+    status: normalized
+    notes:
+      - >
+        Årboka skriver «Edvard Skudvig», som allerede står som navnevariant på personen.
+  - id: f-1922-olaf-uri-person
+    source:
+      sourceId: nff-arbok-1922
+      page: "43"
+    type: identity_candidate
+    subject:
+      text: Olaf Uri
+    claim:
+      text: >
+        Olaf Uri møtte for Søndmøre Fotballkreds. Han er ikke opprettet som person: kilden knytter ham til kretsen, ikke til AaFK.
+    confidence: certain
+    disposition: identity_uncertain
+    targets: []
+    status: unresolved
+  - id: f-1922-smart-klubbidentitet
+    source:
+      sourceId: nff-arbok-1922
+      page: "95"
+    type: identity_candidate
+    subject:
+      text: Smart
+    claim:
+      text: >
+        Smart er opprettet som klubb i arkivet. Årboka oppgir verken hjemsted eller fullt klubbnavn.
+    confidence: probable
+    disposition: no_structured_action
+    targets: []
+    status: normalized
+    notes:
+      - >
+        Klubbfila påstår bare navnet. Fjorten eldre Smart-oppføringer fra 1922 og 1923 i jubileumsskriftet og medlemsbladet er knyttet til den samme klubben.
+  - id: f-1922-kretsmester-poengsituasjon
+    source:
+      sourceId: nff-arbok-1922
+      page: "95"
+    type: season_fact
+    claim:
+      text: >
+        Kontrollregning gir fire poeng og null i målforskjell på alle tre klubbene, men årboka sier uttrykkelig at AaFK ble kretsmester.
+    confidence: certain
+    disposition: no_structured_action
+    targets: []
+    status: normalized
+    notes:
+      - >
+        Kilden oppgir ikke hvilken regel som skilte lagene, og arkivet forsøker ikke å forklare det.
+  - id: f-1923-braatt-motstrid
+    source:
+      sourceId: nff-arbok-1923
+      page: "99"
+    type: source_conflict
+    claim:
+      text: >
+        Årboka fører Aalesund 5–3 Braatt under «Andre kampe», mens jubileumsskriftet fra 1939 og medlemsbladet fra 1965 fører AaFK–Braatt 3–5.
+    confidence: probable
+    disposition: identity_uncertain
+    targets: []
+    status: unresolved
+    notes:
+      - >
+        Resultatene er ikke slått sammen. Om det er samme oppgjør lest motsatt vei, er ikke avgjort.
+  - id: f-1924-djerv-klubbidentitet
+    source:
+      sourceId: nff-arbok-1924
+      page: "75"
+    type: identity_candidate
+    subject:
+      text: Djerv
+    claim:
+      text: >
+        Årboka skriver bare «Djerv» om cupmotstanderen i første runde. Medlemsbladet fra 1965 skriver «Djerv, Bergen», men er koblet til Haugesund-klubben djerv-1919.
+    confidence: probable
+    disposition: identity_uncertain
+    targets: []
+    status: unresolved
+    notes:
+      - >
+        Årbokas oppføring står uten klubbkobling til spørsmålet er avklart.
+  - id: f-1921-klasse-b
+    source:
+      sourceId: nff-arbok-1921
+      page: "112"
+    type: non_senior
+    claim:
+      text: >
+        Klasse B: Aalesund Fotballklub 1–0 Rollon, Smart 3–1 Aalesund Fotballklub og Aalesund Fotballklub 6–5 Hødd etter «10 omgange».
+    confidence: certain
+    disposition: non_senior
+    targets: []
+    status: normalized
+    notes:
+      - >
+        Ikke lagt inn som A-lagskamper. Kilden dokumenterer ikke at oppgjørene gjelder førstelaget.
+  - id: f-1922-klasse-b
+    source:
+      sourceId: nff-arbok-1922
+      page: "95"
+    type: non_senior
+    claim:
+      text: >
+        Klasse B: blant annet Hødd 3–2 Aalesund Fotballklub B og Aalesund Fotballklub 5–3 Rollon B.
+    confidence: certain
+    disposition: non_senior
+    targets: []
+    status: normalized
+    notes:
+      - >
+        Ikke lagt inn som A-lagskamper. Kilden dokumenterer ikke at oppgjørene gjelder førstelaget.
+  - id: f-1923-klasse-b
+    source:
+      sourceId: nff-arbok-1923
+      page: "97"
+    type: non_senior
+    claim:
+      text: >
+        Klasse B: blant annet Aa.fk. 3–1 Hødd, Aa.fk. 11–0 Langevaag og Aa.fk. 3–2 Rollon.
+    confidence: certain
+    disposition: non_senior
+    targets: []
+    status: normalized
+    notes:
+      - >
+        Ikke lagt inn som A-lagskamper. Kilden dokumenterer ikke at oppgjørene gjelder førstelaget.
+  - id: f-1924-klasse-b
+    source:
+      sourceId: nff-arbok-1924
+      page: "88"
+    type: non_senior
+    claim:
+      text: >
+        Klasse B: Aalesund fotballkl. 15–0 Langevaag fotballkl., 4–2 Rollon, Rollon 3–2 Hødd og Hødd mot Langevaag uten kamp.
+    confidence: certain
+    disposition: non_senior
+    targets: []
+    status: normalized
+    notes:
+      - >
+        Ikke lagt inn som A-lagskamper. Kilden dokumenterer ikke at oppgjørene gjelder førstelaget.
+
+unresolved:
+  - findingId: f-1922-olaf-uri-person
+    type: identity_candidate
+    note: >
+      Olaf Uri er ikke opprettet som person. Funnet er bevart som historisk
+      observasjon knyttet til sesongen 1922.
+  - findingId: f-1923-braatt-motstrid
+    type: source_conflict
+    note: >
+      AaFK–Braatt i 1923: NFF-årboka 5–3 mot 3–5 i to eldre kilder. Krever en
+      samtidig avis for å avgjøres.
+  - findingId: f-1924-djerv-klubbidentitet
+    type: identity_candidate
+    note: >
+      Klubbidentiteten «Djerv» i NM 1924 er uavklart mellom Bergen og Haugesund.
+
+notes:
+  - >
+    Direkte fortsettelse av den manuelle NFF-runden for 1914–1920. Samme
+    datamodell, kildeprinsipper og skille mellom kanoniske kamper,
+    kildedokumenterte resultater, sesongdata, personobservasjoner og
+    forskningsdokumentasjon.
+  - >
+    Ingen nye kanoniske kamper er opprettet. Ingen av kildene som er lest gir
+    dato for de tretti udaterte resultatene, og ingen dato er konstruert.
+  - >
+    Klasse B er holdt utenfor A-lagets kamp- og sesongstatistikk. To Klasse
+    B-funn er bevart som historiske observasjoner om klubbhistorikk.
+  - >
+    Sidetallene er trykte sidetall der gjennomgangen leste dem av boksiden. For
+    NM-diagrammene og regnskapssidene oppgir gjennomgangen bare
+    Nasjonalbibliotekets visningsnummer, og det er det tallet som står.

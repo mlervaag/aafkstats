@@ -37,3 +37,8 @@ tags: []
 aliases:
   rsssf: 1921-cup-1921-08-14-aalesunds-fk-rollon
 manual: []
+sources:
+  - sourceId: nff-arbok-1921
+    page: "89"
+    fields: [home.clubId, away.clubId, home.score, away.score, competition.id, competition.round]
+    note: Manuelt lest av NM-diagrammet. Stjernen fører AaFK som hjemmelag.

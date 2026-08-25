@@ -1,5 +1,18 @@
 year: 1922
-competitionId: nm
-finalPosition: null
+competitionId: sondmore-kreds-klasse-a
+sources:
+  - sourceId: nff-arbok-1922
+    page: "95"
+    fields: [finalPosition, teamsInLeague, expectedMatches]
+    note: Manuelt lest av Klasse A-oppsettet, som utpeker AaFK som kretsmester.
+finalPosition: 1
+teamsInLeague: 3
+expectedMatches: 4
 promoted: false
 relegated: false
+note: >
+  AaFK, Smart og Rollon spilte dobbel serie. Årboka gir AaFK fire kamper, to
+  seire, to tap, 6–6 i mål og fire poeng, og sier uttrykkelig at AaFK ble
+  kretsmester. Kontrollregning gir fire poeng og null i målforskjell på alle
+  tre lagene; hvordan kretsen skilte dem, står ikke i kilden. Datoene er ikke
+  oppgitt.
