@@ -2,70 +2,77 @@ import { describe, expect, it } from "vitest";
 import { thinkingWords } from "../lib/thinking.js";
 
 /**
- * Tenkeordene er tekst uten logikk, så det er lite å teste. Det som festes her
- * er formen komponenten krever, og de to feiltypene som faktisk har oppstått:
- * bøyningsformer skrevet fra hukommelsen, og ord som ikke står i kilden.
+ * Tenkeordene er tekst utan logikk, så det er lite å teste. Det som festest her
+ * er forma komponenten krev, og dei to reglane lista er bygd på: kvart ord er
+ * ei handling (eit verb i notid), og notidsforma er den som faktisk finst — ikkje
+ * ei gjetting skriven frå minnet.
  */
 describe("thinkingWords", () => {
-  it("har ingen duplikater", () => {
+  it("har ingen duplikatar", () => {
     expect(new Set(thinkingWords).size).toBe(thinkingWords.length);
   });
 
-  it("avslutter ikke med ellipse eller punktum", () => {
-    // ThinkingLine legger på « …» selv. Står det også her, blir det «… …».
+  it("avsluttar ikkje med ellipse eller punktum", () => {
+    // ThinkingLine legg på « …» sjølv. Står det også her, blir det «… …».
     for (const word of thinkingWords) {
       expect(word).not.toMatch(/[.…!?]\s*$/);
     }
   });
 
-  it("er korte nok til å stå på én linje ved siden av verktøynavnet", () => {
+  it("er korte nok til å stå på éi linje ved sida av verktøynamnet", () => {
     for (const word of thinkingWords) {
       expect(word.length).toBeLessThanOrEqual(30);
     }
   });
 
-  it("begynner med stor forbokstav og inneholder ingen tankestrek", () => {
+  it("byrjar med stor forbokstav og inneheld ingen tankestrek", () => {
     for (const word of thinkingWords) {
       expect(word[0]).toBe(word[0]!.toUpperCase());
       expect(word).not.toMatch(/[–—]/);
     }
   });
 
-  it("bruker bøyningsformene fra Nynorskordboka", () => {
-    // «Andøvar» ser riktig ut og er galt: andøve er et e-verb og bøyes
-    // «andøver». Seks slike feil sto i forrige liste, alle av typen en lokal
-    // leser ser med en gang.
+  it("bruker bøyingsformene som faktisk finst", () => {
+    // «Andøvar» ser rett ut og er gale: andøve er eit e-verb og bøyest
+    // «andøver». Kamse er eit a-verb og bøyest «kamsar». Slike former sto gale
+    // i ei tidlegare liste, alle av typen ein lokal lesar ser med ein gong.
     expect(thinkingWords).toContain("Andøver over staden");
-    expect(thinkingWords).toContain("Ventar på opplett");
-    for (const wrong of ["Andøvar", "Ventar på opplet ", "Vår nota"]) {
+    expect(thinkingWords).toContain("Kamsar med tala");
+    for (const wrong of ["Andøvar", "Kamser", "Vår nota"]) {
       expect(thinkingWords.join(" ")).not.toContain(wrong);
     }
   });
 
-  it("gjengir setningene fra kilden ordrett", () => {
-    // Disse er ikke satt sammen av oss. De står slik i ordlista, og skal ikke
-    // «ryddes» til bokmål eller normert nynorsk av en senere endring.
-    for (const sentence of [
+  it("er handlingar — ingen av dei gamle stille orda", () => {
+    // Regelen no er at kvart ord er noko som skjer. Desse er tilstandar,
+    // substantiv eller kraftuttrykk frå forrige runde, og skal ikkje snike seg
+    // inn att av ei seinare endring.
+    const joined = thinkingWords.join(" ");
+    for (const stillstand of [
+      "Bunding og kaffi",
+      "Bleik på himmelen",
+      "Årre",
       "Ej he fole låkt i haude",
-      "Ka e ditte for nåke",
-      "Dæ va fole te kaule",
-      "Han sit og maular småsei",
-      "Nedi djupaste kavet",
-      "Ikkje heilt i pussentur",
-      "Mo plitt åleine",
-      "I eit hattefok",
+      "Lått og løye",
     ]) {
-      expect(thinkingWords).toContain(sentence);
+      expect(joined).not.toContain(stillstand);
     }
   });
 
-  it("bruker ord som ikke står i ordboka bare i kildens egen form", () => {
-    // våe, kjantre, kjave og læke finnes ikke i Nynorskordboka. De kan ikke
-    // bøyes på gjetning, så de står som kilden ga dem eller ikke i det hele tatt.
-    const joined = thinkingWords.join(" ");
-    expect(thinkingWords).toContain("Våe nota");
-    for (const invented of ["Våar", "Kjantrar", "Kjavar", "Lækar"]) {
-      expect(joined).not.toContain(invented);
+  it("har eit lite innslag av fotball, men mindre enn resten", () => {
+    // Fotballuttrykka er eit nikk til klubben. Dei skal vere med, men vere
+    // færre enn dei andre gruppene til saman.
+    const football = [
+      "Driblar seg forbi",
+      "Spelar vegg",
+      "Vender opp mot mål",
+      "Legg inn frå kanten",
+      "Set på press",
+      "Jaktar gjenvinning",
+    ];
+    for (const term of football) {
+      expect(thinkingWords).toContain(term);
     }
+    expect(football.length).toBeLessThan(thinkingWords.length - football.length);
   });
 });
