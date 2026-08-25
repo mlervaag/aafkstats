@@ -140,9 +140,10 @@ erstattes med `?`, siden de kan inneholde ord fra spørsmålet.
 
 **Ventetiden er brukt til noe.** Mens svaret lastes bytter `ThinkingLine` ut «Tolker
 spørsmålet …» med tenkeord på sunnmørsk. [`lib/thinking.ts`](lib/thinking.ts) forklarer hvor
-ordene kommer fra, og hvorfor hvert av dem står i den formen kilden ga det — forrige runde
-ble skrevet fra hukommelsen, og seks av formene var gale på en måte en lokal leser ville sett
-med en gang.
+ordene kommer fra, og regelen de er bygd på: hvert tenkeord er en *handling* — et verb i
+notid, noe man kan se for seg at maskina holder på med mens den tenker (andøver over staden,
+bøter nota, kamsar med tala) — og notidsformen er den som faktisk finnes, ikke gjettet fra
+hukommelsen.
 
 **Bidragssiden gir bort formatet.** `/bidra` inneholder ferdige prompts man kan lime inn i sin
 egen modell, slik at den som vet noe om en gammel kamp eller personrolle slipper å lære seg
