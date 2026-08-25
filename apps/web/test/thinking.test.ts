@@ -3,9 +3,13 @@ import { thinkingWords } from "../lib/thinking.js";
 
 /**
  * Tenkeordene er tekst utan logikk, så det er lite å teste. Det som festest her
- * er forma komponenten krev, og dei to reglane lista er bygd på: kvart ord er
- * ei handling (eit verb i notid), og notidsforma er den som faktisk finst — ikkje
- * ei gjetting skriven frå minnet.
+ * er forma komponenten krev, og regelen lista er bygd på: kvart ord er ei
+ * handling, ikkje ein tilstand eller eit substantiv.
+ *
+ * Testane pinnar skrivemåtane slik dei står i lista, og held ute dei gale
+ * formene frå ei tidlegare runde. Dei seier ikkje kva bøying lista *bør* ha —
+ * lista blandar i dag «Andøver over staden» med «Kamsa med tala», og den
+ * avgjerda høyrer heime i lista, ikkje her.
  */
 describe("thinkingWords", () => {
   it("har ingen duplikatar", () => {
@@ -32,12 +36,12 @@ describe("thinkingWords", () => {
     }
   });
 
-  it("bruker bøyingsformene som faktisk finst", () => {
-    // «Andøvar» ser rett ut og er gale: andøve er eit e-verb og bøyest
-    // «andøver». Kamse er eit a-verb og bøyest «kamsar». Slike former sto gale
-    // i ei tidlegare liste, alle av typen ein lokal lesar ser med ein gong.
+  it("held ute skrivemåtane som sto gale", () => {
+    // «Andøvar», «Kamser» og «Vår nota» sto i ei tidlegare liste, alle av typen
+    // ein lokal lesar ser med ein gong. Dei skal ikkje snike seg inn att av ei
+    // seinare endring.
     expect(thinkingWords).toContain("Andøver over staden");
-    expect(thinkingWords).toContain("Kamsar med tala");
+    expect(thinkingWords).toContain("Kamsa med tala");
     for (const wrong of ["Andøvar", "Kamser", "Vår nota"]) {
       expect(thinkingWords.join(" ")).not.toContain(wrong);
     }
@@ -63,12 +67,12 @@ describe("thinkingWords", () => {
     // Fotballuttrykka er eit nikk til klubben. Dei skal vere med, men vere
     // færre enn dei andre gruppene til saman.
     const football = [
-      "Driblar seg forbi",
-      "Spelar vegg",
-      "Vender opp mot mål",
-      "Legg inn frå kanten",
-      "Set på press",
-      "Jaktar gjenvinning",
+      "Dribla se forbi",
+      "Spilla vegg",
+      "Vende opp mot mål",
+      "Legge inn fra kanten",
+      "Sette press",
+      "Jakta gjenvinning",
     ];
     for (const term of football) {
       expect(thinkingWords).toContain(term);
