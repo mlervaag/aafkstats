@@ -39,6 +39,12 @@ sources:
   - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
     page: "44"
     fields: [home.clubId, away.clubId, home.score, away.score, competition.round]
+  - sourceId: nff-arbok-1921
+    page: "89"
+    fields: [home.clubId, away.clubId, home.score, away.score, competition.id, competition.round, extraTime]
+    note: >
+      Manuelt lest av NM-diagrammet. Fotnoten «2» betyr forlenget spilletid, og
+      stjernen fører AaFK som hjemmelag.
 confidence: probable
 conflicts: []
 tags: []

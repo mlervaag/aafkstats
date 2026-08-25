@@ -37,3 +37,8 @@ tags: []
 aliases:
   rsssf: 1924-cup-1924-08-31-falk-aalesunds-fk
 manual: []
+sources:
+  - sourceId: nff-arbok-1924
+    page: "75"
+    fields: [home.clubId, away.clubId, home.score, away.score, competition.id, competition.round]
+    note: Manuelt lest av NM-diagrammet. Stjernen fører Falk som hjemmelag.

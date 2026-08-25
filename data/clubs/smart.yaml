@@ -1,0 +1,14 @@
+id: smart
+name: Smart
+identityKey: smart
+names:
+  - { name: Smart, from: null, to: null }
+country: NO
+aliases: {}
+sources:
+  - sourceId: nff-arbok-1922
+    page: "95"
+    fields: [name]
+    note: >
+      Klubben står i Søndmøre kreds sammen med AaFK og Rollon. Årboka oppgir
+      verken hjemsted eller fullt klubbnavn.

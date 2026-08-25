@@ -13,6 +13,9 @@ Nasjonalbiblioteket er leverandør. Hver NFF-årbok er den historiske kilden.
 Materialet skal fortsatt konsulteres manuelt; registreringen åpner ikke for
 automatisk høsting av objektene.
 
+Neste runde, for utgavene 1921–1924, står i
+[NFF-årbøker 1921–1924](NFF_ARBOKER_MANUELL_TRANSKRIPSJON_1921_1924.md).
+
 Opplysninger uten sikker dato, hjemme-/bortestatus, konkurranse eller
 personidentitet er ikke gjort sikrere enn kilden tillater. Klasse B er holdt
 utenfor A-lagets kanoniske historikk.

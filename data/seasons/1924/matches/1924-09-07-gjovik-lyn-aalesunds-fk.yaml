@@ -41,3 +41,11 @@ aliases:
   rsssf: 1924-cup-1924-09-07-gjovik-lyn-aalesunds-fk
 manual: []
 note: Resultatet er etter ekstraomganger. Kilden oppgir ikke stillingen etter ordinær tid, så fordelingen mellom ordinær tid og ekstraomganger er ukjent.
+sources:
+  - sourceId: nff-arbok-1924
+    page: "75"
+    fields: [home.clubId, away.clubId, home.score, away.score, competition.id]
+    note: >
+      Manuelt lest av NM-diagrammet. Stjernen fører Lyn, Gjøvik som hjemmelag.
+      Årboka teller oppgjøret som fjerde runde, mens kampfila fører det som
+      kvartfinale.

@@ -1,9 +1,19 @@
 year: 1921
-competitionId: nm
+competitionId: sondmore-kreds-klasse-a
 sources:
+  - sourceId: nff-arbok-1921
+    page: "111"
+    fields: [finalPosition, teamsInLeague, expectedMatches]
+    note: Manuelt lest av Klasse A-oppsettet, som kårer AaFK til kretsmester med fire poeng.
   - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
     page: "44-45"
     fields: [matches]
-finalPosition: null
+finalPosition: 1
+teamsInLeague: 2
+expectedMatches: 2
 promoted: false
 relegated: false
+note: >
+  AaFK og Rollon møttes to ganger. Årboka oppgir 5–3 i mål og fire poeng til
+  AaFK. Datoene er ikke oppgitt, så kampene ligger som kildedokumenterte
+  resultater og ikke som kanoniske kamper.

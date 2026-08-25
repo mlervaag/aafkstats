@@ -55,6 +55,10 @@ sources:
       - home.halfTimeScore
       - away.halfTimeScore
     note: OCR-bandingen gjelder begge klubber, men resultatet avviker fra canonical. Ingen automatisk overskriving.
+  - sourceId: nff-arbok-1922
+    page: "75"
+    fields: [home.clubId, away.clubId, home.score, away.score, competition.id, competition.round]
+    note: Manuelt lest av NM-diagrammet.
 confidence: probable
 conflicts: []
 tags: []

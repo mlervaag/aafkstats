@@ -35,6 +35,10 @@ sources:
   - sourceId: aalesunds-fotballklub-gjennem-1939-ec28
     page: "45"
     fields: [home.clubId, away.clubId, home.score, away.score]
+  - sourceId: nff-arbok-1921
+    page: "89"
+    fields: [home.clubId, away.clubId, home.score, away.score, competition.id, competition.round]
+    note: Manuelt lest av NM-diagrammet. Stjernen fører Lyn, Gjøvik som hjemmelag.
 confidence: probable
 conflicts: []
 tags: []

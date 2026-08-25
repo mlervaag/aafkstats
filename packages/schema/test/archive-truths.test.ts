@@ -174,6 +174,80 @@ describe("arkivet", () => {
     expect(earlyFirstTeam.some((item) => item.home.clubId === "aalesund-2" || item.away.clubId === "aalesund-2")).toBe(false);
   });
 
+  it("bevarer den manuelle NFF-runden 1921\u20131924 uten å datere eller kanonisere for mye", () => {
+    const utgaver = ["1921", "1922", "1923", "1924"]
+      .map((issue) => archive.sources.find((item) => item.id === `nff-arbok-${issue}`));
+    expect(utgaver.every((item) => item?.parentSourceId === "nff-arbok")).toBe(true);
+    expect(utgaver.every((item) => item?.providers.some((p) => p.providerId === "nasjonalbiblioteket"))).toBe(true);
+
+    // Kretsmesterskapene står i kilden med rene ord, og sesongene skal si det samme.
+    for (const year of [1921, 1922, 1923, 1924]) {
+      expect(archive.seasons.find((item) => item.year === year)).toMatchObject({
+        competitionId: "sondmore-kreds-klasse-a",
+        finalPosition: 1,
+      });
+    }
+
+    const results = (year: number) =>
+      archive.sourceResults.find((item) => item.sourceId === `nff-arbok-${year}`)?.seasons[0]?.results ?? [];
+
+    // Ingen av de udaterte funnene har fått en dato eller en kanonisk kamp.
+    const udaterte = [1921, 1922, 1923, 1924].flatMap((year) =>
+      results(year).filter((item) => item.matchId === null),
+    );
+    expect(udaterte).toHaveLength(30);
+    expect(udaterte.every((item) => item.date === undefined)).toBe(true);
+
+    // «Trak sig» og «ingen kamp» blir aldri et oppdiktet resultat.
+    const walkovers = [...results(1923), ...results(1924)].filter((item) => item.status === "walkover");
+    expect(walkovers).toHaveLength(2);
+    expect(walkovers.every((item) => item.score === null)).toBe(true);
+
+    // Årboka fører 4–1 og finalens 4–0 mot Braatt som to oppgjør i 1921.
+    const braatt1921 = results(1921).filter((item) => item.opponentClubId === "braatt");
+    expect(braatt1921.map((item) => item.score)).toEqual([[4, 1], [4, 0]]);
+
+    // De sju kanoniske kampene i 1921–1924 har fått årboka som kilde uten at
+    // noe resultat er endret.
+    const kanoniske: [string, string][] = [
+      ["1921-08-14-aalesunds-fk-rollon", "nff-arbok-1921"],
+      ["1921-08-28-aalesunds-fk-rapp", "nff-arbok-1921"],
+      ["1921-09-11-gjovik-lyn-aalesunds-fk", "nff-arbok-1921"],
+      ["1922-08-20-aalesunds-fk-rollon", "nff-arbok-1922"],
+      ["1922-09-03-aalesunds-fk-drafn", "nff-arbok-1922"],
+      ["1923-08-26-sk-brann-aalesunds-fk", "nff-arbok-1923"],
+      ["1924-08-31-falk-aalesunds-fk", "nff-arbok-1924"],
+      ["1924-09-07-gjovik-lyn-aalesunds-fk", "nff-arbok-1924"],
+    ];
+    for (const [matchId, sourceId] of kanoniske) {
+      const match = archive.matches.find((item) => item.id === matchId);
+      expect(match?.sources.map((ref) => ref.sourceId), matchId).toContain(sourceId);
+      expect(match?.conflicts, matchId).toEqual([]);
+    }
+
+    // Klasse B er klubbhistorikk, ikke A-lagskamper.
+    const klasseB = archive.historicalObservations.filter((item) =>
+      ["aafk-klasse-b-kretsmester-1923", "aafk-klasse-b-distriktslagspokal-odel-og-eie-1924"].includes(item.id),
+    );
+    expect(klasseB).toHaveLength(2);
+    const arene = new Set([1921, 1922, 1923, 1924]);
+    expect(archive.matches.filter((item) => arene.has(item.competition.season))).toHaveLength(8);
+
+    // Banelånet er en sekvens av balansedager, ikke en påstand om nedbetaling.
+    const banelan = ["1921", "1922", "1923"].map((year) =>
+      archive.historicalObservations.find((item) => item.id === `nff-banelan-aafk-${year}`),
+    );
+    expect(banelan.every((item) => item?.sources.length === 1)).toBe(true);
+    expect(archive.historicalObservations.find((item) => item.id === "nff-banefond-aafk-1924")?.text)
+      .toContain("står ikke lenger oppført");
+
+    // Forbundstinget 1922 er knyttet til personene kilden faktisk navngir.
+    const ting = archive.historicalObservations.find((item) => item.id === "forbundstinget-1922-aafk-representanter");
+    expect(ting?.personIds).toEqual(["rasmus-eck-olsen", "edvard-skugvik"]);
+    const eckOlsen = archive.people.find((item) => item.id === "rasmus-eck-olsen");
+    expect(eckOlsen?.roles.map((role) => role.id)).toContain("forbundstingsrepresentant-1922");
+  });
+
   it("har personnavn uten wikimarkup", () => {
     // Fire personer sto en periode oppført som «[[Mads Nielsen (fotballspiller)»
     // fordi importen delte stallmalen på røret inne i lenka. Navnet er det

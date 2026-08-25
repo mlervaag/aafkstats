@@ -1,5 +1,16 @@
 year: 1923
-competitionId: nm
-finalPosition: null
+competitionId: sondmore-kreds-klasse-a
+sources:
+  - sourceId: nff-arbok-1923
+    page: "97"
+    fields: [finalPosition, teamsInLeague, expectedMatches]
+    note: Manuelt lest av Klasse A-oppsettet, som utpeker AaFK som kretsmester.
+finalPosition: 1
+teamsInLeague: 4
+expectedMatches: 5
 promoted: false
 relegated: false
+note: >
+  AaFK spilte fem kamper med resultat: fire seire, én uavgjort, 19–4 i mål og
+  ni poeng. Et sjette oppgjør mot Smart ble ikke spilt fordi Smart trakk seg,
+  og det er ikke gitt et konstruert resultat. Datoene er ikke oppgitt.
