@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { stripProseDashes } from "@aafkstats/query/style";
 import { DirectResults, openFirstDirectResult, useDirectSearch } from "@/components/DirectSearch";
 import { ThinkingLine } from "@/components/ThinkingLine";
@@ -20,12 +20,68 @@ interface ExecutedQuery {
   error?: string;
 }
 
-const SUGGESTIONS = [
+/**
+ * En bred pott med forslagsspørsmål. Vi viser bare noen få om gangen (se
+ * SUGGESTION_COUNT), men trekker et nytt, tilfeldig utvalg for hvert besøk slik
+ * at flaten føles levende og folk oppdager flere sider av arkivet over tid.
+ *
+ * Alle spørsmålene er valgt så språkmodellen faktisk kan svare på dem ut fra
+ * datamodellen: kamper, resultater, motstandere, tilskuertall, konkurranser,
+ * spillere, trenere og styre-/organisasjonsroller.
+ */
+const SUGGESTION_POOL = [
+  // Kamper og resultater
   "Hva er den eldste kampen i arkivet?",
   "Hvilken motstander har vi tapt flest ganger mot?",
+  "Hvilken motstander har vi møtt flest ganger?",
+  "Hva er AaFKs største seier i arkivet?",
+  "Hva er AaFKs største tap i arkivet?",
+  "Hvor mange kamper er registrert totalt?",
+  "Hvor mange kamper vant AaFK i 2013?",
+  "Hvilke lag har AaFK aldri slått?",
+  "Hvor mange ganger har AaFK spilt mot Molde?",
+  "Hvordan har det gått i kampene mot Brann?",
+  "Hvor mange uavgjorte kamper er registrert?",
+  "Hvilken sesong scoret AaFK flest mål?",
+  "Hva var resultatet sist AaFK møtte Rosenborg?",
+  "Hvilke cupkamper finnes i arkivet?",
+  "Hvor mange kamper er spilt på bortebane?",
+  // Tilskuere
+  "Hvilken kamp hadde flest tilskuere?",
+  "Hva er det høyeste tilskuertallet i arkivet?",
+  "Hva var gjennomsnittlig tilskuertall i 2013?",
+  // Sesonger og konkurranser
+  "Hvilke sesonger dekker arkivet?",
+  "Hvilke turneringer har AaFK deltatt i?",
+  "Hvor mange sesonger er registrert i arkivet?",
+  "Hvordan gikk 2011-sesongen?",
+  // Personer, trenere og spillere
   "Hvem var formann i 1961?",
   "Hvilke trenere er registrert på 1960-tallet?",
+  "Hvem har vært trener for AaFK?",
+  "Hvilke personer er registrert som hedersmedlemmer?",
+  "Hvem satt i hovedstyret på 1950-tallet?",
+  "Hvilke spillere er registrert i arkivet?",
+  "Hvem er registrert som stiftere av klubben?",
+  "Hvilke roller er registrert for personer i arkivet?",
+  "Hvem var formann lengst?",
+  // Målscorere og hendelser
+  "Hvem har scoret mål for AaFK i arkivet?",
+  "Hvilke kamper har registrerte målscorere?",
+  "Hvor mange røde kort er registrert?",
 ];
+
+const SUGGESTION_COUNT = 4;
+
+/** Fisher–Yates-blanding som gir et tilfeldig utvalg uten å endre kildelista. */
+function pickSuggestions(pool: readonly string[], count: number): string[] {
+  const copy = [...pool];
+  for (let i = copy.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j]!, copy[i]!];
+  }
+  return copy.slice(0, count);
+}
 
 type AskSource = "form" | "suggestion" | "followup";
 
@@ -39,11 +95,21 @@ type AskSource = "form" | "suggestion" | "followup";
 export function AskBox() {
   const [question, setQuestion] = useState("");
   const [turns, setTurns] = useState<ConversationTurn[]>([]);
+  // Start deterministisk (samme på server og klient), og trekk et tilfeldig
+  // utvalg etter montering slik at forslagene skifter for hvert besøk uten å
+  // gi hydreringsavvik.
+  const [suggestions, setSuggestions] = useState<string[]>(
+    () => SUGGESTION_POOL.slice(0, SUGGESTION_COUNT),
+  );
   const [activeTool, setActiveTool] = useState<string | null>(null);
   const [copiedTurnId, setCopiedTurnId] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const askRef = useRef<AbortController | null>(null);
   const turnSequence = useRef(0);
+
+  useEffect(() => {
+    setSuggestions(pickSuggestions(SUGGESTION_POOL, SUGGESTION_COUNT));
+  }, []);
 
   const hasConversation = turns.length > 0;
   const isLoading = turns.some((turn) => turn.state === "loading");
@@ -284,7 +350,7 @@ export function AskBox() {
 
       {!hasConversation && (
         <div className="suggestions" aria-label="Forslag til spørsmål">
-          {SUGGESTIONS.map((suggestion) => (
+          {suggestions.map((suggestion) => (
             <button
               key={suggestion}
               type="button"
