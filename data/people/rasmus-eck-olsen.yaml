@@ -227,7 +227,38 @@ roles:
     note: >
       Kilden dokumenterer at han møtte for klubben på forbundstinget. Den sier
       ikke at han hadde et bestemt verv i AaFK.
+  - id: forbundstingsrepresentant-1926
+    category: administration
+    title: Representant på forbundstinget
+    body: Aalesund Fotballklub
+    from: "1926"
+    to: "1926"
+    sources:
+      - { sourceId: nff-arbok-1926, page: "64", fields: [title, from, to] }
+    note: Representasjon dokumenterer ikke et bestemt klubbverv.
+  - id: forbundstingsrepresentant-1928
+    category: administration
+    title: Representant på forbundstinget
+    body: Aalesund Fotballklub
+    from: "1928"
+    to: "1928"
+    sources:
+      - { sourceId: nff-arbok-1928, page: "102", fields: [title, from, to] }
+    note: Representasjon dokumenterer ikke et bestemt klubbverv.
+  - id: forbundstingsrepresentant-1930
+    category: administration
+    title: Representant på forbundstinget
+    body: Aalesund Fotballklub
+    from: "1930"
+    to: "1930"
+    sources:
+      - { sourceId: nff-arbok-1930, page: "126", fields: [title, from, to] }
+    note: Representasjon dokumenterer ikke et bestemt klubbverv.
 sources:
+  - sourceId: nff-arbok-1926
+    page: "64"
+    fields: []
+    note: Ført for Aalesund Fotballklub i representantlisten.
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "1"
     fields: []

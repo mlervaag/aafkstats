@@ -37,3 +37,8 @@ tags: []
 aliases:
   rsssf: 1930-cup-1930-09-14-orn-aalesunds-fk
 manual: []
+sources:
+  - sourceId: nff-arbok-1930
+    page: "85 (NB-visning)"
+    fields: [status, competition, home.clubId, away.clubId, home.score, away.score, competition.round]
+    note: NM-diagrammet er visuelt kontrollert; hjemme/borte følger diagrammets stjerneforklaring.

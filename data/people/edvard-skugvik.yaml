@@ -2,6 +2,7 @@ id: edvard-skugvik
 name: Edvard Skugvik
 names:
   - Edvard Skudvig
+  - Edv. Skutvig
 roles:
   - id: stifter-1914
     category: founder
@@ -147,7 +148,29 @@ roles:
       Kilden dokumenterer at han møtte for klubben på forbundstinget. Årboka
       skriver navnet «Edvard Skudvig». Kilden sier ikke at han hadde et bestemt
       verv i AaFK.
+  - id: forbundstingsrepresentant-1926
+    category: administration
+    title: Representant på forbundstinget
+    body: Aalesund Fotballklub
+    from: "1926"
+    to: "1926"
+    sources:
+      - { sourceId: nff-arbok-1926, page: "64", fields: [title, from, to] }
+    note: Årboka skriver «Edvard Skudvig»; representasjon dokumenterer ikke et bestemt klubbverv.
+  - id: forbundstingsrepresentant-1934
+    category: administration
+    title: Representant på forbundstinget
+    body: Aalesund Fotballklub
+    from: "1934"
+    to: "1934"
+    sources:
+      - { sourceId: nff-arbok-1934, page: "157", fields: [title, from, to] }
+    note: Årboka skriver «Edv. Skutvig»; representasjon dokumenterer ikke et bestemt klubbverv.
 sources:
+  - sourceId: nff-arbok-1926
+    page: "64"
+    fields: []
+    note: Ført som «Edvard Skudvig» for Aalesund Fotballklub i representantlisten.
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "59"
     fields: []

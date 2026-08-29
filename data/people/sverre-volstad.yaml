@@ -96,7 +96,38 @@ roles:
         fields:
           - title
           - from
+  - id: forbundstingsrepresentant-1932
+    category: administration
+    title: Representant på forbundstinget
+    body: Aalesund Fotballklub
+    from: "1932"
+    to: "1932"
+    sources:
+      - { sourceId: nff-arbok-1932, page: "126", fields: [title, from, to] }
+    note: Representasjon dokumenterer ikke et bestemt klubbverv.
+  - id: forbundstingsrepresentant-1933
+    category: administration
+    title: Representant på forbundstinget
+    body: Aalesund Fotballklub
+    from: "1933"
+    to: "1933"
+    sources:
+      - { sourceId: nff-arbok-1933, page: "146", fields: [title, from, to] }
+    note: Representasjon dokumenterer ikke et bestemt klubbverv.
+  - id: forbundstingsrepresentant-1934
+    category: administration
+    title: Representant på forbundstinget
+    body: Aalesund Fotballklub
+    from: "1934"
+    to: "1934"
+    sources:
+      - { sourceId: nff-arbok-1934, page: "157", fields: [title, from, to] }
+    note: Representasjon dokumenterer ikke et bestemt klubbverv.
 sources:
+  - sourceId: nff-arbok-1932
+    page: "126"
+    fields: []
+    note: Ført for Aalesund Fotballklub i representantlisten.
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "48"
     fields: []

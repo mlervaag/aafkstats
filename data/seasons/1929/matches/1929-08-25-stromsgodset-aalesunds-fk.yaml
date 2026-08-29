@@ -37,3 +37,8 @@ tags: []
 aliases:
   rsssf: 1929-cup-1929-08-25-stromsgodset-aalesunds-fk
 manual: []
+sources:
+  - sourceId: nff-arbok-1929
+    page: "95 (NB-visning)"
+    fields: [status, competition, home.clubId, away.clubId, home.score, away.score, competition.round]
+    note: NM-diagrammet er visuelt kontrollert; hjemme/borte følger diagrammets stjerneforklaring.
