@@ -84,9 +84,10 @@ export default function DevelopersPage() {
           </p>
           <div className="queries"><pre>{mcpConfig}</pre></div>
           <p>
-            MCP gir strukturerte verktøy for kamper, resultater, personer, kilder,
-            konflikter og åpne researchsaker. Det finnes ingen generell SQL-tilgang og
-            ingen direkte skrivetilgang til arkivdataene.
+            MCP gir strukturerte verktøy for kamper, resultater, personer, kilder og åpne
+            researchsaker. Konflikter og dekningshull finnes i researchoversikten. Det
+            finnes ingen generell SQL-tilgang og ingen direkte skrivetilgang til
+            arkivdataene.
           </p>
         </div>
       </section>

@@ -1,17 +1,14 @@
-import { loadMissingOverview } from "@aafkstats/query";
-import { apiOptions, apiResponse, publicApiInfo } from "@/lib/public-api";
+import { loadPublicCoverageSummary } from "@aafkstats/query";
+import { apiOptions, apiRateLimit, apiResponse, publicApiInfo } from "@/lib/public-api";
 
 export const runtime = "nodejs";
 
-export function GET() {
-  const overview = loadMissingOverview();
+export function GET(request: Request) {
+  const limited = apiRateLimit(request);
+  if (limited) return limited;
   return apiResponse({
     ...publicApiInfo,
-    coverage: {
-      canonicalMatches: overview.playedMatches,
-      unlinkedSourceResults: overview.historicalResults.total,
-      openCoverageGaps: overview.matchFields.reduce((sum, item) => sum + item.matches, 0),
-    },
+    coverage: loadPublicCoverageSummary(),
   });
 }
 

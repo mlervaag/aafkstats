@@ -1,9 +1,11 @@
-import { apiError, apiOptions, apiResponse } from "@/lib/public-api";
+import { apiError, apiOptions, apiRateLimit, apiResponse } from "@/lib/public-api";
 import { executePublicTool } from "@aafkstats/query";
 
 export const runtime = "nodejs";
 
-export async function GET(_request: Request, { params }: { params: Promise<{ id: string }> }) {
+export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
+  const limited = apiRateLimit(request);
+  if (limited) return limited;
   const { id } = await params;
   const result = await executePublicTool("get_match", { matchId: id });
   if (result.isError) return apiError("invalid_request", "Kampen kunne ikke hentes.");

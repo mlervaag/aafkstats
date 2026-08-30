@@ -29,7 +29,7 @@ afterAll(() => {
 
 describe("offentlig REST API v1", () => {
   it("publiserer versjoner, rettigheter, CORS og cache", async () => {
-    const response = getMeta();
+    const response = getMeta(new Request("https://aafkarkivet.no/api/v1/meta", { headers: { "x-real-ip": "meta-test" } }));
     const body = await response.json();
     expect(body.meta).toMatchObject({ apiVersion: "1", datasetVersion: "4" });
     expect(body.data.coverage.canonicalMatches).toBe(11);
@@ -48,7 +48,10 @@ describe("offentlig REST API v1", () => {
 
   it("avviser ugyldig limit og skiller 404 fra tom liste", async () => {
     expect((await getMatches(new Request("https://aafkarkivet.no/api/v1/matches?limit=101"))).status).toBe(400);
-    expect((await getMatch(new Request("https://aafkarkivet.no/api/v1/matches/ukjent"), { params: Promise.resolve({ id: "ukjent" }) })).status).toBe(404);
+    const notFound = await getMatch(new Request("https://aafkarkivet.no/api/v1/matches/ukjent"), { params: Promise.resolve({ id: "ukjent" }) });
+    expect(notFound.status).toBe(404);
+    expect(notFound.headers.get("cache-control")).toBe("no-store");
+    expect(notFound.headers.get("access-control-allow-origin")).toBe("*");
   });
 
   it("lekker aldri draft, paused eller resolved research cases", async () => {
@@ -63,7 +66,7 @@ describe("offentlig REST API v1", () => {
   });
 
   it("publiserer en OpenAPI-kontrakt uten skrive- eller SQL-ruter", async () => {
-    const document = await getOpenApi().json();
+    const document = await getOpenApi(new Request("https://aafkarkivet.no/api/v1/openapi.json")).json();
     expect(document.openapi).toBe("3.1.0");
     expect(document.paths["/results"]).toBeDefined();
     expect(JSON.stringify(document)).not.toContain("run_sql");

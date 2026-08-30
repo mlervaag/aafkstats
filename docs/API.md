@@ -21,8 +21,10 @@ En kortere innføring med ferdige eksempler finnes på
 | `GET /research/cases` | Bare publiserte, åpne verifiseringssaker |
 | `GET /research/cases/{id}` | Én publisert, åpen sak |
 
-Lister har `limit=20` som standard og maksimalt 100. Offentlige GET-svar har CORS og
-cache-headere. Arkivet bruker ikke Redis eller en separat API-database.
+Lister har `limit=20` som standard og maksimalt 100. Offentlige GET-svar har CORS,
+cache-headere og en best-effort-grense på 300 kall per avsender per time. Et `429`-svar
+har `Retry-After`. Feilsvar mellomlagres aldri. Arkivet bruker ikke Redis eller en separat
+API-database, så fartsgrensen er per kjørende instans og ikke en absolutt global kvote.
 
 ## Evidens
 

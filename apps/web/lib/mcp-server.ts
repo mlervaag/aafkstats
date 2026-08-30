@@ -1,9 +1,10 @@
-import { createMcpHandler, McpServer } from "@modelcontextprotocol/server";
+import { createMcpHandler, McpServer, type McpRequestContext } from "@modelcontextprotocol/server";
 import { executePublicTool, loadMissingOverview, loadPublicVerificationCase, loadPublicVerificationCases, publicTools, type PublicToolName } from "@aafkstats/query";
 import { z } from "zod4";
 import { API_VERSION, publicApiInfo } from "./public-api";
 import { SITE_ORIGIN } from "./site";
 import { POST as submitVerification } from "../app/api/verifications/route";
+import { mcpResearchFindingSchema } from "./verification-submission-schema";
 
 const MAX_OUTPUT_CHARS = 100_000;
 
@@ -43,7 +44,17 @@ function toolResult(content: unknown, isError = false) {
   };
 }
 
-function createArchiveServer() {
+export function forwardedClientHeaders(request?: Request): Headers {
+  const headers = new Headers({ "content-type": "application/json" });
+  if (!request) return headers;
+  for (const name of ["x-vercel-forwarded-for", "x-real-ip", "x-forwarded-for"]) {
+    const value = request.headers.get(name);
+    if (value) headers.set(name, value);
+  }
+  return headers;
+}
+
+function createArchiveServer(context: McpRequestContext) {
   const server = new McpServer(
     { name: "aafkarkivet", version: API_VERSION },
     { instructions: "AaFK-arkivet skiller canonical_match fra source_claim. De skal aldri summeres. Confidence, conflicts og missingFields skal bevares. En verification case er et spørsmål, ikke et faktum." },
@@ -95,28 +106,7 @@ function createArchiveServer() {
     "submit_research_finding",
     {
       description: "Send dokumentasjon til eksisterende redaksjonell innboks for én åpen sak med researchTask. Dette verifiserer, publiserer eller endrer aldri arkivet; svaret er bare pending_review.",
-      inputSchema: z.object({
-        caseId: z.string().regex(/^[a-z0-9-]+$/).max(100),
-        revision: z.string().regex(/^sha256:[a-f0-9]{64}$/),
-        answer: z.enum(["yes", "no", "inconclusive"]),
-        evidence: z.discriminatedUnion("kind", [
-          z.object({ kind: z.literal("listed_source"), sourceKey: z.string().min(1).max(240), reference: z.string().max(500).optional() }),
-          z.object({ kind: z.literal("new_url"), url: z.url().max(500), reference: z.string().max(500).optional() }),
-          z.object({ kind: z.literal("bibliographic"), reference: z.string().min(3).max(500) }),
-        ]),
-        researchSubmission: z.object({
-          verificationSubmissionVersion: z.literal(2),
-          category: z.enum(["sibling_resolution", "date_research", "score_conflict", "competition_conflict", "source_reconciliation"]),
-          answer: z.string().min(1).max(80),
-          selectedSourceResult: z.object({ sourceId: z.string().min(1), no: z.number().int().positive() }).optional(),
-          structuredFindings: z.object({ date: z.iso.date().optional(), period: z.string().min(1).max(120).optional(), homeAway: z.enum(["home", "away", "neutral", "unknown"]).optional(), competition: z.string().min(1).max(120).optional(), score: z.object({ aafk: z.number().int().nonnegative(), opponent: z.number().int().nonnegative() }).optional() }).optional(),
-          evidenceNote: z.string().max(1500).optional(),
-        }),
-        finding: z.string().trim().max(1500),
-        comment: z.string().trim().max(1000).optional(),
-        contributor: z.string().trim().max(100).optional(),
-        clientSubmissionId: z.uuid(),
-      }),
+      inputSchema: mcpResearchFindingSchema,
       annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: true, openWorldHint: true },
     },
     async (input) => {
@@ -124,7 +114,7 @@ function createArchiveServer() {
       if (!item?.researchTask) return toolResult({ error: "Saken er ikke en åpen, publisert researchTask." }, true);
       const response = await submitVerification(new Request(`${SITE_ORIGIN}/api/verifications`, {
         method: "POST",
-        headers: { "content-type": "application/json" },
+        headers: forwardedClientHeaders(context.requestInfo),
         body: JSON.stringify(input),
       }));
       const payload = await response.json() as { success?: boolean; duplicate?: boolean; issueUrl?: string; error?: string };

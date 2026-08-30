@@ -1,5 +1,12 @@
 import { PLAYED_SQL, all, one, open } from "@aafkstats/db";
-import { slugify } from "@aafkstats/schema";
+import {
+  getDerivedPlayers,
+  getPlayersWithoutMatches,
+  type DerivedPlayer,
+  type PlayerWithoutMatches,
+} from "./derived-players.js";
+
+export type { DerivedPlayer, PlayerWithoutMatches } from "./derived-players.js";
 
 export interface MissingField { field: string; matches: number }
 export interface HistoricalResultSeason { season: number; results: number }
@@ -7,8 +14,6 @@ export interface UnresolvedPerson { id: string; name: string; url: string; confl
 export interface LineupReviewCandidate { id: string; page: string; season: number | null; names: string[]; personIds: string[] }
 export interface LineupReviewSource { sourceId: string; title: string; url: string; sourceUrl: string | null; candidates: LineupReviewCandidate[] }
 export interface IncompleteSeason { season: number; competition: string; coverage: string; played: number; expected: number | null; url: string }
-export interface DerivedPlayer { id: string; personKey: string; name: string; appearances: number; starts: number; goals: number; firstSeason: number; lastSeason: number }
-export interface PlayerWithoutMatches { id: string; name: string; url: string; position: string | null; squadSeasons: number[] }
 
 export interface MissingOverview {
   playedMatches: number;
@@ -20,9 +25,14 @@ export interface MissingOverview {
   identity: { playersWithoutFile: DerivedPlayer[]; filesWithoutMatches: PlayerWithoutMatches[] };
 }
 
+export interface PublicCoverageSummary {
+  canonicalMatches: number;
+  unlinkedSourceResults: number;
+  openCoverageGaps: number;
+}
+
 interface PersonConflictRow { person_id: string; name: string; url: string; field: string }
 interface LineupReviewRow { source_id: string; source_title: string; url: string; source_url: string | null; id: string; page: string; season: number | null; names: string; person_ids: string }
-interface DerivedRow { person_key: string; name: string; appearances: number; starts: number; goals: number; first_season: number; last_season: number }
 
 function parseStringArray(value: string): string[] {
   try {
@@ -31,38 +41,27 @@ function parseStringArray(value: string): string[] {
   } catch { return []; }
 }
 
-function loadIdentity(): MissingOverview["identity"] {
+/** De tre billige dekningstallene `/meta` trenger, uten å bygge hele arbeidskøen. */
+export function loadPublicCoverageSummary(): PublicCoverageSummary {
   const db = open();
   try {
-    const taken = new Set(all<{ id: string }>(db, "SELECT id FROM people").map((row) => row.id));
-    const playersWithoutFile = all<DerivedRow>(db, `
-      SELECT person_key, min(name) AS name, sum(appearances) AS appearances,
-             sum(starts) AS starts, sum(goals) AS goals,
-             min(season) AS first_season, max(season) AS last_season
-        FROM squad WHERE person_id IS NULL GROUP BY person_key`)
-      .map((row) => ({
-        id: slugify(row.person_key), personKey: row.person_key, name: row.name,
-        appearances: row.appearances, starts: row.starts, goals: row.goals,
-        firstSeason: row.first_season, lastSeason: row.last_season,
-      }))
-      .filter((row) => row.id !== "" && !taken.has(row.id))
-      .sort((a, b) => b.appearances - a.appearances || a.name.localeCompare(b.name, "nb"));
-    const filesWithoutMatches = all<{ id: string; name: string; url: string; position: string | null; seasons: string | null }>(db, `
-      SELECT p.id, p.name, p.url, p.position,
-             (SELECT group_concat(s.season) FROM squad s WHERE s.person_id = p.id AND s.number IS NOT NULL) AS seasons
-        FROM people p
-       WHERE p.appearances = 0
-         AND (p.position IS NOT NULL OR EXISTS (SELECT 1 FROM squad s WHERE s.person_id = p.id AND s.number IS NOT NULL))
-       ORDER BY p.name COLLATE NOCASE`)
-      .map((row) => ({
-        id: row.id, name: row.name, url: row.url, position: row.position,
-        squadSeasons: (row.seasons ?? "").split(",").filter(Boolean).map(Number).sort((a, b) => a - b),
-      }));
-    return { playersWithoutFile, filesWithoutMatches };
-  } finally { db.close(); }
+    return one<PublicCoverageSummary>(
+      db,
+      `SELECT
+         (SELECT count(*) FROM matches WHERE ${PLAYED_SQL}) AS canonicalMatches,
+         (SELECT count(*) FROM source_results WHERE match_id IS NULL) AS unlinkedSourceResults,
+         (SELECT count(*)
+            FROM matches m
+            JOIN json_each(m.missing_fields) field
+           WHERE m.${PLAYED_SQL}
+             AND field.value <> 'providers') AS openCoverageGaps`,
+    ) ?? { canonicalMatches: 0, unlinkedSourceResults: 0, openCoverageGaps: 0 };
+  } finally {
+    db.close();
+  }
 }
 
-/** Offentlig arbeidsoversikt, utelukkende lest fra dokumenterte databaseviews. */
+/** Offentlig arbeidsoversikt med stabile returtyper for web, REST og MCP. */
 export function loadMissingOverview(): MissingOverview {
   const db = open();
   try {
@@ -92,7 +91,10 @@ export function loadMissingOverview(): MissingOverview {
       incompleteSeasons,
       unresolvedPeople: { people: peopleById.size, conflicts: conflictRows.length, items: [...peopleById.values()] },
       lineupReview: { candidates: lineupRows.length, sources: lineupSources.length, items: lineupSources },
-      identity: loadIdentity(),
+      identity: {
+        playersWithoutFile: getDerivedPlayers(),
+        filesWithoutMatches: getPlayersWithoutMatches(),
+      },
     };
   } finally { db.close(); }
 }

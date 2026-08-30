@@ -57,4 +57,12 @@ describe("checkRateLimit", () => {
     // Uten et hardt tak blir dette kvadratisk og bruker mange sekunder.
     expect(Date.now() - started).toBeLessThan(5000);
   });
+
+  it("har en egen, romslig fartsgrense for det offentlige API-et", () => {
+    const ip = `api-test-${Math.random()}`;
+    const call = () => checkRateLimit(req({ "x-real-ip": ip }), "api");
+    const verdicts = Array.from({ length: 301 }, call);
+    expect(verdicts.slice(0, 300).every((verdict) => verdict.allowed)).toBe(true);
+    expect(verdicts[300]?.allowed).toBe(false);
+  });
 });

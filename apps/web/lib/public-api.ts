@@ -1,4 +1,5 @@
 import { DATASET_VERSION, executePublicTool, type PublicToolName } from "@aafkstats/query";
+import { checkRateLimit } from "./rate-limit";
 import { SITE_ORIGIN, siteUrl } from "./site";
 
 export const API_VERSION = "1";
@@ -49,11 +50,23 @@ export function apiResponse(data: unknown, extraMeta: Record<string, unknown> = 
 }
 
 export function apiError(code: string, message: string, status = 400): Response {
-  return new Response(JSON.stringify({ error: { code, message } }), { status, headers: BASE_HEADERS });
+  return new Response(JSON.stringify({ error: { code, message } }), {
+    status,
+    headers: { ...BASE_HEADERS, "Cache-Control": "no-store" },
+  });
 }
 
 export function apiOptions(): Response {
   return new Response(null, { status: 204, headers: BASE_HEADERS });
+}
+
+/** Felles, billig fartsgrense for alle offentlige REST-lesinger. */
+export function apiRateLimit(request: Request): Response | undefined {
+  const limit = checkRateLimit(request, "api");
+  if (limit.allowed) return undefined;
+  const response = apiError("rate_limited", limit.message ?? "For mange API-kall.", 429);
+  if (limit.retryAfterSeconds) response.headers.set("Retry-After", String(limit.retryAfterSeconds));
+  return response;
 }
 
 export function integerParam(search: URLSearchParams, name: string): number | undefined {

@@ -1,9 +1,11 @@
 import { loadPublicVerificationCases } from "@aafkstats/query";
-import { apiError, apiOptions, apiResponse, integerParam } from "@/lib/public-api";
+import { apiError, apiOptions, apiRateLimit, apiResponse, integerParam } from "@/lib/public-api";
 
 export const runtime = "nodejs";
 
 export function GET(request: Request) {
+  const limited = apiRateLimit(request);
+  if (limited) return limited;
   try {
     const search = new URL(request.url).searchParams;
     const category = search.get("category");

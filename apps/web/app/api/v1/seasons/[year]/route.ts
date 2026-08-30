@@ -1,9 +1,11 @@
-import { apiError, apiOptions, apiResponse } from "@/lib/public-api";
+import { apiError, apiOptions, apiRateLimit, apiResponse } from "@/lib/public-api";
 import { executePublicTool } from "@aafkstats/query";
 
 export const runtime = "nodejs";
 
-export async function GET(_request: Request, { params }: { params: Promise<{ year: string }> }) {
+export async function GET(request: Request, { params }: { params: Promise<{ year: string }> }) {
+  const limited = apiRateLimit(request);
+  if (limited) return limited;
   const { year } = await params;
   if (!/^\d{4}$/.test(year)) return apiError("invalid_parameter", "year må være et firesifret årstall.");
   const result = await executePublicTool("get_season_summary", { season: Number(year) });

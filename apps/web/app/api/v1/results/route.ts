@@ -1,8 +1,10 @@
-import { apiError, apiOptions, integerParam, runPublicTool } from "@/lib/public-api";
+import { apiError, apiOptions, apiRateLimit, integerParam, runPublicTool } from "@/lib/public-api";
 
 export const runtime = "nodejs";
 
 export async function GET(request: Request) {
+  const limited = apiRateLimit(request);
+  if (limited) return limited;
   try {
     const search = new URL(request.url).searchParams;
     return runPublicTool("search_all_results", {

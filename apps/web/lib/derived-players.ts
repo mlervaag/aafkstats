@@ -1,5 +1,15 @@
-import { all, one, open } from "@aafkstats/db";
-import { slugify } from "@aafkstats/schema";
+import { all, open } from "@aafkstats/db";
+import {
+  getDerivedPlayers,
+  type DerivedPlayer,
+} from "@aafkstats/query/services/derived-players";
+
+export {
+  getDerivedPlayers,
+  getPlayersWithoutMatches,
+  type DerivedPlayer,
+  type PlayerWithoutMatches,
+} from "@aafkstats/query/services/derived-players";
 
 /**
  * Spillere arkivet kjenner fra lagoppstillingene, uten at noen har skrevet en
@@ -41,53 +51,6 @@ import { slugify } from "@aafkstats/schema";
  * det er en grunn til at siden ikke skal si mer enn den vet.
  */
 
-export interface DerivedPlayer {
-  /** Slug av `person_key`. Se `derivedPlayerId` for hvorfor den kan mangle. */
-  id: string;
-  personKey: string;
-  name: string;
-  appearances: number;
-  starts: number;
-  goals: number;
-  firstSeason: number;
-  lastSeason: number;
-}
-
-interface DerivedRow {
-  person_key: string;
-  name: string;
-  appearances: number;
-  starts: number;
-  goals: number;
-  first_season: number;
-  last_season: number;
-}
-
-const DERIVED_SQL = `
-  SELECT person_key,
-         min(name)         AS name,
-         sum(appearances)  AS appearances,
-         sum(starts)       AS starts,
-         sum(goals)        AS goals,
-         min(season)       AS first_season,
-         max(season)       AS last_season
-    FROM squad
-   WHERE person_id IS NULL
-   GROUP BY person_key`;
-
-function mapRow(row: DerivedRow): DerivedPlayer {
-  return {
-    id: slugify(row.person_key),
-    personKey: row.person_key,
-    name: row.name,
-    appearances: row.appearances,
-    starts: row.starts,
-    goals: row.goals,
-    firstSeason: row.first_season,
-    lastSeason: row.last_season,
-  };
-}
-
 /**
  * Alle spillere uten personfil, flest kamper først.
  *
@@ -99,19 +62,6 @@ function mapRow(row: DerivedRow): DerivedPlayer {
  * feiler hvis det inntreffer, slik at det oppdages i stedet for å bli en side
  * som stille overskriver en annen.
  */
-export function getDerivedPlayers(): DerivedPlayer[] {
-  const db = open();
-  try {
-    const taken = new Set(all<{ id: string }>(db, "SELECT id FROM people").map((row) => row.id));
-    return all<DerivedRow>(db, DERIVED_SQL)
-      .map(mapRow)
-      .filter((player) => player.id !== "" && !taken.has(player.id))
-      .sort((a, b) => b.appearances - a.appearances || a.name.localeCompare(b.name, "nb"));
-  } finally {
-    db.close();
-  }
-}
-
 export function getDerivedPlayerById(id: string): DerivedPlayer | undefined {
   return getDerivedPlayers().find((player) => player.id === id);
 }
@@ -167,43 +117,6 @@ export function getDerivedPlayerNameForms(personKey: string): string[] {
  * lagoppstillingene starter, er det ingen feil, og da er raden en opplysning om
  * hva arkivet ikke rekker.
  */
-export interface PlayerWithoutMatches {
-  id: string;
-  name: string;
-  url: string;
-  position: string | null;
-  squadSeasons: number[];
-}
-
-export function getPlayersWithoutMatches(): PlayerWithoutMatches[] {
-  const db = open();
-  try {
-    const rows = all<{ id: string; name: string; url: string; position: string | null; seasons: string | null }>(
-      db,
-      `SELECT p.id, p.name, p.url, p.position,
-              (SELECT group_concat(n.season) FROM core_squad_numbers n WHERE n.person_id = p.id) AS seasons
-         FROM people p
-        WHERE p.appearances = 0
-          AND (p.position IS NOT NULL
-               OR EXISTS (SELECT 1 FROM core_squad_numbers n WHERE n.person_id = p.id))
-        ORDER BY p.name COLLATE NOCASE`,
-    );
-    return rows.map((row) => ({
-      id: row.id,
-      name: row.name,
-      url: row.url,
-      position: row.position,
-      squadSeasons: (row.seasons ?? "")
-        .split(",")
-        .filter(Boolean)
-        .map(Number)
-        .sort((a, b) => a - b),
-    }));
-  } finally {
-    db.close();
-  }
-}
-
 /**
  * De utledede spillerne i registerets egen form, så personlista kan vise dem.
  *
@@ -245,10 +158,5 @@ interface PersonSummaryLike {
 
 /** Antall utledede spillere, uten å laste hele lista. */
 export function countDerivedPlayers(): number {
-  const db = open();
-  try {
-    return one<{ n: number }>(db, `SELECT count(*) AS n FROM (${DERIVED_SQL})`)?.n ?? 0;
-  } finally {
-    db.close();
-  }
+  return getDerivedPlayers().length;
 }

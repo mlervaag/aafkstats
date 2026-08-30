@@ -6,6 +6,8 @@ import { loadValidateAndBuild } from "@aafkstats/db/build";
 import { loadPublicVerificationCase } from "@aafkstats/query";
 import { Client, StreamableHTTPClientTransport } from "@modelcontextprotocol/client";
 import { DELETE, GET, POST } from "../app/mcp/route.js";
+import { clientIp } from "../lib/rate-limit.js";
+import { forwardedClientHeaders } from "../lib/mcp-server.js";
 import { resetVerificationSubmissionCache } from "../lib/verification-submissions.js";
 
 const previousDbPath = process.env.AAFK_DB_PATH;
@@ -120,5 +122,20 @@ describe("offentlig stateless MCP", () => {
     expect(large.status).toBe(413);
     const crossOrigin = await POST(new Request("https://aafkarkivet.no/mcp", { method: "POST", headers: { "content-type": "application/json", origin: "https://example.com" }, body: "{}" }));
     expect(crossOrigin.status).toBe(403);
+    const opaqueOrigin = await POST(new Request("https://aafkarkivet.no/mcp", { method: "POST", headers: { "content-type": "application/json", origin: "null" }, body: "{}" }));
+    expect(opaqueOrigin.status).toBe(403);
+  });
+
+  it("bevarer klient-IP når MCP sender research til verifiseringsruten", () => {
+    const incoming = new Request("https://aafkarkivet.no/mcp", {
+      headers: {
+        "x-vercel-forwarded-for": "203.0.113.42",
+        "x-forwarded-for": "kan-forfalskes, 203.0.113.42",
+      },
+    });
+    const forwarded = new Request("https://aafkarkivet.no/api/verifications", {
+      headers: forwardedClientHeaders(incoming),
+    });
+    expect(clientIp(forwarded)).toBe("203.0.113.42");
   });
 });

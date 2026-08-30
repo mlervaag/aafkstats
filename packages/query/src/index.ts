@@ -5,4 +5,5 @@ export * from "./prompt.js";
 export * from "./public.js";
 export * from "./style.js";
 export * from "./services/missing.js";
+export * from "./services/derived-players.js";
 export * from "./services/research.js";

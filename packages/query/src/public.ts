@@ -17,7 +17,15 @@ export const PUBLIC_TOOL_NAMES = [
 
 export type PublicToolName = (typeof PUBLIC_TOOL_NAMES)[number];
 
-export const publicTools = PUBLIC_TOOL_NAMES.map((name) => toolsByName.get(name)!).filter(Boolean);
+export function resolvePublicTools(names: readonly PublicToolName[] = PUBLIC_TOOL_NAMES) {
+  return names.map((name) => {
+    const tool = toolsByName.get(name);
+    if (!tool) throw new Error(`Offentlig verktøy finnes ikke: ${name}`);
+    return tool;
+  });
+}
+
+export const publicTools = resolvePublicTools();
 
 export async function executePublicTool(name: PublicToolName, input: unknown, context: ToolContext = {}): Promise<ToolResult> {
   const tool = toolsByName.get(name);
