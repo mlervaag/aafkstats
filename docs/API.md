@@ -35,8 +35,12 @@ API-database, så fartsgrensen er per kjørende instans og ikke en absolutt glob
 - `source_claim` er resultatet en kilde oppgir uten sikker kobling til én kamp.
 
 De to nivåene skal ikke summeres. Flere kilder med samme `resultGroupId` beskriver ett
-mulig oppgjør, ikke flere kamper. Bevar også `confidence`, `hasConflicts` og
-`missingFields` i visninger og analyser.
+mulig oppgjør og returneres som én rad, ikke flere kamper. `sourceCount` teller unike kilder,
+mens `claims` bevarer hver originale kildepåstand og skrivemåte. Bevar også `confidence`,
+`hasConflicts` og `missingFields` i visninger og analyser.
+
+Lister og kildefelt er ekte JSON-arrays og objekter. Kampdetaljer skiller registrerte
+historiske `sources` fra moderne `providers`; de to provenienstypene slås ikke sammen.
 
 ```sh
 curl "https://aafkarkivet.no/api/v1/results?ranking=largest_win&limit=10"

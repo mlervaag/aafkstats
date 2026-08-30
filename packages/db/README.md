@@ -25,7 +25,7 @@ kontrakten: `matches`, `match_events`, `match_conflicts`, `match_stats`, `venues
 `declared_coach_spells`, `people`, `person_roles`, `person_conflicts`, `organizations`,
 `organization_snapshots`, `providers`, `sources`, `historical_observations`,
 `verification_cases`, `contributions`, `publication_extractions`, `fact_candidates`,
-`source_results`, `resolved_roles`, `resolved_lineups` og FTS-tabellen `reports`.
+`source_results`, `result_groups`, `resolved_roles`, `resolved_lineups` og FTS-tabellen `reports`.
 Spørrefunksjonen ser bare viewene.
 
 Lista over er ikke skrevet av hukommelsen: `schema.test.ts` sammenligner den med `CREATE VIEW`

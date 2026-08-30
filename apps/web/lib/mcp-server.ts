@@ -1,5 +1,5 @@
 import { createMcpHandler, McpServer, type McpRequestContext } from "@modelcontextprotocol/server";
-import { executePublicTool, loadMissingOverview, loadPublicVerificationCase, loadPublicVerificationCases, publicTools, type PublicToolName } from "@aafkstats/query";
+import { executePublicTool, loadMissingOverview, loadPublicVerificationCase, loadPublicVerificationCases, publicTools, summarizeMissingOverview, type PublicToolName, type VerificationCaseView } from "@aafkstats/query";
 import { z } from "zod4";
 import { API_VERSION, publicApiInfo } from "./public-api";
 import { SITE_ORIGIN } from "./site";
@@ -24,23 +24,70 @@ const publicToolSchemas: Record<PublicToolName, z.ZodType> = {
   }),
   get_match: z.object({ matchId: z.string() }),
   get_season_summary: z.object({ season: z.number().int() }),
-  head_to_head: z.object({ opponent: z.string() }),
+  head_to_head: z.object({ opponent: z.string(), includeEvidence: z.boolean().default(false) }),
   search_reports: z.object({ q: z.string().min(1), limit: z.number().int().min(1).max(50).default(10) }),
   search_people: z.object({ q: z.string().optional(), category: z.enum(["player", "coach", "sporting_staff", "board", "administration", "honorary", "founder", "project"]).optional(), year: z.number().int().min(1914).max(2100).optional(), limit: limit100 }),
+  get_person: z.object({ personId: z.string().min(1) }),
+  search_sources: z.object({ q: z.string().optional(), type: z.string().optional(), year: z.number().int().min(1800).max(2100).optional(), yearFrom: z.number().int().min(1800).max(2100).optional(), yearTo: z.number().int().min(1800).max(2100).optional(), limit: limit100 }),
+  get_source: z.object({ sourceId: z.string().min(1), claimLimit: z.number().int().min(0).max(50).default(10) }),
   search_historical_results: z.object({ season: z.number().int().min(1914).max(2100).optional(), opponent: z.string().optional(), limit: limit100 }),
 };
 
+const MCP_JSON_COLUMNS = new Set([
+  "claims", "conflicts", "missing_fields", "providers", "role_categories", "sources", "tags",
+  "unlinked_source_references", "person_ids", "season_years", "match_ids", "competition_ids", "venue_ids",
+]);
+
+/** Gjør SQLite-JSON og interne stier direkte brukbare for en ekstern MCP-klient. */
+export function mcpPublicValue(value: unknown, key = ""): unknown {
+  if (typeof value === "string" && MCP_JSON_COLUMNS.has(key)) {
+    try { return mcpPublicValue(JSON.parse(value), key); } catch { return value; }
+  }
+  if (Array.isArray(value)) return value.map((entry) => mcpPublicValue(entry));
+  if (value && typeof value === "object") {
+    const result: Record<string, unknown> = {};
+    for (const [childKey, childValue] of Object.entries(value)) {
+      result[childKey] = mcpPublicValue(childValue, childKey);
+    }
+    for (const linkKey of ["url", "href"] as const) {
+      const link = result[linkKey];
+      if (typeof link === "string" && link.startsWith("/")) {
+        result.path ??= link;
+        result[linkKey] = `${SITE_ORIGIN}${link}`;
+      }
+    }
+    return result;
+  }
+  return value;
+}
+
 function toolResult(content: unknown, isError = false) {
-  const text = JSON.stringify(content);
+  const normalized = mcpPublicValue(content);
+  const text = JSON.stringify(normalized);
   if (text.length > MAX_OUTPUT_CHARS) {
     return { isError: true, content: [{ type: "text" as const, text: "Resultatet er for stort. Bruk smalere filtre eller lavere limit." }] };
   }
   return {
     ...(isError ? { isError: true } : {}),
     content: [{ type: "text" as const, text }],
-    ...(content && typeof content === "object"
-      ? { structuredContent: Array.isArray(content) ? { items: content } : content as Record<string, unknown> }
+    ...(normalized && typeof normalized === "object"
+      ? { structuredContent: Array.isArray(normalized) ? { items: normalized } : normalized as Record<string, unknown> }
       : {}),
+  };
+}
+
+function verificationCaseSummary(item: VerificationCaseView) {
+  return {
+    id: item.id,
+    category: item.category,
+    question: item.question,
+    targetType: item.target.type,
+    targetId: item.target.id,
+    priority: item.priority,
+    estimatedMinutes: item.estimatedMinutes,
+    hasResearchTask: item.researchTask !== null,
+    canSubmitViaMcp: item.researchTask !== null,
+    href: item.href,
   };
 }
 
@@ -79,8 +126,42 @@ function createArchiveServer(context: McpRequestContext) {
 
   server.registerTool(
     "get_research_overview",
-    { description: "Hent det brede bildet av hva AaFK-arkivet mangler. Dette er dekningshull, ikke én oppgave per rad.", inputSchema: {}, annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false } },
-    async () => toolResult(loadMissingOverview()),
+    { description: "Hent et kompakt sammendrag av hva AaFK-arkivet mangler. Bruk egne list-verktøy bare når du trenger detaljene.", inputSchema: {}, annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false } },
+    async () => toolResult(summarizeMissingOverview(loadMissingOverview())),
+  );
+
+  server.registerTool(
+    "list_incomplete_seasons",
+    { description: "List ufullstendige seriesesonger. Dette er detaljene bak telleren i get_research_overview.", inputSchema: { limit: z.number().int().min(1).max(100).default(20) }, annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false } },
+    async ({ limit }) => toolResult(loadMissingOverview().incompleteSeasons.slice(0, limit)),
+  );
+
+  server.registerTool(
+    "list_lineup_review_candidates",
+    { description: "List avgrensede lagoppstillingskandidater med kilde. Kandidatene er ikke kanoniske kampfakta.", inputSchema: { limit: z.number().int().min(1).max(100).default(20) }, annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false } },
+    async ({ limit }) => {
+      const overview = loadMissingOverview();
+      const items = overview.lineupReview.items.flatMap((source) => source.candidates.map((candidate) => ({
+        ...candidate,
+        sourceId: source.sourceId,
+        sourceTitle: source.title,
+        sourceUrl: source.sourceUrl,
+        href: source.url,
+      })));
+      return toolResult(items.slice(0, limit));
+    },
+  );
+
+  server.registerTool(
+    "list_identity_issues",
+    { description: "List spilleridentiteter som mangler personfil eller kampkobling. Dette er arbeidskandidater, ikke identitetsavgjørelser.", inputSchema: { limit: z.number().int().min(1).max(100).default(20) }, annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false } },
+    async ({ limit }) => {
+      const identity = loadMissingOverview().identity;
+      return toolResult({
+        playersWithoutFile: identity.playersWithoutFile.slice(0, limit),
+        filesWithoutMatches: identity.filesWithoutMatches.slice(0, limit),
+      });
+    },
   );
 
   server.registerTool(
@@ -90,7 +171,7 @@ function createArchiveServer(context: McpRequestContext) {
       inputSchema: { category: z.string().optional(), targetType: z.enum(["person", "match", "season", "club", "source"]).optional(), limit: z.number().int().min(1).max(100).default(20) },
       annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     },
-    async ({ category, targetType, limit }) => toolResult(loadPublicVerificationCases().filter((item) => !category || item.category === category).filter((item) => !targetType || item.target.type === targetType).slice(0, limit)),
+    async ({ category, targetType, limit }) => toolResult(loadPublicVerificationCases().filter((item) => !category || item.category === category).filter((item) => !targetType || item.target.type === targetType).slice(0, limit).map(verificationCaseSummary)),
   );
 
   server.registerTool(
@@ -98,7 +179,7 @@ function createArchiveServer(context: McpRequestContext) {
     { description: "Hent én publisert, åpen researchsak med revisjon, target, eksisterende kilder og researchTask. Saken er arbeidsgrunnlag, ikke sannhet.", inputSchema: { id: z.string().min(1).max(100) }, annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false } },
     async ({ id }) => {
       const item = loadPublicVerificationCase(id);
-      return item ? toolResult(item) : toolResult({ error: "Åpen, publisert sak finnes ikke." }, true);
+      return item ? toolResult({ ...item, canSubmitViaMcp: item.researchTask !== null }) : toolResult({ error: "Åpen, publisert sak finnes ikke." }, true);
     },
   );
 

@@ -31,6 +31,16 @@ export interface PublicCoverageSummary {
   openCoverageGaps: number;
 }
 
+export interface PublicResearchOverview {
+  playedMatches: number;
+  matchFields: { field: string; total: number; present: number; missing: number }[];
+  historicalResults: { total: number; seasons: number };
+  incompleteSeasons: { count: number };
+  unresolvedPeople: { people: number; conflicts: number };
+  lineupReview: { candidates: number; sources: number };
+  identity: { playersWithoutFile: number; filesWithoutMatches: number };
+}
+
 interface PersonConflictRow { person_id: string; name: string; url: string; field: string }
 interface LineupReviewRow { source_id: string; source_title: string; url: string; source_url: string | null; id: string; page: string; season: number | null; names: string; person_ids: string }
 
@@ -97,4 +107,34 @@ export function loadMissingOverview(): MissingOverview {
       },
     };
   } finally { db.close(); }
+}
+
+/** Kompakt MCP-sammendrag. Detaljkøene hentes eksplisitt med egne list-verktøy. */
+export function summarizeMissingOverview(overview: MissingOverview): PublicResearchOverview {
+  return {
+    playedMatches: overview.playedMatches,
+    matchFields: overview.matchFields.map(({ field, matches }) => ({
+      field,
+      total: overview.playedMatches,
+      present: Math.max(0, overview.playedMatches - matches),
+      missing: matches,
+    })),
+    historicalResults: {
+      total: overview.historicalResults.total,
+      seasons: overview.historicalResults.seasons.length,
+    },
+    incompleteSeasons: { count: overview.incompleteSeasons.length },
+    unresolvedPeople: {
+      people: overview.unresolvedPeople.people,
+      conflicts: overview.unresolvedPeople.conflicts,
+    },
+    lineupReview: {
+      candidates: overview.lineupReview.candidates,
+      sources: overview.lineupReview.sources,
+    },
+    identity: {
+      playersWithoutFile: overview.identity.playersWithoutFile.length,
+      filesWithoutMatches: overview.identity.filesWithoutMatches.length,
+    },
+  };
 }

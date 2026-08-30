@@ -882,6 +882,7 @@ Byggesteget regner ut noen felt som ikke finnes i YAML-en. De er avledet, aldri 
 | `after_extra_time`, `decided_on_penalties`, `won_on_penalties` | `extraTime` og `penaltyShootout` |
 | `competition`, `opponent`, `venue` (navnene) | `nameAt()` mot `names` og kampdatoen |
 | `completeness`, `missing_fields` | Hvor mye av kampen som er fylt ut |
+| `providers` | Dataleverandører, hentetid og hvilke felt de dokumenterer. Holdes adskilt fra historiske `sources`. |
 | `has_conflicts` | Om `conflicts` er tom |
 
 Kolonnereferansen for det ferdige datasettet — alle views, alle kolonner, med forbehold —

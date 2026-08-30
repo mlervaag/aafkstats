@@ -36,11 +36,14 @@ Legger du til en kolonne i `packages/db/src/schema.sql`, skal den også inn her.
 |---|---|
 | `search_matches` | Kamper filtrert på sesong, motstander, konkurranse, resultat, hjemme/borte, statistikkdekning og AaFKs xG |
 | `search_all_results` | Rekorder og hele historien, samlet fra kanoniske kamper og grupperte, ukoblede kilderesultater |
-| `get_match` | Alt om én kamp, inkludert kampstatistikk, hendelser og referat |
-| `get_season_summary` | Plassering, resultatfordeling og målforskjell for én sesong |
-| `head_to_head` | Innbyrdes statistikk med kanoniske kamper og ukoblede kilderesultater som separate lag |
-| `search_reports` | Fritekstsøk i kampreferatene (FTS5) |
-| `search_people` | Personer og kontrollerte roller eller verv |
+| `get_match` | Alt om én kamp, inkludert provider-proveniens, kilder, kampstatistikk, hendelser og referat |
+| `get_season_summary` | Plassering, resultatfordeling og målforskjell, én rad per konkurranse i sesongen |
+| `head_to_head` | Kanoniske kamper, sikre ukoblede klubbtreff og mulige navnetreff som tre separate lag |
+| `search_reports` | Fritekstsøk i kampreferatene (FTS5), med relevant utdrag fra body når summary mangler |
+| `search_people` | Personer og eksplisitte roller med rolle-ID og organisasjon |
+| `get_person` | Én person med roller, konflikter, kilder og publiserbare observasjoner |
+| `search_sources` | Søk i publisert kildemetadata uten OCR eller beskyttet fulltekst |
+| `get_source` | Én kilde med brukstellere og et avgrenset utvalg resultatpåstander |
 | `search_historical_results` | Kildedokumenterte resultater som mangler full kampkobling |
 | `search_resolved_roles` | Maskinelt løste rollekandidater med kilde, side og sikkerhet |
 | `search_resolved_lineups` | Maskinelt løste lag- og spillerlister med kilde, side og sikkerhet |
@@ -52,14 +55,16 @@ aggregeringer, uvanlige kombinasjoner, «hvor mange ganger har vi …». Det er 
 `search_all_results` er den obligatoriske veien for rekorder, største seier eller tap og
 andre spørsmål om hele historien. Verktøyet utelater `source_results` som allerede har
 `match_id`, slik at samme kamp ikke kommer både som kamp og kildepåstand. Ukoblede rader
-grupperes på `result_group_id` når den finnes, og svaret inneholder en serverstyrt
-evidenskontrakt som skiller `canonical_match` fra `source_claim`.
+grupperes på `result_group_id` når den finnes. Én gruppe gir én rad, med unike kilder i
+`sources` og originaltekst fra hver påstand i `claims`. Rangeringen skjer etter grupperingen.
+Svaret inneholder en serverstyrt evidenskontrakt som skiller `canonical_match` fra
+`source_claim`.
 
 `head_to_head` følger samme prinsipp for motstanderstatistikk. Det grupperer ukoblede
-kilderesultater på `result_group_id`, tar bare med sikkert identifisert `opponent_club_id`
-og returnerer dem ved siden av den kanoniske statistikken. Lagene skal ikke summeres, fordi
-en ukoblet rad kan gjelde en kamp som allerede finnes i kampmodellen. Konkrete resultater
-kan deretter hentes med samme klubb-ID i `search_all_results`, uten et tvetydig navnesøk.
+kilderesultater på `result_group_id` og returnerer tre lag: kanonisk statistikk, ukoblede
+resultater med sikkert identifisert `opponent_club_id`, og tekstlige treff der klubb-ID-en er
+uavklart. Det siste laget er bare et spor til videre research og inngår aldri i summene.
+Full kildemetadata er opt-in med `includeEvidence`; standardkallet holder svaret kompakt.
 
 Alle verktøyene kjører gjennom den samme guardrailen i
 [`@aafkstats/db/sql`](../db/README.md#guardrailen) — også de vi har skrevet selv. Ett sted å

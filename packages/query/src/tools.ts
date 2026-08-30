@@ -61,6 +61,22 @@ async function query(ctx: ToolContext, sql: string): Promise<ToolResult> {
   }
 }
 
+function resultRows(result: ToolResult): Record<string, unknown>[] {
+  const content = result.content as { rows?: Record<string, unknown>[] };
+  return content.rows ?? [];
+}
+
+function parseJsonArray(value: unknown): unknown[] {
+  if (Array.isArray(value)) return value;
+  if (typeof value !== "string") return [];
+  try {
+    const parsed: unknown = JSON.parse(value);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
 /** Setter inn en tekstverdi trygt i en spørring vi bygger selv. */
 function lit(value: string): string {
   return `'${value.replaceAll("'", "''")}'`;
@@ -150,6 +166,8 @@ const HEAD_TO_HEAD_EVIDENCE_POLICY = {
     "Ikke legg canonical og unlinked_ sammen til ett totalt kamp-, resultat- eller måltall. Noen ukoblede resultater kan gjelde kamper som allerede finnes uten at koblingen er avklart.",
   identity:
     "Bare source_results med samme opponent_club_id er tatt med. Flere returnerte klubber, som Molde FK og Molde 2, skal holdes helt adskilt.",
+  possibleIdentityMatches:
+    "Tekstlige treff uten opponent_club_id er mulige identitetstreff. De skal undersøkes, men aldri inngå i played, wins, draws, losses eller mål.",
 } as const;
 
 /**
@@ -180,7 +198,7 @@ const searchAllResults = defineTool({
     if (input.season !== undefined) where.push(`season = ${input.season}`);
     if (input.seasonFrom !== undefined) where.push(`season >= ${input.seasonFrom}`);
     if (input.seasonTo !== undefined) where.push(`season <= ${input.seasonTo}`);
-    if (input.opponent) where.push(`lower(coalesce(opponent, '')) LIKE ${lit(`%${input.opponent.toLowerCase()}%`)}`);
+    if (input.opponent) where.push(`opponent_search LIKE ${lit(`%${input.opponent.toLowerCase()}%`)}`);
     if (input.opponentClubId) where.push(`opponent_club_id = ${lit(input.opponentClubId)}`);
     if (input.result) where.push(`result = ${lit(input.result)}`);
     if (input.ranking === "largest_win") where.push("result = 'S'");
@@ -197,55 +215,30 @@ const searchAllResults = defineTool({
 
     const result = await query(
       ctx,
-      `WITH source_claims AS (
-         SELECT 'source_claim' AS evidence_level,
-                coalesce(result_group_id, claim_id) AS record_id,
-                date, CASE WHEN date IS NULL THEN 'season_only' ELSE 'exact' END AS date_precision,
-                season, opponent, opponent_club_id,
-                aafk_score, opponent_score,
-                aafk_score - opponent_score AS goal_difference,
-                result, competition_id AS competition, NULL AS competition_type,
-                NULL AS is_home, NULL AS confidence, 0 AS has_conflicts,
-                NULL AS match_id, result_group_id,
-                group_concat(DISTINCT note) AS note,
-                NULL AS completeness,
-                '["canonical_match","home_away"' ||
-                  CASE WHEN date IS NULL THEN ',"date"' ELSE '' END ||
-                  CASE WHEN competition_id IS NULL THEN ',"competition"' ELSE '' END ||
-                  ']' AS missing_fields,
-                count(*) AS source_count,
-                json_group_array(json_object(
-                  'claimId', claim_id,
-                  'sourceId', source_id,
-                  'title', source_title,
-                  'page', page,
-                  'sourceUrl', source_url,
-                  'url', url
-                )) AS sources,
-                min(url) AS url
-         FROM source_results
-         WHERE match_id IS NULL AND status = 'played'
-         GROUP BY coalesce(result_group_id, claim_id), date, season, opponent,
-                  opponent_club_id, aafk_score, opponent_score, result,
-                  competition_id, result_group_id
-       ), all_results AS (
+      `WITH all_results AS (
          SELECT 'canonical_match' AS evidence_level, match_id AS record_id,
                 date, date_confidence AS date_precision, season, opponent, opponent_club_id,
                 aafk_score, opponent_score, goal_difference,
                 result, competition, competition_type, is_home, confidence,
                 has_conflicts, match_id, NULL AS result_group_id, note,
                 completeness, missing_fields,
-                NULL AS source_count, sources, url
+                NULL AS source_count, sources, NULL AS claims, url,
+                lower(coalesce(opponent, '') || ' ' || coalesce(opponent_club_id, '')) AS opponent_search
          FROM matches
          WHERE status IN ('played', 'awarded')
          UNION ALL
-         SELECT * FROM source_claims
+         SELECT 'source_claim', record_id, date, date_precision, season, opponent,
+                opponent_club_id, aafk_score, opponent_score, goal_difference,
+                result, competition, NULL, NULL, NULL, has_conflicts, NULL,
+                result_group_id, note, NULL, missing_fields, source_count,
+                sources, claims, url, opponent_search
+         FROM result_groups
        )
        SELECT evidence_level, record_id, date, date_precision, season, opponent, opponent_club_id,
               aafk_score, opponent_score, goal_difference, result,
               competition, competition_type, is_home, confidence, has_conflicts,
               match_id, result_group_id, note, completeness, missing_fields,
-              source_count, sources, url
+              source_count, sources, claims, url
        FROM all_results
        ${where.length > 0 ? `WHERE ${where.join(" AND ")}` : ""}
        ORDER BY ${orderBy[input.ranking]}
@@ -282,7 +275,7 @@ const getMatch = defineTool({
               aafk_corners, opponent_corners, aafk_fouls, opponent_fouls,
               aafk_offsides, opponent_offsides, aafk_xg, opponent_xg,
               report_summary, confidence, has_conflicts, completeness,
-              last_retrieved_at, sources, note, tags, url
+              last_retrieved_at, providers, sources, note, tags, url
        FROM matches WHERE match_id = ${id}`,
     );
     const events = await query(
@@ -300,7 +293,7 @@ const getMatch = defineTool({
 
 const getSeasonSummary = defineTool({
   name: "get_season_summary",
-  description: "Sammendrag for én sesong: plassering, resultatfordeling og målforskjell.",
+  description: "Sammendrag for én sesong. Returnerer én rad per konkurranse, ikke én samlet total for året.",
   inputSchema: z.object({ season: z.number().int().describe("Sesongår") }),
   async run(input, ctx) {
     return query(ctx, `SELECT * FROM seasons WHERE season = ${input.season}`);
@@ -311,10 +304,12 @@ const headToHead = defineTool({
   name: "head_to_head",
   description:
     "Innbyrdes statistikk mot en motstander gjennom hele historien. Returnerer kanoniske " +
-    "kampsummer og ukoblede, kildedokumenterte resultater som to separate lag. Bruk alltid " +
+    "kampsummer, ukoblede resultater med sikker klubb-ID og mulige teksttreff uten avklart " +
+    "klubb-ID som tre separate lag. Bruk alltid " +
     "dette ved spørsmål om alle oppgjør, komplett historikk eller statistikk mot en motstander.",
   inputSchema: z.object({
     opponent: z.string().describe("Motstanderens navn eller ID, delvis treff holder"),
+    includeEvidence: z.boolean().default(false).describe("Ta med full metadata for ukoblede kilder. Standard false gir bare antall."),
   }),
   async run(input, ctx) {
     const needle = lit(`%${input.opponent.toLowerCase()}%`);
@@ -382,9 +377,46 @@ const headToHead = defineTool({
        ORDER BY o.played DESC LIMIT 10`,
     );
     if (result.isError) return result;
+    for (const row of resultRows(result)) {
+      const references = parseJsonArray(row.unlinked_source_references);
+      row.unlinked_source_count = references.length;
+      if (!input.includeEvidence) delete row.unlinked_source_references;
+    }
+
+    const possible = await query(
+      ctx,
+      `SELECT coalesce(result_group_id, claim_id) AS record_id,
+              min(season) AS season,
+              min(opponent COLLATE NOCASE) AS opponent_as_printed,
+              CASE WHEN count(DISTINCT printf('%d:%d', aafk_score, opponent_score)) = 1
+                   THEN max(aafk_score) END AS aafk_score,
+              CASE WHEN count(DISTINCT printf('%d:%d', aafk_score, opponent_score)) = 1
+                   THEN max(opponent_score) END AS opponent_score,
+              'opponent_club_id unresolved' AS reason,
+              count(DISTINCT source_id) AS source_count,
+              json_group_array(json_object(
+                'claimId', claim_id,
+                'opponentAsPrinted', opponent,
+                'sourceId', source_id,
+                'title', source_title,
+                'page', page,
+                'sourceUrl', source_url,
+                'url', url
+              )) AS claims,
+              min(url) AS url
+       FROM source_results
+       WHERE match_id IS NULL AND status = 'played'
+         AND opponent_club_id IS NULL
+         AND lower(coalesce(opponent, '')) LIKE ${needle}
+       GROUP BY coalesce(result_group_id, claim_id)
+       ORDER BY season, record_id
+       LIMIT 20`,
+    );
+    if (possible.isError) return possible;
     return {
       content: {
         ...(result.content as Record<string, unknown>),
+        possible_identity_matches: resultRows(possible),
         evidencePolicy: HEAD_TO_HEAD_EVIDENCE_POLICY,
       },
     };
@@ -401,7 +433,13 @@ const searchReports = defineTool({
   async run(input, ctx) {
     return query(
       ctx,
-      `SELECT match_id, date, opponent, is_home, result, summary, url
+      `SELECT match_id, date, opponent, is_home, result,
+              nullif(trim(summary), '') AS summary,
+              CASE WHEN trim(coalesce(summary, '')) <> '' THEN trim(summary)
+                   ELSE snippet(reports, 7, '', '', ' … ', 28) END AS snippet,
+              CASE WHEN lower(coalesce(summary, '')) LIKE ${lit(`%${input.q.toLowerCase()}%`)}
+                   THEN 'summary' ELSE 'body' END AS matched_field,
+              url
        FROM reports
        WHERE reports MATCH ${lit(input.q)}
        ORDER BY date DESC LIMIT ${input.limit}`,
@@ -439,13 +477,158 @@ const searchPeople = defineTool({
     return query(
       ctx,
       `SELECT p.id AS person_id, p.name, p.position, p.nationality, p.has_conflicts,
-              r.category, r.title, r.body, r.from_date, r.to_date, p.url
+              r.role_id, 'explicit' AS role_kind, r.category, r.title,
+              r.organization_id, r.organization_name, r.body,
+              r.from_date, r.to_date, r.sources, r.note, p.url
        FROM people p
        LEFT JOIN person_roles r ON r.person_id = p.id
        ${where.length > 0 ? `WHERE ${where.join(" AND ")}` : ""}
        ORDER BY coalesce(r.from_date, '9999'), p.name
        LIMIT ${input.limit}`,
     );
+  },
+});
+
+const getPerson = defineTool({
+  name: "get_person",
+  description:
+    "Hent én publisert person med eksplisitte roller, konflikter, kildehenvisninger og " +
+    "historiske observasjoner. Roller er separate rolleposter og har rolle-ID og organisasjon.",
+  inputSchema: z.object({ personId: z.string().min(1).describe("Kanonisk person-ID") }),
+  async run(input, ctx) {
+    const id = lit(input.personId);
+    const person = await query(
+      ctx,
+      `SELECT id AS person_id, name, nationality, position, wikidata, sources, note,
+              has_conflicts, first_season, last_season, appearances, starts,
+              role_count, first_role_year, last_role_year, role_categories, url
+       FROM people WHERE id = ${id}`,
+    );
+    if (person.isError) return person;
+    const personRow = resultRows(person)[0];
+    if (!personRow) return { content: { error: "Personen finnes ikke." }, isError: true };
+
+    const roles = await query(
+      ctx,
+      `SELECT role_id, 'explicit' AS role_kind, category, title,
+              organization_id, organization_name, body, from_date, to_date,
+              sources, note, url
+       FROM person_roles WHERE person_id = ${id}
+       ORDER BY from_date, role_id`,
+    );
+    const conflicts = await query(
+      ctx,
+      `SELECT field, provider_id, value, value_note, is_chosen, decision,
+              decided_at, reason, locked, conflict_note, url
+       FROM person_conflicts WHERE person_id = ${id}
+       ORDER BY field, provider_id`,
+    );
+    const observations = await query(
+      ctx,
+      `SELECT h.id, h.title, h.text, h.date, h.note, h.sources, h.url
+       FROM historical_observations h, json_each(h.person_ids) relation
+       WHERE relation.value = ${id}
+       ORDER BY coalesce(h.date, '') DESC, h.id`,
+    );
+    if (roles.isError) return roles;
+    if (conflicts.isError) return conflicts;
+    if (observations.isError) return observations;
+    return {
+      content: {
+        person: personRow,
+        roles: resultRows(roles),
+        conflicts: resultRows(conflicts),
+        observations: resultRows(observations),
+      },
+    };
+  },
+});
+
+const searchSources = defineTool({
+  name: "search_sources",
+  description:
+    "Søk i den publiserte kildekatalogen etter tittel, forfatter, utgiver, type eller år. " +
+    "Dette søker i kildemetadata, ikke i beskyttet OCR eller fulltekst.",
+  inputSchema: z.object({
+    q: z.string().optional().describe("Tittel, forfatter, utgiver eller beskrivelse"),
+    type: z.string().optional().describe("Kildetype, for eksempel book eller member_magazine"),
+    year: z.number().int().min(1800).max(2100).optional(),
+    yearFrom: z.number().int().min(1800).max(2100).optional(),
+    yearTo: z.number().int().min(1800).max(2100).optional(),
+    limit: z.number().int().min(1).max(100).default(20),
+  }),
+  async run(input, ctx) {
+    const where: string[] = [];
+    if (input.q) {
+      const needle = lit(`%${input.q.toLowerCase()}%`);
+      where.push(`(lower(title) LIKE ${needle} OR lower(coalesce(author, '')) LIKE ${needle} OR lower(coalesce(publisher, '')) LIKE ${needle} OR lower(coalesce(description, '')) LIKE ${needle})`);
+    }
+    if (input.type) where.push(`source_type = ${lit(input.type)}`);
+    if (input.year !== undefined) where.push(`year = ${input.year}`);
+    if (input.yearFrom !== undefined) where.push(`year >= ${input.yearFrom}`);
+    if (input.yearTo !== undefined) where.push(`year <= ${input.yearTo}`);
+    return query(
+      ctx,
+      `SELECT id AS source_id, parent_source_id, title, source_type, issue, volume,
+              publisher, year, urn, author, description, cover_url, access_url, url
+       FROM sources
+       ${where.length > 0 ? `WHERE ${where.join(" AND ")}` : ""}
+       ORDER BY coalesce(year, 0) DESC, title COLLATE NOCASE
+       LIMIT ${input.limit}`,
+    );
+  },
+});
+
+const getSource = defineTool({
+  name: "get_source",
+  description:
+    "Hent metadata, bruksteller og et avgrenset utvalg resultatpåstander for én publisert kilde. " +
+    "Rå OCR og beskyttet fulltekst returneres aldri.",
+  inputSchema: z.object({
+    sourceId: z.string().min(1).describe("Kildens ID"),
+    claimLimit: z.number().int().min(0).max(50).default(10),
+  }),
+  async run(input, ctx) {
+    const id = lit(input.sourceId);
+    const source = await query(ctx, `SELECT * FROM sources WHERE id = ${id}`);
+    if (source.isError) return source;
+    const sourceRow = resultRows(source)[0];
+    if (!sourceRow) return { content: { error: "Kilden finnes ikke." }, isError: true };
+
+    const usage = await query(
+      ctx,
+      `SELECT
+         (SELECT count(DISTINCT m.match_id)
+            FROM matches m, json_each(m.sources) ref
+           WHERE json_extract(ref.value, '$.sourceId') = ${id}) AS canonical_matches,
+         (SELECT count(*) FROM source_results WHERE source_id = ${id}) AS result_claims,
+         (SELECT count(DISTINCT r.person_id)
+            FROM person_roles r, json_each(r.sources) ref
+           WHERE json_extract(ref.value, '$.sourceId') = ${id}) AS person_roles,
+         (SELECT count(DISTINCT h.id)
+            FROM historical_observations h, json_each(h.sources) ref
+           WHERE json_extract(ref.value, '$.sourceId') = ${id}) AS observations`,
+    );
+    const claims = input.claimLimit === 0
+      ? { content: { rows: [] } }
+      : await query(
+          ctx,
+          `SELECT claim_id, season, date, opponent, opponent_club_id,
+                  aafk_score, opponent_score, result, competition_id,
+                  result_group_id, match_id, page, note, source_url, url
+           FROM source_results WHERE source_id = ${id}
+           ORDER BY season, source_order
+           LIMIT ${input.claimLimit}`,
+        );
+    if (usage.isError) return usage;
+    if ("isError" in claims && claims.isError) return claims;
+    return {
+      content: {
+        source: sourceRow,
+        usage: resultRows(usage)[0] ?? {},
+        resultClaims: resultRows(claims as ToolResult),
+      },
+    };
   },
 });
 
@@ -589,6 +772,9 @@ export const tools: ToolDef[] = [
   headToHead,
   searchReports,
   searchPeople,
+  getPerson,
+  searchSources,
+  getSource,
   searchHistoricalResults,
   searchResolvedRoles,
   searchResolvedLineups,

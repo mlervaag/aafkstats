@@ -31,7 +31,7 @@ describe("offentlig REST API v1", () => {
   it("publiserer versjoner, rettigheter, CORS og cache", async () => {
     const response = getMeta(new Request("https://aafkarkivet.no/api/v1/meta", { headers: { "x-real-ip": "meta-test" } }));
     const body = await response.json();
-    expect(body.meta).toMatchObject({ apiVersion: "1", datasetVersion: "4" });
+    expect(body.meta).toMatchObject({ apiVersion: "1", datasetVersion: "5" });
     expect(body.data.coverage.canonicalMatches).toBe(11);
     expect(response.headers.get("access-control-allow-origin")).toBe("*");
     expect(response.headers.get("cache-control")).toContain("s-maxage");

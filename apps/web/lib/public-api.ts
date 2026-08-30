@@ -17,7 +17,7 @@ function camel(key: string): string {
   return key.replace(/_([a-z])/g, (_, letter: string) => letter.toUpperCase());
 }
 
-const JSON_COLUMNS = new Set(["sources", "missing_fields", "tags", "role_categories", "unlinked_source_references"]);
+const JSON_COLUMNS = new Set(["claims", "providers", "sources", "missing_fields", "tags", "role_categories", "unlinked_source_references"]);
 
 function publicValue(value: unknown, key = ""): unknown {
   if (typeof value === "string" && JSON_COLUMNS.has(key)) {

@@ -98,8 +98,10 @@ describe("verktøy mot ekte arkivfil", () => {
 
   it("search_reports finner tekst i referat", async () => {
     const r = await call("search_reports", { q: "snuoperasjon" });
-    const rows = (r.content as { rows: unknown[] }).rows;
+    const rows = (r.content as { rows: Record<string, unknown>[] }).rows;
     expect(rows.length).toBeGreaterThan(0);
+    expect(rows[0]!.snippet).toEqual(expect.any(String));
+    expect(["summary", "body"]).toContain(rows[0]!.matched_field);
   });
 
   it("run_sql kjører en aggregering", async () => {
@@ -203,24 +205,31 @@ describe("verktøy mot det historiske kandidatlaget", () => {
       goal_difference: 15,
     });
 
-    const langevaag1924 = result.filter((row) =>
-      row.evidence_level === "source_claim" && row.season === 1924 && row.opponent === "Langevåg",
-    );
+    const langevaag1924 = result.filter((row) => row.result_group_id === "1924-langevag-14-0");
     expect(langevaag1924).toHaveLength(1);
     expect(langevaag1924[0]).toMatchObject({
+      evidence_level: "source_claim",
+      opponent: "Langevåg",
       aafk_score: 14,
       opponent_score: 0,
       result_group_id: "1924-langevag-14-0",
-      source_count: 2,
+      source_count: 3,
       match_id: null,
+      has_conflicts: 0,
     });
     expect(JSON.parse(String(langevaag1924[0]!.missing_fields))).toEqual([
       "canonical_match",
       "home_away",
       "date",
-      "competition",
     ]);
-    expect(JSON.parse(String(langevaag1924[0]!.sources))).toHaveLength(2);
+    expect(JSON.parse(String(langevaag1924[0]!.sources))).toHaveLength(3);
+    expect(JSON.parse(String(langevaag1924[0]!.claims)).map((claim: { opponentAsPrinted: string }) => claim.opponentAsPrinted))
+      .toContain("Langevaag fotballkl.");
+
+    const ostersund1931 = result.filter((row) => row.result_group_id === "1931-null-12-1");
+    expect(ostersund1931).toHaveLength(1);
+    expect(JSON.parse(String(ostersund1931[0]!.claims)).map((claim: { opponentAsPrinted: string }) => claim.opponentAsPrinted))
+      .toEqual(expect.arrayContaining(["Kamraterna, Östersund", "Östersund", "Østersundskam., Sverige"]));
 
     const vigra1964 = result.filter((row) =>
       row.season === 1964 && row.opponent === "Vigra" && row.aafk_score === 15,
@@ -233,7 +242,7 @@ describe("verktøy mot det historiske kandidatlaget", () => {
   });
 
   it("holder kanonisk og ukoblet Molde-statistikk adskilt", async () => {
-    const response = await call("head_to_head", { opponent: "Molde" });
+    const response = await call("head_to_head", { opponent: "Molde", includeEvidence: true });
     const result = rows(response);
     const molde = result.find((row) => row.opponent_club_id === "molde-fk");
     const molde2 = result.find((row) => row.opponent_club_id === "molde-2");
@@ -244,8 +253,52 @@ describe("verktøy mot det historiske kandidatlaget", () => {
     expect(Number(molde!.unlinked_wins) + Number(molde!.unlinked_draws) + Number(molde!.unlinked_losses))
       .toBe(Number(molde!.unlinked_consistent_results));
     expect(JSON.parse(String(molde!.unlinked_source_references)).length).toBeGreaterThan(0);
+    expect(Number(molde!.unlinked_source_count)).toBeGreaterThan(0);
     expect(molde).not.toHaveProperty("combined_played");
     expect(Number(molde2!.played)).toBeLessThan(Number(molde!.played));
+  });
+
+  it("holder et mulig Viking-treff fra 1954 utenfor kanonisk statistikk", async () => {
+    const response = await call("head_to_head", { opponent: "Viking" });
+    const result = rows(response);
+    const viking = result.find((row) => row.opponent_club_id === "viking")!;
+    const possible = (response.content as { possible_identity_matches: Record<string, unknown>[] }).possible_identity_matches;
+
+    expect(viking.played).toBe(41);
+    expect(viking.unlinked_results).toBe(0);
+    expect(viking).not.toHaveProperty("unlinked_source_references");
+    expect(possible).toEqual(expect.arrayContaining([
+      expect.objectContaining({ season: 1954, opponent_as_printed: "Viking, St.vanger", reason: "opponent_club_id unresolved" }),
+    ]));
+  });
+
+  it("forklarer overlappende personroller med rolle-ID og organisasjon", async () => {
+    const result = rows(await call("search_people", { q: "Henrik Hoff", year: 2000, limit: 20 }));
+    const dailyManagers = result.filter((row) => row.title === "Daglig leder");
+    expect(dailyManagers).toHaveLength(2);
+    expect(new Set(dailyManagers.map((row) => row.role_id)).size).toBe(2);
+    expect(new Set(dailyManagers.map((row) => row.organization_id))).toEqual(new Set(["aafk", "aafk-as"]));
+    expect(dailyManagers.every((row) => row.role_kind === "explicit")).toBe(true);
+  });
+
+  it("gir referatsnutt fra body når summary mangler", async () => {
+    const result = rows(await call("search_reports", { q: "AaFK", limit: 10 }));
+    const langevaag = result.find((row) => row.match_id === "1929-08-04-langevag-aalesunds-fk")!;
+    expect(langevaag.summary).toBeNull();
+    expect(langevaag.snippet).toContain("AaFK vant 7-0");
+    expect(langevaag.matched_field).toBe("body");
+  });
+
+  it("henter én person og én kilde gjennom offentlige views", async () => {
+    const person = await call("get_person", { personId: "henrik-hoff" });
+    expect(person.isError).toBeFalsy();
+    expect((person.content as { roles: Record<string, unknown>[] }).roles.some((role) => role.organization_id === "aafk-as")).toBe(true);
+
+    const sources = rows(await call("search_sources", { q: "fotballklub gjennem", limit: 5 }));
+    expect(sources.length).toBeGreaterThan(0);
+    const source = await call("get_source", { sourceId: String(sources[0]!.source_id), claimLimit: 3 });
+    expect(source.isError).toBeFalsy();
+    expect((source.content as { resultClaims: unknown[] }).resultClaims.length).toBeLessThanOrEqual(3);
   });
 
   it("filtrerer konkrete motstanderresultater på kanonisk klubb-ID", async () => {

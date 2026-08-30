@@ -116,7 +116,8 @@ Alle grensesnittene leser det samme publiserte, skrivebeskyttede arkivet.
 
 Bruk `results` når du leter i hele historikken. Et treff merket `canonical_match` er en
 identifisert kamp; `source_claim` er det en historisk kilde oppgir før oppføringen er sikkert
-koblet til en kamp. De to skal ikke summeres til én statistisk total.
+koblet til en kamp. Flere kilder om samme mulige oppgjør samles i ett treff, med originaltekst
+og kilder bevart. De to evidensnivåene skal ikke summeres til én statistisk total.
 
 AI-assistert research er velkommen, men **AI er ikke en kilde**. MCP kan bare sende
 dokumenterte funn til den eksisterende innboksen som `pending_review`; et menneske

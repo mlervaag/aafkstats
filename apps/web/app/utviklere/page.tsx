@@ -69,6 +69,11 @@ export default function DevelopersPage() {
             total. Kontroller også <code>confidence</code>, <code>hasConflicts</code> og
             <code>missingFields</code> før du presenterer et svar som sikkert.
           </p>
+          <p>
+            Når flere kilder omtaler det samme uavklarte oppgjøret, samler arkivet dem i
+            ett treff og bevarer hver skrivemåte som dokumentasjon. Mulige navnetreff uten
+            avklart klubbidentitet vises som researchspor, aldri som del av kampstatistikken.
+          </p>
         </div>
       </section>
 
@@ -88,6 +93,11 @@ export default function DevelopersPage() {
             researchsaker. Konflikter og dekningshull finnes i researchoversikten. Det
             finnes ingen generell SQL-tilgang og ingen direkte skrivetilgang til
             arkivdataene.
+          </p>
+          <p>
+            Oversikter og lister er bevisst korte. AI-verktøyet henter detaljer om én kamp,
+            person, kilde eller researchsak først når de trengs. Det holder både svarene og
+            tokenbruken nede.
           </p>
         </div>
       </section>
