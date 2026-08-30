@@ -47,6 +47,10 @@ sources:
       - home.score
       - away.score
     note: Cupen. trykt «Hardy, Bergen 8-1».
+  - sourceId: nff-arbok-1927
+    page: "182 (trykt; NB-visning 191–192)"
+    fields: [status, competition, home.clubId, away.clubId, home.score, away.score, competition.round]
+    note: Det todelte, roterte NM-diagrammet er visuelt kontrollert.
 confidence: confirmed
 conflicts: []
 tags: []

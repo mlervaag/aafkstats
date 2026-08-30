@@ -1,5 +1,16 @@
 year: 1930
-competitionId: nm
-finalPosition: null
+competitionId: sondmore-kreds-klasse-a
+sources:
+  - sourceId: nff-arbok-1930
+    page: "99"
+    fields: [finalPosition, teamsInLeague, expectedMatches]
+    note: Manuelt lest av Klasse A-oppsettet, som utpeker Rollon som kretsmester.
+finalPosition: 2
+teamsInLeague: 3
+expectedMatches: 3
 promoted: false
 relegated: false
+note: >
+  AaFK, Rollon og Langevåg deltok. Tre AaFK–Rollon-resultater står i kilden;
+  5–3-resultatet er protestmerket. Langevåg trakk seg fra oppgjørene mot AaFK,
+  og disse er ikke telt som spilte kamper. Årboka kårer Rollon til kretsmester.

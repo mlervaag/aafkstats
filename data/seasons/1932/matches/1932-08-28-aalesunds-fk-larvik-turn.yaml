@@ -37,3 +37,8 @@ tags: []
 aliases:
   rsssf: 1932-cup-1932-08-28-aalesunds-fk-larvik-turn
 manual: []
+sources:
+  - sourceId: nff-arbok-1932
+    page: "80 (NB-visning)"
+    fields: [status, competition, home.clubId, away.clubId, home.score, away.score, competition.round]
+    note: Det roterte NM-diagrammet er visuelt kontrollert.

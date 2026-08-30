@@ -37,3 +37,8 @@ tags: []
 aliases:
   rsssf: 1927-cup-1927-09-11-aalesunds-fk-odd
 manual: []
+sources:
+  - sourceId: nff-arbok-1927
+    page: "182 (trykt; NB-visning 191–192)"
+    fields: [status, competition, home.clubId, away.clubId, home.score, away.score, competition.round]
+    note: Det todelte, roterte NM-diagrammet er visuelt kontrollert.

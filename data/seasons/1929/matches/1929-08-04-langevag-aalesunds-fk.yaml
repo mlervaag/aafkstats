@@ -64,6 +64,10 @@ sources:
     fields:
       - externalReports
     note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - sourceId: nff-arbok-1929
+    page: "95 (NB-visning)"
+    fields: [status, competition, home.clubId, away.clubId, home.score, away.score, competition.round]
+    note: NM-diagrammet er visuelt kontrollert; hjemme/borte følger diagrammets stjerneforklaring.
 confidence: confirmed
 conflicts: []
 tags: []

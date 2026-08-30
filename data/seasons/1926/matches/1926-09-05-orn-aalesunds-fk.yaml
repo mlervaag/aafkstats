@@ -46,3 +46,7 @@ sources:
     page: "1"
     fields: []
     note: Begge klubber er lokalt bundet i NB OCR-API innen datoankret søkevindu. Faksimilen er ikke kontrollert.
+  - sourceId: nff-arbok-1926
+    page: "130 (trykt; NB-visning 138–139)"
+    fields: [status, competition, home.clubId, away.clubId, home.score, away.score, competition.round]
+    note: Det todelte, roterte NM-diagrammet er visuelt kontrollert.

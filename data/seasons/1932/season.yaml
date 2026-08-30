@@ -1,5 +1,15 @@
 year: 1932
-competitionId: nm
-finalPosition: null
+competitionId: sondmore-kreds-klasse-a
+sources:
+  - sourceId: nff-arbok-1932
+    page: "99"
+    fields: [finalPosition, teamsInLeague, expectedMatches]
+    note: Manuelt lest av Klasse A-oppsettet, som utpeker AaFK som kretsmester.
+finalPosition: 1
+teamsInLeague: 2
+expectedMatches: 2
 promoted: false
 relegated: false
+note: >
+  AaFK og Rollon møttes to ganger. AaFK spilte 3–3 og vant 5–0. Datoene er
+  ikke oppgitt.

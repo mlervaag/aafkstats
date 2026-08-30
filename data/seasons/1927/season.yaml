@@ -1,5 +1,15 @@
 year: 1927
-competitionId: nm
-finalPosition: null
+competitionId: sondmore-kreds-klasse-a
+sources:
+  - sourceId: nff-arbok-1927
+    page: "164"
+    fields: [finalPosition, teamsInLeague, expectedMatches]
+    note: Manuelt lest av Klasse A-oppsettet, som utpeker AaFK som kretsmester.
+finalPosition: 1
+teamsInLeague: 3
+expectedMatches: 4
 promoted: false
 relegated: false
+note: >
+  AaFK, Rollon og Hødd spilte dobbel serie. AaFK vant alle fire oppførte
+  kamper. Datoene er ikke oppgitt.

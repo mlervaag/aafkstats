@@ -1,5 +1,16 @@
 year: 1929
-competitionId: nm
-finalPosition: null
+competitionId: sondmore-kreds-klasse-a
+sources:
+  - sourceId: nff-arbok-1929
+    page: "98"
+    fields: [finalPosition, teamsInLeague, expectedMatches]
+    note: Manuelt lest av Klasse A-oppsettet og omkampen som kåret AaFK til kretsmester.
+finalPosition: 1
+teamsInLeague: 3
+expectedMatches: 5
 promoted: false
 relegated: false
+note: >
+  AaFK, Rollon og Langevåg deltok. AaFK har fire ordinære resultater og vant
+  deretter omkampen om kretsmesterskapet 6–2 mot Rollon. Datoene er ikke
+  oppgitt.

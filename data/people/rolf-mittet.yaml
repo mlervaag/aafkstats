@@ -55,7 +55,20 @@ roles:
           - from
           - to
         note: Lest maskinelt fra tabellen. Manuelt verifisert.
+  - id: forbundstingsrepresentant-1927
+    category: administration
+    title: Representant på forbundstinget
+    body: Aalesund Fotballklub
+    from: "1927"
+    to: "1927"
+    sources:
+      - { sourceId: nff-arbok-1927, page: "38", fields: [title, from, to] }
+    note: Representasjon dokumenterer ikke et bestemt klubbverv.
 sources:
+  - sourceId: nff-arbok-1927
+    page: "38"
+    fields: []
+    note: Ført for Aalesund Fotballklub i representantlisten.
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "81"
     fields: []

@@ -1,5 +1,15 @@
 year: 1925
-competitionId: nm
-finalPosition: null
+competitionId: sondmore-kreds-klasse-a
+sources:
+  - sourceId: nff-arbok-1925
+    page: "85"
+    fields: [finalPosition, teamsInLeague, expectedMatches]
+    note: Manuelt lest av Klasse A-oppsettet, som kårer AaFK til kretsmester med seks poeng.
+finalPosition: 1
+teamsInLeague: 3
+expectedMatches: 4
 promoted: false
 relegated: false
+note: >
+  AaFK, Rollon og Hødd spilte dobbel serie. AaFKs fire oppførte kamper ga tre
+  seire, ett tap og seks poeng. Datoene er ikke oppgitt.

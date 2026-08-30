@@ -1,0 +1,32 @@
+id: olaf-m-uri
+name: Olaf M. Uri
+names:
+  - Olaf Uri
+roles:
+  - id: forbundstingsrepresentant-1929
+    category: administration
+    title: Representant på forbundstinget
+    body: Aalesund Fotballklub
+    from: "1929"
+    to: "1929"
+    sources:
+      - { sourceId: nff-arbok-1929, page: "127", fields: [title, from, to] }
+    note: Årboka skriver «Ålesund»; representasjonen dokumenterer ikke et bestemt klubbverv.
+  - id: forbundstingsrepresentant-1931
+    category: administration
+    title: Representant på forbundstinget
+    body: Aalesund Fotballklub
+    from: "1931"
+    to: "1931"
+    sources:
+      - { sourceId: nff-arbok-1931, page: "126", fields: [title, from, to] }
+    note: Årboka dokumenterer representasjonen, ikke et bestemt styreverv i klubben.
+sources:
+  - sourceId: nff-arbok-1929
+    page: "127"
+    fields: []
+    note: Ført for Søndmøre, fylkeskretsen og Ålesund i representantlisten.
+  - sourceId: nff-arbok-1931
+    page: "126"
+    fields: []
+    note: Ført for både Sunnmøre og Aalesunds Fotballklubb i representantlisten.

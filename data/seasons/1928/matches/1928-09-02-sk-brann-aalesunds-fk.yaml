@@ -37,3 +37,8 @@ tags: []
 aliases:
   rsssf: 1928-cup-1928-09-02-brann-aalesunds-fk
 manual: []
+sources:
+  - sourceId: nff-arbok-1928
+    page: "71 (NB-visning)"
+    fields: [status, competition, home.clubId, away.clubId, home.score, away.score, competition.round]
+    note: NM-diagrammet er visuelt kontrollert; stjernen dokumenterer Brann som hjemmelag.

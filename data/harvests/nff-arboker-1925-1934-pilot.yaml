@@ -1,0 +1,90 @@
+version: 1
+id: nff-arboker-1925-1934-pilot
+title: NFF-årbøker 1925–1934 – autonom recall-pilot
+profile: yearbook
+mode: initial
+status: normalized
+scope:
+  years: { from: 1925, to: 1934 }
+  parentSourceId: nff-arbok
+  sourceIds: [nff-arbok-1925, nff-arbok-1926, nff-arbok-1927, nff-arbok-1928, nff-arbok-1929, nff-arbok-1930, nff-arbok-1931, nff-arbok-1932, nff-arbok-1933, nff-arbok-1934]
+sourceInventory:
+  - { sourceId: nff-arbok-1925, title: "Årbok (Norges fotballforbund). 1925", year: 1925, reviewStatus: reviewed }
+  - { sourceId: nff-arbok-1926, title: "Årbok (Norges fotballforbund). 1926", year: 1926, reviewStatus: reviewed }
+  - { sourceId: nff-arbok-1927, title: "Årbok (Norges fotballforbund). 1927", year: 1927, reviewStatus: reviewed }
+  - { sourceId: nff-arbok-1928, title: "Årbok (Norges fotballforbund). 1928", year: 1928, reviewStatus: reviewed }
+  - { sourceId: nff-arbok-1929, title: "Årbok (Norges fotballforbund). 1929", year: 1929, reviewStatus: reviewed }
+  - { sourceId: nff-arbok-1930, title: "Årbok (Norges fotballforbund). 1930", year: 1930, reviewStatus: reviewed }
+  - { sourceId: nff-arbok-1931, title: "Årbok (Norges fotballforbund). 1931", year: 1931, reviewStatus: reviewed }
+  - { sourceId: nff-arbok-1932, title: "Årbok (Norges fotballforbund). 1932", year: 1932, reviewStatus: reviewed }
+  - { sourceId: nff-arbok-1933, title: "Årbok (Norges fotballforbund). 1933", year: 1933, reviewStatus: reviewed }
+  - { sourceId: nff-arbok-1934, title: "Årbok (Norges fotballforbund). 1934", year: 1934, reviewStatus: reviewed }
+coverage: { mode: sections, expected: 60, reviewed: 60 }
+reviewMethod: { facsimile: required }
+review: { file: docs/research/NFF_ARBOKER_AUTONOM_RECALL_PILOT_1925_1934.md }
+passes:
+  fulltext_variants: { status: complete, findings: 10, note: "Eksakte, fragmenterte og OCR-tolerante søk ble kjørt i alle 1 864 ALTO-sider." }
+  regional_results: { status: complete, findings: 10, note: "Hele Sunnmøre-seksjonen, nabosider og Klasse A/B/C/pokal ble kontrollert visuelt." }
+  nm_diagrams: { status: complete, findings: 10, note: "Alle roterte/liggende diagrammer og tegnforklaringer ble kontrollert visuelt." }
+  people_and_meetings: { status: complete, findings: 10, note: "Representanter ble identifisert og navnene fulgt gjennom referatene." }
+  economy_and_venues: { status: complete, findings: 6, note: "Regnskap/Banefond ble kartlagt; garanti, banelån og NM-arrangementsregnskap ble bevart uten å bli gjort til klubbregnskap." }
+  recall_audit: { status: complete, findings: 10, note: "Innhold, struktur, siste bokdel, nabosider, navn og motstandere ble kontrollert uavhengig." }
+findings:
+  - { id: f-results-1925, source: { sourceId: nff-arbok-1925, page: "64, 68–69 og 85" }, type: match_result, claim: { text: "Ni AaFK-resultatobservasjoner fra krets, NM og interklubb." }, disposition: source_result_created, targets: [{ entity: source_result, id: nff-arbok-1925 }], status: normalized }
+  - { id: f-results-1926, source: { sourceId: nff-arbok-1926, page: "130 og 153" }, type: match_result, claim: { text: "Ti AaFK-resultatobservasjoner fra krets, pokal og NM." }, disposition: source_result_created, targets: [{ entity: source_result, id: nff-arbok-1926 }], status: normalized }
+  - { id: f-results-1927, source: { sourceId: nff-arbok-1927, page: "164 og 182" }, type: match_result, claim: { text: "Ni AaFK-resultatobservasjoner fra krets, pokal og NM." }, disposition: source_result_created, targets: [{ entity: source_result, id: nff-arbok-1927 }], status: normalized }
+  - { id: f-results-1928, source: { sourceId: nff-arbok-1928, page: "71 og 77–78" }, type: match_result, claim: { text: "Åtte AaFK-resultatobservasjoner fra krets, pokal og NM." }, disposition: source_result_created, targets: [{ entity: source_result, id: nff-arbok-1928 }], status: normalized }
+  - { id: f-results-1929, source: { sourceId: nff-arbok-1929, page: "95 og 98–99" }, type: match_result, claim: { text: "Elleve AaFK-resultatobservasjoner fra krets, pokal og NM." }, disposition: source_result_created, targets: [{ entity: source_result, id: nff-arbok-1929 }], status: normalized }
+  - { id: f-results-1930, source: { sourceId: nff-arbok-1930, page: "85 og 99" }, type: match_result, claim: { text: "Elleve AaFK-resultatobservasjoner fra krets, pokal og NM." }, disposition: source_result_created, targets: [{ entity: source_result, id: nff-arbok-1930 }], status: normalized }
+  - { id: f-results-1931, source: { sourceId: nff-arbok-1931, page: "69, 88 og 107–109" }, type: match_result, claim: { text: "Åtte AaFK-resultatobservasjoner fra krets, pokal, NM og interklubb." }, disposition: source_result_created, targets: [{ entity: source_result, id: nff-arbok-1931 }], status: normalized }
+  - { id: f-results-1932, source: { sourceId: nff-arbok-1932, page: "80 og 99" }, type: match_result, claim: { text: "Seks AaFK-resultatobservasjoner fra krets og NM." }, disposition: source_result_created, targets: [{ entity: source_result, id: nff-arbok-1932 }], status: normalized }
+  - { id: f-results-1933, source: { sourceId: nff-arbok-1933, page: "62 og 88" }, type: match_result, claim: { text: "Åtte AaFK-resultatobservasjoner fra krets og NM." }, disposition: source_result_created, targets: [{ entity: source_result, id: nff-arbok-1933 }], status: normalized }
+  - { id: f-results-1934, source: { sourceId: nff-arbok-1934, page: "100–101 og 149" }, type: match_result, claim: { text: "Sju AaFK-resultatobservasjoner fra krets og NM." }, disposition: source_result_created, targets: [{ entity: source_result, id: nff-arbok-1934 }], status: normalized }
+  - { id: f-observation-1925, source: { sourceId: nff-arbok-1925, page: "85" }, type: non_senior, claim: { text: "Kretsmesterskap, Klasse B og pokalhistorikk." }, disposition: historical_observation_created, targets: [{ entity: observation, id: nff-arbok-1925-klubbhistorikk }], status: normalized }
+  - { id: f-observation-1926, source: { sourceId: nff-arbok-1926, page: "153" }, type: non_senior, claim: { text: "Klasse B-kretsmester og pokalhistorikk." }, disposition: historical_observation_created, targets: [{ entity: observation, id: nff-arbok-1926-klubbhistorikk }], status: normalized }
+  - { id: f-observation-1927, source: { sourceId: nff-arbok-1927, page: "164" }, type: non_senior, claim: { text: "Doble kretsmesterskap og pokalseire." }, disposition: historical_observation_created, targets: [{ entity: observation, id: nff-arbok-1927-klubbhistorikk }], status: normalized }
+  - { id: f-observation-1928, source: { sourceId: nff-arbok-1928, page: "77–78" }, type: non_senior, claim: { text: "Klasse A-mesterskap og Klasse B-pokal." }, disposition: historical_observation_created, targets: [{ entity: observation, id: nff-arbok-1928-klubbhistorikk }], status: normalized }
+  - { id: f-observation-1929, source: { sourceId: nff-arbok-1929, page: "98–99" }, type: non_senior, claim: { text: "Klasse A-mesterskap og Klasse B-pokal." }, disposition: historical_observation_created, targets: [{ entity: observation, id: nff-arbok-1929-klubbhistorikk }], status: normalized }
+  - { id: f-observation-1930, source: { sourceId: nff-arbok-1930, page: "99" }, type: non_senior, claim: { text: "Klasse A-pokal og Klasse B-mesterskap." }, disposition: historical_observation_created, targets: [{ entity: observation, id: nff-arbok-1930-klubbhistorikk }], status: normalized }
+  - { id: f-observation-1931, source: { sourceId: nff-arbok-1931, page: "88" }, type: non_senior, claim: { text: "To pokaler til odel og eie og Klasse B-resultater." }, disposition: historical_observation_created, targets: [{ entity: observation, id: nff-arbok-1931-klubbhistorikk }], status: normalized }
+  - { id: f-observation-1932, source: { sourceId: nff-arbok-1932, page: "99" }, type: non_senior, claim: { text: "Kretsmesterskap og Klasse B-resultater." }, disposition: historical_observation_created, targets: [{ entity: observation, id: nff-arbok-1932-klubbhistorikk }], status: normalized }
+  - { id: f-observation-1933, source: { sourceId: nff-arbok-1933, page: "88–89" }, type: non_senior, claim: { text: "Klasse B-resultater og Klasse C-kretsmesterskap." }, disposition: historical_observation_created, targets: [{ entity: observation, id: nff-arbok-1933-klubbhistorikk }], status: normalized }
+  - { id: f-observation-1934, source: { sourceId: nff-arbok-1934, page: "100–101" }, type: non_senior, claim: { text: "Kretsmesterskap i Klasse A og C." }, disposition: historical_observation_created, targets: [{ entity: observation, id: nff-arbok-1934-klubbhistorikk }], status: normalized }
+  - { id: f-eck-1928, source: { sourceId: nff-arbok-1928, page: "109–210" }, type: meeting, claim: { text: "Eck Olsen-innlegg om avstand, konkurranse, Banefond og banekrav." }, disposition: historical_observation_created, targets: [{ entity: observation, id: rasmus-eck-olsen-forbundstinget-1928 }], status: normalized }
+  - { id: f-travel-1934, source: { sourceId: nff-arbok-1934, page: "164–166" }, type: historical_observation, claim: { text: "Debatt om grusbane, Mørebyenes liga og reisekostnader til Ålesund." }, disposition: historical_observation_created, targets: [{ entity: observation, id: nff-mesterskapsreiser-more-1934 }], status: normalized }
+  - { id: f-guarantee-1928, source: { sourceId: nff-arbok-1928, page: "17" }, type: historical_observation, claim: { text: "Aalesund var omfattet av NFF-garanti for profesjonelt instruksjonsbesøk; individuell sum er ikke oppgitt." }, disposition: historical_observation_created, targets: [{ entity: observation, id: nff-instruksjonsgaranti-aalesund-1928 }], status: normalized }
+  - { id: f-nm-economy-1930, source: { sourceId: nff-arbok-1930, page: "44–46" }, type: historical_observation, claim: { text: "Fire NM-kampers tilskuertall og arrangementsregnskap ble bevart." }, disposition: historical_observation_created, targets: [{ entity: observation, id: nff-nm-okonomi-aalesund-1930 }], status: normalized }
+  - { id: f-trainer-1930, source: { sourceId: nff-arbok-1930, page: "13" }, type: historical_observation, claim: { text: "NFF-trener Ths. Mitchell arbeidet i Aalesund; klubben er ikke uttrykkelig angitt." }, disposition: historical_observation_created, targets: [{ entity: observation, id: nff-trener-ths-mitchell-aalesund-1930 }], status: normalized }
+  - { id: f-nm-economy-1931, source: { sourceId: nff-arbok-1931, page: "35" }, type: historical_observation, claim: { text: "Tilskuertall og arrangementsregnskap for Aalesund–Ny-Solheim ble bevart." }, disposition: historical_observation_created, targets: [{ entity: observation, id: nff-nm-okonomi-aalesund-1931 }], status: normalized }
+  - { id: f-banefond-1933, source: { sourceId: nff-arbok-1933, page: "20 og 22" }, type: historical_observation, claim: { text: "AaFK fikk et nytt Banefond-lån og står med 750 kroner i regnskapet." }, disposition: historical_observation_created, targets: [{ entity: observation, id: nff-banefond-aafk-1933 }], status: normalized }
+  - { id: f-person-eck, sources: [{ sourceId: nff-arbok-1926, page: "64" }, { sourceId: nff-arbok-1928, page: "102" }, { sourceId: nff-arbok-1930, page: "126" }], type: person_role, claim: { text: "Rasmus Eck Olsen representerte AaFK på tre forbundsting." }, disposition: role_created, targets: [{ entity: person, id: rasmus-eck-olsen }], status: normalized }
+  - { id: f-person-skugvik, sources: [{ sourceId: nff-arbok-1926, page: "64" }, { sourceId: nff-arbok-1934, page: "157" }], type: person_role, claim: { text: "Edvard Skugvik representerte AaFK i 1926 og 1934." }, disposition: role_created, targets: [{ entity: person, id: edvard-skugvik }], status: normalized }
+  - { id: f-person-mittet, source: { sourceId: nff-arbok-1927, page: "38" }, type: person_role, claim: { text: "Rolf Mittet representerte AaFK i 1927." }, disposition: role_created, targets: [{ entity: person, id: rolf-mittet }], status: normalized }
+  - { id: f-person-volstad, sources: [{ sourceId: nff-arbok-1932, page: "126" }, { sourceId: nff-arbok-1933, page: "146" }, { sourceId: nff-arbok-1934, page: "157" }], type: person_role, claim: { text: "Sverre Volstad representerte AaFK i 1932–1934." }, disposition: role_created, targets: [{ entity: person, id: sverre-volstad }], status: normalized }
+  - { id: f-person-uri, sources: [{ sourceId: nff-arbok-1929, page: "127" }, { sourceId: nff-arbok-1931, page: "126" }], type: person, claim: { text: "Olaf M. Uri representerte AaFK i 1929 og 1931." }, disposition: person_created, targets: [{ entity: person, id: olaf-m-uri }], status: normalized }
+  - { id: f-person-bonde, source: { sourceId: nff-arbok-1927, page: "38" }, type: person, claim: { text: "Gustav Bonde representerte AaFK i 1927." }, disposition: person_created, targets: [{ entity: person, id: gustav-bonde }], status: normalized }
+  - { id: f-canonical-1925-kfk, source: { sourceId: nff-arbok-1925, page: "62" }, type: match_result, claim: { text: "NM-resultat og runde bekreftet." }, disposition: canonical_enriched, targets: [{ entity: match, id: 1925-08-30-aalesunds-fk-kfk }], status: normalized }
+  - { id: f-canonical-1925-viking, source: { sourceId: nff-arbok-1925, page: "62" }, type: match_result, claim: { text: "NM-resultat, runde og ekstraomgang bekreftet." }, disposition: canonical_enriched, targets: [{ entity: match, id: 1925-09-13-viking-aalesunds-fk }], status: normalized }
+  - { id: f-canonical-1926-orn, source: { sourceId: nff-arbok-1926, page: "130" }, type: match_result, claim: { text: "NM-resultat og runde bekreftet." }, disposition: canonical_enriched, targets: [{ entity: match, id: 1926-09-05-orn-aalesunds-fk }], status: normalized }
+  - { id: f-canonical-1927-hardy, source: { sourceId: nff-arbok-1927, page: "182" }, type: match_result, claim: { text: "NM-resultat og runde bekreftet." }, disposition: canonical_enriched, targets: [{ entity: match, id: 1927-08-21-aalesunds-fk-sk-hardy }], status: normalized }
+  - { id: f-canonical-1927-rollon, source: { sourceId: nff-arbok-1927, page: "182 (trykt; NB-visning 191–192)" }, type: match_result, claim: { text: "NM-resultat og runde bekreftet; likt serieresultat er bevart som en separat identitet." }, disposition: canonical_enriched, targets: [{ entity: match, id: 1927-09-04-aalesunds-fk-rollon }], status: normalized }
+  - { id: f-canonical-1927-odd, source: { sourceId: nff-arbok-1927, page: "182" }, type: match_result, claim: { text: "NM-resultat og runde bekreftet." }, disposition: canonical_enriched, targets: [{ entity: match, id: 1927-09-11-aalesunds-fk-odds-ballklubb }], status: normalized }
+  - { id: f-canonical-1928-national, source: { sourceId: nff-arbok-1928, page: "71" }, type: match_result, claim: { text: "NM-resultat og runde bekreftet." }, disposition: canonical_enriched, targets: [{ entity: match, id: 1928-08-26-aalesunds-fk-national }], status: normalized }
+  - { id: f-canonical-1928-brann, source: { sourceId: nff-arbok-1928, page: "71" }, type: match_result, claim: { text: "NM-resultat og runde bekreftet." }, disposition: canonical_enriched, targets: [{ entity: match, id: 1928-09-02-sk-brann-aalesunds-fk }], status: normalized }
+  - { id: f-canonical-1929-langevag, source: { sourceId: nff-arbok-1929, page: "95" }, type: match_result, claim: { text: "NM-resultat og runde bekreftet." }, disposition: canonical_enriched, targets: [{ entity: match, id: 1929-08-04-langevag-aalesunds-fk }], status: normalized }
+  - { id: f-canonical-1929-stromsgodset, source: { sourceId: nff-arbok-1929, page: "95" }, type: match_result, claim: { text: "NM-resultat og runde bekreftet." }, disposition: canonical_enriched, targets: [{ entity: match, id: 1929-08-25-stromsgodset-aalesunds-fk }], status: normalized }
+  - { id: f-canonical-1930-selbak, source: { sourceId: nff-arbok-1930, page: "85" }, type: match_result, claim: { text: "NM-resultat, runde og protestmarkering bekreftet." }, disposition: canonical_enriched, targets: [{ entity: match, id: 1930-08-31-aalesunds-fk-selbak }], status: normalized }
+  - { id: f-canonical-1930-orn, source: { sourceId: nff-arbok-1930, page: "85" }, type: match_result, claim: { text: "NM-resultat og runde bekreftet." }, disposition: canonical_enriched, targets: [{ entity: match, id: 1930-09-14-orn-aalesunds-fk }], status: normalized }
+  - { id: f-canonical-1932-larvik, source: { sourceId: nff-arbok-1932, page: "80" }, type: match_result, claim: { text: "NM-resultat og runde bekreftet." }, disposition: canonical_enriched, targets: [{ entity: match, id: 1932-08-28-aalesunds-fk-larvik-turn }], status: normalized }
+  - { id: f-canonical-1932-fredrikstad, source: { sourceId: nff-arbok-1932, page: "80" }, type: match_result, claim: { text: "NM-resultat og runde bekreftet." }, disposition: canonical_enriched, targets: [{ entity: match, id: 1932-09-04-fredrikstad-aalesunds-fk }], status: normalized }
+  - { id: f-canonical-1933-nydalen, source: { sourceId: nff-arbok-1933, page: "62" }, type: match_result, claim: { text: "NM-resultat og runde bekreftet." }, disposition: canonical_enriched, targets: [{ entity: match, id: 1933-08-13-aalesunds-fk-nydalen }], status: normalized }
+  - { id: f-canonical-1933-fremad, source: { sourceId: nff-arbok-1933, page: "62" }, type: match_result, claim: { text: "NM-resultat og runde bekreftet." }, disposition: canonical_enriched, targets: [{ entity: match, id: 1933-08-27-aalesunds-fk-fremad }], status: normalized }
+  - { id: f-canonical-1934-sarpsborg, source: { sourceId: nff-arbok-1934, page: "149" }, type: match_result, claim: { text: "NM-resultat og runde bekreftet." }, disposition: canonical_enriched, targets: [{ entity: match, id: 1934-08-26-sarpsborg-aalesunds-fk }], status: normalized }
+unresolved: []
+previousWork:
+  pullRequests: [140, 235]
+  notes: ["PR 140 og main-arbeidet for 1921–1924 ble brukt som kontrollmateriale og modellreferanse."]
+createdAt: "2026-08-29"
+notes:
+  - "Datoer ble ikke konstruert. Klasse B/C ble bevart som observasjoner, ikke A-lagskamper."
+  - "OCR var discovery; alle normaliserte resultater, navn og tegnforklaringer ble kontrollert mot faksimilen."

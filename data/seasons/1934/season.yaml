@@ -1,5 +1,15 @@
 year: 1934
-competitionId: nm
-finalPosition: null
+competitionId: sondmore-kreds-klasse-a
+sources:
+  - sourceId: nff-arbok-1934
+    page: "100–101"
+    fields: [finalPosition, teamsInLeague, expectedMatches]
+    note: Manuelt lest av Klasse A-oppsettet, som utpeker AaFK som kretsmester.
+finalPosition: 1
+teamsInLeague: 3
+expectedMatches: 4
 promoted: false
 relegated: false
+note: >
+  AaFK, Rollon og Guard spilte dobbel serie. AaFKs fire oppførte kamper ga tre
+  seire og én uavgjort. Datoene er ikke oppgitt.
