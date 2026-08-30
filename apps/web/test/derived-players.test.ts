@@ -3,6 +3,7 @@ import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { loadValidateAndBuild } from "@aafkstats/db/build";
+import { openForBuild } from "@aafkstats/db";
 import { getPeople } from "../lib/people.js";
 import {
   derivedAsSummaries,
@@ -18,6 +19,13 @@ const previousDbPath = process.env.AAFK_DB_PATH;
 beforeAll(async () => {
   const dbPath = join(mkdtempSync(join(tmpdir(), "aafk-derived-")), "archive.sqlite");
   await loadValidateAndBuild(resolve(import.meta.dirname, "../../../fixtures/data"), dbPath);
+  const db = openForBuild(dbPath);
+  db.exec(`
+    INSERT INTO core_people (id, person_key, name) VALUES ('review-only-player', 'review only player', 'Review Only Player');
+    INSERT INTO core_person_names (person_id, person_key, name) VALUES ('review-only-player', 'review only player', 'Review Only Player');
+    INSERT INTO core_squad_numbers (person_id, season, number) VALUES ('review-only-player', 1999, 12);
+  `);
+  db.close();
   process.env.AAFK_DB_PATH = dbPath;
 });
 
@@ -96,6 +104,16 @@ describe("utledede spillere", () => {
 });
 
 describe("personfiler uten kamper", () => {
+  it("bevarer draktnummersesonger også når personen ikke har posisjon", () => {
+    expect(getPlayersWithoutMatches()).toContainEqual({
+      id: "review-only-player",
+      name: "Review Only Player",
+      url: "/personer/review-only-player",
+      position: null,
+      squadSeasons: [1999],
+    });
+  });
+
   it("tar bare med filer som er ført som spillere", () => {
     // En styreformann uten kamper mangler ingenting. Det er filene med posisjon
     // eller draktnummer som ser ut som spillere, og som derfor kan ha en

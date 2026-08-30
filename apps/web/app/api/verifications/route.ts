@@ -1,7 +1,7 @@
 import { createHash } from "node:crypto";
 import { NextResponse } from "next/server";
-import { z } from "zod";
-import { formatNewspaperVerificationIssuePayload, nbCommunityResearchSubmission } from "@aafkstats/schema";
+import { z } from "zod4";
+import { formatNewspaperVerificationIssuePayload } from "@aafkstats/schema";
 import { isCrossSite, isJsonRequest, readBodyLimited } from "@/lib/chat-request";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { createRequestLogger, logUpstreamFailure } from "@/lib/runtime-logging";
@@ -9,47 +9,10 @@ import { SITE_ORIGIN } from "@/lib/site";
 import { markVerificationCasePending, pendingVerificationCaseIds } from "@/lib/verification-submissions";
 import { loadVerificationCase } from "@/lib/verifications";
 import { validateResearchSubmission } from "@/lib/research-submission";
+import { verificationSubmissionSchema as submissionSchema } from "@/lib/verification-submission-schema";
 import type { VerificationCaseView } from "@/lib/verifications";
 
 const MAX_BODY_BYTES = 20 * 1024;
-
-const evidence = z.discriminatedUnion("kind", [
-  z.object({
-    kind: z.literal("listed_source"),
-    sourceKey: z.string().min(1).max(240),
-    reference: z.string().max(500).optional(),
-  }).strict(),
-  z.object({
-    kind: z.literal("new_url"),
-    url: z.string().url("Skriv inn en gyldig lenke.").max(500).refine((url) => /^https?:\/\//i.test(url), "Lenken må starte med http:// eller https://."),
-    reference: z.string().max(500).optional(),
-  }).strict(),
-  z.object({
-    kind: z.literal("bibliographic"),
-    reference: z.string().min(3, "Oppgi publikasjon, dato og side.").max(500),
-  }).strict(),
-]);
-
-const submissionSchema = z.object({
-  caseId: z.string().min(1).max(100).regex(/^[a-z0-9-]+$/),
-  revision: z.string().regex(/^sha256:[a-f0-9]{64}$/),
-  answer: z.enum(["yes", "no", "inconclusive"]),
-  evidence,
-  finding: z.string().trim().max(1500),
-  communityFinding: z.object({
-    scoreAgreement: z.enum(["yes", "no", "uncertain"]).optional(),
-    matchDate: z.string().date().optional(),
-    dateReadable: z.enum(["yes", "no", "uncertain"]).optional(),
-    homeAway: z.enum(["home", "away", "neutral", "uncertain"]).optional(),
-    competition: z.string().trim().max(120).optional(),
-    reasons: z.array(z.string().trim().min(1).max(120)).max(8).optional(),
-  }).strict().optional(),
-  researchSubmission: nbCommunityResearchSubmission.optional(),
-  comment: z.string().trim().max(1000).optional(),
-  contributor: z.string().trim().max(100).optional(),
-  clientSubmissionId: z.string().uuid(),
-  company: z.string().max(0).optional(),
-}).strict();
 
 export const runtime = "nodejs";
 

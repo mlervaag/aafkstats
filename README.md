@@ -16,6 +16,7 @@ bygget som en portal der spørsmålet er hovedinngangen.**
 
 [**aafkarkivet.no**](https://aafkarkivet.no) ·
 [Datasettet](https://aafkarkivet.no/data) ·
+[For utviklere](https://aafkarkivet.no/utviklere) ·
 [Arkitektur](docs/ARKITEKTUR.md) ·
 [Datamodell](docs/DATAMODELL.md) ·
 [Bidra](CONTRIBUTING.md)
@@ -35,6 +36,7 @@ leser fra.
 
 - [Arkivet i tall](#arkivet-i-tall)
 - [Slik henger det sammen](#slik-henger-det-sammen)
+- [Koble til og bygg videre](#koble-til-og-bygg-videre)
 - [Kom i gang](#kom-i-gang)
 - [Kommandoer](#kommandoer)
 - [Datamodellen](#datamodellen)
@@ -97,6 +99,29 @@ applikasjonen, ikke inni datasettet.
 
 Den lange versjonen, med avveiningene bak hvert valg, står i
 [**docs/ARKITEKTUR.md**](docs/ARKITEKTUR.md).
+
+## Koble til og bygg videre
+
+Koble AaFK-arkivet til AI-verktøyet ditt med MCP. Det er gratis, krever ingen konto eller
+API-nøkkel og gir AI-klienten strukturerte verktøy for å søke i arkivet og finne åpne
+researchsaker. Bygger du et nettsted, skript eller en app, finnes det også et lite REST API.
+Alle grensesnittene leser det samme publiserte, skrivebeskyttede arkivet.
+
+| Inngang | Adresse | Bruk |
+|---|---|---|
+| MCP | `https://aafkarkivet.no/mcp` | Strukturerte verktøy for AI-klienter |
+| Veiledning | [`/utviklere`](https://aafkarkivet.no/utviklere) | Eksempler, oppsett og kildegrenser |
+| REST API v1 | [`https://aafkarkivet.no/api/v1`](https://aafkarkivet.no/api/v1/meta) | JSON for nettsteder, skript og apper |
+| OpenAPI | [`/api/v1/openapi.json`](https://aafkarkivet.no/api/v1/openapi.json) | Maskinlesbar API-kontrakt |
+
+Bruk `results` når du leter i hele historikken. Et treff merket `canonical_match` er en
+identifisert kamp; `source_claim` er det en historisk kilde oppgir før oppføringen er sikkert
+koblet til en kamp. De to skal ikke summeres til én statistisk total.
+
+AI-assistert research er velkommen, men **AI er ikke en kilde**. MCP kan bare sende
+dokumenterte funn til den eksisterende innboksen som `pending_review`; et menneske
+kontrollerer kilden og avgjør om arkivet skal endres. Se [API-kontrakten](docs/API.md),
+[MCP-veiledningen](docs/MCP.md) og de [åpne researchsakene](https://aafkarkivet.no/mangler).
 
 ## Kom i gang
 
@@ -325,6 +350,8 @@ kjenne til:
 |---|---|
 | [**Arkitektur**](docs/ARKITEKTUR.md) | Hvordan delene henger sammen, og hvorfor de er slik |
 | [**Datamodell**](docs/DATAMODELL.md) | Hvert felt i YAML-filene, med regler og eksempler |
+| [**REST API**](docs/API.md) | Endepunkter, filtre, svarformat og evidensnivå |
+| [**MCP**](docs/MCP.md) | Klientoppsett, verktøy, researchflyt og sikkerhetsgrenser |
 | [**Bidra**](CONTRIBUTING.md) | Hvordan du retter en kamp eller sender kode |
 | [Merkevarepakke](docs/brand/README.md) | Logoer, appikoner, farger og bruk |
 | [Kildekart](docs/research/KILDEKART_OG_INNHENTINGSSTRATEGI.md) | Hvilke kilder som finnes, og hvilke som er røde |
@@ -421,8 +448,8 @@ gir direkte kamptreff mens brukeren skriver år og motstander; Enter sender i st
 til AI-søket.
 
 Alle 14 europakvalifiseringskampene er registrert. Gjenstår blant annet kontroll av flere
-historiske treningskamper, rettighetsavklart innhøsting, REST-API og MCP-server. Rekkefølgen
-står i [statusen](docs/STATUS.md).
+historiske treningskamper og rettighetsavklart innhøsting. REST API og MCP-server står nå;
+status og neste prioritet står i [statusen](docs/STATUS.md).
 
 Minner fra skjemaet på nettstedet går til en egen innboks og vurderes mot arkivet før de
 tas inn. Datafeil, manglende kamper og kildetips går til egne GitHub-maler. Hva som

@@ -37,6 +37,10 @@ const QUESTIONS_PER_HOUR = 10;
 const CONTRIBUTIONS_PER_HOUR = 5;
 /** Verifiseringer er små, men skal ikke kunne fylle GitHub-innboksen uten grenser. */
 const VERIFICATIONS_PER_HOUR = 20;
+/** MCP er bare lokale SQLite-lesinger, men en feilkonfigurert agent skal ikke spinne fritt. */
+const MCP_READS_PER_HOUR = 120;
+/** Offentlig REST er billig, men cache-busting skal ikke kunne spinne funksjonen fritt. */
+const API_READS_PER_HOUR = 300;
 const WINDOW_MS = 60 * 60 * 1000;
 /**
  * Tak på antall avsendere vi holder styr på samtidig.
@@ -50,12 +54,14 @@ const WINDOW_MS = 60 * 60 * 1000;
 const MAX_TRACKED = 5000;
 
 /** Hva som telles. Hver kvote har sitt eget vindu per avsender. */
-export type RateLimitBucket = "chat" | "bidrag" | "verifisering";
+export type RateLimitBucket = "chat" | "bidrag" | "verifisering" | "mcp" | "api";
 
 const LIMITS: Record<RateLimitBucket, number> = {
   chat: QUESTIONS_PER_HOUR,
   bidrag: CONTRIBUTIONS_PER_HOUR,
   verifisering: VERIFICATIONS_PER_HOUR,
+  mcp: MCP_READS_PER_HOUR,
+  api: API_READS_PER_HOUR,
 };
 
 /** Teller per avsender og kvote i denne instansens minne. Se forbeholdet over. */
@@ -84,6 +90,9 @@ export function clientIp(req: Request): string {
 }
 
 function tooManyMessage(bucket: RateLimitBucket): string {
+  if (bucket === "api") {
+    return `Du har brukt ${API_READS_PER_HOUR} API-kall denne timen. Prøv igjen om litt.`;
+  }
   if (bucket !== "chat") {
     return `Du har sendt inn ${LIMITS[bucket]} svar denne timen. Prøv igjen om litt.`;
   }

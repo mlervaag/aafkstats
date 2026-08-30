@@ -126,6 +126,41 @@ export default function Home() {
         </aside>
       </section>
 
+      <section className="public-access content-section" aria-labelledby="public-access-title">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Hele folkets arkiv</p>
+            <h2 id="public-access-title">Utforsk, spør og bidra</h2>
+          </div>
+        </div>
+        <p className="prose public-access-intro">
+          Finn historien på din måte, eller hjelp oss å gjøre den mer komplett. Alt er
+          gratis, og du trenger ingen konto.
+        </p>
+        <div className="public-access-grid">
+          <a className="public-access-card" href="/sesonger">
+            <strong>Utforsk arkivet</strong>
+            <span>Gå gjennom kamper, sesonger, motstandere og personer.</span>
+          </a>
+          <a className="public-access-card" href="#sporre">
+            <strong>Spør AI</strong>
+            <span>Still spørsmål med egne ord og få svar fra arkivet.</span>
+          </a>
+          <a className="public-access-card" href="/utviklere#mcp-title">
+            <strong>Koble til med MCP</strong>
+            <span>Bruk AaFK-arkivet direkte i AI-verktøyet ditt.</span>
+          </a>
+          <a className="public-access-card" href="/mangler">
+            <strong>Bidra</strong>
+            <span>Undersøk et åpent spørsmål, rett en feil eller del en kilde.</span>
+          </a>
+        </div>
+        <p className="small muted public-access-secondary">
+          Bygger du noe med AaFK-historikk? Dataene er også tilgjengelige som{" "}
+          <a href="/data">åpent datasett</a> og <a href="/utviklere#rest-title">REST API</a>.
+        </p>
+      </section>
+
       {/* To spalter, ikke tre: overskriften til venstre og innholdet til høyre.
           Tidligere sto overskriften alene i en spalte som ellers var tom, og
           notisen lå som en boks inni en tekst som allerede sa det samme. */}

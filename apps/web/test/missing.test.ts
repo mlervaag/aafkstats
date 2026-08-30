@@ -3,6 +3,9 @@ import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { loadValidateAndBuild } from "@aafkstats/db/build";
+import { openForBuild } from "@aafkstats/db";
+import { getDerivedPlayers, getPlayersWithoutMatches } from "@aafkstats/query/services/derived-players";
+import { loadPublicCoverageSummary } from "@aafkstats/query/services/missing";
 import { loadMissingOverview } from "../lib/missing.js";
 
 const previousDbPath = process.env.AAFK_DB_PATH;
@@ -10,6 +13,13 @@ const previousDbPath = process.env.AAFK_DB_PATH;
 beforeAll(async () => {
   const dbPath = join(mkdtempSync(join(tmpdir(), "aafk-missing-")), "archive.sqlite");
   await loadValidateAndBuild(resolve(import.meta.dirname, "../../../fixtures/data"), dbPath);
+  const db = openForBuild(dbPath);
+  db.exec(`
+    INSERT INTO core_people (id, person_key, name) VALUES ('review-only-player', 'review only player', 'Review Only Player');
+    INSERT INTO core_person_names (person_id, person_key, name) VALUES ('review-only-player', 'review only player', 'Review Only Player');
+    INSERT INTO core_squad_numbers (person_id, season, number) VALUES ('review-only-player', 1999, 12);
+  `);
+  db.close();
   process.env.AAFK_DB_PATH = dbPath;
 });
 
@@ -19,8 +29,27 @@ afterAll(() => {
 });
 
 describe("den offentlige arbeidskøen", () => {
+  it("bruker samme identitetslogikk som personregisteret", () => {
+    expect(loadMissingOverview().identity).toEqual({
+      playersWithoutFile: getDerivedPlayers(),
+      filesWithoutMatches: getPlayersWithoutMatches(),
+    });
+    expect(loadMissingOverview().identity.filesWithoutMatches).toContainEqual(
+      expect.objectContaining({ id: "review-only-player", squadSeasons: [1999] }),
+    );
+  });
+
   it("bruker samme definisjon av spilt som resten av arkivet", () => {
     expect(loadMissingOverview().playedMatches).toBe(11);
+  });
+
+  it("henter metadatatall uten å bygge hele arbeidskøen", () => {
+    const overview = loadMissingOverview();
+    expect(loadPublicCoverageSummary()).toEqual({
+      canonicalMatches: overview.playedMatches,
+      unlinkedSourceResults: overview.historicalResults.total,
+      openCoverageGaps: overview.matchFields.reduce((sum, item) => sum + item.matches, 0),
+    });
   });
 
   it("teller manglende kampfelt uten å gjøre provider-metadata til en supporteroppgave", () => {

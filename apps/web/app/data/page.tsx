@@ -48,6 +48,24 @@ export default function DataPage() {
       <h2 style={{ marginTop: "2rem" }}>Hva arkivet inneholder</h2>
       <DatasetHighlights />
 
+      <section className="notice prose" style={{ marginTop: "2rem" }}>
+        <h2>Bruk dataene videre</h2>
+        <p>
+          Koble et AI-verktøy til arkivet med MCP på{" "}
+          <code>https://aafkarkivet.no/mcp</code>. Bygger du et nettsted, skript eller en app,
+          finnes det også et åpent REST API på{" "}
+          <a href="/api/v1/meta"><code>/api/v1</code></a> med maskinlesbar kontrakt i{" "}
+          <a href="/api/v1/openapi.json">OpenAPI</a>.
+        </p>
+        <p>
+          Begge er gratis og bruker samme skrivebeskyttede arkiv. Les
+          {" "}<a href="/utviklere">den korte veiledningen</a>,
+          {" "}<a href="https://github.com/mlervaag/aafkstats/blob/main/docs/API.md">API-dokumentasjonen</a>
+          {" "}og <a href="https://github.com/mlervaag/aafkstats/blob/main/docs/MCP.md">MCP-dokumentasjonen</a>
+          {" "}før du bygger statistikk på kildedokumenterte resultater.
+        </p>
+      </section>
+
       <h2 style={{ marginTop: "2rem" }}>Kamper per konkurranse</h2>
       <CompetitionTable />
       <p className="prose small muted">

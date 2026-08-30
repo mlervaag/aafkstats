@@ -37,6 +37,9 @@
 }
 .utilityNav a { color: var(--muted); text-underline-offset: 0.2em; }
 .utilityNav a:hover { color: var(--accent); }
+.aiNote { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 1rem; align-items: baseline; margin: 0 0 1.25rem; padding: 0.9rem 1rem; background: var(--surface-2); border-left: 3px solid var(--accent); font-size: 0.875rem; }
+.aiNote p { margin: 0; color: var(--muted); }
+.aiNote a { color: var(--accent); white-space: nowrap; text-underline-offset: 0.2em; }
 .reservationNotice { margin: -0.8rem 0 1rem; padding: 0.65rem 0.8rem; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.875rem; }
 
 .caseCard {
@@ -222,6 +225,8 @@
   .hero { grid-template-columns: 1fr; padding-top: 2.25rem; }
   .progress { display: none; }
   .utilityNav { justify-content: flex-start; overflow-x: auto; white-space: nowrap; }
+  .aiNote { grid-template-columns: 1fr; gap: 0.35rem; }
+  .aiNote a { white-space: normal; }
   .caseMeta { justify-content: space-between; }
   .caseMeta span:first-child { width: 100%; }
   .questionBlock h2 { font-size: clamp(2rem, 10vw, 3.2rem); }

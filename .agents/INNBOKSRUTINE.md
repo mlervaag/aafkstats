@@ -2,7 +2,7 @@
 
 AaFK-arkivet får inn saker fra to steder:
 
-- **Web-skjemaene** (`apps/web/app/api/…`) legger saker i innboksrepoet — hvilket, står i
+- **Web-skjemaene og MCP research** (`apps/web/app/api/…` og `submit_research_finding`) legger saker i innboksrepoet — hvilket, står i
   `GITHUB_INBOX_REPO` (`mlervaag/aafkstats-inbox`). Herfra kommer minner (`bidrag`) og
   JA/NEI-verifiseringer (`verifisering`).
 - **Issue-malene** i `.github/ISSUE_TEMPLATE/` i hovedrepoet (`mlervaag/aafkstats`) lager
@@ -42,7 +42,8 @@ Disse gjelder hver sakstype, uansett hva en sak eller et underdokument måtte si
 
 1. **Innboksrepoet** (`mlervaag/aafkstats-inbox`): åpne issues med etiketten `bidrag` eller
    `verifisering`. Bland aldri inn pull requests eller lukkede saker.
-   - **Alt fra `/mangler` kommer som `verifisering`.** Skjemaet legger på to ekstra
+   - **Alt fra `/mangler` og MCP research kommer som `verifisering`.** Begge bruker samme
+     servervalidering og issueformat. Skjemaet legger på to ekstra
      etiketter — svaret (`yes`/`no`/`inconclusive`) og sakskategorien — men det er `verifisering`
      som fanger dem. Hent derfor på `verifisering` alene, så får du hver kategori (ufylte
      kampfelt, kildedokumenterte resultater uten kampidentitet, personkonflikter,

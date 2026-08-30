@@ -34,7 +34,7 @@ interface Check {
 const checks: Check[] = [
   {
     page: "index",
-    must: ["AaFK-arkivet", "Spør arkivet", "kamper"],
+    must: ["AaFK-arkivet", "Spør arkivet", "kamper", "Utforsk, spør og bidra", "gratis"],
   },
   {
     page: "data",
@@ -96,6 +96,15 @@ const checks: Check[] = [
     must: [
       "Kan du kontrollere dette?", "Er Tor Hogne Aarøy riktig person i fixture-arkivet?",
       "Undersøk én konkret kildeoppgave", "Noen saker har JA/NEI", "Arbeidskø", "Se hele arbeidskøen",
+      "AI er ikke en kilde", "samme redaksjonelle kø",
+    ],
+  },
+  {
+    page: "utviklere",
+    must: [
+      "Bygg med AaFK-arkivet", "Gratis, uten konto eller API-nøkkel", "REST API", "OpenAPI",
+      "canonical_match", "source_claim", "https://aafkarkivet.no/mcp",
+      "AI kan hjelpe med research, men er ikke en kilde", "pending_review",
     ],
   },
   {

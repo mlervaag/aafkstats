@@ -14,6 +14,7 @@ ved bygging. Kjør `pnpm validate` for dagens tall.
 | Kilde | Dataleverandører og historiske publikasjoner som hvert sitt objekt, med sidehenvisning per opplysning, kildekonflikter som bevares, og faktakandidater fra Nasjonalbiblioteket |
 | Klubb | Personer, roller og verv, organisasjon, stiftere, heder og hjemmebaner |
 | Fortelling | **Nesten tomt.** Ingen kampreferat ennå |
+| Maskinlesing | Offentlig REST API v1 og stateless MCP står. MCP kan sende avgrensede researchfunn til samme redaksjonelle innboks som nettsiden |
 
 Skillet mellom kanoniske kamper og kildedokumenterte resultater er det som gjør at eldre
 år kan vises uten å gjettes fram. Se [Arkitektur](ARKITEKTUR.md) for hvordan de behandles

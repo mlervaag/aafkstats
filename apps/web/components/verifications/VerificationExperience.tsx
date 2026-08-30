@@ -485,6 +485,16 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
         <a href="/mangler/oversikt">Se hele arbeidskøen</a>
       </nav>
 
+      <aside className={styles.aiNote} aria-labelledby="ai-research-title">
+        <strong id="ai-research-title">Du kan bruke AI som researchhjelp.</strong>
+        <p>
+          AI er ikke en kilde. Oppgi alltid dokumentet, avissiden eller nettadressen funnet
+          bygger på. Innsendinger fra nettsiden og MCP går til samme redaksjonelle kø og
+          endrer aldri arkivet før et menneske har kontrollert dokumentasjonen.
+        </p>
+        <a href="/utviklere#research">Slik virker AI-assistert research →</a>
+      </aside>
+
       {reservationNotice && <p className={styles.reservationNotice} role="status">{reservationNotice}</p>}
 
       <article className={styles.caseCard} aria-labelledby="case-question" aria-busy={reservation === "checking"}>

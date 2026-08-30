@@ -18,6 +18,10 @@ kode står lenger ned.
 
 ## Meld fra uten å kode
 
+AI-assistert research er velkommen. En AI er ikke en kilde: bidraget må peke på konkret
+dokumentasjon som et menneske kan kontrollere. MCP-innsending er bare en annen inngang til
+samme GitHub-innboks og redaksjonelle vurdering som nettsiden. Den publiserer aldri selv.
+
 Opprett en [issue](https://github.com/mlervaag/aafkstats/issues/new/choose). Det finnes egne
 maler for hver slags melding:
 
