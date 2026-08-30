@@ -1,5 +1,16 @@
 year: 1933
-competitionId: nm
-finalPosition: null
+competitionId: sondmore-kreds-klasse-a
+sources:
+  - sourceId: nff-arbok-1933
+    page: "88"
+    fields: [finalPosition, teamsInLeague, expectedMatches]
+    note: Manuelt lest av Klasse A-oppsettet, som utpeker Rollon som kretsmester.
+finalPosition: 2
+teamsInLeague: 2
+expectedMatches: 5
 promoted: false
 relegated: false
+note: >
+  Bare AaFK og Rollon er oppført i Klasse A. Årboka fører fem innbyrdes
+  resultater og kårer Rollon til kretsmester. Datoene og årsaken til formatet
+  med fem kamper er ikke oppgitt.

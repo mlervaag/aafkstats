@@ -156,6 +156,26 @@ personuttalelse er vesentlig nok til arkivet; og vurderingen av når to
 dateringsløse resultatlinjer er samme kamp. Fravær i OCR eller regnskap kan
 ikke behandles som historisk bevis uten en selvstendig strukturkontroll.
 
+## Oppfølgingsaudit: sesonger og kampidentitet
+
+Etter pilotgjennomgangen ble alle sesongfilene 1925–1934 normalisert på nytt
+etter samme standard som 1921–1924. Klasse A er nå hovedkonkurranse i alle ti
+år, med kildeført plassering, antall deltakende lag og antall faktisk spilte
+AaFK-kamper. AaFK er ført som kretsmester i 1925, 1927, 1928, 1929, 1931,
+1932 og 1934, og som nummer to i 1926, 1930 og 1933. Notene bevarer omkamp,
+protest, tilbaketrekninger og det uforklarte femkampformatet i 1933.
+
+Alle nye identitetskoblinger med lik motstander og score i forskjellige
+konkurranser ble kontrollert. Årbøkene dokumenterer ikke at serie- og
+pokalkampen mot Hødd 4–2 i 1926 eller serie- og pokalkampen mot Rollon 2–1 i
+1931 var samme fysiske kamp. De nye NFF-observasjonene er derfor splittet i
+konkurransespesifikke `resultGroupId`-er. De eldre koblingene i 1939-boka og
+medlemsbladoversikten er bevart urørt av bevaringshensyn og dokumentert som en
+egen, uavklart identitetsgjeld. Tilsvarende er det nye serieresultatet
+AaFK–Rollon 2–1 i 1927 frakoblet den daterte NM-kampen med samme score; bare
+NFFs NM-oppføring fikk den kanoniske kampkoblingen. Lik score alene brukes
+dermed ikke som identitetsbevis i piloten.
+
 ## Før metoden skaleres
 
 1. Lag en gjenbrukbar sidesegmentering som automatisk foreslår innhold,

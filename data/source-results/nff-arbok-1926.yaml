@@ -4,12 +4,12 @@ seasons:
   - year: 1926
     page: 153
     results:
-      - { claimId: srcclaim-19260000000000000000000000000001, no: 1, opponent: Hødd, opponentClubId: hodd, score: [4, 2], competitionId: sondmore-kreds-klasse-a, resultGroupId: 1926-hodd-4-2 }
+      - { claimId: srcclaim-19260000000000000000000000000001, no: 1, opponent: Hødd, opponentClubId: hodd, score: [4, 2], competitionId: sondmore-kreds-klasse-a, resultGroupId: 1926-hodd-4-2-serie, note: "Skilt fra pokalkampen med samme resultat; kilden beviser ikke at det var samme fysiske kamp." }
       - { claimId: srcclaim-19260000000000000000000000000002, no: 2, opponent: Rollon, opponentClubId: rollon, score: [1, 3], competitionId: sondmore-kreds-klasse-a, resultGroupId: 1926-rollon-1-3 }
       - { claimId: srcclaim-19260000000000000000000000000003, no: 3, opponent: Hødd, opponentClubId: hodd, score: [2, 1], competitionId: sondmore-kreds-klasse-a, resultGroupId: 1926-hodd-2-1 }
       - { claimId: srcclaim-19260000000000000000000000000004, no: 4, opponent: Rollon, opponentClubId: rollon, score: [4, 3], competitionId: sondmore-kreds-klasse-a, resultGroupId: 1926-rollon-4-3 }
       - { claimId: srcclaim-19260000000000000000000000000005, no: 5, opponent: Rollon, opponentClubId: rollon, score: [3, 4], competitionId: sondmore-kreds-klasse-a, replay: true, resultGroupId: 1926-rollon-3-4, note: "Årboka fører omkamp om kretsmesterskapet." }
-      - { claimId: srcclaim-19260000000000000000000000000006, no: 6, opponent: Hødd, opponentClubId: hodd, score: [4, 2], competitionId: more-distriktslagspokal, resultGroupId: 1926-hodd-4-2 }
+      - { claimId: srcclaim-19260000000000000000000000000006, no: 6, opponent: Hødd, opponentClubId: hodd, score: [4, 2], competitionId: more-distriktslagspokal, resultGroupId: 1926-hodd-4-2-pokal, note: "Skilt fra seriekampen med samme resultat; kilden beviser ikke at det var samme fysiske kamp." }
       - { claimId: srcclaim-19260000000000000000000000000007, no: 7, opponent: Rollon, opponentClubId: rollon, score: [4, 1], competitionId: more-distriktslagspokal, resultGroupId: 1926-rollon-4-1 }
       - { claimId: srcclaim-19260000000000000000000000000008, no: 8, opponent: Hødd, opponentClubId: hodd, score: [5, 1], competitionId: nm, round: 1, page: 130, resultGroupId: nm-1926-hodd-5-1 }
       - { claimId: srcclaim-19260000000000000000000000000009, no: 9, opponent: Ready, score: [4, 0], competitionId: nm, round: 2, page: 130, resultGroupId: nm-1926-null-4-0 }

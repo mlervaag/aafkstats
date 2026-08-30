@@ -1,5 +1,15 @@
 year: 1928
-competitionId: nm
-finalPosition: null
+competitionId: sondmore-kreds-klasse-a
+sources:
+  - sourceId: nff-arbok-1928
+    page: "77"
+    fields: [finalPosition, teamsInLeague, expectedMatches]
+    note: Manuelt lest av Klasse A-oppsettet, som utpeker AaFK som kretsmester.
+finalPosition: 1
+teamsInLeague: 3
+expectedMatches: 2
 promoted: false
 relegated: false
+note: >
+  AaFK slo Rollon 3–2 og 4–2. Hødd trakk seg, og ingen kamp eller score mot
+  Hødd er konstruert. Datoene er ikke oppgitt.
