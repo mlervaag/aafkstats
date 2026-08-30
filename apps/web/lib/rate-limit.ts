@@ -37,6 +37,8 @@ const QUESTIONS_PER_HOUR = 10;
 const CONTRIBUTIONS_PER_HOUR = 5;
 /** Verifiseringer er små, men skal ikke kunne fylle GitHub-innboksen uten grenser. */
 const VERIFICATIONS_PER_HOUR = 20;
+/** MCP er bare lokale SQLite-lesinger, men en feilkonfigurert agent skal ikke spinne fritt. */
+const MCP_READS_PER_HOUR = 120;
 const WINDOW_MS = 60 * 60 * 1000;
 /**
  * Tak på antall avsendere vi holder styr på samtidig.
@@ -50,12 +52,13 @@ const WINDOW_MS = 60 * 60 * 1000;
 const MAX_TRACKED = 5000;
 
 /** Hva som telles. Hver kvote har sitt eget vindu per avsender. */
-export type RateLimitBucket = "chat" | "bidrag" | "verifisering";
+export type RateLimitBucket = "chat" | "bidrag" | "verifisering" | "mcp";
 
 const LIMITS: Record<RateLimitBucket, number> = {
   chat: QUESTIONS_PER_HOUR,
   bidrag: CONTRIBUTIONS_PER_HOUR,
   verifisering: VERIFICATIONS_PER_HOUR,
+  mcp: MCP_READS_PER_HOUR,
 };
 
 /** Teller per avsender og kvote i denne instansens minne. Se forbeholdet over. */

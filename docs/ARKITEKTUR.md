@@ -44,7 +44,7 @@ flowchart TB
   subgraph lesere["Lesere"]
     W["Nettsted<br/>Next.js"]
     C["Spørrefunksjon<br/>modell + SQL"]
-    A["REST · MCP<br/><i>planlagt</i>"]
+    A["REST · MCP<br/>offentlig"]
   end
 
   F -- "ingest, --write" --> Y
@@ -53,7 +53,7 @@ flowchart TB
   Y -- "db:build" --> S
   S --> W
   S --> C
-  S -.-> A
+  S --> A
 ```
 
 To setninger bærer resten:
@@ -95,8 +95,8 @@ varierer med maskin og SQLite-versjon og oppgis derfor ikke som faste arkivfakta
 | [`@aafkstats/schema`](../packages/schema/README.md) | Datamodellen som Zod-skjema, lasting og validering av arkivet, avledning til AaFK-perspektiv | — |
 | [`@aafkstats/db`](../packages/db/README.md) | SQLite-skjemaet, byggesteget, og guardrailen rundt SQL utenfra | `schema` |
 | [`@aafkstats/ingest`](../packages/ingest/README.md) | Kildeadaptere, cache, normalisering, rettighetsport og reconcile til YAML | `schema` |
-| [`@aafkstats/query`](../packages/query/README.md) | Datasettdokumentasjonen, verktøydefinisjonene og systemprompten | `db`, `schema` |
-| [`@aafkstats/web`](../apps/web/README.md) | Portalen, `/api/chat`, `/api/search`, `/data` | alle |
+| [`@aafkstats/query`](../packages/query/README.md) | Datasettdokumentasjonen, offentlige lesetjenester, verktøydefinisjonene og systemprompten | `db`, `schema` |
+| [`@aafkstats/web`](../apps/web/README.md) | Portalen, REST `/api/v1`, MCP `/mcp`, chat og bidragsruter | alle |
 
 Retningen er enveis: `schema` vet ingenting om databasen, `db` vet ingenting om chatten, og
 `ingest` vet ingenting om nettstedet. Den eneste veien data går inn i arkivet er YAML-filer,
@@ -183,8 +183,9 @@ blir framstilt som kanoniske fakta. Se [`NB_MASSEUTTREKK.md`](NB_MASSEUTTREKK.md
 
 Visningsnavnet på en leverandør leses fra `core_providers.name`, aldri fra en streng i UI-koden. Ellers får kildesiden og kampsiden hver sitt navn på samme leverandør.
 
-Spørrefunksjonen ser bare viewene. Et senere REST-API og en MCP-server skal bruke den samme
-kontrakten. Legger du til en kolonne i `core_matches` uten å eksponere den i et view, har du
+Spørrefunksjonen, REST API-et og MCP-serveren bruker det samme query-laget over viewene.
+`verification_cases` har i tillegg en eksplisitt tjenestegrense: eksterne grensesnitt får
+bare `status = open` med publiseringsdato. Legger du til en kolonne i `core_matches` uten å eksponere den i et view, har du
 lagt til rådata; legger du den til i et view, har du utvidet kontrakten, og da skal den også
 dokumenteres i [`packages/query/src/dataset.ts`](../packages/query/src/dataset.ts).
 

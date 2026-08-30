@@ -421,7 +421,7 @@ gir direkte kamptreff mens brukeren skriver år og motstander; Enter sender i st
 til AI-søket.
 
 Alle 14 europakvalifiseringskampene er registrert. Gjenstår blant annet kontroll av flere
-historiske treningskamper, rettighetsavklart innhøsting, REST-API og MCP-server. Rekkefølgen
+historiske treningskamper og rettighetsavklart innhøsting. REST API og MCP-server står nå; status og neste prioritet
 står i [statusen](docs/STATUS.md).
 
 Minner fra skjemaet på nettstedet går til en egen innboks og vurderes mot arkivet før de

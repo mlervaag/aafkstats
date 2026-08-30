@@ -9,7 +9,10 @@
     "./dataset": "./src/dataset.ts",
     "./tools": "./src/tools.ts",
     "./prompt": "./src/prompt.ts",
-    "./style": "./src/style.ts"
+    "./public": "./src/public.ts",
+    "./style": "./src/style.ts",
+    "./services/missing": "./src/services/missing.ts",
+    "./services/research": "./src/services/research.ts"
   },
   "dependencies": {
     "@aafkstats/db": "workspace:*",

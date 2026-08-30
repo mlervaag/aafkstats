@@ -7,6 +7,8 @@ hvordan den skal skrive, og hva som renses på vei ut.
 src/
 ├── dataset.ts   Datasettdokumentasjonen. Én kilde, to lesere
 ├── tools.ts     Verktøydefinisjonene, som rene data
+├── public.ts    Eksplisitt allowlist for REST og MCP; ingen run_sql
+├── services/    Delt missing- og researchsemantikk for web, REST og MCP
 ├── prompt.ts    Systemprompten: regler + datasettdokumentasjonen
 └── style.ts     Mekanisk sperre mot tankestrek i svarene
 ```
@@ -65,7 +67,7 @@ endre, ett sted å teste.
 
 Definisjonene er **rene data**: navn, beskrivelse, Zod-skjema og handler, ikke bundet til noe
 SDK. Anthropic-veien pakker dem i `betaZodTool`, OpenAI-veien i JSON Schema fra det samme
-Zod-skjemaet, og en senere MCP-server kan registrere dem uten en ny implementasjon. Det er
+Zod-skjemaet, og MCP-serveren registrerer den offentlige allowlisten uten en ny spørringsimplementasjon. Det er
 nettopp derfor de er data: to leverandører kom til uten at en eneste verktøydefinisjon ble
 skrevet om.
 
@@ -78,6 +80,11 @@ const result = await tools[0]!.run({ season: 2019 }, { dbPath, onQuery: log });
 
 `ToolContext.onQuery` kalles etter hver SQL-kjøring med SQL, varighet, radtall og eventuell
 feil. Det er derfra loggingen i webappen henter tallene sine.
+
+`services/research.ts` skiller intern historikk fra den eksterne grensen. Draft, paused og
+resolved kan leses av redaksjonelle sider, men `loadPublicVerificationCase(s)` returnerer
+bare publiserte, åpne saker. `services/missing.ts` bygger samme oversikt for `/mangler`,
+REST og MCP uten å importere webappen eller lese `core_*` direkte.
 
 ## Systemprompten
 

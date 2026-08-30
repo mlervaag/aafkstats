@@ -45,9 +45,22 @@ bryter et av disse lagene er verdt en rapport:
 
 ## Kjente og aksepterte forhold
 
+### Offentlig REST og MCP
+
+`/api/v1` er et skrivebeskyttet, cachebart JSON-grensesnitt. `/mcp` bruker den samme
+strukturerte allowlisten; `run_sql`, interne `core_*`-tabeller og draft-saker er ikke
+tilgjengelige der. MCP er stateless og har kroppstak, outputtak og best-effort
+rate-limiting uten en ny database.
+
+Det eneste MCP-verktøyet som kan sende data, `submit_research_finding`, er begrenset til
+publiserte, åpne saker med `researchTask`. Det går gjennom eksisterende validering,
+revisjonskontroll og idempotens og oppretter bare en sak i GitHub-innboksen. Det kan ikke
+endre arkivdata, opprette PR eller merge. Innsendt tekst behandles som data; menneskelig
+kildekontroll og merge er siste grense.
+
 Meld gjerne fra hvis du mener vurderingen er feil, men disse er kjent og bevisste:
 
-- **Rate-limiting i minnet er en fartsdump, ikke en mur.** Uten Vercel Firewall foran er
+- **Rate-limiting i minnet er en fartsdump, ikke en mur.** Det gjelder også offentlig MCP. Uten Vercel Firewall foran er
   telleren per instans, og en fordelt avsender kommer forbi. Det harde kostnadstaket ligger
   hos modelleverandøren (Anthropic Console eller OpenAI-plattformen), ikke i koden. Se
   [`apps/web/lib/rate-limit.ts`](apps/web/lib/rate-limit.ts).
