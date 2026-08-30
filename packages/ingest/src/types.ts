@@ -110,9 +110,21 @@ export interface SeasonFetchOptions {
    * regnestykket blir galt i samme øyeblikk som arkivet og kilden er uenige om
    * hvor mange kamper sesongen har hatt.
    *
-   * Er denne satt, styrer den alene hvilke kamper som får detaljoppslag.
+   * Er denne satt, styrer den — sammen med `detailsIds` — hvilke kamper som
+   * får detaljoppslag, i stedet for vinduet.
    */
   detailsDates?: string[];
+  /**
+   * Kildens egne kamp-ID-er som skal detaljeres.
+   *
+   * Datoen er ikke nok alene: en kamp kan flyttes etter at terminlista er
+   * arkivert, og da spør en datoliste etter en dag kilden ikke har kampen på.
+   * ID-en følger kampen over en flytting, og arkivet har den allerede.
+   *
+   * ID-er og datoer er et *eller*: en kamp detaljeres om den treffer på minst
+   * én av dem.
+   */
+  detailsIds?: string[];
   limit?: number;
   refresh?: boolean;
   onProgress?: (message: string) => void;

@@ -1,0 +1,194 @@
+id: 2026-08-30-viking-aalesunds-fk
+date: 2026-08-30
+dateConfidence: exact
+kickoff: 17:00
+status: played
+competition:
+  id: eliteserien
+  season: 2026
+  stage: regular_season
+  round: 19
+home:
+  clubId: viking
+  score: 2
+  halfTimeScore: 0
+away:
+  clubId: aalesunds-fk
+  score: 1
+  halfTimeScore: 1
+venueId: lyse-arena
+neutralVenue: false
+attendance: 15601
+referee: Mathias Støfringshaug
+events:
+  - minute: 4
+    type: goal
+    team: away
+    player: Uba Charles
+    assist: Endre Osenbroch
+  - minute: 33
+    type: yellow_card
+    team: away
+    player: Mathias Christensen
+  - minute: 40
+    type: yellow_card
+    team: away
+    player: Ólafur Gudmundsson
+  - minute: 45
+    stoppage: 2
+    type: substitution
+    team: away
+    player: David Snær Johannsson
+    playerOff: Håkon Butli Hammer
+  - minute: 61
+    type: substitution
+    team: home
+    player: Simen Kvia-Egeskog
+    playerOff: Joe Bell
+  - minute: 61
+    type: substitution
+    team: home
+    player: Romano Postema
+    playerOff: Amin Cosic
+  - minute: 71
+    type: substitution
+    team: home
+    player: Niklas Fuglestad
+    playerOff: Herman Haugen
+  - minute: 72
+    type: yellow_card
+    team: away
+    player: Marcus Haagensen Reed
+  - minute: 73
+    type: goal
+    team: home
+    player: Simen Kvia-Egeskog
+    assist: Peter Christiansen
+  - minute: 81
+    type: substitution
+    team: away
+    player: Elias Heggland Myrlid
+    playerOff: Endre Osenbroch
+  - minute: 83
+    type: substitution
+    team: home
+    player: Henrik Heggheim
+    playerOff: Tobias Moi
+  - minute: 83
+    type: substitution
+    team: home
+    player: Viljar Vevatne
+    playerOff: Vetle Auklend
+  - minute: 86
+    type: yellow_card
+    team: away
+    player: David Snær Johannsson
+  - minute: 90
+    stoppage: 1
+    type: yellow_card
+    team: home
+    player: Kristoffer Askildsen
+  - minute: 90
+    stoppage: 4
+    type: goal
+    team: home
+    player: Simen Kvia-Egeskog
+    assist: Zlatko Tripic
+lineups:
+  home:
+    formation: 4-3-3
+    starters:
+      - Lubomír Belko
+      - Herman Haugen
+      - Gianni Stensness
+      - Jesper Daland
+      - Vetle Auklend
+      - Tobias Moi
+      - Joe Bell
+      - Kristoffer Askildsen
+      - Zlatko Tripic
+      - Peter Christiansen
+      - Amin Cosic
+    subs:
+      - Simen Kvia-Egeskog
+      - Romano Postema
+      - Niklas Fuglestad
+      - Henrik Heggheim
+      - Viljar Vevatne
+      - Arild Østbø
+      - Jakob Segadal Hansen
+      - Ola Visted
+      - Ruben Kristensen Alte
+    coach: Morten Jensen
+  away:
+    formation: 3-5-2
+    starters:
+      - Luca Podlech
+      - Marius Andresen
+      - Cheikh Mbacke Diop
+      - Ólafur Gudmundsson
+      - Kristoffer Nessø
+      - Mathias Christensen
+      - Elias Hagen
+      - Håkon Butli Hammer
+      - Uba Charles
+      - Endre Osenbroch
+      - Marcus Haagensen Reed
+    subs:
+      - David Snær Johannsson
+      - Elias Heggland Myrlid
+      - Philip Storås
+      - Tor Erik Valderhaug Larsen
+      - Emil Engqvist
+      - Simen Haram
+      - Ulrik Valderhaug Syversen
+      - Jakob Nyland Ørsahl
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 56
+    shots: 22
+    shotsOnTarget: 6
+    corners: 14
+    fouls: 5
+    offsides: 4
+    xg: 2.42
+  away:
+    possession: 44
+    shots: 9
+    shotsOnTarget: 4
+    corners: 3
+    fouls: 14
+    offsides: 2
+    xg: 0.87
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/aalesund-vs-viking/2cuni1#5104991
+    retrievedAt: 2026-08-30
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - attendance
+      - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
+      - lineups
+    note: "Kildestatus: FT"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "5104991"
+manual: []

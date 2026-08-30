@@ -195,6 +195,88 @@ describe("Strukturell additivitet i arkivet", () => {
     expect(swappedOutcome.destructiveChanges).toBe(1);
   });
 
+  describe("kamper kilden har flyttet", () => {
+    /**
+     * Viking–AaFK sto på terminlista til 29. august 2026 og ble spilt den 30.
+     * Kamp-ID-en er bygget av datoen, så kampen får ny fil og den gamle blir
+     * borte. Uten gjenkjenningen ville hver eneste utsatte kamp krevd en
+     * manuell dispensasjon for noe som ikke er tap.
+     */
+    const scheduled = {
+      id: "2026-08-29-viking-aalesunds-fk",
+      date: "2026-08-29",
+      kickoff: "18:00",
+      status: "scheduled",
+      home: { clubId: "viking", score: null },
+      away: { clubId: "aalesunds-fk", score: null },
+      venueId: "lyse-arena",
+      aliases: { fotmob: "5104991" },
+    };
+    const played = {
+      ...scheduled,
+      id: "2026-08-30-viking-aalesunds-fk",
+      date: "2026-08-30",
+      kickoff: "17:00",
+      status: "played",
+      home: { clubId: "viking", score: 2 },
+      away: { clubId: "aalesunds-fk", score: 1 },
+    };
+    const audit = (head: Record<string, unknown>, base = scheduled) => runArchivePreservationAudit([
+      {
+        domain: "match",
+        base: new Map([[base.id, base]]),
+        head: new Map([[String(head.id), head]]),
+      },
+    ]);
+
+    it("kjenner igjen kampen på kildens ID og godtar den nye datoen", () => {
+      const result = audit(played);
+      expect(result.destructiveChanges).toBe(0);
+      expect(result.filesDeleted).toBe(0);
+      expect(result.approvedMatchMoves).toBe(1);
+      expect(result.changes[0]).toMatchObject({
+        status: "APPROVED_MATCH_MOVE",
+        id: "2026-08-29-viking-aalesunds-fk",
+        changeType: "delete_file",
+      });
+    });
+
+    it("stanser en flytting som også mister noe", () => {
+      const { venueId: _venueId, ...utenArena } = played;
+      const result = audit(utenArena);
+      expect(result.destructiveChanges).toBe(1);
+      expect(result.approvedMatchMoves).toBe(1);
+    });
+
+    it("nekter å datere om en kamp arkivet allerede har utfallet av", () => {
+      // En kamp med resultat skal ingen kjøring kunne flytte i det stille.
+      const result = audit(played, { ...scheduled, status: "played" });
+      expect(result.destructiveChanges).toBe(1);
+      expect(result.filesDeleted).toBe(1);
+      expect(result.approvedMatchMoves).toBe(0);
+    });
+
+    it("krever kildens ID, ikke bare en kamp med lignende dato", () => {
+      const result = audit({ ...played, aliases: { fotmob: "9999999" } });
+      expect(result.destructiveChanges).toBe(1);
+      expect(result.filesDeleted).toBe(1);
+      expect(result.approvedMatchMoves).toBe(0);
+    });
+
+    it("godtar ikke terminfeltene når kampen ikke er flyttet", () => {
+      // Samme ID i BASE og HEAD: da er en endret dato en overskriving, ikke en
+      // flytting, og skal fortsatt fanges.
+      const result = runArchivePreservationAudit([
+        {
+          domain: "match",
+          base: new Map([[scheduled.id, scheduled]]),
+          head: new Map([[scheduled.id, { ...scheduled, date: "2026-08-30" }]]),
+        },
+      ]);
+      expect(result.destructiveChanges).toBe(1);
+    });
+  });
+
   it("bruker samme fritak kun for kamper, ikke for et likelydende statusfelt i et annet domene", () => {
     const result = runArchivePreservationAudit([
       {

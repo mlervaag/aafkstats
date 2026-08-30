@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { Archive } from "@aafkstats/schema/load";
-import { matchesDue, ongoingLeagues } from "../src/etter-kamp.js";
+import { matchesDue, ongoingLeagues, sourceForDue } from "../src/etter-kamp.js";
 
 function match(date: string, status: "played" | "scheduled", opponent = "hamarkameratene") {
   return {
@@ -60,6 +60,33 @@ describe("matchesDue", () => {
     home.home = { clubId: "aalesunds-fk", score: null, halfTimeScore: null };
     home.away = { clubId: "hamarkameratene", score: null, halfTimeScore: null };
     expect(matchesDue(archive([home]), "2026-08-09")[0]?.opponent).toBe("Hamarkameratene");
+  });
+});
+
+describe("sourceForDue", () => {
+  const due = (extra: Partial<{ externalId: string }> = {}) => matchesDue(
+    archive([{ ...match("2026-08-29", "scheduled", "viking"), aliases: extra.externalId ? { fotmob: extra.externalId } : {} }]),
+    "2026-08-30",
+  )[0]!;
+
+  it("finner kampen kilden har flyttet til en annen dato", () => {
+    // Viking–AaFK sto til 29. august 2026 og ble spilt den 30. Rutinen kjørt
+    // kvelden etter kampen meldte «ikke sluttresultat ennå», fordi den bare så
+    // etter kildens kamp på arkivets dato.
+    const sources = [
+      { externalId: "5104991", date: "2026-08-30" },
+      { externalId: "5104999", date: "2026-09-04" },
+    ];
+    expect(sourceForDue(due({ externalId: "5104991" }), sources)).toEqual(sources[0]);
+  });
+
+  it("faller tilbake på datoen for en kamp arkivet ikke har kilde-ID på", () => {
+    const sources = [{ externalId: "5104991", date: "2026-08-29" }];
+    expect(sourceForDue(due(), sources)).toEqual(sources[0]);
+  });
+
+  it("sier fra seg når kilden ikke har kampen ennå", () => {
+    expect(sourceForDue(due({ externalId: "5104991" }), [{ externalId: "5104999", date: "2026-09-04" }])).toBeUndefined();
   });
 });
 

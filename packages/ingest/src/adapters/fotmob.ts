@@ -245,12 +245,16 @@ export async function fetchFotmobSeason(options: SeasonFetchOptions): Promise<Fe
     // hentet de samme første kampene om igjen, og en sesong kunne aldri bli
     // ferdig detaljert med et tak på ti per kjøring.
     //
-    // En eksplisitt datoliste går foran vinduet. Den som vet hvilken kamp som er
-    // ny, vet det som en dato — ikke som en indeks i kildens liste.
+    // En eksplisitt liste går foran vinduet. Den som vet hvilken kamp som er ny,
+    // vet det som en dato eller en kilde-ID — ikke som en indeks i kildens liste.
+    // ID-en er den som holder når kampen er flyttet: da har kilden den på en
+    // annen dato enn arkivet spurte om.
     const from = options.detailsOffset ?? 0;
     const to = from + (options.detailsLimit ?? candidates.length);
-    const wanted = options.detailsDates
-      ? options.detailsDates.includes(normalized.date)
+    const explicit = options.detailsDates !== undefined || options.detailsIds !== undefined;
+    const wanted = explicit
+      ? (options.detailsDates?.includes(normalized.date) ?? false)
+        || (options.detailsIds?.includes(normalized.externalId) ?? false)
       : index >= from && index < to;
     if (options.withDetails && wanted) {
       options.onProgress?.(`detaljer ${index + 1}/${candidates.length}: ${normalized.date}`);

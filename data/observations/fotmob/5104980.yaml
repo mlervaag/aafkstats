@@ -1,9 +1,9 @@
 providerId: fotmob
 externalId: "5104980"
 matchId: 2026-08-16-aalesunds-fk-valerenga
-retrievedAt: 2026-08-17
+retrievedAt: 2026-08-30
 adapter: fotmob@5
-payloadHash: sha256:f6e6913d4db32a88bc3b0ad66b8d4e747471572f767292e8d16b5edef64f4845
+payloadHash: sha256:bc2a7db111ec0962f2a0b2ed2f5e8a4f9247a53e9f49a9fcba3944579dc9c190
 raw:
   externalId: "5104980"
   date: 2026-08-16
@@ -15,15 +15,10 @@ raw:
   awayId: "8007"
   homeScore: 5
   awayScore: 5
-  homeHalfTime: 4
-  awayHalfTime: 2
   competition: Eliteserien
   competitionId: "59"
   season: 2026
   round: 18
-  venue: Color Line Stadion
-  attendance: 5197
-  referee: Mischa Huru Kellerhals
   url: https://www.fotmob.com/matches/valerenga-vs-aalesund/286lhq#5104980
 normalized:
   date: 2026-08-16
@@ -33,15 +28,10 @@ normalized:
   away.clubId: valerenga
   home.score: 5
   away.score: 5
-  home.halfTimeScore: 4
-  away.halfTimeScore: 2
   competition.id: eliteserien
   competition.season: 2026
   competition.round: 18
   competition.stage: regular_season
-  venueId: color-line-stadion
-  attendance: 5197
-  referee.name: Mischa Huru Kellerhals
 fields:
   - date
   - kickoff
@@ -52,12 +42,4 @@ fields:
   - home.score
   - away.score
   - competition.round
-  - attendance
-  - venueId
-  - referee
-  - home.halfTimeScore
-  - away.halfTimeScore
-  - events
-  - stats
-  - lineups
 warnings: []
