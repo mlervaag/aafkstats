@@ -9,7 +9,8 @@ export type PreservationStatus =
   | "REVIEW_REQUIRED"
   | "DESTRUCTIVE_CHANGE"
   | "APPROVED_EXCEPTION"
-  | "APPROVED_COORDINATE_MIGRATION";
+  | "APPROVED_COORDINATE_MIGRATION"
+  | "APPROVED_MATCH_MOVE";
 
 export interface PreservationChangeDetail {
   entity: "person" | "source" | "source_result" | "match" | "observation" | "organization_snapshot";

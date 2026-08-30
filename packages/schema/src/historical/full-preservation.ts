@@ -17,6 +17,7 @@ export interface FullPreservationSummary {
   reviewRequired: number;
   approvedExceptions: number;
   approvedCoordinateMigrations: number;
+  approvedMatchMoves: number;
   destructiveChanges: number;
   staleExceptions: PreservationException[];
   selfApprovedExceptions: PreservationException[];
@@ -95,6 +96,7 @@ export async function runFullPreservationAudit(
     reviewRequired: peopleResult.summary.reviewRequired,
     approvedExceptions: peopleResult.summary.approvedExceptions + archiveResult.approvedExceptions,
     approvedCoordinateMigrations: archiveResult.approvedCoordinateMigrations,
+    approvedMatchMoves: archiveResult.approvedMatchMoves,
     destructiveChanges,
     staleExceptions,
     selfApprovedExceptions: selfApproved,

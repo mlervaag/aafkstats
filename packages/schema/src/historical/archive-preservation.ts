@@ -175,6 +175,12 @@ export interface StructuralDiffOptions {
   maxDepth?: number;
   /** Domenet posten hører til. Styrer hvilke feltspesifikke unntak som gjelder. */
   domain?: ArchiveDomain;
+  /**
+   * Kampen er gjenkjent som flyttet: samme kamp hos kilden, ny dato. Da er
+   * terminfeltene kilden selv har endret ikke tap. Alt annet kontrolleres som
+   * før.
+   */
+  movedMatch?: boolean;
 }
 
 /**
@@ -198,6 +204,20 @@ const MATCH_STATUS_OUTCOMES = new Set(["played", "abandoned", "awarded", "cancel
 function isMatchStatusOutcome(domain: ArchiveDomain | undefined, path: string, baseValue: unknown, headValue: unknown): boolean {
   if (domain !== "match" || path !== "/status") return false;
   return baseValue === "scheduled" && typeof headValue === "string" && MATCH_STATUS_OUTCOMES.has(headValue);
+}
+
+/**
+ * Feltene som følger av at kampen er flyttet, og bare de.
+ *
+ * Kamp-ID-en er bygget av datoen, så en flyttet kamp får både ny dato, nytt
+ * avspark og ny ID. Det er kilden som oppdaterer terminlista, ikke arkivet som
+ * mister noe. Resten av kampen — lag, konkurranse, arena, resultat, kilder —
+ * kontrolleres uendret, og en flytting som også fjerner noe stanses fortsatt.
+ */
+const MATCH_MOVE_FIELDS = new Set(["/id", "/date", "/kickoff"]);
+
+function isMatchMoveField(options: StructuralDiffOptions, path: string): boolean {
+  return options.movedMatch === true && options.domain === "match" && MATCH_MOVE_FIELDS.has(path);
 }
 
 interface StructuralRemoval {
@@ -385,6 +405,10 @@ export function diffStructuralAdditivity(
     if (isNbViewerPageCorrection(path, baseValue, headValue)) {
       // NB sin dokumentviser bruker en egen sideindeks. En korrigert `page`-
       // parameter på samme item endrer pekeren, ikke det historiske belegget.
+      return out;
+    }
+    if (isMatchMoveField(options, path)) {
+      // Terminfeltene på en kamp som er gjenkjent som flyttet.
       return out;
     }
     if (isMatchStatusOutcome(options.domain, path, baseValue, headValue)) {
@@ -656,6 +680,56 @@ export function verifySourceResultMigration(
   };
 }
 
+/** Kildens ID-er på en post, som `providerId|externalId`. */
+function aliasKeys(raw: unknown): string[] {
+  const aliases = isPlainObject(raw) ? (raw as Record<string, unknown>).aliases : undefined;
+  if (!isPlainObject(aliases)) return [];
+  return Object.entries(aliases)
+    .filter(([, value]) => value !== undefined && value !== null && String(value) !== "")
+    .map(([providerId, value]) => `${providerId}|${String(value)}`);
+}
+
+/**
+ * Kamper som bare finnes i HEAD, nøklet på kildens ID.
+ *
+ * En kamp som flyttes får ny ID, fordi ID-en er bygget av datoen. Fila på den
+ * gamle datoen ser da ut som en sletting, og uten dette oppslaget måtte hver
+ * eneste utsatte kamp gjennom en manuell dispensasjon. Kildens ID følger
+ * kampen over flyttingen og er det som knytter de to filene sammen.
+ */
+function newMatchesByAlias(input: ArchivePreservationInput): Map<string, { id: string; raw: unknown }> {
+  const found = new Map<string, { id: string; raw: unknown }>();
+  if (input.domain !== "match") return found;
+  for (const [id, raw] of input.head) {
+    if (input.base.has(id)) continue;
+    for (const key of aliasKeys(raw)) {
+      if (!found.has(key)) found.set(key, { id, raw });
+    }
+  }
+  return found;
+}
+
+/**
+ * Den flyttede utgaven av en kamp som er borte fra HEAD, om den finnes.
+ *
+ * To krav, og de er strenge med vilje. Kampen må være gjenkjent på kildens
+ * egen ID — ikke på lag og dato, som er nettopp det som er endret. Og den må
+ * ha stått som `scheduled` i BASE: en kamp arkivet allerede har et utfall for,
+ * skal ingen kjøring kunne datere om i det stille. Resten kontrolleres av den
+ * vanlige additivitetsdiffen mot den nye fila.
+ */
+function movedMatch(
+  baseRaw: unknown,
+  candidates: Map<string, { id: string; raw: unknown }>,
+): { id: string; raw: unknown } | undefined {
+  if (!isPlainObject(baseRaw) || (baseRaw as Record<string, unknown>).status !== "scheduled") return undefined;
+  for (const key of aliasKeys(baseRaw)) {
+    const found = candidates.get(key);
+    if (found) return found;
+  }
+  return undefined;
+}
+
 export interface ArchivePreservationInput {
   domain: ArchiveDomain;
   /** Rådata fra BASE, nøklet på entitets-ID. */
@@ -672,6 +746,8 @@ export interface ArchivePreservationResult {
   destructiveChanges: number;
   approvedExceptions: number;
   approvedCoordinateMigrations: number;
+  /** Kamper kilden har flyttet, gjenkjent på kildens ID og godkjent uten dispensasjon. */
+  approvedMatchMoves: number;
 }
 
 /**
@@ -687,6 +763,7 @@ export function runArchivePreservationAudit(
   let entitiesChecked = 0;
   let filesDeleted = 0;
   let approvedCoordinateMigrations = 0;
+  let approvedMatchMoves = 0;
 
   // Validate all migration manifests against source_result domain
   const verifiedMigrationsBySource = new Map<string, VerifiedMigration>();
@@ -715,11 +792,44 @@ export function runArchivePreservationAudit(
   }
 
   for (const input of inputs) {
+    const movedCandidates = newMatchesByAlias(input);
     for (const [id, baseRaw] of input.base) {
       entitiesChecked += 1;
       const headRaw = input.head.get(id);
 
       if (headRaw === undefined) {
+        const moved = movedMatch(baseRaw, movedCandidates);
+        if (moved) {
+          approvedMatchMoves += 1;
+          changes.push({
+            entity: "match",
+            id,
+            path: "file",
+            changeType: "delete_file",
+            status: "APPROVED_MATCH_MOVE",
+            message: `match «${id}» er flyttet til «${moved.id}»: samme kamp hos kilden, ny dato`,
+            baseValue: baseRaw,
+            headValue: moved.raw,
+          });
+          // Den nye fila kontrolleres som om den var den gamle. En flytting som
+          // også mister et felt er fortsatt tap, og skal fortsatt stanses.
+          for (const removal of diffStructuralAdditivity(baseRaw, moved.raw, "", { domain: "match", movedMatch: true })) {
+            const normalizedPath = removal.path.replace(/^\//, "") || "root";
+            const ex = findArchiveException(input.domain, id, normalizedPath, removal.changeType, exceptions, usedExceptions);
+            changes.push({
+              entity: input.domain,
+              id,
+              path: normalizedPath,
+              changeType: removal.changeType,
+              status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
+              message: `match «${id}» flyttet til «${moved.id}»: ${removal.message}`,
+              baseValue: removal.baseValue,
+              headValue: removal.headValue,
+              exception: ex,
+            });
+          }
+          continue;
+        }
         filesDeleted += 1;
         const ex = findArchiveException(input.domain, id, "file", "delete_file", exceptions, usedExceptions);
         changes.push({
@@ -854,5 +964,6 @@ export function runArchivePreservationAudit(
     destructiveChanges,
     approvedExceptions,
     approvedCoordinateMigrations,
+    approvedMatchMoves,
   };
 }
