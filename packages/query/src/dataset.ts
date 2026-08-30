@@ -27,8 +27,8 @@ export interface ViewDoc {
   columns: ColumnDoc[];
 }
 
-// Hevet fra 1 da `matches.missing_fields` ble en del av den publiserte kontrakten.
-export const DATASET_VERSION = "4";
+// Versjon 5 eksponerer kampens provider-proveniens som et eget JSON-felt.
+export const DATASET_VERSION = "5";
 
 export const views: ViewDoc[] = [
   {
@@ -64,6 +64,37 @@ export const views: ViewDoc[] = [
       { name: "note", type: "text", description: "Kort merknad eller forbehold." },
       { name: "source_url", type: "text", description: "Direktelenke til publikasjonen hos kilden." },
       { name: "url", type: "text", description: "Lenke til kildesiden i arkivet." },
+    ],
+  },
+  {
+    name: "result_groups",
+    summary: "Ukoblede kildepåstander samlet til ett mulig oppgjør per result_group_id.",
+    caveats: [
+      "Én rad er én mulig kamp, ikke et kanonisk faktum. claims bevarer hver kildes originaltekst og sources bevarer kildene.",
+      "has_conflicts markerer motstridende ikke-tomme datoer, klubb-ID-er, resultater eller konkurranser. Manglende verdi i én kilde er ikke alene en konflikt.",
+      "Radene skal aldri summeres sammen med matches. opponent_club_id kan være NULL selv om opponent inneholder et lesbart kildenavn.",
+    ],
+    columns: [
+      { name: "record_id", type: "text", description: "result_group_id, eller claim_id når påstanden ikke inngår i en gruppe." },
+      { name: "date", type: "text", description: "Felles eksakt dato når kildene er enige. Ellers NULL." },
+      { name: "date_precision", type: "text", description: "exact eller season_only." },
+      { name: "season", type: "integer", description: "Sesongen gruppen ligger under." },
+      { name: "opponent", type: "text", description: "Stabilt visningsnavn. Originale skrivemåter ligger i claims." },
+      { name: "opponent_search", type: "text", description: "Normalisert søketekst med alle trykte motstandernavn." },
+      { name: "opponent_club_id", type: "text", description: "Kanonisk klubb-ID når avklart uten motstrid." },
+      { name: "aafk_score", type: "integer", description: "AaFKs mål når kildene er enige." },
+      { name: "opponent_score", type: "integer", description: "Motstanderens mål når kildene er enige." },
+      { name: "goal_difference", type: "integer", description: "AaFKs mål minus motstanderens mål." },
+      { name: "result", type: "text", description: "S, U eller T når kildene er enige." },
+      { name: "competition", type: "text", description: "Konkurranse-ID når minst én kilde oppgir den og ingen motsier." },
+      { name: "has_conflicts", type: "integer (0/1)", description: "Om ikke-tomme kjernefelt motsier hverandre." },
+      { name: "result_group_id", type: "text", description: "Eksplisitt gruppe-ID. NULL for en enkeltstående claim." },
+      { name: "note", type: "text", description: "Korte, sammenslåtte kildenoter." },
+      { name: "missing_fields", type: "JSON", description: "Felt som ikke kan omtales som kanonisk eller avklart." },
+      { name: "source_count", type: "integer", description: "Antall unike kilder i gruppen." },
+      { name: "sources", type: "JSON", description: "Unike kilder med tittel, side og lenker." },
+      { name: "claims", type: "JSON", description: "Alle originale påstander med motstandernavn, score, konkurranse og kilde." },
+      { name: "url", type: "text", description: "Relativ lenke til en kildeside i arkivet." },
     ],
   },
   {
@@ -157,6 +188,7 @@ export const views: ViewDoc[] = [
       { name: "completeness", type: "real", description: "0–1: hvor mye av kampen som er dokumentert." },
       { name: "missing_fields", type: "text (JSON-liste)", description: "Feltene completeness savner, som 'score', 'attendance', 'lineups', 'events', 'report', 'referee', 'venue' eller 'providers'. Tom liste betyr at kampen er fullt dokumentert. Bruk json_each for å telle: en kamp uten 'lineups' her har ingen registrert lagoppstilling." },
       { name: "last_retrieved_at", type: "text (YYYY-MM-DD)", description: "Siste gang en kilde ble hentet for kampen. NULL for kamper uten kildehenvisning." },
+      { name: "providers", type: "text (JSON-liste)", description: "Dataleverandører for kampen, med providerId, URL, hentetid og feltene leverandøren støtter. Holdes adskilt fra historiske sources." },
       { name: "tags", type: "text (JSON-liste)", description: "Frie stikkord, f.eks. 'derby'." },
       { name: "sources", type: "text (JSON-liste)", description: "Historiske publikasjoner som dokumenterer kampen, med sourceId og eventuelt side eller notat." },
       { name: "url", type: "text", description: "Lenke til kampsiden. Bruk denne som kildehenvisning i svar." },

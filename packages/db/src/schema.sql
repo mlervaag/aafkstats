@@ -494,6 +494,7 @@ SELECT
   -- stedet for å anta at hele arkivet er like gammelt som byggetidspunktet.
   (SELECT max(json_extract(pv.value, '$.retrievedAt')) FROM json_each(m.providers) pv)
                       AS last_retrieved_at,
+  m.providers,
   m.sources,
   m.note,
   m.tags,
@@ -1388,6 +1389,69 @@ SELECT r.claim_id, r.source_id, s.title AS source_title, r.id, r.season, r.sourc
 FROM core_source_results r
 JOIN core_sources s ON s.id = r.source_id
 ORDER BY r.season DESC, r.source_order;
+
+-- Én mulig historisk kamp per result_group_id. Originaltekst og kildevarianter
+-- ligger i claims, slik at klienter ikke trenger å tolke samme gruppe som flere
+-- kamper eller miste avvikene mellom kildene.
+CREATE VIEW result_groups AS
+WITH raw_claims AS (
+  SELECT coalesce(result_group_id, claim_id) AS group_key, *
+  FROM source_results
+  WHERE match_id IS NULL AND result IS NOT NULL
+), grouped AS (
+  SELECT group_key,
+         CASE WHEN count(DISTINCT date) <= 1 THEN max(date) END AS date,
+         min(season) AS season,
+         min(opponent COLLATE NOCASE) AS printed_opponent,
+         lower(group_concat(DISTINCT coalesce(opponent, ''))) AS opponent_search,
+         CASE WHEN count(DISTINCT opponent_club_id) <= 1
+              THEN max(opponent_club_id) END AS opponent_club_id,
+         CASE WHEN count(DISTINCT printf('%d:%d', aafk_score, opponent_score)) = 1
+              THEN max(aafk_score) END AS aafk_score,
+         CASE WHEN count(DISTINCT printf('%d:%d', aafk_score, opponent_score)) = 1
+              THEN max(opponent_score) END AS opponent_score,
+         CASE WHEN count(DISTINCT result) = 1 THEN max(result) END AS result,
+         CASE WHEN count(DISTINCT competition_id) <= 1
+              THEN max(competition_id) END AS competition,
+         CASE WHEN count(DISTINCT date) > 1
+                    OR count(DISTINCT opponent_club_id) > 1
+                    OR count(DISTINCT printf('%d:%d', aafk_score, opponent_score)) > 1
+                    OR count(DISTINCT result) > 1
+                    OR count(DISTINCT competition_id) > 1
+              THEN 1 ELSE 0 END AS has_conflicts,
+         max(result_group_id) AS result_group_id,
+         group_concat(DISTINCT note) AS note,
+         count(DISTINCT source_id) AS source_count,
+         json_group_array(DISTINCT json_object(
+           'sourceId', source_id, 'title', source_title, 'page', page,
+           'sourceUrl', source_url, 'url', url
+         )) AS sources,
+         json_group_array(json_object(
+           'claimId', claim_id, 'opponentAsPrinted', opponent,
+           'opponentClubId', opponent_club_id, 'date', date, 'season', season,
+           'aafkScore', aafk_score, 'opponentScore', opponent_score,
+           'competitionId', competition_id, 'sourceId', source_id,
+           'page', page, 'note', note
+         )) AS claims,
+         min(url) AS url
+  FROM raw_claims
+  GROUP BY group_key
+)
+SELECT g.group_key AS record_id, g.date,
+       CASE WHEN g.date IS NULL THEN 'season_only' ELSE 'exact' END AS date_precision,
+       g.season, coalesce(o.opponent, g.printed_opponent) AS opponent,
+       g.opponent_search, g.opponent_club_id, g.aafk_score, g.opponent_score,
+       g.aafk_score - g.opponent_score AS goal_difference,
+       g.result, g.competition, g.has_conflicts, g.result_group_id, g.note,
+       '["canonical_match","home_away"' ||
+         CASE WHEN g.date IS NULL THEN ',"date"' ELSE '' END ||
+         CASE WHEN g.competition IS NULL THEN ',"competition"' ELSE '' END ||
+         CASE WHEN g.opponent_club_id IS NULL THEN ',"opponent_identity"' ELSE '' END ||
+         CASE WHEN g.has_conflicts = 1 THEN ',"conflicting_claims"' ELSE '' END ||
+         ']' AS missing_fields,
+       g.source_count, g.sources, g.claims, g.url
+FROM grouped g
+LEFT JOIN opponents o ON o.opponent_club_id = g.opponent_club_id;
 
 CREATE VIEW fact_candidates AS
 SELECT source_id, id, kind, page, confidence, keywords, names, years, scores,

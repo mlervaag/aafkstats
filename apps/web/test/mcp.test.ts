@@ -73,6 +73,9 @@ describe("offentlig stateless MCP", () => {
     const body = await rpcBody(listed);
     const names = (body.result.tools as { name: string }[]).map((tool) => tool.name);
     expect(names).toContain("search_all_results");
+    expect(names).toContain("get_person");
+    expect(names).toContain("search_sources");
+    expect(names).toContain("get_source");
     expect(names).toContain("list_verification_cases");
     expect(names).not.toContain("run_sql");
     expect(names).toContain("submit_research_finding");
@@ -83,15 +86,55 @@ describe("offentlig stateless MCP", () => {
     expect(response.status).toBe(200);
     const body = await rpcBody(response);
     expect(body.result.isError).not.toBe(true);
-    expect((body.result.structuredContent as { evidencePolicy: { contract: string } }).evidencePolicy.contract).toBe("archive-result-evidence@1");
+    const content = body.result.structuredContent as {
+      rows: { evidence_level: string; missing_fields: unknown[]; sources: unknown[]; url: string; path: string }[];
+      evidencePolicy: { contract: string };
+    };
+    expect(content.evidencePolicy.contract).toBe("archive-result-evidence@1");
+    expect(content.rows.some((row) => row.evidence_level === "source_claim")).toBe(true);
+    expect(content.rows.every((row) => Array.isArray(row.missing_fields) && Array.isArray(row.sources))).toBe(true);
+    expect(content.rows.every((row) => row.url.startsWith("https://aafkarkivet.no/") && row.path.startsWith("/"))).toBe(true);
   });
 
-  it("returnerer bare åpne publiserte researchsaker", async () => {
+  it("returnerer en kompakt liste over bare åpne publiserte researchsaker", async () => {
     const response = await rpc("tools/call", { name: "list_verification_cases", arguments: { limit: 100 } });
     const body = await rpcBody(response);
-    const cases = (body.result.structuredContent as { items: { status: string; publishedAt: string | null }[] }).items;
+    const cases = (body.result.structuredContent as { items: { id: string; canSubmitViaMcp: boolean; href: string; context?: string; sources?: unknown[] }[] }).items;
     expect(cases.length).toBeGreaterThan(0);
-    expect(cases.every((item) => item.status === "open" && item.publishedAt !== null)).toBe(true);
+    expect(cases.every((item) => typeof item.canSubmitViaMcp === "boolean" && item.href.startsWith("https://aafkarkivet.no/"))).toBe(true);
+    expect(cases.every((item) => item.context === undefined && item.sources === undefined)).toBe(true);
+
+    const detailResponse = await rpc("tools/call", { name: "get_verification_case", arguments: { id: cases[0]!.id } });
+    const detailBody = await rpcBody(detailResponse);
+    expect(JSON.stringify(body.result.structuredContent).length)
+      .toBeLessThan(JSON.stringify(detailBody.result.structuredContent).length * cases.length);
+  });
+
+  it("holder research-overview kompakt og legger detaljene i egne list-verktøy", async () => {
+    const response = await rpc("tools/call", { name: "get_research_overview", arguments: {} });
+    const body = await rpcBody(response);
+    const overview = body.result.structuredContent as {
+      matchFields: { total: number; present: number; missing: number; matches?: number }[];
+      incompleteSeasons: { count: number; items?: unknown[] };
+      lineupReview: { candidates: number; sources: number; items?: unknown[] };
+      identity: { playersWithoutFile: number; filesWithoutMatches: number };
+    };
+    expect(overview.matchFields.every((field) => field.total === field.present + field.missing && field.matches === undefined)).toBe(true);
+    expect(overview.incompleteSeasons.items).toBeUndefined();
+    expect(overview.lineupReview.items).toBeUndefined();
+    expect(typeof overview.identity.playersWithoutFile).toBe("number");
+    expect(JSON.stringify(overview).length).toBeLessThan(5_000);
+  });
+
+  it("returnerer provider-proveniens og native JSON fra get_match", async () => {
+    const response = await rpc("tools/call", { name: "get_match", arguments: { matchId: "2024-04-01-aalesunds-fk-raufoss-il" } });
+    const body = await rpcBody(response);
+    const match = (body.result.structuredContent as { match: { rows: { providers: unknown[]; sources: unknown[]; tags: unknown[]; url: string }[] } }).match.rows[0]!;
+    expect(match.providers).toBeInstanceOf(Array);
+    expect(match.providers.length).toBeGreaterThan(0);
+    expect(match.sources).toBeInstanceOf(Array);
+    expect(match.tags).toBeInstanceOf(Array);
+    expect(match.url).toBe("https://aafkarkivet.no/kamp/2024-04-01-aalesunds-fk-raufoss-il");
   });
 
   it("sender et researchfunn til samme GitHub-innboks og svarer bare pending_review", async () => {

@@ -238,8 +238,9 @@ at en ukoblet rad omtales som det kilden oppgir, aldri som en fullidentifisert k
 
 `head_to_head` bruker den samme evidensgrensen for komplett motstanderhistorikk. Kanoniske
 summer og grupperte, ukoblede kilderesultater returneres hver for seg og skal aldri adderes.
-Kildelaget kobles bare med `opponent_club_id`, slik at navnelikhet eller stedsnavn ikke kan
-blande for eksempel Molde FK, Molde 2 og andre klubber fra Molde.
+Sikre kildetreff kobles bare med `opponent_club_id`, slik at navnelikhet eller stedsnavn ikke
+kan blande for eksempel Molde FK, Molde 2 og andre klubber fra Molde. Tekstlige treff uten
+klubb-ID kan vises i et tredje lag som researchspor, men de inngår aldri i statistikken.
 
 | Lag | Håndheves av | Hva det stopper |
 |---|---|---|

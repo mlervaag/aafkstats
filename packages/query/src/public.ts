@@ -12,6 +12,9 @@ export const PUBLIC_TOOL_NAMES = [
   "head_to_head",
   "search_reports",
   "search_people",
+  "get_person",
+  "search_sources",
+  "get_source",
   "search_historical_results",
 ] as const;
 
