@@ -90,10 +90,40 @@ describe("offentlig stateless MCP", () => {
       rows: { evidence_level: string; missing_fields: unknown[]; sources: unknown[]; url: string; path: string }[];
       evidencePolicy: { contract: string };
     };
-    expect(content.evidencePolicy.contract).toBe("archive-result-evidence@1");
+    expect(content.evidencePolicy.contract).toBe("archive-result-evidence@2");
     expect(content.rows.some((row) => row.evidence_level === "source_claim")).toBe(true);
     expect(content.rows.every((row) => Array.isArray(row.missing_fields) && Array.isArray(row.sources))).toBe(true);
     expect(content.rows.every((row) => row.url.startsWith("https://aafkarkivet.no/") && row.path.startsWith("/"))).toBe(true);
+  });
+
+  it("sier eksplisitt at arkivet ikke er en livetjeneste", async () => {
+    const response = await rpc("tools/call", { name: "get_archive_capabilities", arguments: {} });
+    const body = await rpcBody(response);
+    const capabilities = body.result.structuredContent as {
+      contract: string;
+      content: { canonicalMatches: number; sourceClaims: number };
+      freshness: { liveScores: boolean; typicalUpdateMode: string };
+      writeAccess: { canonicalData: boolean };
+    };
+    expect(capabilities.contract).toBe("aafk-archive-mcp@1");
+    expect(capabilities.freshness.liveScores).toBe(false);
+    expect(capabilities.freshness.typicalUpdateMode).toBe("post_ingestion");
+    expect(capabilities.writeAccess.canonicalData).toBe(false);
+    // De to evidensnivåene telles hver for seg, aldri som ett tall.
+    expect(capabilities.content.canonicalMatches).toBeGreaterThan(0);
+    expect(typeof capabilities.content.sourceClaims).toBe("number");
+  });
+
+  it("leverer notes og claim_summary som ekte JSON, ikke strenger", async () => {
+    const response = await rpc("tools/call", { name: "search_all_results", arguments: { season: 1955, limit: 20 } });
+    const body = await rpcBody(response);
+    const rows = (body.result.structuredContent as {
+      rows: { evidence_level: string; notes: unknown; claim_summary: unknown; competition_id: unknown }[];
+    }).rows;
+    expect(rows.every((row) => Array.isArray(row.notes))).toBe(true);
+    const claim = rows.find((row) => row.evidence_level === "source_claim")!;
+    expect(claim.claim_summary).toBeInstanceOf(Object);
+    expect(claim.claim_summary).toHaveProperty("claimCount");
   });
 
   it("returnerer en kompakt liste over bare åpne publiserte researchsaker", async () => {

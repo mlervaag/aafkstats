@@ -37,8 +37,13 @@ function sourceDescription(data: z.infer<typeof submissionSchema>, item: Verific
   return data.evidence.reference;
 }
 
-function fallbackError(message: string, status: number) {
-  return NextResponse.json({ error: message }, { status });
+/**
+ * `code` er valgfri og kun for maskinelle klienter, som MCP: to ulike 409-tilfeller
+ * (utdatert revisjon og allerede innsendt) skal kunne skilles uten å lese meldingsteksten.
+ * Nettskjemaet bruker fortsatt bare `error`.
+ */
+function fallbackError(message: string, status: number, code?: string) {
+  return NextResponse.json({ error: message, ...(code ? { code } : {}) }, { status });
 }
 
 async function handlePost(req: Request) {
@@ -64,10 +69,10 @@ async function handlePost(req: Request) {
     }
     const data = parsed.data;
     const verificationCase = loadVerificationCase(data.caseId);
-    if (!verificationCase) return fallbackError("Saken finnes ikke.", 404);
-    if (verificationCase.status !== "open") return fallbackError("Saken er allerede avsluttet.", 410);
+    if (!verificationCase) return fallbackError("Saken finnes ikke.", 404, "VERIFICATION_CASE_NOT_FOUND");
+    if (verificationCase.status !== "open") return fallbackError("Saken er allerede avsluttet.", 410, "SUBMISSION_NOT_ALLOWED");
     if (verificationCase.revision !== data.revision) {
-      return fallbackError("Saken er oppdatert siden du åpnet den. Last siden på nytt og kontroller formuleringen.", 409);
+      return fallbackError("Saken er oppdatert siden du åpnet den. Last siden på nytt og kontroller formuleringen.", 409, "REVISION_MISMATCH");
     }
     if (!verificationCase.newspaper && !verificationCase.researchTask && data.finding.length < 3) {
       return fallbackError("Beskriv kort hva du fant.", 400);
@@ -115,7 +120,7 @@ async function handlePost(req: Request) {
     const issueUrl = existing.items?.[0]?.html_url;
     if (issueUrl) return NextResponse.json({ success: true, issueUrl, duplicate: true });
     if ((await pendingVerificationCaseIds()).includes(verificationCase.id)) {
-      return fallbackError("Denne saken er allerede sendt inn og venter på vurdering.", 409);
+      return fallbackError("Denne saken er allerede sendt inn og venter på vurdering.", 409, "ALREADY_SUBMITTED");
     }
 
     const answerLabel = data.answer === "yes" ? "JA" : data.answer === "no" ? "NEI" : "KAN IKKE BESTEMMES";

@@ -1,5 +1,5 @@
 import { createMcpHandler, McpServer, type McpRequestContext } from "@modelcontextprotocol/server";
-import { executePublicTool, loadMissingOverview, loadPublicVerificationCase, loadPublicVerificationCases, publicTools, summarizeMissingOverview, type PublicToolName, type VerificationCaseView } from "@aafkstats/query";
+import { DATASET_VERSION, executePublicTool, loadArchiveContentTotals, loadMissingOverview, loadPublicVerificationCase, loadPublicVerificationCases, publicTools, summarizeMissingOverview, type PublicToolName, type VerificationCaseView } from "@aafkstats/query";
 import { z } from "zod4";
 import { API_VERSION, publicApiInfo } from "./public-api";
 import { SITE_ORIGIN } from "./site";
@@ -34,8 +34,9 @@ const publicToolSchemas: Record<PublicToolName, z.ZodType> = {
 };
 
 const MCP_JSON_COLUMNS = new Set([
-  "claims", "conflicts", "missing_fields", "providers", "role_categories", "sources", "tags",
-  "unlinked_source_references", "person_ids", "season_years", "match_ids", "competition_ids", "venue_ids",
+  "claims", "claim_summary", "conflicts", "missing_fields", "notes", "providers", "role_categories",
+  "sources", "tags", "unlinked_source_references", "person_ids", "season_years", "match_ids",
+  "competition_ids", "venue_ids",
 ]);
 
 /** Gjør SQLite-JSON og interne stier direkte brukbare for en ekstern MCP-klient. */
@@ -65,7 +66,14 @@ function toolResult(content: unknown, isError = false) {
   const normalized = mcpPublicValue(content);
   const text = JSON.stringify(normalized);
   if (text.length > MAX_OUTPUT_CHARS) {
-    return { isError: true, content: [{ type: "text" as const, text: "Resultatet er for stort. Bruk smalere filtre eller lavere limit." }] };
+    return {
+      isError: true,
+      content: [{ type: "text" as const, text: JSON.stringify({ error: {
+        code: "RESULT_TOO_LARGE",
+        message: "Resultatet er for stort til ett svar.",
+        suggestions: ["Sett en lavere limit.", "Snevre inn med season, seasonFrom eller seasonTo.", "Hent detaljene per rad med et get-verktøy i stedet."],
+      } }) }],
+    };
   }
   return {
     ...(isError ? { isError: true } : {}),
@@ -125,6 +133,45 @@ function createArchiveServer(context: McpRequestContext) {
   }
 
   server.registerTool(
+    "get_archive_capabilities",
+    {
+      description:
+        "Hent hva denne MCP-serveren faktisk er: kontraktversjoner, størrelsen på datasettet, " +
+        "hvilke sesonger som er dekket og hvor ferskt innholdet er. Arkivet er ikke en " +
+        "livetjeneste og skal ikke brukes som kilde for pågående eller nettopp avsluttede kamper.",
+      inputSchema: {},
+      annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
+    },
+    async () => {
+      const totals = await loadArchiveContentTotals();
+      return toolResult({
+        contract: "aafk-archive-mcp@1",
+        archiveVersion: API_VERSION,
+        datasetVersion: DATASET_VERSION,
+        build: publicApiInfo.build,
+        responseContracts: ["archive-result-evidence@2", "archive-head-to-head-evidence@1", "nb-community-research@1"],
+        // canonicalMatches og sourceClaims er to lag som aldri summeres, også her.
+        content: totals,
+        seasonsCovered: { from: totals.firstSeason, to: totals.lastSeason, count: totals.seasons },
+        // Kampen som spilles akkurat nå finnes ikke her. Sies ikke det rett ut, blir
+        // arkivet brukt som sanntidskilde, og et tomt svar lest som «ingen kamp».
+        freshness: {
+          liveScores: false,
+          scheduledMatches: true,
+          typicalUpdateMode: "post_ingestion",
+          note:
+            "Arkivet oppdateres etter redaksjonell ingest, ikke fortløpende. Et manglende resultat betyr at kampen ikke er lagt inn ennå, ikke at den ikke ble spilt. Bruk en livetjeneste for pågående kamper.",
+        },
+        writeAccess: {
+          canonicalData: false,
+          note: "MCP kan bare sende dokumentasjon til pending_review med submit_research_finding. Ingen verktøy her endrer, kanoniserer eller lukker noe i arkivet.",
+        },
+        rightsNoticeUrl: publicApiInfo.rightsNoticeUrl,
+      });
+    },
+  );
+
+  server.registerTool(
     "get_research_overview",
     { description: "Hent et kompakt sammendrag av hva AaFK-arkivet mangler. Bruk egne list-verktøy bare når du trenger detaljene.", inputSchema: {}, annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false } },
     async () => toolResult(summarizeMissingOverview(loadMissingOverview())),
@@ -179,7 +226,14 @@ function createArchiveServer(context: McpRequestContext) {
     { description: "Hent én publisert, åpen researchsak med revisjon, target, eksisterende kilder og researchTask. Saken er arbeidsgrunnlag, ikke sannhet.", inputSchema: { id: z.string().min(1).max(100) }, annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false } },
     async ({ id }) => {
       const item = loadPublicVerificationCase(id);
-      return item ? toolResult({ ...item, canSubmitViaMcp: item.researchTask !== null }) : toolResult({ error: "Åpen, publisert sak finnes ikke." }, true);
+      if (!item) {
+        return toolResult({ error: {
+          code: "VERIFICATION_CASE_NOT_FOUND",
+          message: `Det finnes ingen åpen, publisert researchsak med ID ${id}.`,
+          suggestions: ["Bruk list_verification_cases. Lukkede og upubliserte saker er ikke tilgjengelige."],
+        } }, true);
+      }
+      return toolResult({ ...item, canSubmitViaMcp: item.researchTask !== null });
     },
   );
 
@@ -192,14 +246,29 @@ function createArchiveServer(context: McpRequestContext) {
     },
     async (input) => {
       const item = loadPublicVerificationCase(input.caseId);
-      if (!item?.researchTask) return toolResult({ error: "Saken er ikke en åpen, publisert researchTask." }, true);
+      if (!item?.researchTask) {
+        return toolResult({ error: {
+          code: "SUBMISSION_NOT_ALLOWED",
+          message: `Saken ${input.caseId} er ikke en åpen, publisert sak med researchTask, og tar ikke imot innsending.`,
+          suggestions: ["Bruk list_verification_cases og se etter canSubmitViaMcp = true."],
+        } }, true);
+      }
       const response = await submitVerification(new Request(`${SITE_ORIGIN}/api/verifications`, {
         method: "POST",
         headers: forwardedClientHeaders(context.requestInfo),
         body: JSON.stringify(input),
       }));
-      const payload = await response.json() as { success?: boolean; duplicate?: boolean; issueUrl?: string; error?: string };
-      if (!response.ok) return toolResult({ error: payload.error ?? "Innsendingen feilet.", status: response.status }, true);
+      const payload = await response.json() as { success?: boolean; duplicate?: boolean; issueUrl?: string; error?: string; code?: string };
+      if (!response.ok) {
+        return toolResult({ error: {
+          code: payload.code ?? "SUBMISSION_FAILED",
+          message: payload.error ?? "Innsendingen feilet.",
+          status: response.status,
+          ...(payload.code === "REVISION_MISMATCH"
+            ? { suggestions: ["Hent saken på nytt med get_verification_case og send inn med den revisjonen svaret gir."] }
+            : {}),
+        } }, true);
+      }
       return toolResult({ status: "pending_review", duplicate: payload.duplicate ?? false, submissionUrl: payload.issueUrl ?? null });
     },
   );

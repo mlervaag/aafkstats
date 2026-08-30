@@ -132,7 +132,8 @@ describe("verktøy mot ekte arkivfil", () => {
   ])("run_sql avviser «%s» med en forklarende melding", async (sql, expected) => {
     const r = await call("run_sql", { sql });
     expect(r.isError).toBe(true);
-    expect((r.content as { error: string }).error).toMatch(expected);
+    expect((r.content as { error: { code: string; message: string } }).error.code).toBe("QUERY_FAILED");
+    expect((r.content as { error: { message: string } }).error.message).toMatch(expected);
   });
 
   it("run_sql gir en brukbar melding når kolonnenavnet ikke finnes", async () => {
@@ -140,7 +141,7 @@ describe("verktøy mot ekte arkivfil", () => {
     // tilbake på datasettdokumentasjonen så den kan slå opp i stedet for å gjette igjen.
     const r = await call("run_sql", { sql: "SELECT finnesikke FROM matches" });
     expect(r.isError).toBe(true);
-    expect((r.content as { error: string }).error).toMatch(/datasettdokumentasjonen/i);
+    expect((r.content as { error: { message: string } }).error.message).toMatch(/datasettdokumentasjonen/i);
   });
 
   it("run_sql returnerer spørringen slik den ble skrevet", async () => {
@@ -238,7 +239,81 @@ describe("verktøy mot det historiske kandidatlaget", () => {
     expect(vigra1964[0]!.evidence_level).toBe("canonical_match");
 
     const content = response.content as { evidencePolicy: Record<string, unknown> };
-    expect(content.evidencePolicy).toMatchObject({ contract: "archive-result-evidence@1" });
+    expect(content.evidencePolicy).toMatchObject({ contract: "archive-result-evidence@2" });
+  });
+
+  it("holder kildenotatene fra hverandre og skiller konkurranse-ID fra visningsnavn", async () => {
+    const response = await call("search_all_results", { opponent: "Langevåg", ranking: "largest_win", limit: 10 });
+    const claim = rows(response).find((row) => row.record_id === "1924-langevag-14-0")!;
+
+    // Notatene kom fra hver sin kilde. Slått sammen med komma ble de tidligere til
+    // «Ingen dato er oppgitt.,trykt «AFK—Langevåg 14—0».» — én setning ingen kilde skrev.
+    expect(JSON.parse(String(claim.notes))).toEqual([
+      "Ingen dato er oppgitt.",
+      "Trykt «AFK—Langevåg 14—0».",
+    ]);
+    expect(String(claim.note)).not.toContain(".,");
+
+    expect(claim.competition_id).toBe("sondmore-kreds-klasse-a");
+    expect(claim.competition).toBe("Søndmøre kreds, Klasse A");
+
+    // Enigheten mellom kildene, ikke et sannhetsmål.
+    expect(JSON.parse(String(claim.claim_summary))).toMatchObject({
+      claimCount: 3, sourceCount: 3, scoreConsistent: true, opponentIdentityConsistent: true,
+    });
+
+    // Et kanonisk treff har begge konkurransefeltene på samme form.
+    const canonical = rows(response).find((row) => row.evidence_level === "canonical_match")!;
+    expect(canonical.competition_id).toBe("nm");
+    expect(canonical.competition).toBe("Norgesmesterskapet");
+  });
+
+  it("merker en sammensatt motstanderstreng som svakere identitetstreff", async () => {
+    const response = await call("head_to_head", { opponent: "Langevåg" });
+    const possible = (response.content as { possible_identity_matches: Record<string, unknown>[] }).possible_identity_matches;
+    const composite = possible.find((row) => row.opponent_as_printed === "Langevåg—Raufoss")!;
+
+    // «Langevåg—Raufoss» treffer på klubbnavnet, men beskriver neppe ett oppgjør mot
+    // Langevåg. Raden filtreres ikke bort — usikkerheten gjøres eksplisitt.
+    expect(composite.identity_confidence).toBe("low");
+    expect(composite.match_basis).toBe("text");
+    expect(String(composite.reason)).toMatch(/sammensatt/i);
+    expect(possible.every((row) => row.identity_confidence !== "high")).toBe(true);
+  });
+
+  it("summerer sesongen uten å skjule at dekningen er ufullstendig", async () => {
+    const response = await call("get_season_summary", { season: 1925 });
+    const content = response.content as {
+      season: number;
+      overall: { played: number; goals_for: number; competitions: number; coverage: string; note: string };
+      competitions: Record<string, unknown>[];
+    };
+
+    expect(content.season).toBe(1925);
+    expect(content.competitions.length).toBeGreaterThan(1);
+    // overall skal være nøyaktig summen av radene under, ikke et eget tall.
+    expect(content.overall.played).toBe(content.competitions.reduce((sum, row) => sum + Number(row.played), 0));
+    expect(content.overall.goals_for).toBe(content.competitions.reduce((sum, row) => sum + Number(row.goals_for), 0));
+    expect(content.overall.competitions).toBe(content.competitions.length);
+    expect(["complete", "partial"]).toContain(content.overall.coverage);
+    expect(content.overall.note.length).toBeGreaterThan(0);
+  });
+
+  it("svarer med en maskinlesbar feilkode når noe ikke finnes", async () => {
+    const missingMatch = await call("get_match", { matchId: "finnes-ikke-2024" });
+    expect(missingMatch.isError).toBe(true);
+    expect((missingMatch.content as { error: { code: string; suggestions: string[] } }).error)
+      .toMatchObject({ code: "MATCH_NOT_FOUND" });
+    expect((missingMatch.content as { error: { suggestions: string[] } }).error.suggestions.length).toBeGreaterThan(0);
+
+    const missingSeason = await call("get_season_summary", { season: 1899 });
+    expect((missingSeason.content as { error: { code: string } }).error.code).toBe("SEASON_NOT_FOUND");
+
+    const missingPerson = await call("get_person", { personId: "finnes-ikke" });
+    expect((missingPerson.content as { error: { code: string } }).error.code).toBe("PERSON_NOT_FOUND");
+
+    const missingSource = await call("get_source", { sourceId: "finnes-ikke" });
+    expect((missingSource.content as { error: { code: string } }).error.code).toBe("SOURCE_NOT_FOUND");
   });
 
   it("holder kanonisk og ukoblet Molde-statistikk adskilt", async () => {
@@ -268,7 +343,7 @@ describe("verktøy mot det historiske kandidatlaget", () => {
     expect(viking.unlinked_results).toBe(0);
     expect(viking).not.toHaveProperty("unlinked_source_references");
     expect(possible).toEqual(expect.arrayContaining([
-      expect.objectContaining({ season: 1954, opponent_as_printed: "Viking, St.vanger", reason: "opponent_club_id unresolved" }),
+      expect.objectContaining({ season: 1954, opponent_as_printed: "Viking, St.vanger", match_basis: "text", identity_confidence: "medium" }),
     ]));
   });
 

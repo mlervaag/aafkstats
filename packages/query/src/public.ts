@@ -1,4 +1,5 @@
-import { toolsByName, type ToolContext, type ToolResult } from "./tools.js";
+import { runSafeSql } from "@aafkstats/db/sql";
+import { toolError, toolsByName, type ToolContext, type ToolResult } from "./tools.js";
 
 /**
  * Strukturert allowlist for eksterne grensesnitt. `run_sql` er bevisst utelatt:
@@ -33,14 +34,63 @@ export const publicTools = resolvePublicTools();
 export async function executePublicTool(name: PublicToolName, input: unknown, context: ToolContext = {}): Promise<ToolResult> {
   const tool = toolsByName.get(name);
   if (!tool || !PUBLIC_TOOL_NAMES.includes(name)) {
-    return { content: { error: "Verktøyet er ikke del av den offentlige kontrakten." }, isError: true };
+    return toolError("TOOL_NOT_PUBLIC", `Verktøyet ${name} er ikke del av den offentlige kontrakten.`, {
+      suggestions: [`Tilgjengelige verktøy: ${PUBLIC_TOOL_NAMES.join(", ")}.`],
+    });
   }
   const parsed = tool.inputSchema.safeParse(input);
   if (!parsed.success) {
-    return {
-      content: { error: "Ugyldige parametere.", issues: parsed.error.issues },
-      isError: true,
-    };
+    return toolError("INVALID_PARAMETERS", "Ugyldige parametere.", { issues: parsed.error.issues });
   }
   return tool.run(parsed.data, context);
+}
+
+export interface ArchiveContentTotals {
+  canonicalMatches: number;
+  sourceClaims: number;
+  seasons: number;
+  firstSeason: number | null;
+  lastSeason: number | null;
+  people: number;
+  sources: number;
+  clubs: number;
+  historicalObservations: number;
+  scheduledMatches: number;
+}
+
+/**
+ * Størrelsen på arkivet, slik en ekstern klient kan forstå hva den snakker med.
+ *
+ * Kanoniske kamper og kildepåstander telles hver for seg og skal ikke legges sammen —
+ * samme regel som ellers i kontrakten.
+ */
+export async function loadArchiveContentTotals(context: ToolContext = {}): Promise<ArchiveContentTotals> {
+  const result = await runSafeSql(
+    `SELECT
+       (SELECT count(*) FROM matches WHERE status IN ('played', 'awarded')) AS canonical_matches,
+       (SELECT count(*) FROM result_groups) AS source_claims,
+       (SELECT count(*) FROM matches WHERE status = 'scheduled') AS scheduled_matches,
+       (SELECT count(DISTINCT season) FROM matches) AS seasons,
+       (SELECT min(season) FROM matches) AS first_season,
+       (SELECT max(season) FROM matches) AS last_season,
+       (SELECT count(*) FROM people) AS people,
+       (SELECT count(*) FROM sources) AS sources,
+       (SELECT count(*) FROM opponents) AS clubs,
+       (SELECT count(*) FROM historical_observations) AS historical_observations`,
+    { dbPath: context.dbPath },
+  );
+  const row = (result.rows[0] ?? {}) as Record<string, number | null>;
+  const count = (key: string) => Number(row[key] ?? 0);
+  return {
+    canonicalMatches: count("canonical_matches"),
+    sourceClaims: count("source_claims"),
+    scheduledMatches: count("scheduled_matches"),
+    seasons: count("seasons"),
+    firstSeason: row.first_season ?? null,
+    lastSeason: row.last_season ?? null,
+    people: count("people"),
+    sources: count("sources"),
+    clubs: count("clubs"),
+    historicalObservations: count("historical_observations"),
+  };
 }
