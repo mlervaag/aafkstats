@@ -988,11 +988,12 @@ a.next-match:hover { border-color: var(--accent); background: var(--surface-2); 
 .explore-panel > a span { color: var(--muted); font-size: 0.875rem; }
 .explore-panel > a:hover strong { color: var(--accent); }
 .public-access-intro { max-width: 58rem; margin: 0 0 1.25rem; }
-.public-access-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.public-access-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
 .public-access-card { display: flex; flex-direction: column; gap: 0.35rem; padding: 1.2rem; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); text-decoration: none; }
 .public-access-card span { color: var(--muted); font-size: 0.9rem; line-height: 1.45; }
 .public-access-card:hover { border-color: var(--accent); background: var(--surface-2); }
 .public-access-card:hover strong { color: var(--accent); }
+.public-access-secondary { margin: 1rem 0 0; }
 .scope-note { display: grid; grid-template-columns: minmax(15rem, 0.75fr) minmax(0, 1.25fr); align-items: start; gap: clamp(1.5rem, 4vw, 3rem); margin-top: clamp(3.5rem, 8vw, 6rem); padding: clamp(1.75rem, 4vw, 3rem); border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); }
 /* Teksten og dekningsnotisen står i samme spalte som ett innhold. Tidligere var
    notisen et eget rutenettbarn som måtte plasseres i kolonne 2 for hånd, og som
@@ -1290,6 +1291,10 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
   .hero-stats { max-width: 30rem; }
   .season-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .masthead { position: static; }
+}
+
+@media (min-width: 50.01rem) and (max-width: 70rem) {
+  .public-access-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 42rem) {

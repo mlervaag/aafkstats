@@ -3,7 +3,7 @@ import { pageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = pageMetadata(
   "For utviklere",
-  "Gratis REST API og MCP for AaFK-arkivet, med eksempler, kildegrenser og AI-assistert research.",
+  "Koble AI-verktøy til AaFK-arkivet med MCP, eller bygg med det åpne REST API-et.",
   "/utviklere",
   "website",
 );
@@ -23,9 +23,9 @@ export default function DevelopersPage() {
         <p className="eyebrow">Åpne grensesnitt</p>
         <h1>Bygg med AaFK-arkivet</h1>
         <p className="lede">
-          Bruk REST når du bygger programvare, og MCP når et AI-verktøy skal søke i
-          arkivet. Begge leser de samme publiserte dataene og de samme åpne
-          researchsakene.
+          Koble AaFK-arkivet til AI-verktøyet ditt med MCP. Bygger du et nettsted,
+          skript eller en app, kan du bruke det åpne REST API-et. Begge leser de samme
+          publiserte dataene og åpne researchsakene.
         </p>
       </header>
 

@@ -36,7 +36,7 @@ leser fra.
 
 - [Arkivet i tall](#arkivet-i-tall)
 - [Slik henger det sammen](#slik-henger-det-sammen)
-- [Offentlig API og MCP](#offentlig-api-og-mcp)
+- [Koble til og bygg videre](#koble-til-og-bygg-videre)
 - [Kom i gang](#kom-i-gang)
 - [Kommandoer](#kommandoer)
 - [Datamodellen](#datamodellen)
@@ -100,17 +100,19 @@ applikasjonen, ikke inni datasettet.
 Den lange versjonen, med avveiningene bak hvert valg, står i
 [**docs/ARKITEKTUR.md**](docs/ARKITEKTUR.md).
 
-## Offentlig API og MCP
+## Koble til og bygg videre
 
-Arkivet kan brukes gratis uten konto eller API-nøkkel. Alle grensesnittene leser det samme
-publiserte, skrivebeskyttede arkivet.
+Koble AaFK-arkivet til AI-verktøyet ditt med MCP. Det er gratis, krever ingen konto eller
+API-nøkkel og gir AI-klienten strukturerte verktøy for å søke i arkivet og finne åpne
+researchsaker. Bygger du et nettsted, skript eller en app, finnes det også et lite REST API.
+Alle grensesnittene leser det samme publiserte, skrivebeskyttede arkivet.
 
 | Inngang | Adresse | Bruk |
 |---|---|---|
-| REST API v1 | [`https://aafkarkivet.no/api/v1`](https://aafkarkivet.no/api/v1/meta) | JSON for nettsteder, skript og apper |
-| OpenAPI | [`/api/v1/openapi.json`](https://aafkarkivet.no/api/v1/openapi.json) | Maskinlesbar API-kontrakt |
 | MCP | `https://aafkarkivet.no/mcp` | Strukturerte verktøy for AI-klienter |
 | Veiledning | [`/utviklere`](https://aafkarkivet.no/utviklere) | Eksempler, oppsett og kildegrenser |
+| REST API v1 | [`https://aafkarkivet.no/api/v1`](https://aafkarkivet.no/api/v1/meta) | JSON for nettsteder, skript og apper |
+| OpenAPI | [`/api/v1/openapi.json`](https://aafkarkivet.no/api/v1/openapi.json) | Maskinlesbar API-kontrakt |
 
 Bruk `results` når du leter i hele historikken. Et treff merket `canonical_match` er en
 identifisert kamp; `source_claim` er det en historisk kilde oppgir før oppføringen er sikkert

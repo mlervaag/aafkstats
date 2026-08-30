@@ -49,11 +49,13 @@ export default function DataPage() {
       <DatasetHighlights />
 
       <section className="notice prose" style={{ marginTop: "2rem" }}>
-        <h2>Bygg med arkivet</h2>
+        <h2>Bruk dataene videre</h2>
         <p>
-          Det offentlige REST API-et ligger på <a href="/api/v1/meta"><code>/api/v1</code></a>,
-          med maskinlesbar kontrakt i <a href="/api/v1/openapi.json">OpenAPI</a>. AI-verktøy
-          kan kobles til MCP-endepunktet <code>https://aafkarkivet.no/mcp</code>.
+          Koble et AI-verktøy til arkivet med MCP på{" "}
+          <code>https://aafkarkivet.no/mcp</code>. Bygger du et nettsted, skript eller en app,
+          finnes det også et åpent REST API på{" "}
+          <a href="/api/v1/meta"><code>/api/v1</code></a> med maskinlesbar kontrakt i{" "}
+          <a href="/api/v1/openapi.json">OpenAPI</a>.
         </p>
         <p>
           Begge er gratis og bruker samme skrivebeskyttede arkiv. Les

@@ -129,29 +129,36 @@ export default function Home() {
       <section className="public-access content-section" aria-labelledby="public-access-title">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">Åpent for alle</p>
-            <h2 id="public-access-title">Bruk dataene</h2>
+            <p className="eyebrow">Hele folkets arkiv</p>
+            <h2 id="public-access-title">Utforsk, spør og bidra</h2>
           </div>
-          <a href="/utviklere">For utviklere →</a>
         </div>
         <p className="prose public-access-intro">
-          Last ned arkivet, bygg med det åpne API-et eller hjelp oss å finne det som mangler.
-          Alt er gratis, og du trenger verken konto eller API-nøkkel.
+          Finn historien på din måte, eller hjelp oss å gjøre den mer komplett. Alt er
+          gratis, og du trenger ingen konto.
         </p>
         <div className="public-access-grid">
-          <a className="public-access-card" href="/data">
-            <strong>Last ned datasettet</strong>
-            <span>YAML, SQLite, felter, lisens og kildegrenser.</span>
+          <a className="public-access-card" href="/sesonger">
+            <strong>Utforsk arkivet</strong>
+            <span>Gå gjennom kamper, sesonger, motstandere og personer.</span>
           </a>
-          <a className="public-access-card" href="/utviklere">
-            <strong>Bruk API eller MCP</strong>
-            <span>Oppslag for programvare og AI-verktøy, med eksempler.</span>
+          <a className="public-access-card" href="#sporre">
+            <strong>Spør AI</strong>
+            <span>Still spørsmål med egne ord og få svar fra arkivet.</span>
+          </a>
+          <a className="public-access-card" href="/utviklere#mcp-title">
+            <strong>Koble til med MCP</strong>
+            <span>Bruk AaFK-arkivet direkte i AI-verktøyet ditt.</span>
           </a>
           <a className="public-access-card" href="/mangler">
-            <strong>Hjelp med research</strong>
-            <span>Velg et konkret spørsmål og send dokumentasjon til vurdering.</span>
+            <strong>Bidra</strong>
+            <span>Undersøk et åpent spørsmål, rett en feil eller del en kilde.</span>
           </a>
         </div>
+        <p className="small muted public-access-secondary">
+          Bygger du noe med AaFK-historikk? Dataene er også tilgjengelige som{" "}
+          <a href="/data">åpent datasett</a> og <a href="/utviklere#rest-title">REST API</a>.
+        </p>
       </section>
 
       {/* To spalter, ikke tre: overskriften til venstre og innholdet til høyre.
