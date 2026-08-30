@@ -5,6 +5,8 @@ AaFK-arkivets REST API er gratis og skrivebeskyttet. Basen er
 
 Den maskinlesbare kontrakten ligger på [`/api/v1/openapi.json`](https://aafkarkivet.no/api/v1/openapi.json).
 Alle svar bruker datasettversjonen som bygges fra samme Git-commit som nettstedet.
+En kortere innføring med ferdige eksempler finnes på
+[`aafkarkivet.no/utviklere`](https://aafkarkivet.no/utviklere).
 
 ## Ruter
 

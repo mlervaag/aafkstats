@@ -20,6 +20,7 @@ const primary: NavigationLink[] = [
 const project: NavigationLink[] = [
   { href: "/mangler", label: "Hva mangler?", active: (path) => path === "/mangler" || path.startsWith("/mangler/") },
   { href: "/data", label: "Datasettet", active: (path) => path === "/data" },
+  { href: "/utviklere", label: "For utviklere", active: (path) => path === "/utviklere" },
   { href: "/om", label: "Om arkivet", active: (path) => path === "/om" },
 ];
 

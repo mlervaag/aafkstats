@@ -57,6 +57,7 @@ export default function DataPage() {
         </p>
         <p>
           Begge er gratis og bruker samme skrivebeskyttede arkiv. Les
+          {" "}<a href="/utviklere">den korte veiledningen</a>,
           {" "}<a href="https://github.com/mlervaag/aafkstats/blob/main/docs/API.md">API-dokumentasjonen</a>
           {" "}og <a href="https://github.com/mlervaag/aafkstats/blob/main/docs/MCP.md">MCP-dokumentasjonen</a>
           {" "}før du bygger statistikk på kildedokumenterte resultater.

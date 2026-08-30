@@ -126,6 +126,34 @@ export default function Home() {
         </aside>
       </section>
 
+      <section className="public-access content-section" aria-labelledby="public-access-title">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Åpent for alle</p>
+            <h2 id="public-access-title">Bruk dataene</h2>
+          </div>
+          <a href="/utviklere">For utviklere →</a>
+        </div>
+        <p className="prose public-access-intro">
+          Last ned arkivet, bygg med det åpne API-et eller hjelp oss å finne det som mangler.
+          Alt er gratis, og du trenger verken konto eller API-nøkkel.
+        </p>
+        <div className="public-access-grid">
+          <a className="public-access-card" href="/data">
+            <strong>Last ned datasettet</strong>
+            <span>YAML, SQLite, felter, lisens og kildegrenser.</span>
+          </a>
+          <a className="public-access-card" href="/utviklere">
+            <strong>Bruk API eller MCP</strong>
+            <span>Oppslag for programvare og AI-verktøy, med eksempler.</span>
+          </a>
+          <a className="public-access-card" href="/mangler">
+            <strong>Hjelp med research</strong>
+            <span>Velg et konkret spørsmål og send dokumentasjon til vurdering.</span>
+          </a>
+        </div>
+      </section>
+
       {/* To spalter, ikke tre: overskriften til venstre og innholdet til høyre.
           Tidligere sto overskriften alene i en spalte som ellers var tom, og
           notisen lå som en boks inni en tekst som allerede sa det samme. */}

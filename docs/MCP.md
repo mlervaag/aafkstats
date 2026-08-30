@@ -7,6 +7,20 @@ krever ikke konto, OAuth eller API-nøkkel.
 MCP er et grensesnitt til samme skrivebeskyttede SQLite-arkiv som nettstedet og REST
 API-et. Det er ikke en ny kunnskapsbase.
 
+En kort, brukerrettet oppskrift finnes på
+[`aafkarkivet.no/utviklere`](https://aafkarkivet.no/utviklere). Klienter bruker ulike
+innstillingsfiler, men en vanlig konfigurasjon har denne formen:
+
+```json
+{
+  "mcpServers": {
+    "aafkarkivet": {
+      "url": "https://aafkarkivet.no/mcp"
+    }
+  }
+}
+```
+
 ## Leseverktøy
 
 Serveren gjenbruker de strukturerte verktøyene i `@aafkstats/query`:
