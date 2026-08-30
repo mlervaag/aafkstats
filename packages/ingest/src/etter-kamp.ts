@@ -17,6 +17,13 @@ export interface Due {
   competitionId: string;
   competitionName: string;
   opponent: string;
+  /**
+   * Kildens egen ID for kampen, når arkivet har den.
+   *
+   * Den er det eneste som holder når kampen flyttes: datoen i arkivet er da
+   * ikke lenger kildens dato, og et oppslag på dato finner ingenting.
+   */
+  externalId?: string;
 }
 
 export function todayInOslo(now = new Date()): string {
@@ -38,7 +45,7 @@ export function todayInOslo(now = new Date()): string {
  * spør vi kilden om, og den svarer sikrere enn en klokkeslettsammenligning mot
  * et avspark som kan være utsatt.
  */
-export function matchesDue(archive: Archive, today: string): Due[] {
+export function matchesDue(archive: Archive, today: string, providerId = "fotmob"): Due[] {
   const AAFK = "aalesunds-fk";
   return archive.matches
     .filter((match) => match.status === "scheduled" && match.date <= today)
@@ -46,6 +53,7 @@ export function matchesDue(archive: Archive, today: string): Due[] {
       const opponentId = match.home.clubId === AAFK ? match.away.clubId : match.home.clubId;
       const club = archive.clubs.find((entry) => entry.id === opponentId);
       const competition = archive.competitions.find((entry) => entry.id === match.competition.id);
+      const externalId = match.aliases[providerId];
       return {
         matchId: match.id,
         date: match.date,
@@ -53,9 +61,39 @@ export function matchesDue(archive: Archive, today: string): Due[] {
         competitionId: match.competition.id,
         competitionName: competition?.name ?? match.competition.id,
         opponent: club?.name ?? opponentId,
+        externalId: externalId === undefined ? undefined : String(externalId),
       };
     })
     .sort((a, b) => a.date.localeCompare(b.date));
+}
+
+/** Så mye en kildekamp må ha for å kunne knyttes til en kamp arkivet venter på. */
+export interface SourceKey {
+  externalId: string;
+  date: string;
+}
+
+/**
+ * Kildekampen som svarer til en kamp arkivet venter på.
+ *
+ * ## Feilen dette retter
+ *
+ * Her sto en sammenligning på dato alene. Viking–AaFK sto på terminlista til
+ * 29. august 2026 og ble spilt den 30., og rutinen kjørt kvelden etter kampen
+ * meldte «kilden har ikke sluttresultat ennå» — kilden hadde 2–1, men på en
+ * annen dato enn den arkivet spurte om. En flyttet kamp er nettopp den kampen
+ * rutinen finnes for, og var den ene den ikke kunne finne.
+ *
+ * Kildens ID er svaret: den følger kampen når datoen flyttes, og arkivet har
+ * den allerede i `aliases` fra terminlista. Datoen er fortsatt et fall tilbake
+ * for kamper arkivet ikke har noen ID på ennå.
+ */
+export function sourceForDue<T extends SourceKey>(due: Due, sources: T[]): T | undefined {
+  if (due.externalId !== undefined) {
+    const byId = sources.find((source) => source.externalId === due.externalId);
+    if (byId) return byId;
+  }
+  return sources.find((source) => source.date === due.date);
 }
 
 

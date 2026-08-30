@@ -38,6 +38,29 @@ const source: SourceMatch = {
   fields: ["date", "home.score", "away.score"],
 };
 
+/** En terminfestet kamp, slik den ser ut i arkivet før den er spilt. */
+const SCHEDULED: SourceMatch = {
+  ...source,
+  date: "2024-04-20",
+  status: "scheduled",
+  homeScore: undefined,
+  awayScore: undefined,
+  season: 2024,
+  fields: ["date", "status"],
+};
+
+const MOVE_OPTIONS = { providerId: "fotmob", competitionId: "eliteserien", retrievedAt: "2026-08-03" };
+
+/** Fixturarkivet på disk, med én kamp fra kilden allerede skrevet inn. */
+async function seedFixture(seed: SourceMatch): Promise<string> {
+  const root = await mkdtemp(join(tmpdir(), "aafk-flyttet-"));
+  await cp(resolve(import.meta.dirname, "../../../fixtures/data"), root, { recursive: true });
+  const plan = reconcile(await loadArchive(root), [seed], MOVE_OPTIONS);
+  if (plan.issues.length > 0) throw new Error(plan.issues.join("; "));
+  await writePlan(root, plan);
+  return root;
+}
+
 describe("reconcile", () => {
   /**
    * En klubb uten land fra kilden får «NO» av skjemaet, og den verdien ser
@@ -57,7 +80,7 @@ describe("reconcile", () => {
     const second = reconcile(archive, [source], { providerId: "fotmob", competitionId: "forstedivisjon", retrievedAt: "2026-08-03" });
     expect(first).toEqual(second);
     expect(first.issues).toEqual([]);
-    expect(first.summary).toEqual({ matchesCreated: 1, matchesSkipped: 0, matchesUpdated: 0, clubsCreated: 1, clubsUpdated: 0, venuesCreated: 1, seasonsCreated: 1, observationsWritten: 1 });
+    expect(first.summary).toEqual({ matchesCreated: 1, matchesSkipped: 0, matchesMoved: 0, matchesUpdated: 0, clubsCreated: 1, clubsUpdated: 0, venuesCreated: 1, seasonsCreated: 1, observationsWritten: 1 });
     const match = first.files.find((file) => file.relativePath.includes("/matches/"))?.value;
     expect(match).toMatchObject({
       id: "2024-04-01-aalesunds-fk-stabaek",
@@ -112,6 +135,53 @@ describe("reconcile", () => {
     const updated = update.files.find((file) => file.relativePath.includes("/matches/"))?.value as Match;
     expect(updated.attendance).toBe(999);
     expect(updated.manual).toEqual(["attendance"]);
+  });
+
+  /**
+   * Viking–AaFK sto på terminlista til 29. august 2026 og ble spilt den 30.
+   * Kamp-ID-en er bygget av datoen, så resultatet havner i en ny fil. Ble den
+   * gamle stående, ville arkivet hatt to kamper der det er én.
+   */
+  it("fjerner den gamle datofila når kilden har flyttet kampen", async () => {
+    const root = await seedFixture(SCHEDULED);
+    try {
+      const before = await loadArchive(root);
+      const plan = reconcile(before, [{ ...SCHEDULED, date: "2024-04-21", status: "played", homeScore: 1, awayScore: 2 }], MOVE_OPTIONS);
+      expect(plan.issues).toEqual([]);
+      expect(plan.removed).toEqual(["seasons/2024/matches/2024-04-20-aalesunds-fk-stabaek.yaml"]);
+      expect(plan.summary.matchesMoved).toBe(1);
+      expect(plan.files.map((file) => file.relativePath)).toContain("seasons/2024/matches/2024-04-21-aalesunds-fk-stabaek.yaml");
+
+      await writePlan(root, plan);
+      const after = await loadArchive(root);
+      const ours = after.matches.filter((entry) => entry.aliases.fotmob === "4385655");
+      expect(ours.map((entry) => entry.id)).toEqual(["2024-04-21-aalesunds-fk-stabaek"]);
+      expect(ours[0]?.home.score).toBe(1);
+      expect([...after.issues, ...crossValidate(after)]).toEqual([]);
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+
+  it("nekter å flytte en kamp inn på en dato en annen kamp allerede har", async () => {
+    const root = await seedFixture(SCHEDULED);
+    try {
+      const before = await loadArchive(root);
+      const ours = before.matches.find((entry) => entry.aliases.fotmob === "4385655")!;
+      const occupied: Match & { file: string } = {
+        ...ours,
+        id: "2024-04-21-aalesunds-fk-stabaek",
+        date: "2024-04-21",
+        aliases: { fotmob: "9999999" },
+        file: "seasons/2024/matches/2024-04-21-aalesunds-fk-stabaek.yaml",
+      };
+      const plan = reconcile({ ...before, matches: [...before.matches, occupied] }, [{ ...SCHEDULED, date: "2024-04-21" }], MOVE_OPTIONS);
+      expect(plan.issues).toHaveLength(1);
+      expect(plan.issues[0]).toContain("krever manuell reconcile");
+      expect(plan.removed).toEqual([]);
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
   });
 
   it("bevarer tidligere detaljfelt og andre kilder ved en oversiktshøsting", () => {

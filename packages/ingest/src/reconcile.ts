@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, rm, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { stringify } from "yaml";
 import { match as matchSchema, observation as observationSchema, observationPath, payloadHash } from "@aafkstats/schema";
@@ -45,6 +45,14 @@ export interface PlannedFile {
 
 export interface ReconcilePlan {
   files: PlannedFile[];
+  /**
+   * Filer som skal bort fordi innholdet er skrevet på en ny sti.
+   *
+   * Kamp-ID-en er bygget av datoen, så en kamp som flyttes får en ny fil. Uten
+   * dette ville den gamle blitt stående, og arkivet hatt to kamper der det er
+   * én — én med resultat på riktig dato, og én uten på den gamle.
+   */
+  removed: string[];
   issues: string[];
   /** Kamp-ID-er en annen kilde eier, hoppet over fordi `skipExisting` var satt. */
   skipped: string[];
@@ -56,6 +64,8 @@ export interface ReconcilePlan {
     venuesCreated: number;
     seasonsCreated: number;
     matchesSkipped: number;
+    /** Kamper kilden har flyttet, der den gamle datofila er fjernet. */
+    matchesMoved: number;
     observationsWritten: number;
   };
 }
@@ -70,6 +80,7 @@ export function reconcile(
   options: ReconcileOptions,
 ): ReconcilePlan {
   const files: PlannedFile[] = [];
+  const removed: string[] = [];
   const issues: string[] = [];
   const skipped: string[] = [];
   const clubs = archive.clubs.map((club) => structuredClone(club));
@@ -345,6 +356,20 @@ export function reconcile(
     });
 
     const value = bySource ? mergeExisting(bySource, fresh) : fresh;
+    // Kampen er flyttet: kilden har den på en annen dato enn arkivet, og
+    // ID-en — som er bygget av datoen — er dermed en annen. Innholdet skrives
+    // på den nye stien, og den gamle fila må bort. Står den igjen, har arkivet
+    // to kamper der det er én, og krysskontrollen ser en terminfestet kamp som
+    // aldri ble spilt.
+    if (bySource && bySource.id !== value.id) {
+      if (collision) {
+        issues.push(
+          `${id}: ${bySource.id} er flyttet hit, men datoen er allerede opptatt av en annen kamp; krever manuell reconcile`,
+        );
+        continue;
+      }
+      removed.push(bySource.file);
+    }
     files.push({
       relativePath: `seasons/${source.season}/matches/${value.id}.yaml`,
       value,
@@ -373,6 +398,7 @@ export function reconcile(
   files.sort((a, b) => a.relativePath.localeCompare(b.relativePath));
   return {
     files,
+    removed,
     issues,
     summary: {
       matchesCreated: files.filter((file) => file.relativePath.includes("/matches/") && file.action === "create").length,
@@ -382,6 +408,7 @@ export function reconcile(
       venuesCreated: newVenues.size,
       seasonsCreated: files.filter((file) => /seasons\/\d+\/season\.yaml$/.test(file.relativePath)).length,
       matchesSkipped: skipped.length,
+      matchesMoved: removed.length,
       observationsWritten: observations.length,
     },
     skipped,
@@ -456,5 +483,12 @@ export async function writePlan(root: string, plan: ReconcilePlan): Promise<void
     await mkdir(dirname(absolute), { recursive: true });
     const yaml = stringify(file.value, { lineWidth: 0, defaultStringType: "PLAIN" });
     await writeFile(absolute, yaml, "utf8");
+  }
+  // Etter skrivingen, ikke før: blir kjøringen avbrutt mellom de to, skal
+  // arkivet ha kampen to steder framfor ingen steder.
+  const written = new Set(plan.files.map((file) => file.relativePath));
+  for (const relativePath of plan.removed) {
+    if (written.has(relativePath)) continue;
+    await rm(resolve(root, relativePath), { force: true });
   }
 }

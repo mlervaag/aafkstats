@@ -264,7 +264,7 @@ describe("verktøy mot det historiske kandidatlaget", () => {
     const viking = result.find((row) => row.opponent_club_id === "viking")!;
     const possible = (response.content as { possible_identity_matches: Record<string, unknown>[] }).possible_identity_matches;
 
-    expect(viking.played).toBe(41);
+    expect(viking.played).toBe(42);
     expect(viking.unlinked_results).toBe(0);
     expect(viking).not.toHaveProperty("unlinked_source_references");
     expect(possible).toEqual(expect.arrayContaining([

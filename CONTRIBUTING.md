@@ -228,6 +228,10 @@ Den kan derfor kjøres på et fast skjema. Har ingenting endret seg, skrives ing
 ny hentedato alene teller ikke som en endring. Er en kamp ikke ferdigspilt hos kilden,
 hopper rutinen over den og sier fra.
 
+Kampen kjennes igjen på kildens ID, ikke på datoen. Blir en kamp flyttet etter at
+terminlista er arkivert, finner rutinen den likevel — og siden kamp-ID-en er bygget av
+datoen, skrives kampen på ny fil og den gamle datofila fjernes i samme kjøring.
+
 Etterpå: `pnpm db:build && pnpm validate`, og commit YAML-diffen. Arkivfilen bygges av CI
 og skal ikke committes.
 

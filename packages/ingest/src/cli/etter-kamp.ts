@@ -3,7 +3,7 @@ import { crossValidate, loadArchive, repoRoot } from "@aafkstats/schema/load";
 import { fetchFotmobSeason, FOTMOB_ADAPTER } from "../adapters/fotmob.js";
 import { assertMayFetch, assertMayPublish } from "../policy.js";
 import { reconcile, writePlan } from "../reconcile.js";
-import { matchesDue, ongoingLeagues, todayInOslo } from "../etter-kamp.js";
+import { matchesDue, ongoingLeagues, sourceForDue, todayInOslo } from "../etter-kamp.js";
 import type { Due } from "../etter-kamp.js";
 import { updateStandings } from "../standings-update.js";
 
@@ -103,24 +103,33 @@ async function main(): Promise<void> {
     }
 
     const dates = matches.map((match) => match.date);
+    // Både datoene og kilde-ID-ene: en flyttet kamp ligger hos kilden på en
+    // annen dato enn den arkivet har, og da er ID-en det eneste som treffer.
+    const ids = matches.flatMap((match) => match.externalId === undefined ? [] : [match.externalId]);
     console.log(`\nFotMob ${leagueId} · ${competition?.name ?? competitionId} ${season} · detaljer for ${dates.join(", ")}`);
     const fetched = await fetchFotmobSeason({
       leagueId: String(leagueId),
       season,
       withDetails: true,
       detailsDates: dates,
+      detailsIds: ids,
       refresh: args.refresh,
       onProgress: (line) => console.log(`  ${line}`),
     });
 
     // Kilden er fasit på om kampen er over. Er den ikke det, er det ingenting å
     // arkivere ennå, og rutinen skal si det framfor å skrive en tom kamp.
-    const played = new Set(
-      fetched.matches.filter((match) => match.status === "played" && match.homeScore !== undefined).map((match) => match.date),
-    );
-    const notYet = matches.filter((match) => !played.has(match.date));
-    for (const match of notYet) {
+    const notYet: Due[] = [];
+    for (const match of matches) {
+      const source = sourceForDue(match, fetched.matches);
+      if (source?.status === "played" && source.homeScore !== undefined) {
+        if (source.date !== match.date) {
+          console.log(`  ${match.date}: kilden har kampen på ${source.date} — flyttet, arkivet oppdateres`);
+        }
+        continue;
+      }
       console.log(`  ${match.date}: kilden har ikke sluttresultat ennå — hoppet over`);
+      notYet.push(match);
     }
     stillOpen.push(...notYet);
     if (notYet.length === matches.length) continue;
@@ -139,7 +148,7 @@ async function main(): Promise<void> {
     if (plan.issues.length > 0) throw new Error(`uløste reconcile-problemer for ${competitionId} ${season}; skriver ikke`);
     if (fetched.failures.length > 0) throw new Error(`ufullstendig høsting for ${competitionId} ${season}; skriver ikke`);
     await writePlan(root, plan);
-    written.push(...matches.filter((match) => played.has(match.date)).map((match) => match.matchId));
+    written.push(...matches.filter((match) => !notYet.includes(match)).map((match) => match.matchId));
   }
 
   // Tabellen, uavhengig av om vi spilte. Den flytter seg av andre lags kamper.
