@@ -21,6 +21,7 @@ import { SourceChips, collapseSources, pageList } from "@/components/SourceChips
 import styles from "../People.module.css";
 import { HistoricalObservations } from "@/components/HistoricalObservations";
 import { getPersonObservations } from "@/lib/historical-observations";
+import { formatDate } from "@/lib/date";
 
 const POSITION_LABELS: Record<string, string> = { keeper: "Keeper", forsvar: "Forsvar", midtbane: "Midtbane", angrep: "Angrep" };
 
@@ -130,6 +131,8 @@ export default async function PersonPage({ params }: { params: Promise<{ id: str
     : "";
   const noLinkedContent = roles.length === 0 && seasons.length === 0 &&
     person.mentions.length === 0 && person.conflicts.length === 0 && observations.length === 0;
+  const unresolvedConflicts = person.conflicts.filter((c) => !c.resolved);
+  const resolvedConflicts = person.conflicts.filter((c) => c.resolved);
 
   return (
     <article>
@@ -189,8 +192,8 @@ export default async function PersonPage({ params }: { params: Promise<{ id: str
             </section>
           ) : null}
 
-          {person.conflicts.length > 0 ? (
-            <Conflicts conflicts={person.conflicts} titles={sourceTitles} personName={person.name} personId={id} />
+          {unresolvedConflicts.length > 0 ? (
+            <Conflicts conflicts={unresolvedConflicts} titles={sourceTitles} personName={person.name} personId={id} />
           ) : null}
 
           {roles.length > 0 ? (
@@ -201,6 +204,8 @@ export default async function PersonPage({ params }: { params: Promise<{ id: str
               </ol>
             </section>
           ) : null}
+
+          {resolvedConflicts.length > 0 ? <ResolvedConflictNotes conflicts={resolvedConflicts} /> : null}
 
           <HistoricalObservations observations={observations} titles={sourceTitles} className={styles.section} />
 
@@ -243,8 +248,8 @@ export default async function PersonPage({ params }: { params: Promise<{ id: str
             {person.mentions.length > 0 ? (
               <div><dt>Omtalt i</dt><dd>{person.mentions.length} {person.mentions.length === 1 ? "publikasjon" : "publikasjoner"}</dd></div>
             ) : null}
-            {person.conflicts.length > 0 ? (
-              <div><dt>Uavklarte verv</dt><dd>{person.conflicts.length}</dd></div>
+            {unresolvedConflicts.length > 0 ? (
+              <div><dt>Uavklarte verv</dt><dd>{unresolvedConflicts.length}</dd></div>
             ) : null}
           </dl>
           {person.wikidata ? <p className="small"><a href={`https://www.wikidata.org/wiki/${person.wikidata}`}>Åpne Wikidata →</a></p> : null}
@@ -333,6 +338,50 @@ function Conflicts({ conflicts, titles, personName, personId }: {
       </ul>
     </section>
   );
+}
+
+/**
+ * Avgjorte uenigheter, som ren kildehistorikk.
+ *
+ * En løst konflikt er ikke lenger noe leseren må vurdere før hen stoler på
+ * rollene over — den er en anekdote om hvordan tallet ble fastslått, og skal
+ * ikke ta samme plass som en åpen advarsel. Skjult bak <details> i bunnen av
+ * siden, ikke det første man ser om personen.
+ */
+function ResolvedConflictNotes({ conflicts }: { conflicts: PersonConflict[] }) {
+  return (
+    <div className={styles.resolvedConflicts}>
+      {conflicts.map((conflict) => {
+        const [office, year] = conflict.field.split(".");
+        const label = office ? office[0]!.toUpperCase() + office.slice(1) : conflict.field;
+        return (
+          <details key={conflict.field} className={styles.resolvedConflict}>
+            <summary className="small muted">
+              Kildene var uenige om {label}{year ? ` ${year}` : ""} — arkivet bruker <strong>{String(conflict.chosen)}</strong>
+            </summary>
+            <p className="small muted">
+              {decisionText(conflict.decision)}{conflict.decidedAt ? `, ${formatDate(conflict.decidedAt)}` : ""}. {conflict.reason}
+              {conflict.locked ? " Verdien er låst mot ny innhøsting." : ""}
+            </p>
+          </details>
+        );
+      })}
+    </div>
+  );
+}
+
+/** Hva slags avgjørelse som ble tatt. Grunnlaget hører til begrunnelsen. */
+function decisionText(decision: string): string {
+  switch (decision) {
+    case "manual":
+      return "Avgjort for hånd";
+    case "source_priority":
+      return "Avgjort etter kildeprioritet";
+    case "independent_source":
+      return "Avgjort mot en uavhengig kilde";
+    default:
+      return "Avgjort";
+  }
 }
 
 /**

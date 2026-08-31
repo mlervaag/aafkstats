@@ -69,8 +69,12 @@ export interface PersonConflict {
   values: { value: string | number | null; providerId: string; note?: string }[];
   resolved: boolean;
   chosen?: string | number | null;
+  chosenProviderId?: string;
   decision: string;
+  decidedAt?: string;
   reason?: string;
+  locked: boolean;
+  note?: string;
 }
 
 export interface PersonDetail extends PersonSummary {

@@ -40,6 +40,17 @@
 .conflictList ul { display: grid; gap: 0.3rem; margin: 0.45rem 0 0; padding: 0; list-style: none; }
 .conflictList ul li { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: baseline; }
 
+/*
+ * En avgjort uenighet er kildehistorikk, ikke en advarsel. Den skal ikke ta
+ * plassen til .conflicts øverst på siden — bare en linje man kan åpne, uten
+ * en overskrift som gir den samme vekten som et ordentlig avsnitt.
+ */
+.resolvedConflicts { margin-top: 1.5rem; }
+.resolvedConflict + .resolvedConflict { margin-top: 0.6rem; }
+.resolvedConflict summary { cursor: pointer; color: var(--muted); }
+.resolvedConflict summary strong { color: var(--accent); }
+.resolvedConflict p { margin: 0.4rem 0 0; max-width: 62ch; }
+
 .mentionList { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.9rem 0 0; padding: 0; list-style: none; }
 .mentionList a { display: inline-block; padding: 0.2rem 0.5rem; border: 1px solid var(--border); border-radius: var(--radius); font-size: 0.78rem; text-decoration: none; }
 .mentionList a:hover { border-color: var(--accent); }
