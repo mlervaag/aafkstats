@@ -273,7 +273,18 @@ conflicts:
         note: medlemsblad-for-aalesunds-fotb-1974-ab1b s. 3
       - value: Erling Bjørge
         providerId: aafk-no
-    resolved: false
-    decision: unresolved
-    locked: false
-    note: Kildene oppgir ulike navn for dette vervet. Ingen av dem er valgt.
+    resolved: true
+    chosen: Erling Bjørge
+    chosenProviderId: aafk-no
+    decision: independent_source
+    decidedAt: "2026-08-31"
+    reason: >-
+      Erling Bjørge er dokumentert som Formann 1967-68 i tre uavhengige, manuelt verifiserte
+      kilder (tango-siden-1914-2013-806b s. 348, vi-er-75-ar-1989-aff6 s. 8,
+      aalesunds-fotballklubb-90-ar-1-2004-ad1d s. 27), i tillegg til aafk-historie-ledere.
+      Det maskinelle uttrekket av medlemsblad-for-aalesunds-fotb-1974-ab1b s. 3 genererte en
+      Formann-kandidat for nesten hvert navn i æresmedlemstabellen på siden uavhengig av
+      hvilket verv navnet faktisk sto ved; den ble aldri tatt inn som en formannsrolle for
+      Jarle Kristoffersen i noen personfil, som i stedet korrekt førte ham som Oppmann.
+      Verifisert i aafkstats-inbox#13.
+    locked: true

@@ -128,6 +128,15 @@ describe("person- og organisasjonsarkivet", () => {
     expect(sec1962.map((r) => r.body)).toEqual(expect.arrayContaining(["Hovedstyret", "Guttegruppen"]));
   });
 
+  it("fører Jarle Kristoffersen som oppmann i 1967, ikke formann, og holder Erling Bjørges formannsverv unna konflikten", () => {
+    const jarleTitles = getPersonRoles("jarle-kristoffersen").map((role) => role.title);
+    expect(jarleTitles).toContain("Oppmann");
+    expect(jarleTitles).not.toContain("Formann");
+
+    const erling = getPersonRoles("erling-bjorge").find((role) => role.title === "Formann");
+    expect(erling).toMatchObject({ from_date: "1967", to_date: "1968" });
+  });
+
   it("viser kildeomtaler på personsiden for personer med medlemsbladreferanser", () => {
     const jangaard = getPersonById("nils-jangaard");
     expect(jangaard?.mentions.some((m) => m.sourceId === "medlemsblad-for-aalesunds-fotb-1961-a9f8")).toBe(true);
