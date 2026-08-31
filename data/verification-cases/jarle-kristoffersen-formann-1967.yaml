@@ -1,5 +1,5 @@
 id: jarle-kristoffersen-formann-1967
-status: open
+status: resolved
 category: role
 claim: Jarle Kristoffersen var formann i AaFK i 1967.
 question: Var Jarle Kristoffersen formann i AaFK i 1967?
@@ -16,3 +16,19 @@ sources:
 estimatedMinutes: 6
 priority: 88
 publishedAt: 2026-08-13
+resolution:
+  answer: "no"
+  reason: >-
+    Siden medlemsblad-for-aalesunds-fotb-1974-ab1b s. 3 dokumenterer Erling Bjørge som
+    Formann og Jarle Kristoffersen som Oppmann for 1967, ikke omvendt. Jarle sin fil hadde
+    allerede korrekt oppmann-1967, manuelt verifisert i vi-er-75-ar-1989-aff6 s. 8 og
+    aalesunds-fotballklubb-90-ar-1-2004-ad1d s. 27, og Erling sin fil har formann-1967-1968
+    manuelt verifisert i tre uavhengige kilder (tango-siden-1914-2013-806b s. 348,
+    vi-er-75-ar-1989-aff6 s. 8, aalesunds-fotballklubb-90-ar-1-2004-ad1d s. 27). Konflikten
+    på formann.1967 i Jarle sin fil stammet fra det maskinelle uttrekket av siden, som
+    genererte en Formann-kandidat for alle navn i æresmedlemstabellen uavhengig av hvilket
+    verv navnet faktisk sto ved; denne kandidaten ble aldri tatt inn som en formannsrolle
+    for Jarle i noen personfil. Konflikten er en uttrekksartefakt, ikke en reell
+    kildeuenighet, og er fjernet.
+  resolvedAt: 2026-08-31
+  issueUrl: https://github.com/mlervaag/aafkstats-inbox/issues/13

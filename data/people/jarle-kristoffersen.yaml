@@ -265,15 +265,3 @@ sources:
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
   - sourceId: medlemsblad-for-aalesunds-fotb-1961-a9f8
     page: "7"
-conflicts:
-  - field: formann.1967
-    values:
-      - value: Jarle Kristoffersen
-        providerId: nasjonalbiblioteket
-        note: medlemsblad-for-aalesunds-fotb-1974-ab1b s. 3
-      - value: Erling Bjørge
-        providerId: aafk-no
-    resolved: false
-    decision: unresolved
-    locked: false
-    note: Kildene oppgir ulike navn for dette vervet. Ingen av dem er valgt.
