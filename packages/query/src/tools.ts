@@ -48,6 +48,36 @@ function defineTool<S extends z.ZodType>(def: ToolDef<S>): ToolDef<S> {
   return def;
 }
 
+/**
+ * Feilkodene et eksternt grensesnitt kan forgrene på.
+ *
+ * En AI-klient som bare får en feilsetning må gjette om den skal prøve igjen, søke
+ * bredere eller gi opp. Koden er stabil og maskinlesbar; `message` er for mennesker,
+ * og `suggestions` sier hva klienten kan gjøre videre.
+ */
+export type ToolErrorCode =
+  | "MATCH_NOT_FOUND"
+  | "PERSON_NOT_FOUND"
+  | "SOURCE_NOT_FOUND"
+  | "SEASON_NOT_FOUND"
+  | "VERIFICATION_CASE_NOT_FOUND"
+  | "SUBMISSION_NOT_ALLOWED"
+  | "SUBMISSION_FAILED"
+  | "INVALID_PARAMETERS"
+  | "TOOL_NOT_PUBLIC"
+  | "RESULT_TOO_LARGE"
+  | "QUERY_FAILED";
+
+export interface ToolError {
+  code: ToolErrorCode;
+  message: string;
+  suggestions?: string[];
+}
+
+export function toolError(code: ToolErrorCode, message: string, extra: Record<string, unknown> = {}): ToolResult {
+  return { content: { error: { code, message, ...extra } satisfies ToolError & Record<string, unknown> }, isError: true };
+}
+
 /** Kjører en spørring vi selv har skrevet, gjennom samme guardrails som modellens. */
 async function query(ctx: ToolContext, sql: string): Promise<ToolResult> {
   try {
@@ -57,7 +87,7 @@ async function query(ctx: ToolContext, sql: string): Promise<ToolResult> {
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     ctx.onQuery?.({ sql, durationMs: 0, rowCount: 0, error: message });
-    return { content: { error: message }, isError: true };
+    return toolError("QUERY_FAILED", message);
   }
 }
 
@@ -76,6 +106,9 @@ function parseJsonArray(value: unknown): unknown[] {
     return [];
   }
 }
+
+/** Et treffutdrag skal vise konteksten rundt ordet, ikke bære et helt referat. */
+const MAX_SNIPPET_CHARS = 320;
 
 /** Setter inn en tekstverdi trygt i en spørring vi bygger selv. */
 function lit(value: string): string {
@@ -140,8 +173,37 @@ const searchMatches = defineTool({
   },
 });
 
+/**
+ * Hva `confidence` og `completeness` betyr.
+ *
+ * Begge tallene beskriver dokumentasjonen, ikke virkeligheten. En modell som ikke får
+ * dette sagt eksplisitt leser gjerne 0.79 som «79 prosent sannsynlig at kampen stemmer»,
+ * og «probable» som et oddstall. Kontrakten sier det derfor rett ut.
+ */
+const ARCHIVE_FIELD_POLICY = {
+  confidence: {
+    meaning:
+      "Hvor godt den kanoniske oppføringen er dokumentert i arkivet. Dette er ikke en sannsynlighet for at resultatet er riktig.",
+    confirmed: "Kjernefeltene er bekreftet mot minst én kontrollert kilde.",
+    probable: "Oppføringen er ikke motsagt, men kjernefeltene er ikke ferdig kontrollert mot kilde.",
+    disputed: "Kilder eller leverandører motsier hverandre. Se conflicts før noe omtales som fastslått.",
+  },
+  completeness: {
+    meaning:
+      "Andelen av de dokumenterte kampfeltene arkivet faktisk har fylt ut, mellom 0 og 1. Dette er dekningsgrad, ikke sannsynlighet: 0.79 betyr at felt mangler, ikke at kampen er 79 prosent riktig.",
+    missingFields: "missing_fields navngir nøyaktig hvilke felt som mangler. Bruk den framfor tallet når du forklarer hva arkivet ikke vet.",
+  },
+} as const;
+
 const RESULT_EVIDENCE_POLICY = {
-  contract: "archive-result-evidence@1",
+  contract: "archive-result-evidence@2",
+  fields: ARCHIVE_FIELD_POLICY,
+  claimSummary:
+    "claim_summary beskriver hvor enige kildene i gruppen er med hverandre, ikke om de har rett. Tre samstemte kilder kan gjengi samme feil, og et felt ingen av kildene oppgir teller som enighet.",
+  competition:
+    "competition_id er arkivets ID. competition er visningsnavnet og er null når ID-en ikke finnes i konkurranseregisteret.",
+  notes:
+    "notes er ett element per kildenotat. note er de samme notatene satt sammen til én lesbar tekst. Ikke tilskriv ett notat til alle kildene i gruppen.",
   levels: {
     canonical_match: {
       meaning: "En identifisert kamp i kampmodellen.",
@@ -168,7 +230,34 @@ const HEAD_TO_HEAD_EVIDENCE_POLICY = {
     "Bare source_results med samme opponent_club_id er tatt med. Flere returnerte klubber, som Molde FK og Molde 2, skal holdes helt adskilt.",
   possibleIdentityMatches:
     "Tekstlige treff uten opponent_club_id er mulige identitetstreff. De skal undersøkes, men aldri inngå i played, wins, draws, losses eller mål.",
+  identityConfidence:
+    "identity_confidence gjelder bare hvor godt motstanderstrengen peker på klubben du spurte om. Den sier ingenting om resultatet er riktig. Et teksttreff når aldri high: high krever avklart opponent_club_id, og da ligger raden i unlinked_-tallene i stedet.",
 } as const;
+
+/**
+ * Skiller et rent klubbnavn fra en sammensatt streng.
+ *
+ * «Langevåg—Raufoss», «Molde/Træff» og «Kristiansund og omegn» treffer alle på et
+ * klubbsøk, men beskriver sannsynligvis noe annet enn ett oppgjør mot den klubben.
+ * De filtreres ikke bort — usikkerheten gjøres bare eksplisitt.
+ */
+// Komma er bevisst ikke med: «Viking, St.vanger» er ett klubbnavn med stedsangivelse,
+// ikke to klubber.
+const COMPOSITE_OPPONENT = /[—–/+]|\s-\s|\s(?:og|mot|vs\.?)\s/iu;
+
+function identityMatch(printed: string | null): { identity_confidence: "medium" | "low"; reason: string } {
+  if (printed && COMPOSITE_OPPONENT.test(printed)) {
+    return {
+      identity_confidence: "low",
+      reason:
+        "Motstanderstrengen er sammensatt og kan beskrive flere klubber, et kretslag eller en annen kamp enn den du spør om. opponent_club_id er ikke avklart.",
+    };
+  }
+  return {
+    identity_confidence: "medium",
+    reason: "Motstanderstrengen inneholder klubbnavnet du spurte om, men opponent_club_id er ikke avklart.",
+  };
+}
 
 /**
  * Søker begge resultatlagene i ett kall, slik at rekordspørsmål ikke stopper ved
@@ -219,8 +308,10 @@ const searchAllResults = defineTool({
          SELECT 'canonical_match' AS evidence_level, match_id AS record_id,
                 date, date_confidence AS date_precision, season, opponent, opponent_club_id,
                 aafk_score, opponent_score, goal_difference,
-                result, competition, competition_type, is_home, confidence,
+                result, competition_id, competition, competition_type, is_home, confidence,
                 has_conflicts, match_id, NULL AS result_group_id, note,
+                CASE WHEN note IS NULL THEN json('[]') ELSE json_array(note) END AS notes,
+                NULL AS claim_summary,
                 completeness, missing_fields,
                 NULL AS source_count, sources, NULL AS claims, url,
                 lower(coalesce(opponent, '') || ' ' || coalesce(opponent_club_id, '')) AS opponent_search
@@ -229,15 +320,15 @@ const searchAllResults = defineTool({
          UNION ALL
          SELECT 'source_claim', record_id, date, date_precision, season, opponent,
                 opponent_club_id, aafk_score, opponent_score, goal_difference,
-                result, competition, NULL, NULL, NULL, has_conflicts, NULL,
-                result_group_id, note, NULL, missing_fields, source_count,
+                result, competition_id, competition, NULL, NULL, NULL, has_conflicts, NULL,
+                result_group_id, note, notes, claim_summary, NULL, missing_fields, source_count,
                 sources, claims, url, opponent_search
          FROM result_groups
        )
        SELECT evidence_level, record_id, date, date_precision, season, opponent, opponent_club_id,
               aafk_score, opponent_score, goal_difference, result,
-              competition, competition_type, is_home, confidence, has_conflicts,
-              match_id, result_group_id, note, completeness, missing_fields,
+              competition_id, competition, competition_type, is_home, confidence, has_conflicts,
+              match_id, result_group_id, note, notes, claim_summary, completeness, missing_fields,
               source_count, sources, claims, url
        FROM all_results
        ${where.length > 0 ? `WHERE ${where.join(" AND ")}` : ""}
@@ -283,20 +374,80 @@ const getMatch = defineTool({
       `SELECT minute, stoppage, event_type, team, player, assist
        FROM match_events WHERE match_id = ${id} ORDER BY minute, stoppage`,
     );
+    if (match.isError) return match;
+    if (resultRows(match).length === 0) {
+      return toolError("MATCH_NOT_FOUND", `Arkivet har ingen kanonisk kamp med ID ${input.matchId}.`, {
+        suggestions: [
+          "Bruk search_matches eller search_all_results for å finne riktig match_id.",
+          "Er oppgjøret bare kildedokumentert, finnes det ikke som kamp. Se search_all_results, der raden ligger som source_claim uten match_id.",
+        ],
+      });
+    }
     const report = await query(
       ctx,
       `SELECT summary, body, byline FROM reports WHERE match_id = ${id}`,
     );
-    return { content: { match: match.content, events: events.content, report: report.content } };
+    return {
+      content: {
+        match: match.content, events: events.content, report: report.content,
+        fieldPolicy: ARCHIVE_FIELD_POLICY,
+        provenance:
+          "providers og sources er proveniens på feltnivå: fields i hver oppføring navngir nøyaktig hvilke felt den kilden eller leverandøren dekker.",
+      },
+    };
   },
 });
 
 const getSeasonSummary = defineTool({
   name: "get_season_summary",
-  description: "Sammendrag for én sesong. Returnerer én rad per konkurranse, ikke én samlet total for året.",
+  description:
+    "Sammendrag for én sesong. Svaret har competitions med én rad per konkurranse AaFK deltok i, " +
+    "og overall som summerer de samme radene. overall.coverage sier om året er ferdig dekket; " +
+    "er det ikke det, er summen et minimumstall og ikke sesongens fasit.",
   inputSchema: z.object({ season: z.number().int().describe("Sesongår") }),
   async run(input, ctx) {
-    return query(ctx, `SELECT * FROM seasons WHERE season = ${input.season}`);
+    const result = await query(ctx, `SELECT * FROM seasons WHERE season = ${input.season}`);
+    if (result.isError) return result;
+    const competitions = resultRows(result);
+    if (competitions.length === 0) {
+      return toolError("SEASON_NOT_FOUND", `Arkivet har ingen kamper for sesongen ${input.season}.`, {
+        suggestions: [
+          "Sjekk årstallet. get_archive_capabilities oppgir hvilke sesonger arkivet dekker.",
+          "Bruk search_all_results med season for å se om sesongen bare finnes som kildedokumenterte resultater uten kanoniske kamper.",
+        ],
+      });
+    }
+
+    const number = (value: unknown) => (typeof value === "number" ? value : 0);
+    const sum = (key: string) => competitions.reduce((total, row) => total + number(row[key]), 0);
+    // En konkurranse uten fullført dekning gjør årssummen til et minimumstall. Den
+    // navngis, slik at et samlet tall aldri leses som sesongens fasit uten videre.
+    const incomplete = competitions
+      .filter((row) => row.coverage !== "complete" && row.coverage !== "not_applicable")
+      .map((row) => row.competition_id);
+    const stillScheduled = sum("scheduled");
+
+    return {
+      content: {
+        season: input.season,
+        overall: {
+          played: sum("played"), wins: sum("wins"), draws: sum("draws"), losses: sum("losses"),
+          goals_for: sum("goals_for"), goals_against: sum("goals_against"),
+          goal_difference: sum("goals_for") - sum("goals_against"),
+          competitions: competitions.length,
+          scheduled: stillScheduled,
+          coverage: incomplete.length === 0 && stillScheduled === 0 ? "complete" : "partial",
+          incomplete_competitions: incomplete,
+          note:
+            incomplete.length === 0 && stillScheduled === 0
+              ? "Alle konkurransene i sesongen er dekket. Summen er over kanoniske kamper."
+              : "Minst én konkurranse er ikke ferdig dekket eller ikke ferdigspilt. Summen er et minimumstall over kanoniske kamper, ikke sesongens fasit.",
+        },
+        competitions,
+        rowCount: competitions.length,
+        fieldPolicy: ARCHIVE_FIELD_POLICY,
+      },
+    };
   },
 });
 
@@ -392,7 +543,6 @@ const headToHead = defineTool({
                    THEN max(aafk_score) END AS aafk_score,
               CASE WHEN count(DISTINCT printf('%d:%d', aafk_score, opponent_score)) = 1
                    THEN max(opponent_score) END AS opponent_score,
-              'opponent_club_id unresolved' AS reason,
               count(DISTINCT source_id) AS source_count,
               json_group_array(json_object(
                 'claimId', claim_id,
@@ -413,10 +563,15 @@ const headToHead = defineTool({
        LIMIT 20`,
     );
     if (possible.isError) return possible;
+    const possibleRows = resultRows(possible).map((row) => ({
+      ...row,
+      match_basis: "text" as const,
+      ...identityMatch(typeof row.opponent_as_printed === "string" ? row.opponent_as_printed : null),
+    }));
     return {
       content: {
         ...(result.content as Record<string, unknown>),
-        possible_identity_matches: resultRows(possible),
+        possible_identity_matches: possibleRows,
         evidencePolicy: HEAD_TO_HEAD_EVIDENCE_POLICY,
       },
     };
@@ -431,19 +586,39 @@ const searchReports = defineTool({
     limit: z.number().int().min(1).max(50).default(10),
   }),
   async run(input, ctx) {
-    return query(
+    const result = await query(
       ctx,
-      `SELECT match_id, date, opponent, is_home, result,
-              nullif(trim(summary), '') AS summary,
-              CASE WHEN trim(coalesce(summary, '')) <> '' THEN trim(summary)
-                   ELSE snippet(reports, 7, '', '', ' … ', 28) END AS snippet,
-              CASE WHEN lower(coalesce(summary, '')) LIKE ${lit(`%${input.q.toLowerCase()}%`)}
+      // Uten alias på reports: snippet() krever tabellnavnet slik det står i FTS-tabellen.
+      `SELECT reports.match_id, reports.date, reports.season,
+              m.competition_id, m.competition, reports.opponent, reports.is_home, reports.result,
+              nullif(trim(reports.summary), '') AS summary,
+              -- Teksten rundt selve treffordet, ikke sammendraget: en klient som skal
+              -- vurdere treffet trenger å se hvorfor det traff.
+              snippet(reports, 7, '', '', ' … ', 24) AS snippet,
+              CASE WHEN lower(coalesce(reports.summary, '')) LIKE ${lit(`%${input.q.toLowerCase()}%`)}
                    THEN 'summary' ELSE 'body' END AS matched_field,
-              url
+              reports.url
        FROM reports
+       LEFT JOIN matches m ON m.match_id = reports.match_id
        WHERE reports MATCH ${lit(input.q)}
-       ORDER BY date DESC LIMIT ${input.limit}`,
+       ORDER BY reports.date DESC LIMIT ${input.limit}`,
     );
+    if (result.isError) return result;
+
+    // Søkeordene slik FTS leste dem, uten operatorene. Da ser klienten hvilke ord
+    // treffet faktisk gjelder når spørringen var sammensatt.
+    const terms = [...input.q.matchAll(/[\p{L}\p{N}]{2,}/gu)]
+      .map((match) => match[0])
+      .filter((term) => !["AND", "OR", "NOT", "NEAR"].includes(term.toUpperCase()));
+    const rows = resultRows(result).map((row) => {
+      const snippet = typeof row.snippet === "string" ? row.snippet : "";
+      return {
+        ...row,
+        snippet: snippet.length > MAX_SNIPPET_CHARS ? `${snippet.slice(0, MAX_SNIPPET_CHARS).trimEnd()} …` : snippet,
+        matched_terms: terms.filter((term) => `${snippet} ${row.summary ?? ""}`.toLowerCase().includes(term.toLowerCase())),
+      };
+    });
+    return { content: { ...(result.content as Record<string, unknown>), rows } };
   },
 });
 
@@ -506,7 +681,11 @@ const getPerson = defineTool({
     );
     if (person.isError) return person;
     const personRow = resultRows(person)[0];
-    if (!personRow) return { content: { error: "Personen finnes ikke." }, isError: true };
+    if (!personRow) {
+      return toolError("PERSON_NOT_FOUND", `Arkivet har ingen publisert person med ID ${input.personId}.`, {
+        suggestions: ["Bruk search_people for å finne riktig person_id."],
+      });
+    }
 
     const roles = await query(
       ctx,
@@ -593,7 +772,11 @@ const getSource = defineTool({
     const source = await query(ctx, `SELECT * FROM sources WHERE id = ${id}`);
     if (source.isError) return source;
     const sourceRow = resultRows(source)[0];
-    if (!sourceRow) return { content: { error: "Kilden finnes ikke." }, isError: true };
+    if (!sourceRow) {
+      return toolError("SOURCE_NOT_FOUND", `Arkivet har ingen publisert kilde med ID ${input.sourceId}.`, {
+        suggestions: ["Bruk search_sources for å finne riktig source_id."],
+      });
+    }
 
     const usage = await query(
       ctx,
@@ -759,7 +942,7 @@ const runSql = defineTool({
         err instanceof UnsafeSqlError
           ? message
           : `Spørringen feilet: ${message}. Sjekk kolonnenavn mot datasettdokumentasjonen.`;
-      return { content: { error: hint }, isError: true };
+      return toolError("QUERY_FAILED", hint);
     }
   },
 });

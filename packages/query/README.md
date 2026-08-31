@@ -37,9 +37,9 @@ Legger du til en kolonne i `packages/db/src/schema.sql`, skal den også inn her.
 | `search_matches` | Kamper filtrert på sesong, motstander, konkurranse, resultat, hjemme/borte, statistikkdekning og AaFKs xG |
 | `search_all_results` | Rekorder og hele historien, samlet fra kanoniske kamper og grupperte, ukoblede kilderesultater |
 | `get_match` | Alt om én kamp, inkludert provider-proveniens, kilder, kampstatistikk, hendelser og referat |
-| `get_season_summary` | Plassering, resultatfordeling og målforskjell, én rad per konkurranse i sesongen |
+| `get_season_summary` | `competitions` med én rad per konkurranse, og `overall` som summerer dem med eksplisitt dekningsmarkering |
 | `head_to_head` | Kanoniske kamper, sikre ukoblede klubbtreff og mulige navnetreff som tre separate lag |
-| `search_reports` | Fritekstsøk i kampreferatene (FTS5), med relevant utdrag fra body når summary mangler |
+| `search_reports` | Fritekstsøk i kampreferatene (FTS5), med utdrag rundt treffordet, `matched_field` og `matched_terms` |
 | `search_people` | Personer og eksplisitte roller med rolle-ID og organisasjon |
 | `get_person` | Én person med roller, konflikter, kilder og publiserbare observasjoner |
 | `search_sources` | Søk i publisert kildemetadata uten OCR eller beskyttet fulltekst |

@@ -439,6 +439,7 @@ SELECT
   m.date_confidence,
   m.kickoff,
   m.status,
+  m.competition_id    AS competition_id,
   m.competition_name  AS competition,
   c.type              AS competition_type,
   c.tier              AS competition_tier,
@@ -1398,6 +1399,22 @@ WITH raw_claims AS (
   SELECT coalesce(result_group_id, claim_id) AS group_key, *
   FROM source_results
   WHERE match_id IS NULL AND result IS NOT NULL
+), distinct_notes AS (
+  -- Notatene kommer fra hver sin kilde og er hele setninger. Slås de sammen med
+  -- group_concat(DISTINCT ...) blir de til «Ingen dato er oppgitt.,trykt «AFK—
+  -- Langevåg 14—0».» — ett felt som ser ut som én kildes ordlyd, men ikke er det.
+  -- Hvert notat holdes derfor som sitt eget element.
+  SELECT DISTINCT group_key, trim(note) AS note
+  FROM raw_claims
+  WHERE note IS NOT NULL AND trim(note) <> ''
+), group_notes AS (
+  SELECT group_key,
+         -- Notatene ble skrevet som fragmenter etter en innledning. Som selvstendige
+         -- elementer starter de med stor forbokstav. Sitatet inne i « » røres ikke.
+         json_group_array(upper(substr(note, 1, 1)) || substr(note, 2)) AS notes,
+         group_concat(upper(substr(note, 1, 1)) || substr(note, 2), ' ') AS note
+  FROM (SELECT group_key, note FROM distinct_notes ORDER BY group_key, note)
+  GROUP BY group_key
 ), grouped AS (
   SELECT group_key,
          CASE WHEN count(DISTINCT date) <= 1 THEN max(date) END AS date,
@@ -1412,7 +1429,25 @@ WITH raw_claims AS (
               THEN max(opponent_score) END AS opponent_score,
          CASE WHEN count(DISTINCT result) = 1 THEN max(result) END AS result,
          CASE WHEN count(DISTINCT competition_id) <= 1
-              THEN max(competition_id) END AS competition,
+              THEN max(competition_id) END AS competition_id,
+         -- Hvor enige kildene er om hvert kjernefelt, slik at en klient slipper å
+         -- sammenligne alle claims selv. Dette er intern enighet mellom kildene, ikke
+         -- et sannhetsmål: tre kilder kan være enige og likevel gjengi samme feil.
+         -- count(DISTINCT ...) ser bort fra NULL, så et felt kilden ikke oppgir teller
+         -- ikke som uenighet.
+         json_object(
+           'claimCount', count(*),
+           'sourceCount', count(DISTINCT source_id),
+           'scoreConsistent',
+             json(CASE WHEN count(DISTINCT printf('%d:%d', aafk_score, opponent_score)) <= 1
+                       THEN 'true' ELSE 'false' END),
+           'dateConsistent',
+             json(CASE WHEN count(DISTINCT date) <= 1 THEN 'true' ELSE 'false' END),
+           'opponentIdentityConsistent',
+             json(CASE WHEN count(DISTINCT opponent_club_id) <= 1 THEN 'true' ELSE 'false' END),
+           'competitionConsistent',
+             json(CASE WHEN count(DISTINCT competition_id) <= 1 THEN 'true' ELSE 'false' END)
+         ) AS claim_summary,
          CASE WHEN count(DISTINCT date) > 1
                     OR count(DISTINCT opponent_club_id) > 1
                     OR count(DISTINCT printf('%d:%d', aafk_score, opponent_score)) > 1
@@ -1420,7 +1455,6 @@ WITH raw_claims AS (
                     OR count(DISTINCT competition_id) > 1
               THEN 1 ELSE 0 END AS has_conflicts,
          max(result_group_id) AS result_group_id,
-         group_concat(DISTINCT note) AS note,
          count(DISTINCT source_id) AS source_count,
          json_group_array(DISTINCT json_object(
            'sourceId', source_id, 'title', source_title, 'page', page,
@@ -1442,16 +1476,25 @@ SELECT g.group_key AS record_id, g.date,
        g.season, coalesce(o.opponent, g.printed_opponent) AS opponent,
        g.opponent_search, g.opponent_club_id, g.aafk_score, g.opponent_score,
        g.aafk_score - g.opponent_score AS goal_difference,
-       g.result, g.competition, g.has_conflicts, g.result_group_id, g.note,
+       g.result, g.competition_id,
+       -- Visningsnavn når konkurransen er kjent. En kilde kan oppgi en konkurranse-ID
+       -- arkivet ikke fører; da står competition som NULL og competition_id står igjen
+       -- som det kilden faktisk sa.
+       comp.name AS competition,
+       g.has_conflicts, g.result_group_id,
+       n.note, coalesce(n.notes, '[]') AS notes,
+       g.claim_summary,
        '["canonical_match","home_away"' ||
          CASE WHEN g.date IS NULL THEN ',"date"' ELSE '' END ||
-         CASE WHEN g.competition IS NULL THEN ',"competition"' ELSE '' END ||
+         CASE WHEN g.competition_id IS NULL THEN ',"competition"' ELSE '' END ||
          CASE WHEN g.opponent_club_id IS NULL THEN ',"opponent_identity"' ELSE '' END ||
          CASE WHEN g.has_conflicts = 1 THEN ',"conflicting_claims"' ELSE '' END ||
          ']' AS missing_fields,
        g.source_count, g.sources, g.claims, g.url
 FROM grouped g
-LEFT JOIN opponents o ON o.opponent_club_id = g.opponent_club_id;
+LEFT JOIN opponents o ON o.opponent_club_id = g.opponent_club_id
+LEFT JOIN group_notes n ON n.group_key = g.group_key
+LEFT JOIN core_competitions comp ON comp.id = g.competition_id;
 
 CREATE VIEW fact_candidates AS
 SELECT source_id, id, kind, page, confidence, keywords, names, years, scores,

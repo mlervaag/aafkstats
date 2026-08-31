@@ -17,7 +17,7 @@ function camel(key: string): string {
   return key.replace(/_([a-z])/g, (_, letter: string) => letter.toUpperCase());
 }
 
-const JSON_COLUMNS = new Set(["claims", "providers", "sources", "missing_fields", "tags", "role_categories", "unlinked_source_references"]);
+const JSON_COLUMNS = new Set(["claims", "claim_summary", "notes", "providers", "sources", "missing_fields", "tags", "role_categories", "unlinked_source_references"]);
 
 function publicValue(value: unknown, key = ""): unknown {
   if (typeof value === "string" && JSON_COLUMNS.has(key)) {
@@ -87,8 +87,8 @@ export function booleanParam(search: URLSearchParams, name: string): boolean | u
 export async function runPublicTool(name: PublicToolName, input: unknown): Promise<Response> {
   const result = await executePublicTool(name, input);
   if (result.isError) {
-    const detail = result.content as { error?: string };
-    return apiError("invalid_request", detail.error ?? "Spørringen kunne ikke kjøres.");
+    const { error } = result.content as { error?: { code?: string; message?: string } };
+    return apiError(error?.code ?? "invalid_request", error?.message ?? "Spørringen kunne ikke kjøres.");
   }
   const content = result.content as { rows?: unknown[]; rowCount?: number };
   return apiResponse(content.rows ?? content, { count: content.rowCount ?? (content.rows?.length ?? 1) });

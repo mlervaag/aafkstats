@@ -34,10 +34,74 @@ kildepåstander, også ulike skrivemåter av motstandernavnet, ligger i `claims`
 etter grupperingen. `canonical_match` og `source_claim` er fortsatt separate evidensnivåer og
 skal aldri summeres.
 
+Hver rad skiller `competition_id` fra visningsnavnet `competition`. Er ID-en ukjent i
+konkurranseregisteret, står `competition` som `null` og `competition_id` som det kilden
+faktisk oppgir. `notes` har ett element per kildenotat, siden notatene kommer fra hver sin
+kilde; `note` er de samme notatene satt sammen til én lesbar tekst.
+
+`claim_summary` sier hvor enige kildene i en gruppe er om score, dato, motstanderidentitet og
+konkurranse. Dette er intern enighet mellom kildene, ikke et mål på om påstanden er sann: tre
+samstemte kilder kan gjengi samme feil, og et felt ingen av kildene oppgir teller som enighet.
+
 `head_to_head` returnerer tre tydelig adskilte lag: kanoniske kamper, ukoblede påstander med
 sikker klubb-ID og mulige navnetreff uten avklart klubb-ID. Det siste laget inngår aldri i
 kamp- eller målsummer. Full kildemetadata er valgfri med `includeEvidence`; standardkallet
 returnerer bare kompakte tellere.
+
+Hvert `possible_identity_matches`-treff har `match_basis: "text"` og en
+`identity_confidence`. Den gjelder bare hvor godt motstanderstrengen peker på klubben du
+spurte om, aldri om resultatet er riktig. En sammensatt streng som «Langevåg—Raufoss»,
+«Molde/Træff» eller «Kristiansund og omegn» får `low`; et rent klubbnavn får `medium`. Et
+teksttreff når aldri `high` — det krever avklart `opponent_club_id`, og da ligger raden i
+`unlinked_`-tallene i stedet.
+
+`get_season_summary` svarer med `competitions` (én rad per konkurranse AaFK deltok i) og
+`overall`, som er summen av nøyaktig de radene. `overall.coverage` er `partial` så snart en
+konkurranse mangler dekning eller har kamper igjen på terminlista, og
+`overall.incomplete_competitions` navngir hvilke. Da er summen et minimumstall, ikke
+sesongens fasit.
+
+## Hva confidence og completeness betyr
+
+Begge beskriver dokumentasjonen, ikke virkeligheten. Verktøy som returnerer dem tar med en
+`fieldPolicy` som sier det samme i svaret.
+
+`confidence` sier hvor godt den kanoniske oppføringen er dokumentert: `confirmed` er
+kontrollert mot kilde, `probable` er ikke motsagt men heller ikke ferdig kontrollert, og
+`disputed` betyr at kilder motsier hverandre. Det er ikke en sannsynlighet for at resultatet
+er riktig.
+
+`completeness` er andelen utfylte kampfelt mellom 0 og 1. `0.79` betyr at felt mangler, ikke
+at kampen er 79 prosent riktig. `missing_fields` navngir nøyaktig hvilke felt det gjelder, og
+er det som bør brukes når man forklarer hva arkivet ikke vet.
+
+## Feil
+
+Feil svarer med en stabil, maskinlesbar kode, slik at en klient kan forgrene uten å tolke
+meldingsteksten:
+
+```json
+{ "error": { "code": "MATCH_NOT_FOUND", "message": "…", "suggestions": ["…"] } }
+```
+
+Kodene er `MATCH_NOT_FOUND`, `PERSON_NOT_FOUND`, `SOURCE_NOT_FOUND`, `SEASON_NOT_FOUND`,
+`VERIFICATION_CASE_NOT_FOUND`, `SUBMISSION_NOT_ALLOWED`, `SUBMISSION_FAILED`,
+`REVISION_MISMATCH`, `ALREADY_SUBMITTED`, `INVALID_PARAMETERS`, `TOOL_NOT_PUBLIC`,
+`RESULT_TOO_LARGE` og `QUERY_FAILED`. `message` er for mennesker; `suggestions` sier hva
+klienten kan gjøre videre.
+
+## Hva serveren er
+
+`get_archive_capabilities` svarer med kontraktversjoner, størrelsen på datasettet, hvilke
+sesonger som er dekket, og — viktigst — at arkivet ikke er en livetjeneste:
+
+```json
+{ "freshness": { "liveScores": false, "scheduledMatches": true, "typicalUpdateMode": "post_ingestion" } }
+```
+
+Et manglende resultat betyr at kampen ikke er lagt inn ennå, ikke at den ikke ble spilt. En
+agent som trenger stillingen i en pågående kamp må bruke en livetjeneste. Svaret sier også at
+ingen verktøy her endrer kanoniske data.
 
 MCP-svar bruker ekte JSON-arrays og objekter, ikke JSON serialisert inni strenger. Interne
 stier returneres som `path`, mens `url` er en absolutt, klikkbar adresse til arkivet.

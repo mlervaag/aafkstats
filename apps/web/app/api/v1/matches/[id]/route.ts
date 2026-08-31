@@ -8,9 +8,11 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
   if (limited) return limited;
   const { id } = await params;
   const result = await executePublicTool("get_match", { matchId: id });
-  if (result.isError) return apiError("invalid_request", "Kampen kunne ikke hentes.");
-  const content = result.content as { match?: { rows?: unknown[] } };
-  if (!content.match?.rows?.length) return apiError("not_found", "Kampen finnes ikke.", 404);
+  if (result.isError) {
+    const { error } = result.content as { error?: { code?: string } };
+    if (error?.code === "MATCH_NOT_FOUND") return apiError("not_found", "Kampen finnes ikke.", 404);
+    return apiError("invalid_request", "Kampen kunne ikke hentes.");
+  }
   return apiResponse(result.content);
 }
 
