@@ -27,3 +27,24 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: ut-bryne-2022
+    direction: out
+    kind: transfer
+    club: Bryne
+    clubId: bryne
+    date: 2022-08-01
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1363775092
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2022». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Jørgen Hatlehol klar for Bryne (Bryne FK, 2022-08-01)
+      https://www.brynefk.no/nyheter/jorgen-hatlehol-klar-for-bryne"

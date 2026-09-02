@@ -20,3 +20,82 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: ut-hodd-2020
+    direction: out
+    kind: loan
+    club: Hødd
+    clubId: hodd
+    date: "2020"
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1363056004
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2020». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/havard-mork-breivik-lanes-ut
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Håvard Mork Breivik lånes ut
+    note: "Kilden fotnoten peker på: Håvard Mork Breivik lånes ut
+      https://www.aafk.no/nyheter/havard-mork-breivik-lanes-ut"
+  - id: ut-brattvag-2021
+    direction: out
+    kind: loan
+    club: Brattvåg
+    clubId: brattvag
+    date: 2021-02-23
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365491811
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2020–21». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/leies-ut-til-brattvag
+        retrievedAt: 2021-02-23
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Leies ut til Brattvåg
+    note: "Kilden fotnoten peker på: Leies ut til Brattvåg (Aalesunds FK, 2021-02-23)
+      https://www.aafk.no/nyheter/leies-ut-til-brattvag"
+  - id: ut-brattvag-2022
+    direction: out
+    kind: transfer
+    club: Brattvåg
+    clubId: brattvag
+    date: 2021-11-26
+    season: 2022
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369178074
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2021–22». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Bekrefter at AaFK-spillere er ferdige i klubben
+      https://www.smp.no/sport/aafk/i/wOVxyn/bekrefter-at-aafk-spillere-er-ferdige-i-klubben"

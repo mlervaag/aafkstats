@@ -17,3 +17,32 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-free-2022
+    direction: in
+    kind: free
+    club: null
+    date: 2022-01-17
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369178074
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2021–22». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/henter-forsvarer-fra-belgisk-toppdivisjon
+        retrievedAt: 2022-01-17
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Henter forsvarer fra belgisk toppdivisjon
+    note: "Kilden fotnoten peker på: Henter forsvarer fra belgisk toppdivisjon (Aalesunds FK,
+      2022-01-17) https://www.aafk.no/nyheter/henter-forsvarer-fra-belgisk-toppdivisjon"

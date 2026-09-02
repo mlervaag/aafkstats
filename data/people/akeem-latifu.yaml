@@ -18,3 +18,44 @@ providers:
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+transfers:
+  - id: inn-hodd-2014
+    direction: in
+    kind: loan
+    club: Hødd
+    clubId: hodd
+    date: 2014-02-28
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1364213402
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2013–14». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Aalesund signerte Latifu
+      http://www.smp.no/100Sport/fotball/eliteserien/article423212.snd"
+  - id: ut-released-2016
+    direction: out
+    kind: released
+    club: null
+    date: 2016-01-07
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369966462
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2015–16». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Sjekk listen: Alle disse eliteseriespillerne kan hentes gratis
+      (Romsdals Budstikke, 2016-01-07)
+      http://www.rbnett.no/100Sport/fotball/eliteserien/article667903.snd"

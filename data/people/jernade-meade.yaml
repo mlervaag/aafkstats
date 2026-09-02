@@ -19,3 +19,60 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-afc-eskilstuna-2018
+    direction: in
+    kind: transfer
+    club: AFC Eskilstuna
+    date: 2018-03-26
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468729
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2017–18». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/nyheter/aafk-henter-tidligere-arsenal-spiller
+        retrievedAt: 2018-03-26
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: AaFKs henter tidligere Arsenal-spiller
+    note: "Kilden fotnoten peker på: AaFKs henter tidligere Arsenal-spiller (Aalesunds FK, 2018-03-26)
+      http://www.aafk.no/nyheter/aafk-henter-tidligere-arsenal-spiller"
+  - id: ut-released-2020
+    direction: out
+    kind: released
+    club: null
+    date: 2020-01-31
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468730
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2019–20». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/snart-avspark
+        retrievedAt: 2020-01-31
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Snart avspark!
+    note: "Kilden fotnoten peker på: Snart avspark! (Aalesunds FK, 2020-01-31)
+      https://www.aafk.no/nyheter/snart-avspark"

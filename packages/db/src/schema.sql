@@ -253,6 +253,10 @@ CREATE TABLE core_transfers (
   -- ett oppslag og ikke en strengoperasjon per rad.
   season       INTEGER NOT NULL,
   sources      TEXT NOT NULL,
+  -- Nettmeldinger hører hjemme her og ikke i core_sources: en klubbmelding er
+  -- ikke et dokument med sidetall, og én source-fil per nyhetssak ville fylt
+  -- publikasjonskatalogen med lenker.
+  providers    TEXT NOT NULL DEFAULT '[]',
   note         TEXT,
   PRIMARY KEY (person_id, transfer_id)
 );
@@ -979,6 +983,7 @@ SELECT
   -- I.L.» er hva medlemsbladet sa, og det er den opplysningen raden bevarer.
   coalesce(t.club, c.name)             AS club,
   t.sources,
+  t.providers,
   t.note,
   '/personer/' || p.id                 AS url
 FROM core_transfers t

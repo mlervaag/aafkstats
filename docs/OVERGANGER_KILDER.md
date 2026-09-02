@@ -145,6 +145,24 @@ vilkårene for gjenbruk er ikke avklart. Etter regelen i `claude.md` skal rettig
 ligge i `data/providers/` før noe hentes, og det er ikke gjort. Kilden er nevnt her for å være
 avklart som utelatt, ikke som et alternativ som venter.
 
+## Slik ble det høstet
+
+`pnpm ingest:wikipedia-transfers` leser alle vinduene, plukker AaFK-seksjonen og skriver
+overgangene inn i personfilene. Tørrkjøring er standard; `--write` skriver, og verktøyet leser
+arkivet tilbake etterpå og feiler hvis det ikke validerer.
+
+To ting verktøyet nekter å gjøre:
+
+- **En rad uten fotnote skrives ikke.** Da mangler den nettopp det arkivet krever av en
+  overgang, og en rad uten kilde er en påstand.
+- **Klubb-ID gjettes ikke.** Bare et treff på normalisert navn mot `data/clubs/` gir `clubId`.
+  Omtrent halvparten av motpartene er utenlandske klubber AaFK aldri har møtt, og de står med
+  kildens egen skrivemåte og tomt ID-felt. Det er riktig svar, ikke en mangel.
+
+Kildeføringen følger regelen over: `providers` bærer Wikipedia-permalenken til nøyaktig den
+revisjonen som ble lest, og meldingen fotnoten peker på står i `note` med tittel, utgiver og
+dato. Er meldingen klubbens egen på aafk.no, får den i tillegg sin egen leverandørhenvisning.
+
 ## Rekkefølgen arbeidet bør tas i
 
 1. **Wikipedia-listene, 2010–2026.** Størst utbytte per innsats, strukturert nok til å

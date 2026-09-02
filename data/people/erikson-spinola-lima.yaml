@@ -27,3 +27,45 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-sarpsborg-08-2018
+    direction: in
+    kind: transfer
+    club: Sarpsborg 08
+    clubId: sarpsborg-08
+    date: 2018-02-02
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468729
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2017–18». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Nenass forlater Sarpsborg 08 (Sarpsborg 08 FF, 2018-02-02)
+      http://www.sarpsborg08.no/nyheter/nenass-forlater-sarpsborg-08"
+  - id: ut-released-2023
+    direction: out
+    kind: released
+    club: null
+    date: 2022-12-09
+    season: 2023
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354775790
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2022–23». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Ny Sunnmørsball: Bekrefter at to spillere er ferdige i AaFK
+      (Sunnmørsposten, 2022-12-09)
+      https://www.smp.no/sport/i/y6z6Ba/ny-sunnmoersball-bekrefter-at-to-spillere-er-ferdige-i-aafk"

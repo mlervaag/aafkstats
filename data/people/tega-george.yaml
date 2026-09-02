@@ -17,3 +17,63 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-kjelsas-2019
+    direction: in
+    kind: transfer
+    club: Kjelsås
+    clubId: kjelsas
+    date: 2018-12-31
+    season: 2019
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1361724311
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2018–19». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/nyheter/to-nye-spillere-klare
+        retrievedAt: 2018-12-31
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: To nye spillere klare
+    note: "Kilden fotnoten peker på: To nye spillere klare (Aalesunds FK, 2018-12-31)
+      http://www.aafk.no/nyheter/to-nye-spillere-klare"
+  - id: ut-strommen-2020
+    direction: out
+    kind: transfer
+    club: Strømmen
+    clubId: strommen
+    date: 2020-01-28
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468730
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2019–20». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/tega-til-strommen
+        retrievedAt: 2020-01-28
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Pape selges til Belgia
+    note: "Kilden fotnoten peker på: Pape selges til Belgia (Aalesunds FK, 2020-01-28)
+      https://www.aafk.no/nyheter/tega-til-strommen"

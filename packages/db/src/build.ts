@@ -239,8 +239,8 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
     );
     const insertTransfer = db.prepare(
       `INSERT INTO core_transfers
-         (person_id, transfer_id, direction, kind, club, club_id, date, season, sources, note)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+         (person_id, transfer_id, direction, kind, club, club_id, date, season, sources, providers, note)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     );
     const insertPersonRole = db.prepare(
       `INSERT INTO core_person_roles
@@ -262,7 +262,7 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
       for (const entry of p.transfers) {
         insertTransfer.run(
           p.id, entry.id, entry.direction, entry.kind, entry.club, entry.clubId ?? null,
-          entry.date, transferSeason(entry), json(entry.sources), entry.note ?? null,
+          entry.date, transferSeason(entry), json(entry.sources), json(entry.providers), entry.note ?? null,
         );
       }
       for (const role of p.roles) {

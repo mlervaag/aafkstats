@@ -19,3 +19,32 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-hobro-2025
+    direction: in
+    kind: transfer
+    club: Hobro
+    date: 2025-01-03
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1368388589
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2024–25». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/mathias-kristensen-er-klar-for-aafk
+        retrievedAt: 2025-01-03
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Mathias Kristensen klar for AaFK!
+    note: "Kilden fotnoten peker på: Mathias Kristensen klar for AaFK! (Aalesunds FK, 2025-01-03)
+      https://www.aafk.no/nyheter/mathias-kristensen-er-klar-for-aafk"

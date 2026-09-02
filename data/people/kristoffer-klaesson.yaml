@@ -17,3 +17,61 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: ut-retired-2026
+    direction: out
+    kind: retired
+    club: null
+    date: 2026-06-30
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1372785440
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2026». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/kristoffer-klaesson-legger-opp
+        retrievedAt: 2026-06-30
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Kristoffer Klaesson legger opp
+    note: "Kilden fotnoten peker på: Kristoffer Klaesson legger opp (Aalesunds FK, 2026-06-30)
+      https://www.aafk.no/nyheter/kristoffer-klaesson-legger-opp"
+  - id: inn-viking-2026
+    direction: in
+    kind: transfer
+    club: Viking
+    clubId: viking
+    date: 2026-01-13
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1372362958
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2025–26». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/henter-klaesson-fra-seriemesterene
+        retrievedAt: 2026-01-13
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Henter Klaesson fra seriemesterene
+    note: "Kilden fotnoten peker på: Henter Klaesson fra seriemesterene (Aalesunds FK, 2026-01-13)
+      https://www.aafk.no/nyheter/henter-klaesson-fra-seriemesterene"

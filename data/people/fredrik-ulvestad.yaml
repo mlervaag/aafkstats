@@ -20,3 +20,33 @@ providers:
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+transfers:
+  - id: ut-burnley-2015
+    direction: out
+    kind: transfer
+    club: Burnley
+    date: 2015-03-10
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1368964463
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2014–15». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/latest-news/article/t97eqsnefbij1rcaqrbevgzjr/title/ulvestad-til-premier-league
+        retrievedAt: 2015-03-10
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Ulvestad til Premier League
+    note: "Kilden fotnoten peker på: Ulvestad til Premier League (Aalesunds FK, 2015-03-10)
+      http://www.aafk.no/latest-news/article/t97eqsnefbij1rcaqrbevgzjr/title/ulvestad-til-premier-l\
+      eague"

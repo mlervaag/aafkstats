@@ -24,3 +24,53 @@ providers:
     fields:
       - wikidata
     note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
+transfers:
+  - id: ut-lokomotiv-plovdiv-2021
+    direction: out
+    kind: transfer
+    club: Lokomotiv Plovdiv
+    date: 2021-06-15
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1366717146
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2021». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Nederlender ferdig i Aalesund: – Fornuftig løsning (Eurosport,
+      2021-06-15)
+      https://www.eurosport.no/fotball/obos-ligaen/2020/nederlender-ferdig-i-aalesund-fornuftig-los\
+      ning_sto8375849/story.shtml"
+  - id: inn-telstar-2020
+    direction: in
+    kind: transfer
+    club: Telstar
+    date: 2020-02-14
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468730
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2019–20». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/henter-nederlandsk-24-aring
+        retrievedAt: 2020-02-14
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Henter nederlandsk 24-åring
+    note: "Kilden fotnoten peker på: Henter nederlandsk 24-åring (Aalesunds FK, 2020-02-14)
+      https://www.aafk.no/nyheter/henter-nederlandsk-24-aring"

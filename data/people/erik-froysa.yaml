@@ -31,3 +31,43 @@ providers:
   fields:
   - wikidata
   note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
+transfers:
+  - id: inn-aalesund-2023
+    direction: in
+    kind: transfer
+    club: Aalesund
+    date: 2023-08-04
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354769639
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2023». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Frøysa til Aalesund
+      https://www.raufossfotball.no/nyheter/froysa-til-aalesund"
+  - id: ut-raufoss-2026
+    direction: out
+    kind: loan
+    club: Raufoss
+    clubId: raufoss-il
+    date: 2026-03-31
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1372362958
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2025–26». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Erik Frøysa er tilbake! (Raufoss IL, 2026-03-31)
+      https://www.raufossfotball.no/nyheter/erik-froysa-er-tilbake"

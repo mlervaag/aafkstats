@@ -18,3 +18,24 @@ providers:
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+transfers:
+  - id: ut-bodo-glimt-2012
+    direction: out
+    kind: transfer
+    club: Bodø/Glimt
+    clubId: bodo-glimt
+    date: 2012-08-27
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1243527486
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2012». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Sylling Olsen til Bodø/Glimt (Sunnmørsposten, 2012-08-27)
+      http://fotball.smp.no/eliteserien/article248223.ece"

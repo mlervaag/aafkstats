@@ -21,3 +21,46 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-horsens-2021
+    direction: in
+    kind: transfer
+    club: Horsens
+    date: 2020-12-17
+    season: 2021
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365491811
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2020–21». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Aalesund henter amerikansk keeper fra dansk fotball (Eurosport,
+      2020-12-17)
+      https://www.eurosport.no/fotball/eliteserien/2020/aalesund-henter-amerikansk-keeper-fra-dansk\
+      -fotball_sto8035932/story.shtml"
+  - id: ut-kristiansund-2024
+    direction: out
+    kind: transfer
+    club: Kristiansund
+    clubId: kristiansund
+    date: 2024-01-12
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354776072
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2023–24». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Lansing klar for KBK (Kristiansund BK, 2024-01-12)
+      https://www.kristiansundbk.no/nyheter/lansing-klar-for-kbk"

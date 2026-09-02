@@ -28,3 +28,63 @@ providers:
     fields:
       - wikidata
     note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
+transfers:
+  - id: inn-vikingur-2015
+    direction: in
+    kind: transfer
+    club: Víkingur
+    date: 2014-10-06
+    season: 2015
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1368964463
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2014–15». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/latest-news/article/1kyr2iiyqgs851he186e9zkx4v/title/thrandarson-klar-for-aafk
+        retrievedAt: 2014-10-06
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Thrándarson klar for AaFK
+    note: "Kilden fotnoten peker på: Thrándarson klar for AaFK (Aalesunds FK, 2014-10-06)
+      http://www.aafk.no/latest-news/article/1kyr2iiyqgs851he186e9zkx4v/title/thrandarson-klar-for-\
+      aafk"
+  - id: ut-ob-2020
+    direction: out
+    kind: transfer
+    club: OB
+    date: 2019-11-14
+    season: 2020
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468730
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2019–20». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/fire-spillere-ferdige-i-aafk
+        retrievedAt: 2019-11-14
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Fire spillere ferdig i Aafk
+    note: "Kilden fotnoten peker på: Fire spillere ferdig i Aafk (Aalesunds FK, 2019-11-14)
+      https://www.aafk.no/nyheter/fire-spillere-ferdige-i-aafk"

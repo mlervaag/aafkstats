@@ -18,3 +18,75 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: ut-asane-2023
+    direction: out
+    kind: loan
+    club: Åsane
+    clubId: asane
+    date: 2023-08-08
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354769639
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2023». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: - Vi skal oppover på tabellen (Åsane Fotball, 2023-08-08)
+      https://www.asanefotball.no/nyheter/kolskogen-pa-lan.vi-skal-oppover-pa-tabellen"
+  - id: inn-brann-2023
+    direction: in
+    kind: transfer
+    club: Brann
+    clubId: sk-brann
+    date: 2023-02-12
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354775790
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2022–23». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Brann selger sin andre midtstopper på to dager – gjenforenes med
+      LAN (Eurosport, 2023-02-12)
+      https://www.eurosport.no/fotball/eliteserien/2020/brann-selger-sin-andre-midtstopper-pa-to-da\
+      ger-gjenforenes-med-lan_sto9389974/story.shtml"
+  - id: ut-asane-2024
+    direction: out
+    kind: loan
+    club: Åsane
+    clubId: asane
+    date: 2024-01-09
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354776072
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2023–24». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/kolskogen-solgt-til-asane
+        retrievedAt: 2024-01-09
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Kolskogen solgt til Åsane
+    note: "Kilden fotnoten peker på: Kolskogen solgt til Åsane (Aalesunds FK, 2024-01-09)
+      https://www.aafk.no/nyheter/kolskogen-solgt-til-asane"

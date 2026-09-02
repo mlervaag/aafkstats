@@ -21,3 +21,52 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: ut-hodd-2022
+    direction: out
+    kind: loan
+    club: Hødd
+    clubId: hodd
+    date: 2022-07-01
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1363775092
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2022». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Kristoffer Strand Ødven på utlån ut 2022-sesongen (IL Hødd,
+      2022-07-01) https://www.hodd.no/nyheiter/kristoffer-strand-odven-pa-utlan-ut-2022-sesongen"
+  - id: ut-released-2023
+    direction: out
+    kind: released
+    club: null
+    date: 2023-08-03
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354769639
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2023». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/odven-trapper-ned
+        retrievedAt: 2023-08-03
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Ødven trapper ned
+    note: "Kilden fotnoten peker på: Ødven trapper ned (Aalesunds FK, 2023-08-03)
+      https://www.aafk.no/nyheter/odven-trapper-ned"

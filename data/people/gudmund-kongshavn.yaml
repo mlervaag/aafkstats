@@ -1,0 +1,31 @@
+id: gudmund-kongshavn
+name: Gudmund Kongshavn
+names: []
+squadNumbers: []
+coachSpells: []
+roles: []
+transfers:
+  - id: ut-dinamo-bucuresti-2021
+    direction: out
+    kind: transfer
+    club: Dinamo București
+    date: 2021-02-08
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365491811
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2020–21». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Kongshavn bekreftet klar for utenlandseventyr (Eurosport,
+      2021-02-08)
+      https://www.eurosport.no/fotball/kongshavn-bekreftet-klar-for-utenlandseventyr_sto8108696/sto\
+      ry.shtml"
+providers: []
+sources: []
+conflicts: []

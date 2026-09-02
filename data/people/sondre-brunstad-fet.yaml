@@ -32,3 +32,45 @@ providers:
     fields:
       - wikidata
     note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
+transfers:
+  - id: ut-bodo-glimt-2020
+    direction: out
+    kind: loan
+    club: Bodø/Glimt
+    clubId: bodo-glimt
+    date: 2020-05-29
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1363056004
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2020». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Sondre Brunstad Fet klar for Glimt (FK Bodø/Glimt, 2020-05-29)
+      https://www.glimt.no/nyheter/sondre-brunstad-fet-klar-for-glimt"
+  - id: ut-bodo-glimt-2021
+    direction: out
+    kind: loan
+    club: Bodø/Glimt
+    clubId: bodo-glimt
+    date: 2020-10-27
+    season: 2021
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365491811
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2020–21». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Brunstad Fet til Glimt permanent (NRK, 2020-10-27)
+      https://www.nrk.no/sport/brunstad-fet-til-glimt-permanent-1.15218104"

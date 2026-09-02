@@ -17,3 +17,61 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: ut-lillestrom-2024
+    direction: out
+    kind: transfer
+    club: Lillestrøm
+    clubId: lillestrom
+    date: 2024-09-01
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354769893
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2024». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/moctar-diop-solgt-til-lsk
+        retrievedAt: 2024-09-01
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Moctar Diop solgt til LSK
+    note: "Kilden fotnoten peker på: Moctar Diop solgt til LSK (Aalesunds FK, 2024-09-01)
+      https://www.aafk.no/nyheter/moctar-diop-solgt-til-lsk"
+  - id: inn-espoirs-de-guediewaye-2023
+    direction: in
+    kind: transfer
+    club: Espoirs de Guediewaye
+    date: 2023-04-01
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354775790
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2022–23». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/moctar-har-signert
+        retrievedAt: 2023-04-01
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Moctar har signert
+    note: "Kilden fotnoten peker på: Moctar har signert (Aalesunds FK, 2023-04-01)
+      https://www.aafk.no/nyheter/moctar-har-signert"

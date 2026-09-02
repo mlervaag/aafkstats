@@ -766,6 +766,11 @@ export function crossValidate(archive: Archive): LoadIssue[] {
       // Klubb-ID-en er valgfri nettopp fordi klubbkatalogen bare inneholder
       // motstandere. Er den satt, skal den peke på en klubb som finnes — ellers
       // lenker overgangen til en side som ikke er der.
+      for (const pr of t.providers) {
+        if (!providerIds.has(pr.providerId)) {
+          at(`transfers.${t.id}.providers`, `ukjent kilde «${pr.providerId}» — mangler data/providers/${pr.providerId}.yaml`);
+        }
+      }
       if (t.clubId !== undefined && !clubIds.has(t.clubId)) {
         at(`transfers.${t.id}.clubId`, `ukjent klubb «${t.clubId}» — la feltet stå tomt når klubben ikke finnes i data/clubs/`);
       }

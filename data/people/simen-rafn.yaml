@@ -19,3 +19,47 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-lillestrom-2021
+    direction: in
+    kind: transfer
+    club: Lillestrøm
+    clubId: lillestrom
+    date: 2021-03-17
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365491811
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2020–21». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Tidligere LSK-spiller nummer tre er klar for Aalesund (Eurosport,
+      2021-03-17)
+      https://www.eurosport.no/fotball/obos-ligaen/2020/tidligere-lsk-spiller-nummer-tre-er-klar-fo\
+      r-aalesund_sto8180601/story.shtml"
+  - id: ut-fredrikstad-2023
+    direction: out
+    kind: transfer
+    club: Fredrikstad
+    clubId: fredrikstad
+    date: 2022-11-21
+    season: 2023
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354775790
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2022–23». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Simen Rafn kommer hjem! (Fredrikstad FK, 2022-11-21)
+      https://www.fredrikstadfk.no/nyheter/simen-rafn-kommer-hjem"

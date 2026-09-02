@@ -19,3 +19,53 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-sarpsborg-08-2025
+    direction: in
+    kind: loan
+    club: Sarpsborg 08
+    clubId: sarpsborg-08
+    date: 2025-08-29
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1366510503
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2025». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/laner-skuseth-ut-sesongen-fra-sarpsborg-08
+        retrievedAt: 2025-08-29
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Låner Skuseth ut sesongen fra Sarpsborg 08
+    note: "Kilden fotnoten peker på: Låner Skuseth ut sesongen fra Sarpsborg 08 (Aalesunds FK,
+      2025-08-29) https://www.aafk.no/nyheter/laner-skuseth-ut-sesongen-fra-sarpsborg-08"
+  - id: ut-sarpsborg-08-2026
+    direction: out
+    kind: loan_return
+    club: Sarpsborg 08
+    clubId: sarpsborg-08
+    date: 2026-01-09
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1372362958
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2025–26». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Bekrefter interesse fra AaFK (Sunnmørsposten, 2026-01-09)
+      https://www.smp.no/sport/n/wrPwbM/bekrefter-interesse-fra-aafk"

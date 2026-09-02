@@ -18,3 +18,31 @@ providers:
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+transfers:
+  - id: inn-academy-2026
+    direction: in
+    kind: academy
+    club: null
+    date: "2026"
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1372785440
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2026». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/lag/tobias-leikanger
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Tobias Leikanger
+    note: "Kilden fotnoten peker på: Tobias Leikanger (Aalesunds FK)
+      https://www.aafk.no/lag/tobias-leikanger"

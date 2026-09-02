@@ -18,3 +18,62 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-kongsvinger-2023
+    direction: in
+    kind: transfer
+    club: Kongsvinger
+    clubId: kongsvinger
+    date: 2023-02-10
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354775790
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2022–23». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/ny-vingback-pa-plass
+        retrievedAt: 2023-02-10
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Ny vingback på plass!
+    note: "Kilden fotnoten peker på: Ny vingback på plass! (Aalesunds FK, 2023-02-10)
+      https://www.aafk.no/nyheter/ny-vingback-pa-plass"
+  - id: ut-hodd-2024
+    direction: out
+    kind: transfer
+    club: Hødd
+    clubId: hodd
+    date: 2024-03-21
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354776072
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2023–24». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/trace-murray-til-hodd
+        retrievedAt: 2024-03-21
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Trace Murray til Hødd
+    note: "Kilden fotnoten peker på: Trace Murray til Hødd (Aalesunds FK, 2024-03-21)
+      https://www.aafk.no/nyheter/trace-murray-til-hodd"

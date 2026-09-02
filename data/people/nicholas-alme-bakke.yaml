@@ -1,0 +1,70 @@
+id: nicholas-alme-bakke
+name: Nicholas Alme Bakke
+names: []
+squadNumbers: []
+coachSpells: []
+roles: []
+transfers:
+  - id: inn-volda-2025
+    direction: in
+    kind: transfer
+    club: Volda
+    clubId: volda
+    date: 2025-07-26
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1366510503
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2025». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/nicholas-alme-bakke-har-signert-proffkontrakt-med-aafk
+        retrievedAt: 2025-07-26
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Nicholas Alme Bakke har signert proffkontrakt med AaFK
+    note: "Kilden fotnoten peker på: Nicholas Alme Bakke har signert proffkontrakt med AaFK (Aalesunds
+      FK, 2025-07-26)
+      https://www.aafk.no/nyheter/nicholas-alme-bakke-har-signert-proffkontrakt-med-aafk"
+  - id: ut-volda-2025
+    direction: out
+    kind: loan
+    club: Volda
+    clubId: volda
+    date: 2025-07-26
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1366510503
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2025». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/nicholas-alme-bakke-har-signert-proffkontrakt-med-aafk
+        retrievedAt: 2025-07-26
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Nicholas Alme Bakke har signert proffkontrakt med AaFK
+    note: "Kilden fotnoten peker på: Nicholas Alme Bakke har signert proffkontrakt med AaFK (Aalesunds
+      FK, 2025-07-26)
+      https://www.aafk.no/nyheter/nicholas-alme-bakke-har-signert-proffkontrakt-med-aafk"
+providers: []
+sources: []
+conflicts: []

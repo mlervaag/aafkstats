@@ -1,0 +1,38 @@
+id: sander-kartum
+name: Sander Kartum
+names: []
+squadNumbers: []
+coachSpells: []
+roles: []
+transfers:
+  - id: inn-hearts-2026
+    direction: in
+    kind: transfer
+    club: Hearts
+    date: 2026-09-02
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1372785440
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2026». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/sander-kartum-er-klar-for-aafk
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Sander Kartum er klar for AaFK!
+    note: "Kilden fotnoten peker på: Sander Kartum er klar for AaFK! (Aalesunds FK, 2026-09-02)
+      https://www.aafk.no/nyheter/sander-kartum-er-klar-for-aafk"
+providers: []
+sources: []
+conflicts: []

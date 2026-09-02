@@ -23,3 +23,55 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-brann-2018
+    direction: in
+    kind: transfer
+    club: Brann
+    clubId: sk-brann
+    date: 2018-07-05
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468717
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2018». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/nyheter/vi-er-en-god-match
+        retrievedAt: 2018-07-05
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Vi er en god match
+    note: "Kilden fotnoten peker på: Vi er en god match (Aalesunds FK, 2018-07-05)
+      http://www.aafk.no/nyheter/vi-er-en-god-match"
+  - id: ut-langevag-2022
+    direction: out
+    kind: transfer
+    club: Langevåg
+    clubId: langevag
+    date: 2022-01-23
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369178074
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2021–22». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: I fjor spilte 27-åringen for AaFK. Nå er han klar for Langevåg.
+      (Sunnmørsposten, 2022-01-23)
+      https://www.smp.no/sport/aafk/i/EaEkjo/i-fjor-spilte-27-aaringen-for-aafk-naa-er-han-klar-for\
+      -langevaag"

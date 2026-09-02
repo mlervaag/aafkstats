@@ -18,3 +18,24 @@ providers:
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+transfers:
+  - id: inn-valerenga-2026
+    direction: in
+    kind: loan
+    club: Vålerenga
+    clubId: valerenga
+    date: 2026-03-26
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1372362958
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2025–26». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Kjetil Rekdal henter Eliteserie-profil (Sportsbibelen, 2026-03-26)
+      https://sportsbibelen.no/rekdal-henter-eliteserie-profil/"

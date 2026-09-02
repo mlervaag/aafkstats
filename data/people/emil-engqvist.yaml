@@ -18,3 +18,25 @@ providers:
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+transfers:
+  - id: inn-sandviken-2026
+    direction: in
+    kind: transfer
+    club: Sandviken
+    date: 2025-12-03
+    season: 2026
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1372362958
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2025–26». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Officiellt: Emil Engqvist klar för Ålesund (Fotbolltransfers,
+      2025-12-03)
+      https://fotbolltransfers.com/nyheter/officiellt-emil-engqvist-klar-for-alesund/210198"

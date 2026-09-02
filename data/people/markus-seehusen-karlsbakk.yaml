@@ -31,3 +31,155 @@ providers:
     fields:
       - wikidata
     note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
+transfers:
+  - id: inn-hodd-2020
+    direction: in
+    kind: loan_return
+    club: Hødd
+    clubId: hodd
+    date: 2020-06-05
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1363056004
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2020». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/markus-seehusen-karlsbakk-tilbakekalles
+        retrievedAt: 2020-06-05
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Markus Seehusen Karlsbakk tilbakekalles
+    note: "Kilden fotnoten peker på: Markus Seehusen Karlsbakk tilbakekalles (Aalesunds FK, 2020-06-05)
+      https://www.aafk.no/nyheter/markus-seehusen-karlsbakk-tilbakekalles"
+  - id: ut-lillestrom-2024
+    direction: out
+    kind: transfer
+    club: Lillestrøm
+    clubId: lillestrom
+    date: 2024-05-28
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354769893
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2024». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Markus Karlsbakk blir LSK-spiller: Signerte avtale ut 2028
+      (Lillestrøm SK, 2024-05-28)
+      https://www.lsk.no/nyheter/markus-karlsbakk-blir-lsk-spiller-signerte-avtale-ut-2028"
+  - id: ut-hodd-2020
+    direction: out
+    kind: loan
+    club: Hødd
+    clubId: hodd
+    date: 2020-01-15
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468730
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2019–20». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/forlenger-og-lanes-ut
+        retrievedAt: 2020-01-15
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Forlenger og lånes ut
+    note: "Kilden fotnoten peker på: Forlenger og lånes ut
+      https://www.aafk.no/nyheter/forlenger-og-lanes-ut"
+  - id: ut-raufoss-2021
+    direction: out
+    kind: loan
+    club: Raufoss
+    clubId: raufoss-il
+    date: 2021-04-14
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365491811
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2020–21». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/lanes-ut-til-raufoss
+        retrievedAt: 2021-04-14
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lånes ut til Raufoss
+    note: "Kilden fotnoten peker på: Lånes ut til Raufoss (Aalesunds FK, 2021-04-14)
+      https://www.aafk.no/nyheter/lanes-ut-til-raufoss"
+  - id: ut-raufoss-2022
+    direction: out
+    kind: loan
+    club: Raufoss
+    clubId: raufoss-il
+    date: 2022-03-03
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369178074
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2021–22». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Oppdatert oversikt: Dette er vinterens overganger i Eliteserien
+      https://www.eurosport.no/fotball/eliteserien/2020/oppdatert-oversikt-her-er-vinterens-overgan\
+      ger-i-eliteserien_sto8825863/story.shtml"
+  - id: inn-raufoss-2023
+    direction: in
+    kind: loan_return
+    club: Raufoss
+    clubId: raufoss-il
+    date: 2022-12-09
+    season: 2023
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354775790
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2022–23». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Ny Sunnmørsball: Bekrefter at to spillere er ferdige i AaFK
+      (Sunnmørsposten, 2022-12-09)
+      https://www.smp.no/sport/i/y6z6Ba/ny-sunnmoersball-bekrefter-at-to-spillere-er-ferdige-i-aafk"

@@ -19,3 +19,43 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-meizhou-hakka-2019
+    direction: in
+    kind: transfer
+    club: Meizhou Hakka
+    date: "2019"
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1361726276
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2019». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Izunna Uzochukwu til AaFK
+      https://www.nrk.no/mr/izunna-uzochukwu-til-aafk-1.14499967"
+  - id: ut-released-2021
+    direction: out
+    kind: released
+    club: null
+    date: 2021-01-04
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365491811
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2020–21». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Midtbanespiller ferdig i Aalesund (Eurosport, 2021-01-04)
+      https://www.eurosport.no/fotball/obos-ligaen/2020/midtbanespiller-ferdig-i-aalesund_sto805325\
+      3/story.shtml"

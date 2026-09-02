@@ -27,3 +27,73 @@ providers:
     fields:
       - wikidata
     note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
+transfers:
+  - id: inn-duque-de-caxias-2015
+    direction: in
+    kind: transfer
+    club: Duque de Caxias
+    date: 2015-08-17
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369861440
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2015». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Aalesund henter brasilianer: - Må innrømme at jeg vet lite om han
+      (Sunnmørsposten, 2015-08-17) http://www.smp.no/100Sport/fotball/eliteserien/article584343.snd"
+  - id: inn-duque-de-caxias-2016
+    direction: in
+    kind: loan
+    club: Duque de Caxias
+    date: 2015-12-15
+    season: 2016
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369966462
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2015–16». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/news/article/1okvbiw815mae1li1vfm5hw1oh/title/marlinho-blir-aafk-spiller-ut-2018
+        retrievedAt: 2015-12-15
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Marlinho blir AaFK-spiller ut 2018
+    note: "Kilden fotnoten peker på: Marlinho blir AaFK-spiller ut 2018 (Aalesunds FK, 2015-12-15)
+      http://www.aafk.no/news/article/1okvbiw815mae1li1vfm5hw1oh/title/marlinho-blir-aafk-spiller-u\
+      t-2018"
+  - id: ut-kongsvinger-2018
+    direction: out
+    kind: transfer
+    club: Kongsvinger
+    clubId: kongsvinger
+    date: 2018-02-09
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468729
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2017–18». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Brasilianer til KIL (Kongsvinger IL Toppfotball, 2018-02-09)
+      http://www.kil.no/nyheter/brasilianer-til-kil"

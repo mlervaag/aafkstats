@@ -1,0 +1,30 @@
+id: stale-saethre
+name: Ståle Sæthre
+names: []
+squadNumbers: []
+coachSpells: []
+roles: []
+transfers:
+  - id: ut-sandnes-ulf-2021
+    direction: out
+    kind: transfer
+    club: Sandnes Ulf
+    clubId: sandnes-ulf
+    date: 2021-01-15
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365491811
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2020–21». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Stålinho i lyseblått (Sandnes Ulf, 2021-01-15)
+      https://www.sandnesulf.no/nyheter/stalinho-i-lyseblatt"
+providers: []
+sources: []
+conflicts: []

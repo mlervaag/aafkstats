@@ -31,3 +31,147 @@ providers:
   fields:
   - wikidata
   note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
+transfers:
+  - id: inn-academy-2023
+    direction: in
+    kind: academy
+    club: null
+    date: "2023"
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354769639
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2023». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/lag
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lag
+    note: "Kilden fotnoten peker på: Lag (Aalesunds FK) https://www.aafk.no/lag"
+  - id: ut-jerv-2025
+    direction: out
+    kind: loan
+    club: Jerv
+    clubId: jerv
+    date: 2025-06-18
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1366510503
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2025». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/gregersen-returnerer-til-s08-og-kolve-kommer-hjem
+        retrievedAt: 2025-06-18
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Gregersen returnerer til S08, og Kolve kommer hjem
+    note: "Kilden fotnoten peker på: Gregersen returnerer til S08, og Kolve kommer hjem (Aalesunds FK,
+      2025-06-18) https://www.aafk.no/nyheter/gregersen-returnerer-til-s08-og-kolve-kommer-hjem"
+  - id: ut-jerv-2026
+    direction: out
+    kind: loan
+    club: Jerv
+    clubId: jerv
+    date: 2026-06-22
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1372785440
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2026». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/eivind-kolve-fullforer-en-permanent-overgang-til-jerv
+        retrievedAt: 2026-06-22
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Eivind Kolve fullfører en permanent overgang til Jerv
+    note: "Kilden fotnoten peker på: Eivind Kolve fullfører en permanent overgang til Jerv (Aalesunds
+      FK, 2026-06-22)
+      https://www.aafk.no/nyheter/eivind-kolve-fullforer-en-permanent-overgang-til-jerv"
+  - id: ut-levanger-2025
+    direction: out
+    kind: loan
+    club: Levanger
+    clubId: levanger
+    date: 2025-03-18
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1368388589
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2024–25». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/kolve-lanes-ut-frem-til-sommeren
+        retrievedAt: 2025-03-18
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Kolve lånes ut frem til sommeren
+    note: "Kilden fotnoten peker på: Kolve lånes ut frem til sommeren (Aalesunds FK, 2025-03-18)
+      https://www.aafk.no/nyheter/kolve-lanes-ut-frem-til-sommeren"
+  - id: ut-brattvag-2026
+    direction: out
+    kind: loan
+    club: Brattvåg
+    clubId: brattvag
+    date: 2026-02-02
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1372362958
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2025–26». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/kolve-lanes-ut-til-brattvag
+        retrievedAt: 2026-02-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Kolve lånes ut til Brattvåg
+    note: "Kilden fotnoten peker på: Kolve lånes ut til Brattvåg (Aalesunds FK, 2026-02-02)
+      https://www.aafk.no/nyheter/kolve-lanes-ut-til-brattvag"

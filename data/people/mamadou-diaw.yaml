@@ -23,3 +23,102 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-transfer-2020
+    direction: in
+    kind: transfer
+    club: null
+    date: 2020-10-15
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1363056004
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2020». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Korona satt 19-åringen i en uventet situasjon – nå er han klar for
+      AaFK (Eurosport, 2020-10-15)
+      https://www.eurosport.no/fotball/eliteserien/2020/korona-satt-19-aringen-i-en-uventet-situasj\
+      on-na-er-han-klar-for-aafk_sto7950927/story.shtml"
+  - id: ut-bryne-2022
+    direction: out
+    kind: loan
+    club: Bryne
+    clubId: bryne
+    date: 2022-09-01
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1363775092
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2022». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/en-flott-mulighet-for-meg
+        retrievedAt: 2022-09-01
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: En flott mulighet for meg
+    note: "Kilden fotnoten peker på: En flott mulighet for meg (AaFK, 2022-09-01)
+      https://www.aafk.no/nyheter/en-flott-mulighet-for-meg"
+  - id: ut-sandnes-ulf-2023
+    direction: out
+    kind: loan
+    club: Sandnes Ulf
+    clubId: sandnes-ulf
+    date: 2023-07-10
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354769639
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2023». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Diaw vender tilbake (Bryne FK, 2023-07-10)
+      https://www.brynefk.no/nyheter/diaw-vender-tilbake"
+  - id: ut-keflavik-2024
+    direction: out
+    kind: loan
+    club: Keflavík
+    date: 2024-01-23
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354776072
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2023–24». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/diaw-til-keflavik
+        retrievedAt: 2024-01-23
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Diaw til Keflavík
+    note: "Kilden fotnoten peker på: Diaw til Keflavík (Aalesunds FK, 2024-01-23)
+      https://www.aafk.no/nyheter/diaw-til-keflavik"

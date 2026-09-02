@@ -29,3 +29,51 @@ providers:
     fields:
       - wikidata
     note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
+transfers:
+  - id: inn-academy-2019
+    direction: in
+    kind: academy
+    club: null
+    date: 2019-06-18
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1361726276
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2019». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Lokalt stortalent signerte med AaFK
+      https://www.nrk.no/mr/lokalt-stortalent-signerte-med-aafk-1.14593889"
+  - id: ut-groningen-2022
+    direction: out
+    kind: transfer
+    club: Groningen
+    date: 2022-07-28
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1363775092
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2022». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/aafk-har-betydd-utrolig-mye-for-meg
+        retrievedAt: 2022-07-28
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Aafk har betydd utrolig mye for meg
+    note: "Kilden fotnoten peker på: Aafk har betydd utrolig mye for meg (Aalesunds FK, 2022-07-28)
+      https://www.aafk.no/nyheter/aafk-har-betydd-utrolig-mye-for-meg"

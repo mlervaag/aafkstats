@@ -823,11 +823,14 @@ transfers:
     clubId: volda              # arkivets klubb, bare når den finnes i data/clubs/
     date: "1950"               # ÅÅÅÅ eller ÅÅÅÅ-MM-DD. «Høsten 1950» er 1950
     sources: [{ sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73, page: "12" }]
+    # eller, for en nettmelding:
+    providers:
+      - { providerId: wikipedia, url: "https://en.wikipedia.org/w/index.php?oldid=…", retrievedAt: "2026-09-02" }
 ```
 
 | Regel | Hvorfor |
 |---|---|
-| Minst én kilde | En overgang uten proveniens er et rykte. Samme krav som rollene har |
+| Minst én kilde | En overgang uten proveniens er et rykte. Samme krav som rollene har. Enten `sources` (en publikasjon i `data/sources/`) eller `providers` (en nettmelding med adresse og hentetid) — en klubbmelding er ikke et dokument med sidetall, og én kildefil per nyhetssak ville fylt publikasjonskatalogen med lenker |
 | `club` overskrives aldri av `clubId` | «Volda T. & I.L.» er hva medlemsbladet skrev. ID-en kommer i tillegg, ikke i stedet |
 | `clubId` er valgfri | Klubbkatalogen er motstandere. En spiller går ofte til en klubb AaFK aldri har møtt, og da skal feltet stå tomt — ikke utløse en ny klubbfil |
 | `retired` og `released` har ingen klubb | De betyr nettopp at kilden ikke oppgir noen. En klubb i tillegg er to påstander som motsier hverandre |

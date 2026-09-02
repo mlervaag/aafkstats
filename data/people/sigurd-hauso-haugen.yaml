@@ -20,3 +20,60 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-union-sg-2020
+    direction: in
+    kind: transfer
+    club: Union SG
+    date: 2020-05-29
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1363056004
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2020». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/sigurd-haugen-er-klar-for-aafk
+        retrievedAt: 2020-05-29
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Sigurd Haugen er klar for AaFK
+    note: "Kilden fotnoten peker på: Sigurd Haugen er klar for AaFK (Aalesunds FK, 2020-05-29)
+      https://www.aafk.no/nyheter/sigurd-haugen-er-klar-for-aafk"
+  - id: ut-agf-2022
+    direction: out
+    kind: transfer
+    club: AGF
+    date: 2022-07-07
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1363775092
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2022». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/en-avtale-vi-ikke-kunne-si-nei-til
+        retrievedAt: 2022-07-07
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: En avtale vi ikke kunne si nei til
+    note: "Kilden fotnoten peker på: En avtale vi ikke kunne si nei til (Aalesunds FK, 2022-07-07)
+      https://www.aafk.no/nyheter/en-avtale-vi-ikke-kunne-si-nei-til"

@@ -17,3 +17,50 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-academy-2023
+    direction: in
+    kind: academy
+    club: null
+    date: "2023"
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354769639
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2023». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/lag
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lag
+    note: "Kilden fotnoten peker på: Lag (Aalesunds FK) https://www.aafk.no/lag"
+  - id: ut-hodd-2024
+    direction: out
+    kind: transfer
+    club: Hødd
+    clubId: hodd
+    date: 2024-02-13
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354776072
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2023–24». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Iver Hagen klar for Hødd
+      https://www.vikebladet.no/sport/i/15KgyB/iver-hagen-klar-for-hoedd"

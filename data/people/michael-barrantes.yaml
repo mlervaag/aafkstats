@@ -31,3 +31,32 @@ note: >-
   Kampaktiviteten er utledet av lagoppstillingene, ikke av denne fila. Fila
   finnes fordi 134 kamper og 48 mål fortjener posisjon, nasjonalitet og en
   peker videre.
+transfers:
+  - id: ut-shanghai-shenzin-2015
+    direction: out
+    kind: transfer
+    club: Shanghai Shenzin
+    date: 2015-06-18
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369861440
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2015». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/news/article/10azezuzw0qqw1drfupx9exa5u/title/barrantes-til-kina
+        retrievedAt: 2015-06-18
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Barrantes til Kina
+    note: "Kilden fotnoten peker på: Barrantes til Kina (Aalesunds FK, 2015-06-18)
+      http://www.aafk.no/news/article/10azezuzw0qqw1drfupx9exa5u/title/barrantes-til-kina"

@@ -26,3 +26,60 @@ providers:
     fields:
       - wikidata
     note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
+transfers:
+  - id: inn-roda-2016
+    direction: in
+    kind: transfer
+    club: Roda
+    date: 2016-03-01
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369966462
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2015–16». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/news/article/17uyuqpyrbvn415xyebahr8dms/title/ny-spiller
+        retrievedAt: 2016-03-01
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Edwin Gyasi har signert ut 2018!
+    note: "Kilden fotnoten peker på: Edwin Gyasi har signert ut 2018! (Aalesunds FK, 2016-03-01)
+      http://www.aafk.no/news/article/17uyuqpyrbvn415xyebahr8dms/title/ny-spiller"
+  - id: ut-cska-sofia-2018
+    direction: out
+    kind: transfer
+    club: CSKA Sofia
+    date: 2018-02-15
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468729
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2017–18». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/nyheter/gyasi-til-bulgarsk-toppklubb
+        retrievedAt: 2018-02-15
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Gyasi til bulgarsk toppklubb
+    note: "Kilden fotnoten peker på: Gyasi til bulgarsk toppklubb (Aalesunds FK, 2018-02-15)
+      http://www.aafk.no/nyheter/gyasi-til-bulgarsk-toppklubb"

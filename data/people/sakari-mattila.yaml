@@ -18,3 +18,62 @@ providers:
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+transfers:
+  - id: ut-fulham-2015
+    direction: out
+    kind: transfer
+    club: Fulham
+    date: 2015-08-04
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369861440
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2015». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/news/article/1v793mjiy54m71vdbb541idkna/title/mattila-til-fulham-fc
+        retrievedAt: 2015-08-04
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Mattila til Fulham FC
+    note: "Kilden fotnoten peker på: Mattila til Fulham FC (Aalesunds FK, 2015-08-04)
+      http://www.aafk.no/news/article/1v793mjiy54m71vdbb541idkna/title/mattila-til-fulham-fc"
+  - id: inn-hjk-2014
+    direction: in
+    kind: transfer
+    club: HJK
+    date: 2013-11-03
+    season: 2014
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1364213402
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2013–14». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/latest-news/article/1rsz9o4defazx19fst2aq53gf9/title/finsk-landslagsspiller-klar-for-aafk
+        retrievedAt: 2013-11-03
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Finsk landslagsspiller klar AaFK
+    note: "Kilden fotnoten peker på: Finsk landslagsspiller klar AaFK
+      http://www.aafk.no/latest-news/article/1rsz9o4defazx19fst2aq53gf9/title/finsk-landslagsspille\
+      r-klar-for-aafk"

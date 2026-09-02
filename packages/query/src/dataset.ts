@@ -460,6 +460,7 @@ export const views: ViewDoc[] = [
       "Bare personer med egen personfil kan ha overganger her. En spiller som bare finnes som et navn i oppstillingene har ingen rad, og det er en manglende fil, ikke en manglende overgang.",
       "club er kildens egen skrivemåte. club_id er satt bare når klubben finnes i arkivet, og klubbkatalogen inneholder motstandere. NULL betyr at klubben ikke er registrert, ikke at den er ukjent.",
       "Ingen overgangssum. Beløp er sjelden dokumentert og lagres ikke som eget felt.",
+      "Hver rad har enten sources eller providers, aldri ingen av delene. sources er historiske publikasjoner, providers er nettmeldinger med adresse og hentetid.",
     ],
     columns: [
       { name: "person_id", type: "text", description: "Personens stabile ID." },
@@ -470,7 +471,8 @@ export const views: ViewDoc[] = [
       { name: "date", type: "text", description: "Datoen kilden oppgir, som ÅÅÅÅ eller ÅÅÅÅ-MM-DD. «Høsten 1950» står som 1950." },
       { name: "club_id", type: "text", description: "Den andre klubbens ID når den finnes i arkivet. NULL ellers." },
       { name: "club", type: "text", description: "Den andre klubben, med kildens egen skrivemåte. NULL når kilden ikke oppgir noen, altså 'released' og 'retired'." },
-      { name: "sources", type: "JSON", description: "Publikasjon, side og dokumenterte felt. Alltid minst én." },
+      { name: "sources", type: "JSON", description: "Historisk publikasjon, side og dokumenterte felt. Tom når kilden er en nettmelding." },
+      { name: "providers", type: "JSON", description: "Dataleverandør, adresse og hentetid. Brukes for nettmeldinger, som ikke er dokumenter i kildekatalogen." },
       { name: "note", type: "text", description: "Redaksjonelt forbehold eller det kilden sier utover feltene." },
       { name: "url", type: "text", description: "Lenke til personsiden." },
     ],

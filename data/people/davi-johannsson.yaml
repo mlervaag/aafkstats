@@ -31,3 +31,25 @@ providers:
     note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
 note: >-
   FotMob skriver det islandske navnet uten aksenter og med mellomnavnet med.
+transfers:
+  - id: inn-fh-2024
+    direction: in
+    kind: transfer
+    club: FH
+    date: 2023-12-19
+    season: 2024
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354776072
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2023–24». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Signerte islandsk U21-landslagsspiller (Eurosport, 2023-12-19)
+      https://www.eurosport.no/fotball/obos-ligaen/2021/obos-ligaklubb-signerte-islandsk-u21-landsl\
+      agsspiller_sto9929625/story.shtml"

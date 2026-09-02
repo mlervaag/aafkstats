@@ -16,3 +16,51 @@ providers:
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+transfers:
+  - id: ut-kortrijk-2017
+    direction: out
+    kind: loan_return
+    club: Kortrijk
+    date: 2017-07-08
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354768239
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2017». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Veldwijk forlater AaFK: – En vanskelig avgjørelse (NRK, 2017-07-08)
+      https://www.nrk.no/mr/veldwijk-forlater-aafk_-_-en-vanskelig-avgjorelse-1.13594672"
+  - id: inn-kortrijk-2017
+    direction: in
+    kind: loan
+    club: Kortrijk
+    date: 2017-03-31
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354772307
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2016–17». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/nyheter/aafk-signerer-ny-spiss
+        retrievedAt: 2017-03-31
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: AaFK signerer ny spiss
+    note: "Kilden fotnoten peker på: AaFK signerer ny spiss (Aalesunds FK, 2017-03-31)
+      http://www.aafk.no/nyheter/aafk-signerer-ny-spiss"

@@ -19,3 +19,34 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-moss-2025
+    direction: in
+    kind: transfer
+    club: Moss
+    clubId: moss
+    date: 2024-12-17
+    season: 2025
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1368388589
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2024–25». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/andresen-er-klar-for-aafk
+        retrievedAt: 2024-12-17
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Andresen er klar for AaFK!
+    note: "Kilden fotnoten peker på: Andresen er klar for AaFK! (Aalesunds FK, 2024-12-17)
+      https://www.aafk.no/nyheter/andresen-er-klar-for-aafk"

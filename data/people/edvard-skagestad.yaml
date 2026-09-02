@@ -34,3 +34,73 @@ sources:
     page: "349"
     fields: []
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+transfers:
+  - id: ut-ifk-norrkoping-2014
+    direction: out
+    kind: transfer
+    club: IFK Norrköping
+    date: 2013-11-29
+    season: 2014
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1364213402
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2013–14». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Skagestad klar for ny klubb
+      http://www.nettavisen.no/sport/fotball/article3719847.ece"
+  - id: inn-ifk-norrkoping-2015
+    direction: in
+    kind: transfer
+    club: IFK Norrköping
+    date: 2015-03-24
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1368964463
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2014–15». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/latest-news/article/1jp64oy4g3ub1x39paue8884n/title/skagestad-tilbake-i-aafk
+        retrievedAt: 2015-03-24
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Skagestad vender tilbake til AaFK
+    note: "Kilden fotnoten peker på: Skagestad vender tilbake til AaFK (Aalesunds FK, 2015-03-24)
+      http://www.aafk.no/latest-news/article/1jp64oy4g3ub1x39paue8884n/title/skagestad-tilbake-i-aa\
+      fk"
+  - id: ut-fredrikstad-2017
+    direction: out
+    kind: transfer
+    club: Fredrikstad
+    clubId: fredrikstad
+    date: 2017-01-05
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354772307
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2016–17». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Edvard Skagestad signerte for FFK (Fredrikstad FK, 2017-01-05)
+      http://www.fredrikstadfk.no/nyheter/edvard-skagestad-signerte-for-ffk"

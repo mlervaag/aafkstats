@@ -113,6 +113,15 @@ function parseStringArray(value: string | null): string[] {
   }
 }
 
+function parseProviders(value: string): PersonTransferProvider[] {
+  try {
+    const parsed: unknown = JSON.parse(value);
+    return Array.isArray(parsed) ? parsed as PersonTransferProvider[] : [];
+  } catch {
+    return [];
+  }
+}
+
 function parseRoleSources(value: string): PersonRoleSource[] {
   try {
     const parsed: unknown = JSON.parse(value);
@@ -239,7 +248,16 @@ export interface PersonTransfer {
   club_id: string | null;
   club: string | null;
   sources: PersonRoleSource[];
+  providers: PersonTransferProvider[];
   note: string | null;
+}
+
+/** En nettmelding som belegger overgangen: hvem som publiserte den, og hvor. */
+export interface PersonTransferProvider {
+  providerId: string;
+  url?: string;
+  retrievedAt?: string;
+  note?: string;
 }
 
 /**
@@ -252,13 +270,17 @@ export interface PersonTransfer {
 export function getPersonTransfers(personId: string): PersonTransfer[] {
   const db = open();
   try {
-    const rows = all<Omit<PersonTransfer, "sources"> & { sources: string }>(
+    const rows = all<Omit<PersonTransfer, "sources" | "providers"> & { sources: string; providers: string }>(
       db,
-      `SELECT person_id, name, direction, kind, season, date, club_id, club, sources, note
+      `SELECT person_id, name, direction, kind, season, date, club_id, club, sources, providers, note
          FROM transfers WHERE person_id = ? ORDER BY date, direction`,
       personId,
     );
-    return rows.map((row) => ({ ...row, sources: parseRoleSources(row.sources) }));
+    return rows.map((row) => ({
+      ...row,
+      sources: parseRoleSources(row.sources),
+      providers: parseProviders(row.providers),
+    }));
   } finally {
     db.close();
   }

@@ -17,3 +17,45 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-strommen-2019
+    direction: in
+    kind: transfer
+    club: Strømmen
+    clubId: strommen
+    date: 2019-09-03
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1361726276
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2019». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Dette er de bekreftede overgangene i OBOS-ligaen
+      https://www.eurosport.no/fotball/obos-ligaen/2019/dette-er-de-bekreftede-overgangene-i-obos-l\
+      igaen_2_sto7440505/story.shtml"
+  - id: ut-oygarden-2020
+    direction: out
+    kind: transfer
+    club: Øygarden
+    clubId: oygarden-fk
+    date: 2020-03-08
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468730
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2019–20». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: ØFK signerer sisteskanse Marius Berntzen (Øygarden FK, 2020-03-08)
+      https://oygardenfk.no/nyheter/ofk-signerer-sisteskanse-marius-berntzen"

@@ -17,3 +17,33 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-stromsgodset-2024
+    direction: in
+    kind: transfer
+    club: Strømsgodset
+    clubId: stromsgodset
+    date: 2024-02-27
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354776072
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2023–24». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/thomas-grogaard-til-aafk
+        retrievedAt: 2024-02-27
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Thomas Grøgaard til AaFK
+    note: "Kilden fotnoten peker på: Thomas Grøgaard til AaFK (Aalesunds FK, 2024-02-27)
+      https://www.aafk.no/nyheter/thomas-grogaard-til-aafk"

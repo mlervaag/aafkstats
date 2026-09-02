@@ -16,3 +16,26 @@ providers:
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+transfers:
+  - id: inn-heracles-2023
+    direction: in
+    kind: transfer
+    club: Heracles
+    date: 2022-12-22
+    season: 2023
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354775790
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2022–23». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Fikk 15 kamper for Odd - Nå returnerer han til Eliteserien
+      (Eurosport, 2022-12-22)
+      https://www.eurosport.no/fotball/eliteserien/2021/fikk-15-kamper-for-odd-na-returnerer-han-ti\
+      l-eliteserien_sto9285295/story.shtml"

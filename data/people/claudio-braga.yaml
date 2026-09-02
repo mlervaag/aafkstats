@@ -17,3 +17,52 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: ut-hearts-2025
+    direction: out
+    kind: transfer
+    club: Hearts
+    date: 2025-06-15
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1366510503
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2025». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Hearts buy striker Braga from Aalesunds (BBC Sport, 2025-06-15)
+      https://www.bbc.com/sport/football/articles/cwyjy87dk06o"
+  - id: inn-moss-2024
+    direction: in
+    kind: transfer
+    club: Moss
+    clubId: moss
+    date: 2024-02-05
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354776072
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2023–24». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/braga-er-var
+        retrievedAt: 2024-02-05
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Braga er vår!
+    note: "Kilden fotnoten peker på: Braga er vår! (Aalesunds FK, 2024-02-05)
+      https://www.aafk.no/nyheter/braga-er-var"

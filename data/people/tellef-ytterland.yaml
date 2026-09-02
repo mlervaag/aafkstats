@@ -1,0 +1,49 @@
+id: tellef-ytterland
+name: Tellef Ytterland
+names: []
+squadNumbers: []
+coachSpells: []
+roles: []
+transfers:
+  - id: inn-academy-2025
+    direction: in
+    kind: academy
+    club: null
+    date: 2025-06-15
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1366510503
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2025». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: AaFK-legendens sønn har fått proffkontrakt
+      https://www.smp.no/sport/n/gwmzkk/aafk-legendens-soenn-har-faatt-proffkontrakt"
+  - id: ut-levanger-2026
+    direction: out
+    kind: transfer
+    club: Levanger
+    clubId: levanger
+    date: 2026-02-23
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1372362958
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2025–26». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Tidligere AaFK-spiller klar for ny klubb
+      https://www.smp.no/sport/n/pBQ6EE/tidligere-aafk-spiller-klar-for-ny-klubb"
+providers: []
+sources: []
+conflicts: []

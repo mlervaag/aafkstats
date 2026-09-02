@@ -17,3 +17,53 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-mjondalen-2021
+    direction: in
+    kind: transfer
+    club: Mjøndalen
+    clubId: mjondalen
+    date: 2021-04-29
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365491811
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2020–21». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/tidligere-mjondalen-spiller-har-signert
+        retrievedAt: 2021-04-29
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Tidligere Mjøndalen-spiller har signert
+    note: "Kilden fotnoten peker på: Tidligere Mjøndalen-spiller har signert (Aalesunds FK, 2021-04-29)
+      https://www.aafk.no/nyheter/tidligere-mjondalen-spiller-har-signert"
+  - id: ut-sandefjord-2022
+    direction: out
+    kind: transfer
+    club: Sandefjord
+    clubId: sandefjord
+    date: 2022-02-08
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369178074
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2021–22». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Nederlandske Quint Jansen klar for SF
+      https://www.sandefjordfotball.no/nyheter/nederlandske-quint-jansen-klar-for-sf"

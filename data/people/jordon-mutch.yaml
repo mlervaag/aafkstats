@@ -18,3 +18,53 @@ providers:
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+transfers:
+  - id: ut-released-2020
+    direction: out
+    kind: released
+    club: null
+    date: 2020-09-22
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1363056004
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2020». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Hadde kontrakt ut sesongen – ferdig i klubben (Eurosport,
+      2020-09-22)
+      https://www.eurosport.no/fotball/eliteserien/2020/hadde-kontrakt-ut-sesongen-ferdig-i-klubben\
+      _sto7899963/story.shtml"
+  - id: inn-free-2020
+    direction: in
+    kind: free
+    club: null
+    date: 2020-02-24
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468730
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2019–20». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/jordon-mutch-er-aafk-spiller
+        retrievedAt: 2020-02-24
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Jordon Mutch er AaFK-spiller
+    note: "Kilden fotnoten peker på: Jordon Mutch er AaFK-spiller (Aalesunds FK, 2020-02-24)
+      https://www.aafk.no/nyheter/jordon-mutch-er-aafk-spiller"

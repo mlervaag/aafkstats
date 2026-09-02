@@ -28,3 +28,63 @@ providers:
     fields:
       - wikidata
     note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
+transfers:
+  - id: inn-grorud-2022
+    direction: in
+    kind: transfer
+    club: Grorud
+    clubId: grorud
+    date: 2022-08-23
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1363775092
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2022». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/derfor-valgte-snapperen-aafk
+        retrievedAt: 2022-08-23
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Derfor valgte "Snapperen" AaFK
+    note: 'Kilden fotnoten peker på: Derfor valgte "Snapperen" AaFK (AaFK, 2022-08-23)
+      https://www.aafk.no/nyheter/derfor-valgte-snapperen-aafk'
+  - id: ut-kfum-2025
+    direction: out
+    kind: transfer
+    club: KFUM
+    clubId: kfum
+    date: 2024-12-19
+    season: 2025
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1368388589
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2024–25». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/kristensen-solgt-til-kfum
+        retrievedAt: 2024-12-19
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: "- Kristensen solgt til KFUM Oslo"
+    note: "Kilden fotnoten peker på: - Kristensen solgt til KFUM Oslo (Aalesunds FK, 2024-12-19)
+      https://www.aafk.no/nyheter/kristensen-solgt-til-kfum"

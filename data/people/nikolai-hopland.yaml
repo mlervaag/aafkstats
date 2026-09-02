@@ -31,3 +31,130 @@ providers:
     fields:
       - wikidata
     note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
+transfers:
+  - id: inn-kristiansund-2022
+    direction: in
+    kind: loan_return
+    club: Kristiansund
+    clubId: kristiansund
+    date: 2022-05-23
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1363775092
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2022». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Avslutter låneoppholdet etter 12 dager: – Vi trenger han
+      (Eurosport, 2022-05-23)
+      https://www.eurosport.no/fotball/eliteserien/2020/avslutter-laneoppholdet-etter-12-dager-vi-t\
+      renger-han_sto8937565/story.shtml"
+  - id: ut-kristiansund-2022
+    direction: out
+    kind: loan
+    club: Kristiansund
+    clubId: kristiansund
+    date: 2022-05-11
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1363775092
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2022». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Nikolai Hopland på lån fra Aalesund (Kristiansund BK, 2022-05-11)
+      https://www.kristiansundbk.no/nyheter/nikolai-hopland-pa-lan-fra-aalesund"
+  - id: ut-heerenveen-2024
+    direction: out
+    kind: loan
+    club: Heerenveen
+    date: 2024-09-02
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354769893
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2024». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/hopland-forlenger-og-lanes-ut-til-heerenveen
+        retrievedAt: 2024-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Hopland forlenger og lånes ut til Heerenveen
+    note: "Kilden fotnoten peker på: Hopland forlenger og lånes ut til Heerenveen (Aalesunds FK,
+      2024-09-02) https://www.aafk.no/nyheter/hopland-forlenger-og-lanes-ut-til-heerenveen"
+  - id: inn-academy-2021
+    direction: in
+    kind: academy
+    club: null
+    date: 2021-05-03
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365491811
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2020–21». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/en-duo-vi-forventer-mye-av
+        retrievedAt: 2021-05-03
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: "- En duo vi forventer mye av"
+    note: "Kilden fotnoten peker på: - En duo vi forventer mye av (Aalesunds FK, 2021-05-03)
+      https://www.aafk.no/nyheter/en-duo-vi-forventer-mye-av"
+  - id: ut-heerenveen-2025
+    direction: out
+    kind: loan
+    club: Heerenveen
+    date: 2025-01-29
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1368388589
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2024–25». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/hopland-solgt-til-heerenveen
+        retrievedAt: 2025-01-29
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Hopland solgt til Heerenveen
+    note: "Kilden fotnoten peker på: Hopland solgt til Heerenveen (Aalesunds FK, 2025-01-29)
+      https://www.aafk.no/nyheter/hopland-solgt-til-heerenveen"

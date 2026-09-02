@@ -23,3 +23,53 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-odd-2022
+    direction: in
+    kind: transfer
+    club: Odd
+    clubId: odds-ballklubb
+    date: 2022-08-01
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1363775092
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2022». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/kitolano-klar-for-aafk
+        retrievedAt: 2022-08-01
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Kitolano klar for AaFK
+    note: "Kilden fotnoten peker på: Kitolano klar for AaFK (Aalesunds FK, 2022-08-01)
+      https://www.aafk.no/nyheter/kitolano-klar-for-aafk"
+  - id: ut-lillestrom-2026
+    direction: out
+    kind: transfer
+    club: Lillestrøm
+    clubId: lillestrom
+    date: 2026-03-02
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1372362958
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2025–26». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Bekrefter: Klar for Lillestrøm og Eliteserien (Sportsbibelen,
+      2026-03-02) https://sportsbibelen.no/bekrefter-eliteseriespiller-klar-for-lillestrom/"

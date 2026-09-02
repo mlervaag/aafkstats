@@ -321,6 +321,22 @@ function Transfer({ transfer, titles }: { transfer: PersonTransfer; titles: Map<
         </p>
         {transfer.note ? <p className="small muted">{transfer.note}</p> : null}
         <SourceChips refs={transfer.sources} titles={titles} />
+        {/* Nettmeldinger står som lenker og ikke som kildebrikker: brikkene peker
+            på en publikasjon i arkivet, og en klubbmelding har ingen slik side å
+            peke på. Adressen er det leseren kan kontrollere påstanden mot. */}
+        {transfer.providers.length > 0 ? (
+          <p className="small muted">
+            {transfer.providers.map((provider, index) => (
+              <span key={`${provider.providerId}-${provider.url ?? index}`}>
+                {index > 0 && " · "}
+                {provider.url
+                  ? <a href={provider.url} rel="nofollow">{PROVIDER_LABELS[provider.providerId] ?? provider.providerId}</a>
+                  : (PROVIDER_LABELS[provider.providerId] ?? provider.providerId)}
+                {provider.note ? <> {provider.note}</> : null}
+              </span>
+            ))}
+          </p>
+        ) : null}
       </div>
     </li>
   );

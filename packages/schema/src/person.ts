@@ -149,10 +149,29 @@ export const transfer = z
      * desember 2015 hører til stallen i 2016, ikke i 2015.
      */
     season: seasonYear.optional(),
-    sources: z.array(sourceRef).min(1, "en overgang må ha minst én historisk kilde"),
+    /**
+     * Historiske publikasjoner som dokumenterer overgangen.
+     *
+     * Tom når kilden er en nettmelding og ikke et dokument i `data/sources/`.
+     * Da bærer `providers` provenienset i stedet — se regelen under.
+     */
+    sources: z.array(sourceRef).default([]),
+    /**
+     * Dataleverandører som dokumenterer overgangen, med adressen og hentetiden.
+     *
+     * Samme skille som kampene gjør: en klubbmelding på nett er ikke et
+     * historisk dokument med sidetall, og å opprette en `source`-fil per
+     * nyhetssak ville fylt publikasjonskatalogen med lenker. Leverandøren er
+     * riktig sted, og `url` er det en leser kan kontrollere påstanden mot.
+     */
+    providers: z.array(providerRef).default([]),
     note: z.string().optional(),
   })
-  .strict();
+  .strict()
+  .refine(
+    (value) => value.sources.length > 0 || value.providers.length > 0,
+    { message: "en overgang må ha minst én kilde — enten en publikasjon eller en leverandør" },
+  );
 
 export type Transfer = z.infer<typeof transfer>;
 

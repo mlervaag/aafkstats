@@ -27,3 +27,50 @@ providers:
     fields:
       - wikidata
     note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
+transfers:
+  - id: ut-molde-2026
+    direction: out
+    kind: transfer
+    club: Molde
+    clubId: molde-fk
+    date: 2026-08-28
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1372785440
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2026». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Bekreftet: Molde har kjøpt stortalenter (TV 2, 2026-08-28)
+      https://www.tv2.no/sport/bekreftet-molde-har-kjopt-stortalenter/19170189/"
+  - id: inn-academy-2024
+    direction: in
+    kind: academy
+    club: null
+    date: "2024"
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354776072
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2023–24». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/lag
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: A-laget
+    note: "Kilden fotnoten peker på: A-laget (Aalesunds FK) https://www.aafk.no/lag"

@@ -28,3 +28,54 @@ providers:
     fields:
       - wikidata
     note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
+transfers:
+  - id: inn-kongsvinger-2019
+    direction: in
+    kind: transfer
+    club: Kongsvinger
+    clubId: kongsvinger
+    date: 2018-06-15
+    season: 2019
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1361724311
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2018–19». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/nyheter/castro-klar-for-aafk
+        retrievedAt: 2018-06-15
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Castro klar for Aalesund
+    note: "Kilden fotnoten peker på: Castro klar for Aalesund (Aalesunds FK, 2018-06-15)
+      http://www.aafk.no/nyheter/castro-klar-for-aafk"
+  - id: ut-brann-2022
+    direction: out
+    kind: transfer
+    club: Brann
+    clubId: sk-brann
+    date: 2022-03-28
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369178074
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2021–22». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Castro klar for Brann
+      https://www.brann.no/nyheter/castro-klar-for-brann"

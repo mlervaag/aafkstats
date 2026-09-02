@@ -18,3 +18,25 @@ providers:
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+transfers:
+  - id: ut-bodo-glimt-2014
+    direction: out
+    kind: transfer
+    club: Bodø/Glimt
+    clubId: bodo-glimt
+    date: 2014-02-09
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1364213402
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2013–14». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Lasse Staw klar for FK Bodø/Glimt
+      http://www.glimt.no/news/article/1jetvqs7g4uq21nqcq5aduqh7z/title/lasse-staw-klar-for-fk-bodo\
+      glimt"

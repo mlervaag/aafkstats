@@ -16,3 +16,60 @@ providers:
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+transfers:
+  - id: ut-agf-2023
+    direction: out
+    kind: loan_return
+    club: AGF
+    date: 2023-08-01
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354769639
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2023». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/takk-alesund
+        retrievedAt: 2023-08-01
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: "- Takk Ålesund!"
+    note: "Kilden fotnoten peker på: - Takk Ålesund! (Aalesunds FK, 2023-08-01)
+      https://www.aafk.no/nyheter/takk-alesund"
+  - id: inn-agf-2023
+    direction: in
+    kind: loan
+    club: AGF
+    date: 2023-02-15
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354775790
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2022–23». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/han-vil-definitivt-styrke-oss
+        retrievedAt: 2023-02-15
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: "- Han vil definitivt styrke oss"
+    note: "Kilden fotnoten peker på: - Han vil definitivt styrke oss (Aalesunds FK, 2023-02-15)
+      https://www.aafk.no/nyheter/han-vil-definitivt-styrke-oss"

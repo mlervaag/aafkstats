@@ -24,3 +24,53 @@ providers:
     fields:
       - wikidata
     note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
+transfers:
+  - id: inn-liaoning-whowin-2016
+    direction: in
+    kind: transfer
+    club: Liaoning Whowin
+    date: 2016-03-10
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369966462
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2015–16». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/news/article/nimqx9etq90b17ewh22c6zcg4/title/nummer-7-er-endelig-klar-franck-boli
+        retrievedAt: 2016-03-10
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Nummer 7 er endelig klar, Franck Boli
+    note: "Kilden fotnoten peker på: Nummer 7 er endelig klar, Franck Boli (Aalesunds FK, 2016-03-10)
+      http://www.aafk.no/news/article/nimqx9etq90b17ewh22c6zcg4/title/nummer-7-er-endelig-klar-fran\
+      ck-boli"
+  - id: ut-liaoning-whowin-2017
+    direction: out
+    kind: loan_return
+    club: Liaoning Whowin
+    date: 2016-12-08
+    season: 2017
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354772307
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2016–17». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Sjekk hvem som er tilbake! (Stabæk Fotball, 2016-12-08)
+      http://www.stabak.no/news/article/pew7p6b2cb7611ezpnl7mkq0c/title/se-han-er-tilbake"

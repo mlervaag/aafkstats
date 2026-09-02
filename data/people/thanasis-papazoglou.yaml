@@ -1,0 +1,58 @@
+id: thanasis-papazoglou
+name: Thanasis Papazoglou
+names: []
+squadNumbers: []
+coachSpells: []
+roles: []
+transfers:
+  - id: inn-kortrijk-2017
+    direction: in
+    kind: loan
+    club: Kortrijk
+    date: 2017-07-28
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354768239
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2017». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/nyheter/ny-spiss-klar-for-aafk
+        retrievedAt: 2017-07-28
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Ny spiss klar for AaFK
+    note: "Kilden fotnoten peker på: Ny spiss klar for AaFK (Aalesunds FK, 2017-07-28)
+      http://www.aafk.no/nyheter/ny-spiss-klar-for-aafk"
+  - id: ut-kortrijk-2018
+    direction: out
+    kind: loan_return
+    club: Kortrijk
+    date: 2017-12-11
+    season: 2018
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468729
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2017–18». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: 'Kilden fotnoten peker på: Excl – Speler verlaat KV Kortrijk: "Dat is zeker een optie"
+      (Voetbalbelgie, 2017-12-11) http://www.voetbalbelgie.be/nl/article.php?id=130794'
+providers: []
+sources: []
+conflicts: []
