@@ -1,0 +1,39 @@
+version: 1
+id: nff-arboker-1940-1945
+title: NFF-årbok 1940-1945 – katalog- og tilgangsaudit
+profile: yearbook
+mode: initial
+status: normalized
+scope:
+  years: { from: 1940, to: 1945 }
+  parentSourceId: nff-arbok
+  sourceIds: [nff-arbok-1940-1945]
+sourceInventory:
+  - sourceId: nff-arbok-1940-1945
+    title: "Årbok (Norges fotballforbund). 1940-1945"
+    year: 1945
+    reviewStatus: unavailable
+coverage: { mode: sections, expected: 0, reviewed: 0 }
+reviewMethod: { facsimile: required }
+review: { file: docs/research/NFF_ARBOKER_RECALL_1940_1945.md }
+passes:
+  catalog_existence: { status: complete, findings: 1, note: "Katalogen dokumenterer én samlet utgave på 212 digitale sider." }
+  fulltext_variants: { status: skipped, findings: 0, note: "OCR/faksimile krevde særskilt NB-tilgang." }
+  regional_results: { status: skipped, findings: 0, note: "Ikke lest; ingen resultatdata opprettet." }
+  nm_diagrams: { status: skipped, findings: 0, note: "Ikke lest; ingen NM-data opprettet." }
+  people_and_meetings: { status: skipped, findings: 0, note: "Ikke lest; ingen persondata opprettet." }
+  economy_and_venues: { status: skipped, findings: 0, note: "Ikke lest; ingen økonomi- eller anleggsdata opprettet." }
+  recall_audit: { status: complete, findings: 1, note: "Katalog, omfang og tilgang er kontrollert; innholdsrecall er ikke målt." }
+findings:
+  - id: f-catalog-1940-1945
+    source: { sourceId: nff-arbok-1940-1945, page: "katalogpost" }
+    type: other
+    claim: { text: "NFF har én katalogført samlet Årbok 1940-1945 med 212 digitale sider." }
+    disposition: source_unavailable
+    status: normalized
+unresolved:
+  - findingId: f-catalog-1940-1945
+    type: source_access
+    note: "Krever lovlig NB-tilgang før de seks årgangene kan innholdsauditeres."
+notes:
+  - "Ingen source results, observasjoner, sesongdata, personer eller kampkoblinger er opprettet fra den utilgjengelige faksimilen."

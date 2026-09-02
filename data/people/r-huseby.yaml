@@ -3,6 +3,15 @@ name: R. Huseby
 names:
   - Ragnvald Huseby
 roles:
+  - id: forbundstingsrepresentant-1935
+    category: administration
+    title: Representant på forbundstinget
+    body: Aalesund Fotballklub
+    from: "1935"
+    to: "1935"
+    sources:
+      - { sourceId: nff-arbok-1935, page: "135 (trykt; digital side 157)", fields: [title, from, to] }
+    note: Representasjon dokumenterer ikke et bestemt klubbverv.
   - id: aeresmedlem-1949
     category: honorary
     title: Æresmedlem
@@ -41,6 +50,10 @@ roles:
           - title
           - from
 sources:
+  - sourceId: nff-arbok-1935
+    page: "135 (trykt; digital side 157)"
+    fields: []
+    note: Ført som representant for Aalesund Fotballklub.
   - sourceId: medlemsblad-for-aalesunds-fotb-1950-1573
     page: "6"
   - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
