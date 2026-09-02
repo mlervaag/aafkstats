@@ -210,16 +210,17 @@ export default async function PersonPage({ params }: { params: Promise<{ id: str
 
           {transfers.length > 0 ? (
             <section className={styles.section}>
-              <h2>Overganger</h2>
-              <ol className={styles.timeline}>
+              <div className={styles.sectionHeading}>
+                <h2>Overganger</h2>
+                <span>{transfers.length}</span>
+              </div>
+              <ol className={styles.transferList}>
                 {transfers.map((entry) => (
                   <Transfer key={entry.date + entry.direction + (entry.club ?? "")} transfer={entry} titles={sourceTitles} />
                 ))}
               </ol>
-              <p className="small muted prose">
-                Overganger er kildeført én for én, og lista er ikke fullstendig.
-                At det ikke står noe for et år betyr at ingen kilde er ført inn,
-                ikke at personen ble værende.
+              <p className={`small muted ${styles.transferCaveat}`}>
+                Kildeført enkeltvis · lista er ikke fullstendig.
               </p>
             </section>
           ) : null}
@@ -286,56 +287,57 @@ export default async function PersonPage({ params }: { params: Promise<{ id: str
   );
 }
 
-/**
- * En overgang i tidslinja.
- *
- * Retningen står som overskrift fordi det er den opplysningen som skiller en
- * overgang fra en rolle: «Til Frigg» sier på ett blikk hva som skjedde, mens
- * klubben alene ikke sier hvilken vei personen gikk.
- */
+/** En kompakt overgangsrad. Detaljert proveniens er tilgjengelig uten å dominere lista. */
 function Transfer({ transfer, titles }: { transfer: PersonTransfer; titles: Map<string, string> }) {
   const KINDS: Record<string, string> = {
-    loan: "på lån",
+    loan: "lån",
     loan_return: "tilbake fra lån",
     free: "kontraktløs",
-    academy: "fra egen ungdomsavdeling",
-    released: "kontrakten løp ut",
+    academy: "egen ungdom",
+    released: "kontrakt utløpt",
     retired: "la opp",
   };
-  const heading = transfer.club === null
-    ? (KINDS[transfer.kind] ?? (transfer.direction === "in" ? "Til AaFK" : "Fra AaFK"))
-    : `${transfer.direction === "in" ? "Fra" : "Til"} ${transfer.club}`;
+  const fallback = KINDS[transfer.kind] ?? "Ukjent klubb";
+  const club = transfer.club ?? fallback;
+  const hasDetails = transfer.note !== null || transfer.sources.length > 0 || transfer.providers.length > 0;
+  const clubName = transfer.club_id
+    ? <Link href={`/motstander/${transfer.club_id}`}>{club}</Link>
+    : club;
 
   return (
     <li>
       <time>{when(transfer.date, null)}</time>
-      <div>
-        <h3>
-          {transfer.club_id
-            ? <Link href={`/motstander/${transfer.club_id}`}>{heading}</Link>
-            : heading}
-        </h3>
-        <p>
-          {transfer.direction === "in" ? "Overgang inn til AaFK" : "Overgang ut av AaFK"}
-          {transfer.kind !== "transfer" && KINDS[transfer.kind] ? ` · ${KINDS[transfer.kind]}` : ""}
-        </p>
-        {transfer.note ? <p className="small muted">{transfer.note}</p> : null}
-        <SourceChips refs={transfer.sources} titles={titles} />
-        {/* Nettmeldinger står som lenker og ikke som kildebrikker: brikkene peker
-            på en publikasjon i arkivet, og en klubbmelding har ingen slik side å
-            peke på. Adressen er det leseren kan kontrollere påstanden mot. */}
-        {transfer.providers.length > 0 ? (
-          <p className="small muted">
-            {transfer.providers.map((provider, index) => (
-              <span key={`${provider.providerId}-${provider.url ?? index}`}>
-                {index > 0 && " · "}
-                {provider.url
-                  ? <a href={provider.url} rel="nofollow">{PROVIDER_LABELS[provider.providerId] ?? provider.providerId}</a>
-                  : (PROVIDER_LABELS[provider.providerId] ?? provider.providerId)}
-                {provider.note ? <> {provider.note}</> : null}
-              </span>
-            ))}
-          </p>
+      <div className={styles.transferBody}>
+        <div className={styles.transferRoute}>
+          <span className={styles.transferDirection}>{transfer.direction === "in" ? "Inn" : "Ut"}</span>
+          <strong>
+            {transfer.direction === "in" ? <>{clubName} <span aria-hidden="true">→</span> AaFK</> : <>AaFK <span aria-hidden="true">→</span> {clubName}</>}
+          </strong>
+          {transfer.club !== null && transfer.kind !== "transfer" && KINDS[transfer.kind]
+            ? <span className={styles.transferKind}>{KINDS[transfer.kind]}</span>
+            : null}
+        </div>
+        {hasDetails ? (
+          <details className={styles.transferDetails}>
+            <summary>Kilde</summary>
+            <div>
+              {transfer.note ? <p>{transfer.note}</p> : null}
+              <SourceChips refs={transfer.sources} titles={titles} />
+              {transfer.providers.length > 0 ? (
+                <p>
+                  {transfer.providers.map((provider, index) => (
+                    <span key={`${provider.providerId}-${provider.url ?? index}`}>
+                      {index > 0 && " · "}
+                      {provider.url
+                        ? <a href={provider.url} rel="nofollow">{PROVIDER_LABELS[provider.providerId] ?? provider.providerId}</a>
+                        : (PROVIDER_LABELS[provider.providerId] ?? provider.providerId)}
+                      {provider.note ? <> · {provider.note}</> : null}
+                    </span>
+                  ))}
+                </p>
+              ) : null}
+            </div>
+          </details>
         ) : null}
       </div>
     </li>
