@@ -49,6 +49,7 @@
     "ingest:nff": "pnpm --filter @aafkstats/ingest run nff",
     "ingest:nb-extract": "pnpm --filter @aafkstats/ingest run nb-extract",
     "ingest:wikipedia-transfers": "pnpm --filter @aafkstats/ingest run wikipedia-transfers",
+    "ingest:nb-transfer-candidates": "pnpm --filter @aafkstats/ingest run nb-transfer-candidates",
     "ingest:nb-newspaper-search": "pnpm --filter @aafkstats/ingest run nb-newspaper-search",
     "ingest:nb-newspaper-batch": "pnpm --filter @aafkstats/ingest run nb-newspaper-batch",
     "data:nb-newspaper-pilot-review": "pnpm --filter @aafkstats/ingest run nb-newspaper-pilot-review",
