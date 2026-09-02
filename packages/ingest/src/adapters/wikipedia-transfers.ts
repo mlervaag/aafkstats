@@ -229,10 +229,41 @@ function clubFromOther(other: string): string | null {
   // Bisetningen står ikke alltid etter et komma: «on loan from Hødd made
   // permanent» ga klubben «Hødd made permanent». Halen kuttes derfor også på de
   // vendingene som beskriver avtalen i stedet for motparten.
-  const club = match[1]!
-    .replace(/\s+(?:made permanent|until .*|for an undisclosed fee|on a .*|with .*)$/i, "")
-    .trim();
+  const club = trimDealTail(match[1]!).trim();
   return club === "" ? null : club;
+}
+
+/**
+ * Kutter halen som beskriver avtalen i stedet for motparten.
+ *
+ * «on loan from Hødd made permanent» ga klubben «Hødd made permanent», fordi
+ * bisetningen ikke alltid står etter et komma.
+ *
+ * Kuttet gjøres med indeksøk og ikke med et regex som `\s+(?:…|until .*)$`.
+ * Den formen er polynomisk på en lang streng med mellomrom, og teksten her
+ * kommer fra en artikkel hvem som helst kan redigere.
+ */
+const DEAL_TAILS = ["made permanent", "until", "for an undisclosed fee", "on a", "with"];
+
+function trimDealTail(value: string): string {
+  const lower = value.toLowerCase();
+  let cut = value.length;
+  for (const tail of DEAL_TAILS) {
+    // Halen teller bare når den står som eget ord etter et mellomrom, ellers
+    // ville «Wither» mistet slutten sin til «with».
+    let from = 0;
+    for (;;) {
+      const at = lower.indexOf(` ${tail}`, from);
+      if (at === -1) break;
+      const after = at + tail.length + 1;
+      if (after === lower.length || lower[after] === " ") {
+        if (at < cut) cut = at;
+        break;
+      }
+      from = at + 1;
+    }
+  }
+  return value.slice(0, cut);
 }
 
 /**

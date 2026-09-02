@@ -6,7 +6,6 @@ import { stringify } from "yaml";
 import {
   clubKey,
   personKey,
-  personPath,
   slugify,
   transferSeason,
   type Person,
@@ -307,7 +306,20 @@ if (!args.values.write) {
 
 for (const id of touched) {
   const value = byId.get(id)!;
-  const absolute = resolve(root, personPath(id));
+  // Person-ID-en kommer av et navn hentet fra nett. `slugify` gjør den til en
+  // slug, men et navn utenfra skal aldri få bestemme hvor på disken vi skriver,
+  // og en kontroll som står her er lettere å stole på enn en som ligger tre
+  // funksjoner unna. Både formen og den ferdige stien kontrolleres.
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id)) {
+    issues.push(`${id}: ikke en gyldig person-ID; skriver ikke`);
+    continue;
+  }
+  const peopleDir = resolve(root, "people");
+  const absolute = resolve(peopleDir, `${id}.yaml`);
+  if (dirname(absolute) !== peopleDir) {
+    issues.push(`${id}: stien havner utenfor data/people; skriver ikke`);
+    continue;
+  }
   await mkdir(dirname(absolute), { recursive: true });
 
   const existing = existsSync(absolute) ? await readFile(absolute, "utf8") : null;
