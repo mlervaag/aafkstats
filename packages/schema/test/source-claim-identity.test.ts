@@ -40,9 +40,9 @@ describe("Source Claim Stable Identity & Lineage (PR #207)", () => {
     index = buildSourceClaimIndex(archive.sourceResults, lineageManifest);
   }, 60_000);
 
-  it("TEST A: Alle 2140 kilderesultater har gyldig, unik 128-bit claimId (32 hex-siffer) i arkivet", () => {
+  it("TEST A: Alle 2149 kilderesultater har gyldig, unik 128-bit claimId (32 hex-siffer) i arkivet", () => {
     const allClaims = archive.sourceResults.flatMap(flattenSourceResults);
-    expect(allClaims).toHaveLength(2140);
+    expect(allClaims).toHaveLength(2149);
 
     const claimIds = new Set<string>();
     const regex = /^srcclaim-[a-f0-9]{32}$/;
@@ -54,7 +54,7 @@ describe("Source Claim Stable Identity & Lineage (PR #207)", () => {
       claimIds.add(claim.claimId);
     }
 
-    expect(claimIds.size).toBe(2140);
+    expect(claimIds.size).toBe(2149);
   });
 
   it("TEST B: Backfill-verktøyet er reelt idempotent ved dobbel --apply i temp-katalog", async () => {
@@ -74,10 +74,10 @@ describe("Source Claim Stable Identity & Lineage (PR #207)", () => {
         migrationsDir: tmpMigrations,
       });
 
-      expect(res1.totalSourceResults).toBe(2140);
+      expect(res1.totalSourceResults).toBe(2149);
       expect(res1.claimIdsCreated).toBe(0);
-      expect(res1.claimIdsUnchanged).toBe(2140);
-      expect(res1.uniqueClaimIds).toBe(2140);
+      expect(res1.claimIdsUnchanged).toBe(2149);
+      expect(res1.uniqueClaimIds).toBe(2149);
       expect(res1.filesWritten).toBe(0);
       expect(res1.lineageFileWritten).toBe(false);
 
@@ -99,10 +99,10 @@ describe("Source Claim Stable Identity & Lineage (PR #207)", () => {
         migrationsDir: tmpMigrations,
       });
 
-      expect(res2.totalSourceResults).toBe(2140);
+      expect(res2.totalSourceResults).toBe(2149);
       expect(res2.claimIdsCreated).toBe(0);
-      expect(res2.claimIdsUnchanged).toBe(2140);
-      expect(res2.uniqueClaimIds).toBe(2140);
+      expect(res2.claimIdsUnchanged).toBe(2149);
+      expect(res2.uniqueClaimIds).toBe(2149);
       expect(res2.filesWritten).toBe(0);
       expect(res2.lineageFileWritten).toBe(false);
 

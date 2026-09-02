@@ -52,8 +52,34 @@ sources:
       - home.score
       - away.score
     note: Cupen. trykt «Brage, Trondheim 5-3».
+  - sourceId: nff-arbok-1935
+    page: "111 (trykt; digital side 131)"
+    fields: [status, competition, home.clubId, away.clubId, home.score, away.score, extraTime]
+    note: "Diagrammet viser Brage*–Ålesund 3–5 e i runde 2; stjernen markerer hjemmelag."
 confidence: confirmed
-conflicts: []
+conflicts:
+  - field: competition.round
+    values:
+      - { value: 3, providerId: nasjonalbiblioteket, note: "Sunnmørsposten 19. august 1935 og dagens daterte kamp." }
+      - { value: 2, providerId: nasjonalbiblioteket, note: "NFF-årboka 1935, trykt side 111." }
+    resolved: false
+    decision: unresolved
+    locked: false
+    note: Kildene plasserer kampen i ulike runder.
+  - field: home.clubId
+    values:
+      - { value: aalesunds-fk, providerId: nasjonalbiblioteket, note: "Sunnmørsposten 19. august 1935." }
+      - { value: brage, providerId: nasjonalbiblioteket, note: "NFF-diagrammets hjemmelagsstjerne." }
+    resolved: false
+    decision: unresolved
+    locked: false
+  - field: away.clubId
+    values:
+      - { value: brage, providerId: nasjonalbiblioteket, note: "Sunnmørsposten 19. august 1935." }
+      - { value: aalesunds-fk, providerId: nasjonalbiblioteket, note: "NFF-diagrammets hjemmelagsstjerne." }
+    resolved: false
+    decision: unresolved
+    locked: false
 tags: []
 aliases: {}
 manual: []

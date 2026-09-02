@@ -1,5 +1,13 @@
 year: 1935
-competitionId: nm
-finalPosition: null
+competitionId: sondmore-kreds-klasse-a
+sources:
+  - sourceId: nff-arbok-1935
+    page: "83 (trykt; digital side 101)"
+    fields: [finalPosition, teamsInLeague, expectedMatches]
+    note: "Resultatoversikten erklærer AaFK som kretsmester og viser dobbelt serie mot Rollon og Guard."
+finalPosition: 1
+teamsInLeague: 3
+expectedMatches: 4
 promoted: false
 relegated: false
+note: "AaFK, Rollon og Guard spilte dobbelt serie i Sunnmøre Klasse A; AaFK ble kretsmester."
