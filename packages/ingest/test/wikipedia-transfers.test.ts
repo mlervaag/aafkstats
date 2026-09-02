@@ -315,6 +315,39 @@ describe("parseTransferRows — {{football squad player}} (artikler før ca. 201
     expect(rows).toHaveLength(3);
   });
 
+  it("tolker et tidligere lån som ordinær overgang når det er gjort permanent", () => {
+    const permanent = SUMMER_2013.replace(
+      "on loan from [[IL Hødd|Hødd]]",
+      "loan from [[IL Hødd|Hødd]] made permanent",
+    );
+    const row = rowNamed(parseTransferRows(permanent), "Akeem Latifu");
+    expect(row.kind).toBe("transfer");
+    expect(row.club).toBe("Hødd");
+  });
+
+  it.each([
+    ["to [[IL Hødd|Hødd]], loan made permanent", "Hødd"],
+    ["on loan to [[FK Jerv|Jerv]], previously on loan at [[Brattvåg IL|Brattvåg]], then made permanent", "Jerv"],
+    ["from [[Odense Boldklub|OB]], previously on loan", "OB"],
+    ["to [[Kalmar FF|Kalmar]], previously on loan at [[Ilves (football)|Ilves]]", "Kalmar"],
+  ])("tolker '%s' som ordinær overgang", (other, club) => {
+    const permanent = SUMMER_2013.replace(
+      "on loan from [[IL Hødd|Hødd]]",
+      other,
+    );
+    const row = rowNamed(parseTransferRows(permanent), "Akeem Latifu");
+    expect(row.kind).toBe("transfer");
+    expect(row.club).toBe(club);
+  });
+
+  it("beholder lån med opsjon på permanent overgang som lån", () => {
+    const option = SUMMER_2013.replace(
+      "on loan from [[IL Hødd|Hødd]]",
+      "on loan from [[IL Hødd|Hødd]] with an option to make permanent",
+    );
+    expect(rowNamed(parseTransferRows(option), "Akeem Latifu").kind).toBe("loan");
+  });
+
   it("beholder nat= som fullt landsnavn, uendret", () => {
     const row = rowNamed(rows, "Akeem Latifu");
     expect(row.nationality).toBe("Nigeria");

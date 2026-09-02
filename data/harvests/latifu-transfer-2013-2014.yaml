@@ -1,0 +1,53 @@
+version: 1
+id: latifu-transfer-2013-2014
+title: Latifus lån og permanente overgang 2013–2014
+profile: generic_publication
+mode: initial
+status: discovered
+scope:
+  sourceIds:
+    - aftenbladet-aalesund-signerte-latifu-2014
+sourceInventory:
+  - sourceId: aftenbladet-aalesund-signerte-latifu-2014
+    title: Aalesund signerte Latifu
+    year: 2014
+    reviewStatus: unknown
+coverage:
+  mode: pages
+  expected: 0
+  reviewed: 0
+passes:
+  facsimile_review:
+    status: pending
+    findings: 0
+    note: Visuell gjennomgang av samtlige tilgjengelige sider mot faksimile/skann.
+  explicit_results:
+    status: pending
+    findings: 0
+    note: Vurdering og avstemming av kampresultater, motstandere, datoer og mål.
+  people_and_roles:
+    status: pending
+    findings: 0
+    note: Gjennomgang av spillere, trenere, tillitsvalgte, dommere og æresmedlemmer.
+  organization:
+    status: pending
+    findings: 0
+    note: Årsmøter, styresammensetning, utvalg og organisatoriske endringer.
+  retrospectives_and_claims:
+    status: pending
+    findings: 0
+    note: Historiske tilbakeblikk og memoarer (faktum-år skilles fra utgivelsesår).
+  observations:
+    status: pending
+    findings: 0
+    note: Milepæler, anlegg, baner, arrangementer og administrative vedtak.
+reviewMethod:
+  facsimile: required
+review:
+  file: docs/data/reviews/latifu-transfer-2013-2014.md
+findings: []
+unresolved: []
+createdAt: 2026-09-02
+notes:
+  - Initialisert for profil «Generisk historisk publikasjon» med 1 kilder i
+    scope.

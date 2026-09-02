@@ -20,9 +20,37 @@ providers:
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
 transfers:
-  - id: inn-ob-2022
+  - id: inn-ob-2022-2
     direction: in
     kind: loan
+    club: OB
+    date: 2022-03-31
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369178074
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2021–22». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/dansk-duo-klar-for-aafk
+        retrievedAt: 2022-03-31
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Dansk duo klar for AaFK
+    note: "Kilden fotnoten peker på: Dansk duo klar for AaFK
+      https://www.aafk.no/nyheter/dansk-duo-klar-for-aafk"
+  - id: inn-ob-2022
+    direction: in
+    kind: transfer
     club: OB
     date: 2022-07-29
     sources: []

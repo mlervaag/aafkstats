@@ -277,7 +277,14 @@ function kindFromOther(other: string, direction: TransferDirection): TransferKin
   const lower = cleanText(other).toLowerCase();
 
   if (/loan return|returned from loan|end of loan/.test(lower)) return "loan_return";
-  if (/\bloan\b/.test(lower)) return "loan";
+  // «loan from Hødd made permanent» beskriver ikke et nytt lån. Låneordet
+  // viser til avtalen som nå blir erstattet av en ordinær overgang, og må
+  // derfor vurderes før den generelle loan-regelen.
+  if (/\bmade permanent\b/.test(lower)) return "transfer";
+  // «from OB, previously on loan» beskriver en ordinær overgang fra OB. Bare
+  // ordlyd som gjør den aktuelle avtalen til et lån skal klassifiseres som lån;
+  // historikk om et tidligere lån kan gjelde samme eller en helt annen klubb.
+  if (/\bon loan\s+(?:from|to)\b|\bloan(?:ed)?\s+(?:from|to)\b/.test(lower)) return "loan";
   if (/free agent|free transfer/.test(lower)) return "free";
   if (direction === "in" && /\byouth\b|\bacademy\b|\bpromoted\b/.test(lower)) return "academy";
   if (direction === "out" && /\bretired\b/.test(lower)) return "retired";
