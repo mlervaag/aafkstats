@@ -14,6 +14,9 @@
 .section { padding-top: 1.4rem; border-top: 1px solid var(--border); }
 .section + .section { margin-top: 2rem; }
 .section h2 { margin-top: 0; }
+.sectionHeading { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+.sectionHeading h2 { margin-bottom: 0.75rem; }
+.sectionHeading span { color: var(--muted); font-family: var(--font-mono); font-size: 0.78rem; }
 .dataGap { margin-bottom: 2rem; padding: 1.1rem 1.2rem; background: var(--surface-2); border-left: 3px solid var(--accent); }
 .dataGap h2 { margin: 0 0 0.4rem; font-size: 1.05rem; }
 .dataGap p { margin: 0; max-width: 62ch; color: var(--muted); }
@@ -22,6 +25,20 @@
 .timeline time { color: var(--accent); font-family: var(--font-mono); font-size: 0.82rem; font-weight: 700; }
 .timeline h3 { margin: 0; font-size: 1rem; }
 .timeline p { margin: 0.3rem 0 0; color: var(--muted); font-size: 0.86rem; }
+.transferList { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--border); }
+.transferList > li { display: grid; grid-template-columns: 6.75rem minmax(0, 1fr); gap: 0.8rem; padding: 0.7rem 0; border-bottom: 1px solid var(--border); }
+.transferList time { padding-top: 0.12rem; color: var(--muted); font-family: var(--font-mono); font-size: 0.76rem; font-variant-numeric: tabular-nums; }
+.transferBody { min-width: 0; }
+.transferRoute { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.35rem 0.55rem; font-size: 0.9rem; }
+.transferRoute strong { font-weight: 650; }
+.transferDirection { min-width: 1.8rem; color: var(--accent); font-size: 0.7rem; font-weight: 750; letter-spacing: 0.05em; text-transform: uppercase; }
+.transferKind { color: var(--muted); font-size: 0.74rem; }
+.transferDetails { margin-top: 0.25rem; color: var(--muted); font-size: 0.76rem; }
+.transferDetails summary { width: fit-content; cursor: pointer; }
+.transferDetails[open] summary { margin-bottom: 0.35rem; color: var(--accent); }
+.transferDetails > div { padding: 0.1rem 0 0.15rem; }
+.transferDetails p { margin: 0.25rem 0 0; overflow-wrap: anywhere; }
+.transferCaveat { margin: 0.65rem 0 0; }
 /*
  * Kildene under en rolle sto som lenker etter hverandre uten skille, så to
  * lange publikasjonstitler leste som én. Nå har hver sin ramme.
@@ -72,4 +89,6 @@
   .summary div { display: flex; justify-content: space-between; align-items: baseline; border-right: 0; border-bottom: 1px solid var(--border); }
   .summary div:last-child { border-bottom: 0; }
   .timeline > li { grid-template-columns: minmax(0, 1fr); gap: 0.3rem; }
+  .transferList > li { grid-template-columns: minmax(0, 1fr); gap: 0.25rem; }
+  .transferList time { padding-top: 0; }
 }
