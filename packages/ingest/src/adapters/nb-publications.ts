@@ -195,7 +195,9 @@ const SEARCH_ONLY_TERMS = [
   "formann", "styreleder", "nestformann", "sekretær", "kasserer", "oppmann",
   "trener", "direktør", "æresmedlem", "sportslig leder", "daglig leder",
   "lagoppstilling", "spillerstall", "spillertropp", "sluttabell", "opprykk", "nedrykk",
-  "Aalesund", "Aalesunds", "AaFK",
+  "Aalesund", "Aalesunds", "Ålesund", "Ålesunds", "AaFK",
+  "Sunnmøre", "Søndmøre", "forbundsting", "representant",
+  "Banefond", "banelån", "kretsmester", "kredsmester", "pokalkamper", "privatkamper",
 ] as const;
 
 /**
