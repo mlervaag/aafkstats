@@ -11,6 +11,7 @@
 .detailMonogram { display: grid; place-items: center; width: 5.5rem; aspect-ratio: 1; color: var(--accent); background: var(--accent-soft); border-radius: 50%; font-family: var(--font-display); font-size: 1.7rem; font-weight: 750; }
 .detailMeta { display: flex; flex-wrap: wrap; gap: 0.45rem 1rem; margin-top: 0.75rem; color: var(--muted); font-size: 0.88rem; }
 .detailGrid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(17rem, 0.65fr); gap: 2rem; margin-top: 2rem; }
+.detailGrid > * { min-width: 0; }
 .section { padding-top: 1.4rem; border-top: 1px solid var(--border); }
 .section + .section { margin-top: 2rem; }
 .section h2 { margin-top: 0; }
@@ -88,7 +89,16 @@
   .summary { grid-template-columns: 1fr; }
   .summary div { display: flex; justify-content: space-between; align-items: baseline; border-right: 0; border-bottom: 1px solid var(--border); }
   .summary div:last-child { border-bottom: 0; }
+  .detailHeader { grid-template-columns: 3.5rem minmax(0, 1fr); gap: 0.75rem; align-items: start; }
+  .detailHeader h1 { font-size: 2rem; overflow-wrap: anywhere; }
+  .detailMonogram { width: 3.5rem; margin-top: 0.2rem; font-size: 1.15rem; }
+  .detailMeta { gap: 0.3rem 0.7rem; margin-top: 0.5rem; font-size: 0.8rem; }
+  .detailGrid { gap: 1.25rem; margin-top: 1.5rem; }
+  .section { padding-top: 1.1rem; }
+  .section + .section { margin-top: 1.5rem; }
+  .dataGap { padding: 0.9rem 1rem; }
   .timeline > li { grid-template-columns: minmax(0, 1fr); gap: 0.3rem; }
   .transferList > li { grid-template-columns: minmax(0, 1fr); gap: 0.25rem; }
   .transferList time { padding-top: 0; }
+  .asideCard { padding: 0.85rem 1rem; }
 }
