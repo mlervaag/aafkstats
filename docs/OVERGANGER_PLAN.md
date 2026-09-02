@@ -1,6 +1,9 @@
 # Overganger i arkivet — vurdering og plan
 
-**Status:** forslag. Ingenting av dette er implementert ennå; dokumentet er beslutningsgrunnlaget.
+**Status:** gjennomført. Dokumentet er beslutningsgrunnlaget, og står som begrunnelsen for
+modellen slik den ble. To ting ble annerledes enn planlagt, og de er markert under:
+migreringen av 1950-rollene, og at bevaringsvernet også dekker overganger.
+Feltreferansen bor i [`DATAMODELL.md`](DATAMODELL.md#overganger); denne fila forklarer hvorfor.
 
 Målet er å få inn overganger (spillere inn og ut) med minst mulig ny mekanikk, og vise dem
 to steder: på personsiden, og på sesongsiden som en «inn/ut»-seksjon knyttet til stallen.
@@ -294,8 +297,13 @@ finner noe.
 Rekkefølgen er valgt etter rettigheter og innsats, ikke etter volum:
 
 1. **Medlemsbladene (Nasjonalbiblioteket).** Allerede innhøstet, allerede kildeført, og de
-   fire eksisterende «overgang»-rollene ligger der. Migreringen av dem er første datasett og
-   koster fire redigeringer.
+   fire eksisterende «overgang»-rollene ligger der. De er det første datasettet.
+
+   **Slik ble det gjort:** de fire rollene ble *ikke* fjernet. Additivitetsvernet krever et
+   godkjent bevaringsunntak, og et unntak som legges inn i samme endring som slettingen er
+   selvgodkjent og gjelder ikke — hengelåsen ville sittet på innsiden av porten. Overgangene
+   er derfor lagt til ved siden av rollene, og hver av dem sier i `note` at rollen står
+   igjen. Å rydde vekk de fire rollene er en egen endring: først et unntak, så slettingen.
 2. **aafk.no.** Egen leverandørfil finnes (`data/providers/aafk-no.yaml`), og klubbens egne
    overgangsmeldinger er den beste kilden for nyere år. Én sesong om gangen, som resten av
    innhøstingen.
@@ -310,20 +318,23 @@ og skal ikke vente på den.
 
 ## Arbeidsmengde og rekkefølge
 
-| Steg | Hva | Omfang |
+| Steg | Hva | Status |
 |---|---|---|
-| 1 | Skjema i `person.ts` + regler | ~60 linjer, ny test |
-| 2 | `schema.sql` (tabell + view) og `build.ts` | ~40 linjer |
-| 3 | `dataset.ts` | ~25 linjer |
-| 4 | Migrer de fire 1950-rollene til `transfers` | 4 filer |
-| 5 | `loadTransfers` / `getPersonTransfers` | ~50 linjer |
-| 6 | `SquadMovements` + «hentet fra» i `SquadList` | ~120 linjer |
-| 7 | Seksjon på personsiden | ~50 linjer |
-| 8 | `DATAMODELL.md`, `README.md`, MCP `get_person` | dokumentasjon |
+| 1 | Skjema i `person.ts` med regler, og klubbreferansen i `crossValidate` | ✅ |
+| 2 | `core_transfers` + `transfers`-viewet, og innsettingen i `build.ts` | ✅ |
+| 3 | `dataset.ts` med forbeholdene | ✅ |
+| 4 | De fire 1950-overgangene lagt inn | ✅ (rollene står igjen, se over) |
+| 5 | `loadTransfers` og `getPersonTransfers` | ✅ |
+| 6 | `SquadMovements` og «hentet fra» i `SquadList` | ✅ |
+| 7 | Seksjonen på personsiden | ✅ |
+| 8 | `DATAMODELL.md`, `ARKITEKTUR.md`, `packages/db/README.md`, MCP `get_person` | ✅ |
 
-Stegene 1–4 er en fungerende leveranse i seg selv: dataene er inne, valideringen holder dem,
-og spørrefunksjonen svarer på dem. 5–7 er visningen. Det er et naturlig sted å dele i to
-PR-er hvis det ønskes.
+Underveis kom ett steg til som ikke sto i planen: **bevaringsvernet og innhøstingssporet
+måtte lære overganger.** `preservation.ts` behandler nå en forsvunnet overgang som like
+destruktiv som en forsvunnet rolle, `harvest-attribution.ts` tilskriver nye overganger den
+batchen som siterer kilden, og innhøstingsmanifestene kan peke på `transfers/<id>` med
+disposisjonen `transfer_created`. Uten det ville modellen hatt et hull nøyaktig der arkivets
+øvrige garantier er sterkest: en overgang kunne forsvunnet i stillhet.
 
 ## Alternativene som ble forkastet
 

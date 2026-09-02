@@ -629,6 +629,30 @@ export function auditHarvestBatch(context: HarvestAuditContext): HarvestAuditRep
                 }
               }
             }
+          } else if (target.path?.startsWith("transfers/")) {
+            // Samme kontroll som for roller: manifestet skal peke på noe som
+            // faktisk står i arkivet, og overgangen skal sitere kilden funnet
+            // kom fra. Overganger lå tidligere som roller med retningen bare i
+            // notatet, og manifestet pekte da på `roles/`.
+            const transferId = target.path.replace(/^transfers\//, "");
+            const t = p.transfers.find((entry) => entry.id === transferId);
+            if (!t) {
+              issues.push({
+                type: "error",
+                category: "target",
+                findingId: finding.id,
+                targetId: target.id,
+                message: `Target-overgangen «${transferId}» finnes ikke på person «${target.id}»`,
+              });
+            } else if (primarySourceId && !t.sources.some((s) => s.sourceId === primarySourceId)) {
+              issues.push({
+                type: provenanceIssueType,
+                category: "provenance",
+                findingId: finding.id,
+                targetId: target.id,
+                message: `Overgang «${transferId}» på person «${target.id}» mangler sourceRef til kilden «${primarySourceId}»`,
+              });
+            }
           } else if (primarySourceId) {
             const matchingSources = p.sources.filter((s) => s.sourceId === primarySourceId);
             if (matchingSources.length === 0) {

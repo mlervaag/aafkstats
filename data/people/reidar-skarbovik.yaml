@@ -332,3 +332,19 @@ sources:
     page: "54"
   - sourceId: medlemsblad-for-aalesunds-fotb-1951-b0e6
     page: "81"
+transfers:
+  - id: ut-frigg-1950
+    direction: out
+    club: Frigg
+    clubId: frigg
+    date: "1950"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73
+        page: "12"
+        fields:
+          - direction
+          - club
+          - date
+    note: Meldte overgang fra AaFK til Frigg høsten 1950. Kilden oppgir høsten, ikke
+      en dag. Samme opplysning står også som rollen «overgang-frigg-1950»; den
+      blir stående til den kan fjernes gjennom bevaringsunntak.

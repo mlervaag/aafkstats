@@ -98,8 +98,10 @@ passes:
     note: Kampresultater for 1. divisjon våren og høsten 1950, privatkamper og NM cup.
   people_and_roles:
     status: complete
-    findings: 56
+    findings: 60
     note: Nye og berikede personer, spillere, overganger, tillitsvalgte og æresmedlemmer.
+      De fire overgangene er ført som egne transfer-funn; rollene de opprinnelig ble lagret
+      som står inntil de kan fjernes gjennom et bevaringsunntak.
   organization:
     status: complete
     findings: 2
@@ -1277,6 +1279,70 @@ findings:
       - entity: person
         id: mary-vegsund
     status: normalized
+  - id: transfer-001
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73
+      page: "12"
+    type: transfer
+    claim:
+      text: "Reidar Skarbøvik: Overgang fra AaFK til Frigg høsten 1950"
+    disposition: transfer_created
+    targets:
+      - entity: person
+        id: reidar-skarbovik
+        path: transfers/ut-frigg-1950
+    status: normalized
+    notes:
+      - Samme opplysning ble opprinnelig ført som rollen «overgang-frigg-1950».
+        Rollen står inntil den kan fjernes gjennom et bevaringsunntak.
+  - id: transfer-002
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73
+      page: "12"
+    type: transfer
+    claim:
+      text: "Knut Hjelle: Overgang fra AaFK til Volda T. & I.L. høsten 1950"
+    disposition: transfer_created
+    targets:
+      - entity: person
+        id: knut-hjelle
+        path: transfers/ut-volda-1950
+    status: normalized
+    notes:
+      - Samme opplysning ble opprinnelig ført som rollen «overgang-volda-1950».
+        Rollen står inntil den kan fjernes gjennom et bevaringsunntak.
+  - id: transfer-003
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
+      page: "3"
+    type: transfer
+    claim:
+      text: "Helge Ødegaard: Innvilget overgang fra AaFK til Wing høsten 1950"
+    disposition: transfer_created
+    targets:
+      - entity: person
+        id: helge-odegaard
+        path: transfers/ut-wing-1950
+    status: normalized
+    notes:
+      - Samme opplysning ble opprinnelig ført som rollen «overgang-wing-1950».
+        Rollen står inntil den kan fjernes gjennom et bevaringsunntak.
+  - id: transfer-004
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
+      page: "3"
+    type: transfer
+    claim:
+      text: "Hans Henriksen: Innvilget overgang fra AaFK til Wing høsten 1950"
+    disposition: transfer_created
+    targets:
+      - entity: person
+        id: hans-j-henriksen
+        path: transfers/ut-wing-1950
+    status: normalized
+    notes:
+      - Samme opplysning ble opprinnelig ført som rollen «overgang-wing-1950».
+        Rollen står inntil den kan fjernes gjennom et bevaringsunntak.
 unresolved: []
 createdAt: 2026-08-16
 notes:

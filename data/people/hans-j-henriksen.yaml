@@ -341,3 +341,19 @@ conflicts:
 names:
   - Hans Henriksen
   - Hans Jacob Henriksen
+transfers:
+  - id: ut-wing-1950
+    direction: out
+    club: Wing
+    date: "1950"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
+        page: "3"
+        fields:
+          - direction
+          - club
+          - date
+    note: Innvilget overgang fra AaFK til Wing høsten 1950. Wing er ikke registrert
+      som klubb i arkivet, så clubId står tom. Samme opplysning står også som
+      rollen «overgang-wing-1950»; den blir stående til den kan fjernes gjennom
+      bevaringsunntak.

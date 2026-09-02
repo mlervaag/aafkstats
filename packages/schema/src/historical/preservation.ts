@@ -446,6 +446,43 @@ export function comparePerson(
     }
   }
 
+  // 1b. Overganger. Vernet på samme måte som rollene: en kildeført overgang som
+  // forsvinner er en opplysning som er borte, uansett hvor pen omskrivingen var.
+  // Personobjektene kan komme fra en eldre revisjon som ble lest før feltet
+  // fantes. Da er det ingen overganger å verne, ikke en tom liste å savne.
+  const baseTransfers = new Map((basePerson.transfers ?? []).map((t) => [t.id, t]));
+  const headTransfers = new Map((headPerson.transfers ?? []).map((t) => [t.id, t]));
+
+  for (const [transferId, baseTransfer] of baseTransfers) {
+    if (headTransfers.has(transferId)) continue;
+    const ex = findMatchingException("person", personId, `transfers/${transferId}`, "remove", exceptions, usedExceptions);
+    changes.push({
+      entity: "person",
+      id: personId,
+      path: `transfers/${transferId}`,
+      changeType: "remove",
+      status: ex ? "APPROVED_EXCEPTION" : "DESTRUCTIVE_CHANGE",
+      message: `Overgangen «${transferId}» (${baseTransfer.direction}, ${baseTransfer.date}) har forsvunnet`,
+      baseValue: baseTransfer,
+      headValue: undefined,
+      exception: ex,
+    });
+  }
+
+  for (const [transferId, headTransfer] of headTransfers) {
+    if (baseTransfers.has(transferId)) continue;
+    changes.push({
+      entity: "person",
+      id: personId,
+      path: `transfers/${transferId}`,
+      changeType: "add",
+      status: "ADDITION",
+      message: `Ny overgang «${transferId}» (${headTransfer.direction}, ${headTransfer.date}) lagt til`,
+      baseValue: undefined,
+      headValue: headTransfer,
+    });
+  }
+
   // 2. Top-level sources
   const baseSources = new Map<string, SourceRef>();
   for (const src of basePerson.sources) baseSources.set(sourceRefKey(src), src);

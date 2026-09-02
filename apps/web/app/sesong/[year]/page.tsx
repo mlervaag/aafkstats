@@ -16,6 +16,7 @@ import {
   loadSeasonCoverage,
   loadSeasonYears,
   loadSquad,
+  loadTransfers,
   loadStandings,
   loadContributions,
   loadCompetitionTitles,
@@ -62,6 +63,7 @@ export default async function SeasonPage({ params }: Props) {
   const gaps = loadSeasonGaps(year);
   const seasonCoverage = loadSeasonCoverage(year);
   const squad = loadSquad(year);
+  const transfers = loadTransfers(year);
   const contributions = loadContributions(year.toString(), "season");
   const observations = getSeasonObservations(year);
   const seasonSources = getSeasonSources(year);
@@ -196,7 +198,7 @@ export default async function SeasonPage({ params }: Props) {
         validOpponentIds={loadOpponentIds()}
       />
 
-      <SquadList players={squad} />
+      <SquadList players={squad} transfers={transfers} season={year} />
 
       <Contributions contributions={contributions} />
 

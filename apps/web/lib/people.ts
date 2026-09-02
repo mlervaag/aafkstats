@@ -229,6 +229,41 @@ export function getPersonRoles(personId?: string): PersonRole[] {
   }
 }
 
+export interface PersonTransfer {
+  person_id: string;
+  name: string;
+  direction: "in" | "out";
+  kind: string;
+  season: number;
+  date: string;
+  club_id: string | null;
+  club: string | null;
+  sources: PersonRoleSource[];
+  note: string | null;
+}
+
+/**
+ * Kildeførte overganger for én person, eldste først.
+ *
+ * Ingen fallback mot stallen. At en spiller er «ny» i en sesong sier bare at
+ * han ikke var med i fjor, og å vise det som en overgang ville gjort en
+ * observasjon om til en påstand om en klubbovergang som ingen kilde har gjort.
+ */
+export function getPersonTransfers(personId: string): PersonTransfer[] {
+  const db = open();
+  try {
+    const rows = all<Omit<PersonTransfer, "sources"> & { sources: string }>(
+      db,
+      `SELECT person_id, name, direction, kind, season, date, club_id, club, sources, note
+         FROM transfers WHERE person_id = ? ORDER BY date, direction`,
+      personId,
+    );
+    return rows.map((row) => ({ ...row, sources: parseRoleSources(row.sources) }));
+  } finally {
+    db.close();
+  }
+}
+
 export function getOrganizationSnapshots(): OrganizationSnapshotPerson[] {
   const db = open();
   try {

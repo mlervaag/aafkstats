@@ -25,6 +25,9 @@ export const historicalDispositionEnum = z.enum([
   "person_enriched",
   "role_created",
   "role_enriched",
+  // Overganger er hendelser med retning og motpart, ikke perioder i et verv.
+  // Ført som role_created ville kilden si noe annet enn den gjorde.
+  "transfer_created",
   "honor_created",
   "honor_enriched",
   "honorary_role_created",
@@ -58,6 +61,9 @@ export const TARGET_REQUIRED_DISPOSITIONS = new Set<HistoricalDisposition>([
   "person_enriched",
   "role_created",
   "role_enriched",
+  // Overganger er hendelser med retning og motpart, ikke perioder i et verv.
+  // Ført som role_created ville kilden si noe annet enn den gjorde.
+  "transfer_created",
   "honor_created",
   "honor_enriched",
   "honorary_role_created",
@@ -108,6 +114,7 @@ export const harvestFindingTypeEnum = z.enum([
   "table",
   "person",
   "person_role",
+  "transfer",
   "honor",
   "organization",
   "meeting",

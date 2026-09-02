@@ -955,6 +955,13 @@ export interface SquadPlayer {
   lastMatch: string;
   /** Spilte ikke for klubben sesongen før. Se `loadSquad`. */
   isNew: boolean;
+  /**
+   * Klubben spilleren ble hentet fra, når en kilde faktisk sier det.
+   *
+   * Null er det vanlige, og betyr bare at ingen overgang er ført inn. «Ny»
+   * står da uendret, med det forbeholdet den alltid har hatt.
+   */
+  arrivedFrom: string | null;
 }
 
 export interface CoachSpell {
@@ -981,16 +988,27 @@ export function loadSquad(season: number): SquadPlayer[] {
   const db = open();
   try {
     const rows = all<{
-      person_key: string; name: string; appearances: number; starts: number;
+      person_key: string; person_id: string | null; name: string;
+      appearances: number; starts: number;
       goals: number; first_match: string; last_match: string;
       number: number | null; position: string | null;
       nationality: string | null; wikidata: string | null;
     }>(
       db,
-      `SELECT person_key, name, appearances, starts, goals, first_match, last_match,
+      `SELECT person_key, person_id, name, appearances, starts, goals, first_match, last_match,
               number, position, nationality, wikidata
          FROM squad WHERE season = ? ORDER BY appearances DESC, name COLLATE NOCASE`,
       season,
+    );
+    // Klubben en nykommer kom fra, der en kilde sier det. Slås opp på person_id
+    // og ikke på navn: overgangen tilhører personfila, og et navneoppslag ville
+    // koblet to spillere med samme normaliserte navn til samme overgang.
+    const arrivals = new Map(
+      all<{ person_id: string; club: string | null }>(
+        db,
+        "SELECT person_id, club FROM transfers WHERE season = ? AND direction = 'in'",
+        season,
+      ).map((row) => [row.person_id, row.club]),
     );
     // Fjoråret hentes bare når vi faktisk har det. Oppstillingene starter i
     // 2010, og uten denne sjekken ville hele stallen i 2010 stått som ny.
@@ -1019,6 +1037,51 @@ export function loadSquad(season: number): SquadPlayer[] {
       firstMatch: row.first_match,
       lastMatch: row.last_match,
       isNew: knowPrevious && !before.has(row.person_key),
+      arrivedFrom: row.person_id === null ? null : arrivals.get(row.person_id) ?? null,
+    }));
+  } finally {
+    db.close();
+  }
+}
+
+export interface SeasonTransfer {
+  personId: string;
+  name: string;
+  direction: "in" | "out";
+  kind: string;
+  date: string;
+  club: string | null;
+  /** Satt bare når klubben finnes i arkivet, altså når AaFK har møtt den. */
+  clubId: string | null;
+}
+
+/**
+ * Overgangene som er kildeført for én sesong.
+ *
+ * Aldri fullstendig, og skal ikke leses som en fasit over hvem som kom og gikk.
+ * Et år uten rader betyr at ingen kilde er ført inn ennå — arkivet har
+ * overganger fra medlemsbladene i 1950 og ingen fra 1951.
+ */
+export function loadTransfers(season: number): SeasonTransfer[] {
+  const db = open();
+  try {
+    return all<{
+      person_id: string; name: string; direction: "in" | "out";
+      kind: string; date: string; club: string | null; club_id: string | null;
+    }>(
+      db,
+      `SELECT person_id, name, direction, kind, date, club, club_id
+         FROM transfers WHERE season = ?
+        ORDER BY date, name COLLATE NOCASE`,
+      season,
+    ).map((row) => ({
+      personId: row.person_id,
+      name: row.name,
+      direction: row.direction,
+      kind: row.kind,
+      date: row.date,
+      club: row.club,
+      clubId: row.club_id,
     }));
   } finally {
     db.close();

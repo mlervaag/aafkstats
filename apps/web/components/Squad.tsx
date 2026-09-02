@@ -1,4 +1,5 @@
-import type { CoachSpell, SquadPlayer } from "@/lib/archive";
+import Link from "next/link";
+import type { CoachSpell, SeasonTransfer, SquadPlayer } from "@/lib/archive";
 import { formatDayMonth } from "@/lib/date";
 
 /**
@@ -71,8 +72,32 @@ export function SeasonCoaches({
  * hentet — en som var skadet hele fjoråret ser like ny ut — og merkelappen sier
  * derfor det den vet, ikke det den kunne gjettet.
  */
-export function SquadList({ players }: { players: SquadPlayer[] }) {
-  if (players.length === 0) return null;
+export function SquadList({ players, transfers, season }: {
+  players: SquadPlayer[];
+  transfers: SeasonTransfer[];
+  season: number;
+}) {
+  // Oppstillingene finnes fra 2010, men overgangene kan være eldre: medlemsbladene
+  // dokumenterer overganger fra 1950. En sesong uten stall skal derfor fortsatt
+  // vise bevegelsene, uten en tom tabell over dem.
+  if (players.length === 0) {
+    return transfers.length > 0
+      ? (
+        <section className="content-section">
+          <h2 className="section-heading">
+            <span className="section-heading-title">Inn og ut</span>
+            <span className="muted section-count">{movementCount(transfers)}</span>
+          </h2>
+          <SquadMovements transfers={transfers} season={season} />
+          <p className="small muted prose">
+            Arkivet har ingen lagoppstillinger for {season}, så stallen er ikke
+            kjent. Overgangene over er kildeført hver for seg, og er ikke en
+            fullstendig liste over hvem som kom og gikk.
+          </p>
+        </section>
+      )
+      : null;
+  }
   const newcomers = players.filter((player) => player.isNew).length;
   const withRegister = players.filter((player) => player.number !== null || player.position !== null).length;
 
@@ -111,7 +136,14 @@ export function SquadList({ players }: { players: SquadPlayer[] }) {
                 <td className="num col-number muted">{player.number ?? ""}</td>
                 <th scope="row">
                   {player.name}
-                  {player.isNew && <span className="squad-new"> ny</span>}
+                  {/* «Ny» sier bare at spilleren ikke var med i fjor. Finnes det
+                      en kildeført overgang, vet arkivet mer enn det, og da skal
+                      det stå. Uten overgang står merkelappen som før. */}
+                  {player.isNew && (
+                    player.arrivedFrom
+                      ? <span className="squad-new"> hentet fra {player.arrivedFrom}</span>
+                      : <span className="squad-new"> ny</span>
+                  )}
                 </th>
                 <td className="muted small">{player.position ?? ""}</td>
                 <td className="num">{player.appearances}</td>
@@ -125,6 +157,8 @@ export function SquadList({ players }: { players: SquadPlayer[] }) {
         </table>
       </div>
 
+      <SquadMovements transfers={transfers} season={season} />
+
       <p className="small muted prose">
         «I kamptropp», «fra start» og mål er utledet av lagoppstillingene, som
         arkivet har fra 2010. Å stå i troppen er ikke det samme som å ha spilt:
@@ -134,7 +168,84 @@ export function SquadList({ players }: { players: SquadPlayer[] }) {
         {withRegister > 0 && (
           <> Draktnummer og posisjon står for {withRegister} av dem, fra Wikipedias stallmal.</>
         )}
+        {transfers.length > 0 && (
+          <> Der en kilde dokumenterer overgangen, står klubben i stedet for «ny».</>
+        )}
       </p>
     </section>
+  );
+}
+
+/** Merkelappene for overgangstypene. `transfer` er standard og trenger ingen. */
+const TRANSFER_KIND_LABELS: Record<string, string> = {
+  loan: "lån",
+  loan_return: "tilbake fra lån",
+  free: "kontraktløs",
+  academy: "egen ungdom",
+  released: "kontrakt utløpt",
+  retired: "la opp",
+};
+
+/** «3 inn, 2 ut» — det leseren vil vite før seksjonen åpnes. */
+function movementCount(transfers: SeasonTransfer[]): string {
+  const inbound = transfers.filter((entry) => entry.direction === "in").length;
+  const outbound = transfers.length - inbound;
+  return [inbound > 0 ? `${inbound} inn` : null, outbound > 0 ? `${outbound} ut` : null]
+    .filter(Boolean)
+    .join(", ");
+}
+
+/**
+ * Spillere inn og ut i løpet av sesongen.
+ *
+ * Står under stallen fordi det er samme spørsmål sett fra en annen kant: hvem
+ * laget besto av, og hvordan det ble slik. Lista er kildeført én overgang om
+ * gangen og er sjelden fullstendig — et tomt felt betyr manglende kilde, ikke
+ * en sesong uten bevegelser. Derfor er det ingen totalsum her som kan leses som
+ * «så mange kom og gikk det året».
+ */
+export function SquadMovements({ transfers, season }: { transfers: SeasonTransfer[]; season: number }) {
+  if (transfers.length === 0) return null;
+  const inbound = transfers.filter((entry) => entry.direction === "in");
+  const outbound = transfers.filter((entry) => entry.direction === "out");
+
+  return (
+    <div className="squad-movements">
+      <Movements title={`Inn i ${season}`} entries={inbound} empty="Ingen overganger inn er kildeført for sesongen." />
+      <Movements title={`Ut av ${season}`} entries={outbound} empty="Ingen overganger ut er kildeført for sesongen." />
+    </div>
+  );
+}
+
+function Movements({ title, entries, empty }: { title: string; entries: SeasonTransfer[]; empty: string }) {
+  return (
+    <div>
+      <h3 className="subsection-heading">{title}</h3>
+      {entries.length === 0 ? (
+        <p className="small muted">{empty}</p>
+      ) : (
+        <ul className="movement-list">
+          {entries.map((entry) => (
+            <li key={`${entry.personId}-${entry.date}-${entry.club ?? ""}`}>
+              <Link href={`/personer/${entry.personId}`}>{entry.name}</Link>
+              {/* Klubben lenkes bare når den finnes i arkivet. Klubbkatalogen er
+                  motstandere, og de fleste overganger går til en klubb AaFK
+                  aldri har møtt — da står kildens skrivemåte som ren tekst. */}
+              {entry.club && (
+                <span className="muted">
+                  {" · "}
+                  {entry.clubId
+                    ? <Link href={`/motstander/${entry.clubId}`}>{entry.club}</Link>
+                    : entry.club}
+                </span>
+              )}
+              {entry.kind !== "transfer" && TRANSFER_KIND_LABELS[entry.kind] && (
+                <span className="squad-new"> {TRANSFER_KIND_LABELS[entry.kind]}</span>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 }

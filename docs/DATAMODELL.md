@@ -809,6 +809,49 @@ people:
     body: Stadion
 ```
 
+### Overganger
+
+`transfers` er kildeførte overganger inn til og ut av klubben. AaFK er alltid den ene
+siden, så `direction` (`in` eller `out`) og motparten er nok:
+
+```yaml
+transfers:
+  - id: ut-volda-1950          # stabil innenfor personfila, som rolle-ID-ene
+    direction: out             # in | out
+    kind: transfer             # transfer (standard) | loan | loan_return | free | academy | released | retired
+    club: Volda T. & I.L.      # kildens egen skrivemåte, alltid bevart
+    clubId: volda              # arkivets klubb, bare når den finnes i data/clubs/
+    date: "1950"               # ÅÅÅÅ eller ÅÅÅÅ-MM-DD. «Høsten 1950» er 1950
+    sources: [{ sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73, page: "12" }]
+```
+
+| Regel | Hvorfor |
+|---|---|
+| Minst én kilde | En overgang uten proveniens er et rykte. Samme krav som rollene har |
+| `club` overskrives aldri av `clubId` | «Volda T. & I.L.» er hva medlemsbladet skrev. ID-en kommer i tillegg, ikke i stedet |
+| `clubId` er valgfri | Klubbkatalogen er motstandere. En spiller går ofte til en klubb AaFK aldri har møtt, og da skal feltet stå tomt — ikke utløse en ny klubbfil |
+| `retired` og `released` har ingen klubb | De betyr nettopp at kilden ikke oppgir noen. En klubb i tillegg er to påstander som motsier hverandre |
+| `season` bare for vintervinduet | Standard er året i `date`. Feltet finnes fordi en spiller hentet i desember 2015 hører til stallen i 2016, og godtar bare det året eller året etter |
+| Ingen overgangssum | Beløp er sjelden dokumentert, ofte et rykte, og et felt som finnes blir fylt. Oppgir en kilde en sum, står den i `note` |
+
+**Hva en overgang ikke beviser.** Samme redaksjonelle skille som mellom kildepåstand og
+kanonisk kamp gjelder her:
+
+- **En overgang er ikke en kampsesong.** En spiller kan være hentet og aldri ha spilt. `squad`
+  og `transfers` er to observasjoner, og den ene utledes aldri av den andre.
+- **En manglende overgang beviser ingenting.** Et år uten rader betyr manglende kilde. Arkivet
+  har fire overganger fra 1950 og ingen fra 1951; det sier noe om medlemsbladene, ikke om laget.
+- **`clubId` settes ikke på navnelikhet.** Samme regel som `opponentClubId`.
+
+Bygget eksponerer radene i viewet `transfers`. Sesongsiden viser dem som «inn og ut» under
+stallen, og personsiden som en egen tidslinje.
+
+**Hvorfor feltet ligger på personen.** En overgang uten en person er ingenting, og
+personfilene lastes og valideres allerede. Prisen er at en overgang krever at personfila
+finnes: en spiller som bare er kjent fra oppstillingene, kan ikke ha en overgang registrert
+før noen skriver fila. Det er riktig utfall — en kildeført overgang er en sterkere grunn til
+en fil enn et draktnummer er.
+
 **Hvorfor filene finnes.** `personKey()` slår sammen skrivemåter som er samme bokstav
 skrevet på to måter. Det den ikke kan, er å avgjøre om «Mathias Kristensen» og «Mathias
 Christensen» er samme mann. Wikipedia svarer: begge står i samme stall, med hvert sitt
@@ -836,7 +879,8 @@ Navnet som vises er den skrevne formen når begge finnes: «Määttä», ikke «
 **Tre ting tallene ikke sier.** `appearances` teller oppsatte tropper, ikke spilletid, fordi
 kilden ikke skiller mellom en som satt på benken og en som kom inn. «Ny» betyr at spilleren
 ikke var med sesongen før, ikke at han ble hentet: en som var skadet hele fjoråret ser like
-ny ut. Og trenerperiodene starter på første kamp, ikke på dagen avtalen ble skrevet.
+ny ut. Der en overgang er kildeført, sier stallen «hentet fra» i stedet for «ny» — da er det
+ikke lenger en utledning, men noe en kilde faktisk oppgir. Og trenerperiodene starter på første kamp, ikke på dagen avtalen ble skrevet.
 
 Oppstillingene finnes fra 2010. Eldre sesonger har tom stall, og det er en manglende kilde
 og ikke et lag uten spillere.

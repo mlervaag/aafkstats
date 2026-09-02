@@ -70,6 +70,97 @@ export const personRole = z
 
 export type PersonRole = z.infer<typeof personRole>;
 
+/** Hvilken vei spilleren gikk. AaFK er alltid den ene siden, så retningen holder. */
+export const transferDirection = z.enum(["in", "out"]);
+
+export type TransferDirection = z.infer<typeof transferDirection>;
+
+/**
+ * Hva slags overgang det var.
+ *
+ * `transfer` dekker det vanlige og er standard. De andre finnes fordi de betyr
+ * noe annet for den som leser — et lån er ikke et salg, og en som la opp gikk
+ * ikke til noen — ikke fordi lista skal være uttømmende.
+ */
+export const transferKind = z.enum([
+  "transfer",
+  "loan",
+  "loan_return",
+  "free",
+  /** Opp fra egen ungdomsavdeling. Bare `in`. */
+  "academy",
+  /** Kontrakt utløpt eller hevet, uten at kilden oppgir noen ny klubb. Bare `out`. */
+  "released",
+  /** La opp. Bare `out`. */
+  "retired",
+]);
+
+export type TransferKind = z.infer<typeof transferKind>;
+
+/**
+ * En kildeført overgang inn til eller ut av AaFK.
+ *
+ * ## Hvorfor den ikke er en rolle
+ *
+ * Fire overganger fra medlemsbladet 1950 lå tidligere i `roles`, med retning og
+ * klubb bare i fritekstnotatet: «Meldte overgang fra AaFK til Volda T. & I.L.
+ * høsten 1950.» En rolle er en *periode i et verv* med tittel og organ; en
+ * overgang er en *hendelse med retning og motpart*. Lagret som rolle er den
+ * verken søkbar, grupperbar per sesong eller mulig å vise, og det er grunnen
+ * til at arkivet ikke har hatt overganger.
+ *
+ * ## Hva den gjør mulig
+ *
+ * Stallen vet allerede hvem som var «ny» en sesong, men ikke hvorfor: en som
+ * var skadet hele fjoråret ser like ny ut som en nysignering. En overgang er
+ * nettopp kilden som skiller dem, og gjør «ny» til «hentet fra Hødd». Den
+ * andre veien har manglet helt, fordi «sluttet» uten kilde ville vært en
+ * påstand om hva som skjedde med spilleren.
+ *
+ * ## Hva den ikke inneholder
+ *
+ * Ingen overgangssum. Beløp er sjelden dokumentert, ofte et rykte, og et felt
+ * som finnes blir fylt. Oppgir en kilde faktisk en sum, hører den hjemme i
+ * `note` sammen med kilden som sa den.
+ */
+export const transfer = z
+  .object({
+    /** Stabil innenfor personfila, som rolle-ID-ene: `ut-volda-1950`. */
+    id: slug,
+    direction: transferDirection,
+    kind: transferKind.default("transfer"),
+    /**
+     * Klubben slik kilden skriver den, og den skrivemåten bevares alltid.
+     * «Volda T. & I.L.» er hva medlemsbladet sa. Null bare når kilden ikke
+     * navngir noen klubb — en som la opp, eller en kontrakt som løp ut.
+     */
+    club: z.string().min(1).nullable().default(null),
+    /**
+     * Arkivets klubb-ID, når klubben finnes i `data/clubs/`. De klubbene er
+     * motstandere, og en spiller går ofte til en klubb AaFK aldri har møtt.
+     * Da står feltet tomt; det skal ikke opprettes en klubbfil for å fylle det.
+     */
+    clubId: slug.optional(),
+    /** Datoen kilden oppgir. «Høsten 1950» er `"1950"` — ikke en gjettet dag. */
+    date: historicalDate,
+    /**
+     * Sesongen overgangen gjelder for. Standard er året i `date`, som stemmer
+     * for nesten alt. Feltet finnes for vintervinduet: en spiller hentet i
+     * desember 2015 hører til stallen i 2016, ikke i 2015.
+     */
+    season: seasonYear.optional(),
+    sources: z.array(sourceRef).min(1, "en overgang må ha minst én historisk kilde"),
+    note: z.string().optional(),
+  })
+  .strict();
+
+export type Transfer = z.infer<typeof transfer>;
+
+/** Sesongen overgangen føres på: den kilden oppgir, ellers året i datoen. */
+export function transferSeason(entry: Pick<Transfer, "date" | "season">): number {
+  return entry.season ?? Number(entry.date.slice(0, 4));
+}
+
 /** Draktnummeret personen hadde en gitt sesong. Nummer flytter seg mellom år. */
 export const squadNumber = z
   .object({
@@ -131,6 +222,16 @@ export const person = z
     squadNumbers: z.array(squadNumber).default([]),
     coachSpells: z.array(declaredCoachSpell).default([]),
     roles: z.array(personRole).default([]),
+    /**
+     * Overganger inn til og ut av klubben, slik en kilde dokumenterer dem.
+     *
+     * At feltet står her og ikke i en egen katalog er med vilje: en overgang
+     * uten en person er ingenting, og personfilene lastes og valideres
+     * allerede. Prisen er at en overgang krever at personfila finnes — og det
+     * er riktig utfall. «En fil lages når det er noe å si», og en kildeført
+     * overgang er en sterkere grunn til en fil enn et draktnummer er.
+     */
+    transfers: z.array(transfer).default([]),
     providers: z.array(providerRef).default([]),
     sources: z.array(sourceRef).default([]),
     /**
@@ -212,6 +313,40 @@ export const person = z
           path: ["roles", role.id, "to"],
           message: `rollen slutter (${role.to}) før den begynner (${role.from})`,
         });
+      }
+    }
+
+    const transferIds = new Set<string>();
+    const inbound = new Set<TransferKind>(["academy"]);
+    const outbound = new Set<TransferKind>(["released", "retired"]);
+    const clubless = new Set<TransferKind>(["released", "retired"]);
+    for (const entry of value.transfers) {
+      const at = (message: string) => ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["transfers", entry.id],
+        message,
+      });
+
+      if (transferIds.has(entry.id)) at(`to overganger har ID-en «${entry.id}»`);
+      transferIds.add(entry.id);
+
+      if (inbound.has(entry.kind) && entry.direction !== "in") {
+        at(`«${entry.kind}» er en overgang inn, ikke ut`);
+      }
+      if (outbound.has(entry.kind) && entry.direction !== "out") {
+        at(`«${entry.kind}» er en overgang ut, ikke inn`);
+      }
+      // «La opp» med en klubb oppgitt er to påstander som motsier hverandre.
+      // Gikk han til noen, er det ikke det kilden sier.
+      if (clubless.has(entry.kind) && (entry.club !== null || entry.clubId !== undefined)) {
+        at(`«${entry.kind}» betyr at kilden ikke oppgir noen klubb — fjern club/clubId eller endre kind`);
+      }
+
+      // Vintervinduet strekker seg over årsskiftet, og ikke lenger. Alt annet er
+      // en skrivefeil som ellers ville flyttet spilleren til feil sesongside.
+      const year = Number(entry.date.slice(0, 4));
+      if (entry.season !== undefined && entry.season !== year && entry.season !== year + 1) {
+        at(`sesongen ${entry.season} hører ikke til datoen ${entry.date}`);
       }
     }
   });

@@ -30,3 +30,20 @@ sources:
     page: "12"
   - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
     page: "31"
+transfers:
+  - id: ut-volda-1950
+    direction: out
+    club: Volda T. & I.L.
+    clubId: volda
+    date: "1950"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73
+        page: "12"
+        fields:
+          - direction
+          - club
+          - date
+    note: Meldte overgang fra AaFK til Volda T. & I.L. høsten 1950. Kilden oppgir
+      høsten, ikke en dag. Samme opplysning står også som rollen
+      «overgang-volda-1950»; den blir stående til den kan fjernes gjennom
+      bevaringsunntak.
