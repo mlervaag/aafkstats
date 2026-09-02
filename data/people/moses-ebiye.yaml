@@ -19,3 +19,44 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-tromso-2022
+    direction: in
+    kind: transfer
+    club: Tromsø
+    clubId: tromso
+    date: 2022-08-19
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1363775092
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2022». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Ebiye Moses klar for AaFK (NRK, 2022-08-19)
+      https://www.nrk.no/mr/ebiye-moses-klar-for-aafk-1.16073563"
+  - id: ut-motherwell-2024
+    direction: out
+    kind: transfer
+    club: Motherwell
+    clubId: motherwell
+    date: 2024-03-05
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354776072
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2023–24». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Moses Ebiye arrives in ML1 (Motherwell FC, 2024-03-05)
+      https://www.motherwellfc.co.uk/2024/03/05/moses-ebiye-arrives-in-ml1/"

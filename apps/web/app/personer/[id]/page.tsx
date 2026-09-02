@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getPersonById, getPersonIds, getPersonRoles, getPersonSeasons, getSourceTitles, mergeRoleSpells } from "@/lib/people";
-import type { PersonConflict, PersonMention, PersonRole, PersonSummary } from "@/lib/people";
+import { getPersonById, getPersonIds, getPersonRoles, getPersonSeasons, getPersonTransfers, getSourceTitles, mergeRoleSpells } from "@/lib/people";
+import type { PersonConflict, PersonMention, PersonRole, PersonSummary, PersonTransfer } from "@/lib/people";
 import {
   getDerivedPlayerById,
   getDerivedPlayerNameForms,
@@ -120,6 +120,7 @@ export default async function PersonPage({ params }: { params: Promise<{ id: str
 
   const roles = mergeRoleSpells(getPersonRoles(id)).reverse();
   const seasons = getPersonSeasons(id);
+  const transfers = getPersonTransfers(id);
   const sourceTitles = getSourceTitles();
   const contributions = loadContributions(id, "person");
   const observations = getPersonObservations(id);
@@ -129,7 +130,7 @@ export default async function PersonPage({ params }: { params: Promise<{ id: str
   const squadSpan = seasons.length > 0
     ? ` i stallister fra ${seasons.at(-1)!.season} til ${seasons[0]!.season}`
     : "";
-  const noLinkedContent = roles.length === 0 && seasons.length === 0 &&
+  const noLinkedContent = roles.length === 0 && seasons.length === 0 && transfers.length === 0 &&
     person.mentions.length === 0 && person.conflicts.length === 0 && observations.length === 0;
   const unresolvedConflicts = person.conflicts.filter((c) => !c.resolved);
   const resolvedConflicts = person.conflicts.filter((c) => c.resolved);
@@ -207,6 +208,22 @@ export default async function PersonPage({ params }: { params: Promise<{ id: str
 
           {resolvedConflicts.length > 0 ? <ResolvedConflictNotes conflicts={resolvedConflicts} /> : null}
 
+          {transfers.length > 0 ? (
+            <section className={styles.section}>
+              <h2>Overganger</h2>
+              <ol className={styles.timeline}>
+                {transfers.map((entry) => (
+                  <Transfer key={entry.date + entry.direction + (entry.club ?? "")} transfer={entry} titles={sourceTitles} />
+                ))}
+              </ol>
+              <p className="small muted prose">
+                Overganger er kildeført én for én, og lista er ikke fullstendig.
+                At det ikke står noe for et år betyr at ingen kilde er ført inn,
+                ikke at personen ble værende.
+              </p>
+            </section>
+          ) : null}
+
           <HistoricalObservations observations={observations} titles={sourceTitles} className={styles.section} />
 
           {seasons.length > 0 ? (
@@ -244,6 +261,7 @@ export default async function PersonPage({ params }: { params: Promise<{ id: str
               <div><dt>Stallister</dt><dd>{seasons.length} {seasons.length === 1 ? "sesong" : "sesonger"}</dd></div>
             ) : null}
             {person.role_count > 0 ? <div><dt>Kildeførte roller</dt><dd>{person.role_count}</dd></div> : null}
+            {transfers.length > 0 ? <div><dt>Overganger</dt><dd>{transfers.length}</dd></div> : null}
             {observations.length > 0 ? <div><dt>Historiske observasjoner</dt><dd>{observations.length}</dd></div> : null}
             {person.mentions.length > 0 ? (
               <div><dt>Omtalt i</dt><dd>{person.mentions.length} {person.mentions.length === 1 ? "publikasjon" : "publikasjoner"}</dd></div>
@@ -265,6 +283,62 @@ export default async function PersonPage({ params }: { params: Promise<{ id: str
 
       <Contributions contributions={contributions} />
     </article>
+  );
+}
+
+/**
+ * En overgang i tidslinja.
+ *
+ * Retningen står som overskrift fordi det er den opplysningen som skiller en
+ * overgang fra en rolle: «Til Frigg» sier på ett blikk hva som skjedde, mens
+ * klubben alene ikke sier hvilken vei personen gikk.
+ */
+function Transfer({ transfer, titles }: { transfer: PersonTransfer; titles: Map<string, string> }) {
+  const KINDS: Record<string, string> = {
+    loan: "på lån",
+    loan_return: "tilbake fra lån",
+    free: "kontraktløs",
+    academy: "fra egen ungdomsavdeling",
+    released: "kontrakten løp ut",
+    retired: "la opp",
+  };
+  const heading = transfer.club === null
+    ? (KINDS[transfer.kind] ?? (transfer.direction === "in" ? "Til AaFK" : "Fra AaFK"))
+    : `${transfer.direction === "in" ? "Fra" : "Til"} ${transfer.club}`;
+
+  return (
+    <li>
+      <time>{when(transfer.date, null)}</time>
+      <div>
+        <h3>
+          {transfer.club_id
+            ? <Link href={`/motstander/${transfer.club_id}`}>{heading}</Link>
+            : heading}
+        </h3>
+        <p>
+          {transfer.direction === "in" ? "Overgang inn til AaFK" : "Overgang ut av AaFK"}
+          {transfer.kind !== "transfer" && KINDS[transfer.kind] ? ` · ${KINDS[transfer.kind]}` : ""}
+        </p>
+        {transfer.note ? <p className="small muted">{transfer.note}</p> : null}
+        <SourceChips refs={transfer.sources} titles={titles} />
+        {/* Nettmeldinger står som lenker og ikke som kildebrikker: brikkene peker
+            på en publikasjon i arkivet, og en klubbmelding har ingen slik side å
+            peke på. Adressen er det leseren kan kontrollere påstanden mot. */}
+        {transfer.providers.length > 0 ? (
+          <p className="small muted">
+            {transfer.providers.map((provider, index) => (
+              <span key={`${provider.providerId}-${provider.url ?? index}`}>
+                {index > 0 && " · "}
+                {provider.url
+                  ? <a href={provider.url} rel="nofollow">{PROVIDER_LABELS[provider.providerId] ?? provider.providerId}</a>
+                  : (PROVIDER_LABELS[provider.providerId] ?? provider.providerId)}
+                {provider.note ? <> {provider.note}</> : null}
+              </span>
+            ))}
+          </p>
+        ) : null}
+      </div>
+    </li>
   );
 }
 

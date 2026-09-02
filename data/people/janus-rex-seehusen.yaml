@@ -29,3 +29,33 @@ providers:
     fields:
       - wikidata
     note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
+transfers:
+  - id: inn-koge-2024
+    direction: in
+    kind: transfer
+    club: Køge
+    clubId: koge-bk
+    date: 2024-07-31
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354769893
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2024». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/janus-rex-seehusen-har-signert
+        retrievedAt: 2024-07-31
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Janus Rex Seehusen har signert!
+    note: "Kilden fotnoten peker på: Janus Rex Seehusen har signert! (Aalesunds FK, 2024-07-31)
+      https://www.aafk.no/nyheter/janus-rex-seehusen-har-signert"

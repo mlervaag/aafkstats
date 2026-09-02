@@ -19,3 +19,75 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-brann-2021
+    direction: in
+    kind: transfer
+    club: Brann
+    clubId: sk-brann
+    date: 2021-09-01
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1366717146
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2021». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Enighet mellom Brann og Barmen – har funnet seg ny klubb
+      (Eurosport, 2021-09-01)
+      https://www.eurosport.no/fotball/eliteserien/2021/enighet-mellom-brann-og-barmen-har-funnet-s\
+      eg-ny-klubb_sto8514573/story.shtml"
+  - id: ut-asane-2023
+    direction: out
+    kind: transfer
+    club: Åsane
+    clubId: asane
+    date: 2023-08-30
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354769639
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2023». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/barmen-gar-til-asane
+        retrievedAt: 2023-08-30
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Barmen går til Åsane
+    note: "Kilden fotnoten peker på: Barmen går til Åsane (Eurosport, 2023-08-30)
+      https://www.aafk.no/nyheter/barmen-gar-til-asane"
+  - id: ut-asane-2024
+    direction: out
+    kind: loan
+    club: Åsane
+    clubId: asane
+    date: 2024-01-25
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354776072
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2023–24». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Barmen signerer for Åsane Fotball (Åsane, 2024-01-25)
+      https://www.asanefotball.no/nyheter/barmen-signerer-for-asane-fotball"

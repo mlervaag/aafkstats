@@ -16,3 +16,53 @@ providers:
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+transfers:
+  - id: ut-molde-2018
+    direction: out
+    kind: loan_return
+    club: Molde
+    clubId: molde-fk
+    date: 2018-06-28
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468717
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2018». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Nattestad tilbake i Molde (Romsdals Budstikke, 2018-06-28)
+      https://www.rbnett.no/100Sport/fotball/-Nattestad-tilbake-i-Molde-257410b.html"
+  - id: inn-molde-2018
+    direction: in
+    kind: loan
+    club: Molde
+    clubId: molde-fk
+    date: 2018-03-01
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468729
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2017–18». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/nyheter/han-blir-klubbens-hoyeste
+        retrievedAt: 2018-03-01
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Han blir klubbens høyeste
+    note: "Kilden fotnoten peker på: Han blir klubbens høyeste (Aalesunds FK, 2018-03-01)
+      http://www.aafk.no/nyheter/han-blir-klubbens-hoyeste"

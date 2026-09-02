@@ -1,0 +1,40 @@
+id: izatullah-ahmadzi
+name: Izatullah Ahmadzi
+names: []
+squadNumbers: []
+coachSpells: []
+roles: []
+transfers:
+  - id: ut-langevag-2015
+    direction: out
+    kind: loan
+    club: Langevåg
+    clubId: langevag
+    date: 2015-09-04
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369861440
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2015». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/latest-news/article/w6ptz6n6z7l518hn0rtz7kbe3/title/izza-tilbake-til-langevag
+        retrievedAt: 2015-09-04
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Izza tilbake til Langevåg
+    note: "Kilden fotnoten peker på: Izza tilbake til Langevåg (Aalesunds FK, 2015-09-04)
+      http://www.aafk.no/latest-news/article/w6ptz6n6z7l518hn0rtz7kbe3/title/izza-tilbake-til-lange\
+      vag"
+providers: []
+sources: []
+conflicts: []

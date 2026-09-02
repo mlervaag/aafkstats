@@ -24,3 +24,61 @@ providers:
     fields:
       - wikidata
     note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
+transfers:
+  - id: inn-raufoss-2020
+    direction: in
+    kind: transfer
+    club: Raufoss
+    clubId: raufoss-il
+    date: 2020-03-02
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468730
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2019–20». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/velkommen-hjem
+        retrievedAt: 2020-03-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Velkommen hjem!
+    note: "Kilden fotnoten peker på: Velkommen hjem! (Aalesunds FK, 2020-03-02)
+      https://www.aafk.no/nyheter/velkommen-hjem"
+  - id: ut-ufa-2021
+    direction: out
+    kind: transfer
+    club: Ufa
+    date: 2021-02-19
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365491811
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2020–21». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/har-mye-a-takke-aafk-for
+        retrievedAt: 2021-02-19
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Har mye å takke AaFK for
+    note: "Kilden fotnoten peker på: Har mye å takke AaFK for (Aalesunds FK, 2021-02-19)
+      https://www.aafk.no/nyheter/har-mye-a-takke-aafk-for"

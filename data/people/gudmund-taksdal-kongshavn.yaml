@@ -18,3 +18,33 @@ providers:
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+transfers:
+  - id: inn-tromso-2020
+    direction: in
+    kind: transfer
+    club: Tromsø
+    clubId: tromso
+    date: 2020-01-29
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468730
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2019–20». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/rutinert-keeper-har-skrevet-under-for-aafk
+        retrievedAt: 2020-01-29
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Rutinert keeper har skrevet under for AaFK
+    note: "Kilden fotnoten peker på: Rutinert keeper har skrevet under for AaFK (Aalesunds FK,
+      2020-01-29) https://www.aafk.no/nyheter/rutinert-keeper-har-skrevet-under-for-aafk"

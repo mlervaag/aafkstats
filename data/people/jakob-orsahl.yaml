@@ -20,3 +20,33 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-raufoss-2025
+    direction: in
+    kind: transfer
+    club: Raufoss
+    clubId: raufoss-il
+    date: 2025-06-24
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1366510503
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2025». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/aafk-har-signert-jakob-nyland-orsahl
+        retrievedAt: 2025-06-24
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: AaFK har signert Jakob Nyland Ørsahl
+    note: "Kilden fotnoten peker på: AaFK har signert Jakob Nyland Ørsahl (Aalesunds FK, 2025-06-24)
+      https://www.aafk.no/nyheter/aafk-har-signert-jakob-nyland-orsahl"

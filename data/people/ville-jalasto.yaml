@@ -18,3 +18,24 @@ providers:
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+transfers:
+  - id: ut-stabaek-2012
+    direction: out
+    kind: transfer
+    club: Stabæk
+    clubId: stabaek
+    date: 2012-07-30
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1243527486
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2012». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Ville Jalasto til Stabæk (nettavisen.no, 2012-07-30)
+      http://www.nettavisen.no/sport/fotball/article3442320.ece"

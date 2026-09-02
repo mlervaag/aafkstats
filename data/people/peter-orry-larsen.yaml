@@ -36,3 +36,75 @@ sources:
     page: "32"
     fields: []
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+transfers:
+  - id: ut-released-2017
+    direction: out
+    kind: released
+    club: null
+    date: 2017-01-04
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354772307
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2016–17». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Alle Eliteserie-overgangene i januar (Nettavisen, 2017-01-04)
+      http://m.nettavisen.no/sport/alle-eliteserie-overgangene-i-januar/3423298621.html"
+  - id: inn-brann-2019
+    direction: in
+    kind: transfer
+    club: Brann
+    clubId: sk-brann
+    date: 2018-12-03
+    season: 2019
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1361724311
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2018–19». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/nyheter/orry-vender-hjem
+        retrievedAt: 2018-12-03
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Orry vender hjem
+    note: "Kilden fotnoten peker på: Orry vender hjem (Aalesunds FK, 2018-12-03)
+      http://www.aafk.no/nyheter/orry-vender-hjem"
+  - id: ut-retired-2021
+    direction: out
+    kind: retired
+    club: null
+    date: 2020-11-05
+    season: 2021
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365491811
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2020–21». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Har nesten 300 Eliteserie-kamper - nå legger han opp (Eurosport,
+      2020-11-05)
+      https://www.eurosport.no/fotball/eliteserien/2020/har-nesten-300-eliteserie-kamper-na-legger-\
+      han-opp_sto7980526/story.shtml"

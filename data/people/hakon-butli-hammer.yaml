@@ -31,3 +31,24 @@ providers:
     fields:
       - wikidata
     note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
+transfers:
+  - id: inn-raufoss-2023
+    direction: in
+    kind: transfer
+    club: Raufoss
+    clubId: raufoss-il
+    date: 2023-07-26
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354769639
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2023». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Raufoss selger midtbaneankeret til Aalesund
+      https://www.oa.no/raufoss-selger-midtbaneankeret-til-aalesund/s/5-35-1793794"

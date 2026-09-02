@@ -20,3 +20,33 @@ providers:
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
 note: >-
   FotMob skriver «đ» som «dj». Samme navn, annen omskriving.
+transfers:
+  - id: inn-sarpsborg-08-2022
+    direction: in
+    kind: transfer
+    club: Sarpsborg 08
+    clubId: sarpsborg-08
+    date: 2022-02-18
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369178074
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2021–22». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/derfor-valgte-dario-aafk
+        retrievedAt: 2022-02-18
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Derfor valgte Dario AaFK
+    note: "Kilden fotnoten peker på: Derfor valgte Dario AaFK (Aalesunds FK, 2022-02-18)
+      https://www.aafk.no/nyheter/derfor-valgte-dario-aafk"

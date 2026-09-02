@@ -449,6 +449,35 @@ export const views: ViewDoc[] = [
     ],
   },
   {
+    name: "transfers",
+    summary:
+      "Én rad per kildeført overgang inn til eller ut av AaFK. Bruk denne på spørsmål om hvem som ble hentet eller forsvant, " +
+      "ikke squad, som bare sier hvem som var med og ikke hvorfor.",
+    caveats: [
+      "Dekningen er ujevn. Et år uten rader betyr at ingen kilde er ført inn ennå, ikke at ingen skiftet klubb.",
+      "En overgang er ikke bevis for en kampsesong. En spiller kan være hentet og aldri ha spilt, og han finnes da ikke i squad.",
+      "Ikke summer transfers og squad. De er to observasjoner om samme spiller, ikke to deler av samme tall.",
+      "Bare personer med egen personfil kan ha overganger her. En spiller som bare finnes som et navn i oppstillingene har ingen rad, og det er en manglende fil, ikke en manglende overgang.",
+      "club er kildens egen skrivemåte. club_id er satt bare når klubben finnes i arkivet, og klubbkatalogen inneholder motstandere. NULL betyr at klubben ikke er registrert, ikke at den er ukjent.",
+      "Ingen overgangssum. Beløp er sjelden dokumentert og lagres ikke som eget felt.",
+      "Hver rad har enten sources eller providers, aldri ingen av delene. sources er historiske publikasjoner, providers er nettmeldinger med adresse og hentetid.",
+    ],
+    columns: [
+      { name: "person_id", type: "text", description: "Personens stabile ID." },
+      { name: "name", type: "text", description: "Navnet slik arkivet viser det." },
+      { name: "direction", type: "text", description: "'in' (til AaFK) eller 'out' (fra AaFK)." },
+      { name: "kind", type: "text", description: "'transfer', 'loan', 'loan_return', 'free', 'academy', 'released' eller 'retired'." },
+      { name: "season", type: "integer", description: "Sesongen overgangen føres på. Året i date, eller året etter når kilden plasserer en vinterovergang i neste sesong." },
+      { name: "date", type: "text", description: "Datoen kilden oppgir, som ÅÅÅÅ eller ÅÅÅÅ-MM-DD. «Høsten 1950» står som 1950." },
+      { name: "club_id", type: "text", description: "Den andre klubbens ID når den finnes i arkivet. NULL ellers." },
+      { name: "club", type: "text", description: "Den andre klubben, med kildens egen skrivemåte. NULL når kilden ikke oppgir noen, altså 'released' og 'retired'." },
+      { name: "sources", type: "JSON", description: "Historisk publikasjon, side og dokumenterte felt. Tom når kilden er en nettmelding." },
+      { name: "providers", type: "JSON", description: "Dataleverandør, adresse og hentetid. Brukes for nettmeldinger, som ikke er dokumenter i kildekatalogen." },
+      { name: "note", type: "text", description: "Redaksjonelt forbehold eller det kilden sier utover feltene." },
+      { name: "url", type: "text", description: "Lenke til personsiden." },
+    ],
+  },
+  {
     name: "organizations",
     summary: "Organisasjonsenheter som roller og snapshots kan knyttes til.",
     caveats: ["AaFK, Ålesund Fotball AS og stadionvirksomhet er separate enheter selv når de deler personer."],

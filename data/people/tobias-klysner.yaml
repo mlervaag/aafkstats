@@ -24,3 +24,61 @@ providers:
     fields:
       - wikidata
     note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
+transfers:
+  - id: inn-randers-2023
+    direction: in
+    kind: loan
+    club: Randers
+    date: 2023-08-31
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354769639
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2023». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/henter-klysner-fra-superligaen
+        retrievedAt: 2023-08-31
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Henter Klysner fra Superligaen
+    note: "Kilden fotnoten peker på: Henter Klysner fra Superligaen
+      https://www.aafk.no/nyheter/henter-klysner-fra-superligaen"
+  - id: ut-randers-2024
+    direction: out
+    kind: loan_return
+    club: Randers
+    date: 2023-12-08
+    season: 2024
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354776072
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2023–24». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/takket-av-flere-spillere
+        retrievedAt: 2023-12-08
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Takket av flere spillere
+    note: "Kilden fotnoten peker på: Takket av flere spillere (Aalesunds FK, 2023-12-08)
+      https://www.aafk.no/nyheter/takket-av-flere-spillere"

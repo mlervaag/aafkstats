@@ -1,0 +1,57 @@
+id: el-mehdi-karnass
+name: El Mehdi Karnass
+names: []
+squadNumbers: []
+coachSpells: []
+roles: []
+transfers:
+  - id: inn-difaa-el-jadida-2014
+    direction: in
+    kind: transfer
+    club: Difaa El Jadida
+    date: 2014-07-24
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369176507
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2014». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Her er alle overgangene i Tippeligaen http://www.tv2.no/a/5816027"
+  - id: ut-far-rabat-2015
+    direction: out
+    kind: transfer
+    club: FAR Rabat
+    date: 2015-01-12
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1368964463
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2014–15». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/latest-news/article/pdabxx1bg13119uelis0nzqh7/title/karnass-tilbake-til-marokko
+        retrievedAt: 2015-01-12
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Karnass tilbake til Marokko
+    note: "Kilden fotnoten peker på: Karnass tilbake til Marokko (Aalesunds FK, 2015-01-12)
+      http://www.aafk.no/latest-news/article/pdabxx1bg13119uelis0nzqh7/title/karnass-tilbake-til-ma\
+      rokko"
+providers: []
+sources: []
+conflicts: []

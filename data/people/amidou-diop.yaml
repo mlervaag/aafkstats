@@ -19,3 +19,55 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: ut-sarpsborg-08-2024
+    direction: out
+    kind: loan
+    club: Sarpsborg 08
+    clubId: sarpsborg-08
+    date: 2024-08-22
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354769893
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2024». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/amidou-diop-gar-pa-lan
+        retrievedAt: 2024-08-22
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Amidou Diop går på lån
+    note: "Kilden fotnoten peker på: Amidou Diop går på lån (Aalesunds FK, 2024-08-22)
+      https://www.aafk.no/nyheter/amidou-diop-gar-pa-lan"
+  - id: inn-kristiansund-2023
+    direction: in
+    kind: transfer
+    club: Kristiansund
+    clubId: kristiansund
+    date: 2023-02-03
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354775790
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2022–23». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Aalesund henter tidligere KBK-spiller: – Interesse fra en rekke
+      klubber (Eurosport, 2023-02-03)
+      https://www.eurosport.no/fotball/eliteserien/2021/aalesund-henter-tidligere-kbk-spiller-inter\
+      esse-fra-en-rekke-klubber_sto9370112/story.shtml"

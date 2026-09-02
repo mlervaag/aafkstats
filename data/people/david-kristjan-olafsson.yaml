@@ -39,3 +39,43 @@ note: >-
   `davi-kristjan-olafsson` for 2020-2021, fordi «ð» falt ut av
   personidentiteten og de to skrivemåtene aldri møttes. Filene er slått sammen;
   begge skrivemåtene står i names[].
+transfers:
+  - id: inn-breidablik-2019
+    direction: in
+    kind: transfer
+    club: Breidablik
+    date: "2019"
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1361724311
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2018–19». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Overganger i OBOS-ligaen vinter 2019 (Sportshjørnet)
+      https://sportshjornet.com/overganger-i-obos-ligaen-vinter-2019/"
+  - id: ut-kalmar-2022
+    direction: out
+    kind: transfer
+    club: Kalmar
+    clubId: kalmar-ff
+    date: 2022-01-12
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369178074
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2021–22». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Officiellt: Davíd Kristján Ólafsson klar för Kalmar FF
+      (Fotbolltransfers, 2022-01-12) https://fotbolltransfers.com/site/news/148345"

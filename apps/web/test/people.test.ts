@@ -3,7 +3,8 @@ import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { loadValidateAndBuild } from "@aafkstats/db/build";
-import { getOrganizationSnapshots, getPeople, getPersonById, getPersonRoles, getPersonSeasons, mergeRoleSpells, type PersonRole } from "../lib/people.js";
+import { getOrganizationSnapshots, getPeople, getPersonById, getPersonRoles, getPersonSeasons, getPersonTransfers, mergeRoleSpells, type PersonRole } from "../lib/people.js";
+import { loadTransfers } from "../lib/archive.js";
 import { getSourceRoleUsages, getSourceSeasonUsages, getSourceUsages } from "../lib/sources.js";
 
 const previousDbPath = process.env.AAFK_DB_PATH;
@@ -245,4 +246,49 @@ describe("mergeRoleSpells", () => {
     const merged = mergeRoleSpells([role({ role_id: "a", from_date: "2024" })]);
     expect(merged[0]!.to_date).toBeNull();
   });
+});
+
+/**
+ * Overgangene, hele veien fra YAML til det sidene faktisk viser.
+ *
+ * Kjører mot `data/` som resten av fila: påstanden gjelder fire virkelige
+ * overganger medlemsbladet dokumenterte høsten 1950, ikke en oppdiktet fixture.
+ */
+describe("overganger", () => {
+  it("viser Knut Hjelles overgang til Volda med kilde og klubbkobling", () => {
+    // To rader: ut til Volda om høsten, og tilbake igjen i neste utgave. Uten
+    // returen ville arkivet bare vist at han dro.
+    const transfers = getPersonTransfers("knut-hjelle");
+    expect(transfers).toHaveLength(2);
+    expect(transfers.map((entry) => entry.direction).sort()).toEqual(["in", "out"]);
+    expect(transfers.find((entry) => entry.direction === "out")).toMatchObject({
+      direction: "out",
+      kind: "transfer",
+      season: 1950,
+      // Kildens egen skrivemåte står, selv om klubben er identifisert.
+      club: "Volda T. & I.L.",
+      club_id: "volda",
+    });
+    expect(transfers[0]!.sources[0]?.sourceId).toContain("medlemsblad");
+  }, 30_000);
+
+  it("lar klubben stå uten ID når arkivet ikke kjenner den", () => {
+    // Wing er ikke en klubb AaFK har møtt, og finnes derfor ikke i data/clubs.
+    // Navnet skal likevel vises; en tom club_id er ikke en mangel.
+    const [transfer] = getPersonTransfers("helge-odegaard");
+    expect(transfer).toMatchObject({ club: "Wing", club_id: null });
+  }, 30_000);
+
+  it("samler sesongens bevegelser på sesongen kilden oppgir", () => {
+    const transfers = loadTransfers(1950);
+    expect(transfers).toHaveLength(5);
+    expect(transfers.filter((entry) => entry.direction === "out")).toHaveLength(4);
+    expect(transfers.filter((entry) => entry.direction === "in")).toHaveLength(1);
+  }, 30_000);
+
+  it("gir ingen overganger for et år ingen kilde er ført inn for", () => {
+    // Tomt er en manglende kilde, ikke en sesong uten bevegelser, og
+    // sesongsiden skal da ikke vise seksjonen i det hele tatt.
+    expect(loadTransfers(1951)).toEqual([]);
+  }, 30_000);
 });

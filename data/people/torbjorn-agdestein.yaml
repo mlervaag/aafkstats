@@ -23,3 +23,54 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: ut-released-2021
+    direction: out
+    kind: released
+    club: null
+    date: 2021-08-01
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1366717146
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2021». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: AaFK-spiller har ikke fått ny kontrakt og står uten avtale: – Ræva
+      situasjon
+      https://www.adressa.no/sport/fotball/i/X6kE27/aafk-spiller-har-ikke-faatt-ny-kontrakt-og-staa\
+      r-uten-avtale-raeva-situasjon"
+  - id: inn-odd-2018
+    direction: in
+    kind: transfer
+    club: Odd
+    clubId: odds-ballklubb
+    date: 2018-03-07
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468729
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2017–18». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/nyheter/dette-er-aafks-nye-spiss
+        retrievedAt: 2018-03-07
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Dette er AaFKs nye spiss
+    note: "Kilden fotnoten peker på: Dette er AaFKs nye spiss (Aalesunds FK, 2018-03-07)
+      http://www.aafk.no/nyheter/dette-er-aafks-nye-spiss"

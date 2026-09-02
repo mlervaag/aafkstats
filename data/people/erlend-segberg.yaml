@@ -21,3 +21,55 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-start-2021
+    direction: in
+    kind: transfer
+    club: Start
+    clubId: start
+    date: 2021-02-16
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365491811
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2020–21». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/vraket-eliteserie-klubber-for-aafk
+        retrievedAt: 2021-02-16
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Vraket Eliteserie-klubber for AaFK
+    note: "Kilden fotnoten peker på: Vraket Eliteserie-klubber for AaFK (Aalesunds FK, 2021-02-16)
+      https://www.aafk.no/nyheter/vraket-eliteserie-klubber-for-aafk"
+  - id: ut-fredrikstad-2024
+    direction: out
+    kind: transfer
+    club: Fredrikstad
+    clubId: fredrikstad
+    date: 2024-03-12
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354776072
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2023–24». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Segberg klar for FFK: - Gir oss en skjerpet konkurranse på
+      midtbanen (Fredrikstad FK, 2024-03-12)
+      https://www.fredrikstadfk.no/nyheter/segberg-klar-for-ffk-gir-oss-en-skjerpet-konkurranse-pa-\
+      midtbanen"

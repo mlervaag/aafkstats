@@ -667,8 +667,9 @@ const searchPeople = defineTool({
 const getPerson = defineTool({
   name: "get_person",
   description:
-    "Hent én publisert person med eksplisitte roller, konflikter, kildehenvisninger og " +
-    "historiske observasjoner. Roller er separate rolleposter og har rolle-ID og organisasjon.",
+    "Hent én publisert person med eksplisitte roller, overganger, konflikter, kildehenvisninger og " +
+    "historiske observasjoner. Roller er separate rolleposter og har rolle-ID og organisasjon. " +
+    "Overganger er kildeført enkeltvis og er aldri en fullstendig klubbhistorikk.",
   inputSchema: z.object({ personId: z.string().min(1).describe("Kanonisk person-ID") }),
   async run(input, ctx) {
     const id = lit(input.personId);
@@ -709,13 +710,23 @@ const getPerson = defineTool({
        WHERE relation.value = ${id}
        ORDER BY coalesce(h.date, '') DESC, h.id`,
     );
+    const transfers = await query(
+      ctx,
+      `SELECT direction, kind, season, date, club, club_id, sources, note
+       FROM transfers WHERE person_id = ${id}
+       ORDER BY date, direction`,
+    );
     if (roles.isError) return roles;
     if (conflicts.isError) return conflicts;
     if (observations.isError) return observations;
+    if (transfers.isError) return transfers;
     return {
       content: {
         person: personRow,
         roles: resultRows(roles),
+        // Tom liste betyr at ingen overgang er kildeført, ikke at personen
+        // aldri skiftet klubb. Skal ikke leses som en komplett karriere.
+        transfers: resultRows(transfers),
         conflicts: resultRows(conflicts),
         observations: resultRows(observations),
       },

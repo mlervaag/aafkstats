@@ -19,3 +19,54 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-academy-2019
+    direction: in
+    kind: academy
+    club: null
+    date: "2019"
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1361726276
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2019». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: AaFK-talent har fått proffkontrakt: – Han er en spennende spiller -
+      Sunnmørsposten
+      https://www.smp.no/100Sport/fotball/AaFK-talent-har-fatt-proffkontrakt--Han-er-en-spennende-s\
+      piller-274831b.html"
+  - id: ut-floro-2021
+    direction: out
+    kind: transfer
+    club: Florø
+    clubId: floro
+    date: 2021-03-23
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365491811
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2020–21». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/vetle-fiskerstrand-til-floro
+        retrievedAt: 2021-03-23
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Vetle Fiskerstrand til Florø
+    note: "Kilden fotnoten peker på: Vetle Fiskerstrand til Florø (Aalesunds FK, 2021-03-23)
+      https://www.aafk.no/nyheter/vetle-fiskerstrand-til-floro"

@@ -24,3 +24,54 @@ providers:
     fields:
       - wikidata
     note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
+transfers:
+  - id: inn-ado-den-haag-2016
+    direction: in
+    kind: transfer
+    club: ADO Den Haag
+    date: 2016-08-01
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369966456
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2016». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/news/article/qeqcg46sl2v51fvv9kpofrp2s/title/nederlander-klar-for-aafk
+        retrievedAt: 2016-08-01
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Nederlender klar for AaFK
+    note: "Kilden fotnoten peker på: Nederlender klar for AaFK (Aalesunds FK, 2016-08-01)
+      http://www.aafk.no/news/article/qeqcg46sl2v51fvv9kpofrp2s/title/nederlander-klar-for-aafk"
+  - id: ut-brann-2017
+    direction: out
+    kind: transfer
+    club: Brann
+    clubId: sk-brann
+    date: 2016-12-19
+    season: 2017
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354772307
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2016–17». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Her er Branns nye midtstopper (SK Brann, 2016-12-19)
+      http://www.brann.no/news/article/1cdg2ofzuxrq61996knsljcwoz/title/her-er-branns-nye-midtstopp\
+      er"

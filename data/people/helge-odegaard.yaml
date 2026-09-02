@@ -16,3 +16,22 @@ roles:
 sources:
   - sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
     page: "3"
+transfers:
+  - id: ut-wing-1950
+    direction: out
+    club: Wing
+    date: "1950"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
+        page: "3"
+        fields:
+          - direction
+          - club
+          - date
+    note: Kilden skriver at han og Hans Henriksen, «som begge er kalt inn til
+      militærtjeneste, har søkt om overgang til sportsklubben Wing, Trondheim»,
+      og ønsker dem velkommen tilbake når tjenestetiden er over. Overgangen er
+      altså søkt, ikke bekreftet innvilget, og begrunnet i militærtjeneste. Wing
+      er ikke registrert som klubb i arkivet, så clubId står tom. Samme
+      opplysning står også som rollen «overgang-wing-1950»; den blir stående til
+      den kan fjernes gjennom bevaringsunntak.

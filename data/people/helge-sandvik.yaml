@@ -18,3 +18,54 @@ providers:
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+transfers:
+  - id: inn-vard-haugesund-2015
+    direction: in
+    kind: loan
+    club: Vard Haugesund
+    clubId: vard-haugesund
+    date: 2015-05-28
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369861440
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2015». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/news/article/ti63d9z5f9rg13855v459wh5i/title/laner-keeper-fra-vard-haugesund
+        retrievedAt: 2015-05-28
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Låner keeper fra Vard Haugesund
+    note: "Kilden fotnoten peker på: Låner keeper fra Vard Haugesund (Aalesunds FK, 2015-05-28)
+      http://www.aafk.no/news/article/ti63d9z5f9rg13855v459wh5i/title/laner-keeper-fra-vard-haugesu\
+      nd"
+  - id: ut-vard-haugesund-2015
+    direction: out
+    kind: loan_return
+    club: Vard Haugesund
+    clubId: vard-haugesund
+    date: 2015-07-13
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369861440
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2015». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Sandvik tilbake for å løfte Vard (Haugesunds Avis, 2015-07-13)
+      https://www.h-avis.no/sport/vard/haugesund/sandvik-tilbake-for-a-lofte-vard/s/5-62-80179"

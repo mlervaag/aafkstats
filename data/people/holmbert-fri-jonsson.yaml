@@ -1,0 +1,65 @@
+id: holmbert-fri-jonsson
+name: Hólmbert Friðjónsson
+names: []
+squadNumbers: []
+coachSpells: []
+roles: []
+transfers:
+  - id: inn-stjarnan-2018
+    direction: in
+    kind: transfer
+    club: Stjarnan
+    date: 2018-01-16
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468729
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2017–18». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/nyheter/fridjonsson-har-signert
+        retrievedAt: 2018-01-16
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Fridjonsson har signert
+    note: "Kilden fotnoten peker på: Fridjonsson har signert
+      http://www.aafk.no/nyheter/fridjonsson-har-signert"
+  - id: ut-brescia-2020
+    direction: out
+    kind: transfer
+    club: Brescia
+    date: "2020"
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1363056004
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2020». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/holmbert-fridjonsson-selges-til-italia
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Holmbert Fridjonsson selges til Italia
+    note: "Kilden fotnoten peker på: Holmbert Fridjonsson selges til Italia
+      https://www.aafk.no/nyheter/holmbert-fridjonsson-selges-til-italia"
+providers: []
+sources: []
+conflicts: []

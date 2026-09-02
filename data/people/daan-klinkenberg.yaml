@@ -17,3 +17,52 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-inter-turku-2020
+    direction: in
+    kind: transfer
+    club: Inter Turku
+    date: 2020-01-01
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468730
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2019–20». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/velkommen-til-oss-daan
+        retrievedAt: 2020-01-01
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Velkommen til oss, Daan!
+    note: "Kilden fotnoten peker på: Velkommen til oss, Daan! (Aalesunds FK, 2020-01-01)
+      https://www.aafk.no/nyheter/velkommen-til-oss-daan"
+  - id: ut-mjallby-2021
+    direction: out
+    kind: transfer
+    club: Mjällby
+    date: 2021-02-07
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365491811
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2020–21». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Rykket ned i sin første Eliteserie-sesong – nå er han solgt
+      https://www.eurosport.no/fotball/obos-ligaen/2021/rykket-ned-i-sin-forste-eliteserie-sesong-n\
+      a-er-han-solgt_sto8105329/story.shtml"

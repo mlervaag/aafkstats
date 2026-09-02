@@ -31,3 +31,81 @@ providers:
     fields:
       - wikidata
     note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
+transfers:
+  - id: ut-released-2016
+    direction: out
+    kind: released
+    club: null
+    date: 2016-01-07
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369966462
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2015–16». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Sjekk listen: Alle disse eliteseriespillerne kan hentes gratis
+      (Romsdals Budstikke, 2016-01-07)
+      http://www.rbnett.no/100Sport/fotball/eliteserien/article667903.snd"
+  - id: inn-copenhagen-2022
+    direction: in
+    kind: transfer
+    club: Copenhagen
+    date: 2022-02-15
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369178074
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2021–22». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/tilbake-i-aafk-drakt
+        retrievedAt: 2022-02-15
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Tilbake i AaFK-drakt
+    note: "Kilden fotnoten peker på: Tilbake i AaFK-drakt (Aalesunds FK, 2022-02-15)
+      https://www.aafk.no/nyheter/tilbake-i-aafk-drakt"
+  - id: ut-retired-2026
+    direction: out
+    kind: retired
+    club: null
+    date: 2025-12-23
+    season: 2026
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1372362958
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2025–26». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/en-ekte-aafk-legende-takk-for-alt-sten
+        retrievedAt: 2025-12-23
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: En ekte AaFK-legende! Takk for alt, Sten!
+    note: "Kilden fotnoten peker på: En ekte AaFK-legende! Takk for alt, Sten! (Aalesunds FK,
+      2025-12-23) https://www.aafk.no/nyheter/en-ekte-aafk-legende-takk-for-alt-sten"

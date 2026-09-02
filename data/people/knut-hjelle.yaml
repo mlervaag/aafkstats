@@ -30,3 +30,39 @@ sources:
     page: "12"
   - sourceId: medlemsblad-for-aalesunds-fotb-1950-083e
     page: "31"
+transfers:
+  - id: ut-volda-1950
+    direction: out
+    club: Volda T. & I.L.
+    clubId: volda
+    date: "1950"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-3b73
+        page: "12"
+        fields:
+          - direction
+          - club
+          - date
+    note: >-
+      Kilden skriver at han «er flyttet til Volda» og «står no som medlem av
+      Volda T. og I. L. der han spiller senterhalf på førstelaget». Kilden oppgir
+      høsten, ikke en dag. Se overgangen «inn-volda-1950» — neste utgave melder
+      at han er tilbake. Samme opplysning står også som rollen
+      «overgang-volda-1950»; den blir stående til den kan fjernes gjennom
+      bevaringsunntak.
+  - id: inn-volda-1950
+    direction: in
+    club: Volda T. & I.L.
+    clubId: volda
+    date: "1950"
+    sources:
+      - sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
+        fields:
+          - direction
+          - club
+          - date
+    note: Neste utgave melder at han «har spilt for Volda T. I. L. i høstterminen»
+      og at «Knut [er] tilbake igjen og spilleberettiget på våre lag». Uten denne
+      raden ville arkivet bare vist at han dro. Notisen navngir ham bare som
+      «Knut», og sidetallet er ikke kontrollert mot faksimilen ennå, så begge
+      deler bør bekreftes redaksjonelt.

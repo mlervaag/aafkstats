@@ -42,3 +42,26 @@ sources:
     page: "340"
     fields: []
     note: Navnet er gjenkjent maskinelt i publikasjonen og slått opp mot registeret.
+transfers:
+  - id: ut-retired-2022
+    direction: out
+    kind: retired
+    club: null
+    date: 2021-09-20
+    season: 2022
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369178074
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2021–22». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Legger opp og blir sportsjournalist: – Det frister mye mer for meg
+      (Eurosport, 2021-09-20)
+      https://www.eurosport.no/fotball/obos-ligaen/2020/legger-opp-og-blir-sportsjournalist-det-fri\
+      ster-mye-mer-for-meg_sto8550607/story.shtml"

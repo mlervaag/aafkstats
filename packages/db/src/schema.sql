@@ -231,6 +231,38 @@ CREATE TABLE core_squad_numbers (
   PRIMARY KEY (person_id, season)
 );
 
+-- Kildeførte overganger inn til og ut av klubben.
+--
+-- Holdt utenfor squad med vilje: squad er utledet av oppstillingene og vet at
+-- noen var med, mens dette er kildens påstand om hvorfor han kom eller forsvant.
+-- De to skal ikke summeres, og den ene utleder ikke den andre.
+--
+-- club er kildens egen skrivemåte og club_id arkivets klubb, når klubben finnes
+-- der. Klubbkatalogen inneholder motstandere, og en spiller går ofte til en
+-- klubb AaFK aldri har møtt — da er club_id tom, og det er ikke en mangel.
+CREATE TABLE core_transfers (
+  person_id    TEXT NOT NULL REFERENCES core_people(id),
+  transfer_id  TEXT NOT NULL,
+  direction    TEXT NOT NULL CHECK (direction IN ('in','out')),
+  kind         TEXT NOT NULL CHECK (kind IN
+                 ('transfer','loan','loan_return','free','academy','released','retired')),
+  club         TEXT,
+  club_id      TEXT REFERENCES core_clubs(id),
+  date         TEXT NOT NULL,
+  -- Materialisert ved bygging framfor utledet i viewet, slik at sesongsiden er
+  -- ett oppslag og ikke en strengoperasjon per rad.
+  season       INTEGER NOT NULL,
+  sources      TEXT NOT NULL,
+  -- Nettmeldinger hører hjemme her og ikke i core_sources: en klubbmelding er
+  -- ikke et dokument med sidetall, og én source-fil per nyhetssak ville fylt
+  -- publikasjonskatalogen med lenker.
+  providers    TEXT NOT NULL DEFAULT '[]',
+  note         TEXT,
+  PRIMARY KEY (person_id, transfer_id)
+);
+
+CREATE INDEX idx_transfers_season ON core_transfers(season);
+
 -- Trenerperioder oppgitt av en kilde, ikke utledet av kampene. Se coach_spells.
 CREATE TABLE core_declared_coach_spells (
   person_id    TEXT NOT NULL REFERENCES core_people(id),
@@ -932,6 +964,32 @@ SELECT
 FROM core_declared_coach_spells d
 JOIN core_people p ON p.id = d.person_id
 ORDER BY d.from_season;
+
+-- Overganger inn og ut, slik en kilde dokumenterer dem.
+--
+-- Dekningen er ujevn: et år uten rader betyr at ingen kilde er ført inn ennå,
+-- ikke at ingen skiftet klubb. Og en overgang er ikke bevis for en kampsesong —
+-- en spiller kan være hentet og aldri ha spilt.
+CREATE VIEW transfers AS
+SELECT
+  t.person_id,
+  p.name,
+  t.direction,
+  t.kind,
+  t.season,
+  t.date,
+  t.club_id,
+  -- Kildens egen skrivemåte går foran klubbens registrerte navn: «Volda T. &
+  -- I.L.» er hva medlemsbladet sa, og det er den opplysningen raden bevarer.
+  coalesce(t.club, c.name)             AS club,
+  t.sources,
+  t.providers,
+  t.note,
+  '/personer/' || p.id                 AS url
+FROM core_transfers t
+JOIN core_people p ON p.id = t.person_id
+LEFT JOIN core_clubs c ON c.id = t.club_id
+ORDER BY t.season, t.direction, p.name;
 
 -- Alle eksplisitt kildeførte roller. Spillerstatistikk fra kampoppstillinger
 -- ligger fortsatt i squad; dette viewet handler om verv og tilknytninger kilder

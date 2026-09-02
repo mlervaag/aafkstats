@@ -17,3 +17,55 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-hammarby-2024
+    direction: in
+    kind: loan
+    club: Hammarby
+    clubId: hammarby
+    date: 2024-08-06
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354769893
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2024». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/laner-marcus-rafferty-fra-hammarby
+        retrievedAt: 2024-08-06
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Låner Marcus Rafferty fra Hammarby
+    note: "Kilden fotnoten peker på: Låner Marcus Rafferty fra Hammarby (Aalesunds FK, 2024-08-06)
+      https://www.aafk.no/nyheter/laner-marcus-rafferty-fra-hammarby"
+  - id: ut-hammarby-2025
+    direction: out
+    kind: loan_return
+    club: Hammarby
+    clubId: hammarby
+    date: 2024-12-17
+    season: 2025
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1368388589
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2024–25». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Officiellt: Marcus Rafferty klar för Degerfors (Fotbolltransfers,
+      2024-12-17)
+      https://fotbolltransfers.com/nyheter/officiellt-marcus-rafferty-klar-for-degerfors/195159"

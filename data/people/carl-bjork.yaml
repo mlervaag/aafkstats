@@ -18,3 +18,61 @@ providers:
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+transfers:
+  - id: inn-brattvag-2015
+    direction: in
+    kind: transfer
+    club: Brattvåg
+    clubId: brattvag
+    date: "2015"
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1368964463
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2014–15». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/christest/article/h6wz5c03glw311jpa7qofkg3z
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Carl Björk hentes fra Brattvåg IL og blir AaFK-spiller fra 2015
+    note: "Kilden fotnoten peker på: Carl Björk hentes fra Brattvåg IL og blir AaFK-spiller fra 2015
+      (Aalesunds FK) http://www.aafk.no/christest/article/h6wz5c03glw311jpa7qofkg3z"
+  - id: ut-nykopings-bis-2016
+    direction: out
+    kind: transfer
+    club: Nyköpings BIS
+    date: 2016-03-30
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369966462
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2015–16». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/news/article/1o5vu9bg62gu41n100itcb1c2u/title/carl-bjoerk-pa-vei-til-sverige
+        retrievedAt: 2016-03-30
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Carl Björk på vei til Sverige
+    note: "Kilden fotnoten peker på: Carl Björk på vei til Sverige (Aalesunds FK, 2016-03-30)
+      http://www.aafk.no/news/article/1o5vu9bg62gu41n100itcb1c2u/title/carl-bjoerk-pa-vei-til-sveri\
+      ge"

@@ -1,0 +1,39 @@
+id: ulrik-syversen
+name: Ulrik Syversen
+names: []
+squadNumbers: []
+coachSpells: []
+roles: []
+transfers:
+  - id: inn-brattvag-2026
+    direction: in
+    kind: transfer
+    club: Brattvåg
+    clubId: brattvag
+    date: 2026-01-19
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1372362958
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2025–26». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/ulrik-syversen-returnerer-til-aafk
+        retrievedAt: 2026-01-19
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Ulrik Syversen returnerer til AaFK!
+    note: "Kilden fotnoten peker på: Ulrik Syversen returnerer til AaFK!
+      https://www.aafk.no/nyheter/ulrik-syversen-returnerer-til-aafk"
+providers: []
+sources: []
+conflicts: []

@@ -1,0 +1,55 @@
+id: benjamin-karamoko
+name: Benjamin Karamoko
+names: []
+squadNumbers: []
+coachSpells: []
+roles: []
+transfers:
+  - id: inn-haugesund-2020
+    direction: in
+    kind: loan
+    club: Haugesund
+    clubId: fk-haugesund
+    date: 2020-09-07
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1363056004
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2020». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Sendes til AaFK på lån – får sin sjette (!) midtstopper (Eurosport,
+      2020-09-07)
+      https://www.eurosport.no/fotball/eliteserien/2020/sendes-til-aafk-pa-lan-far-sin-sjette-midts\
+      topper_sto7874414/story.shtml"
+  - id: ut-haugesund-2021
+    direction: out
+    kind: loan_return
+    club: Haugesund
+    clubId: fk-haugesund
+    date: 2020-12-17
+    season: 2021
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365491811
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2020–21». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Aalesund henter amerikansk keeper fra dansk fotball (Eurosport,
+      2020-12-17)
+      https://www.eurosport.no/fotball/eliteserien/2020/aalesund-henter-amerikansk-keeper-fra-dansk\
+      -fotball_sto8035932/story.shtml"
+providers: []
+sources: []
+conflicts: []

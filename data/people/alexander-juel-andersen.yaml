@@ -19,3 +19,61 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-ob-2022
+    direction: in
+    kind: loan
+    club: OB
+    date: 2022-07-29
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1363775092
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2022». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/ny-avtale-for-juel-andersen
+        retrievedAt: 2022-07-29
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Ny avtale for Juel Andersen
+    note: "Kilden fotnoten peker på: Ny avtale for Juel Andersen (Aalesunds FK, 2022-07-29)
+      https://www.aafk.no/nyheter/ny-avtale-for-juel-andersen"
+  - id: ut-released-2024
+    direction: out
+    kind: released
+    club: null
+    date: 2023-12-08
+    season: 2024
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354776072
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2023–24». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/takket-av-flere-spillere
+        retrievedAt: 2023-12-08
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Takket av flere spillere
+    note: "Kilden fotnoten peker på: Takket av flere spillere (Aalesunds FK, 2023-12-08)
+      https://www.aafk.no/nyheter/takket-av-flere-spillere"

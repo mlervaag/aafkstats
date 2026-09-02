@@ -17,3 +17,82 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: ut-stjordals-blink-2025
+    direction: out
+    kind: loan
+    club: Stjørdals-Blink
+    clubId: stjordals-blink
+    date: 2025-06-08
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1366510503
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2025». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Solskjær til Blink (IL Stjørdals-Blink, 2025-06-08)
+      https://blink-fotball.no/2025/06/solskjaer-til-blink/"
+  - id: inn-spjelkavik-2024
+    direction: in
+    kind: transfer
+    club: Spjelkavik
+    clubId: spjelkavik
+    date: 2024-02-26
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354776072
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2023–24». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/solskjaer-har-signert
+        retrievedAt: 2024-02-26
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Solskjær har signert!
+    note: "Kilden fotnoten peker på: Solskjær har signert! (Aalesunds FK, 2024-02-26)
+      https://www.aafk.no/nyheter/solskjaer-har-signert"
+  - id: ut-brattvag-2025
+    direction: out
+    kind: loan
+    club: Brattvåg
+    clubId: brattvag
+    date: 2025-02-28
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1368388589
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2024–25». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/noah-solskjaer-lanes-ut-til-brattvag
+        retrievedAt: 2025-02-28
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Noah Solskjær lånes ut til Brattvåg
+    note: "Kilden fotnoten peker på: Noah Solskjær lånes ut til Brattvåg (Aalesunds FK, 2025-02-28)
+      https://www.aafk.no/nyheter/noah-solskjaer-lanes-ut-til-brattvag"

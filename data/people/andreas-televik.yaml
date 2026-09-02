@@ -1,0 +1,52 @@
+id: andreas-televik
+name: Andreas Televik
+names: []
+squadNumbers: []
+coachSpells: []
+roles: []
+transfers:
+  - id: inn-hodd-2022
+    direction: in
+    kind: transfer
+    club: Hødd
+    clubId: hodd
+    date: 2022-08-04
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1363775092
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2022». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Aalesund signerte ung spiss (Nettavisen, 2022-08-04)
+      https://www.nettavisen.no/sport/aalesund-signerte-ung-spiss/s/12-95-3424298415"
+  - id: ut-hodd-2022
+    direction: out
+    kind: transfer
+    club: Hødd
+    clubId: hodd
+    date: 2022-08-17
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1363775092
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2022». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Gikk fra Hødd til AaFK for to uker siden – nå vender han tilbake
+      (Sunnmørsposten, 2022-08-17)
+      https://www.smp.no/sport/i/V9y4Ed/gikk-fra-hoedd-til-aafk-for-to-uker-siden-naa-vender-han-ti\
+      lbake"
+providers: []
+sources: []
+conflicts: []

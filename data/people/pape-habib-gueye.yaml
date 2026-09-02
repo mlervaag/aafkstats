@@ -19,3 +19,60 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-academie-foot-darou-salam-2018
+    direction: in
+    kind: transfer
+    club: Académie Foot Darou Salam
+    date: 2018-04-01
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468729
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2017–18». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/nyheter/velkommen-pape
+        retrievedAt: 2018-04-01
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Velkommen, Pape!
+    note: "Kilden fotnoten peker på: Velkommen, Pape! (Aalesunds FK, 2018-04-01)
+      http://www.aafk.no/nyheter/velkommen-pape"
+  - id: ut-k-v-kortrijk-2020
+    direction: out
+    kind: transfer
+    club: K.V. Kortrijk
+    date: 2020-01-31
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468730
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2019–20». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/pape-selges-til-belgia
+        retrievedAt: 2020-01-31
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Pape selges til Belgia
+    note: "Kilden fotnoten peker på: Pape selges til Belgia (Aalesunds FK, 2020-01-31)
+      https://www.aafk.no/nyheter/pape-selges-til-belgia"

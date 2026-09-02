@@ -91,6 +91,21 @@ export function collectAttributedAdditions(
       }
     }
 
+    const baseTransferIds = new Set((basePerson?.transfers ?? []).map((t) => t.id));
+    for (const entry of headPerson.transfers ?? []) {
+      if (baseTransferIds.has(entry.id)) continue;
+      const sourceId = citedBatchSource(entry, batchSourceIds);
+      if (sourceId) {
+        additions.push({
+          entity: "person",
+          id,
+          path: `transfers/${entry.id}`,
+          sourceId,
+          label: `Ny overgang «${entry.id}» på «${headPerson.name}»`,
+        });
+      }
+    }
+
     const baseConflictFields = new Set((basePerson?.conflicts ?? []).map((c) => c.field));
     for (const conflict of headPerson.conflicts ?? []) {
       if (baseConflictFields.has(conflict.field)) continue;

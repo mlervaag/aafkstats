@@ -16,3 +16,42 @@ providers:
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+transfers:
+  - id: inn-oc-safi-2013
+    direction: in
+    kind: transfer
+    club: OC Safi
+    date: 2013-02-14
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354770295
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2012–13». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: 'Kilden fotnoten peker på: "Superspissen" klar for AaFK: – Klubbens dyreste spiller noensinne
+      http://www.nrk.no/sport/fotball/_superspissen_-klar-for-aafk-1.10913711'
+  - id: ut-guangzhou-r-f-2014
+    direction: out
+    kind: transfer
+    club: Guangzhou R&F
+    date: 2014-02-28
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1364213402
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2013–14». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Hamdallah koster 34 millioner kroner
+      http://www.smp.no/100Sport/article423183.snd"

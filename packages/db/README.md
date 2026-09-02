@@ -22,7 +22,7 @@ miljøavhengige og behandles ikke som arkivfakta.
 tabellene heter `core_*` og er interne, mens viewene uten prefiks er den offentlige
 kontrakten: `matches`, `match_events`, `match_conflicts`, `match_stats`, `venues`, `seasons`,
 `season_coverage`, `opponents`, `standings`, `standings_progression`, `squad`, `coach_spells`,
-`declared_coach_spells`, `people`, `person_roles`, `person_conflicts`, `organizations`,
+`declared_coach_spells`, `transfers`, `people`, `person_roles`, `person_conflicts`, `organizations`,
 `organization_snapshots`, `providers`, `sources`, `historical_observations`,
 `verification_cases`, `contributions`, `publication_extractions`, `fact_candidates`,
 `source_results`, `result_groups`, `resolved_roles`, `resolved_lineups` og FTS-tabellen `reports`.

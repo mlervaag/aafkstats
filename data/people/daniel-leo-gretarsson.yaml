@@ -31,3 +31,59 @@ providers:
     fields:
       - wikidata
     note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
+transfers:
+  - id: ut-blackpool-2020
+    direction: out
+    kind: transfer
+    club: Blackpool
+    date: "2020"
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1363056004
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2020». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/daniel-til-engelsk-klubb
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Daniel til engelsk klubb
+    note: "Kilden fotnoten peker på: Daniel til engelsk klubb
+      https://www.aafk.no/nyheter/daniel-til-engelsk-klubb"
+  - id: inn-grindavik-2015
+    direction: in
+    kind: transfer
+    club: Grindavik
+    date: "2015"
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1368964463
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2014–15». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/latest-news/article/p35mg1uwcg8719nveyn7izf5z/title/ny-islending-klar-for-aafk
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Ny islending klar for AaFK
+    note: "Kilden fotnoten peker på: Ny islending klar for AaFK (Aalesunds FK)
+      http://www.aafk.no/latest-news/article/p35mg1uwcg8719nveyn7izf5z/title/ny-islending-klar-for-\
+      aafk"

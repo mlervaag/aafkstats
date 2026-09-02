@@ -24,3 +24,52 @@ providers:
     fields:
       - wikidata
     note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
+transfers:
+  - id: inn-slaven-belupo-2024
+    direction: in
+    kind: loan
+    club: Slaven Belupo
+    date: 2024-07-10
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354769893
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2024». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/vinko-medjimorec-klar-for-aafk
+        retrievedAt: 2024-07-10
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Vinko Medjimorec - Klar for AaFK
+    note: "Kilden fotnoten peker på: Vinko Medjimorec - Klar for AaFK (Aalesunds FK, 2024-07-10)
+      https://www.aafk.no/nyheter/vinko-medjimorec-klar-for-aafk"
+  - id: ut-slaven-belupo-2025
+    direction: out
+    kind: loan_return
+    club: Slaven Belupo
+    date: 2025-01-03
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1368388589
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2024–25». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Var usikker på framtida: Nå er avgjørelsen tatt (Sunnmørsposten,
+      2025-01-03)
+      https://www.smp.no/sport/i/PpqgP0/var-usikker-paa-framtida-naa-er-avgjoerelsen-tatt"

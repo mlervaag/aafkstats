@@ -17,3 +17,54 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-stabaek-2022
+    direction: in
+    kind: transfer
+    club: Stabæk
+    clubId: stabaek
+    date: 2022-03-30
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369178074
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2021–22». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/haugen-blir-en-publikumsfavoritt
+        retrievedAt: 2022-03-30
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: – Haugen blir en publikumsfavoritt
+    note: "Kilden fotnoten peker på: – Haugen blir en publikumsfavoritt
+      https://www.aafk.no/nyheter/haugen-blir-en-publikumsfavoritt"
+  - id: ut-stabaek-2023
+    direction: out
+    kind: transfer
+    club: Stabæk
+    clubId: stabaek
+    date: 2022-11-15
+    season: 2023
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354775790
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2022–23». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Fredrik Haugen er tilbake: -Hadde en fin prat med Bohinen (Stabæk
+      Fotball, 2022-11-15) https://www.stabak.no/nyheter/fredrik-haugen-er-tilbake"

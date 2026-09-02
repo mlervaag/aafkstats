@@ -98,6 +98,7 @@ export function planSourcedPlayerProfile(target: PlayerTarget, profile: SourcedP
     squadNumbers: [],
     coachSpells: [],
     roles: [],
+    transfers: [],
     providers: [],
     sources: [],
     conflicts: [],

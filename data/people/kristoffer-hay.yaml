@@ -17,3 +17,75 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-tromsdalen-2019
+    direction: in
+    kind: loan_return
+    club: Tromsdalen
+    clubId: tromsdalen
+    date: "2019"
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1361726276
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2019». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Velger å hente tilbake Kristoffer Hay før tiden
+      https://www.sporten.com/velger-a-hente-tilbake-kristoffer-hay-for-tiden/"
+  - id: inn-valerenga-2019
+    direction: in
+    kind: transfer
+    club: Vålerenga
+    clubId: valerenga
+    date: 2018-12-31
+    season: 2019
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1361724311
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2018–19». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/nyheter/to-nye-spillere-klare
+        retrievedAt: 2018-12-31
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: To nye spillere klare
+    note: "Kilden fotnoten peker på: To nye spillere klare (Aalesunds FK, 2018-12-31)
+      http://www.aafk.no/nyheter/to-nye-spillere-klare"
+  - id: ut-bryne-2020
+    direction: out
+    kind: transfer
+    club: Bryne
+    clubId: bryne
+    date: 2020-01-15
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468730
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2019–20». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Kristoffer (21) på flyttefot igjen
+      https://www.ringblad.no/sport/fotball/kristoffer-hay/kristoffer-21-pa-flyttefot-igjen/s/5-45-\
+      957567"

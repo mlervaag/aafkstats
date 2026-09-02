@@ -19,3 +19,56 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-lillestrom-2021
+    direction: in
+    kind: transfer
+    club: Lillestrøm
+    clubId: lillestrom
+    date: 2021-02-05
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365491811
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2020–21». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/dette-er-hans-nye-heimebane
+        retrievedAt: 2021-02-05
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Dette er hans nye heimebane
+    note: "Kilden fotnoten peker på: Dette er hans nye heimebane (Aalesunds FK, 2021-02-05)
+      https://www.aafk.no/nyheter/dette-er-hans-nye-heimebane"
+  - id: ut-hodd-2023
+    direction: out
+    kind: transfer
+    club: Hødd
+    clubId: hodd
+    date: 2022-12-14
+    season: 2023
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354775790
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2022–23». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Aafk forlenger ikke med Kallevåg – vender hjem til gamleklubben
+      (Eurosport, 2022-12-14)
+      https://www.eurosport.no/fotball/eliteserien/2021/aafk-forlenger-ikke-med-kallevag-vender-hje\
+      m-til-gamleklubben_sto9273903/story.shtml"

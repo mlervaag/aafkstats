@@ -17,3 +17,46 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-stromsgodset-2016
+    direction: in
+    kind: transfer
+    club: Strømsgodset
+    clubId: stromsgodset
+    date: 2016-08-17
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369966456
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2016». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: KASTRATI GÅR TIL AALESUND (Strømsgodset Toppfotball, 2016-08-17)
+      http://www.godset.no/latest-news/article/1cyeka8b93lfy1r8l977xk0iu2/title/kastrati-gar-til-aa\
+      lesund"
+  - id: ut-sandefjord-2017
+    direction: out
+    kind: transfer
+    club: Sandefjord
+    clubId: sandefjord
+    date: 2016-12-13
+    season: 2017
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354772307
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2016–17». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: To nye forsterkninger på plass (Sandefjord Fotball, 2016-12-13)
+      http://www.sandefjordfotball.no/nyheter/to-nye-forsterkninger-pa-plass"

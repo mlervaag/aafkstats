@@ -15,3 +15,55 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-hodd-2017
+    direction: in
+    kind: transfer
+    club: Hødd
+    clubId: hodd
+    date: 2017-08-10
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354768239
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2017». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/nyheter/fra-hodd-til-aafk
+        retrievedAt: 2017-08-10
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Fra Hødd til AaFK
+    note: "Kilden fotnoten peker på: Fra Hødd til AaFK (Aalesunds FK, 2017-08-10)
+      http://www.aafk.no/nyheter/fra-hodd-til-aafk"
+  - id: ut-hodd-2018
+    direction: out
+    kind: loan_return
+    club: Hødd
+    clubId: hodd
+    date: 2017-12-07
+    season: 2018
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468729
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2017–18». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Urke takket nei til nytt AaFK-tilbud (Aftenposten, 2017-12-07)
+      https://www.aftenposten.no/100Sport/fotball/-Urke-takket-nei-til-nytt-AaFK-tilbud-246665b.htm\
+      l"

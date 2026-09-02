@@ -1669,6 +1669,17 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
   letter-spacing: 0.06em;
 }
 .squad-table .col-number { width: 2.5rem; text-align: right; }
+/* Inn og ut, side om side. To kolonner leses som én bevegelse gjennom sesongen;
+   under hverandre ser de ut som to urelaterte lister. */
+.squad-movements {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0 2rem;
+  margin-top: 1.5rem;
+}
+.movement-list { margin: 0.4rem 0 0; padding: 0; list-style: none; font-size: 0.9rem; }
+.movement-list li { padding: 0.25rem 0; border-bottom: 1px solid var(--border); }
+.movement-list li:last-child { border-bottom: 0; }
 /* Merkelapp på en opplysning som er oppgitt av en kilde, ikke utledet av
    kampene. Forskjellen er verdt å se: den ene har datoer, den andre årstall. */
 .coach-declared {

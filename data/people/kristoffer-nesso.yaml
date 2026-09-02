@@ -21,3 +21,33 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-sogndal-2024
+    direction: in
+    kind: transfer
+    club: Sogndal
+    clubId: sogndal
+    date: 2024-01-16
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354776072
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2023–24». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/kristoffer-nesso-til-aafk
+        retrievedAt: 2024-01-16
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Kristoffer Nessø til AaFK!
+    note: "Kilden fotnoten peker på: Kristoffer Nessø til AaFK! (Aalesunds FK, 2024-01-16)
+      https://www.aafk.no/nyheter/kristoffer-nesso-til-aafk"

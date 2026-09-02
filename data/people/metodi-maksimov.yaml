@@ -17,3 +17,53 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-lask-2024
+    direction: in
+    kind: loan
+    club: LASK
+    date: 2024-01-25
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354776072
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2023–24». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/metodi-maksimov-var-nye-hoyreback
+        retrievedAt: 2024-01-25
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Metodi Maksimov - Vår nye høyreback!
+    note: "Kilden fotnoten peker på: Metodi Maksimov - Vår nye høyreback! (Aalesunds FK, 2024-01-25)
+      https://www.aafk.no/nyheter/metodi-maksimov-var-nye-hoyreback"
+  - id: ut-lask-2025
+    direction: out
+    kind: loan_return
+    club: LASK
+    date: 2024-09-10
+    season: 2025
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1368388589
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2024–25». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: AaFK-spiller ute med langtidsskade: Har spilt sin siste kamp
+      (Sunnmørsposten, 2024-09-10)
+      https://www.smp.no/sport/i/73VzaK/aafk-spiller-ute-med-langtidsskade-har-spilt-sin-siste-kamp"

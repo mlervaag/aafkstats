@@ -54,3 +54,53 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Navnet i denne eldre kilden er bevart som navnevariant; nåværende fullt navn følger nyere offisielle kilder. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-sogndal-2018
+    direction: in
+    kind: transfer
+    club: Sogndal
+    clubId: sogndal
+    date: 2018-02-01
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468729
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2017–18». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Omenås klar for AaFK (Sogndal Fotball, 2018-02-01)
+      http://www.sogndalfotball.no/nyheiter/omenas-klar-for-aafk"
+  - id: ut-retired-2020
+    direction: out
+    kind: retired
+    club: null
+    date: 2019-11-14
+    season: 2020
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468730
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2019–20». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/fire-spillere-ferdige-i-aafk
+        retrievedAt: 2019-11-14
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Fire spillere ferdig i Aafk
+    note: "Kilden fotnoten peker på: Fire spillere ferdig i Aafk (Aalesunds FK, 2019-11-14)
+      https://www.aafk.no/nyheter/fire-spillere-ferdige-i-aafk"

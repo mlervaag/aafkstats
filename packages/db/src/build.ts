@@ -9,6 +9,7 @@ import {
   personKey,
   preferredPersonName,
   toAafkPerspective,
+  transferSeason,
   flattenSourceResults,
 } from "@aafkstats/schema";
 import type { Archive } from "@aafkstats/schema/load";
@@ -236,6 +237,11 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
       `INSERT INTO core_declared_coach_spells (person_id, from_season, to_season, from_date, to_date)
        VALUES (?, ?, ?, ?, ?)`,
     );
+    const insertTransfer = db.prepare(
+      `INSERT INTO core_transfers
+         (person_id, transfer_id, direction, kind, club, club_id, date, season, sources, providers, note)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    );
     const insertPersonRole = db.prepare(
       `INSERT INTO core_person_roles
          (person_id, role_id, category, title, organization_id, body, from_date, to_date, sources, note)
@@ -252,6 +258,12 @@ export function buildArchive(archive: Archive, outPath: string): BuildResult {
       for (const entry of p.squadNumbers) insertSquadNumber.run(p.id, entry.season, entry.number);
       for (const spell of p.coachSpells) {
         insertDeclaredSpell.run(p.id, spell.fromSeason, spell.toSeason, spell.fromDate ?? null, spell.toDate ?? null);
+      }
+      for (const entry of p.transfers) {
+        insertTransfer.run(
+          p.id, entry.id, entry.direction, entry.kind, entry.club, entry.clubId ?? null,
+          entry.date, transferSeason(entry), json(entry.sources), json(entry.providers), entry.note ?? null,
+        );
       }
       for (const role of p.roles) {
         insertPersonRole.run(

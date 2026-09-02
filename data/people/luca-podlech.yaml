@@ -16,3 +16,32 @@ providers:
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+transfers:
+  - id: inn-schalke-04-2026
+    direction: in
+    kind: loan
+    club: Schalke 04
+    date: 2026-07-14
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1372785440
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2026». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/henter-luca-podlech-pa-lan-fra-schalke-04
+        retrievedAt: 2026-07-14
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Henter Luca Podlech på lån fra Schalke 04
+    note: "Kilden fotnoten peker på: Henter Luca Podlech på lån fra Schalke 04 (Aalesunds FK,
+      2026-07-14) https://www.aafk.no/nyheter/henter-luca-podlech-pa-lan-fra-schalke-04"

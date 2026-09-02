@@ -16,3 +16,24 @@ providers:
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+transfers:
+  - id: ut-horsens-2022
+    direction: out
+    kind: loan_return
+    club: Horsens
+    date: 2021-11-26
+    season: 2022
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369178074
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2021–22». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Bekrefter at AaFK-spillere er ferdige i klubben
+      https://www.smp.no/sport/aafk/i/wOVxyn/bekrefter-at-aafk-spillere-er-ferdige-i-klubben"

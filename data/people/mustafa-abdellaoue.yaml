@@ -31,3 +31,43 @@ note: >-
   Wikidata og norsk Wikipedia skriver «Mustafa», FotMob skriver «Mostafa».
   Navnet her følger kilden fila er ført på; kildens form står i names[] slik at
   de 108 kampene finner riktig person.
+transfers:
+  - id: inn-f-c-copenhagen-2014
+    direction: in
+    kind: transfer
+    club: F.C. Copenhagen
+    date: 2014-07-24
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369176507
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2014». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Her er alle overgangene i Tippeligaen http://www.tv2.no/a/5816027"
+  - id: ut-stromsgodset-2018
+    direction: out
+    kind: transfer
+    club: Strømsgodset
+    clubId: stromsgodset
+    date: 2017-11-27
+    season: 2018
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468729
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2017–18». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Mos: – Jeg er ferdig i AaFK (Aftenposten, 2017-11-27)
+      https://www.aftenposten.no/100Sport/fotball/Mos--Jeg-er-ferdig-i-AaFK-246148b.html"

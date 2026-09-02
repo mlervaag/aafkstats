@@ -20,3 +20,54 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-stabaek-2022
+    direction: in
+    kind: transfer
+    club: Stabæk
+    clubId: stabaek
+    date: 2022-03-09
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369178074
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2021–22». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/enkelt-a-si-ja-til-aafk
+        retrievedAt: 2022-03-09
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: – Enkelt å si ja til AaFK
+    note: "Kilden fotnoten peker på: – Enkelt å si ja til AaFK
+      https://www.aafk.no/nyheter/enkelt-a-si-ja-til-aafk"
+  - id: ut-retired-2024
+    direction: out
+    kind: retired
+    club: null
+    date: 2024-01-12
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354776072
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2023–24». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: 28-åringen legger skoene på hylla: – Det er selvfølgelig tungt
+      (Eurosport, 2024-01-12)
+      https://www.eurosport.no/fotball/28-aringen-legger-skoene-pa-hylla-det-er-selvfolgelig-tungt_\
+      sto9954826/story.shtml"

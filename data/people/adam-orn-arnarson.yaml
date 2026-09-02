@@ -26,3 +26,62 @@ providers:
     fields:
       - wikidata
     note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
+transfers:
+  - id: inn-nordsjaelland-2016
+    direction: in
+    kind: transfer
+    club: Nordsjælland
+    clubId: nordsjaelland
+    date: 2016-01-25
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369966462
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2015–16». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/news/article/8s5ryl6ghm2l18p3084fdlcwo/title/arnarson-klar-for-aafk
+        retrievedAt: 2016-01-25
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Arnarson klar for AaFK
+    note: "Kilden fotnoten peker på: Arnarson klar for AaFK (Aalesunds FK, 2016-01-25)
+      http://www.aafk.no/news/article/8s5ryl6ghm2l18p3084fdlcwo/title/arnarson-klar-for-aafk"
+  - id: ut-gornik-zabrze-2019
+    direction: out
+    kind: transfer
+    club: Górnik Zabrze
+    date: 2018-12-10
+    season: 2019
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1361724311
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2018–19». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/nyheter/adam-ferdig-i-aafk
+        retrievedAt: 2018-12-10
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Adam ferdig i AaFK
+    note: "Kilden fotnoten peker på: Adam ferdig i AaFK (Aalesunds FK, 2018-12-10)
+      http://www.aafk.no/nyheter/adam-ferdig-i-aafk"

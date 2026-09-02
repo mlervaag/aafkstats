@@ -6,7 +6,7 @@ import { findConflicts } from "../src/observation.js";
 import { source } from "../src/source.js";
 import { resolve } from "node:path";
 import { contribution } from "../src/contribution.js";
-import { person } from "../src/person.js";
+import { person, transferSeason } from "../src/person.js";
 
 const base = {
   id: "2024-04-01-aalesunds-fk-molde-fk",
@@ -268,6 +268,66 @@ describe("personroller", () => {
 
   it("avviser en rolle som slutter før den begynner", () => {
     expect(person.safeParse({ ...basePerson, roles: [{ ...basePerson.roles[0], from: "1920", to: "1919" }] }).success).toBe(false);
+  });
+});
+
+describe("overganger", () => {
+  const basePerson = {
+    id: "knut-hjelle",
+    name: "Knut Hjelle",
+    transfers: [{
+      id: "ut-volda-1950",
+      direction: "out" as const,
+      club: "Volda T. & I.L.",
+      clubId: "volda",
+      date: "1950",
+      sources: [{ sourceId: "medlemsblad-1950", page: "12" }],
+    }],
+  };
+  const only = (transfer: Record<string, unknown>) => ({ ...basePerson, transfers: [transfer] });
+
+  it("godtar en overgang med kilde, og setter kind til transfer", () => {
+    const parsed = person.parse(basePerson);
+    expect(parsed.transfers[0]?.kind).toBe("transfer");
+  });
+
+  it("avviser en overgang uten historisk kilde", () => {
+    expect(person.safeParse(only({ ...basePerson.transfers[0], sources: [] })).success).toBe(false);
+  });
+
+  it("krever at klubben er kildens egen skrivemåte, ikke bare en ID", () => {
+    // clubId alene er lov: ID-en gir navnet. Poenget er at teksten aldri
+    // overskrives når den finnes.
+    const parsed = person.parse(only({ ...basePerson.transfers[0], club: "Volda T. & I.L." }));
+    expect(parsed.transfers[0]?.club).toBe("Volda T. & I.L.");
+  });
+
+  it("avviser en retning kilden ikke kan ha ment", () => {
+    // «La opp» inn til klubben er ikke en overgang noen kilde har dokumentert.
+    expect(person.safeParse(only({
+      ...basePerson.transfers[0], direction: "in", kind: "retired", club: null, clubId: undefined,
+    })).success).toBe(false);
+  });
+
+  it("avviser en klubb på en overgang som ikke har noen motpart", () => {
+    expect(person.safeParse(only({ ...basePerson.transfers[0], kind: "retired" })).success).toBe(false);
+  });
+
+  it("godtar vintervinduet, men ikke en sesong lenger unna", () => {
+    expect(person.safeParse(only({ ...basePerson.transfers[0], date: "2015-12-18", season: 2016 })).success).toBe(true);
+    expect(person.safeParse(only({ ...basePerson.transfers[0], date: "2015-12-18", season: 2018 })).success).toBe(false);
+  });
+
+  it("fører overgangen på året i datoen når sesongen ikke er oppgitt", () => {
+    const parsed = person.parse(only({ ...basePerson.transfers[0], date: "2016-01-14" }));
+    expect(transferSeason(parsed.transfers[0]!)).toBe(2016);
+  });
+
+  it("avviser to overganger med samme ID", () => {
+    expect(person.safeParse({
+      ...basePerson,
+      transfers: [basePerson.transfers[0], basePerson.transfers[0]],
+    }).success).toBe(false);
   });
 });
 

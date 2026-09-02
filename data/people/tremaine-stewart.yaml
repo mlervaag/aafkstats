@@ -16,3 +16,22 @@ providers:
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+transfers:
+  - id: ut-unknown-club-jamaica-2014
+    direction: out
+    kind: transfer
+    club: unknown club (Jamaica)
+    date: 2014-07-24
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369176507
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2014». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Her er alle overgangene i Tippeligaen http://www.tv2.no/a/5816027"

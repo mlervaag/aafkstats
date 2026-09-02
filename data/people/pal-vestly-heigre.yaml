@@ -18,3 +18,54 @@ providers:
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+transfers:
+  - id: ut-stromsgodset-2017
+    direction: out
+    kind: transfer
+    club: Strømsgodset
+    clubId: stromsgodset
+    date: 2017-08-10
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354768239
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2017». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/nyheter/pal-vestly-heigre-til-godset
+        retrievedAt: 2017-08-10
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Pål Vestly Heigre til Godset
+    note: "Kilden fotnoten peker på: Pål Vestly Heigre til Godset (Aalesunds FK, 2017-08-10)
+      http://www.aafk.no/nyheter/pal-vestly-heigre-til-godset"
+  - id: inn-viking-2017
+    direction: in
+    kind: transfer
+    club: Viking
+    clubId: viking
+    date: 2016-12-30
+    season: 2017
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354772307
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2016–17». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Stor takk til Pål (Viking FK, 2016-12-30)
+      http://www.viking-fk.no/nyheter/stor-takk-til-pal"

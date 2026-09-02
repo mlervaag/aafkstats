@@ -22,3 +22,32 @@ providers:
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+transfers:
+  - id: ut-brighton-hove-albion-2016
+    direction: out
+    kind: transfer
+    club: Brighton & Hove Albion
+    date: 2016-01-27
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369966462
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2015–16». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/news/article/cr1rbq8vp8o1557bgswtnxa0/title/henrik-til-engelsk-fotball
+        retrievedAt: 2016-01-27
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Henrik til engelsk fotball
+    note: "Kilden fotnoten peker på: Henrik til engelsk fotball (Aalesunds FK, 2016-01-27)
+      http://www.aafk.no/news/article/cr1rbq8vp8o1557bgswtnxa0/title/henrik-til-engelsk-fotball"

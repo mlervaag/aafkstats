@@ -34,3 +34,26 @@ providers:
     fields:
       - wikidata
     note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
+transfers:
+  - id: ut-lillestrom-2026
+    direction: out
+    kind: transfer
+    club: Lillestrøm
+    clubId: lillestrom
+    date: 2026-08-10
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1372785440
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2026». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Henrik Melland klar for LSK: - En av de desidert feteste klubbene i
+      Skandinavia (Lillestrøm SK, 2026-08-10)
+      https://www.lsk.no/nyheter/henrik-melland-klar-for-lsk-en-av-de-desidert-feteste-klubbene-i-s\
+      kandinavia"

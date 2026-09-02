@@ -21,3 +21,53 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-lillestrom-2021
+    direction: in
+    kind: loan
+    club: Lillestrøm
+    clubId: lillestrom
+    date: 2021-01-24
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365491811
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2020–21». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Ødemarksbakken klar for AaFK (NRK, 2021-01-24)
+      https://www.nrk.no/mr/odemarksbakken-klar-for-aafk-1.15343402"
+  - id: ut-released-2024
+    direction: out
+    kind: released
+    club: null
+    date: 2023-12-08
+    season: 2024
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354776072
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2023–24». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/takket-av-flere-spillere
+        retrievedAt: 2023-12-08
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Takket av flere spillere
+    note: "Kilden fotnoten peker på: Takket av flere spillere (Aalesunds FK, 2023-12-08)
+      https://www.aafk.no/nyheter/takket-av-flere-spillere"

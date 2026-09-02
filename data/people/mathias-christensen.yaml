@@ -26,3 +26,32 @@ providers:
     fields:
       - wikidata
     note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
+transfers:
+  - id: inn-helsingor-2025
+    direction: in
+    kind: transfer
+    club: Helsingør
+    date: 2025-07-03
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1366510503
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2025». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/mathias-christensen-er-klar-for-aafk
+        retrievedAt: 2025-07-03
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Mathias Christensen er klar for AaFK!
+    note: "Kilden fotnoten peker på: Mathias Christensen er klar for AaFK! (Aalesunds FK, 2025-07-03)
+      https://www.aafk.no/nyheter/mathias-christensen-er-klar-for-aafk"

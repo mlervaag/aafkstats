@@ -113,6 +113,15 @@ function parseStringArray(value: string | null): string[] {
   }
 }
 
+function parseProviders(value: string): PersonTransferProvider[] {
+  try {
+    const parsed: unknown = JSON.parse(value);
+    return Array.isArray(parsed) ? parsed as PersonTransferProvider[] : [];
+  } catch {
+    return [];
+  }
+}
+
 function parseRoleSources(value: string): PersonRoleSource[] {
   try {
     const parsed: unknown = JSON.parse(value);
@@ -224,6 +233,54 @@ export function getPersonRoles(personId?: string): PersonRole[] {
       ...(personId ? [personId] : []),
     );
     return rows.map((row) => ({ ...row, sources: parseRoleSources(row.sources) }));
+  } finally {
+    db.close();
+  }
+}
+
+export interface PersonTransfer {
+  person_id: string;
+  name: string;
+  direction: "in" | "out";
+  kind: string;
+  season: number;
+  date: string;
+  club_id: string | null;
+  club: string | null;
+  sources: PersonRoleSource[];
+  providers: PersonTransferProvider[];
+  note: string | null;
+}
+
+/** En nettmelding som belegger overgangen: hvem som publiserte den, og hvor. */
+export interface PersonTransferProvider {
+  providerId: string;
+  url?: string;
+  retrievedAt?: string;
+  note?: string;
+}
+
+/**
+ * Kildeførte overganger for én person, eldste først.
+ *
+ * Ingen fallback mot stallen. At en spiller er «ny» i en sesong sier bare at
+ * han ikke var med i fjor, og å vise det som en overgang ville gjort en
+ * observasjon om til en påstand om en klubbovergang som ingen kilde har gjort.
+ */
+export function getPersonTransfers(personId: string): PersonTransfer[] {
+  const db = open();
+  try {
+    const rows = all<Omit<PersonTransfer, "sources" | "providers"> & { sources: string; providers: string }>(
+      db,
+      `SELECT person_id, name, direction, kind, season, date, club_id, club, sources, providers, note
+         FROM transfers WHERE person_id = ? ORDER BY date, direction`,
+      personId,
+    );
+    return rows.map((row) => ({
+      ...row,
+      sources: parseRoleSources(row.sources),
+      providers: parseProviders(row.providers),
+    }));
   } finally {
     db.close();
   }

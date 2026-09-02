@@ -20,3 +20,59 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-academy-2023
+    direction: in
+    kind: academy
+    club: null
+    date: "2023"
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1354769639
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2023». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/lag
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lag
+    note: "Kilden fotnoten peker på: Lag (Aalesunds FK) https://www.aafk.no/lag"
+  - id: ut-kristiansund-2025
+    direction: out
+    kind: transfer
+    club: Kristiansund
+    clubId: kristiansund
+    date: 2025-03-04
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1368388589
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2024–25». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/kilen-solgt-til-kbk
+        retrievedAt: 2025-03-04
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Kilen solgt til KBK
+    note: "Kilden fotnoten peker på: Kilen solgt til KBK (Aalesunds FK, 2025-03-04)
+      https://www.aafk.no/nyheter/kilen-solgt-til-kbk"

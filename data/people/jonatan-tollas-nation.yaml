@@ -22,3 +22,25 @@ providers:
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+transfers:
+  - id: ut-valerenga-2015
+    direction: out
+    kind: transfer
+    club: Vålerenga
+    clubId: valerenga
+    date: "2015"
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1368964463
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2014–15». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Viktige brikker på plass i spillerstall 2015 (Vålerenga IF)
+      http://www.vif-fotball.no/news/article/1rqrhj3b0woup1153b5dct4e34/title/viktige-brikker-pa-pl\
+      ass-i-spillerstall-2015"

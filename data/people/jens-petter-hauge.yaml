@@ -18,3 +18,63 @@ providers:
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+transfers:
+  - id: inn-bodo-glimt-2018
+    direction: in
+    kind: loan
+    club: Bodø/Glimt
+    clubId: bodo-glimt
+    date: 2018-08-15
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468717
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2018». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/nyheter/laner-ung-assistkonge
+        retrievedAt: 2018-08-15
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Låner ung assistkonge
+    note: "Kilden fotnoten peker på: Låner ung assistkonge (Aalesunds FK, 2018-08-15)
+      http://www.aafk.no/nyheter/laner-ung-assistkonge"
+  - id: ut-bodo-glimt-2019
+    direction: out
+    kind: loan_return
+    club: Bodø/Glimt
+    clubId: bodo-glimt
+    date: 2018-12-10
+    season: 2019
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1361724311
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2018–19». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/nyheter/leiesoldatene-ferdige
+        retrievedAt: 2018-12-10
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Leiesoldatene ferdige
+    note: "Kilden fotnoten peker på: Leiesoldatene ferdige (Aalesunds FK, 2018-12-10)
+      http://www.aafk.no/nyheter/leiesoldatene-ferdige"

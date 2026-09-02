@@ -16,3 +16,44 @@ providers:
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+transfers:
+  - id: inn-lyngby-2020
+    direction: in
+    kind: loan
+    club: Lyngby
+    date: "2020"
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1363056004
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2020». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Her er overgangene i Eliteserien i sommer og høst (Eurosport)
+      https://www.nettavisen.no/sport/her-er-overgangene-i-eliteserien-i-sommer-og-host/3424004775.\
+      html"
+  - id: ut-lyngby-2021
+    direction: out
+    kind: loan_return
+    club: Lyngby
+    date: "2021"
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365491811
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2020–21». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Få oversikt: Bekreftede overganger i OBOS-ligaen 2021 (Eurosport)
+      https://www.eurosport.no/fotball/obos-ligaen/2020/fa-oversikt-bekreftede-overganger-i-obos-li\
+      gaen-2021_sto8063983/story.shtml"

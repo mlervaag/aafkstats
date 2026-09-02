@@ -20,3 +20,33 @@ providers:
 sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
+transfers:
+  - id: ut-antwerp-2016
+    direction: out
+    kind: transfer
+    club: Antwerp
+    date: 2015-12-09
+    season: 2016
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369966462
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2015–16». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/news/article/116d2ohgh7ztm13wub1l7m5rf2/title/matland-til-royal-antwerp-fc
+        retrievedAt: 2015-12-09
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Matland til Royal Antwerp F.C.
+    note: "Kilden fotnoten peker på: Matland til Royal Antwerp F.C. (Aalesunds FK, 2015-12-09)
+      http://www.aafk.no/news/article/116d2ohgh7ztm13wub1l7m5rf2/title/matland-til-royal-antwerp-fc"

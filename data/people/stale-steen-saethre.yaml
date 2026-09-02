@@ -19,3 +19,33 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-nest-sotra-2018
+    direction: in
+    kind: transfer
+    club: Nest-Sotra
+    clubId: nest-sotra
+    date: 2018-07-04
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468717
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2018». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/nyheter/skal-spille-med-hjertet-utenpa-drakten
+        retrievedAt: 2018-07-04
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Skal spille med hjertet utenpå drakten
+    note: "Kilden fotnoten peker på: Skal spille med hjertet utenpå drakten (Aalesunds FK, 2018-07-04)
+      http://www.aafk.no/nyheter/skal-spille-med-hjertet-utenpa-drakten"

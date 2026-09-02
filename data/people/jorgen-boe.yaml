@@ -19,3 +19,62 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-traeff-2025
+    direction: in
+    kind: transfer
+    club: Træff
+    clubId: traeff
+    date: 2025-01-22
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1368388589
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2024–25». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/en-drom-som-gar-i-oppfyllelse-boe
+        retrievedAt: 2025-01-22
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: "- En drøm som går i oppfyllelse"
+    note: "Kilden fotnoten peker på: - En drøm som går i oppfyllelse (Aalesunds FK, 2025-01-22)
+      https://www.aafk.no/nyheter/en-drom-som-gar-i-oppfyllelse-boe"
+  - id: ut-traeff-2026
+    direction: out
+    kind: loan
+    club: Træff
+    clubId: traeff
+    date: 2026-03-31
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1372362958
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2025–26». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/boe-lanes-ut-til-treff-frem-til-sommeren
+        retrievedAt: 2026-03-31
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Bøe lånes ut til Treff frem til sommeren
+    note: "Kilden fotnoten peker på: Bøe lånes ut til Treff frem til sommeren (Aalesunds FK, 2026-03-31)
+      https://www.aafk.no/nyheter/boe-lanes-ut-til-treff-frem-til-sommeren"

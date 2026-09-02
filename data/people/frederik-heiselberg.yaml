@@ -19,3 +19,60 @@ providers:
       - nationality
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
+transfers:
+  - id: inn-midtjylland-2025
+    direction: in
+    kind: transfer
+    club: Midtjylland
+    date: 2025-03-04
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1368388589
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2024–25». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/ny-spiss-klar-for-aalesund
+        retrievedAt: 2025-03-04
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Ny spiss klar for AaFK!
+    note: "Kilden fotnoten peker på: Ny spiss klar for AaFK! (Aalesunds FK, 2025-03-04)
+      https://www.aafk.no/nyheter/ny-spiss-klar-for-aalesund"
+  - id: ut-hillerod-2026
+    direction: out
+    kind: transfer
+    club: Hillerød
+    date: 2026-01-30
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1372362958
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2025–26». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/frederik-heiselberg-solgt-til-hillerod
+        retrievedAt: 2026-01-30
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Frederik Heiselberg solgt til Hillerød
+    note: "Kilden fotnoten peker på: Frederik Heiselberg solgt til Hillerød (Aalesunds FK, 2026-01-30)
+      https://www.aafk.no/nyheter/frederik-heiselberg-solgt-til-hillerod"
