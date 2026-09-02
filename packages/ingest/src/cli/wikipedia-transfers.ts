@@ -2,12 +2,12 @@ import { existsSync } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { parseArgs } from "node:util";
-import { stringify } from "yaml";
+import { parse, stringify } from "yaml";
 import {
   clubKey,
+  person as personSchema,
   personKey,
   slugify,
-  transferSeason,
   type Person,
   type Transfer,
 } from "@aafkstats/schema";
@@ -18,6 +18,7 @@ import {
   windowFromTitle,
   type WikipediaTransferRow,
 } from "../adapters/wikipedia-transfers.js";
+import { mergeTransfersIntoYaml, sameTransferEvent } from "../wikipedia-transfer-store.js";
 
 /**
  * Overganger fra engelsk Wikipedias norske overgangslister.
@@ -224,10 +225,17 @@ for (const title of articles) {
     const year = Number(date.slice(0, 4));
     const season = window.season === year || window.season === year + 1 ? window.season : year;
 
-    const alreadyThere = person.transfers.some((entry) =>
-      entry.direction === row.direction
-      && transferSeason(entry) === season
-      && (entry.club ?? "") === (row.club ?? ""));
+    const candidate: Transfer = {
+      id: "candidate",
+      direction: row.direction,
+      kind: row.kind,
+      club: row.club,
+      date,
+      ...(season === year ? {} : { season }),
+      sources: [],
+      providers: [],
+    };
+    const alreadyThere = person.transfers.some((entry) => sameTransferEvent(entry, candidate));
     if (alreadyThere) {
       alreadyPresent += 1;
       continue;
@@ -297,15 +305,18 @@ const summary = {
 
 if (args.values.json) console.log(JSON.stringify({ ...summary, overganger: added }, null, 2));
 else console.log(JSON.stringify(summary, null, 2));
-for (const issue of issues) console.error(`KONTROLL: ${issue}`);
 
 if (!args.values.write) {
+  for (const issue of issues) console.error(`KONTROLL: ${issue}`);
   console.log(`Ingen filer skrevet. Planen ville rørt ${touched.size} personfiler.`);
   process.exit(0);
 }
 
+const pendingWrites: { absolute: string; content: string; transfers: number }[] = [];
 for (const id of touched) {
   const value = byId.get(id)!;
+  const fresh = added.filter((entry) => entry.personId === id).map((entry) => entry.transfer);
+  if (fresh.length === 0) continue;
   // Person-ID-en kommer av et navn hentet fra nett. `slugify` gjør den til en
   // slug, men et navn utenfra skal aldri få bestemme hvor på disken vi skriver,
   // og en kontroll som står her er lettere å stole på enn en som ligger tre
@@ -320,35 +331,44 @@ for (const id of touched) {
     issues.push(`${id}: stien havner utenfor data/people; skriver ikke`);
     continue;
   }
-  await mkdir(dirname(absolute), { recursive: true });
 
   const existing = existsSync(absolute) ? await readFile(absolute, "utf8") : null;
-  if (existing === null) {
-    await writeFile(absolute, stringify(value, { lineWidth: 100 }), "utf8");
-    continue;
+  try {
+    const content = existing === null
+      ? stringify(value, { lineWidth: 100 })
+      : mergeTransfersIntoYaml(existing, fresh);
+    const validation = personSchema.safeParse(parse(content));
+    if (!validation.success) {
+      issues.push(`${id}: foreslått personfil validerer ikke (${validation.error.issues[0]?.message ?? "ukjent feil"})`);
+      continue;
+    }
+    pendingWrites.push({ absolute, content, transfers: fresh.length });
+  } catch (error) {
+    issues.push(`${id}: kunne ikke flette inn overganger (${String(error)})`);
   }
-
-  // Filene som allerede finnes skrives ikke om. En full re-serialisering ville
-  // reflytt hver eneste rolle og kildehenvisning i 147 filer, og gjort en diff
-  // på 225 nye overganger umulig å lese — og dermed umulig å kontrollere.
-  // Overgangene legges til på slutten, og resten av fila står urørt.
-  const fresh = added.filter((entry) => entry.personId === id).map((entry) => entry.transfer);
-  if (fresh.length === 0) continue;
-  if (/^transfers:/m.test(existing)) {
-    issues.push(`${id}: har allerede et transfers-felt; skrives ikke om maskinelt`);
-    continue;
-  }
-  const block = stringify({ transfers: fresh }, { lineWidth: 100 });
-  await writeFile(absolute, existing.endsWith("\n") ? existing + block : `${existing}\n${block}`, "utf8");
 }
+
+for (const issue of issues) console.error(`KONTROLL: ${issue}`);
+const plannedTransfers = pendingWrites.reduce((sum, entry) => sum + entry.transfers, 0);
+if (plannedTransfers !== added.length) {
+  console.error(`Avbrøt før skriving: bare ${plannedTransfers} av ${added.length} overganger bestod kontrollen.`);
+  process.exit(1);
+}
+
+for (const pending of pendingWrites) {
+  await mkdir(dirname(pending.absolute), { recursive: true });
+  await writeFile(pending.absolute, pending.content, "utf8");
+}
+const writtenFiles = pendingWrites.length;
+const writtenTransfers = plannedTransfers;
 
 // Skriv aldri uten å lese tilbake. En innhøsting som etterlater et arkiv som
 // ikke validerer, er verre enn en som ikke kjørte.
 const after = await loadArchive(root);
 const afterIssues = [...after.issues, ...crossValidate(after)];
 if (afterIssues.length > 0) {
-  console.error(`Skrev ${touched.size} filer, men arkivet har ${afterIssues.length} feil. Kjør pnpm validate.`);
+  console.error(`Skrev ${writtenFiles} filer, men arkivet har ${afterIssues.length} feil. Kjør pnpm validate.`);
   for (const issue of afterIssues.slice(0, 20)) console.error(`  ${issue.file} ${issue.path}: ${issue.message}`);
   process.exit(1);
 }
-console.log(`Skrev ${touched.size} personfiler med ${added.length} nye overganger.`);
+console.log(`Skrev ${writtenFiles} personfiler med ${writtenTransfers} nye overganger.`);

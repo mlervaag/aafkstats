@@ -27,25 +27,6 @@ providers:
       - wikidata
     note: Bare ID-en. Dataene bak den er CC0, men de hentes ikke hit.
 transfers:
-  - id: ut-piast-gliwice-2018
-    direction: out
-    kind: loan
-    club: Piast Gliwice
-    date: 2018-06-15
-    sources: []
-    providers:
-      - providerId: wikipedia
-        url: https://en.wikipedia.org/w/index.php?oldid=1365468717
-        retrievedAt: 2026-09-02
-        fields:
-          - direction
-          - club
-          - date
-          - kind
-        note: Lest fra «List of Norwegian football transfers summer 2018». Wikipedia er registeret, ikke
-          kilden — meldingen står i notatet.
-    note: "Kilden fotnoten peker på: Kirkeskov skifter permanent til Piast (Bold.dk, 2018-06-15)
-      https://www.bold.dk/fodbold/nyheder/kirkeskov-skifter-permanent-til-piast/"
   - id: inn-ob-2016
     direction: in
     kind: transfer
@@ -75,3 +56,50 @@ transfers:
     note: "Kilden fotnoten peker på: Mikkel Kirkeskov klar for AaFK (Aalesunds FK, 2016-01-08)
       http://www.aafk.no/latest-news/article/14e608pxd5f401frknn324e0qx/title/mikkel-kirkeskov-klar\
       -for-aafk"
+  - id: ut-piast-gliwice-2018-2
+    direction: out
+    kind: loan
+    club: Piast Gliwice
+    date: 2018-02-21
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468729
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2017–18». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: http://www.aafk.no/nyheter/kirkeskov-leies-ut
+        retrievedAt: 2018-02-21
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Kirkeskov leies ut
+    note: "Kilden fotnoten peker på: Kirkeskov leies ut (Aalesunds FK, 2018-02-21)
+      http://www.aafk.no/nyheter/kirkeskov-leies-ut"
+  - id: ut-piast-gliwice-2018
+    direction: out
+    kind: transfer
+    club: Piast Gliwice
+    date: 2018-06-15
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1365468717
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2018». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+    note: "Kilden fotnoten peker på: Kirkeskov skifter permanent til Piast (Bold.dk, 2018-06-15)
+      https://www.bold.dk/fodbold/nyheder/kirkeskov-skifter-permanent-til-piast/"

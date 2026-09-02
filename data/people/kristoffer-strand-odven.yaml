@@ -22,6 +22,34 @@ providers:
       - squadNumbers
     note: Fakta fra stallmalen. Artikkelteksten er CC BY-SA og er ikke gjengitt.
 transfers:
+  - id: ut-hodd-2022-2
+    direction: out
+    kind: loan
+    club: Hødd
+    clubId: hodd
+    date: 2022-03-01
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369178074
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers winter 2021–22». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/lanes-ut-til-hodd
+        retrievedAt: 2022-03-01
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lånes ut til Hødd
+    note: "Kilden fotnoten peker på: Lånes ut til Hødd https://www.aafk.no/nyheter/lanes-ut-til-hodd"
   - id: ut-hodd-2022
     direction: out
     kind: loan

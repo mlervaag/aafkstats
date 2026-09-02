@@ -19,13 +19,43 @@ sources: []
 conflicts: []
 note: Kampaktiviteten er utledet av lagoppstillingene, ikke av denne personfila.
 transfers:
-  - id: inn-hodd-2014
+  - id: inn-hodd-2013
     direction: in
     kind: loan
     club: Hødd
     clubId: hodd
+    date: "2013"
+    sources:
+      - sourceId: aftenbladet-aalesund-signerte-latifu-2014
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Meldingen oppgir retrospektivt at Latifu kom på lån fra Hødd høsten 2013.
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1369173132
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - kind
+        note: Raden i «List of Norwegian football transfers summer 2013» mangler fotnote; Aftenbladet-kilden dokumenterer hendelsen.
+    note: Låneoppholdet startet høsten 2013. Kilden oppgir ikke eksakt dato.
+  - id: inn-hodd-2014
+    direction: in
+    kind: transfer
+    club: Hødd
+    clubId: hodd
     date: 2014-02-28
-    sources: []
+    sources:
+      - sourceId: aftenbladet-aalesund-signerte-latifu-2014
+        fields:
+          - direction
+          - club
+          - date
+          - kind
     providers:
       - providerId: wikipedia
         url: https://en.wikipedia.org/w/index.php?oldid=1364213402
@@ -37,7 +67,7 @@ transfers:
           - kind
         note: Lest fra «List of Norwegian football transfers winter 2013–14». Wikipedia er registeret, ikke
           kilden — meldingen står i notatet.
-    note: "Kilden fotnoten peker på: Aalesund signerte Latifu
+    note: "Låneoppholdet fra høsten 2013 ble gjort permanent. Kilden fotnoten peker på: Aalesund signerte Latifu
       http://www.smp.no/100Sport/fotball/eliteserien/article423212.snd"
   - id: ut-released-2016
     direction: out
