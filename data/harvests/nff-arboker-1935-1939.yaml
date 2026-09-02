@@ -1,0 +1,39 @@
+version: 1
+id: nff-arboker-1935-1939
+title: NFF-årbøker 1935–1939 – autonom recall
+profile: yearbook
+mode: initial
+status: normalized
+scope:
+  years: { from: 1935, to: 1939 }
+  parentSourceId: nff-arbok
+  sourceIds: [nff-arbok-1935, nff-arbok-1936, nff-arbok-1937]
+sourceInventory:
+  - { sourceId: nff-arbok-1935, title: "Årbok (Norges fotballforbund). 1935", year: 1935, reviewStatus: reviewed }
+  - { sourceId: nff-arbok-1936, title: "Årbok (Norges fotballforbund). 1936", year: 1936, reviewStatus: unavailable }
+  - { sourceId: nff-arbok-1937, title: "Årbok (Norges fotballforbund). 1937", year: 1937, reviewStatus: unavailable }
+coverage: { mode: pages, expected: 226, reviewed: 226 }
+reviewMethod: { facsimile: required }
+review: { file: docs/research/NFF_ARBOKER_RECALL_1935_1939.md }
+passes:
+  fulltext_variants: { status: complete, findings: 1, note: "ALTO ble hentet for alle 226 sider i 1935; 1936–1939 kunne ikke leses i denne runden." }
+  regional_results: { status: complete, findings: 1, note: "Sunnmøre Klasse A/B/C kontrollert på trykt side 83 i 1935." }
+  nm_diagrams: { status: complete, findings: 1, note: "1935-diagrammet på trykt side 111 kontrollert visuelt; ingen datoer konstruert." }
+  people_and_meetings: { status: complete, findings: 3, note: "AaFK-representanter og Peder Pucks NFF-rolle ble visuelt kontrollert på trykte sider 135 og 14." }
+  economy_and_venues: { status: complete, findings: 1, note: "Regnskap/Banefond/anlegg gjennomgått; innsamlingen på 524,25 kroner i Ålesund er bevart uten å kalles klubbinntekt." }
+  recall_audit: { status: complete, findings: 1, note: "Innhold, siste bokdel, navnevarianter og diagramkontroll kjørt for 1935." }
+findings:
+  - { id: f-results-1935, source: { sourceId: nff-arbok-1935, page: "83, 111, 114" }, type: match_result, claim: { text: "Ni kildebelagte resultatobservasjoner fra Sunnmøre, NM og interklubb." }, disposition: source_result_created, targets: [{ entity: source_result, id: nff-arbok-1935 }], status: normalized }
+  - { id: f-canonical-nm-1935, source: { sourceId: nff-arbok-1935, page: "111 (trykt; digital side 131)" }, type: match_result, claim: { text: "Tre daterte NM-kamper fikk årboka som tilleggskilde; Brage-kampens runde og hjemme/borte er registrert som konflikt." }, disposition: canonical_enriched, targets: [{ entity: match, id: 1935-08-18-aalesunds-fk-brage }, { entity: match, id: 1935-09-01-aalesunds-fk-gjovik-lyn }, { entity: match, id: 1935-09-15-lisleby-aalesunds-fk }], status: normalized }
+  - { id: f-season-1935, source: { sourceId: nff-arbok-1935, page: "83" }, type: season_fact, claim: { text: "AaFK ble kretsmester i Klasse A etter dobbelt serie mot Rollon og Guard." }, disposition: canonical_enriched, targets: [{ entity: competition, id: sondmore-kreds-klasse-a }], status: normalized }
+  - { id: f-klubbhistorikk-1935, source: { sourceId: nff-arbok-1935, page: "83" }, type: historical_observation, claim: { text: "AaFK er oppført som kretsmester i Klasse A, B og C; B/C holdes utenfor A-lagsstatistikken." }, disposition: observation_created, targets: [{ entity: observation, id: nff-arbok-1935-klubbhistorikk }], status: normalized }
+  - { id: f-representatives-1935, source: { sourceId: nff-arbok-1935, page: "135 (trykt; digital side 157)" }, type: person_role, claim: { text: "R. Huseby og Sverre Volstad representerte AaFK på forbundstinget." }, disposition: canonical_enriched, targets: [{ entity: person, id: r-huseby }, { entity: person, id: sverre-volstad }], status: normalized }
+  - { id: f-peder-puck-1935, source: { sourceId: nff-arbok-1935, page: "14 (trykt; digital side 32)" }, type: person_role, claim: { text: "Peder Puck var NFF-rådgiver for landslagsuttaking." }, disposition: canonical_enriched, targets: [{ entity: person, id: peder-puck }], status: normalized }
+  - { id: f-vannforesaken-1935, source: { sourceId: nff-arbok-1935, page: "9" }, type: historical_observation, claim: { text: "Tredjerundekampene i Ålesund ga 524,25 kroner til vannføresaken; beløpet er ikke tolket som klubbinntekt." }, disposition: observation_created, targets: [{ entity: observation, id: nff-nm-vannforesaken-aalesund-1935 }], status: normalized }
+  - { id: f-availability-1936-1939, source: { sourceId: nff-arbok }, type: other, claim: { text: "1936–1939 ble ikke gjort til kanonisk innhold uten verifiserbar faksimiletilgang; 1938–1939 ga ikke eget NB-årbokobjekt i katalogsøk." }, disposition: source_unavailable, targets: [], status: normalized }
+unresolved:
+  - { findingId: f-availability-1936-1939, type: source, note: "Krever NB-tilgang eller nytt verifiserbart katalogobjekt før full review og kanonisering." }
+createdAt: "2026-09-02"
+notes:
+  - "1935 er eneste år i denne delbatchen med åpen faksimile/ALTO. 1936–1937 er katalogverifisert, men tilgangsbegrenset; 1938–1939 er ikke katalogverifisert som egne objekter."
+  - "Ingen lik-score-identitet ble brukt uten NM-prefiks og eksisterende kampbelegg."

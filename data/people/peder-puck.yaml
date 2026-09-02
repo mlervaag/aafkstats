@@ -1,6 +1,15 @@
 id: peder-puck
 name: Peder Puck
 roles:
+  - id: landslagsuttakingsradgiver-1935
+    category: administration
+    title: Rådgiver for komiteen for uttaking av landslag
+    body: Norges Fotballforbund
+    from: "1935"
+    to: "1935"
+    sources:
+      - { sourceId: nff-arbok-1935, page: "14 (trykt; digital side 32)", fields: [title, from, to] }
+    note: Dette er et dokumentert NFF-oppdrag, ikke et nytt AaFK-styreverv.
   - id: oppmann-1932
     category: sporting_staff
     title: Oppmann
@@ -337,6 +346,10 @@ roles:
       - sourceId: medlemsblad-for-aalesunds-fotb-1962-5664
         page: "10"
 sources:
+  - sourceId: nff-arbok-1935
+    page: "14 (trykt; digital side 32)"
+    fields: []
+    note: Ført som rådgiver for NFFs komité for uttaking av landslag.
   - sourceId: aalesunds-fotballklubb-1914-50-1964-3815
     page: "3"
     fields: []
