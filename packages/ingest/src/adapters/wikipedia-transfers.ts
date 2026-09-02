@@ -498,7 +498,26 @@ function cleanText(raw: string): string {
     (_all, target: string, display: string | undefined) => display ?? target,
   );
 
-  return resolved.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
+  return stripAngleTags(resolved).replace(/\s+/g, " ").trim();
+}
+
+/**
+ * Fjerner taggrester som `<ref name=x />` fra en verdi, helt.
+ *
+ * Ett enkelt gjennomløp holder ikke. `<scr<ref>ipt>` blir `<script>` av én
+ * runde, fordi fjerningen av den indre taggen setter sammen to halvdeler til
+ * en ny. Her er verdien et klubb- eller spillernavn og havner i YAML, ikke i
+ * HTML, så det er ingen angrepsvei — men en fjerning som etterlater det den
+ * skulle fjerne, er uansett ikke ferdig. Derfor gjentas den til strengen står
+ * stille. Hver runde gjør strengen kortere, så den stopper alltid.
+ */
+function stripAngleTags(value: string): string {
+  let current = value;
+  for (;;) {
+    const next = current.replace(/<[^>]*>/g, "");
+    if (next === current) return current;
+    current = next;
+  }
 }
 
 /** `[[Mål|Vist]]` blir «Vist»; `[[Mål]]` blir «Mål». */
