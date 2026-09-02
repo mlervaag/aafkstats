@@ -98,7 +98,7 @@ passes:
     note: Kampresultater for 1. divisjon våren og høsten 1950, privatkamper og NM cup.
   people_and_roles:
     status: complete
-    findings: 60
+    findings: 61
     note: Nye og berikede personer, spillere, overganger, tillitsvalgte og æresmedlemmer.
       De fire overgangene er ført som egne transfer-funn; rollene de opprinnelig ble lagret
       som står inntil de kan fjernes gjennom et bevaringsunntak.
@@ -1343,6 +1343,21 @@ findings:
     notes:
       - Samme opplysning ble opprinnelig ført som rollen «overgang-wing-1950».
         Rollen står inntil den kan fjernes gjennom et bevaringsunntak.
+  - id: transfer-005
+    source:
+      sourceId: medlemsblad-for-aalesunds-fotb-1950-37d9
+    type: transfer
+    claim:
+      text: "Knut Hjelle: tilbake fra Volda T. & I.L. og spilleberettiget for AaFK høsten 1950"
+    disposition: transfer_created
+    targets:
+      - entity: person
+        id: knut-hjelle
+        path: transfers/inn-volda-1950
+    status: normalized
+    notes:
+      - Notisen navngir ham bare som «Knut». Sidetallet er ikke kontrollert mot
+        faksimilen, og begge deler bør bekreftes redaksjonelt.
 unresolved: []
 createdAt: 2026-08-16
 notes:

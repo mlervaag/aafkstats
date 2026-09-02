@@ -256,9 +256,12 @@ describe("mergeRoleSpells", () => {
  */
 describe("overganger", () => {
   it("viser Knut Hjelles overgang til Volda med kilde og klubbkobling", () => {
+    // To rader: ut til Volda om høsten, og tilbake igjen i neste utgave. Uten
+    // returen ville arkivet bare vist at han dro.
     const transfers = getPersonTransfers("knut-hjelle");
-    expect(transfers).toHaveLength(1);
-    expect(transfers[0]).toMatchObject({
+    expect(transfers).toHaveLength(2);
+    expect(transfers.map((entry) => entry.direction).sort()).toEqual(["in", "out"]);
+    expect(transfers.find((entry) => entry.direction === "out")).toMatchObject({
       direction: "out",
       kind: "transfer",
       season: 1950,
@@ -278,8 +281,9 @@ describe("overganger", () => {
 
   it("samler sesongens bevegelser på sesongen kilden oppgir", () => {
     const transfers = loadTransfers(1950);
-    expect(transfers).toHaveLength(4);
-    expect(transfers.every((entry) => entry.direction === "out")).toBe(true);
+    expect(transfers).toHaveLength(5);
+    expect(transfers.filter((entry) => entry.direction === "out")).toHaveLength(4);
+    expect(transfers.filter((entry) => entry.direction === "in")).toHaveLength(1);
   }, 30_000);
 
   it("gir ingen overganger for et år ingen kilde er ført inn for", () => {
