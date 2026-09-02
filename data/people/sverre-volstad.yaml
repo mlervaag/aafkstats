@@ -1,6 +1,15 @@
 id: sverre-volstad
 name: Sverre Volstad
 roles:
+  - id: forbundstingsrepresentant-1935
+    category: administration
+    title: Representant på forbundstinget
+    body: Aalesund Fotballklub
+    from: "1935"
+    to: "1935"
+    sources:
+      - { sourceId: nff-arbok-1935, page: "135 (trykt; digital side 157)", fields: [title, from, to] }
+    note: Representasjon dokumenterer ikke et bestemt klubbverv.
   - id: formann-1930-1936
     category: board
     title: Formann
@@ -124,6 +133,10 @@ roles:
       - { sourceId: nff-arbok-1934, page: "157", fields: [title, from, to] }
     note: Representasjon dokumenterer ikke et bestemt klubbverv.
 sources:
+  - sourceId: nff-arbok-1935
+    page: "135 (trykt; digital side 157)"
+    fields: []
+    note: Ført som representant for Aalesund Fotballklub.
   - sourceId: nff-arbok-1932
     page: "126"
     fields: []
