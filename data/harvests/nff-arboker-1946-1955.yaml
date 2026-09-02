@@ -1,0 +1,65 @@
+version: 1
+id: nff-arboker-1946-1955
+title: NFF-årbøker 1946–1955 – OCR-discovery, tilgangsblokkert
+profile: yearbook
+mode: initial
+status: blocked
+
+scope:
+  years: { from: 1946, to: 1955 }
+  parentSourceId: nff-arbok
+  sourceIds:
+    - nff-arbok-1946-1947
+    - nff-arbok-1948
+    - nff-arbok-1949
+    - nff-arbok-1950
+    - nff-arbok-1951
+    - nff-arbok-1952
+    - nff-arbok-1953
+    - nff-arbok-1954
+    - nff-arbok-1955
+
+review:
+  file: docs/research/NFF_ARBOKER_RECALL_1946_1955.md
+
+sourceInventory:
+  - { sourceId: nff-arbok-1946-1947, title: "Årbok (Norges fotballforbund). 1946-1947", year: 1946, reviewStatus: unavailable }
+  - { sourceId: nff-arbok-1948, title: "Årbok (Norges fotballforbund). 1948", year: 1948, reviewStatus: unavailable }
+  - { sourceId: nff-arbok-1949, title: "Årbok (Norges fotballforbund). 1949", year: 1949, reviewStatus: unavailable }
+  - { sourceId: nff-arbok-1950, title: "Årbok (Norges fotballforbund). 1950", year: 1950, reviewStatus: unavailable }
+  - { sourceId: nff-arbok-1951, title: "Årbok (Norges fotballforbund). 1951", year: 1951, reviewStatus: unavailable }
+  - { sourceId: nff-arbok-1952, title: "Årbok (Norges fotballforbund). 1952", year: 1952, reviewStatus: unavailable }
+  - { sourceId: nff-arbok-1953, title: "Årbok (Norges fotballforbund). 1953", year: 1953, reviewStatus: unavailable }
+  - { sourceId: nff-arbok-1954, title: "Årbok (Norges fotballforbund). 1954", year: 1954, reviewStatus: unavailable }
+  - { sourceId: nff-arbok-1955, title: "Årbok (Norges fotballforbund). 1955", year: 1955, reviewStatus: unavailable }
+
+coverage: { mode: sections, expected: 0, reviewed: 0 }
+reviewMethod:
+  facsimile: unavailable
+  reason: "NB/viewability NONE; offentlig IIIF contentsearch gir OCR-discovery, men ikke faksimile."
+
+passes:
+  fulltext_variants: { status: complete, findings: 1214, note: "Maskinelt utledede, ikke visuelt kontrollerte kandidater." }
+  regional_results: { status: skipped, findings: 0, note: "Krever faksimile." }
+  nm_diagrams: { status: skipped, findings: 0, note: "Krever visuell kontroll av diagram og tegnforklaring." }
+  people_and_meetings: { status: skipped, findings: 0, note: "Navnekandidater er ikke identitetskontrollert." }
+  economy_and_venues: { status: skipped, findings: 0, note: "Beløp og kontekst krever faksimile." }
+  recall_audit: { status: complete, findings: 9, note: "Kilde-, tilgangs- og kandidatdekning dokumentert per katalogobjekt." }
+
+findings:
+  - { id: f-ocr-1946-1947, source: { sourceId: nff-arbok-1946-1947 }, type: other, claim: { text: "399 OCR-kandidater på 83 sider; ikke visuelt kontrollert." }, disposition: no_structured_action, status: unresolved }
+  - { id: f-ocr-1948, source: { sourceId: nff-arbok-1948 }, type: other, claim: { text: "205 OCR-kandidater på 48 sider; ikke visuelt kontrollert." }, disposition: no_structured_action, status: unresolved }
+  - { id: f-ocr-1949, source: { sourceId: nff-arbok-1949 }, type: other, claim: { text: "227 OCR-kandidater på 49 sider; ikke visuelt kontrollert." }, disposition: no_structured_action, status: unresolved }
+  - { id: f-ocr-1950, source: { sourceId: nff-arbok-1950 }, type: other, claim: { text: "60 OCR-kandidater på 30 sider; ikke visuelt kontrollert." }, disposition: no_structured_action, status: unresolved }
+  - { id: f-ocr-1951, source: { sourceId: nff-arbok-1951 }, type: other, claim: { text: "55 OCR-kandidater på 31 sider; ikke visuelt kontrollert." }, disposition: no_structured_action, status: unresolved }
+  - { id: f-ocr-1952, source: { sourceId: nff-arbok-1952 }, type: other, claim: { text: "94 OCR-kandidater på 39 sider; ikke visuelt kontrollert." }, disposition: no_structured_action, status: unresolved }
+  - { id: f-ocr-1953, source: { sourceId: nff-arbok-1953 }, type: other, claim: { text: "78 OCR-kandidater på 47 sider; ikke visuelt kontrollert." }, disposition: no_structured_action, status: unresolved }
+  - { id: f-ocr-1954, source: { sourceId: nff-arbok-1954 }, type: other, claim: { text: "58 OCR-kandidater på 27 sider; ikke visuelt kontrollert." }, disposition: no_structured_action, status: unresolved }
+  - { id: f-ocr-1955, source: { sourceId: nff-arbok-1955 }, type: other, claim: { text: "38 OCR-kandidater på 20 sider; ikke visuelt kontrollert." }, disposition: no_structured_action, status: unresolved }
+
+unresolved:
+  - { findingId: f-ocr-1946-1947, type: source_access, note: "Alle ni katalogobjekter krever lovlig NB-faksimiletilgang før kandidatene kan verifiseres." }
+
+notes:
+  - "Ingen source-results, sesongdata, personer, observasjoner eller kampkoblinger er opprettet."
+  - "Recall er LOW for hvert år fordi null sider kunne kontrolleres visuelt; 1946–47 er ett kombinert katalogobjekt."
