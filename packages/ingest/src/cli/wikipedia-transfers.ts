@@ -136,6 +136,25 @@ let withoutRef = 0;
 let alreadyPresent = 0;
 const added: { personId: string; transfer: Transfer }[] = [];
 
+/**
+ * Om adressen faktisk peker på klubbens eget nettsted.
+ *
+ * Verten må sammenlignes som vert, ikke som delstreng. «Inneholder aafk.no» er
+ * sant også for `https://aafk.no.example.com/`, og da ville arkivet tilskrevet
+ * klubben en melding den ikke har skrevet. Et ugyldig eller manglende URL gir
+ * nei, ikke et unntak.
+ */
+function isClubSite(url: string | undefined): boolean {
+  if (url === undefined) return false;
+  let host: string;
+  try {
+    host = new URL(url).hostname.toLowerCase();
+  } catch {
+    return false;
+  }
+  return host === "aafk.no" || host.endsWith(".aafk.no");
+}
+
 /** ID-en overgangen får i personfila. Stabil, og lesbar i en diff. */
 function transferId(row: WikipediaTransferRow, season: number, taken: Set<string>): string {
   const side = row.direction === "in" ? "inn" : "ut";
@@ -225,7 +244,7 @@ for (const title of articles) {
     // Meldingen er ikke alltid klubbens egen — fotnotene peker like gjerne på
     // Sunnmørsposten. Der den *er* klubbens, finnes leverandøren i arkivet, og
     // da skal den stå som en egen henvisning og ikke bare i et notat.
-    const fromClubSite = reference.url?.includes("aafk.no") ?? false;
+    const fromClubSite = isClubSite(reference.url);
 
     const transfer: Transfer = {
       id: transferId(row, season, taken),
