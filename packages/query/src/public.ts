@@ -14,6 +14,9 @@ export const PUBLIC_TOOL_NAMES = [
   "search_reports",
   "search_people",
   "get_person",
+  "search_transfers",
+  "get_squad",
+  "get_standings",
   "search_sources",
   "get_source",
   "search_historical_results",
@@ -56,6 +59,17 @@ export interface ArchiveContentTotals {
   clubs: number;
   historicalObservations: number;
   scheduledMatches: number;
+  /**
+   * Kildeførte overganger, og sesongene de dekker.
+   *
+   * Tallet er med fordi en klient ellers ikke kan skille «arkivet har ingen
+   * overgang for 2016» fra «arkivet har knapt overganger i det hele tatt».
+   * Dekningen er ujevn, og sesongspennet sier hvor tynt den ligger.
+   */
+  transfers: number;
+  transferSeasons: number;
+  squadSeasons: number;
+  standingsSeasons: number;
 }
 
 /**
@@ -76,7 +90,11 @@ export async function loadArchiveContentTotals(context: ToolContext = {}): Promi
        (SELECT count(*) FROM people) AS people,
        (SELECT count(*) FROM sources) AS sources,
        (SELECT count(*) FROM opponents) AS clubs,
-       (SELECT count(*) FROM historical_observations) AS historical_observations`,
+       (SELECT count(*) FROM historical_observations) AS historical_observations,
+       (SELECT count(*) FROM transfers) AS transfers,
+       (SELECT count(DISTINCT season) FROM transfers) AS transfer_seasons,
+       (SELECT count(DISTINCT season) FROM squad) AS squad_seasons,
+       (SELECT count(DISTINCT season) FROM standings) AS standings_seasons`,
     { dbPath: context.dbPath },
   );
   const row = (result.rows[0] ?? {}) as Record<string, number | null>;
@@ -92,5 +110,9 @@ export async function loadArchiveContentTotals(context: ToolContext = {}): Promi
     sources: count("sources"),
     clubs: count("clubs"),
     historicalObservations: count("historical_observations"),
+    transfers: count("transfers"),
+    transferSeasons: count("transfer_seasons"),
+    squadSeasons: count("squad_seasons"),
+    standingsSeasons: count("standings_seasons"),
   };
 }

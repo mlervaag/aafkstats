@@ -60,6 +60,7 @@ export type ToolErrorCode =
   | "PERSON_NOT_FOUND"
   | "SOURCE_NOT_FOUND"
   | "SEASON_NOT_FOUND"
+  | "STANDINGS_NOT_FOUND"
   | "VERIFICATION_CASE_NOT_FOUND"
   | "SUBMISSION_NOT_ALLOWED"
   | "SUBMISSION_FAILED"
@@ -712,7 +713,10 @@ const getPerson = defineTool({
     );
     const transfers = await query(
       ctx,
-      `SELECT direction, kind, season, date, club, club_id, sources, note
+      // providers er med fordi en nettmelding ikke har en kildefil: uten feltet
+      // ville en overgang hentet fra en klubbmelding stått helt uten proveniens.
+      `SELECT direction, kind, season, date, club, club_id, ${TRANSFER_DOCUMENTED_BY},
+              sources, providers, note, url
        FROM transfers WHERE person_id = ${id}
        ORDER BY date, direction`,
     );
@@ -729,6 +733,323 @@ const getPerson = defineTool({
         transfers: resultRows(transfers),
         conflicts: resultRows(conflicts),
         observations: resultRows(observations),
+        transferPolicy: TRANSFER_EVIDENCE_POLICY,
+      },
+    };
+  },
+});
+
+/**
+ * Hva en overgangsrad er, og hva den ikke er.
+ *
+ * Overganger er den eneste delen av arkivet der en tom liste er den vanlige
+ * tilstanden: de aller fleste sesongene har ingen kildeført overgang. Uten at
+ * kontrakten sier det rett ut, leses et tomt svar som «ingen skiftet klubb»,
+ * og en enkelt rad som en fullstendig klubbhistorikk.
+ */
+const TRANSFER_EVIDENCE_POLICY = {
+  contract: "archive-transfer-evidence@1",
+  coverage:
+    "Dekningen er ujevn og aldri fullstendig. Et år uten rader betyr at ingen kilde er ført inn ennå, ikke at ingen kom eller forsvant. Ikke skriv at en sesong ikke hadde overganger.",
+  career:
+    "Radene er enkeltstående kildeførte hendelser, ikke en karriere. Overgangene mellom to andre klubber finnes ikke her, og en spiller kan ha rader for én klubbytte og ingen for de neste.",
+  scope:
+    "Bare personer med egen personfil kan ha overganger. En spiller som bare finnes som et navn i oppstillingene har ingen rad, og det er en manglende fil, ikke en manglende overgang.",
+  squad:
+    "Ikke summer overganger og stall. transfers sier hvorfor noen kom eller forsvant; squad sier hvem som faktisk var med. En hentet spiller kan aldri ha spilt en kamp.",
+  club:
+    "club er kildens egen skrivemåte og bevares som den står. club_id er satt bare når klubben finnes i arkivet, og klubbkatalogen inneholder motstandere. NULL betyr uregistrert klubb, ikke ukjent klubb.",
+  date:
+    "date er datoen kilden oppgir. «Høsten 1950» står som 1950, ikke som en gjettet dag. season kan avvike fra året i date når kilden plasserer en vinterovergang i neste sesong.",
+  fee: "Arkivet lagrer ingen overgangssum. Oppgir en kilde et beløp, står det i note sammen med kilden som sa det.",
+  documentedBy:
+    "documented_by sier hva raden hviler på: source er en historisk publikasjon med sidetall, provider er en nettmelding med adresse og hentetid, both er begge. Ingen rad står uten.",
+  kinds: {
+    transfer: "Vanlig overgang. Standardverdien, og den som brukes når kilden ikke sier noe annet.",
+    loan: "Utlån. Et lån er ikke et salg og skal ikke omtales som det.",
+    loan_return: "Retur etter endt lån, ikke en ny overgang.",
+    free: "Overgang uten klubbavtale, altså på fri transfer.",
+    academy: "Opp fra egen ungdomsavdeling. Bare direction 'in'.",
+    released: "Kontrakt utløpt eller hevet uten at kilden oppgir noen ny klubb. Bare 'out', og club er da NULL.",
+    retired: "La opp. Bare 'out', og club er da NULL.",
+  },
+} as const;
+
+/** Om raden hviler på en publikasjon, en nettmelding eller begge. */
+const TRANSFER_DOCUMENTED_BY =
+  `CASE WHEN json_array_length(sources) > 0 AND json_array_length(providers) > 0 THEN 'both'
+        WHEN json_array_length(sources) > 0 THEN 'source'
+        ELSE 'provider' END AS documented_by`;
+
+const searchTransfers = defineTool({
+  name: "search_transfers",
+  description:
+    "Søk i kildeførte overganger inn til og ut av AaFK. Bruk dette på spørsmål om hvem som " +
+    "ble hentet, hvem som forsvant, hvor en spiller kom fra eller gikk til, og på lån og " +
+    "utlån. Bruk ikke stallen til dette: den sier bare hvem som var med, ikke hvorfor. " +
+    "Svaret har totals over hele filteret, ikke bare de returnerte radene.",
+  inputSchema: z.object({
+    season: z.number().int().min(1900).max(2100).optional().describe("Sesongen overgangen føres på"),
+    seasonFrom: z.number().int().min(1900).max(2100).optional().describe("Fra og med sesong"),
+    seasonTo: z.number().int().min(1900).max(2100).optional().describe("Til og med sesong"),
+    direction: z.enum(["in", "out"]).optional().describe("'in' til AaFK, 'out' fra AaFK"),
+    kind: z
+      .enum(["transfer", "loan", "loan_return", "free", "academy", "released", "retired"])
+      .optional()
+      .describe("Overgangstype"),
+    club: z.string().optional().describe("Den andre klubben, delvis treff på navn eller ID"),
+    clubId: z.string().optional().describe("Eksakt klubb-ID når klubben finnes i arkivet"),
+    person: z.string().optional().describe("Spillerens navn, delvis treff holder"),
+    personId: z.string().optional().describe("Eksakt person-ID"),
+    limit: z.number().int().min(1).max(100).default(20),
+  }),
+  async run(input, ctx) {
+    const where: string[] = [];
+    if (input.season !== undefined) where.push(`season = ${input.season}`);
+    if (input.seasonFrom !== undefined) where.push(`season >= ${input.seasonFrom}`);
+    if (input.seasonTo !== undefined) where.push(`season <= ${input.seasonTo}`);
+    if (input.direction) where.push(`direction = ${lit(input.direction)}`);
+    if (input.kind) where.push(`kind = ${lit(input.kind)}`);
+    if (input.club) {
+      const needle = lit(`%${input.club.toLowerCase()}%`);
+      where.push(`(lower(coalesce(club, '')) LIKE ${needle} OR coalesce(club_id, '') LIKE ${needle})`);
+    }
+    if (input.clubId) where.push(`club_id = ${lit(input.clubId)}`);
+    if (input.person) where.push(`lower(name) LIKE ${lit(`%${input.person.toLowerCase()}%`)}`);
+    if (input.personId) where.push(`person_id = ${lit(input.personId)}`);
+    const filter = where.length > 0 ? `WHERE ${where.join(" AND ")}` : "";
+
+    const result = await query(
+      ctx,
+      `SELECT person_id, name, direction, kind, season, date, club, club_id,
+              ${TRANSFER_DOCUMENTED_BY}, sources, providers, note, url
+       FROM transfers
+       ${filter}
+       ORDER BY season DESC, date DESC, direction, name COLLATE NOCASE
+       LIMIT ${input.limit}`,
+    );
+    if (result.isError) return result;
+
+    // Tellerne kjøres uten limit, slik at «hvor mange kom i 2016» kan besvares
+    // uten å hente hver rad. De gjelder filteret, ikke siden som ble returnert.
+    const totals = await query(
+      ctx,
+      `SELECT direction, kind, count(*) AS n, min(season) AS first_season, max(season) AS last_season
+       FROM transfers ${filter} GROUP BY direction, kind`,
+    );
+    if (totals.isError) return totals;
+
+    const number = (value: unknown) => (typeof value === "number" ? value : 0);
+    const totalRows = resultRows(totals);
+    const byKind: Record<string, number> = {};
+    for (const row of totalRows) byKind[String(row.kind)] = (byKind[String(row.kind)] ?? 0) + number(row.n);
+    const seasons = totalRows.flatMap((row) => [row.first_season, row.last_season]).filter((value): value is number => typeof value === "number");
+
+    return {
+      content: {
+        ...(result.content as Record<string, unknown>),
+        totals: {
+          matched: totalRows.reduce((sum, row) => sum + number(row.n), 0),
+          in: totalRows.filter((row) => row.direction === "in").reduce((sum, row) => sum + number(row.n), 0),
+          out: totalRows.filter((row) => row.direction === "out").reduce((sum, row) => sum + number(row.n), 0),
+          byKind,
+          firstSeason: seasons.length > 0 ? Math.min(...seasons) : null,
+          lastSeason: seasons.length > 0 ? Math.max(...seasons) : null,
+          note: "Tellerne gjelder hele filteret, ikke bare radene i rows. De teller kildeførte overganger, ikke alle overganger som fant sted.",
+        },
+        evidencePolicy: TRANSFER_EVIDENCE_POLICY,
+      },
+    };
+  },
+});
+
+const SQUAD_EVIDENCE_POLICY = {
+  contract: "archive-squad@1",
+  players:
+    "Stallen er utledet av lagoppstillingene, som arkivet har fra 2010. En eldre sesong har ingen spillere her, og det er en manglende kilde, ikke en tom tropp.",
+  appearances:
+    "appearances teller kamper spilleren sto i den oppsatte troppen, ikke spilletid. Benken er med, fordi kilden ikke skiller. Bruk starts når spørsmålet gjelder hvem som spilte.",
+  goals: "goals telles fra hendelseslista. En kamp uten registrerte hendelser gir null mål for alle som spilte den.",
+  transfers:
+    "transfers er kildeførte overganger i samme sesong. De er ikke en fasit over hvem som kom og gikk, og et tomt felt betyr at ingen kilde er ført inn.",
+  coaches:
+    "derived er trenerperioder utledet av hvem som står oppført på kampene, og er den nøyaktige for 2010 og senere. declared er perioder en kilde oppgir, som regel bare med årstall. De to erstatter ikke hverandre og skal ikke summeres.",
+} as const;
+
+const getSquad = defineTool({
+  name: "get_squad",
+  description:
+    "Hent stallen for én sesong: hvem som var med, med kamper, starter og mål, sammen med " +
+    "sesongens kildeførte overganger og hvem som var trener. Bruk dette på spørsmål om " +
+    "hvem som spilte for AaFK et gitt år.",
+  inputSchema: z.object({
+    season: z.number().int().min(1900).max(2100).describe("Sesongår"),
+    limit: z.number().int().min(1).max(100).default(60).describe("Maks antall spillere"),
+  }),
+  async run(input, ctx) {
+    const season = input.season;
+    const players = await query(
+      ctx,
+      `SELECT person_key, person_id, name, number, position, nationality, wikidata,
+              appearances, starts, goals, first_match, last_match
+       FROM squad WHERE season = ${season}
+       ORDER BY appearances DESC, starts DESC, name COLLATE NOCASE
+       LIMIT ${input.limit}`,
+    );
+    if (players.isError) return players;
+
+    const transfers = await query(
+      ctx,
+      `SELECT person_id, name, direction, kind, date, club, club_id,
+              ${TRANSFER_DOCUMENTED_BY}, note, url
+       FROM transfers WHERE season = ${season}
+       ORDER BY direction, date, name COLLATE NOCASE`,
+    );
+    if (transfers.isError) return transfers;
+
+    const derivedCoaches = await query(
+      ctx,
+      `SELECT person_key, name, from_date, to_date, from_season, to_season, matches
+       FROM coach_spells WHERE from_season <= ${season} AND to_season >= ${season}
+       ORDER BY from_date`,
+    );
+    if (derivedCoaches.isError) return derivedCoaches;
+
+    const declaredCoaches = await query(
+      ctx,
+      `SELECT person_id, name, from_season, to_season, from_date, to_date
+       FROM declared_coach_spells
+       WHERE from_season <= ${season} AND coalesce(to_season, ${season}) >= ${season}
+       ORDER BY from_season`,
+    );
+    if (declaredCoaches.isError) return declaredCoaches;
+
+    const playerRows = resultRows(players);
+    const transferRows = resultRows(transfers);
+    const derivedRows = resultRows(derivedCoaches);
+    const declaredRows = resultRows(declaredCoaches);
+
+    // Sesongen finnes bare dersom arkivet vet noe om den i det hele tatt. Uten
+    // denne sjekken svarer et årstall utenfor arkivet med en tom, troverdig stall.
+    if (playerRows.length === 0 && transferRows.length === 0 && derivedRows.length === 0 && declaredRows.length === 0) {
+      const known = await query(ctx, `SELECT count(*) AS n FROM matches WHERE season = ${season}`);
+      if (known.isError) return known;
+      if (Number(resultRows(known)[0]?.n ?? 0) === 0) {
+        return toolError("SEASON_NOT_FOUND", `Arkivet har ingenting registrert for sesongen ${season}.`, {
+          suggestions: [
+            "Sjekk årstallet. get_archive_capabilities oppgir hvilke sesonger arkivet dekker.",
+            "Lagoppstillingene starter i 2010. Eldre sesonger har kamper, men ingen stall.",
+          ],
+        });
+      }
+    }
+
+    return {
+      content: {
+        season,
+        players: playerRows,
+        playerCount: playerRows.length,
+        transfers: {
+          in: transferRows.filter((row) => row.direction === "in"),
+          out: transferRows.filter((row) => row.direction === "out"),
+        },
+        coaches: { derived: derivedRows, declared: declaredRows },
+        coverage: {
+          lineups: playerRows.length > 0 ? "present" : "missing",
+          note:
+            playerRows.length > 0
+              ? "Stallen er hentet fra lagoppstillingene i sesongens kamper."
+              : "Arkivet har ingen lagoppstillinger for denne sesongen. Oppstillingene starter i 2010, og en tom stall er en manglende kilde, ikke en tom tropp.",
+        },
+        evidencePolicy: SQUAD_EVIDENCE_POLICY,
+        transferPolicy: TRANSFER_EVIDENCE_POLICY,
+      },
+    };
+  },
+});
+
+const STANDINGS_POLICY = {
+  contract: "archive-standings@1",
+  scope: "Bare seriesesonger, og bare de årene arkivet har tabell for. Cupen har ingen tabell.",
+  points: "points er tallet tabellen viser, ikke wins*3+draws. Poengtrekk finnes, og to poeng for seier gjaldt til 1987.",
+  matches: "Tabellen dekker bare seriekampene. Cupkamper samme år ligger i kampmodellen og er ikke med her.",
+  team: "team er kildens eget lagnavn. club_id er satt bare for lagene arkivet kjenner fra før, siden AaFK ikke har møtt alle lagene i divisjonen.",
+  progression:
+    "progression er AaFKs egen plassering etter hver runde, regnet ut ved innhøsting. Bare sesonger der utregningen lander på nøyaktig samme rad som kildens trykte tabell er med, og de andre lagenes vei gjennom sesongen finnes ikke.",
+} as const;
+
+const getStandings = defineTool({
+  name: "get_standings",
+  description:
+    "Hent sluttabellen for en seriesesong, med AaFKs egen rad løftet fram og valgfritt " +
+    "plasseringen etter hver runde. Bruk dette på spørsmål om hvor AaFK endte, hvem som " +
+    "vant divisjonen, opprykk og nedrykk.",
+  inputSchema: z.object({
+    season: z.number().int().min(1900).max(2100).describe("Sesongår"),
+    competitionId: z.string().optional().describe("Konkurransens ID når sesongen har flere tabeller"),
+    includeProgression: z.boolean().default(false).describe("Ta med AaFKs plassering etter hver runde"),
+  }),
+  async run(input, ctx) {
+    const where = [`season = ${input.season}`];
+    if (input.competitionId) where.push(`competition_id = ${lit(input.competitionId)}`);
+    const result = await query(
+      ctx,
+      `SELECT competition_id, competition, season, position, team, club_id,
+              played, wins, draws, losses, goals_for, goals_against, goal_difference,
+              points, outcome, note, sources, url
+       FROM standings WHERE ${where.join(" AND ")}
+       ORDER BY competition_id, position`,
+    );
+    if (result.isError) return result;
+    const rows = resultRows(result);
+    if (rows.length === 0) {
+      return toolError(
+        "STANDINGS_NOT_FOUND",
+        input.competitionId
+          ? `Arkivet har ingen tabell for ${input.competitionId} i ${input.season}.`
+          : `Arkivet har ingen serietabell for ${input.season}.`,
+        {
+          suggestions: [
+            "Tabellene er innhøstet per sesong, og et år uten tabell er en manglende kilde, ikke en sesong uten serie.",
+            "Bruk get_season_summary for kampene i sesongen. De finnes uavhengig av tabellen.",
+          ],
+        },
+      );
+    }
+
+    const competitionIds = [...new Set(rows.map((row) => String(row.competition_id)))];
+    const progression = input.includeProgression
+      ? await query(
+          ctx,
+          `SELECT competition_id, round, position, points, played, goal_difference
+           FROM standings_progression
+           WHERE season = ${input.season}
+             AND competition_id IN (${competitionIds.map((id) => lit(id)).join(", ")})
+           ORDER BY competition_id, round`,
+        )
+      : null;
+    if (progression?.isError) return progression;
+    const progressionRows = progression ? resultRows(progression) : [];
+
+    return {
+      content: {
+        season: input.season,
+        tables: competitionIds.map((competitionId) => {
+          const table = rows.filter((row) => row.competition_id === competitionId);
+          return {
+            competition_id: competitionId,
+            competition: table[0]?.competition ?? null,
+            teams: table.length,
+            // Egen rad løftes fram: et spørsmål om sesongen handler nesten
+            // alltid om AaFK, og da skal ikke klienten lete i tabellen selv.
+            aafk: table.find((row) => row.club_id === "aalesunds-fk") ?? null,
+            table,
+            ...(input.includeProgression
+              ? { progression: progressionRows.filter((row) => row.competition_id === competitionId) }
+              : {}),
+          };
+        }),
+        evidencePolicy: STANDINGS_POLICY,
       },
     };
   },
@@ -967,6 +1288,9 @@ export const tools: ToolDef[] = [
   searchReports,
   searchPeople,
   getPerson,
+  searchTransfers,
+  getSquad,
+  getStandings,
   searchSources,
   getSource,
   searchHistoricalResults,

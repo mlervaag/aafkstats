@@ -28,6 +28,15 @@ const publicToolSchemas: Record<PublicToolName, z.ZodType> = {
   search_reports: z.object({ q: z.string().min(1), limit: z.number().int().min(1).max(50).default(10) }),
   search_people: z.object({ q: z.string().optional(), category: z.enum(["player", "coach", "sporting_staff", "board", "administration", "honorary", "founder", "project"]).optional(), year: z.number().int().min(1914).max(2100).optional(), limit: limit100 }),
   get_person: z.object({ personId: z.string().min(1) }),
+  search_transfers: z.object({
+    season: z.number().int().min(1900).max(2100).optional(), seasonFrom: z.number().int().min(1900).max(2100).optional(),
+    seasonTo: z.number().int().min(1900).max(2100).optional(), direction: z.enum(["in", "out"]).optional(),
+    kind: z.enum(["transfer", "loan", "loan_return", "free", "academy", "released", "retired"]).optional(),
+    club: z.string().optional(), clubId: z.string().optional(), person: z.string().optional(), personId: z.string().optional(),
+    limit: limit100,
+  }),
+  get_squad: z.object({ season: z.number().int().min(1900).max(2100), limit: z.number().int().min(1).max(100).default(60) }),
+  get_standings: z.object({ season: z.number().int().min(1900).max(2100), competitionId: z.string().optional(), includeProgression: z.boolean().default(false) }),
   search_sources: z.object({ q: z.string().optional(), type: z.string().optional(), year: z.number().int().min(1800).max(2100).optional(), yearFrom: z.number().int().min(1800).max(2100).optional(), yearTo: z.number().int().min(1800).max(2100).optional(), limit: limit100 }),
   get_source: z.object({ sourceId: z.string().min(1), claimLimit: z.number().int().min(0).max(50).default(10) }),
   search_historical_results: z.object({ season: z.number().int().min(1914).max(2100).optional(), opponent: z.string().optional(), limit: limit100 }),
@@ -149,10 +158,31 @@ function createArchiveServer(context: McpRequestContext) {
         archiveVersion: API_VERSION,
         datasetVersion: DATASET_VERSION,
         build: publicApiInfo.build,
-        responseContracts: ["archive-result-evidence@2", "archive-head-to-head-evidence@1", "nb-community-research@1"],
+        responseContracts: [
+          "archive-result-evidence@2", "archive-head-to-head-evidence@1",
+          "archive-transfer-evidence@1", "archive-squad@1", "archive-standings@1",
+          "nb-community-research@1",
+        ],
         // canonicalMatches og sourceClaims er to lag som aldri summeres, også her.
         content: totals,
         seasonsCovered: { from: totals.firstSeason, to: totals.lastSeason, count: totals.seasons },
+        // Kampene dekker hele spennet; overganger, stall og tabeller gjør det
+        // ikke. Sies det ikke her, blir et tomt svar lest som at ingenting skjedde.
+        partialCoverage: {
+          transfers: {
+            rows: totals.transfers,
+            seasons: totals.transferSeasons,
+            note: "Overganger er kildeført enkeltvis og dekker langt fra alle sesonger. Et år uten rader betyr at ingen kilde er ført inn ennå, ikke at ingen skiftet klubb.",
+          },
+          squad: {
+            seasons: totals.squadSeasons,
+            note: "Stallen er utledet av lagoppstillingene, som starter i 2010. Eldre sesonger har kamper, men ingen stall.",
+          },
+          standings: {
+            seasons: totals.standingsSeasons,
+            note: "Serietabeller er innhøstet per sesong. Et år uten tabell er en manglende kilde, ikke en sesong uten serie.",
+          },
+        },
         // Kampen som spilles akkurat nå finnes ikke her. Sies ikke det rett ut, blir
         // arkivet brukt som sanntidskilde, og et tomt svar lest som «ingen kamp».
         freshness: {

@@ -158,6 +158,102 @@ describe("verktøy mot ekte arkivfil", () => {
     await call("get_season_summary", { season: 2024 });
     expect(queries.length).toBeGreaterThan(before);
   });
+
+  it("search_transfers skiller retning, type og proveniens", async () => {
+    const r = await call("search_transfers", { season: 2024 });
+    const rows = (r.content as { rows: Record<string, unknown>[] }).rows;
+    expect(rows).toHaveLength(2);
+
+    const arrival = rows.find((row) => row.direction === "in")!;
+    expect(arrival).toMatchObject({ kind: "transfer", club: "Molde FK", club_id: "molde-fk" });
+    // En nettmelding har ingen kildefil. Uten providers ville raden stått helt
+    // uten proveniens, og det er nettopp det documented_by skal avsløre.
+    expect(arrival.documented_by).toBe("provider");
+
+    const departure = rows.find((row) => row.direction === "out")!;
+    expect(departure).toMatchObject({ kind: "loan", documented_by: "source" });
+    // Klubben finnes ikke i klubbkatalogen, og det er ikke en mangel.
+    expect(departure.club_id).toBeNull();
+  });
+
+  it("search_transfers teller hele filteret, ikke bare siden", async () => {
+    const r = await call("search_transfers", { limit: 1 });
+    const content = r.content as {
+      rows: unknown[];
+      totals: { matched: number; in: number; out: number; byKind: Record<string, number> };
+      evidencePolicy: { contract: string };
+    };
+    expect(content.rows).toHaveLength(1);
+    expect(content.totals).toMatchObject({ matched: 2, in: 1, out: 1 });
+    expect(content.totals.byKind).toEqual({ transfer: 1, loan: 1 });
+    expect(content.evidencePolicy.contract).toBe("archive-transfer-evidence@1");
+  });
+
+  it("search_transfers filtrerer på klubb og type", async () => {
+    const byClub = (await call("search_transfers", { club: "molde" })).content as { rows: Record<string, unknown>[] };
+    expect(byClub.rows.map((row) => row.direction)).toEqual(["in"]);
+
+    const loans = (await call("search_transfers", { kind: "loan" })).content as { rows: Record<string, unknown>[] };
+    expect(loans.rows.every((row) => row.kind === "loan")).toBe(true);
+  });
+
+  it("get_squad gir stall, sesongens overganger og trenere", async () => {
+    const content = (await call("get_squad", { season: 2024 })).content as {
+      players: Record<string, unknown>[];
+      transfers: { in: unknown[]; out: unknown[] };
+      coverage: { lineups: string };
+    };
+    expect(content.players.length).toBeGreaterThan(0);
+    expect(content.players[0]).toHaveProperty("appearances");
+    expect(content.coverage.lineups).toBe("present");
+    expect(content.transfers.in).toHaveLength(1);
+    expect(content.transfers.out).toHaveLength(1);
+  });
+
+  it("get_squad sier at en tom stall er en manglende kilde", async () => {
+    // 1998 har kamper, men ingen oppstillinger. Uten dette svaret ville en tom
+    // liste blitt lest som at AaFK ikke hadde spillere det året.
+    const content = (await call("get_squad", { season: 1998 })).content as {
+      players: unknown[];
+      coverage: { lineups: string; note: string };
+    };
+    expect(content.players).toHaveLength(0);
+    expect(content.coverage.lineups).toBe("missing");
+    expect(content.coverage.note).toContain("manglende kilde");
+  });
+
+  it("get_squad svarer med feilkode for en sesong arkivet ikke kjenner", async () => {
+    const r = await call("get_squad", { season: 1990 });
+    expect(r.isError).toBe(true);
+    expect((r.content as { error: { code: string } }).error.code).toBe("SEASON_NOT_FOUND");
+  });
+
+  it("get_standings løfter fram AaFKs egen rad", async () => {
+    const content = (await call("get_standings", { season: 1998, includeProgression: true })).content as {
+      tables: { competition_id: string; aafk: Record<string, unknown> | null; table: unknown[]; progression: unknown[] }[];
+    };
+    expect(content.tables).toHaveLength(1);
+    const table = content.tables[0]!;
+    expect(table.competition_id).toBe("forstedivisjon");
+    expect(table.aafk).toMatchObject({ club_id: "aalesunds-fk", position: 3 });
+    expect(table.table.length).toBeGreaterThan(1);
+    expect(table.progression.length).toBeGreaterThan(0);
+  });
+
+  it("get_standings holder rundeutviklingen utenfor med mindre den bes om", async () => {
+    const content = (await call("get_standings", { season: 1998 })).content as {
+      tables: Record<string, unknown>[];
+    };
+    expect(content.tables[0]).not.toHaveProperty("progression");
+  });
+
+  it("get_standings skiller en manglende tabell fra en sesong uten serie", async () => {
+    const r = await call("get_standings", { season: 2024 });
+    expect(r.isError).toBe(true);
+    const error = (r.content as { error: { code: string; suggestions: string[] } }).error;
+    expect(error.code).toBe("STANDINGS_NOT_FOUND");
+    expect(error.suggestions.join(" ")).toContain("manglende kilde");
+  });
 });
 
 describe("verktøy mot det historiske kandidatlaget", () => {
@@ -404,6 +500,37 @@ describe("verktøy mot det historiske kandidatlaget", () => {
     expect(result[0]).toHaveProperty("source_title");
     expect(result[0]).toHaveProperty("page");
     expect(result[0]).toHaveProperty("confidence");
+  });
+
+  it("finner de kildeførte overgangene i det ekte arkivet", async () => {
+    const response = await call("search_transfers", { direction: "in", limit: 50 });
+    const result = rows(response);
+    expect(result.length).toBeGreaterThan(0);
+    expect(result.every((row) => row.direction === "in")).toBe(true);
+    // Hver rad hviler på noe. Står den som verken publikasjon eller nettmelding,
+    // er proveniensen tapt på veien fra YAML til svar.
+    expect(result.every((row) => ["source", "provider", "both"].includes(String(row.documented_by)))).toBe(true);
+
+    const totals = (response.content as { totals: { matched: number; in: number; out: number } }).totals;
+    expect(totals.matched).toBe(totals.in);
+    expect(totals.out).toBe(0);
+  });
+
+  it("holder lån og permanente overganger fra hverandre", async () => {
+    const loans = rows(await call("search_transfers", { kind: "loan", limit: 50 }));
+    expect(loans.length).toBeGreaterThan(0);
+    expect(loans.every((row) => row.kind === "loan")).toBe(true);
+    expect(loans.some((row) => row.kind === "transfer")).toBe(false);
+  });
+
+  it("tar med providers på personens overganger", async () => {
+    const person = await call("get_person", { personId: "mikkel-kirkeskov" });
+    const transfers = (person.content as { transfers: Record<string, unknown>[] }).transfers;
+    expect(transfers.length).toBeGreaterThan(0);
+    // Overgangen er dokumentert av en klubbmelding og ikke av en publikasjon.
+    // Uten providers i svaret ville den sett ut som en påstand uten kilde.
+    expect(transfers.some((row) => String(row.documented_by) !== "source")).toBe(true);
+    expect(transfers.every((row) => row.providers !== undefined && row.sources !== undefined)).toBe(true);
   });
 
   it("gjør personkonfliktene tilgjengelige for fri SQL", async () => {

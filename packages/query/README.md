@@ -41,7 +41,10 @@ Legger du til en kolonne i `packages/db/src/schema.sql`, skal den også inn her.
 | `head_to_head` | Kanoniske kamper, sikre ukoblede klubbtreff og mulige navnetreff som tre separate lag |
 | `search_reports` | Fritekstsøk i kampreferatene (FTS5), med utdrag rundt treffordet, `matched_field` og `matched_terms` |
 | `search_people` | Personer og eksplisitte roller med rolle-ID og organisasjon |
-| `get_person` | Én person med roller, konflikter, kilder og publiserbare observasjoner |
+| `get_person` | Én person med roller, overganger, konflikter, kilder og publiserbare observasjoner |
+| `search_transfers` | Kildeførte overganger inn og ut, med retning, type, proveniens og tellere for hele filteret |
+| `get_squad` | Sesongens stall, overganger og trenere i ett kall, med dekningen sagt eksplisitt |
+| `get_standings` | Sluttabellen for en seriesesong, med AaFKs egen rad og valgfri rundeutvikling |
 | `search_sources` | Søk i publisert kildemetadata uten OCR eller beskyttet fulltekst |
 | `get_source` | Én kilde med brukstellere og et avgrenset utvalg resultatpåstander |
 | `search_historical_results` | Kildedokumenterte resultater som mangler full kampkobling |
@@ -65,6 +68,13 @@ kilderesultater på `result_group_id` og returnerer tre lag: kanonisk statistikk
 resultater med sikkert identifisert `opponent_club_id`, og tekstlige treff der klubb-ID-en er
 uavklart. Det siste laget er bare et spor til videre research og inngår aldri i summene.
 Full kildemetadata er opt-in med `includeEvidence`; standardkallet holder svaret kompakt.
+
+`search_transfers`, `get_squad` og `get_standings` har samme grunnproblem, og løser det på
+samme måte: dekningen er ujevn, og et tomt svar er den vanlige tilstanden. Verktøyene sier det
+i svaret framfor å la klienten gjette. `search_transfers` har kontrakten
+`archive-transfer-evidence@1` og `totals` over hele filteret, `get_squad` har `coverage` som
+skiller «ingen spillere» fra «ingen oppstillinger», og `get_standings` svarer
+`STANDINGS_NOT_FOUND` framfor en tom tabell.
 
 Alle verktøyene kjører gjennom den samme guardrailen i
 [`@aafkstats/db/sql`](../db/README.md#guardrailen) — også de vi har skrevet selv. Ett sted å
