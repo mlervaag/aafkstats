@@ -89,10 +89,10 @@ export default function DevelopersPage() {
           </p>
           <div className="queries"><pre>{mcpConfig}</pre></div>
           <p>
-            MCP gir strukturerte verktøy for kamper, resultater, personer, kilder og åpne
-            researchsaker. Konflikter og dekningshull finnes i researchoversikten. Det
-            finnes ingen generell SQL-tilgang og ingen direkte skrivetilgang til
-            arkivdataene.
+            MCP gir strukturerte verktøy for kamper, resultater, personer, overganger,
+            stall og tabeller, kilder og åpne researchsaker. Konflikter og dekningshull
+            finnes i researchoversikten. Det finnes ingen generell SQL-tilgang og ingen
+            direkte skrivetilgang til arkivdataene.
           </p>
           <p>
             Oversikter og lister er bevisst korte. AI-verktøyet henter detaljer om én kamp,

@@ -76,6 +76,9 @@ describe("offentlig stateless MCP", () => {
     expect(names).toContain("get_person");
     expect(names).toContain("search_sources");
     expect(names).toContain("get_source");
+    expect(names).toContain("search_transfers");
+    expect(names).toContain("get_squad");
+    expect(names).toContain("get_standings");
     expect(names).toContain("list_verification_cases");
     expect(names).not.toContain("run_sql");
     expect(names).toContain("submit_research_finding");
@@ -165,6 +168,53 @@ describe("offentlig stateless MCP", () => {
     expect(match.sources).toBeInstanceOf(Array);
     expect(match.tags).toBeInstanceOf(Array);
     expect(match.url).toBe("https://aafkarkivet.no/kamp/2024-04-01-aalesunds-fk-raufoss-il");
+  });
+
+  it("leverer overganger med ekte JSON-proveniens og absolutte lenker", async () => {
+    const response = await rpc("tools/call", { name: "search_transfers", arguments: { season: 2024 } });
+    const body = await rpcBody(response);
+    expect(body.result.isError).not.toBe(true);
+    const content = body.result.structuredContent as {
+      rows: { direction: string; documented_by: string; sources: unknown[]; providers: unknown[]; url: string; path: string }[];
+      totals: { matched: number; in: number; out: number };
+      evidencePolicy: { contract: string; coverage: string };
+    };
+    expect(content.evidencePolicy.contract).toBe("archive-transfer-evidence@1");
+    expect(content.totals).toMatchObject({ matched: 2, in: 1, out: 1 });
+    expect(content.rows.every((row) => Array.isArray(row.sources) && Array.isArray(row.providers))).toBe(true);
+    expect(content.rows.every((row) => row.url.startsWith("https://aafkarkivet.no/personer/") && row.path.startsWith("/"))).toBe(true);
+    // Et tomt år skal aldri kunne leses som at ingen skiftet klubb.
+    expect(content.evidencePolicy.coverage).toContain("ikke at ingen kom eller forsvant");
+  });
+
+  it("gir stall og tabell for én sesong, med dekningen sagt rett ut", async () => {
+    const squad = await rpcBody(await rpc("tools/call", { name: "get_squad", arguments: { season: 2024 } }));
+    const squadContent = squad.result.structuredContent as {
+      players: { name: string; appearances: number }[];
+      transfers: { in: unknown[]; out: unknown[] };
+      coverage: { lineups: string };
+    };
+    expect(squadContent.players.length).toBeGreaterThan(0);
+    expect(squadContent.coverage.lineups).toBe("present");
+    expect(squadContent.transfers.in).toHaveLength(1);
+
+    const standings = await rpcBody(await rpc("tools/call", { name: "get_standings", arguments: { season: 1998 } }));
+    const tables = (standings.result.structuredContent as { tables: { aafk: { position: number; sources: unknown[] } | null }[] }).tables;
+    expect(tables[0]!.aafk!.position).toBe(3);
+    expect(Array.isArray(tables[0]!.aafk!.sources)).toBe(true);
+  });
+
+  it("oppgir hvor tynt overganger, stall og tabeller er dekket", async () => {
+    const body = await rpcBody(await rpc("tools/call", { name: "get_archive_capabilities", arguments: {} }));
+    const capabilities = body.result.structuredContent as {
+      content: { transfers: number };
+      partialCoverage: { transfers: { rows: number; seasons: number; note: string }; squad: { seasons: number }; standings: { seasons: number } };
+    };
+    expect(capabilities.content.transfers).toBeGreaterThan(0);
+    expect(capabilities.partialCoverage.transfers.rows).toBe(capabilities.content.transfers);
+    expect(capabilities.partialCoverage.transfers.note).toContain("ikke at ingen skiftet klubb");
+    expect(typeof capabilities.partialCoverage.squad.seasons).toBe("number");
+    expect(typeof capabilities.partialCoverage.standings.seasons).toBe("number");
   });
 
   it("sender et researchfunn til samme GitHub-innboks og svarer bare pending_review", async () => {

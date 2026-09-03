@@ -17,3 +17,28 @@ providers:
     url: https://no.wikipedia.org/wiki/Aalesunds_Fotballklubb
     retrievedAt: 2026-08-04
     fields: [name, position, nationality, squadNumbers]
+# To konstruerte overganger som dekker begge proveniensformene: den ene hviler
+# på en nettmelding, den andre på en publikasjon med sidetall. Uten begge ville
+# documented_by aldri blitt testet med noe annet enn 'provider'.
+transfers:
+  - id: inn-molde-2024
+    direction: in
+    kind: transfer
+    club: Molde FK
+    clubId: molde-fk
+    date: 2024-01-15
+    providers:
+      - providerId: aafk-no
+        url: https://www.aafk.no/fixture-overgang
+        retrievedAt: 2024-01-15
+        fields: [direction, club, date, kind]
+  - id: ut-laant-2024
+    direction: out
+    kind: loan
+    club: Volda T. & I.L.
+    date: 2024-08-01
+    sources:
+      - sourceId: medlemsblad-1970-1
+        page: "12"
+        fields: [direction, club, date, kind]
+    note: Konstruert utlån, ført på en publikasjon for å teste kildeformen.
