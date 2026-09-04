@@ -1,13 +1,13 @@
 providerId: fotmob
 externalId: "5105061"
 matchId: 2026-11-29-fredrikstad-aalesunds-fk
-retrievedAt: 2026-09-05
+retrievedAt: 2026-08-30
 adapter: fotmob@5
-payloadHash: sha256:0d8b97f2be7f0cf760aeb83ba74d63e9c0564c7c56c7bf7b644cabaf387c1b1f
+payloadHash: sha256:64d12c4276b3c44e1767336e778dcee263bf535910c407b56bed652c21529ebb
 raw:
   externalId: "5105061"
   date: 2026-11-29
-  kickoff: 14:30
+  kickoff: 17:00
   status: scheduled
   home: Fredrikstad
   homeId: "8417"
@@ -20,7 +20,7 @@ raw:
   url: https://www.fotmob.com/matches/aalesund-vs-fredrikstad/2c8m9k#5105061
 normalized:
   date: 2026-11-29
-  kickoff: 14:30
+  kickoff: 17:00
   status: scheduled
   home.clubId: fredrikstad
   away.clubId: aalesunds-fk
