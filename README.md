@@ -163,6 +163,7 @@ rettighetsvurdering.
 | `pnpm lint` | ESLint over hele monorepoet |
 | `pnpm build` | Bygger arkivfilen og deretter nettstedet |
 | `pnpm etter-kamp` | Holder sesongen à jour: egne kamper som er spilt, og tabellen for hver seriesesong som pågår |
+| `pnpm data:new-players` | Nye spillere i kamptroppen siste 30 dager, og om en overgang forklarer at de kom. `--sesong ÅR`, `--fra ÅÅÅÅ-MM-DD` eller `--alle` |
 | `pnpm ingest:fotmob -- --league ID --season ÅR --competition ID` | Tørrkjører én eksplisitt FotMob-sesong |
 | `pnpm ingest:rsssf -- --season ÅR --division SIDE --competition ID` | Tørrkjører én eksplisitt RSSSF-sesong |
 | `pnpm ingest:rsssf-discover -- --from ÅR --to ÅR` | Kartlegger hva RSSSF har. Skriver aldri data |

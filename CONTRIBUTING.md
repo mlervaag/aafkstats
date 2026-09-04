@@ -239,6 +239,27 @@ Kadensen hører ikke hjemme i repoet. Prosjektets begrunnelse for å hente fra F
 avgrenset uttrekk, ikke regelmessig høsting — se `permissionNote` i
 `data/providers/fotmob.yaml`. Skal rutinen kjøres jevnlig, styr det utenfra.
 
+### Nye spillere i kamptroppen
+
+```sh
+pnpm data:new-players                  # siste 30 dager
+pnpm data:new-players -- --sesong 2026
+pnpm data:new-players -- --alle
+```
+
+Kamptroppene kommer inn automatisk etter hver kamp; overgangene føres for hånd fra en
+kilde som må finnes først. De to går derfor ut av takt på ett punkt: et navn står i en
+oppstilling uten at noen har ført inn hvordan spilleren kom til klubben. Rapporten peker
+på debutantene og skiller de tre tilfellene fra hverandre — overgangen finnes, personfila
+finnes uten overgang, eller navnet har ingen personfil.
+
+Den henter ingenting og skriver ingenting, og sluttkoden er alltid 0. En manglende
+overgang er ikke en datafeil: kilden kan mangle, og en spiller kan være hentet opp fra
+egen ungdomsavdeling uten at noen skrev om det. Er den ført, skal den ha kilden som sa
+den — se `ingest:wikipedia-transfers` og `ingest:nb-transfer-candidates` for kandidater.
+
+Kjøres den etter `pnpm etter-kamp`, er vinduet nettopp de kampene som kom inn.
+
 ## Nye datakilder og adaptere
 
 Les [kildekartet](docs/research/KILDEKART_OG_INNHENTINGSSTRATEGI.md) før du skriver noe.
