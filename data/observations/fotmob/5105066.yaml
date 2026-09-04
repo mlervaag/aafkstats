@@ -1,13 +1,13 @@
 providerId: fotmob
 externalId: "5105066"
-matchId: 2026-12-06-aalesunds-fk-bodo-glimt
-retrievedAt: 2026-08-30
+matchId: 2026-12-05-aalesunds-fk-bodo-glimt
+retrievedAt: 2026-09-05
 adapter: fotmob@5
-payloadHash: sha256:67952d3f6f2eaeca26c47dbee1f3362561324e5f68078e2e260377f4130fe18a
+payloadHash: sha256:e178431a0832733a4a93b10da84be48a41a471c985ccffaae271dd53d5fa4ef9
 raw:
   externalId: "5105066"
-  date: 2026-12-06
-  kickoff: 17:00
+  date: 2026-12-05
+  kickoff: 16:00
   status: scheduled
   home: Aalesund
   homeId: "8404"
@@ -19,8 +19,8 @@ raw:
   round: 29
   url: https://www.fotmob.com/matches/bodoglimt-vs-aalesund/2c37nd#5105066
 normalized:
-  date: 2026-12-06
-  kickoff: 17:00
+  date: 2026-12-05
+  kickoff: 16:00
   status: scheduled
   home.clubId: aalesunds-fk
   away.clubId: bodo-glimt

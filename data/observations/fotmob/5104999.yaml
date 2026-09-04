@@ -1,33 +1,47 @@
 providerId: fotmob
 externalId: "5104999"
 matchId: 2026-09-04-aalesunds-fk-start
-retrievedAt: 2026-08-30
+retrievedAt: 2026-09-05
 adapter: fotmob@5
-payloadHash: sha256:9e03215b92ec865c9240f4f2520185c4ea27b51bcdf29118cb878f247afa8197
+payloadHash: sha256:83e3ee7a2da08caa6b746dc858b7c7f9f99214d51cccfe1404813dee7badd6f7
 raw:
   externalId: "5104999"
   date: 2026-09-04
   kickoff: 19:00
-  status: scheduled
+  status: FT
   home: Aalesund
   homeId: "8404"
   away: Start
   awayId: "9919"
+  homeScore: 2
+  awayScore: 0
+  homeHalfTime: 2
+  awayHalfTime: 0
   competition: Eliteserien
   competitionId: "59"
   season: 2026
   round: 20
+  venue: Color Line Stadion
+  attendance: 5170
+  referee: Jørgen Haugen
   url: https://www.fotmob.com/matches/aalesund-vs-start/2ryd31#5104999
 normalized:
   date: 2026-09-04
   kickoff: 19:00
-  status: scheduled
+  status: played
   home.clubId: aalesunds-fk
   away.clubId: start
+  home.score: 2
+  away.score: 0
+  home.halfTimeScore: 2
+  away.halfTimeScore: 0
   competition.id: eliteserien
   competition.season: 2026
   competition.round: 20
   competition.stage: regular_season
+  venueId: color-line-stadion
+  attendance: 5170
+  referee.name: Jørgen Haugen
 fields:
   - date
   - kickoff
@@ -35,5 +49,15 @@ fields:
   - competition
   - home.clubId
   - away.clubId
+  - home.score
+  - away.score
   - competition.round
+  - attendance
+  - venueId
+  - referee
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
 warnings: []
