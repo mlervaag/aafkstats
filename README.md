@@ -58,7 +58,7 @@ leser fra.
 | **103 år med kanoniske kamper** | 1915–2026, år med minst én registrert kamp. Enkeltkamper tilbake til 1915, cupen til 1917, regionale kretskamper til 1920 og nasjonal serie til 1951 |
 | **108 år med historisk kampinformasjon** | De kanoniske årene over, pluss år som foreløpig bare har kildedokumenterte resultater. Sesongoversikten viser disse |
 | **208 klubber · 97 stadion** | Med tidsavhengige navn, så 1975-kampen viser 1975-navnet |
-| **487 personer** | Registrerte spillere, trenere, ledere, stiftere, prosjektpersoner og hederspersoner med kildeførte detaljer eller avvikende navn |
+| **488 personer** | Registrerte spillere, trenere, ledere, stiftere, prosjektpersoner og hederspersoner med kildeførte detaljer eller avvikende navn |
 | **9 dataleverandører** | Der data hentes digitalt fra, hver med rettighetsstatus som data og ikke som prosa |
 | **802 historiske kilder** | Bøker, medlemsblad, årsmeldinger, nyhetssaker og andre dokumenter en enkelt opplysning kan peke på, med sidetall der det finnes |
 | **60 historiske observasjoner** | Kildeførte enkeltfakta og hendelser som ikke hører til én bestemt kamp — verv, protester, pokaler, baneåpninger — vist på personen, sesongen, kampen eller banen de gjelder |
@@ -162,7 +162,7 @@ rettighetsvurdering.
 | `pnpm typecheck` | Typesjekker pakkene og nettstedet |
 | `pnpm lint` | ESLint over hele monorepoet |
 | `pnpm build` | Bygger arkivfilen og deretter nettstedet |
-| `pnpm etter-kamp` | Holder sesongen à jour: egne kamper som er spilt, og tabellen for hver seriesesong som pågår |
+| `pnpm etter-kamp` | Holder sesongen à jour: egne kamper som er spilt, tabellen for hver seriesesong som pågår, og overgangen bak nye navn i kamptroppen |
 | `pnpm data:new-players` | Nye spillere i kamptroppen siste 30 dager, og om en overgang forklarer at de kom. `--sesong ÅR`, `--fra ÅÅÅÅ-MM-DD` eller `--alle` |
 | `pnpm ingest:fotmob -- --league ID --season ÅR --competition ID` | Tørrkjører én eksplisitt FotMob-sesong |
 | `pnpm ingest:rsssf -- --season ÅR --division SIDE --competition ID` | Tørrkjører én eksplisitt RSSSF-sesong |

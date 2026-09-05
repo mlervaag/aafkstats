@@ -232,13 +232,26 @@ Kampen kjennes igjen på kildens ID, ikke på datoen. Blir en kamp flyttet etter
 terminlista er arkivert, finner rutinen den likevel — og siden kamp-ID-en er bygget av
 datoen, skrives kampen på ny fil og den gamle datofila fjernes i samme kjøring.
 
-Kampen tar med seg oppstillingen, så rutinen sier også fra om hvem som er ny i
-kamptroppen, og om en inngående overgang forklarer at han kom. «Ny» måles mot navnene
-som sto i en oppstilling fra før, ikke mot datoen: en kamp som hentes inn i etterkant kan
-være gammel, og en spiller som har spilt før er ikke ny selv om kampen er ny for arkivet.
-Kontrollen henter ingenting og skriver aldri en overgang selv — meldingen er en oppgave
-til et menneske. Den svarer likt i tørrkjøring og med `--write`, fordi den leser
-skriveplanen og ikke disken.
+Kampen tar med seg oppstillingen, så rutinen ser også hvem som er ny i kamptroppen. «Ny»
+måles mot navnene som sto i en oppstilling fra før, ikke mot datoen: en kamp som hentes
+inn i etterkant kan være gammel, og en spiller som har spilt før er ikke ny selv om kampen
+er ny for arkivet. Kontrollen leser skriveplanen og ikke disken, så den svarer likt i
+tørrkjøring og med `--write`.
+
+Mangler den nye spilleren en inngående overgang, slår rutinen navnet opp i Wikipedias
+overgangsvinduer for sesongen og fører overgangen inn — i samme runde som kampen og
+tabellen, fordi det er den samme hendelsen: han står i troppen fordi han ble hentet.
+Kampen, tabellen og overgangen blir da én diff å lese og én pull request å godkjenne.
+
+To ting den ikke gjør. Den skriver ikke en rad uten fotnote: Wikipedia er registeret over
+hvor primærkildene ligger, ikke kilden selv. Og finner den ingenting, sier den hvem det
+gjelder og lar det være — en spiller hentet opp fra egen ungdomsavdeling står sjelden i en
+slik liste.
+
+Skriver kilden navnet annerledes enn oppstillingen — «Isak Skotheim» mot «Isak Gabriel
+Skotheim» — føres de som samme person, og skrivemåten fra oppstillingen legges i `names`
+så stallen finner fila. Det er en antakelse, og den skrives ut som `IDENTITET:` i loggen
+og står i pull requesten. Er den gal, er det én linje å fjerne.
 
 Etterpå: `pnpm db:build && pnpm validate`, og commit YAML-diffen. Arkivfilen bygges av CI
 og skal ikke committes.
