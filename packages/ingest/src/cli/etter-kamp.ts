@@ -1,9 +1,12 @@
 import { resolve } from "node:path";
+import { newcomers, squadKeys } from "@aafkstats/schema";
+import type { NewPlayer } from "@aafkstats/schema";
 import { crossValidate, loadArchive, repoRoot } from "@aafkstats/schema/load";
 import { fetchFotmobSeason, FOTMOB_ADAPTER } from "../adapters/fotmob.js";
 import { assertMayFetch, assertMayPublish } from "../policy.js";
 import { reconcile, writePlan } from "../reconcile.js";
-import { matchesDue, ongoingLeagues, sourceForDue, todayInOslo } from "../etter-kamp.js";
+import type { ReconcilePlan } from "../reconcile.js";
+import { matchesDue, ongoingLeagues, plannedMatches, sourceForDue, todayInOslo } from "../etter-kamp.js";
 import type { Due } from "../etter-kamp.js";
 import { updateStandings } from "../standings-update.js";
 
@@ -39,6 +42,20 @@ import { updateStandings } from "../standings-update.js";
  * for hver seriesesong som ikke er ferdigspilt, helt uavhengig av om vi har
  * spilt — det er nettopp derfor den kan kjøres på et fast skjema.
  *
+ * ## Nye spillere i kamptroppen
+ *
+ * Kampen tar med seg oppstillingen, og der dukker det av og til opp et navn
+ * ingen har sett før. Overgangen bak navnet føres for hånd fra en kilde som må
+ * finnes først, så kamptroppen og overgangshistorikken går ut av takt akkurat
+ * her — og ingenting feiler på det, fordi valideringen ikke kan kreve en
+ * overgang som kanskje aldri er publisert.
+ *
+ * Rutinen er stedet å oppdage det, fordi den allerede vet hvilke kamper som er
+ * nye. Den sier fra om hvem som er ny i troppen og om en inngående overgang
+ * forklarer ham. Den henter ingenting for å svare, og den skriver aldri en
+ * overgang selv: en overgang uten kilde er en påstand arkivet ikke kan stå inne
+ * for. Meldingen er en oppgave til et menneske, ikke en feil.
+ *
  * ## Stille når ingenting har skjedd
  *
  * En rutine som kjøres hver dag må kunne kjøres hver dag uten å etterlate spor.
@@ -62,6 +79,10 @@ async function main(): Promise<void> {
   if (issues.length > 0) throw new Error(`arkivet har ${issues.length} valideringsfeil før oppdatering`);
 
   const due = matchesDue(archive, args.today);
+  // Kamptroppen slik den var før runden. Alt som ikke står her er nytt, og det
+  // er et sikrere mål enn datoen: en kamp som hentes inn i etterkant kan være
+  // gammel, og en spiller som har spilt før er ikke ny selv om kampen er det.
+  const knownSquad = squadKeys(archive.matches);
   console.log(`Etter kamp · ${args.today}${args.write ? " (skriv)" : " (tørrkjøring)"}`);
 
   assertMayFetch(archive, "fotmob");
@@ -87,6 +108,7 @@ async function main(): Promise<void> {
 
   const written: string[] = [];
   const stillOpen: Due[] = [];
+  const plans: ReconcilePlan[] = [];
 
   for (const [key, matches] of groups) {
     const competitionId = key.split("|")[0]!;
@@ -143,6 +165,7 @@ async function main(): Promise<void> {
     for (const failure of fetched.failures) console.error(`FEIL ${failure.scope} ${failure.externalId}: ${failure.message}`);
     for (const issue of plan.issues) console.error(`KONTROLL: ${issue}`);
     console.log(`  ${JSON.stringify(plan.summary)}`);
+    plans.push(plan);
 
     if (!args.write) continue;
     if (plan.issues.length > 0) throw new Error(`uløste reconcile-problemer for ${competitionId} ${season}; skriver ikke`);
@@ -191,6 +214,21 @@ async function main(): Promise<void> {
     }
   }
 
+  // Kamptroppen leses av planen, ikke av disken: da svarer kontrollen likt i en
+  // tørrkjøring og med --write.
+  const arrivals = newcomers(plannedMatches(plans), archive.people, knownSquad);
+  const unexplained = arrivals.filter((player) => player.arrival.status !== "documented");
+  if (arrivals.length > 0) {
+    console.log(`\nNye i kamptroppen · ${arrivals.length}`);
+    for (const player of arrivals) console.log(describeNewcomer(player));
+    if (unexplained.length > 0) {
+      console.log(
+        `  Overgangen skrives bare inn når en kilde sier den. Kandidater: `
+        + "pnpm ingest:wikipedia-transfers, pnpm ingest:nb-transfer-candidates.",
+      );
+    }
+  }
+
   console.log("\nOppsummering:");
   if (written.length === 0 && tables.length === 0) {
     console.log("  Ingenting endret seg. Ingen filer skrevet.");
@@ -205,6 +243,30 @@ async function main(): Promise<void> {
   }
   if (stillOpen.length > 0) {
     console.log(`  ${stillOpen.length} kamp(er) står fortsatt uten resultat. Kjør rutinen igjen senere.`);
+  }
+  if (unexplained.length > 0) {
+    console.log(
+      `  ${unexplained.length} ny(e) spiller(e) uten overgang: `
+      + `${unexplained.map((player) => player.debut.name).join(", ")}.`,
+    );
+  }
+}
+
+/** Én linje per ny spiller: hvem han er, og hva arkivet vet om ankomsten. */
+function describeNewcomer({ debut, arrival }: NewPlayer): string {
+  const hvem = `  ${debut.name} · ${debut.role === "start" ? "fra start" : "på benken"} i ${debut.matchId}`;
+  switch (arrival.status) {
+    case "documented":
+      return `${hvem}\n    ${arrival.kind} fra ${arrival.club ?? "ukjent klubb"} (${arrival.date})`;
+    case "later":
+      return (
+        `${hvem}\n    KONTROLL: eneste inngående overgang er datert ${arrival.date}, etter kampen `
+        + `${debut.date}. Enten er datoen feil, eller så mangler ankomsten han faktisk spilte på.`
+      );
+    case "undocumented":
+      return `${hvem}\n    KONTROLL: data/people/${debut.personId}.yaml har ingen inngående overgang`;
+    case "unknown":
+      return `${hvem}\n    KONTROLL: ingen personfil — data/people/ har ikke navnet`;
   }
 }
 

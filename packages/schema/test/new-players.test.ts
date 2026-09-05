@@ -3,7 +3,7 @@ import { match } from "../src/match.js";
 import type { Match } from "../src/match.js";
 import { person } from "../src/person.js";
 import type { Person } from "../src/person.js";
-import { debuts, newPlayers, unexplained } from "../src/new-players.js";
+import { debuts, newcomers, newPlayers, squadKeys, unexplained } from "../src/new-players.js";
 import type { Archive } from "../src/load.js";
 
 function makeMatch(overrides: Record<string, unknown> = {}): Match & { file: string } {
@@ -184,5 +184,54 @@ describe("newPlayers", () => {
     expect(newPlayers(archive, { since: "2026-01-01" }).map((p) => p.debut.name)).toEqual(["Ola Nordmann"]);
     expect(newPlayers(archive, { season: 2024 }).map((p) => p.debut.name)).toEqual(["Gammel Spiller"]);
     expect(newPlayers(archive)).toHaveLength(2);
+  });
+});
+
+describe("newcomers", () => {
+  const gammel = makeMatch({
+    id: "2024-04-01-aalesunds-fk-molde-fk",
+    date: "2024-04-01",
+    competition: { id: "eliteserien", season: 2024 },
+    lineups: { home: { starters: ["Kari Hansen"], subs: [] } },
+  });
+  const ny = makeMatch({ lineups: { home: { starters: ["Kari Hansen"], subs: ["Ola Nordmann"] } } });
+
+  it("melder bare dem som ikke sto i en oppstilling fra før", () => {
+    const known = squadKeys([gammel]);
+    expect(newcomers([ny], [], known).map((player) => player.debut.name)).toEqual(["Ola Nordmann"]);
+  });
+
+  it("teller ikke en gammel kamp som hentes inn i etterkant som en ny spiller", () => {
+    // Kampen er ny for arkivet, spilleren er ikke ny i troppen. Datoen ville sagt
+    // det motsatte av begge deler, og det er derfor nøkkelen avgjør.
+    const known = squadKeys([ny]);
+    expect(newcomers([gammel], [], known)).toEqual([]);
+  });
+
+  it("svarer på overgangsspørsmålet for den nye, ikke bare på at han er ny", () => {
+    const folk = [
+      makePerson({
+        transfers: [
+          { id: "inn-hodd-2026", direction: "in", kind: "loan", club: "Hødd", date: "2026-03-01", providers: provider },
+        ],
+      }),
+    ];
+
+    expect(newcomers([ny], folk, squadKeys([gammel]))[0]?.arrival).toMatchObject({
+      status: "documented",
+      kind: "loan",
+    });
+  });
+
+  it("regner samme navn i to nye kamper som én ny spiller", () => {
+    const senere = makeMatch({
+      id: "2026-04-08-aalesunds-fk-sk-brann",
+      date: "2026-04-08",
+      away: { clubId: "sk-brann", score: 1 },
+      lineups: { home: { starters: ["Ola Nordmann"], subs: [] } },
+    });
+
+    expect(newcomers([ny, senere], [], new Set())).toHaveLength(2);
+    expect(newcomers([ny, senere], [], squadKeys([gammel])).map((p) => p.debut.matchId)).toEqual([ny.id]);
   });
 });

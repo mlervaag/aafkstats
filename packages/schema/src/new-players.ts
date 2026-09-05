@@ -1,6 +1,7 @@
 import { AAFK_CLUB_ID } from "./entities.js";
 import { personKey } from "./identity.js";
 import type { Archive } from "./load.js";
+import type { Match } from "./match.js";
 import type { Person, Transfer, TransferKind } from "./person.js";
 import { transferSeason } from "./person.js";
 
@@ -73,28 +74,55 @@ function personIndex(people: Person[]): Map<string, Person> {
   return index;
 }
 
+/** AaFKs egen side av oppstillingen, uansett om vi spilte hjemme eller borte. */
+function ourLineup(match: Match): { starters: string[]; subs: string[] } | undefined {
+  return match.home.clubId === AAFK_CLUB_ID ? match.lineups?.home : match.lineups?.away;
+}
+
 /**
- * Debutantene i arkivet, tidligst først.
+ * Personnøklene som allerede står i en oppstilling.
  *
- * Kamper uten oppstilling hopper den over. De fleste kampene før 2010 har
- * ingen, og en «debut» utledet av den første kampen vi tilfeldigvis har
- * oppstilling for ville vært et tall uten dekning.
+ * Dette er hukommelsen rutinen måler nye kamper mot: står nøkkelen her, har
+ * spilleren vært i kamptroppen før, og han er ikke ny uansett hva datoen sier.
  */
-export function debuts(archive: Archive): Debut[] {
-  const index = personIndex(archive.people);
+export function squadKeys(matches: Match[]): Set<string> {
+  const keys = new Set<string>();
+  for (const match of matches) {
+    const ours = ourLineup(match);
+    if (!ours) continue;
+    for (const name of [...ours.starters, ...ours.subs]) {
+      const key = personKey(name);
+      if (key !== "") keys.add(key);
+    }
+  }
+  return keys;
+}
+
+/**
+ * Første gang hvert navn står i en oppstilling, blant kampene som sendes inn.
+ *
+ * `known` er navnene som ikke teller som nye. Rutinen sender inn kamptroppene
+ * arkivet hadde fra før, og får da ut nøyaktig dem som er nye i denne runden.
+ *
+ * Kamper uten oppstilling hoppes over. De fleste kampene før 2010 har ingen, og
+ * en «debut» utledet av den første kampen vi tilfeldigvis har oppstilling for
+ * ville vært et tall uten dekning.
+ */
+export function debutsIn(matches: Match[], people: Person[], known: Set<string> = new Set()): Debut[] {
+  const index = personIndex(people);
   const first = new Map<string, Debut>();
 
-  const chronological = [...archive.matches].sort(
+  const chronological = [...matches].sort(
     (a, b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id),
   );
 
   for (const match of chronological) {
-    const ours = match.home.clubId === AAFK_CLUB_ID ? match.lineups?.home : match.lineups?.away;
+    const ours = ourLineup(match);
     if (!ours) continue;
     for (const [role, players] of [["start", ours.starters], ["bench", ours.subs]] as const) {
       for (const name of players) {
         const key = personKey(name);
-        if (key === "" || first.has(key)) continue;
+        if (key === "" || known.has(key) || first.has(key)) continue;
         first.set(key, {
           personKey: key,
           name,
@@ -109,6 +137,11 @@ export function debuts(archive: Archive): Debut[] {
   }
 
   return [...first.values()].sort((a, b) => a.date.localeCompare(b.date) || a.name.localeCompare(b.name, "nb"));
+}
+
+/** Debutantene i arkivet, tidligst først. */
+export function debuts(archive: Archive): Debut[] {
+  return debutsIn(archive.matches, archive.people);
 }
 
 /** Overgangen som best forklarer debuten, eller hvorfor ingen gjør det. */
@@ -153,14 +186,32 @@ export interface NewPlayerOptions {
  * spørsmål enn rutinens; rutinen spør om de siste kampene.
  */
 export function newPlayers(archive: Archive, options: NewPlayerOptions = {}): NewPlayer[] {
-  const index = new Map(archive.people.map((person) => [person.id, person]));
-  return debuts(archive)
-    .filter((debut) => options.since === undefined || debut.date >= options.since)
-    .filter((debut) => options.season === undefined || debut.season === options.season)
-    .map((debut) => ({
-      debut,
-      arrival: arrivalFor(debut, debut.personId === undefined ? undefined : index.get(debut.personId)),
-    }));
+  return withArrival(
+    debuts(archive)
+      .filter((debut) => options.since === undefined || debut.date >= options.since)
+      .filter((debut) => options.season === undefined || debut.season === options.season),
+    archive.people,
+  );
+}
+
+/**
+ * De som er nye i kamptroppen i disse kampene, med det arkivet vet om ankomsten.
+ *
+ * Dette er spørsmålet rutinen etter kamp stiller: den har nettopp hentet noen
+ * kamper, og vil vite hvem som ikke sto i noen oppstilling før. Datoen er ikke
+ * kriteriet — en kamp som hentes inn i etterkant kan være gammel, og en spiller
+ * som har spilt før er ikke ny selv om kampen er ny for arkivet.
+ */
+export function newcomers(matches: Match[], people: Person[], known: Set<string>): NewPlayer[] {
+  return withArrival(debutsIn(matches, people, known), people);
+}
+
+function withArrival(found: Debut[], people: Person[]): NewPlayer[] {
+  const index = new Map(people.map((person) => [person.id, person]));
+  return found.map((debut) => ({
+    debut,
+    arrival: arrivalFor(debut, debut.personId === undefined ? undefined : index.get(debut.personId)),
+  }));
 }
 
 /** Debutantene som mangler en overgang som forklarer dem. */

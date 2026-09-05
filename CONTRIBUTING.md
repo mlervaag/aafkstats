@@ -232,6 +232,14 @@ Kampen kjennes igjen på kildens ID, ikke på datoen. Blir en kamp flyttet etter
 terminlista er arkivert, finner rutinen den likevel — og siden kamp-ID-en er bygget av
 datoen, skrives kampen på ny fil og den gamle datofila fjernes i samme kjøring.
 
+Kampen tar med seg oppstillingen, så rutinen sier også fra om hvem som er ny i
+kamptroppen, og om en inngående overgang forklarer at han kom. «Ny» måles mot navnene
+som sto i en oppstilling fra før, ikke mot datoen: en kamp som hentes inn i etterkant kan
+være gammel, og en spiller som har spilt før er ikke ny selv om kampen er ny for arkivet.
+Kontrollen henter ingenting og skriver aldri en overgang selv — meldingen er en oppgave
+til et menneske. Den svarer likt i tørrkjøring og med `--write`, fordi den leser
+skriveplanen og ikke disken.
+
 Etterpå: `pnpm db:build && pnpm validate`, og commit YAML-diffen. Arkivfilen bygges av CI
 og skal ikke committes.
 
@@ -247,6 +255,10 @@ pnpm data:new-players -- --sesong 2026
 pnpm data:new-players -- --alle
 ```
 
+Samme kontroll som `pnpm etter-kamp` gjør på nye kamper, men over et vindu du velger
+selv. Rutinen ser bare kampene den nettopp hentet; denne svarer for en hel sesong eller
+for hele arkivet, og er det du bruker når du går tilbake og fyller hull.
+
 Kamptroppene kommer inn automatisk etter hver kamp; overgangene føres for hånd fra en
 kilde som må finnes først. De to går derfor ut av takt på ett punkt: et navn står i en
 oppstilling uten at noen har ført inn hvordan spilleren kom til klubben. Rapporten peker
@@ -258,7 +270,8 @@ overgang er ikke en datafeil: kilden kan mangle, og en spiller kan være hentet 
 egen ungdomsavdeling uten at noen skrev om det. Er den ført, skal den ha kilden som sa
 den — se `ingest:wikipedia-transfers` og `ingest:nb-transfer-candidates` for kandidater.
 
-Kjøres den etter `pnpm etter-kamp`, er vinduet nettopp de kampene som kom inn.
+Rapporten er den samme uansett hvem som spør; forskjellen er bare hvilke kamper som
+inngår.
 
 ## Nye datakilder og adaptere
 
