@@ -170,6 +170,64 @@ describe("newPlayers", () => {
     expect(newPlayers(utenOvergang)[0]?.arrival.status).toBe("undocumented");
   });
 
+  it("skiller en ukoblet skrivemåte fra en ukjent person", () => {
+    // Kartum-tilfellet: kamptroppen skrev «Sander Erik Kartum», mens personfila
+    // het «Sander Kartum» og bar overgangen fra før. Rutinen meldte den gangen
+    // at overgangen måtte føres for hånd, og sendte noen ut for å lete etter en
+    // opplysning arkivet allerede hadde.
+    const kamp = makeMatch({
+      lineups: { home: { starters: ["Sander Erik Kartum"], subs: [] } },
+    });
+    const fila = makePerson({
+      id: "sander-kartum",
+      name: "Sander Kartum",
+      transfers: [{
+        id: "inn-hearts-2026",
+        direction: "in",
+        club: "Hearts",
+        date: "2026-09-02",
+        providers: [{ providerId: "aafk-no", url: "https://www.aafk.no/nyheter/x" }],
+      }],
+    });
+
+    const arrival = newPlayers(makeArchive([kamp], [fila]))[0]?.arrival;
+    expect(arrival).toMatchObject({
+      status: "unlinked",
+      personId: "sander-kartum",
+      personName: "Sander Kartum",
+      // Hele mangelen er koblingen: overgangen ligger der allerede.
+      documented: true,
+    });
+  });
+
+  it("sier ukoblet også når fila mangler overgangen, så arbeidet havner på riktig fil", () => {
+    const kamp = makeMatch({
+      lineups: { home: { starters: ["Sander Erik Kartum"], subs: [] } },
+    });
+    const fila = makePerson({ id: "sander-kartum", name: "Sander Kartum" });
+    expect(newPlayers(makeArchive([kamp], [fila]))[0]?.arrival)
+      .toMatchObject({ status: "unlinked", documented: false });
+  });
+
+  it("gjetter ikke når to filer kan være samme mann", () => {
+    // To kandidater er ikke et svar. En gjetning her ville slått to personer
+    // sammen, som er nettopp det arkivet nekter å gjøre andre steder.
+    const kamp = makeMatch({
+      lineups: { home: { starters: ["Sander Erik Kartum"], subs: [] } },
+    });
+    const en = makePerson({ id: "sander-kartum", name: "Sander Kartum" });
+    const to = makePerson({ id: "erik-kartum", name: "Erik Kartum" });
+    expect(newPlayers(makeArchive([kamp], [en, to]))[0]?.arrival.status).toBe("unknown");
+  });
+
+  it("regner ikke to ulike menn med samme etternavn som samme person", () => {
+    const kamp = makeMatch({
+      lineups: { home: { starters: ["Kari Hansen"], subs: [] } },
+    });
+    const annen = makePerson({ id: "ole-hansen", name: "Ole Hansen" });
+    expect(newPlayers(makeArchive([kamp], [annen]))[0]?.arrival.status).toBe("unknown");
+  });
+
   it("begrenser til vinduet rutinen spør om", () => {
     const archive = makeArchive([
       makeMatch({

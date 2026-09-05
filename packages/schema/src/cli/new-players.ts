@@ -72,6 +72,12 @@ function explain({ debut, arrival }: NewPlayer): string {
       );
     case "undocumented":
       return `${YELLOW}!${RESET} personfila har ingen inngående overgang`;
+    case "unlinked":
+      return (
+        `${YELLOW}!${RESET} people/${arrival.personId}.yaml («${arrival.personName}») ser ut til å være `
+        + `samme mann${arrival.documented ? ", og har overgangen fra før" : ""} — `
+        + `legg «${debut.name}» i names`
+      );
     case "unknown":
       return `${YELLOW}!${RESET} ingen personfil — data/people/ har ikke navnet`;
   }
