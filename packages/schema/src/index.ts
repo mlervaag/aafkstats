@@ -6,6 +6,7 @@ export * from "./identity.js";
 export * from "./observation.js";
 export * from "./historical-observation.js";
 export * from "./person.js";
+export * from "./new-players.js";
 export * from "./organization.js";
 export * from "./standings.js";
 export * from "./contribution.js";

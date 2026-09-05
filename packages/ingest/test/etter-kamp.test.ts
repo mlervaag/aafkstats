@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import type { Archive } from "@aafkstats/schema/load";
-import { matchesDue, ongoingLeagues, sourceForDue } from "../src/etter-kamp.js";
+import { matchesDue, ongoingLeagues, plannedMatches, sourceForDue } from "../src/etter-kamp.js";
+import type { ReconcilePlan } from "../src/reconcile.js";
 
 function match(date: string, status: "played" | "scheduled", opponent = "hamarkameratene") {
   return {
@@ -116,5 +117,36 @@ describe("ongoingLeagues", () => {
     const state = archive([match("2026-08-16", "scheduled")]);
     (state.competitions[0] as { aliases: Record<string, string> }).aliases = {};
     expect(ongoingLeagues(state)).toEqual([]);
+  });
+});
+
+describe("plannedMatches", () => {
+  const played = match("2026-08-09", "played");
+
+  it("plukker kampene ut av skriveplanen, og lar klubb- og observasjonsfiler ligge", () => {
+    const plan = {
+      files: [
+        { relativePath: "clubs/hamarkameratene.yaml", value: { id: "hamarkameratene" }, action: "update" },
+        { relativePath: "seasons/2026/matches/2026-08-09.yaml", value: played, action: "update" },
+        { relativePath: "observations/fotmob/2026-08-09.yaml", value: { id: "obs" }, action: "create" },
+      ],
+      removed: [], issues: [], skipped: [], summary: {},
+    } as unknown as ReconcilePlan;
+
+    expect(plannedMatches([plan])).toEqual([played]);
+  });
+
+  it("samler kampene fra alle divisjonene runden gjaldt", () => {
+    const cup = match("2026-08-13", "played", "sk-brann");
+    const plans = [
+      { files: [{ relativePath: "seasons/2026/matches/a.yaml", value: played, action: "update" }] },
+      { files: [{ relativePath: "seasons/2026/matches/b.yaml", value: cup, action: "create" }] },
+    ] as unknown as ReconcilePlan[];
+
+    expect(plannedMatches(plans).map((entry) => entry.id)).toEqual([played.id, cup.id]);
+  });
+
+  it("er tom når ingenting skal skrives", () => {
+    expect(plannedMatches([])).toEqual([]);
   });
 });

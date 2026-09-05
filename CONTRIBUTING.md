@@ -232,12 +232,59 @@ Kampen kjennes igjen på kildens ID, ikke på datoen. Blir en kamp flyttet etter
 terminlista er arkivert, finner rutinen den likevel — og siden kamp-ID-en er bygget av
 datoen, skrives kampen på ny fil og den gamle datofila fjernes i samme kjøring.
 
+Kampen tar med seg oppstillingen, så rutinen ser også hvem som er ny i kamptroppen. «Ny»
+måles mot navnene som sto i en oppstilling fra før, ikke mot datoen: en kamp som hentes
+inn i etterkant kan være gammel, og en spiller som har spilt før er ikke ny selv om kampen
+er ny for arkivet. Kontrollen leser skriveplanen og ikke disken, så den svarer likt i
+tørrkjøring og med `--write`.
+
+Mangler den nye spilleren en inngående overgang, slår rutinen navnet opp i Wikipedias
+overgangsvinduer for sesongen og fører overgangen inn — i samme runde som kampen og
+tabellen, fordi det er den samme hendelsen: han står i troppen fordi han ble hentet.
+Kampen, tabellen og overgangen blir da én diff å lese og én pull request å godkjenne.
+
+To ting den ikke gjør. Den skriver ikke en rad uten fotnote: Wikipedia er registeret over
+hvor primærkildene ligger, ikke kilden selv. Og finner den ingenting, sier den hvem det
+gjelder og lar det være — en spiller hentet opp fra egen ungdomsavdeling står sjelden i en
+slik liste.
+
+Skriver kilden navnet annerledes enn oppstillingen — «Isak Skotheim» mot «Isak Gabriel
+Skotheim» — føres de som samme person, og skrivemåten fra oppstillingen legges i `names`
+så stallen finner fila. Det er en antakelse, og den skrives ut som `IDENTITET:` i loggen
+og står i pull requesten. Er den gal, er det én linje å fjerne.
+
 Etterpå: `pnpm db:build && pnpm validate`, og commit YAML-diffen. Arkivfilen bygges av CI
 og skal ikke committes.
 
 Kadensen hører ikke hjemme i repoet. Prosjektets begrunnelse for å hente fra FotMob er et
 avgrenset uttrekk, ikke regelmessig høsting — se `permissionNote` i
 `data/providers/fotmob.yaml`. Skal rutinen kjøres jevnlig, styr det utenfra.
+
+### Nye spillere i kamptroppen
+
+```sh
+pnpm data:new-players                  # siste 30 dager
+pnpm data:new-players -- --sesong 2026
+pnpm data:new-players -- --alle
+```
+
+Samme kontroll som `pnpm etter-kamp` gjør på nye kamper, men over et vindu du velger
+selv. Rutinen ser bare kampene den nettopp hentet; denne svarer for en hel sesong eller
+for hele arkivet, og er det du bruker når du går tilbake og fyller hull.
+
+Kamptroppene kommer inn automatisk etter hver kamp; overgangene føres for hånd fra en
+kilde som må finnes først. De to går derfor ut av takt på ett punkt: et navn står i en
+oppstilling uten at noen har ført inn hvordan spilleren kom til klubben. Rapporten peker
+på debutantene og skiller de tre tilfellene fra hverandre — overgangen finnes, personfila
+finnes uten overgang, eller navnet har ingen personfil.
+
+Den henter ingenting og skriver ingenting, og sluttkoden er alltid 0. En manglende
+overgang er ikke en datafeil: kilden kan mangle, og en spiller kan være hentet opp fra
+egen ungdomsavdeling uten at noen skrev om det. Er den ført, skal den ha kilden som sa
+den — se `ingest:wikipedia-transfers` og `ingest:nb-transfer-candidates` for kandidater.
+
+Rapporten er den samme uansett hvem som spør; forskjellen er bare hvilke kamper som
+inngår.
 
 ## Nye datakilder og adaptere
 

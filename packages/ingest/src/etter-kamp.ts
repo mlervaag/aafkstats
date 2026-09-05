@@ -1,4 +1,6 @@
+import type { Match } from "@aafkstats/schema";
 import type { Archive } from "@aafkstats/schema/load";
+import type { ReconcilePlan } from "./reconcile.js";
 
 /**
  * Hva som skal oppdateres etter at AaFK har spilt, som en ren funksjon.
@@ -134,4 +136,20 @@ export function ongoingLeagues(archive: Archive): OngoingLeague[] {
     });
   }
   return [...seasons.values()].sort((a, b) => a.season - b.season || a.competitionId.localeCompare(b.competitionId));
+}
+
+
+/**
+ * Kampene en skriveplan gjelder.
+ *
+ * Rutinen spør planen, ikke disken, om hvilke kamper runden gjaldt. Da svarer
+ * kontrollen av kamptroppen likt i tørrkjøring og med `--write`: en tørrkjøring
+ * skal kunne vise at det kommer en ny spiller uten overgang, ikke bare si det
+ * i etterkant av at filene er skrevet.
+ */
+export function plannedMatches(plans: ReconcilePlan[]): Match[] {
+  return plans
+    .flatMap((plan) => plan.files)
+    .filter((file) => file.relativePath.includes("/matches/"))
+    .map((file) => file.value as Match);
 }
