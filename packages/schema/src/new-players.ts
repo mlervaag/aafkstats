@@ -1,5 +1,5 @@
 import { AAFK_CLUB_ID } from "./entities.js";
-import { personKey } from "./identity.js";
+import { isLongerNameForm, personKey } from "./identity.js";
 import type { Archive } from "./load.js";
 import type { Match } from "./match.js";
 import type { Person, Transfer, TransferKind } from "./person.js";
@@ -57,6 +57,21 @@ export type Arrival =
   | { status: "later"; transferId: string; kind: TransferKind; club: string | null; date: string }
   /** Personfila finnes, men ingen har ført inn hvordan han kom. */
   | { status: "undocumented" }
+  /**
+   * Ingen personfil bærer denne skrivemåten, men én fil ser ut til å være samme
+   * mann under et kortere eller lengre navn.
+   *
+   * Skillet mot `unknown` er verdt en egen tilstand, fordi det peker på helt
+   * ulikt arbeid. «Sander Erik Kartum» sto i kamptroppen mens personfila het
+   * «Sander Kartum» og allerede bar overgangen fra Hearts. Rutinen meldte den
+   * gangen «ingen kildeført overgang — må føres for hånd», og sendte dermed
+   * noen ut for å lete etter en opplysning arkivet hadde fra før. Det som
+   * manglet var én skrivemåte i `names`.
+   *
+   * `documented` sier om fila alt har en inngående overgang. Er den sann, er
+   * hele mangelen koblingen.
+   */
+  | { status: "unlinked"; personId: string; personName: string; documented: boolean }
   /** Navnet har ingen personfil i det hele tatt. */
   | { status: "unknown" };
 
@@ -208,10 +223,42 @@ export function newcomers(matches: Match[], people: Person[], known: Set<string>
 
 function withArrival(found: Debut[], people: Person[]): NewPlayer[] {
   const index = new Map(people.map((person) => [person.id, person]));
-  return found.map((debut) => ({
-    debut,
-    arrival: arrivalFor(debut, debut.personId === undefined ? undefined : index.get(debut.personId)),
-  }));
+  return found.map((debut) => {
+    if (debut.personId !== undefined) {
+      return { debut, arrival: arrivalFor(debut, index.get(debut.personId)) };
+    }
+    // Ingen fil bærer skrivemåten. Før vi melder at personen er ukjent, sjekk om
+    // en fil er samme mann under et annet navn — da er mangelen en helt annen.
+    const likely = likelyPerson(debut.name, people);
+    if (likely === undefined) return { debut, arrival: arrivalFor(debut, undefined) };
+    return {
+      debut,
+      arrival: {
+        status: "unlinked",
+        personId: likely.id,
+        personName: likely.name,
+        documented: likely.transfers.some((entry) => entry.direction === "in"),
+      },
+    };
+  });
+}
+
+/**
+ * Personfila som ser ut til å være samme mann under et annet navn.
+ *
+ * Bruker `isLongerNameForm`, som arkivet allerede bruker i dublettrapporten:
+ * den ene formen må være den andre pluss minst ett navn til. «Sander Kartum» og
+ * «Sander Erik Kartum» er samme mann; «Ole Hansen» og «Kari Hansen» er det ikke.
+ *
+ * Treffer flere filer, sies ingenting. To kandidater er ikke et svar, og en
+ * gjetning her ville slått to personer sammen — nettopp det arkivet nekter å
+ * gjøre andre steder.
+ */
+export function likelyPerson(name: string, people: Person[]): Person | undefined {
+  const candidates = people.filter((person) =>
+    [person.name, ...person.names].some((form) =>
+      isLongerNameForm(form, name) || isLongerNameForm(name, form)));
+  return candidates.length === 1 ? candidates[0] : undefined;
 }
 
 /** Debutantene som mangler en overgang som forklarer dem. */

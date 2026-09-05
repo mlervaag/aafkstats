@@ -220,7 +220,13 @@ async function main(): Promise<void> {
   // Kamptroppen leses av planen, ikke av disken: da svarer kontrollen likt i en
   // tørrkjøring og med --write.
   const arrivals = newcomers(plannedMatches(plans), archive.people, knownSquad);
-  const unexplained = arrivals.filter((player) => player.arrival.status !== "documented");
+  // En som bare mangler koblingen skal ikke slås opp mot Wikipedia. Overgangen
+  // hans ligger i arkivet fra før, og et oppslag ville enten ikke funnet noe —
+  // slik det gikk med Kartum — eller ført den samme overgangen inn en gang til
+  // på en ny fil.
+  const unexplained = arrivals.filter((player) =>
+    player.arrival.status !== "documented"
+    && !(player.arrival.status === "unlinked" && player.arrival.documented));
   if (arrivals.length > 0) {
     console.log(`\nNye i kamptroppen · ${arrivals.length}`);
     for (const player of arrivals) console.log(describeNewcomer(player));
@@ -353,6 +359,15 @@ function describeNewcomer({ debut, arrival }: NewPlayer): string {
       );
     case "undocumented":
       return `${hvem}\n    KONTROLL: data/people/${debut.personId}.yaml har ingen inngående overgang`;
+    case "unlinked":
+      return (
+        `${hvem}\n    KONTROLL: data/people/${arrival.personId}.yaml («${arrival.personName}») ser ut til å `
+        + `være samme mann under et annet navn`
+        + (arrival.documented
+          ? `, og bærer allerede en inngående overgang. Da mangler bare skrivemåten: `
+            + `legg «${debut.name}» i names, så vises overgangen ved siden av kampene hans.`
+          : `. Legg «${debut.name}» i names, og før overgangen på den fila i stedet for en ny.`)
+      );
     case "unknown":
       return `${hvem}\n    KONTROLL: ingen personfil — data/people/ har ikke navnet`;
   }
