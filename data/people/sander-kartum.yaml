@@ -1,6 +1,10 @@
 id: sander-kartum
 name: Sander Kartum
-names: []
+names:
+  # Lagoppstillingen skriver navnet fullt ut. Uten denne skrivemåten er
+  # personfila og kamptroppen to atskilte identiteter: overgangen under havner
+  # aldri ved siden av kampene hans, og stallen sier «ny» der den vet mer.
+  - Sander Erik Kartum
 squadNumbers: []
 coachSpells: []
 roles: []
