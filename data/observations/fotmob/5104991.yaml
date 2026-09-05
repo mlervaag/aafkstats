@@ -1,9 +1,9 @@
 providerId: fotmob
 externalId: "5104991"
 matchId: 2026-08-30-viking-aalesunds-fk
-retrievedAt: 2026-08-30
+retrievedAt: 2026-09-05
 adapter: fotmob@5
-payloadHash: sha256:2478bc93f08226c7eee1f1a7d7d3b1c898cfabd96a3db6a95c0f87348a66c92c
+payloadHash: sha256:2bbc83a71e63605041fa785b5e78fa0ed6096c30e8b0398af58406eee1acb91c
 raw:
   externalId: "5104991"
   date: 2026-08-30
@@ -15,15 +15,10 @@ raw:
   awayId: "8404"
   homeScore: 2
   awayScore: 1
-  homeHalfTime: 0
-  awayHalfTime: 1
   competition: Eliteserien
   competitionId: "59"
   season: 2026
   round: 19
-  venue: Lyse Arena
-  attendance: 15601
-  referee: Mathias Støfringshaug
   url: https://www.fotmob.com/matches/aalesund-vs-viking/2cuni1#5104991
 normalized:
   date: 2026-08-30
@@ -33,15 +28,10 @@ normalized:
   away.clubId: aalesunds-fk
   home.score: 2
   away.score: 1
-  home.halfTimeScore: 0
-  away.halfTimeScore: 1
   competition.id: eliteserien
   competition.season: 2026
   competition.round: 19
   competition.stage: regular_season
-  venueId: lyse-arena
-  attendance: 15601
-  referee.name: Mathias Støfringshaug
 fields:
   - date
   - kickoff
@@ -52,12 +42,4 @@ fields:
   - home.score
   - away.score
   - competition.round
-  - attendance
-  - venueId
-  - referee
-  - home.halfTimeScore
-  - away.halfTimeScore
-  - events
-  - stats
-  - lineups
 warnings: []

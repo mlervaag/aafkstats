@@ -1,13 +1,13 @@
 providerId: fotmob
 externalId: "5105028"
-matchId: 2026-10-18-kristiansund-aalesunds-fk
-retrievedAt: 2026-08-30
+matchId: 2026-10-17-kristiansund-aalesunds-fk
+retrievedAt: 2026-09-05
 adapter: fotmob@5
-payloadHash: sha256:9e137bacc87b02875dcab6c61a8e1aae0648628aca140e0035b0852185b0e6ce
+payloadHash: sha256:39815277d601ad0a3f254e0cee6996335856d35dfb5caf1dd6478cc4df30efb5
 raw:
   externalId: "5105028"
-  date: 2026-10-18
-  kickoff: 17:00
+  date: 2026-10-17
+  kickoff: 16:00
   status: scheduled
   home: Kristiansund
   homeId: "8605"
@@ -19,8 +19,8 @@ raw:
   round: 24
   url: https://www.fotmob.com/matches/aalesund-vs-kristiansund/2e4s7a#5105028
 normalized:
-  date: 2026-10-18
-  kickoff: 17:00
+  date: 2026-10-17
+  kickoff: 16:00
   status: scheduled
   home.clubId: kristiansund
   away.clubId: aalesunds-fk

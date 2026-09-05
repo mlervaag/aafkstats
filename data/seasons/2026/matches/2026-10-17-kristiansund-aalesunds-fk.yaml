@@ -1,22 +1,22 @@
-id: 2026-11-01-aalesunds-fk-sandefjord
-date: 2026-11-01
+id: 2026-10-17-kristiansund-aalesunds-fk
+date: 2026-10-17
 dateConfidence: exact
-kickoff: 17:00
+kickoff: 16:00
 status: scheduled
 competition:
   id: eliteserien
   season: 2026
   stage: regular_season
-  round: 25
+  round: 24
 home:
-  clubId: aalesunds-fk
+  clubId: kristiansund
   score: null
   halfTimeScore: null
 away:
-  clubId: sandefjord
+  clubId: aalesunds-fk
   score: null
   halfTimeScore: null
-venueId: color-line-stadion
+venueId: nordmore-stadion
 neutralVenue: false
 events: []
 lineups:
@@ -29,8 +29,8 @@ lineups:
 externalReports: []
 providers:
   - providerId: fotmob
-    url: https://www.fotmob.com/matches/aalesund-vs-sandefjord/2e68pk#5105039
-    retrievedAt: 2026-08-30
+    url: https://www.fotmob.com/matches/aalesund-vs-kristiansund/2e4s7a#5105028
+    retrievedAt: 2026-09-05
     fields:
       - date
       - kickoff
@@ -46,5 +46,5 @@ confidence: probable
 conflicts: []
 tags: []
 aliases:
-  fotmob: "5105039"
+  fotmob: "5105028"
 manual: []

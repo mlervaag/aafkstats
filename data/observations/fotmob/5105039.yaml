@@ -1,13 +1,13 @@
 providerId: fotmob
 externalId: "5105039"
-matchId: 2026-11-01-aalesunds-fk-sandefjord
-retrievedAt: 2026-08-30
+matchId: 2026-10-31-aalesunds-fk-sandefjord
+retrievedAt: 2026-09-05
 adapter: fotmob@5
-payloadHash: sha256:96eb36e75b53cb91f6c9f393bb406c0f6a03b4156ea639984de4eb946d79d015
+payloadHash: sha256:aa4abf6558e72da1a916d306de2b878191279901c1aec9f17cb372abf16b561b
 raw:
   externalId: "5105039"
-  date: 2026-11-01
-  kickoff: 17:00
+  date: 2026-10-31
+  kickoff: 18:00
   status: scheduled
   home: Aalesund
   homeId: "8404"
@@ -19,8 +19,8 @@ raw:
   round: 25
   url: https://www.fotmob.com/matches/aalesund-vs-sandefjord/2e68pk#5105039
 normalized:
-  date: 2026-11-01
-  kickoff: 17:00
+  date: 2026-10-31
+  kickoff: 18:00
   status: scheduled
   home.clubId: aalesunds-fk
   away.clubId: sandefjord

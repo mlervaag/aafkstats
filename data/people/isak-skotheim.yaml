@@ -1,0 +1,40 @@
+id: isak-skotheim
+name: Isak Skotheim
+names:
+  - Isak Gabriel Skotheim
+squadNumbers: []
+coachSpells: []
+roles: []
+transfers:
+  - id: inn-hodd-2026
+    direction: in
+    kind: transfer
+    club: Hødd
+    clubId: hodd
+    date: 2026-09-02
+    sources: []
+    providers:
+      - providerId: wikipedia
+        url: https://en.wikipedia.org/w/index.php?oldid=1373070065
+        retrievedAt: 2026-09-05
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: Lest fra «List of Norwegian football transfers summer 2026». Wikipedia er registeret, ikke
+          kilden — meldingen står i notatet.
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/aafk-er-ikke-ferdige-isak-skotheim-er-klar
+        retrievedAt: 2026-09-02
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: AaFK er ikke ferdige – Isak Skotheim er klar!
+    note: "Kilden fotnoten peker på: AaFK er ikke ferdige – Isak Skotheim er klar! (Aalesunds FK,
+      2026-09-02) https://www.aafk.no/nyheter/aafk-er-ikke-ferdige-isak-skotheim-er-klar"
+providers: []
+sources: []
+conflicts: []
