@@ -2,7 +2,7 @@ id: 2026-09-04-aalesunds-fk-start
 date: 2026-09-04
 dateConfidence: exact
 kickoff: 19:00
-status: scheduled
+status: played
 competition:
   id: eliteserien
   season: 2026
@@ -10,27 +10,146 @@ competition:
   round: 20
 home:
   clubId: aalesunds-fk
-  score: null
-  halfTimeScore: null
+  score: 2
+  halfTimeScore: 2
 away:
   clubId: start
-  score: null
-  halfTimeScore: null
+  score: 0
+  halfTimeScore: 0
 venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 5170
+referee: Jørgen Haugen
+events:
+  - minute: 15
+    type: yellow_card
+    team: home
+    player: Cheikh Mbacke Diop
+  - minute: 20
+    type: goal
+    team: home
+    player: Elias Hagen
+  - minute: 24
+    type: goal
+    team: home
+    player: Mathias Christensen
+    assist: Sander Erik Kartum
+  - minute: 29
+    type: yellow_card
+    team: home
+    player: Ólafur Gudmundsson
+  - minute: 46
+    type: substitution
+    team: away
+    player: Mikael Ugland
+    playerOff: Steve Mvoué
+  - minute: 59
+    type: substitution
+    team: home
+    player: Jakob Nyland Ørsahl
+    playerOff: Uba Charles
+  - minute: 59
+    type: substitution
+    team: home
+    player: Endre Osenbroch
+    playerOff: Sander Erik Kartum
+  - minute: 62
+    type: substitution
+    team: away
+    player: Santino Samuyiwa
+    playerOff: Nicolas Koutsakos
+  - minute: 62
+    type: substitution
+    team: away
+    player: Håkon Lorentzen
+    playerOff: Eirik Schulze
+  - minute: 70
+    type: substitution
+    team: home
+    player: Elias Heggland Myrlid
+    playerOff: Isak Gabriel Skotheim
+  - minute: 77
+    type: substitution
+    team: away
+    player: Nikola Jojic
+    playerOff: Ousmane Toure
+  - minute: 84
+    type: yellow_card
+    team: away
+    player: Deni Dashaev
 lineups:
   home:
-    starters: []
-    subs: []
+    formation: 3-5-2
+    starters:
+      - Luca Podlech
+      - Marius Andresen
+      - Cheikh Mbacke Diop
+      - Ólafur Gudmundsson
+      - Kristoffer Nessø
+      - Mathias Christensen
+      - Elias Hagen
+      - Sander Erik Kartum
+      - Uba Charles
+      - Marcus Haagensen Reed
+      - Isak Gabriel Skotheim
+    subs:
+      - Jakob Nyland Ørsahl
+      - Endre Osenbroch
+      - Elias Heggland Myrlid
+      - Tor Erik Valderhaug Larsen
+      - Emil Engqvist
+      - Philip Sandvik Aukland
+      - Simen Haram
+      - Tobias Leikanger
+      - Storm Karlsson Knutsen
+    coach: Kjetil Rekdal
   away:
-    starters: []
-    subs: []
+    formation: 3-5-2
+    starters:
+      - Filip Manojlovic
+      - Erlend Dahl Reitan
+      - Jens Husebø
+      - Altin Ujkani
+      - Ousmane Toure
+      - Steve Mvoué
+      - Eirik Schulze
+      - Erlend Segberg
+      - Deni Dashaev
+      - Nicolas Koutsakos
+      - Jesper Cornelius
+    subs:
+      - Mikael Ugland
+      - Håkon Lorentzen
+      - Santino Samuyiwa
+      - Nikola Jojic
+      - Storm Strand-Kolbjørnsen
+      - Johan Meyer
+      - Sander Aske Granheim
+      - Sebastian Griesbeck
+      - Fredrik Mani Pålerud
+    coach: Azar Karadas
+stats:
+  home:
+    possession: 46
+    shots: 24
+    shotsOnTarget: 12
+    corners: 7
+    fouls: 9
+    offsides: 0
+    xg: 2.42
+  away:
+    possession: 54
+    shots: 24
+    shotsOnTarget: 6
+    corners: 6
+    fouls: 9
+    offsides: 3
+    xg: 1.67
 externalReports: []
 providers:
   - providerId: fotmob
     url: https://www.fotmob.com/matches/aalesund-vs-start/2ryd31#5104999
-    retrievedAt: 2026-08-30
+    retrievedAt: 2026-09-05
     fields:
       - date
       - kickoff
@@ -38,9 +157,18 @@ providers:
       - competition
       - home.clubId
       - away.clubId
+      - home.score
+      - away.score
       - competition.round
+      - attendance
       - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
       - lineups
+    note: "Kildestatus: FT"
 sources: []
 confidence: probable
 conflicts: []
