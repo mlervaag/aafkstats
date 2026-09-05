@@ -1,0 +1,40 @@
+id: isak-gabriel-skotheim
+name: Isak Gabriel Skotheim
+names:
+  - Isak Skotheim
+squadNumbers: []
+coachSpells: []
+roles: []
+transfers:
+  - id: inn-hodd-2026
+    direction: in
+    kind: transfer
+    club: Hødd
+    clubId: hodd
+    date: 2026-09-02
+    sources: []
+    providers:
+      - providerId: aafk-no
+        url: https://www.aafk.no/nyheter/aafk-er-ikke-ferdige-isak-skotheim-er-klar
+        retrievedAt: 2026-09-05
+        fields:
+          - direction
+          - club
+          - date
+          - kind
+        note: AaFK er ikke ferdige – Isak Skotheim er klar!
+    note: >-
+      Klubbmelding 2. september 2026, siste dag i overgangsvinduet: «Skotheim kommer fra en
+      sterk sesong i OBOS-ligaen, der han har scoret åtte mål på 18 kamper for Hødd», og han
+      «har signert en kontrakt ut 2029». Hødd melder samme dag at «IL Hødd Fotball og
+      Aalesunds FK er einige om ein overgang for Isak Gabriel Skotheim»
+      (https://www.hodd.no/nyheiter/isak-skotheim-klar-for-aafk). Begge klubbene bekrefter
+      altså overgangen. Overgangssummen er ikke oppgitt av noen av dem, og står derfor ikke
+      her.
+providers: []
+sources: []
+conflicts: []
+note: >-
+  Fila finnes fordi overgangen er kildeført. Kampaktiviteten er utledet av lagoppstillingene,
+  ikke av denne fila. «Isak Skotheim» står som skrivemåte fordi begge klubbene bruker den,
+  mens lagoppstillingen skriver navnet fullt ut.
