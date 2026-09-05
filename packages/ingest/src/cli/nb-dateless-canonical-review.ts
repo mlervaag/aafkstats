@@ -2,7 +2,8 @@ import { createHash } from "node:crypto";
 import { readdir, readFile, writeFile, mkdir } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { parse as parseYaml, stringify as stringifyYaml } from "yaml";
+import { stringify as stringifyYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "@aafkstats/schema/yaml";
 import { loadArchive, repoRoot } from "@aafkstats/schema/load";
 
 interface SafeLink { sourceClaimId: string; targetMatchId: string }
@@ -70,7 +71,7 @@ async function loadSourceFiles(root: string): Promise<{ files: RawSourceFile[]; 
   for (const name of (await readdir(dir)).filter((entry) => entry.endsWith(".yaml")).sort()) {
     const path = `${dir}/${name}`;
     const original = await readFile(path, "utf8");
-    const raw = parseYaml(original, { schema: "core" });
+    const raw = parseYaml(original);
     const file = { path, raw, original, modified: false };
     files.push(file);
     for (const season of raw.seasons ?? []) {
@@ -158,7 +159,7 @@ function observationFromAction(action: NewMatchAction): { pathPart: string; data
 
 export async function buildDatelessCanonicalPlan(): Promise<DatelessCanonicalPlan> {
   const root = repoRoot();
-  const manifest = parseYaml(await readFile(`${root}/${MANIFEST}`, "utf8"), { schema: "core" }) as ReviewManifest;
+  const manifest = parseYaml(await readFile(`${root}/${MANIFEST}`, "utf8")) as ReviewManifest;
   if (manifest.contract !== "nb-dateless-canonical-review@1") throw new Error("unexpected review contract");
 
   const archive = await loadArchive();
@@ -226,7 +227,7 @@ export async function buildDatelessCanonicalPlan(): Promise<DatelessCanonicalPla
     const obsPath = `${root}/data/observations/nasjonalbiblioteket/${observation.pathPart}`;
     try {
       const current = await readFile(obsPath, "utf8");
-      const normalizedCurrent = stringifyYaml(parseYaml(current, { schema: "core" }), { lineWidth: 0 });
+      const normalizedCurrent = stringifyYaml(parseYaml(current), { lineWidth: 0 });
       const normalizedNext = stringifyYaml(observation.data, { lineWidth: 0 });
       if (normalizedCurrent !== normalizedNext) throw new Error(`${action.sourceClaimId}: observation conflict`);
     } catch (error) {

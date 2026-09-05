@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { basename, join } from "node:path";
-import { parse as parseYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "../yaml.js";
 import {
   parsePreservationExceptions,
   resolveAuthorizedExceptions,
@@ -46,7 +46,7 @@ export async function loadRawYamlById(
   for (const [file, text] of contents) {
     let raw: unknown;
     try {
-      raw = parseYaml(text, { schema: "core" });
+      raw = parseYaml(text);
     } catch {
       // En fil som ikke lar seg parse kan ikke sammenlignes strukturelt.
       // `pnpm validate` fanger dette separat og med bedre feilmelding.
@@ -134,7 +134,7 @@ export async function loadCoordinateMigrations(
     if (!rawText) continue;
 
     try {
-      const doc = parseYaml(rawText, { schema: "core" }) as any;
+      const doc = parseYaml(rawText) as any;
       if (
         doc &&
         typeof doc === "object" &&

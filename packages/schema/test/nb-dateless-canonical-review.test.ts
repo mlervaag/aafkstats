@@ -1,5 +1,5 @@
 import { readFile } from "node:fs/promises";
-import { parse as parseYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "../src/yaml.js";
 import { describe, expect, it } from "vitest";
 import { buildDatelessCanonicalPlan } from "../../ingest/src/cli/nb-dateless-canonical-review.js";
 import { loadArchive, repoRoot } from "../src/load.js";
@@ -10,7 +10,7 @@ const manifestPath = `${repoRoot()}/data/discovery/nb-dateless-canonical-review-
 describe("datoløs canonical review", () => {
   it("avstemmer alle tre avgrensede arbeidsstrømmene", async () => {
     const raw = await readFile(manifestPath, "utf8");
-    const manifest = parseYaml(raw, { schema: "core" }) as any;
+    const manifest = parseYaml(raw) as any;
     expect(manifest.contract).toBe("nb-dateless-canonical-review@1");
     expect(manifest.decisionGate).toBe("NB_DATELESS_CANONICAL_REVIEW_CLOSED");
     expect(manifest.existingMatchReconciliation.safeLinks).toHaveLength(24);

@@ -1,6 +1,7 @@
 import { describe, expect, it, beforeAll } from "vitest";
 import { readFile, writeFile, unlink } from "node:fs/promises";
-import { parse as parseYaml, stringify as stringifyYaml } from "yaml";
+import { stringify as stringifyYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "../src/yaml.js";
 import {
   buildCanonicalPlan,
   type CanonicalizationResult,
@@ -15,10 +16,10 @@ describe("NB Visual Review Canonicalization (Wave 2: 1945-1954) - Tests A to S &
   beforeAll(async () => {
     const root = repoRoot();
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
-    manifest = parseYaml(manifestRaw, { schema: "core" });
+    manifest = parseYaml(manifestRaw);
 
     const shiftMappingRaw = await readFile(`${root}/data/discovery/medlemsblad-1965-year-shift-mapping.yaml`, "utf8");
-    shiftMapping = parseYaml(shiftMappingRaw, { schema: "core" });
+    shiftMapping = parseYaml(shiftMappingRaw);
 
     const res = await buildCanonicalPlan({
       batch: "wave_2_1945_1954",
@@ -320,7 +321,7 @@ describe("NB Visual Review Canonicalization (Wave 2: 1945-1954) - Tests A to S &
     const root = repoRoot();
     const sourceFilePath = `${root}/data/source-results/medlemsblad-for-aalesunds-fotb-1965-a2c9.yaml`;
     const sourceRaw = await readFile(sourceFilePath, "utf8");
-    const sourceData = parseYaml(sourceRaw, { schema: "core" });
+    const sourceData = parseYaml(sourceRaw);
 
     const canonicalItems = plan.items.filter((i) => i.action !== "invalid_input");
     expect(canonicalItems.length).toBe(36);
@@ -329,7 +330,7 @@ describe("NB Visual Review Canonicalization (Wave 2: 1945-1954) - Tests A to S &
       // 1. Match file exists
       const matchPath = `${root}/data/seasons/${item.season}/matches/${item.proposedMatchId}.yaml`;
       const matchRaw = await readFile(matchPath, "utf8");
-      const matchData = parseYaml(matchRaw, { schema: "core" });
+      const matchData = parseYaml(matchRaw);
 
       expect(matchData.id).toBe(item.proposedMatchId);
       expect(matchData.date).toBe(item.observedEvent.matchDate);

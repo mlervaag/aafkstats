@@ -1,7 +1,8 @@
 import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 import { parseArgs } from "node:util";
-import { parse as parseYaml, stringify as stringifyYaml } from "yaml";
+import { stringify as stringifyYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "@aafkstats/schema/yaml";
 import { dataDir, loadArchive, repoRoot } from "@aafkstats/schema/load";
 import type { Match, Source } from "@aafkstats/schema";
 import type { BatchReport } from "../adapters/nb-newspaper-batch.js";
@@ -79,7 +80,7 @@ if (args.values.write) {
     await writeSourceOnce(sourceFile, source);
 
     const absoluteMatchFile = join(dataDir(), matchFile);
-    const match = parseYaml(await readFile(absoluteMatchFile, "utf8"), { schema: "core" }) as Match;
+    const match = parseYaml(await readFile(absoluteMatchFile, "utf8")) as Match;
     prepareMatchForNewspaperWrite(match);
     const prior = previousByMatch.get(review.matchId);
     for (const evidence of prior?.evidenceIssues ?? []) {
@@ -187,7 +188,7 @@ function mergeEvidence<T extends { issueId: string }>(prior: T[], current: T[]):
 
 async function readExistingEntries(path: string): Promise<ReturnType<typeof buildPilotReviewEntries>> {
   try {
-    const existing = parseYaml(await readFile(path, "utf8"), { schema: "core" }) as {
+    const existing = parseYaml(await readFile(path, "utf8")) as {
       entries?: ReturnType<typeof buildPilotReviewEntries>;
     };
     return existing.entries ?? [];
@@ -199,7 +200,7 @@ async function readExistingEntries(path: string): Promise<ReturnType<typeof buil
 
 async function writeSourceOnce(path: string, source: Source): Promise<void> {
   try {
-    const existing = parseYaml(await readFile(path, "utf8"), { schema: "core" }) as Source;
+    const existing = parseYaml(await readFile(path, "utf8")) as Source;
     if (!isSameNewspaperDocument(existing, source)) {
       throw new Error(`Kilde-ID kolliderer med annet NB-dokument: ${source.id}`);
     }

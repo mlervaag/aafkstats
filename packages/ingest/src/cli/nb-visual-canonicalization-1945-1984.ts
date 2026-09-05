@@ -1,6 +1,7 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { createHash } from "node:crypto";
-import { parse as parseYaml, stringify as stringifyYaml } from "yaml";
+import { stringify as stringifyYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "@aafkstats/schema/yaml";
 import { repoRoot, loadArchive } from "@aafkstats/schema/load";
 import type { ObservationValue } from "@aafkstats/schema";
 import type { VisualReviewCase } from "./nb-visual-review-1945-1984.js";
@@ -178,7 +179,7 @@ export async function buildCanonicalPlan(options?: CanonicalPlanOptions): Promis
   const root = repoRoot();
   const manifestPath = options?.manifestPath || `${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`;
   const manifestRaw = await readFile(manifestPath, "utf8");
-  const manifest = parseYaml(manifestRaw, { schema: "core" });
+  const manifest = parseYaml(manifestRaw);
 
   const isWave2 =
     options?.reviewStatus === "visually_reviewed_wave_2" ||
@@ -217,7 +218,7 @@ export async function buildCanonicalPlan(options?: CanonicalPlanOptions): Promis
     const p = `${root}/data/source-results/${src.id}.yaml`;
     try {
       const content = await readFile(p, "utf8");
-      sourceResultFiles.set(src.id, { path: p, raw: parseYaml(content, { schema: "core" }), modified: false });
+      sourceResultFiles.set(src.id, { path: p, raw: parseYaml(content), modified: false });
     } catch {
       // file might not exist
     }
@@ -563,7 +564,7 @@ export async function buildCanonicalPlan(options?: CanonicalPlanOptions): Promis
     let obsNeedsWrite = true;
     try {
       const existingObsRaw = await readFile(obsPath, "utf8");
-      const existingObs = parseYaml(existingObsRaw, { schema: "core" });
+      const existingObs = parseYaml(existingObsRaw);
       if (existingObs?.payloadHash === payloadHash) {
         obsNeedsWrite = false;
       }
@@ -678,7 +679,7 @@ export async function buildCanonicalPlan(options?: CanonicalPlanOptions): Promis
       let isAlreadyOnDisk = false;
       try {
         const existingOnDiskRaw = await readFile(matchPath, "utf8");
-        const existingOnDisk = parseYaml(existingOnDiskRaw, { schema: "core" });
+        const existingOnDisk = parseYaml(existingOnDiskRaw);
         if (existingOnDisk?.id === canonicalMatchId) {
           isAlreadyOnDisk = true;
         }
@@ -827,7 +828,7 @@ export async function buildCanonicalPlan(options?: CanonicalPlanOptions): Promis
 
   try {
     const existingRaw = await readFile(manifestOutputPath, "utf8");
-    const existing = parseYaml(existingRaw, { schema: "core" }) as any;
+    const existing = parseYaml(existingRaw) as any;
     if (existing?.application && typeof existing.application === "object") {
       applicationRecord = existing.application;
     }

@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import { parse as parseYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "../yaml.js";
 import { loadArchive, repoRoot } from "../load.js";
 import type { SourceResult } from "../source-result.js";
 import { sourceClaimLineageManifest } from "./source-claim-lineage.js";
@@ -132,7 +132,7 @@ function integer(value: unknown): number | undefined {
 }
 
 async function readYaml(root: string, relativePath: string): Promise<JsonRecord> {
-  return record(parseYaml(await readFile(join(root, relativePath), "utf8"), { schema: "core" }));
+  return record(parseYaml(await readFile(join(root, relativePath), "utf8")));
 }
 
 function sourceReference(raw: unknown, fallbackSeason?: number): {

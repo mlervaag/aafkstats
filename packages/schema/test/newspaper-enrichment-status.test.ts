@@ -1,14 +1,14 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { parse as parseYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "../src/yaml.js";
 import { repoRoot } from "../src/load.js";
 import type { NewspaperEnrichmentStatus } from "../src/historical/newspaper-enrichment-status.js";
 
 describe("newspaper enrichment status", () => {
   it("partisjonerer alle 39 daterte 1979-kampene deterministisk etter piloten", async () => {
     const raw = await readFile(join(repoRoot(), "data", "discovery", "newspaper-enrichment-status.yaml"), "utf8");
-    const status = parseYaml(raw, { schema: "core" }) as NewspaperEnrichmentStatus;
+    const status = parseYaml(raw) as NewspaperEnrichmentStatus;
     const entries = status.entries.filter((entry) => entry.season === 1979);
 
     expect(status.contract).toBe("newspaper-enrichment-status@3");
@@ -66,7 +66,7 @@ describe("newspaper enrichment status", () => {
 
   it("låser produksjonsbatchen 1972–1978 og 1979-kalibreringen", async () => {
     const raw = await readFile(join(repoRoot(), "data", "discovery", "newspaper-enrichment-status.yaml"), "utf8");
-    const status = parseYaml(raw, { schema: "core" }) as NewspaperEnrichmentStatus;
+    const status = parseYaml(raw) as NewspaperEnrichmentStatus;
     const scaled = status.entries.filter((entry) => entry.season >= 1972 && entry.season <= 1978);
 
     expect([1972, 1973, 1974, 1975, 1976, 1977, 1978].map((year) => status.seasons[String(year)]?.canonicalMatchesInScope))
@@ -103,7 +103,7 @@ describe("newspaper enrichment status", () => {
 
   it("låser produksjonsbatchen 1963–1971 uten å endre senere regresjonssett", async () => {
     const raw = await readFile(join(repoRoot(), "data", "discovery", "newspaper-enrichment-status.yaml"), "utf8");
-    const status = parseYaml(raw, { schema: "core" }) as NewspaperEnrichmentStatus;
+    const status = parseYaml(raw) as NewspaperEnrichmentStatus;
     const scaled = status.entries.filter((entry) => entry.season >= 1963 && entry.season <= 1971);
 
     expect([1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, 1971].map((year) => status.seasons[String(year)]?.canonicalMatchesInScope ?? 0))
@@ -131,10 +131,10 @@ describe("newspaper enrichment status", () => {
 
   it("låser massebatchen 1915–1962 og avistittelgrensen", async () => {
     const raw = await readFile(join(repoRoot(), "data", "discovery", "newspaper-enrichment-status.yaml"), "utf8");
-    const status = parseYaml(raw, { schema: "core" }) as NewspaperEnrichmentStatus;
+    const status = parseYaml(raw) as NewspaperEnrichmentStatus;
     const scaled = status.entries.filter((entry) => entry.season >= 1915 && entry.season <= 1962);
     const reviewRaw = await readFile(join(repoRoot(), "data", "discovery", "newspaper-enrichment-reviews.yaml"), "utf8");
-    const allReviews = (parseYaml(reviewRaw, { schema: "core" }) as { entries: Array<{
+    const allReviews = (parseYaml(reviewRaw) as { entries: Array<{
       matchId: string;
       canonicalLinked: boolean;
       fieldsAdded: string[];
@@ -184,7 +184,7 @@ describe("newspaper enrichment status", () => {
 
   it("låser produksjonsbatchen 1980–1999 og bevarer konfliktsemantikken", async () => {
     const raw = await readFile(join(repoRoot(), "data", "discovery", "newspaper-enrichment-status.yaml"), "utf8");
-    const status = parseYaml(raw, { schema: "core" }) as NewspaperEnrichmentStatus;
+    const status = parseYaml(raw) as NewspaperEnrichmentStatus;
     const scaled = status.entries.filter((entry) => entry.season >= 1980 && entry.season <= 1999);
 
     expect(scaled).toHaveLength(378);

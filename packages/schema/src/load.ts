@@ -1,9 +1,9 @@
-import { readdir, readFile } from "node:fs/promises";
+import { readdir, readFile, stat } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { basename, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { parse as parseYaml } from "yaml";
 import { z } from "zod";
+import { parseArchiveYaml } from "./yaml.js";
 import { club, competition, season, provider, venue } from "./entities.js";
 import { match } from "./match.js";
 import { canonicalClubKey, personKey } from "./identity.js";
@@ -106,18 +106,15 @@ async function listYaml(dir: string): Promise<string[]> {
     .sort();
 }
 
-async function parseFile<T extends z.ZodTypeAny>(
-  file: string,
+function validateFile<T extends z.ZodTypeAny>(
+  text: string,
   schema: T,
-  root: string,
+  rel: string,
   issues: LoadIssue[],
-): Promise<z.infer<T> | null> {
-  const rel = relative(root, file).replace(/\\/g, "/");
+): z.infer<T> | null {
   let raw: unknown;
   try {
-    // 'core' holder oss på YAML 1.2, der datoer forblir strenger. Uten dette blir
-    // datoer noen ganger Date og noen ganger streng avhengig av sitattegn i filen.
-    raw = parseYaml(await readFile(file, "utf8"), { schema: "core" });
+    raw = parseArchiveYaml(text);
   } catch (err) {
     issues.push({ file: rel, path: "", message: `kunne ikke lese YAML: ${String(err)}` });
     return null;
@@ -134,20 +131,137 @@ async function parseFile<T extends z.ZodTypeAny>(
 }
 
 /**
+ * Leser filene med overlappende I/O, men samler feilene i filrekkefølge.
+ *
+ * Grensen på 64 er der fordi arkivet har tusenvis av filer: uten den ville en
+ * `Promise.all` over alle sammen åpne dem samtidig og gå tom for fildeskriptorer.
+ * Hver fil får sin egen issues-liste som skjøtes sammen etterpå, slik at
+ * rekkefølgen på feilmeldingene ikke avhenger av hvilken lesing som ble ferdig
+ * først — «pnpm validate» skal gi samme utskrift hver gang.
+ */
+interface ParsedFile<T> {
+  file: string;
+  rel: string;
+  parsed: T | null;
+  issues: LoadIssue[];
+}
+
+async function parseFiles<T extends z.ZodTypeAny>(
+  files: string[],
+  schema: T,
+  root: string,
+): Promise<ParsedFile<z.infer<T>>[]> {
+  const results: ParsedFile<z.infer<T>>[] = new Array(files.length);
+
+  const limit = 64;
+  let next = 0;
+  const worker = async () => {
+    for (let i = next++; i < files.length; i = next++) {
+      const file = files[i]!;
+      const rel = relative(root, file).replace(/\\/g, "/");
+      const local: LoadIssue[] = [];
+      let parsed: z.infer<T> | null = null;
+      try {
+        parsed = validateFile(await readFile(file, "utf8"), schema, rel, local);
+      } catch (err) {
+        local.push({ file: rel, path: "", message: `kunne ikke lese fila: ${String(err)}` });
+      }
+      results[i] = { file, rel, parsed, issues: local };
+    }
+  };
+  await Promise.all(Array.from({ length: Math.min(limit, files.length) }, worker));
+
+  return results;
+}
+
+async function parseFile<T extends z.ZodTypeAny>(
+  file: string,
+  schema: T,
+  root: string,
+  issues: LoadIssue[],
+): Promise<z.infer<T> | null> {
+  const [only] = await parseFiles([file], schema, root);
+  if (only === undefined) return null;
+  issues.push(...only.issues);
+  return only.parsed;
+}
+
+interface ArchiveCacheEntry {
+  fingerprint: string;
+  archive: Archive;
+}
+
+const archiveCache = new Map<string, ArchiveCacheEntry>();
+
+/**
+ * Fingeravtrykk av alt som ligger under datakatalogen: sti, størrelse og
+ * endringstidspunkt for hver YAML-fil.
+ *
+ * Dette er nøkkelen til at arkivet kan mellomlagres uten å lyve. Å stat-e alle
+ * filene koster under 0,2 sekunder mot de 2 sekundene det tar å lese og
+ * validere dem, og et verktøy som skriver en fil og laster arkivet på nytt får
+ * fortsatt se det den nettopp skrev.
+ */
+async function archiveFingerprint(root: string): Promise<string> {
+  if (!existsSync(root)) return "";
+  const files: string[] = [];
+  const walk = async (dir: string): Promise<void> => {
+    const entries = await readdir(dir, { withFileTypes: true });
+    await Promise.all(
+      entries.map(async (e) => {
+        const p = join(dir, e.name);
+        if (e.isDirectory()) return walk(p);
+        if (e.name.endsWith(".yaml") || e.name.endsWith(".yml")) files.push(p);
+      }),
+    );
+  };
+  await walk(root);
+  files.sort();
+  const stamps = await Promise.all(
+    files.map(async (f) => {
+      const s = await stat(f);
+      return `${f}:${s.size}:${s.mtimeMs}`;
+    }),
+  );
+  return stamps.join("\n");
+}
+
+/** Glemmer det mellomlagrede arkivet. Finnes for tester som bytter datakatalog. */
+export function clearArchiveCache(): void {
+  archiveCache.clear();
+}
+
+/**
  * Leser hele arkivet fra disk og validerer hver fil.
  *
  * Returnerer alltid — feil samles i `issues` i stedet for å kaste, slik at én ødelagt
  * fil ikke skjuler alle de andre. Kalleren avgjør om `issues` er fatalt.
+ *
+ * Resultatet mellomlagres per datakatalog og gjenbrukes så lenge ingen fil under
+ * den er endret. Kallerne får alltid sin egen kopi: arkivet er en vanlig
+ * datastruktur som blir sortert og endret på av dem som bruker det, og en delt
+ * referanse ville latt ett verktøy stokke om på lista til det neste.
  */
 export async function loadArchive(root = dataDir()): Promise<Archive> {
+  const fingerprint = await archiveFingerprint(root);
+  const cached = archiveCache.get(root);
+  if (cached !== undefined && cached.fingerprint === fingerprint) {
+    return structuredClone(cached.archive);
+  }
+  const archive = await readArchive(root);
+  archiveCache.set(root, { fingerprint, archive });
+  return structuredClone(archive);
+}
+
+async function readArchive(root: string): Promise<Archive> {
   const issues: LoadIssue[] = [];
 
   const readAll = async <T extends z.ZodTypeAny>(dir: string, schema: T) => {
     const files = await listYaml(join(root, dir));
     const out: z.infer<T>[] = [];
-    for (const file of files) {
-      const parsed = await parseFile(file, schema, root, issues);
-      if (parsed !== null) out.push(parsed);
+    for (const result of await parseFiles(files, schema, root)) {
+      issues.push(...result.issues);
+      if (result.parsed !== null) out.push(result.parsed);
     }
     return out;
   };
@@ -175,26 +289,48 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
       .map((e) => e.name)
       .sort();
 
-    for (const dir of seasonDirs) {
+    // Kampfilene listes for alle sesongene før noen av dem leses. Da kan hele
+    // arkivets kamper leses med overlappende I/O i ett kall, mens utskriften av
+    // feil fortsatt følger sesong for sesong slik den alltid har gjort.
+    const matchFilesPerDir = await Promise.all(
+      seasonDirs.map((dir) => listYaml(join(seasonsDir, dir, "matches"))),
+    );
+    const seasonFiles = seasonDirs
+      .map((dir) => join(seasonsDir, dir, "season.yaml"))
+      .filter((p) => existsSync(p));
+
+    const seasonParsed = new Map(
+      (await parseFiles(seasonFiles, season, root)).map((r) => [r.file, r]),
+    );
+    const matchParsed = new Map(
+      (await parseFiles(matchFilesPerDir.flat(), match, root)).map((r) => [r.file, r]),
+    );
+
+    for (const [index, dir] of seasonDirs.entries()) {
       const seasonPath = join(seasonsDir, dir, "season.yaml");
-      if (existsSync(seasonPath)) {
-        const parsed = await parseFile(seasonPath, season, root, issues);
+      const seasonResult = seasonParsed.get(seasonPath);
+      if (seasonResult) {
+        issues.push(...seasonResult.issues);
+        const parsed = seasonResult.parsed;
         if (parsed !== null) {
           if (String(parsed.year) !== dir) {
             issues.push({
-              file: relative(root, seasonPath).replace(/\\/g, "/"),
+              file: seasonResult.rel,
               path: "year",
               message: `år ${parsed.year} stemmer ikke med mappenavnet «${dir}»`,
             });
           }
-          seasons.push({ ...parsed, file: relative(root, seasonPath).replace(/\\/g, "/") });
+          seasons.push({ ...parsed, file: seasonResult.rel });
         }
       }
 
-      for (const file of await listYaml(join(seasonsDir, dir, "matches"))) {
-        const parsed = await parseFile(file, match, root, issues);
+      for (const file of matchFilesPerDir[index] ?? []) {
+        const result = matchParsed.get(file);
+        if (result === undefined) continue;
+        issues.push(...result.issues);
+        const parsed = result.parsed;
         if (parsed === null) continue;
-        const rel = relative(root, file).replace(/\\/g, "/");
+        const rel = result.rel;
         const expectedName = `${parsed.id}.yaml`;
         if (basename(file) !== expectedName) {
           issues.push({
@@ -225,28 +361,31 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
       .filter((e) => e.isDirectory())
       .map((e) => e.name)
       .sort();
-    for (const dir of sourceDirs) {
-      for (const file of await listYaml(join(observationsDir, dir))) {
-        const parsed = await parseFile(file, observation, root, issues);
-        if (parsed === null) continue;
-        const rel = relative(root, file).replace(/\\/g, "/");
-        const expected = observationPath(parsed.providerId, parsed.externalId);
-        if (rel !== expected) {
-          issues.push({ file: rel, path: "externalId", message: `fila må hete «${expected}»` });
-        }
-        observations.push({ ...parsed, file: rel });
+    const filesPerDir = await Promise.all(
+      sourceDirs.map((dir) => listYaml(join(observationsDir, dir))),
+    );
+    for (const result of await parseFiles(filesPerDir.flat(), observation, root)) {
+      issues.push(...result.issues);
+      const parsed = result.parsed;
+      if (parsed === null) continue;
+      const expected = observationPath(parsed.providerId, parsed.externalId);
+      if (result.rel !== expected) {
+        issues.push({ file: result.rel, path: "externalId", message: `fila må hete «${expected}»` });
       }
+      observations.push({ ...parsed, file: result.rel });
     }
   }
 
   const historicalObservations: (HistoricalObservation & { file: string })[] = [];
-  for (const file of await listYaml(observationsDir)) {
-    const parsed = await parseFile(file, historicalObservation, root, issues);
+  for (const result of await parseFiles(await listYaml(observationsDir), historicalObservation, root)) {
+    issues.push(...result.issues);
+    const parsed = result.parsed;
     if (parsed === null) continue;
-    const rel = relative(root, file).replace(/\\/g, "/");
     const expected = `observations/${parsed.id}.yaml`;
-    if (rel !== expected) issues.push({ file: rel, path: "id", message: `fila må hete «${expected}»` });
-    historicalObservations.push({ ...parsed, file: rel });
+    if (result.rel !== expected) {
+      issues.push({ file: result.rel, path: "id", message: `fila må hete «${expected}»` });
+    }
+    historicalObservations.push({ ...parsed, file: result.rel });
   }
 
   // Tabellene ligger under én mappe per konkurranse, som kampene ligger under én
@@ -259,17 +398,19 @@ export async function loadArchive(root = dataDir()): Promise<Archive> {
       .filter((e) => e.isDirectory())
       .map((e) => e.name)
       .sort();
-    for (const dir of competitionDirs) {
-      for (const file of await listYaml(join(standingsDir, dir))) {
-        const parsed = await parseFile(file, standings, root, issues);
-        if (parsed === null) continue;
-        const rel = relative(root, file).replace(/\\/g, "/");
-        const expected = standingsPath(parsed.competitionId, parsed.season);
-        if (rel !== expected) {
-          issues.push({ file: rel, path: "season", message: `fila må hete «${expected}»` });
-        }
-        tables.push({ ...parsed, file: rel });
+    const filesPerDir = await Promise.all(
+      competitionDirs.map((dir) => listYaml(join(standingsDir, dir))),
+    );
+    for (const result of await parseFiles(filesPerDir.flat(), standings, root)) {
+      issues.push(...result.issues);
+      const parsed = result.parsed;
+      if (parsed === null) continue;
+      const rel = result.rel;
+      const expected = standingsPath(parsed.competitionId, parsed.season);
+      if (rel !== expected) {
+        issues.push({ file: rel, path: "season", message: `fila må hete «${expected}»` });
       }
+      tables.push({ ...parsed, file: rel });
     }
   }
 

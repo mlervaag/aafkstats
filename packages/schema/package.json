@@ -5,7 +5,8 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
-    "./load": "./src/load.ts"
+    "./load": "./src/load.ts",
+    "./yaml": "./src/yaml.ts"
   },
   "scripts": {
     "validate": "tsx src/cli/validate.ts",
@@ -31,10 +32,12 @@
     "newspaper-1980-1999-artifacts": "tsx src/cli/newspaper-1980-1999-artifacts.ts"
   },
   "dependencies": {
+    "js-yaml": "^4.1.0",
     "yaml": "^2.6.1",
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
     "tsx": "^4.19.2"
   }
 }

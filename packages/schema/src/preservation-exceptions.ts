@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { parse as parseYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "./yaml.js";
 import { readFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { join } from "node:path";
@@ -59,7 +59,7 @@ export type PreservationExceptionsFile = z.infer<typeof preservationExceptionsFi
  * Parser og validerer innholdet i en unntaksfil.
  */
 export function parsePreservationExceptions(rawText: string): PreservationException[] {
-  const parsedYaml = parseYaml(rawText, { schema: "core" }) ?? {};
+  const parsedYaml = parseYaml(rawText) ?? {};
   return preservationExceptionsFile.parse(parsedYaml).exceptions;
 }
 

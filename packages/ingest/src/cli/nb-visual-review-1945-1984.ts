@@ -1,5 +1,5 @@
 import { readFile } from "node:fs/promises";
-import { parse as parseYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "@aafkstats/schema/yaml";
 import { repoRoot, loadArchive } from "@aafkstats/schema/load";
 import { parseCompetitionHint, parseHomeAwayHint } from "@aafkstats/schema";
 
@@ -157,10 +157,10 @@ export async function auditVisualReviewManifest(): Promise<{
   const candidatesPath = `${root}/data/discovery/nb-source-result-wide-candidates-1945-1984.yaml`;
 
   const manifestRaw = await readFile(manifestPath, "utf8");
-  const manifest = parseYaml(manifestRaw, { schema: "core" });
+  const manifest = parseYaml(manifestRaw);
 
   const candidatesRaw = await readFile(candidatesPath, "utf8");
-  const candidatesData = parseYaml(candidatesRaw, { schema: "core" });
+  const candidatesData = parseYaml(candidatesRaw);
 
   const archive = await loadArchive();
   const validClubIds = new Set(archive.clubs.map((c) => c.id));

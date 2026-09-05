@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { readFile } from "node:fs/promises";
-import { parse as parseYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "../src/yaml.js";
 import { repoRoot, loadArchive } from "../src/load.js";
 
 describe("Medlemsblad 1965 Scan 14 Year Shift Guardrails - PR 204", () => {
@@ -8,7 +8,7 @@ describe("Medlemsblad 1965 Scan 14 Year Shift Guardrails - PR 204", () => {
     const root = repoRoot();
     const filePath = `${root}/data/source-results/medlemsblad-for-aalesunds-fotb-1965-a2c9.yaml`;
     const raw = await readFile(filePath, "utf8");
-    const data = parseYaml(raw, { schema: "core" });
+    const data = parseYaml(raw);
 
     const s1954 = data.seasons.find((s: any) => s.year === 1954);
     const s1955 = data.seasons.find((s: any) => s.year === 1955);
@@ -25,7 +25,7 @@ describe("Medlemsblad 1965 Scan 14 Year Shift Guardrails - PR 204", () => {
     const root = repoRoot();
     const filePath = `${root}/data/source-results/medlemsblad-for-aalesunds-fotb-1965-a2c9.yaml`;
     const raw = await readFile(filePath, "utf8");
-    const data = parseYaml(raw, { schema: "core" });
+    const data = parseYaml(raw);
 
     const s1954 = data.seasons.find((s: any) => s.year === 1954);
     const s1955 = data.seasons.find((s: any) => s.year === 1955);
@@ -69,7 +69,7 @@ describe("Medlemsblad 1965 Scan 14 Year Shift Guardrails - PR 204", () => {
     const root = repoRoot();
     const mappingPath = `${root}/data/discovery/medlemsblad-1965-year-shift-mapping.yaml`;
     const mappingRaw = await readFile(mappingPath, "utf8");
-    const mapping = parseYaml(mappingRaw, { schema: "core" });
+    const mapping = parseYaml(mappingRaw);
 
     expect(mapping.contract).toBe("medlemsblad-1965-year-shift-repair@1");
     expect(mapping.summary.totalMovedRows).toBe(54);

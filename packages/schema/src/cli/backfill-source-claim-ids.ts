@@ -2,7 +2,8 @@ import { randomBytes } from "node:crypto";
 import { existsSync } from "node:fs";
 import { readdir, readFile, writeFile, mkdir } from "node:fs/promises";
 import { join } from "node:path";
-import { parse as parseYaml, stringify as stringifyYaml } from "yaml";
+import { stringify as stringifyYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "../yaml.js";
 import { repoRoot } from "../load.js";
 import {
   sourceClaimLineageManifest,
@@ -71,7 +72,7 @@ export async function runSourceClaimBackfill(options: {
     filesExamined += 1;
     const filePath = join(targetDir, fileName);
     const raw = await readFile(filePath, "utf8");
-    const data = parseYaml(raw, { schema: "core" }) as any;
+    const data = parseYaml(raw) as any;
     if (!data || !Array.isArray(data.seasons)) continue;
 
     const sourceId = data.sourceId || fileName.replace(/\.ya?ml$/, "");
@@ -124,13 +125,13 @@ export async function runSourceClaimBackfill(options: {
   if (existsSync(lineagePath)) {
     try {
       const raw = await readFile(lineagePath, "utf8");
-      const parsed = parseYaml(raw, { schema: "core" });
+      const parsed = parseYaml(raw);
       existingLineage = sourceClaimLineageManifest.parse(parsed);
     } catch {
       // Fallback dersom eksisterende fil har gamle 48-bit IDs
       try {
         const raw = await readFile(lineagePath, "utf8");
-        const parsed = parseYaml(raw, { schema: "core" }) as any;
+        const parsed = parseYaml(raw) as any;
         if (parsed && Array.isArray(parsed.claims)) {
           existingLineage = parsed;
         }

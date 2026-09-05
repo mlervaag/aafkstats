@@ -1,7 +1,7 @@
 import { existsSync } from "node:fs";
 import { readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
-import { parse as parseYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "../yaml.js";
 import { loadArchive, repoRoot } from "../load.js";
 import { flattenSourceResults } from "../source-result.js";
 import { sourceClaimLineageManifest } from "../historical/source-claim-lineage.js";
@@ -87,7 +87,7 @@ export async function runSourceClaimIntegrityCheck(): Promise<IntegrityReport> {
 
   if (existsSync(lineagePath)) {
     const raw = await readFile(lineagePath, "utf8");
-    const parsed = parseYaml(raw, { schema: "core" });
+    const parsed = parseYaml(raw);
     const validated = sourceClaimLineageManifest.safeParse(parsed);
     if (!validated.success) {
       for (const err of validated.error.issues) {
@@ -135,7 +135,7 @@ export async function runSourceClaimIntegrityCheck(): Promise<IntegrityReport> {
       if (!existsSync(filePath)) continue;
       try {
         const raw = await readFile(filePath, "utf8");
-        const data = parseYaml(raw, { schema: "core" });
+        const data = parseYaml(raw);
         const extracted = extractSourceClaimIds(data);
         for (const cid of extracted) {
           downstreamReferencesChecked += 1;
@@ -161,7 +161,7 @@ export async function runSourceClaimIntegrityCheck(): Promise<IntegrityReport> {
       const filePath = join(verificationCasesDir, file);
       const raw = await readFile(filePath, "utf8");
       try {
-        const data = parseYaml(raw, { schema: "core" });
+        const data = parseYaml(raw);
         const extracted = extractSourceClaimIds(data);
         for (const cid of extracted) {
           downstreamReferencesChecked += 1;
@@ -185,7 +185,7 @@ export async function runSourceClaimIntegrityCheck(): Promise<IntegrityReport> {
       const filePath = join(harvestsDir, hFile);
       const raw = await readFile(filePath, "utf8");
       try {
-        const data = parseYaml(raw, { schema: "core" });
+        const data = parseYaml(raw);
         const extracted = extractSourceClaimIds(data);
         for (const cid of extracted) {
           downstreamReferencesChecked += 1;

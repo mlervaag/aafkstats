@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { readFile, readdir } from "node:fs/promises";
 import { basename } from "node:path";
-import { parse as parseYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "../src/yaml.js";
 import { repoRoot, dataDir } from "../src/load.js";
 import { parseCompetitionHint, parseHomeAwayHint } from "../src/source-result.js";
 
@@ -18,7 +18,7 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
   it("validates that visual review manifest adheres to contract nb-source-result-visual-review@1 and decision gate VISUAL_REVIEW_IN_PROGRESS", async () => {
     const root = repoRoot();
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
-    const manifest = parseYaml(manifestRaw, { schema: "core" });
+    const manifest = parseYaml(manifestRaw);
 
     const pilotCases = manifest.cases.filter((c: any) => c.reviewStatus === "visually_reviewed_pilot");
     const wave2Cases = manifest.cases.filter((c: any) => c.reviewStatus === "visually_reviewed_wave_2");
@@ -49,7 +49,7 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
   it("verifies that pilotSelection is strictly stratified across all 4 periods with external controls separate", async () => {
     const root = repoRoot();
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
-    const manifest = parseYaml(manifestRaw, { schema: "core" });
+    const manifest = parseYaml(manifestRaw);
 
     const sel = manifest.pilotSelection;
     expect(sel).toBeDefined();
@@ -71,7 +71,7 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
   it("enforces Event and Physical Page Collision Gates across ALL visually reviewed event claims (ready or conflict)", async () => {
     const root = repoRoot();
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
-    const manifest = parseYaml(manifestRaw, { schema: "core" });
+    const manifest = parseYaml(manifestRaw);
 
     const eventClaims = manifest.cases.filter((c: any) => {
       const isExact = c.claimResolution === "exact_match" || c.claimResolution === "exact_sibling" || c.claimResolution === "same_event_score_conflict";
@@ -138,7 +138,7 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
   it("regression: Rollon 1955 #9 and #13 cannot both claim the same 1955-03-06 match on the same physical page with conflicting scores", async () => {
     const root = repoRoot();
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
-    const manifest = parseYaml(manifestRaw, { schema: "core" });
+    const manifest = parseYaml(manifestRaw);
 
     const rollon9 = manifest.cases.find((c: any) => c.hypothesisId === "medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-009");
     const rollon13 = manifest.cases.find((c: any) => c.hypothesisId === "medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-013");
@@ -160,7 +160,7 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
   it("regression: Herd 1965 #1 and #8 cannot both claim the 1965-05-23 newspaper page as ready", async () => {
     const root = repoRoot();
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
-    const manifest = parseYaml(manifestRaw, { schema: "core" });
+    const manifest = parseYaml(manifestRaw);
 
     const herd1 = manifest.cases.find((c: any) => c.hypothesisId === "medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-001");
     const herd8 = manifest.cases.find((c: any) => c.hypothesisId === "medlemsblad-for-aalesunds-fotb-1965-a2c9#1965-008");
@@ -180,7 +180,7 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
   it("regression: 1955 Rollon #9 source-result says 1. divisjon while observed is treningskamp -> competition conflict and never ready", async () => {
     const root = repoRoot();
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
-    const manifest = parseYaml(manifestRaw, { schema: "core" });
+    const manifest = parseYaml(manifestRaw);
 
     const case1955Rollon9 = manifest.cases.find((c: any) => c.hypothesisId === "medlemsblad-for-aalesunds-fotb-1965-a2c9#1955-009");
     expect(case1955Rollon9).toBeDefined();
@@ -196,7 +196,7 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
   it("verifies known ground truth consistency and checks Rollon 1954 score conflict fix", async () => {
     const root = repoRoot();
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
-    const manifest = parseYaml(manifestRaw, { schema: "core" });
+    const manifest = parseYaml(manifestRaw);
 
     const rollon1954 = manifest.cases.find((c: any) => c.hypothesisId === "medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-007");
     expect(rollon1954).toBeDefined();
@@ -212,7 +212,7 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
   it("recomputes source-vs-observed consistency directly from raw source-result YAMLs and forbids ready on conflict", async () => {
     const root = repoRoot();
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
-    const manifest = parseYaml(manifestRaw, { schema: "core" });
+    const manifest = parseYaml(manifestRaw);
 
     const srDir = `${dataDir()}/source-results`;
     const srFiles = await readdir(srDir);
@@ -221,7 +221,7 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
     for (const f of srFiles) {
       if (!f.endsWith(".yaml") && !f.endsWith(".yml")) continue;
       const content = await readFile(`${srDir}/${f}`, "utf8");
-      const parsed = parseYaml(content, { schema: "core" });
+      const parsed = parseYaml(content);
       if (!parsed || !parsed.sourceId || !parsed.seasons) continue;
       for (const season of parsed.seasons) {
         for (const res of season.results || []) {
@@ -267,7 +267,7 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
   it("enforces canonical club IDs from archive.clubs for all ready records", async () => {
     const root = repoRoot();
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
-    const manifest = parseYaml(manifestRaw, { schema: "core" });
+    const manifest = parseYaml(manifestRaw);
 
     const clubsDir = `${dataDir()}/clubs`;
     const clubFiles = await readdir(clubsDir);
@@ -289,7 +289,7 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
   it("enforces explicit dateEvidence and forbids unevidenced issueDate assumption", async () => {
     const root = repoRoot();
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
-    const manifest = parseYaml(manifestRaw, { schema: "core" });
+    const manifest = parseYaml(manifestRaw);
 
     const readyCases = manifest.cases.filter((c: any) => c.canonicalEligibility === "ready");
     for (const c of readyCases) {
@@ -307,7 +307,7 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
   it("verifies second-pass audit mathematical invariants and adjudication propagation", async () => {
     const root = repoRoot();
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
-    const manifest = parseYaml(manifestRaw, { schema: "core" });
+    const manifest = parseYaml(manifestRaw);
 
     const audit = manifest.secondPassAudit;
     expect(audit).toBeDefined();
@@ -352,7 +352,7 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
   it("proves that frozen 1945-1954 Wave 2 selection matches reviewed Wave 2 cases exactly", async () => {
     const root = repoRoot();
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
-    const manifest = parseYaml(manifestRaw, { schema: "core" });
+    const manifest = parseYaml(manifestRaw);
 
     const frozen1945to1954Ids = manifest.productionWave2Selection.selectedHypothesisIds.filter((id: string) => {
       const c = manifest.cases.find((x: any) => x.hypothesisId === id);
@@ -382,7 +382,7 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
   it("verifies that productionWave2Selection is frozen, atomic and stratified (DEL 2)", async () => {
     const root = repoRoot();
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
-    const manifest = parseYaml(manifestRaw, { schema: "core" });
+    const manifest = parseYaml(manifestRaw);
 
     const w2 = manifest.productionWave2Selection;
     expect(w2).toBeDefined();
@@ -449,7 +449,7 @@ describe("NB Source-Result Visual Review (1945-1984)", () => {
   it("DEL 13 Guardrails: strict anti-synthetic validation (A-L)", async () => {
     const root = repoRoot();
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
-    const manifest = parseYaml(manifestRaw, { schema: "core" });
+    const manifest = parseYaml(manifestRaw);
 
     // A: dateEvidence textSummary cannot be empty or just repeated issueDate
     const readyCases = manifest.cases.filter((c: any) => c.canonicalEligibility === "ready");
