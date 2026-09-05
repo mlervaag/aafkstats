@@ -1,5 +1,6 @@
 import { readFile, writeFile, readdir } from "node:fs/promises";
-import { parse as parseYaml, stringify as stringifyYaml } from "yaml";
+import { stringify as stringifyYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "@aafkstats/schema/yaml";
 import { repoRoot } from "@aafkstats/schema/load";
 
 export interface MigrationMappingItem {
@@ -131,7 +132,7 @@ export async function executeYearShiftRepair(apply: boolean = false): Promise<Sh
   const root = repoRoot();
   const sourceFilePath = `${root}/data/source-results/medlemsblad-for-aalesunds-fotb-1965-a2c9.yaml`;
   const sourceRaw = await readFile(sourceFilePath, "utf8");
-  const sourceData = parseYaml(sourceRaw, { schema: "core" });
+  const sourceData = parseYaml(sourceRaw);
 
   const s1954 = sourceData.seasons.find((s: any) => s.year === 1954);
   const s1955 = sourceData.seasons.find((s: any) => s.year === 1955);
@@ -152,7 +153,7 @@ export async function executeYearShiftRepair(apply: boolean = false): Promise<Sh
   let existingReport: ShiftRepairReport | null = null;
   try {
     const raw = await readFile(mappingPath, "utf8");
-    existingReport = parseYaml(raw, { schema: "core" }) as ShiftRepairReport;
+    existingReport = parseYaml(raw) as ShiftRepairReport;
   } catch {
     // not present
   }
@@ -160,7 +161,7 @@ export async function executeYearShiftRepair(apply: boolean = false): Promise<Sh
   // Visual review manifest to compute selectionRepairMapping and reviewInvalidationSummary
   const visualReviewPath = `${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`;
   const visualReviewRaw = await readFile(visualReviewPath, "utf8");
-  const visualReview = parseYaml(visualReviewRaw, { schema: "core" }) as any;
+  const visualReview = parseYaml(visualReviewRaw) as any;
 
   const frozenIds: string[] = visualReview?.productionWave2Selection?.selectedHypothesisIds || [];
 
@@ -437,7 +438,7 @@ export async function executeYearShiftRepair(apply: boolean = false): Promise<Sh
         if (!f.endsWith(".yaml")) continue;
         const mPath = `${m1955Dir}/${f}`;
         const mRaw = await readFile(mPath, "utf8");
-        const matchData = parseYaml(mRaw, { schema: "core" });
+        const matchData = parseYaml(mRaw);
 
         if (matchIdsToRemoveMedlemsblad.has(matchData.id)) {
           if (matchData.sources) {

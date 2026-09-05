@@ -1,6 +1,7 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { createHash } from "node:crypto";
-import { parse as parseYaml, stringify as stringifyYaml } from "yaml";
+import { stringify as stringifyYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "../yaml.js";
 import { loadArchive, repoRoot } from "../load.js";
 import { runCanonicalAudit } from "./audit-canonical-review.js";
 
@@ -64,7 +65,7 @@ async function main() {
     const p = `${root}/data/source-results/${src.id}.yaml`;
     try {
       const content = await readFile(p, "utf8");
-      sourceResultFiles.set(src.id, { path: p, raw: parseYaml(content, { schema: "core" }) });
+      sourceResultFiles.set(src.id, { path: p, raw: parseYaml(content) });
     } catch {
       // file might not exist
     }
@@ -119,7 +120,7 @@ async function main() {
 
     try {
       const existing = await readFile(matchFile, "utf8");
-      matchContent = parseYaml(existing, { schema: "core" });
+      matchContent = parseYaml(existing);
       existingMatchesEnriched++;
     } catch {
       newMatchesCreated++;

@@ -1,5 +1,5 @@
 import { readFile } from "node:fs/promises";
-import { parse as parseYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "@aafkstats/schema/yaml";
 import type { PlannedHypothesis } from "./source-result-query.js";
 
 export interface SelectionFilterOptions {

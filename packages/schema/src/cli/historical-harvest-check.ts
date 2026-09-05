@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { resolve } from "node:path";
-import { parse as parseYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "../yaml.js";
 import { repoRoot, dataDir } from "../load.js";
 import { source } from "../source.js";
 import { provider } from "../entities.js";
@@ -146,7 +146,7 @@ export async function runHarvestCheck(options: HarvestCheckCliOptions, root = re
   }
 
   const rawContent = await readFile(manifestFilePath, "utf8");
-  const rawParsed = parseYaml(rawContent, { schema: "core" });
+  const rawParsed = parseYaml(rawContent);
   const parseRes = harvestBatchManifest.safeParse(rawParsed);
 
   if (!parseRes.success) {

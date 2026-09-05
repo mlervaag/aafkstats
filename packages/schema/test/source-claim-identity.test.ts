@@ -3,7 +3,7 @@ import { cp, mkdtemp, readdir, readFile, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { beforeAll, describe, expect, it } from "vitest";
-import { parse as parseYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "../src/yaml.js";
 import { loadArchive, repoRoot, type Archive } from "../src/load.js";
 import { flattenSourceResults, sourceResultCollection } from "../src/source-result.js";
 import {
@@ -36,7 +36,7 @@ describe("Source Claim Stable Identity & Lineage (PR #207)", () => {
       join(root, "data", "migrations", "source-claim-lineage.yaml"),
       "utf8",
     );
-    lineageManifest = sourceClaimLineageManifest.parse(parseYaml(raw, { schema: "core" }));
+    lineageManifest = sourceClaimLineageManifest.parse(parseYaml(raw));
     index = buildSourceClaimIndex(archive.sourceResults, lineageManifest);
   }, 60_000);
 

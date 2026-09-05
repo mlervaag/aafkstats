@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { readFile } from "node:fs/promises";
-import { parse as parseYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "../src/yaml.js";
 import { loadArchive, repoRoot } from "../src/load.js";
 
 describe("kanonisering av visuell NB-review med streng faksimile-reaudit (PR 196)", async () => {

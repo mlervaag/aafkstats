@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { readFile } from "node:fs/promises";
-import { parse as parseYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "../src/yaml.js";
 import { repoRoot } from "../src/load.js";
 import {
   buildCanonicalPlan,
@@ -109,7 +109,7 @@ describe("NB Visual Review Canonicalization (1945-1984) - PR 200", () => {
 
     const root = repoRoot();
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
-    const manifest = parseYaml(manifestRaw, { schema: "core" });
+    const manifest = parseYaml(manifestRaw);
     const caseObj = manifest.cases.find((c: any) => c.hypothesisId === "medlemsblad-for-aalesunds-fotb-1965-a2c9#1954-007");
     expect(caseObj.canonicalEligibility).toBe("score_conflict");
   });
@@ -133,7 +133,7 @@ describe("NB Visual Review Canonicalization (1945-1984) - PR 200", () => {
   it("negative gate test: rejects non-ready cases even if observed attributes look complete", async () => {
     const root = repoRoot();
     const manifestRaw = await readFile(`${root}/data/discovery/nb-source-result-visual-review-1945-1984.yaml`, "utf8");
-    const manifest = parseYaml(manifestRaw, { schema: "core" });
+    const manifest = parseYaml(manifestRaw);
 
     const pilotNonReady = manifest.cases.filter((c: any) => c.reviewStatus === "visually_reviewed_pilot" && c.canonicalEligibility !== "ready");
     expect(pilotNonReady.length).toBe(35); // 60 pilot total - 25 ready = 35

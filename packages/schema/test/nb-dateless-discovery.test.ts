@@ -1,5 +1,5 @@
 import { readFile } from "node:fs/promises";
-import { parse as parseYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "../src/yaml.js";
 import { describe, expect, it } from "vitest";
 import { repoRoot } from "../src/load.js";
 
@@ -40,7 +40,7 @@ describe("datoløs NB-discovery", () => {
     for (const file of files) {
       const raw = await readFile(`${repoRoot()}/data/discovery/${file}`, "utf8");
       expect(raw).not.toMatch(/^\s+quote:/mu);
-      const ledger = parseYaml(raw, { schema: "core" }) as Ledger;
+      const ledger = parseYaml(raw) as Ledger;
       expect(ledger.contract).toBe("nb-dateless-discovery@1");
       expect(ledger.totals.checked).toBe(ledger.entries.length);
       expect(new Set(ledger.entries.map((entry) => entry.sourceClaimId)).size).toBe(ledger.entries.length);
@@ -71,7 +71,7 @@ describe("datoløs NB-discovery", () => {
     ) as Ledger;
     const knownMatches = new Set<string>();
     const statusRaw = await readFile(`${repoRoot()}/data/discovery/newspaper-enrichment-status.yaml`, "utf8");
-    const status = parseYaml(statusRaw, { schema: "core" }) as { entries: Array<{ matchId: string }> };
+    const status = parseYaml(statusRaw) as { entries: Array<{ matchId: string }> };
     for (const entry of status.entries) knownMatches.add(entry.matchId);
 
     expect(ledger.entries).not.toHaveLength(0);

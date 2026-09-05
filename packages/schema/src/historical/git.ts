@@ -3,7 +3,7 @@ import { promisify } from "node:util";
 import { readdir, readFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { basename, join, relative } from "node:path";
-import { parse as parseYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "../yaml.js";
 import type { z } from "zod";
 
 const execFileAsync = promisify(execFile);
@@ -302,7 +302,7 @@ export async function loadYamlMap<TSchema extends z.ZodTypeAny>(
   for (const [file, content] of contentsMap) {
     let raw: unknown;
     try {
-      raw = parseYaml(content, { schema: "core" });
+      raw = parseYaml(content);
       rawYamls.set(file, raw);
     } catch (err) {
       errors.push({ file, message: `YAML parse error: ${String(err)}` });

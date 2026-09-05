@@ -1,7 +1,7 @@
 import { existsSync } from "node:fs";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import { parse as parseYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "../yaml.js";
 import { z } from "zod";
 import { AAFK_CLUB_ID } from "../entities.js";
 import { loadArchive } from "../load.js";
@@ -247,7 +247,7 @@ function completionFor(matchDate: string, review: NewspaperReviewEntry | undefin
 
 async function readReviewLedger(path: string): Promise<z.infer<typeof reviewLedger>> {
   if (!existsSync(path)) return { contract: "newspaper-enrichment-reviews@2", entries: [] };
-  return reviewLedger.parse(parseYaml(await readFile(path, "utf8"), { schema: "core" }));
+  return reviewLedger.parse(parseYaml(await readFile(path, "utf8")));
 }
 
 function withoutIdentity(entry: NewspaperReviewEntry): Omit<NewspaperReviewEntry, "matchId" | "status" | "evidenceIssues"> {

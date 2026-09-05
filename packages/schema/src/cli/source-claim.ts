@@ -1,7 +1,7 @@
 import { existsSync } from "node:fs";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import { parse as parseYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "../yaml.js";
 import { loadArchive, repoRoot } from "../load.js";
 import { sourceClaimLineageManifest } from "../historical/source-claim-lineage.js";
 import { buildSourceClaimIndex, resolveLegacyHypothesisId } from "../historical/source-claim-registry.js";
@@ -20,7 +20,7 @@ async function main() {
   const lineagePath = join(root, "data", "migrations", "source-claim-lineage.yaml");
   if (existsSync(lineagePath)) {
     const raw = await readFile(lineagePath, "utf8");
-    const parsed = parseYaml(raw, { schema: "core" });
+    const parsed = parseYaml(raw);
     const validated = sourceClaimLineageManifest.safeParse(parsed);
     if (validated.success) lineageManifest = validated.data;
   }

@@ -1,6 +1,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import { parse as parseYaml, stringify as stringifyYaml } from "yaml";
+import { stringify as stringifyYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "../yaml.js";
 import { repoRoot } from "../load.js";
 import type { NewspaperEnrichmentStatus } from "../historical/newspaper-enrichment-status.js";
 
@@ -9,15 +10,15 @@ type Review = { matchId: string; status: string; canonicalLinked: boolean; facsi
 const root = repoRoot(), from = 1980, to = 1999, id = "sunnmorsposten-1980-1999-production";
 const blocks = [[1980, 1984], [1985, 1989], [1990, 1994], [1995, 1999]] as const;
 const comparisons = [[1915, 1924], [1925, 1934], [1935, 1944], [1945, 1951], [1952, 1962], [1963, 1971], [1972, 1978], [1979, 1979], ...blocks] as const;
-const status = parseYaml(await readFile(join(root, "data/discovery/newspaper-enrichment-status.yaml"), "utf8"), { schema: "core" }) as NewspaperEnrichmentStatus;
-const ledger = parseYaml(await readFile(join(root, "data/discovery/newspaper-enrichment-reviews.yaml"), "utf8"), { schema: "core" }) as { entries: Review[] };
+const status = parseYaml(await readFile(join(root, "data/discovery/newspaper-enrichment-status.yaml"), "utf8")) as NewspaperEnrichmentStatus;
+const ledger = parseYaml(await readFile(join(root, "data/discovery/newspaper-enrichment-reviews.yaml"), "utf8")) as { entries: Review[] };
 const entries = status.entries.filter((entry) => inRange(entry.season, from, to));
 const reviews = ledger.entries.filter((entry) => inRange(year(entry), from, to));
 const linked = reviews.filter((entry) => entry.canonicalLinked && entry.issueId && entry.issued);
 const linkedEvidence = reviews.flatMap((entry) => entry.evidenceIssues).filter((entry): entry is EvidenceIssue & { issued: string } => entry.canonicalLinked && entry.issued !== undefined);
 const sourceIds = [...new Set(linkedEvidence.map(sourceId))].sort();
 const sourceInventory = await Promise.all(sourceIds.map(async (sourceId) => {
-  const source = parseYaml(await readFile(join(root, "data/sources", `${sourceId}.yaml`), "utf8"), { schema: "core" }) as { title: string; year: number };
+  const source = parseYaml(await readFile(join(root, "data/sources", `${sourceId}.yaml`), "utf8")) as { title: string; year: number };
   return { sourceId, title: source.title, year: source.year, reviewStatus: "reviewed" };
 }));
 const conflicts = reviews.filter((entry) => entry.conflict && entry.issueId && entry.issued);

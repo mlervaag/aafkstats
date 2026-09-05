@@ -1,5 +1,6 @@
 import { readFile, writeFile } from "node:fs/promises";
-import { parse as parseYaml, stringify as stringifyYaml } from "yaml";
+import { stringify as stringifyYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "../yaml.js";
 import { repoRoot } from "../load.js";
 
 export interface FacsimileReaudit {
@@ -507,9 +508,9 @@ export async function runCanonicalAudit(): Promise<{
 }> {
   const root = repoRoot();
 
-  const candidateQueueRaw = parseYaml(await readFile(`${root}/data/discovery/community-candidate-queue.yaml`, "utf8"), { schema: "core" });
-  const wave1Raw = parseYaml(await readFile(`${root}/data/discovery/community-ai-review-wave-1.yaml`, "utf8"), { schema: "core" });
-  const wave2Raw = parseYaml(await readFile(`${root}/data/discovery/community-ai-review-wave-2.yaml`, "utf8"), { schema: "core" });
+  const candidateQueueRaw = parseYaml(await readFile(`${root}/data/discovery/community-candidate-queue.yaml`, "utf8"));
+  const wave1Raw = parseYaml(await readFile(`${root}/data/discovery/community-ai-review-wave-1.yaml`, "utf8"));
+  const wave2Raw = parseYaml(await readFile(`${root}/data/discovery/community-ai-review-wave-2.yaml`, "utf8"));
 
   const candidates = candidateQueueRaw.candidates as any[];
   const candidateMap = new Map<string, any>();

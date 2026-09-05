@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { readFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { resolve } from "node:path";
-import { parse as parseYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "../src/yaml.js";
 import { repoRoot } from "../src/load.js";
 
 describe("NB Source-Result Wide Retrieval (1945-1984)", () => {

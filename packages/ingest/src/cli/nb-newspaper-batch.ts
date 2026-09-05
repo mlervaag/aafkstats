@@ -1,7 +1,8 @@
 import { parseArgs } from "node:util";
 import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
-import { parse as parseYaml, stringify as stringifyYaml } from "yaml";
+import { stringify as stringifyYaml } from "yaml";
+import { parseArchiveYaml as parseYaml } from "@aafkstats/schema/yaml";
 import { dataDir, loadArchive, repoRoot } from "@aafkstats/schema/load";
 import { assertMayFetch } from "../policy.js";
 import { AAFK_CLUB_ID } from "@aafkstats/schema";
@@ -66,7 +67,7 @@ if (args.values.dateless) {
     ...(season === undefined ? { from, to } : { season }),
   });
   if (args.values["closure-queue-only"]) {
-    const closure = parseYaml(await readFile(join(dataDir(), "discovery", "discovery-closure-status.yaml"), "utf8"), { schema: "core" }) as {
+    const closure = parseYaml(await readFile(join(dataDir(), "discovery", "discovery-closure-status.yaml"), "utf8")) as {
       closureQueue?: { needsVisualReview?: string[]; requiresRevalidation?: string[] };
     };
     const active = new Set([
