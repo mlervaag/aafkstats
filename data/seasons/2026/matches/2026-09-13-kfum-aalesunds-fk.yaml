@@ -2,7 +2,7 @@ id: 2026-09-13-kfum-aalesunds-fk
 date: 2026-09-13
 dateConfidence: exact
 kickoff: 17:00
-status: scheduled
+status: played
 competition:
   id: eliteserien
   season: 2026
@@ -10,27 +10,181 @@ competition:
   round: 21
 home:
   clubId: kfum
-  score: null
-  halfTimeScore: null
+  score: 2
+  halfTimeScore: 2
 away:
   clubId: aalesunds-fk
-  score: null
-  halfTimeScore: null
+  score: 1
+  halfTimeScore: 1
 venueId: kfum-arena
 neutralVenue: false
-events: []
+attendance: 1466
+referee: Christian Moen
+events:
+  - minute: 5
+    type: yellow_card
+    team: away
+    player: Cheikh Mbacke Diop
+  - minute: 6
+    type: missed_penalty
+    team: home
+    player: Eirik Saunes
+  - minute: 10
+    type: goal
+    team: home
+    player: Bilal Njie
+    assist: Bjørn Martin Kristensen
+  - minute: 32
+    type: yellow_card
+    team: away
+    player: Sander Erik Kartum
+  - minute: 39
+    type: goal
+    team: away
+    player: Marcus Haagensen Reed
+  - minute: 45
+    stoppage: 3
+    type: goal
+    team: home
+    player: Håkon Hoseth
+    assist: Martin Tangen Vinjor
+  - minute: 53
+    type: yellow_card
+    team: away
+    player: Ólafur Guðmundsson
+  - minute: 56
+    type: substitution
+    team: home
+    player: Ola Visted
+    playerOff: David Hickson Gyedu
+  - minute: 56
+    type: substitution
+    team: home
+    player: Daniel Schneider
+    playerOff: Håkon Røsten
+  - minute: 60
+    type: yellow_card
+    team: away
+    player: Luca Podlech
+  - minute: 61
+    type: yellow_card
+    team: home
+    player: Daniel Schneider
+  - minute: 64
+    type: substitution
+    team: away
+    player: Stefano Holmquist Vecchia
+    playerOff: Sander Erik Kartum
+  - minute: 64
+    type: substitution
+    team: away
+    player: Jakob Nyland Ørsahl
+    playerOff: Kristoffer Nessø
+  - minute: 71
+    type: substitution
+    team: home
+    player: Julian Bakkeli Gonstad
+    playerOff: Bilal Njie
+  - minute: 71
+    type: substitution
+    team: home
+    player: Rasmus Eggen Vinge
+    playerOff: Bjørn Martin Kristensen
+  - minute: 73
+    type: substitution
+    team: away
+    player: Elias Heggland Myrlid
+    playerOff: Isak Gabriel Skotheim
+  - minute: 73
+    type: substitution
+    team: away
+    player: Simen Haram
+    playerOff: Marius Andresen
+  - minute: 77
+    type: yellow_card
+    team: away
+    player: Simen Haram
+  - minute: 88
+    type: substitution
+    team: home
+    player: Brage Tobiassen
+    playerOff: Martin Tangen Vinjor
+  - minute: 89
+    type: yellow_card
+    team: away
+    player: Kjetil Rekdal
 lineups:
   home:
-    starters: []
-    subs: []
+    formation: 3-4-2-1
+    starters:
+      - Emil Ødegaard
+      - Håkon Røsten
+      - Fredrik Tobias Berglie
+      - Brage Skaret
+      - Håkon Hoseth
+      - Martin Tangen Vinjor
+      - Eirik Saunes
+      - Jonas Lange Hjorth
+      - David Hickson Gyedu
+      - Bilal Njie
+      - Bjørn Martin Kristensen
+    subs:
+      - Daniel Schneider
+      - Ola Visted
+      - Julian Bakkeli Gonstad
+      - Rasmus Eggen Vinge
+      - Brage Tobiassen
+      - Håvar Jenssen
+      - Amin Nouri
+      - Sander Sjökvist
+      - Magnus Wolff Eikrem
+    coach: Jørgen Isnes
   away:
-    starters: []
-    subs: []
+    formation: 5-3-2
+    starters:
+      - Luca Podlech
+      - Marius Andresen
+      - Cheikh Mbacke Diop
+      - Ólafur Guðmundsson
+      - Kristoffer Nessø
+      - Uba Charles
+      - Mathias Christensen
+      - Elias Hagen
+      - Sander Erik Kartum
+      - Isak Gabriel Skotheim
+      - Marcus Haagensen Reed
+    subs:
+      - Jakob Nyland Ørsahl
+      - Stefano Holmquist Vecchia
+      - Simen Haram
+      - Elias Heggland Myrlid
+      - Tor Erik Valderhaug Larsen
+      - Emil Engqvist
+      - Tobias Leikanger
+      - Endre Osenbroch
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 39
+    shots: 9
+    shotsOnTarget: 5
+    corners: 6
+    fouls: 10
+    offsides: 0
+    xg: 1.48
+  away:
+    possession: 61
+    shots: 19
+    shotsOnTarget: 3
+    corners: 4
+    fouls: 15
+    offsides: 0
+    xg: 1.57
 externalReports: []
 providers:
   - providerId: fotmob
     url: https://www.fotmob.com/matches/kfum-vs-aalesund/y5bh7#5105007
-    retrievedAt: 2026-09-05
+    retrievedAt: 2026-09-14
     fields:
       - date
       - kickoff
@@ -38,9 +192,18 @@ providers:
       - competition
       - home.clubId
       - away.clubId
+      - home.score
+      - away.score
       - competition.round
+      - attendance
       - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
       - lineups
+    note: "Kildestatus: FT"
 sources: []
 confidence: probable
 conflicts: []
