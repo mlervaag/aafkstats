@@ -1,0 +1,218 @@
+id: 2026-09-16-forde-aalesunds-fk
+date: 2026-09-16
+dateConfidence: exact
+kickoff: 17:00
+status: played
+competition:
+  id: nm
+  season: 2026
+  stage: regular_season
+  round: 2
+home:
+  clubId: forde
+  score: 2
+  halfTimeScore: 2
+away:
+  clubId: aalesunds-fk
+  score: 2
+  halfTimeScore: 0
+extraTime:
+  home: 1
+  away: 2
+venueId: forde-stadion
+neutralVenue: false
+events:
+  - minute: 3
+    type: red_card
+    team: away
+    player: Luca Podlech
+  - minute: 5
+    type: substitution
+    team: away
+    player: Philip Storås
+    playerOff: Marius Andresen
+  - minute: 7
+    type: penalty_goal
+    team: home
+    player: Vegard Lorgen
+  - minute: 11
+    type: goal
+    team: home
+    player: Vegard Lorgen
+  - minute: 31
+    type: substitution
+    team: away
+    player: Mathias Christensen
+    playerOff: Mathias Kristensen
+  - minute: 31
+    type: substitution
+    team: away
+    player: Elias Hagen
+    playerOff: Tobias Leikanger
+  - minute: 39
+    type: substitution
+    team: home
+    player: Mathias Sagevik
+    playerOff: Vegard Savland
+  - minute: 46
+    type: substitution
+    team: away
+    player: Isak Gabriel Skotheim
+    playerOff: Ulrik Valderhaug Syversen
+  - minute: 54
+    type: yellow_card
+    team: away
+    player: Mathias Christensen
+  - minute: 62
+    type: substitution
+    team: home
+    player: Elias Loekkeboe Lekva
+    playerOff: Gaute Sunde Sandal
+  - minute: 65
+    type: substitution
+    team: away
+    player: Ivan Djantou
+    playerOff: Stefano Holmquist Vecchia
+  - minute: 65
+    type: yellow_card
+    team: home
+    player: Sander Hagen Kjelsnes
+  - minute: 79
+    type: yellow_card
+    team: home
+    player: Haavard Lorgen
+  - minute: 89
+    type: goal
+    team: away
+    player: Elias Heggland Myrlid
+    assist: Jakob Nyland Ørsahl
+  - minute: 90
+    type: substitution
+    team: home
+    player: Vegard Otterlei Floeholm
+    playerOff: Sander Hagen Kjelsnes
+  - minute: 90
+    type: substitution
+    team: home
+    player: Daniel Gjelsvik
+    playerOff: Elias Loekkeboe Lekva
+  - minute: 90
+    stoppage: 1
+    type: goal
+    team: away
+    player: Elias Hagen
+  - minute: 90
+    stoppage: 5
+    type: yellow_card
+    team: away
+    player: Elias Heggland Myrlid
+  - minute: 94
+    type: goal
+    team: away
+    player: Ivan Djantou
+  - minute: 95
+    type: yellow_card
+    team: home
+    player: Sander Loekkeboe Lekva
+  - minute: 101
+    type: substitution
+    team: home
+    player: Henrik Sunde Sandal
+    playerOff: Isaac Twum
+  - minute: 106
+    type: substitution
+    team: away
+    player: Cheikh Mbacke Diop
+    playerOff: Elias Hagen
+  - minute: 107
+    type: goal
+    team: home
+    player: Daniel Gjelsvik
+    assist: Vegard Lorgen
+  - minute: 110
+    type: yellow_card
+    team: away
+    player: Elias Hagen
+  - minute: 115
+    type: goal
+    team: away
+    player: Elias Heggland Myrlid
+lineups:
+  home:
+    formation: 4-5-1
+    starters:
+      - Elias Hårvik Tvedt
+      - Sander Loekkeboe Lekva
+      - Ola Rognebakke
+      - Elias Rognebakke
+      - Sander Hagen Kjelsnes
+      - Gaute Sunde Sandal
+      - Vegard Lorgen
+      - Isaac Twum
+      - Mathias Sunde Årdal
+      - Haavard Lorgen
+      - Vegard Savland
+    subs:
+      - Mathias Sagevik
+      - Elias Loekkeboe Lekva
+      - Vegard Otterlei Floeholm
+      - Daniel Gjelsvik
+      - Henrik Sunde Sandal
+      - Ola Lavik Gilleshammer
+      - Arne Morten Vilnes Oeen
+      - Liam Bruflot Undeland
+      - Ovar Undheim Høyland
+    coach: Alexander Lekva
+  away:
+    formation: 3-5-2
+    starters:
+      - Luca Podlech
+      - Marius Andresen
+      - Ulrik Valderhaug Syversen
+      - Ólafur Guðmundsson
+      - Kristoffer Nessø
+      - Tobias Leikanger
+      - Mathias Kristensen
+      - Sander Erik Kartum
+      - Jakob Nyland Ørsahl
+      - Stefano Holmquist Vecchia
+      - Elias Heggland Myrlid
+    subs:
+      - Philip Storås
+      - Elias Hagen
+      - Mathias Christensen
+      - Isak Gabriel Skotheim
+      - Ivan Djantou
+      - Cheikh Mbacke Diop
+      - Jakob Roenningen
+      - Philip Sandvik Aukland
+    coach: Kjetil Rekdal
+externalReports: []
+providers:
+  - providerId: fotmob
+    url: https://www.fotmob.com/matches/forde-vs-aalesund/1uhbc4#6144851
+    retrievedAt: 2026-09-17
+    fields:
+      - date
+      - kickoff
+      - status
+      - competition
+      - home.clubId
+      - away.clubId
+      - home.score
+      - away.score
+      - competition.round
+      - venueId
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - extraTime
+      - events
+      - lineups
+    note: "Kildestatus: AET"
+sources: []
+confidence: probable
+conflicts: []
+tags: []
+aliases:
+  fotmob: "6144851"
+manual: []

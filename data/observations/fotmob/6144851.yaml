@@ -1,0 +1,57 @@
+providerId: fotmob
+externalId: "6144851"
+matchId: 2026-09-16-forde-aalesunds-fk
+retrievedAt: 2026-09-17
+adapter: fotmob@5
+payloadHash: sha256:6cb52dd412638e0855f7cec270d53f01666ff411980dea072d30df49d89ed29d
+raw:
+  externalId: "6144851"
+  date: 2026-09-16
+  kickoff: 17:00
+  status: AET
+  home: Førde
+  homeId: "6539"
+  away: Aalesund
+  awayId: "8404"
+  homeScore: 2
+  awayScore: 2
+  homeHalfTime: 2
+  awayHalfTime: 0
+  competition: Cup
+  competitionId: "206"
+  season: 2026
+  round: 2
+  venue: Førde Stadion
+  url: https://www.fotmob.com/matches/forde-vs-aalesund/1uhbc4#6144851
+normalized:
+  date: 2026-09-16
+  kickoff: 17:00
+  status: played
+  home.clubId: forde
+  away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 2
+  home.halfTimeScore: 2
+  away.halfTimeScore: 0
+  competition.id: nm
+  competition.season: 2026
+  competition.round: 2
+  competition.stage: regular_season
+  venueId: forde-stadion
+fields:
+  - date
+  - kickoff
+  - status
+  - competition
+  - home.clubId
+  - away.clubId
+  - home.score
+  - away.score
+  - competition.round
+  - venueId
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - extraTime
+  - events
+  - lineups
+warnings: []
