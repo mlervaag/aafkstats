@@ -1,9 +1,9 @@
 providerId: fotmob
 externalId: "5105007"
 matchId: 2026-09-13-kfum-aalesunds-fk
-retrievedAt: 2026-09-14
+retrievedAt: 2026-09-20
 adapter: fotmob@5
-payloadHash: sha256:23c57997d62a8e1d1b4880645ba3fbde6fb9f1fa2c687ff070734313273de956
+payloadHash: sha256:14f849ce3b6342d3926cde4ffadbb0f7f6ecec83ec9189df0d1edc51526891ef
 raw:
   externalId: "5105007"
   date: 2026-09-13
@@ -15,15 +15,10 @@ raw:
   awayId: "8404"
   homeScore: 2
   awayScore: 1
-  homeHalfTime: 2
-  awayHalfTime: 1
   competition: Eliteserien
   competitionId: "59"
   season: 2026
   round: 21
-  venue: KFUM Arena
-  attendance: 1466
-  referee: Christian Moen
   url: https://www.fotmob.com/matches/kfum-vs-aalesund/y5bh7#5105007
 normalized:
   date: 2026-09-13
@@ -33,15 +28,10 @@ normalized:
   away.clubId: aalesunds-fk
   home.score: 2
   away.score: 1
-  home.halfTimeScore: 2
-  away.halfTimeScore: 1
   competition.id: eliteserien
   competition.season: 2026
   competition.round: 21
   competition.stage: regular_season
-  venueId: kfum-arena
-  attendance: 1466
-  referee.name: Christian Moen
 fields:
   - date
   - kickoff
@@ -52,12 +42,4 @@ fields:
   - home.score
   - away.score
   - competition.round
-  - attendance
-  - venueId
-  - referee
-  - home.halfTimeScore
-  - away.halfTimeScore
-  - events
-  - stats
-  - lineups
 warnings: []
