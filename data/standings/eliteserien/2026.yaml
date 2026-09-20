@@ -4,13 +4,13 @@ table:
   - position: 1
     name: Bodø/Glimt
     clubId: bodo-glimt
-    played: 19
-    wins: 15
+    played: 20
+    wins: 16
     draws: 2
     losses: 2
-    goalsFor: 49
-    goalsAgainst: 15
-    points: 47
+    goalsFor: 52
+    goalsAgainst: 17
+    points: 50
     outcome: none
   - position: 2
     name: Viking
@@ -26,12 +26,12 @@ table:
   - position: 3
     name: Molde
     clubId: molde-fk
-    played: 20
+    played: 21
     wins: 11
     draws: 3
-    losses: 6
-    goalsFor: 43
-    goalsAgainst: 30
+    losses: 7
+    goalsFor: 44
+    goalsAgainst: 32
     points: 36
     outcome: none
   - position: 4
@@ -46,6 +46,17 @@ table:
     points: 35
     outcome: none
   - position: 5
+    name: Rosenborg
+    clubId: rosenborg-bk
+    played: 21
+    wins: 10
+    draws: 3
+    losses: 8
+    goalsFor: 39
+    goalsAgainst: 30
+    points: 33
+    outcome: none
+  - position: 6
     name: Lillestrøm
     clubId: lillestrom
     played: 20
@@ -55,17 +66,6 @@ table:
     goalsFor: 28
     goalsAgainst: 26
     points: 32
-    outcome: none
-  - position: 6
-    name: Rosenborg
-    clubId: rosenborg-bk
-    played: 20
-    wins: 9
-    draws: 3
-    losses: 8
-    goalsFor: 36
-    goalsAgainst: 29
-    points: 30
     outcome: none
   - position: 7
     name: Fredrikstad
@@ -92,15 +92,26 @@ table:
   - position: 9
     name: Sarpsborg 08
     clubId: sarpsborg-08
-    played: 20
+    played: 21
     wins: 6
     draws: 7
-    losses: 7
-    goalsFor: 23
-    goalsAgainst: 26
+    losses: 8
+    goalsFor: 24
+    goalsAgainst: 29
     points: 25
     outcome: none
   - position: 10
+    name: KFUM
+    clubId: kfum
+    played: 21
+    wins: 7
+    draws: 4
+    losses: 10
+    goalsFor: 25
+    goalsAgainst: 35
+    points: 25
+    outcome: none
+  - position: 11
     name: Hamarkameratene
     clubId: hamarkameratene
     played: 20
@@ -111,7 +122,7 @@ table:
     goalsAgainst: 41
     points: 23
     outcome: none
-  - position: 11
+  - position: 12
     name: Vålerenga
     clubId: valerenga
     played: 20
@@ -122,49 +133,38 @@ table:
     goalsAgainst: 42
     points: 22
     outcome: none
-  - position: 12
-    name: KFUM
-    clubId: kfum
-    played: 20
-    wins: 6
-    draws: 4
-    losses: 10
-    goalsFor: 22
-    goalsAgainst: 34
-    points: 22
-    outcome: none
   - position: 13
-    name: Sandefjord
-    clubId: sandefjord
-    played: 19
-    wins: 5
-    draws: 5
-    losses: 9
-    goalsFor: 16
-    goalsAgainst: 24
-    points: 20
-    outcome: none
-  - position: 14
-    name: Kristiansund
-    clubId: kristiansund
-    played: 20
-    wins: 5
-    draws: 4
-    losses: 11
-    goalsFor: 20
-    goalsAgainst: 37
-    points: 19
-    outcome: none
-  - position: 15
     name: Aalesund
     clubId: aalesunds-fk
-    played: 20
-    wins: 3
+    played: 21
+    wins: 4
     draws: 9
     losses: 8
-    goalsFor: 31
-    goalsAgainst: 45
-    points: 18
+    goalsFor: 33
+    goalsAgainst: 46
+    points: 21
+    outcome: none
+  - position: 14
+    name: Sandefjord
+    clubId: sandefjord
+    played: 20
+    wins: 5
+    draws: 5
+    losses: 10
+    goalsFor: 18
+    goalsAgainst: 27
+    points: 20
+    outcome: none
+  - position: 15
+    name: Kristiansund
+    clubId: kristiansund
+    played: 21
+    wins: 5
+    draws: 4
+    losses: 12
+    goalsFor: 21
+    goalsAgainst: 40
+    points: 19
     outcome: none
   - position: 16
     name: Start
@@ -278,13 +278,18 @@ progression:
     points: 18
     played: 20
     goalDifference: -14
+  - round: 22
+    position: 13
+    points: 21
+    played: 21
+    goalDifference: -13
 providers:
   - providerId: fotmob
     url: https://www.fotmob.com/leagues/59/table?season=2026
-    retrievedAt: 2026-09-14
+    retrievedAt: 2026-09-20
     fields:
       - table
       - progression
     note: Lest med fotmob-table@1. Tabellen er hentet; kurven er regnet ut av divisjonens runder i samme svar.
 sources: []
-note: "Tabellen er hentet mens sesongen pågår: 159 av 240 kamper i divisjonen er spilt. Ingen rad har utfall ennå."
+note: "Tabellen er hentet mens sesongen pågår: 163 av 240 kamper i divisjonen er spilt. Ingen rad har utfall ennå."

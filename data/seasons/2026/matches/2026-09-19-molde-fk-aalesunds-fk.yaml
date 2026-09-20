@@ -2,7 +2,7 @@ id: 2026-09-19-molde-fk-aalesunds-fk
 date: 2026-09-19
 dateConfidence: exact
 kickoff: 18:00
-status: scheduled
+status: played
 competition:
   id: eliteserien
   season: 2026
@@ -10,27 +10,182 @@ competition:
   round: 22
 home:
   clubId: molde-fk
-  score: null
-  halfTimeScore: null
+  score: 1
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
-  score: null
-  halfTimeScore: null
+  score: 2
+  halfTimeScore: 2
 venueId: aker-stadion
 neutralVenue: false
-events: []
+referee: Rohit Saggi
+events:
+  - minute: 7
+    type: goal
+    team: away
+    player: Mathias Christensen
+    assist: Uba Charles
+  - minute: 32
+    type: yellow_card
+    team: away
+    player: Marius Andresen
+  - minute: 44
+    type: goal
+    team: away
+    player: Isak Gabriel Skotheim
+  - minute: 46
+    type: substitution
+    team: home
+    player: Caleb Zady Sery
+    playerOff: Trent Koné-Doherty
+  - minute: 46
+    type: substitution
+    team: home
+    player: Mathias Fjørtoft Løvik
+    playerOff: Oskar Spiten-Nysæter
+  - minute: 46
+    type: substitution
+    team: home
+    player: Mats Møller Dæhli
+    playerOff: Samukele Kabini
+  - minute: 47
+    type: yellow_card
+    team: home
+    player: Sindre Tjelmeland
+  - minute: 58
+    type: var_decision
+    team: away
+    player: Luca Podlech
+  - minute: 61
+    type: yellow_card
+    team: away
+    player: Luca Podlech
+  - minute: 70
+    type: yellow_card
+    team: home
+    player: Niklas Ødegård
+  - minute: 71
+    type: substitution
+    team: home
+    player: Kristian Hemmingsen Lonebu
+    playerOff: Martin Linnes
+  - minute: 76
+    type: var_decision
+    team: home
+    player: Jalal Abdullai
+  - minute: 79
+    type: substitution
+    team: away
+    player: Sander Erik Kartum
+    playerOff: Isak Gabriel Skotheim
+  - minute: 79
+    type: substitution
+    team: home
+    player: Sander Hestetun Kilen
+    playerOff: Fredrik Kristensen Dahl
+  - minute: 79
+    type: substitution
+    team: away
+    player: Elias Heggland Myrlid
+    playerOff: Marcus Haagensen Reed
+  - minute: 79
+    type: substitution
+    team: away
+    player: Simen Haram
+    playerOff: Aleksander Hammer Kjelsen
+  - minute: 82
+    type: goal
+    team: home
+    player: Kristian Hemmingsen Lonebu
+    assist: Emil Breivik
+  - minute: 85
+    type: substitution
+    team: away
+    player: Tobias Leikanger
+    playerOff: Endre Osenbroch
+  - minute: 90
+    stoppage: 7
+    type: yellow_card
+    team: away
+    player: Mathias Christensen
+  - minute: 90
+    stoppage: 11
+    type: yellow_card
+    team: away
+    player: Tor Erik Valderhaug Larsen
 lineups:
   home:
-    starters: []
-    subs: []
+    formation: 4-2-3-1
+    starters:
+      - Albert Posiadała
+      - Martin Linnes
+      - Niklas Ødegård
+      - Fredrik Kristensen Dahl
+      - Samukele Kabini
+      - Emil Breivik
+      - Daniel Daga
+      - Trent Koné-Doherty
+      - Sondre Milian Granaas
+      - Oskar Spiten-Nysæter
+      - Jalal Abdullai
+    subs:
+      - Mathias Fjørtoft Løvik
+      - Mats Møller Dæhli
+      - Caleb Zady Sery
+      - Kristian Hemmingsen Lonebu
+      - Sander Hestetun Kilen
+      - Peder Hoel Lervik
+      - Daniel Bayam Sylte
+      - Ulrik Langlie Skrede
+      - Viktor Bender
+    coach: Sindre Tjelmeland
   away:
-    starters: []
-    subs: []
+    formation: 5-3-2
+    starters:
+      - Luca Podlech
+      - Marius Andresen
+      - Cheikh Mbacke Diop
+      - Aleksander Hammer Kjelsen
+      - Kristoffer Nessø
+      - Uba Charles
+      - Mathias Christensen
+      - Elias Hagen
+      - Endre Osenbroch
+      - Isak Gabriel Skotheim
+      - Marcus Haagensen Reed
+    subs:
+      - Simen Haram
+      - Sander Erik Kartum
+      - Elias Heggland Myrlid
+      - Tobias Leikanger
+      - Tor Erik Valderhaug Larsen
+      - Emil Engqvist
+      - Ulrik Valderhaug Syversen
+      - Jakob Nyland Ørsahl
+      - Storm Karlsson Knutsen
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 68
+    shots: 16
+    shotsOnTarget: 8
+    corners: 10
+    fouls: 19
+    offsides: 3
+    xg: 1.62
+  away:
+    possession: 32
+    shots: 12
+    shotsOnTarget: 5
+    corners: 6
+    fouls: 12
+    offsides: 0
+    xg: 1.05
 externalReports: []
 providers:
   - providerId: fotmob
     url: https://www.fotmob.com/matches/aalesund-vs-molde/2rxkt2#5105016
-    retrievedAt: 2026-09-14
+    retrievedAt: 2026-09-20
     fields:
       - date
       - kickoff
@@ -38,9 +193,17 @@ providers:
       - competition
       - home.clubId
       - away.clubId
+      - home.score
+      - away.score
       - competition.round
       - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
       - lineups
+    note: "Kildestatus: FT"
 sources: []
 confidence: probable
 conflicts: []
