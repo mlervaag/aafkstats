@@ -14,6 +14,7 @@
 | [Historisk kildeinnhøsting](HISTORISK_KILDEINNHOSTING_RUNBOOK.md) | Produksjonsstandard for manuell/semi-maskinell kildeinnhøsting |
 | [NB resolve](NB_RESOLVE_RUNBOOK.md) | Hvordan maskinelt NB-uttrekk resolves og applies |
 | [Medlemsblad](MEDLEMSBLAD_INNHOSTING.md) | Kildeprofil og spesialregler for AaFK Medlemsblad |
+| [Jev-pilot for avis-OCR](JEV_NEWSPAPER_PILOT.md) | Hvordan Jev evalueres og kan brukes til å rangere NB-discovery uten å forkaste kilder |
 | [Review-mal for kilde](data/HISTORISK_KILDE_REVIEW_TEMPLATE.md) | Standardmal for enkeltkilde-review |
 | [Batchrapport-mal](data/HISTORISK_KILDE_BATCH_TEMPLATE.md) | Standardmal for flerårige samlerapporter |
 

@@ -57,6 +57,8 @@
     "data:nb-newspaper-review": "pnpm --filter @aafkstats/ingest run nb-newspaper-review",
     "ingest:nb-newspaper-discover": "pnpm --filter @aafkstats/ingest run nb-newspaper-discover",
     "ingest:nb-newspaper-sibling-pilot": "pnpm --filter @aafkstats/ingest run nb-newspaper-sibling-pilot",
+    "research:jev-newspaper-pilot": "pnpm --filter @aafkstats/ingest run jev-newspaper-pilot",
+    "research:jev-newspaper-raw-holdout": "pnpm --filter @aafkstats/ingest run jev-newspaper-raw-holdout",
     "data:nb-dateless-canonical-review": "pnpm --filter @aafkstats/ingest run nb-dateless-canonical-review",
     "ingest:sfk-annual-reports": "pnpm --filter @aafkstats/ingest run sfk-annual-reports",
 
