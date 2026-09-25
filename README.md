@@ -391,7 +391,7 @@ ingen IP-adresse, så det trengs ikke samtykkebanner — men de må skrus på i 
 | `ask-submitted` / `ask-answered` | Blir spørrefunksjonen brukt, og gir den svar eller feiler den? |
 | `followup-shown` / `followup-yes` / `followup-no` | Er de sjeldne oppfølgingsforslagene nyttige? |
 | `answer-copied` | Kopierer brukerne arkivsvarene? |
-| `match-opened` / `person-opened` / `source-opened` | Traff direktesøket, målt på at noen faktisk åpnet et treff |
+| `match-opened` / `person-opened` / `source-opened` / `observation-opened` | Traff direktesøket, målt på at noen faktisk åpnet et treff |
 | `verification-started` / `verification-source-opened` / `verification-skipped` | Hvor i den manuelle kontrollflyten kommer bidragsyterne? |
 | `verification-submitted` | Blir dokumenterte svar sendt, eller feiler innsendingen? |
 | `contribution-opened` / `contribution-submitted` | Blir skjemaet for minner og observasjoner brukt, og virker innsendingen? |
