@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { DirectResults, openFirstDirectResult, useDirectSearch } from "@/components/DirectSearch";
 
 export function GlobalSearch() {
@@ -10,9 +10,28 @@ export function GlobalSearch() {
   const { data, state, show } = useDirectSearch(query);
 
   function open() {
+    if (dialogRef.current?.open) return;
     dialogRef.current?.showModal();
     requestAnimationFrame(() => inputRef.current?.focus());
   }
+
+  /**
+   * «/» og Ctrl/⌘+K åpner søket fra hvor som helst på siden, slik de gjør på de
+   * fleste nettsteder med søk. «/» ignoreres mens noen skriver i et felt — ellers
+   * ville en skråstrek i spørsmålsboksen eller bidragsskjemaet stjålet fokus.
+   */
+  useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.defaultPrevented || event.isComposing) return;
+      const shortcut = (event.key === "k" || event.key === "K") && (event.metaKey || event.ctrlKey);
+      const slash = event.key === "/" && !event.metaKey && !event.ctrlKey && !event.altKey && !isEditable(event.target);
+      if (!shortcut && !slash) return;
+      event.preventDefault();
+      open();
+    }
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
 
   function close() {
     dialogRef.current?.close();
@@ -25,7 +44,7 @@ export function GlobalSearch() {
 
   return (
     <div className="global-search">
-      <button className="header-control" type="button" onClick={open}>
+      <button className="header-control" type="button" onClick={open} aria-keyshortcuts="/ Control+K Meta+K">
         Søk
       </button>
       <dialog
@@ -88,4 +107,9 @@ export function GlobalSearch() {
       </dialog>
     </div>
   );
+}
+
+function isEditable(target: EventTarget | null): boolean {
+  if (!(target instanceof HTMLElement)) return false;
+  return target.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName);
 }

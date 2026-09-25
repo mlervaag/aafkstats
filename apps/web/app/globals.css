@@ -390,7 +390,9 @@ table,
 .match-result-link:focus-visible { background: var(--accent-soft); }
 .person-result-link {
   display: grid;
-  grid-template-columns: 4.5rem minmax(10rem, 1fr) minmax(10rem, 1fr) auto;
+  /* Første spor er bredt nok til den lengste merkelappen («Observasjon»). Hver
+     rad er sitt eget rutenett, så et auto-spor ville gitt ulik innrykk per treff. */
+  grid-template-columns: 6.5rem minmax(10rem, 1fr) minmax(10rem, 1fr) auto;
   align-items: center;
   gap: 0.8rem;
   padding: 0.7rem 0.9rem;
@@ -409,6 +411,13 @@ table,
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+}
+.result-excerpt {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
 }
 .result-opponent {
   display: flex;
@@ -544,9 +553,13 @@ table,
   .dot { animation: none; opacity: 0.7; }
 }
 
+/* `minmax(0, 1fr)` og ikke standardsporet: kildebrikkene står på én linje, og et
+   auto-spor ble like bredt som den lengste brikken. I et banekort på 375 piksler
+   presset det hele siden ut i vannrett skroll. */
 .historical-observation-list {
   list-style: none;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.25rem;
   margin: 1rem 0 0;
   padding: 0;
@@ -787,12 +800,17 @@ th { font-weight: 600; }
   .result-opponent { grid-column: 1; grid-row: 2; }
   .match-result-link > .score { grid-column: 2; grid-row: 1 / span 2; font-size: 1.1rem; }
   .match-result-link > .small { grid-column: 1 / -1; grid-row: 3; }
+  /* Merkelappen får egen linje over navnet. Ved siden av tok den en tredjedel av
+     bredden, og en lang tittel ble presset ned i en smal stripe. */
   .person-result-link {
-    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) auto;
     gap: 0.25rem 0.6rem;
     padding: 0.75rem;
   }
-  .person-result-link > .small { grid-column: 2 / -1; }
+  .person-result-link > .result-kind { grid-column: 1 / -1; grid-row: 1; }
+  .person-result-link > strong { grid-column: 1; grid-row: 2; }
+  .person-result-link > .num { grid-column: 2; grid-row: 2; }
+  .person-result-link > .small { grid-column: 1 / -1; grid-row: 3; }
   .answer { padding: 1rem; }
   .queries pre { font-size: 0.75rem; }
   table { min-width: 38rem; }

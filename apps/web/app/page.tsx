@@ -58,6 +58,9 @@ function coveredCompetitions(): string {
  */
 export const revalidate = 3600;
 
+/** Tusenskille som i resten av arkivet: «1 724», ikke «1724». */
+const count = (value: number) => value.toLocaleString("nb-NO");
+
 export default function Home() {
   const { recent, totals } = loadOverview();
   const next = loadNextMatch();
@@ -66,7 +69,7 @@ export default function Home() {
       <section className="hero">
         <div>
           <p className="eyebrow">Uoffisielt historisk arkiv</p>
-          <h1>{totals.matches} kampoppføringer.<br />Ett sted å lete.</h1>
+          <h1>{count(totals.matches)} kampoppføringer.<br />Ett sted å lete.</h1>
           {/* «Serie og cup» sto her mens arkivet også hadde europacup og
               treningskamper. Setningen leses av hver besøkende og var det siste
               stedet dekningen fortsatt ble påstått for hånd. */}
@@ -81,7 +84,7 @@ export default function Home() {
             opplysningen som endrer seg mellom besøkene. */}
         <div className="hero-side">
           <dl className="hero-stats">
-            <div><dt>Registrert</dt><dd>{totals.matches}</dd></div>
+            <div><dt>Registrert</dt><dd>{count(totals.matches)}</dd></div>
             {/* «Sesonger» leses som hele sesonger, og tallet er noe annet: år
                 med minst én registrert kamp. Ordet er byttet, ikke tallet. */}
             <div><dt>År</dt><dd>{totals.seasons}</dd></div>
@@ -92,7 +95,7 @@ export default function Home() {
               som binder dem sammen leses som en feil. Her står forskjellen. */}
           {(totals.upcoming > 0 || totals.otherStatus > 0) && (
             <p className="small muted hero-stats-note">
-              {totals.played} spilte · {totals.upcoming} på terminlista
+              {count(totals.played)} spilte · {totals.upcoming} på terminlista
               {totals.otherStatus > 0 ? ` · ${totals.otherStatus} med annen status` : ""}
             </p>
           )}

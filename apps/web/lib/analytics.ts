@@ -39,6 +39,8 @@ interface EventProperties {
   "person-opened": { position: number };
   /** Noen åpnet en historisk kilde fra direktesøket. */
   "source-opened": { position: number };
+  /** Noen åpnet en historisk observasjon fra direktesøket. */
+  "observation-opened": { position: number };
   /** Modellen foreslo ett konkret neste arkivoppslag. */
   "followup-shown": Record<string, never>;
   /** Brukeren fortsatte med forslaget. */

@@ -3,7 +3,7 @@
 import { useDeferredValue, useEffect, useState } from "react";
 import type { SearchMatch, SearchObservation, SearchPerson, SearchSource } from "@/lib/search";
 import { trackEvent } from "@/lib/analytics";
-import { formatDateShort } from "@/lib/date";
+import { formatDateShort, formatObservationDate } from "@/lib/date";
 import { readableScore } from "@/lib/score";
 
 export interface DirectSearchData {
@@ -87,6 +87,7 @@ export function openFirstDirectResult(data: DirectSearchData): void {
   if (target.kind === "person") trackEvent("person-opened", { position: target.position });
   else if (target.kind === "source") trackEvent("source-opened", { position: target.position });
   else if (target.kind === "match") trackEvent("match-opened", { position: target.position });
+  else if (target.kind === "observation") trackEvent("observation-opened", { position: target.position });
   window.location.assign(target.url);
 }
 
@@ -136,12 +137,21 @@ export function DirectResults({
   );
 }
 
-function ObservationResult({ observation, position: _position }: { observation: SearchObservation; position: number }) {
-  return <li><a className="person-result-link" href={observation.url}>
-    <span className="result-kind">Historisk observasjon</span>
+/**
+ * Beskrivelsen er hele observasjonsteksten, ofte flere setninger. Den kuttes
+ * visuelt etter tre linjer: treffet skal kjennes igjen, ikke leses i søket.
+ * Datoen vises som ellers i arkivet og ikke som rå ISO-dato.
+ */
+function ObservationResult({ observation, position }: { observation: SearchObservation; position: number }) {
+  return <li><a
+    className="person-result-link"
+    href={observation.url}
+    onClick={() => trackEvent("observation-opened", { position })}
+  >
+    <span className="result-kind">Observasjon</span>
     <strong>{observation.title}</strong>
-    <span className="small muted">{observation.description}</span>
-    {observation.date ? <span className="num muted">{observation.date}</span> : null}
+    <span className="small muted result-excerpt">{observation.description}</span>
+    {observation.date ? <span className="num muted">{formatObservationDate(observation.date)}</span> : null}
   </a></li>;
 }
 
