@@ -114,9 +114,33 @@ export function parseSearchQuery(query: string): ParsedSearch {
   return { years: [...new Set(years)].slice(0, MAX_YEARS), terms: terms.slice(0, MAX_TERMS) };
 }
 
+/** Ord som peker på AaFK selv eller bare binder lagene sammen: «aafk – molde». */
+const SELF_REFERENCES = new Set(["aafk", "aalesund", "aalesunds", "ålesund", "ålesunds", "aalesunds-fk", "mot", "vs", "vs.", "v", "-", "–", "—"]);
+
+/**
+ * Leddene som faktisk skal treffe motstanderen.
+ *
+ * Hver kamp er AaFK mot noen, og ingen motstander heter «Aalesund». Søkte man
+ * «aalesund molde» eller «aafk – molde», måtte alle ordene treffe motstanderen,
+ * og svaret ble null kamper. Selvreferansene fjernes derfor — men bare når noe
+ * annet står igjen, så et søk på «aalesund» alene fortsatt finner Aalesund 2 og
+ * lignende. «FK» rett etter klubbnavnet hører til det samme.
+ */
+export function opponentTerms(parsed: ParsedSearch): string[] {
+  const kept: string[] = [];
+  let previousWasSelf = false;
+  for (const term of parsed.terms) {
+    const isSelf: boolean = SELF_REFERENCES.has(term) || (previousWasSelf && term === "fk");
+    if (!isSelf) kept.push(term);
+    previousWasSelf = isSelf && term !== "mot" && term !== "vs" && term !== "vs." && term !== "v";
+  }
+  return kept.length > 0 || parsed.years.length > 0 ? kept : parsed.terms;
+}
+
 export function searchMatches(query: string, limit = 200): SearchMatch[] {
   const parsed = parseSearchQuery(query);
   if (parsed.years.length === 0 && parsed.terms.length === 0) return [];
+  const terms = opponentTerms(parsed);
   // Direktesøket er navigasjon, ikke statistikk: framtidige og utsatte kamper skal
   // også finnes når noen søker på år eller motstander.
   const where = ["1 = 1"];
@@ -126,7 +150,7 @@ export function searchMatches(query: string, limit = 200): SearchMatch[] {
     where.push(`season IN (${parsed.years.map(() => "?").join(", ")})`);
     params.push(...parsed.years);
   }
-  for (const term of parsed.terms) {
+  for (const term of terms) {
     where.push(`(
       lower(opponent) LIKE ? ESCAPE '\\'
       OR opponent LIKE ? ESCAPE '\\'

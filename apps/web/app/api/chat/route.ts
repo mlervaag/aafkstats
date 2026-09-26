@@ -74,7 +74,13 @@ export async function POST(req: Request): Promise<Response> {
   // kontrollert. Leverandør og modell avgjøres av miljøet; se chat-model.ts.
   const resolved = resolveChatSetup();
   if (!resolved.ok) {
-    return Response.json({ error: resolved.error }, { status: 503 });
+    // Meldingen fra resolveChatSetup er skrevet for den som drifter nettstedet og
+    // navngir miljøvariabler. Den hører hjemme i loggen, ikke hos en besøkende.
+    console.error(resolved.error);
+    return Response.json(
+      { error: "Spørrefunksjonen er ikke tilgjengelig akkurat nå. Direktesøket og resten av arkivet virker som vanlig." },
+      { status: 503 },
+    );
   }
   const setup = resolved.setup;
 

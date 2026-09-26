@@ -7,7 +7,7 @@ export function GlobalSearch() {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const [query, setQuery] = useState("");
-  const { data, state, show } = useDirectSearch(query);
+  const { data, state, show, fresh } = useDirectSearch(query);
 
   function open() {
     if (dialogRef.current?.open) return;
@@ -38,9 +38,20 @@ export function GlobalSearch() {
     setQuery("");
   }
 
+  // Enter før svaret på det som står i feltet er kommet, venter på det. Se
+  // tilsvarende i AskBox.
+  const pendingOpen = useRef(false);
   function openFirstResult() {
+    if (!fresh) {
+      pendingOpen.current = query.trim().length >= 2;
+      return;
+    }
+    pendingOpen.current = false;
     openFirstDirectResult(data);
   }
+  useEffect(() => {
+    if (fresh && pendingOpen.current) openFirstResult();
+  }, [fresh]);
 
   return (
     <div className="global-search">

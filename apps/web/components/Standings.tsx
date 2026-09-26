@@ -138,8 +138,9 @@ export function ProgressionChart({
         <polyline points={line} className="progression-line" vectorEffect="non-scaling-stroke" />
       </svg>
       <figcaption className="small muted">
-        Plassering runde for runde, best {best}. og dårligst {worst}. Regnet ut av
-        rundene hos kilden, ikke av kampene i arkivet.
+        Plassering runde for runde, best {best}. og dårligst {worst}. Den stiplede
+        linja er nedrykksstreken. Regnet ut av rundene hos kilden, ikke av kampene i
+        arkivet.
       </figcaption>
     </figure>
   );

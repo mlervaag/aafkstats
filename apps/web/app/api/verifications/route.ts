@@ -12,6 +12,8 @@ import { validateResearchSubmission } from "@/lib/research-submission";
 import { verificationSubmissionSchema as submissionSchema } from "@/lib/verification-submission-schema";
 import type { VerificationCaseView } from "@/lib/verifications";
 
+const NORWEGIAN_ERRORS = z.locales.no().localeError;
+
 const MAX_BODY_BYTES = 20 * 1024;
 
 export const runtime = "nodejs";
@@ -63,7 +65,10 @@ async function handlePost(req: Request) {
       return fallbackError("Ugyldig data sendt inn.", 400);
     }
 
-    const parsed = submissionSchema.safeParse(body);
+    // Første feil vises til den som sendte inn. Skjemaets egne meldinger er
+    // norske, men standardmeldingene fra zod er engelske; norsk locale fyller
+    // hullene uten å overstyre de egne.
+    const parsed = submissionSchema.safeParse(body, { error: NORWEGIAN_ERRORS });
     if (!parsed.success) {
       return fallbackError(parsed.error.issues[0]?.message ?? "Ugyldig data sendt inn.", 400);
     }

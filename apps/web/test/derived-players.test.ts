@@ -123,3 +123,33 @@ describe("personfiler uten kamper", () => {
     }
   });
 });
+
+/**
+ * Stallen og kampsiden lenker spillernavn til personsidene. En lenke til en
+ * side som ikke bygges, er verre enn ingen lenke, så hver adresse må være en
+ * av dem `/personer/[id]` faktisk genererer.
+ */
+describe("spillerlenker", () => {
+  it("peker bare på personsider som finnes", async () => {
+    const { loadMatchPlayerLinks, loadSquad } = await import("../lib/archive.js");
+    const { getPersonIds } = await import("../lib/people.js");
+    const { all, open } = await import("@aafkstats/db");
+    const pages = new Set([...getPersonIds(), ...getDerivedPlayers().map((player) => player.id)]);
+
+    const db = open();
+    const matchIds = all<{ match_id: string }>(db, "SELECT DISTINCT match_id FROM core_appearances").map((row) => row.match_id);
+    const seasons = all<{ season: number }>(db, "SELECT DISTINCT season FROM squad").map((row) => row.season);
+    db.close();
+    expect(matchIds.length).toBeGreaterThan(0);
+
+    const urls = [
+      ...matchIds.flatMap((id) => [...loadMatchPlayerLinks(id).values()]),
+      ...seasons.flatMap((season) => loadSquad(season).map((player) => player.url)),
+    ];
+    expect(urls.some((url) => url !== null)).toBe(true);
+    for (const url of urls) {
+      if (url === null) continue;
+      expect(pages.has(url.replace("/personer/", "")), url).toBe(true);
+    }
+  });
+});

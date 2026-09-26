@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { stripProseDashes } from "@aafkstats/query/style";
-import { DirectResults, openFirstDirectResult, useDirectSearch } from "@/components/DirectSearch";
+import { DirectResults, directResultCount, openFirstDirectResult, useDirectSearch } from "@/components/DirectSearch";
 import { ThinkingLine } from "@/components/ThinkingLine";
 import {
   historyFromTurns,
@@ -117,7 +117,34 @@ export function AskBox() {
     data: directResults,
     state: searchState,
     show: showSearch,
+    fresh: searchFresh,
   } = useDirectSearch(question, hasConversation);
+  const pendingSubmit = useRef(false);
+  useEffect(() => {
+    if (searchFresh && pendingSubmit.current) submitFromKeyboard();
+    // submitFromKeyboard leser gjeldende tilstand; det er bare overgangen til
+    // ferskt svar som skal utløse den.
+  }, [searchFresh]);
+
+  /**
+   * Enter åpner første direktetreff. Finnes det ingen, sto man tidligere fast:
+   * ingenting skjedde, selv om teksten tydelig var et spørsmål. Da sendes det
+   * videre til arkivet i stedet, som om knappen var trykket.
+   */
+  function submitFromKeyboard() {
+    if (!searchFresh) {
+      // Enter kom før svaret på det som står i feltet. Da venter vi på det i
+      // stedet for å åpne et treff fra forrige søk eller ikke gjøre noe.
+      pendingSubmit.current = question.trim().length >= 2;
+      return;
+    }
+    pendingSubmit.current = false;
+    if (directResultCount(directResults) > 0) {
+      openFirstDirectResult(directResults);
+    } else if (question.trim() !== "" && !isLoading) {
+      void ask(question, "form");
+    }
+  }
 
   function updateTurn(id: string, change: (turn: ConversationTurn) => ConversationTurn) {
     setTurns((current) => current.map((turn) => turn.id === id ? change(turn) : turn));
@@ -301,12 +328,13 @@ export function AskBox() {
       <p className="prose muted">
         Skriv <strong>Haller</strong>, <strong>formann 1961</strong> eller <strong>2013 Tromsø</strong> for
         direkte treff på personer, kilder og kamper. Trykk Enter for å åpne det første
-        treffet, eller velg «Spør arkivet» for et svar fra språkmodellen.
+        treffet, eller velg «Spør arkivet» for et svar fra språkmodellen. Uten direkte
+        treff sender Enter spørsmålet til arkivet.
       </p>
 
       <form className="ask-form" onSubmit={(event) => {
         event.preventDefault();
-        openFirstDirectResult(directResults);
+        submitFromKeyboard();
       }}>
         <input
           ref={inputRef}
@@ -325,7 +353,7 @@ export function AskBox() {
             if (event.key === "Escape") reset();
             if (event.key === "Enter" && !event.nativeEvent.isComposing) {
               event.preventDefault();
-              openFirstDirectResult(directResults);
+              submitFromKeyboard();
             }
           }}
         />

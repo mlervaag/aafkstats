@@ -1,4 +1,5 @@
-import { PLAYED_SQL, all, one, open } from "@aafkstats/db";
+import { PLAYED_SQL, all, one, open, type Db } from "@aafkstats/db";
+import { slugify } from "@aafkstats/schema";
 import { NEWSPAPER_FACSIMILE } from "./newspaper-articles";
 
 export interface ArchiveMatch {
@@ -835,12 +836,55 @@ export interface OpponentClubMeta {
   founded: number | null;
 }
 
-export function loadOpponent(id: string): { summary: OpponentSummary; matches: ArchiveMatch[]; club?: OpponentClubMeta } | undefined {
+/** Innbyrdes regnskap for én konkurransetype. Summen over typene er hele oppgjøret. */
+export interface OpponentRecordByType {
+  competitionType: string;
+  played: number;
+  wins: number;
+  draws: number;
+  losses: number;
+  goalsFor: number;
+  goalsAgainst: number;
+}
+
+export function loadOpponent(id: string): {
+  summary: OpponentSummary;
+  matches: ArchiveMatch[];
+  club?: OpponentClubMeta;
+  byType: OpponentRecordByType[];
+} | undefined {
   const db = open();
   try {
     const summary = one<OpponentRow>(db, "SELECT * FROM opponents WHERE opponent_club_id = ?", id);
     if (!summary) return undefined;
     const matches = all<MatchRow>(db, `SELECT ${matchColumns} FROM matches WHERE opponent_club_id = ? ORDER BY date DESC`, id);
+    // Samme utvalg som `opponents`-visningen (spilte og tildelte kamper), bare
+    // delt opp. Treningskamper teller med i totalen, og uten denne delingen var
+    // det ikke mulig å se hvordan det faktisk har gått når det har gjeldt.
+    const byType = all<{
+      competition_type: string; played: number; wins: number; draws: number;
+      losses: number; goals_for: number; goals_against: number;
+    }>(
+      db,
+      `SELECT competition_type, count(*) AS played,
+              sum(CASE WHEN result = 'S' THEN 1 ELSE 0 END) AS wins,
+              sum(CASE WHEN result = 'U' THEN 1 ELSE 0 END) AS draws,
+              sum(CASE WHEN result = 'T' THEN 1 ELSE 0 END) AS losses,
+              coalesce(sum(aafk_score), 0) AS goals_for,
+              coalesce(sum(opponent_score), 0) AS goals_against
+         FROM matches
+        WHERE opponent_club_id = ? AND ${SPILT}
+        GROUP BY competition_type`,
+      id,
+    ).map((row) => ({
+      competitionType: row.competition_type,
+      played: row.played,
+      wins: row.wins,
+      draws: row.draws,
+      losses: row.losses,
+      goalsFor: row.goals_for,
+      goalsAgainst: row.goals_against,
+    }));
     const clubRow = one<{ short_name: string | null; name_variants: string; city: string | null; founded: number | null }>(
       db,
       "SELECT short_name, name_variants, city, founded FROM core_clubs WHERE id = ?",
@@ -854,7 +898,7 @@ export function loadOpponent(id: string): { summary: OpponentSummary; matches: A
           founded: clubRow.founded,
         }
       : undefined;
-    return { summary: mapOpponent(summary), matches: matches.map(mapMatch), club };
+    return { summary: mapOpponent(summary), matches: matches.map(mapMatch), club, byType };
   } finally {
     db.close();
   }
@@ -962,6 +1006,62 @@ export interface SquadPlayer {
    * står da uendret, med det forbeholdet den alltid har hatt.
    */
   arrivedFrom: string | null;
+  /** Personsiden: personfila, eller den utledede siden når fila mangler. */
+  url: string | null;
+}
+
+/**
+ * Adressen til en AaFK-spiller kjent fra oppstillingene.
+ *
+ * Alle slike spillere har en side: personfila når navnet er koblet til en, og
+ * ellers den utledede siden på `slugify(person_key)` (se `derived-players.ts`).
+ * Stallen og kampsiden viste likevel navnene som ren tekst, så det fantes ingen
+ * vei fra en kamp til spilleren. Kolliderer den utledede adressen med en
+ * personfil, er det fila som eier adressen — da lenkes det ikke, heller enn å
+ * lenke til feil person.
+ */
+function playerUrl(personId: string | null, personKey: string, personIds: Set<string>): string | null {
+  // En person_id som ikke er publisert i `people`, har ingen side — og heller
+  // ingen utledet side, siden navnet regnes som koblet.
+  if (personId) return personIds.has(personId) ? `/personer/${personId}` : null;
+  const derived = slugify(personKey);
+  return derived === "" || personIds.has(derived) ? null : `/personer/${derived}`;
+}
+
+/** De publiserte personene, som er dem `/personer/[id]` bygger sider for. */
+function loadPersonIds(db: Db): Set<string> {
+  return new Set(all<{ id: string }>(db, "SELECT id FROM people").map((row) => row.id));
+}
+
+/**
+ * AaFK-spillerne i én kamp, fra navn slik kilden skrev det til personsiden.
+ *
+ * Bare AaFKs egen oppstilling er med. Et navneoppslag på motstanderlaget ville
+ * truffet en AaFK-spiller med samme navn, og det er verre enn ingen lenke.
+ * Oppslaget på person_id speiler `squad`-viewet, så lenken peker dit stallen og
+ * personregisteret allerede har plassert spilleren.
+ */
+export function loadMatchPlayerLinks(matchId: string): Map<string, string> {
+  const db = open();
+  try {
+    const personIds = loadPersonIds(db);
+    const rows = all<{ name: string; person_key: string; person_id: string | null }>(
+      db,
+      `SELECT DISTINCT a.name, a.person_key,
+              (SELECT n.person_id FROM core_person_names n WHERE n.person_key = a.person_key) AS person_id
+         FROM core_appearances a
+        WHERE a.match_id = ?`,
+      matchId,
+    );
+    const links = new Map<string, string>();
+    for (const row of rows) {
+      const url = playerUrl(row.person_id, row.person_key, personIds);
+      if (url) links.set(row.name, url);
+    }
+    return links;
+  } finally {
+    db.close();
+  }
 }
 
 export interface CoachSpell {
@@ -1023,6 +1123,7 @@ export function loadSquad(season: number): SquadPlayer[] {
         : [],
     );
     const knowPrevious = (previous?.n ?? 0) > 0;
+    const personIds = loadPersonIds(db);
 
     return rows.map((row) => ({
       personKey: row.person_key,
@@ -1038,6 +1139,7 @@ export function loadSquad(season: number): SquadPlayer[] {
       lastMatch: row.last_match,
       isNew: knowPrevious && !before.has(row.person_key),
       arrivedFrom: row.person_id === null ? null : arrivals.get(row.person_id) ?? null,
+      url: playerUrl(row.person_id, row.person_key, personIds),
     }));
   } finally {
     db.close();

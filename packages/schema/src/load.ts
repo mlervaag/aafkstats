@@ -219,8 +219,14 @@ async function archiveFingerprint(root: string): Promise<string> {
   files.sort();
   const stamps = await Promise.all(
     files.map(async (f) => {
-      const s = await stat(f);
-      return `${f}:${s.size}:${s.mtimeMs}`;
+      // En fil kan forsvinne mellom listingen og stat, for eksempel en
+      // midlertidig fil fra en annen prosess. Da er den heller ikke med i
+      // arkivet som leses etterpå, og fingeravtrykket skal ikke kaste.
+      const s = await stat(f).catch((error: NodeJS.ErrnoException) => {
+        if (error.code === "ENOENT") return null;
+        throw error;
+      });
+      return s === null ? `${f}:gone` : `${f}:${s.size}:${s.mtimeMs}`;
     }),
   );
   return stamps.join("\n");

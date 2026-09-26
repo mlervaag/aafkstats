@@ -15,15 +15,21 @@ export interface DirectSearchData {
 
 const EMPTY_RESULTS: DirectSearchData = { matches: [], people: [], sources: [], observations: [] };
 
+export type DirectSearchState = "idle" | "loading" | "done" | "error";
+
 export function useDirectSearch(query: string, disabled = false) {
   const deferredQuery = useDeferredValue(query);
   const [data, setData] = useState<DirectSearchData>(EMPTY_RESULTS);
-  const [state, setState] = useState<"idle" | "loading" | "done">("idle");
+  // Hvilket søk `data` er svaret på. Forrige treffliste blir stående mens neste
+  // søk går, så lista ikke blinker — men da må Enter vite at den er utdatert.
+  const [resultQuery, setResultQuery] = useState("");
+  const [state, setState] = useState<DirectSearchState>("idle");
 
   useEffect(() => {
     const value = deferredQuery.trim();
     if (disabled || value.length < 2) {
       setData(EMPTY_RESULTS);
+      setResultQuery("");
       setState("idle");
       return;
     }
@@ -43,11 +49,15 @@ export function useDirectSearch(query: string, disabled = false) {
           sources: result.sources ?? [],
           observations: result.observations ?? [],
         });
+        setResultQuery(value);
         setState("done");
       } catch (error) {
         if (error instanceof Error && error.name === "AbortError") return;
+        // En feil er ikke det samme som null treff. Før sto det «Ingen direkte
+        // treff», og leseren trodde arkivet manglet det hen lette etter.
         setData(EMPTY_RESULTS);
-        setState("done");
+        setResultQuery(value);
+        setState("error");
       }
     }, 180);
 
@@ -57,7 +67,22 @@ export function useDirectSearch(query: string, disabled = false) {
     };
   }, [deferredQuery, disabled]);
 
-  return { data, state, show: !disabled && deferredQuery.trim().length >= 2 };
+  const current = query.trim();
+  return {
+    data,
+    state,
+    show: !disabled && deferredQuery.trim().length >= 2,
+    /**
+     * Sant når trefflista er svaret på det som står i feltet nå. Uten denne
+     * åpnet Enter første treff fra forrige søk hvis man skrev fort og trykket
+     * før det nye svaret var kommet.
+     */
+    fresh: state !== "loading" && current.length >= 2 && resultQuery === current,
+  };
+}
+
+export function directResultCount(data: DirectSearchData): number {
+  return data.people.length + data.observations.length + data.sources.length + data.matches.length;
 }
 
 export interface DirectResultTarget {
@@ -100,11 +125,11 @@ export function DirectResults({
 }: {
   id: string;
   data: DirectSearchData;
-  state: "idle" | "loading" | "done";
+  state: DirectSearchState;
   emptyText: string;
   maxMatches?: number;
 }) {
-  const total = data.people.length + data.observations.length + data.sources.length + data.matches.length;
+  const total = directResultCount(data);
   const shownTotal = data.people.length + data.observations.length + data.sources.length + Math.min(data.matches.length, maxMatches);
   const resultCount = shownTotal < total ? `${total} treff · viser ${shownTotal}` : `${total} treff`;
   return (
@@ -112,10 +137,14 @@ export function DirectResults({
       <div className="live-results-heading">
         <strong>Direkte treff</strong>
         <span className="small muted">
-          {state === "loading" ? "Søker …" : resultCount}
+          {state === "loading" ? "Søker …" : state === "error" ? "Feil" : resultCount}
         </span>
       </div>
-      {state === "done" && total === 0 ? (
+      {state === "error" ? (
+        <p className="small muted live-empty" role="alert">
+          Søket feilet. Sjekk nettforbindelsen og prøv igjen.
+        </p>
+      ) : state === "done" && total === 0 ? (
         <p className="small muted live-empty">{emptyText}</p>
       ) : (
         <ul className="match-results">
