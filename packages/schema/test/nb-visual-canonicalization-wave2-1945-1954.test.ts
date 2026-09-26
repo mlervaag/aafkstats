@@ -1,5 +1,7 @@
 import { describe, expect, it, beforeAll } from "vitest";
 import { readFile, writeFile, unlink } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { stringify as stringifyYaml } from "yaml";
 import { parseArchiveYaml as parseYaml } from "../src/yaml.js";
 import {
@@ -92,7 +94,9 @@ describe("NB Visual Review Canonicalization (Wave 2: 1945-1954) - Tests A to S &
 
   // Helper to run production canonicalization pipeline on crafted review cases
   async function runGateWithCustomCases(customCases: any[]) {
-    const tmpManifestPath = `${repoRoot()}/data/discovery/tmp-test-manifest-${Date.now()}-${Math.random().toString(36).slice(2)}.yaml`;
+    // Utenfor data/: andre tester leser hele arkivet parallelt, og en fil som
+    // dukker opp og forsvinner der midt i en lesing fikk dem til å feile.
+    const tmpManifestPath = join(tmpdir(), `tmp-test-manifest-${Date.now()}-${Math.random().toString(36).slice(2)}.yaml`);
     const tmpManifestContent = {
       contract: "nb-source-result-visual-review@1",
       generatedAt: new Date().toISOString(),
