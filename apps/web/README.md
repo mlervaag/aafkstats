@@ -41,13 +41,17 @@ pnpm dev                                    # http://localhost:3000
 ```
 
 Uten en API-nøkkel — `ANTHROPIC_API_KEY` eller `OPENAI_API_KEY` — svarer `/api/chat` med 503,
-og resten av nettstedet virker som normalt. Se [`.env.example`](../../.env.example).
+og resten av nettstedet virker som normalt. Hva som mangler, står i serverloggen; den besøkende
+får bare beskjed om at spørrefunksjonen ikke er tilgjengelig. Se [`.env.example`](../../.env.example).
 
 ## Hvordan data kommer inn
 
-Sidene leser arkivfilen direkte gjennom `@aafkstats/db`, på serveren, ved forespørsel
-(`dynamic = "force-dynamic"`). Filen er lokal, skrivebeskyttet og allerede varm, så det er
-billig — og det finnes ikke et byggetidsledd som kan komme i utakt med dataene.
+Sidene leser arkivfilen direkte gjennom `@aafkstats/db`, på serveren. Arkivfilen bygges fra
+`data/` i samme `pnpm build`, så de fleste sidene — kamper, sesonger, motstandere, personer og
+kilder — forhåndsrendres ved bygging med `generateStaticParams`. Dataene endres bare ved en ny
+utrulling, og da bygges sidene på nytt; det finnes ikke et ledd som kan komme i utakt. Forsiden
+har `revalidate = 3600` fordi «neste kamp» avhenger av dagens dato.
+API-rutene leser filen ved forespørsel.
 
 Arkivfilen må spores inn i funksjonsbunten for å finnes i produksjon. Det er
 `outputFileTracingIncludes` i [`next.config.mjs`](next.config.mjs), sammen med to andre

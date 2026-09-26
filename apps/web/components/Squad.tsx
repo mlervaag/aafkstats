@@ -135,7 +135,7 @@ export function SquadList({ players, transfers, season }: {
                     som ikke står der. */}
                 <td className="num col-number muted">{player.number ?? ""}</td>
                 <th scope="row">
-                  {player.name}
+                  {player.url ? <Link href={player.url}>{player.name}</Link> : player.name}
                   {/* «Ny» sier bare at spilleren ikke var med i fjor. Finnes det
                       en kildeført overgang, vet arkivet mer enn det, og da skal
                       det stå. Uten overgang står merkelappen som før. */}

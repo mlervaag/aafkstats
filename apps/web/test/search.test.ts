@@ -4,7 +4,7 @@ import { join, resolve } from "node:path";
 import { performance } from "node:perf_hooks";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { loadValidateAndBuild } from "@aafkstats/db/build";
-import { parseSearchQuery, searchMatches, searchPeople, searchSources } from "../lib/search.js";
+import { opponentTerms, parseSearchQuery, searchMatches, searchPeople, searchSources } from "../lib/search.js";
 
 const previousDbPath = process.env.AAFK_DB_PATH;
 let fixtureDbPath: string;
@@ -52,6 +52,19 @@ describe("parseSearchQuery", () => {
     const matches = searchMatches("2024 Molde");
     expect(matches).toHaveLength(3);
     expect(matches.every((match) => match.date.startsWith("2024") && match.opponent === "Molde FK")).toBe(true);
+  });
+
+  it("overser AaFK selv når motstanderen også er nevnt", () => {
+    const expected = searchMatches("2024 Molde").map((match) => match.matchId);
+    expect(searchMatches("aalesund molde 2024").map((match) => match.matchId)).toEqual(expected);
+    expect(searchMatches("AaFK – Molde 2024").map((match) => match.matchId)).toEqual(expected);
+    expect(searchMatches("Aalesunds FK mot Molde 2024").map((match) => match.matchId)).toEqual(expected);
+  });
+
+  it("beholder selvreferansen når ingenting annet står igjen", () => {
+    expect(opponentTerms(parseSearchQuery("aalesund"))).toEqual(["aalesund"]);
+    expect(opponentTerms(parseSearchQuery("aafk 2024"))).toEqual([]);
+    expect(opponentTerms(parseSearchQuery("molde fk"))).toEqual(["molde", "fk"]);
   });
 
   it("finner personer uten AI og tåler manglende diakritiske tegn", () => {

@@ -119,8 +119,11 @@ function lit(value: string): string {
 const searchMatches = defineTool({
   name: "search_matches",
   description:
-    "Søk i kamper med vanlige filtre. Bruk dette framfor run_sql når spørsmålet passer " +
-    "filtrene — det er raskere og gir mer forutsigbare svar.",
+    // Beskrivelsen deles med MCP og REST, der run_sql ikke finnes. Å be en
+    // ekstern klient foretrekke dette «framfor run_sql» pekte på et verktøy den
+    // aldri får se.
+    "Søk i kamper med vanlige filtre. Foretrekk dette når spørsmålet passer filtrene — " +
+    "det er raskere og gir mer forutsigbare svar enn en egen SQL-spørring.",
   inputSchema: z.object({
     season: z.number().int().optional().describe("Sesongår, f.eks. 2024"),
     seasonFrom: z.number().int().optional().describe("Fra og med sesongår"),

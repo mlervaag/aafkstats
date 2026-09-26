@@ -859,15 +859,16 @@ footer {
 .masthead { position: sticky; top: 0; z-index: 20; }
 .masthead-inner { justify-content: space-between; }
 .primary-nav { align-items: center; }
-/* «Bidra» skiller seg fra de andre lenkene med en aksentstrek under, ikke med en
-   pilleformet knapp. Menyen er en linje med lenker; én av dem skal bare veie litt
-   mer enn resten. */
+/* «Bidra» skiller seg fra de andre lenkene med aksentfarge og litt tyngre vekt,
+   ikke med en pilleformet knapp. Menyen er en linje med lenker; én av dem skal
+   bare veie litt mer enn resten. Den hadde tidligere en aksentstrek under, men
+   det er også slik aktiv side markeres — på hver side så det ut som to lenker
+   var aktive samtidig. */
 .primary-nav .nav-cta {
-  color: var(--text);
-  padding-bottom: 2px;
-  border-bottom: 2px solid var(--accent);
+  color: var(--accent);
+  font-weight: 650;
 }
-.primary-nav .nav-cta:hover { color: var(--accent); }
+.primary-nav .nav-cta:hover { color: var(--text); }
 
 main.wrap { padding-top: clamp(2.5rem, 6vw, 4.5rem); }
 
@@ -1102,8 +1103,11 @@ a.card-fragment:hover .card-title { color: var(--text); }
 .coverage-strip > ol { gap: 0.35rem 0.85rem; }
 .coverage-strip li { display: flex; }
 .strip-decade { flex-direction: column; gap: 0.2rem; }
-.strip-decade-label { text-align: center; font-size: 0.68rem; }
 .coverage-strip a, .coverage-strip li > span { display: block; line-height: 0; }
+/* Etiketten er også et span rett under en li, og arvet dermed line-height 0 fra
+   regelen over. Da tok den ingen plass, og tallet ble tegnet oppå neste rad med
+   merker så snart stripa brøt over flere linjer. */
+.coverage-strip .strip-decade-label { text-align: center; font-size: 0.68rem; line-height: 1.2; }
 .strip-year {
   display: block;
   width: 0.75rem;
@@ -1337,7 +1341,6 @@ footer { margin-top: 0; padding: 0 0 3rem; color: var(--muted); background: none
     min-height: 2.75rem;
     padding-right: 0.6rem;
   }
-  .primary-nav .nav-cta { border-bottom: 0; }
   .ask { margin-inline: -0.25rem; }
   .ask-input { padding: 0.9rem 1rem; font-size: 1rem; }
   .suggestions {

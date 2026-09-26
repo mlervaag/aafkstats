@@ -3,7 +3,8 @@ import { DEFAULT_MODELS, resolveChatSetup, type ChatEnv } from "../lib/chat-mode
 
 /**
  * Valget av leverandør er den delen av oppsettet det er lettest å ta feil av: to
- * nøkler, en overstyring, og et 503-svar som skal si hva som mangler. Funksjonen tar
+ * nøkler, en overstyring, og en feilmelding som skal si hva som mangler (i serverloggen;
+ * den besøkende får et generelt 503-svar). Funksjonen tar
  * miljøet som argument nettopp for å kunne prøves uten å røre `process.env`.
  */
 

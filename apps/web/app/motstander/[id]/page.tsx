@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { cache } from "react";
+import { TYPE_LABELS } from "@/components/Coverage";
 import { MatchList } from "@/components/MatchList";
 import { contributionIssueUrl } from "@/lib/contribution-links";
-import { loadOpponent, loadOpponents } from "@/lib/archive";
+import { loadOpponent, loadOpponents, type OpponentRecordByType } from "@/lib/archive";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/jsonld";
 import { opponentDescription, opponentTitle, pageMetadata } from "@/lib/metadata";
@@ -75,6 +76,8 @@ export default async function OpponentPage({ params }: Props) {
         <Stat value={`${summary.goalsFor}–${summary.goalsAgainst}`} label="Mål" />
       </div>
 
+      <RecordByType rows={data.byType} />
+
       {upcoming.length > 0 && (
         <section className="content-section">
           <h2>Står igjen</h2>
@@ -103,6 +106,56 @@ export default async function OpponentPage({ params }: Props) {
   );
 }
 
+
+/** Samme rekkefølge som sesongsidene: det som teller mest, først. */
+const TYPE_ORDER = ["league", "national_cup", "european", "playoff", "friendly"];
+
+/**
+ * Totalen over blander serie, cup og treningskamper. Mot en klubb AaFK har møtt
+ * mange ganger på oppkjøring, sier den lite om hvordan det går når det gjelder.
+ * Tabellen vises bare når det finnes mer enn én type å skille.
+ */
+function RecordByType({ rows }: { rows: OpponentRecordByType[] }) {
+  if (rows.length < 2) return null;
+  const sorted = [...rows].sort((a, b) =>
+    rank(a.competitionType) - rank(b.competitionType));
+  return (
+    <section className="content-section" aria-labelledby="per-konkurranse">
+      <h2 id="per-konkurranse">Per konkurranse</h2>
+      <div className="table-scroll">
+        <table className="standings-table">
+          <thead>
+            <tr>
+              <th scope="col">Konkurranse</th>
+              <th scope="col" className="num">K</th>
+              <th scope="col" className="num">S</th>
+              <th scope="col" className="num">U</th>
+              <th scope="col" className="num">T</th>
+              <th scope="col" className="num">Mål</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sorted.map((row) => (
+              <tr key={row.competitionType}>
+                <th scope="row">{TYPE_LABELS[row.competitionType] ?? row.competitionType}</th>
+                <td className="num">{row.played}</td>
+                <td className="num">{row.wins}</td>
+                <td className="num">{row.draws}</td>
+                <td className="num">{row.losses}</td>
+                <td className="num">{row.goalsFor}–{row.goalsAgainst}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
+}
+
+function rank(type: string): number {
+  const index = TYPE_ORDER.indexOf(type);
+  return index === -1 ? TYPE_ORDER.length : index;
+}
 
 function Stat({ value, label }: { value: number | string; label: string }) {
   return <div><strong className="num">{value}</strong><span>{label}</span></div>;

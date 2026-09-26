@@ -6,7 +6,7 @@ import { cache } from "react";
 import { formatDate, formatDateShort } from "@/lib/date";
 import { ContributionButton } from "@/components/ContributionButton";
 import { Contributions } from "@/components/Contributions";
-import { loadContributions, loadMatchIndex } from "@/lib/archive";
+import { loadContributions, loadMatchIndex, loadMatchPlayerLinks } from "@/lib/archive";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd, matchJsonLd } from "@/lib/jsonld";
 import { matchDescription, matchTitle, pageMetadata } from "@/lib/metadata";
@@ -267,6 +267,10 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
   const observations = getMatchObservations(match.id);
 
   const events = json<EventRow[]>(match.events, []);
+  // Bare AaFKs side lenkes; se loadMatchPlayerLinks.
+  const aafkSide = match.is_home ? "home" : "away";
+  const playerLinks = loadMatchPlayerLinks(match.id);
+  const noLinks = new Map<string, string>();
   const lineups = json<{ home?: Lineup; away?: Lineup }>(match.lineups, {});
   const stats = json<{ home?: TeamStats; away?: TeamStats }>(match.stats, {});
   const providers = json<ProviderRef[]>(match.providers, []);
@@ -453,9 +457,11 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
                 <span className="event-time num">{event.minute}{event.stoppage ? `+${event.stoppage}` : ""}′</span>
                 <span>
                   <strong>{eventNames[event.type] ?? event.type}</strong>{" "}
-                  {event.player ?? "Ukjent spiller"}
-                  {event.playerOff ? ` for ${event.playerOff}` : ""}
-                  {event.assist ? <span className="muted"> · {event.assist}</span> : null}
+                  {event.player
+                    ? <PlayerName name={event.player} links={event.team === aafkSide ? playerLinks : noLinks} />
+                    : "Ukjent spiller"}
+                  {event.playerOff ? <> for <PlayerName name={event.playerOff} links={event.team === aafkSide ? playerLinks : noLinks} /></> : null}
+                  {event.assist ? <span className="muted"> · <PlayerName name={event.assist} links={event.team === aafkSide ? playerLinks : noLinks} /></span> : null}
                   <span className="small muted"> · {event.team === "home" ? match.home_name : match.away_name}</span>
                 </span>
               </li>
@@ -469,8 +475,8 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
         <section>
           <h2>Lagoppstillinger</h2>
           <div className="two-column">
-            <LineupBlock name={match.home_name} lineup={lineups.home} />
-            <LineupBlock name={match.away_name} lineup={lineups.away} />
+            <LineupBlock name={match.home_name} lineup={lineups.home} links={aafkSide === "home" ? playerLinks : noLinks} />
+            <LineupBlock name={match.away_name} lineup={lineups.away} links={aafkSide === "away" ? playerLinks : noLinks} />
           </div>
         </section>
       )}
@@ -650,13 +656,24 @@ function confidenceNote(confidence: string, played: boolean): string {
 }
 
 
-function LineupBlock({ name, lineup }: { name: string; lineup?: Lineup }) {
+function PlayerName({ name, links }: { name: string; links: Map<string, string> }) {
+  const url = links.get(name);
+  return url ? <Link href={url}>{name}</Link> : <>{name}</>;
+}
+
+function PlayerNames({ names, links }: { names: string[]; links: Map<string, string> }) {
+  return names.map((name, index) => (
+    <span key={`${name}-${index}`}>{index > 0 ? ", " : ""}<PlayerName name={name} links={links} /></span>
+  ));
+}
+
+function LineupBlock({ name, lineup, links }: { name: string; lineup?: Lineup; links: Map<string, string> }) {
   if (!lineup) return <div><h3>{name}</h3><p className="muted">Ikke registrert.</p></div>;
   return (
     <div>
       <h3>{name}{lineup.formation ? ` · ${lineup.formation}` : ""}</h3>
-      <p>{lineup.starters.join(", ")}</p>
-      {lineup.subs.length > 0 && <p className="small"><strong>Benk:</strong> {lineup.subs.join(", ")}</p>}
+      <p><PlayerNames names={lineup.starters} links={links} /></p>
+      {lineup.subs.length > 0 && <p className="small"><strong>Benk:</strong> <PlayerNames names={lineup.subs} links={links} /></p>}
       {lineup.coach && <p className="small muted">Trener: {lineup.coach}</p>}
     </div>
   );
