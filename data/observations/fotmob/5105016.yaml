@@ -1,9 +1,9 @@
 providerId: fotmob
 externalId: "5105016"
 matchId: 2026-09-19-molde-fk-aalesunds-fk
-retrievedAt: 2026-09-20
+retrievedAt: 2026-10-13
 adapter: fotmob@5
-payloadHash: sha256:e64bd6cf30ad10059ad66abe72c77c1df99e864d744ceac21f1b7c7a6a18a0fe
+payloadHash: sha256:f8e1404bba562557c5aa3878c771c3cabfd40d88001c68946ab400a8818565cf
 raw:
   externalId: "5105016"
   date: 2026-09-19
@@ -15,14 +15,10 @@ raw:
   awayId: "8404"
   homeScore: 1
   awayScore: 2
-  homeHalfTime: 0
-  awayHalfTime: 2
   competition: Eliteserien
   competitionId: "59"
   season: 2026
   round: 22
-  venue: Aker Stadion
-  referee: Rohit Saggi
   url: https://www.fotmob.com/matches/aalesund-vs-molde/2rxkt2#5105016
 normalized:
   date: 2026-09-19
@@ -32,14 +28,10 @@ normalized:
   away.clubId: aalesunds-fk
   home.score: 1
   away.score: 2
-  home.halfTimeScore: 0
-  away.halfTimeScore: 2
   competition.id: eliteserien
   competition.season: 2026
   competition.round: 22
   competition.stage: regular_season
-  venueId: aker-stadion
-  referee.name: Rohit Saggi
 fields:
   - date
   - kickoff
@@ -50,11 +42,4 @@ fields:
   - home.score
   - away.score
   - competition.round
-  - venueId
-  - referee
-  - home.halfTimeScore
-  - away.halfTimeScore
-  - events
-  - stats
-  - lineups
 warnings: []

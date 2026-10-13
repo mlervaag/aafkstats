@@ -2,179 +2,179 @@ competitionId: eliteserien
 season: 2026
 table:
   - position: 1
-    name: Bodø/Glimt
-    clubId: bodo-glimt
-    played: 20
-    wins: 16
-    draws: 2
-    losses: 2
-    goalsFor: 52
-    goalsAgainst: 17
-    points: 50
-    outcome: none
-  - position: 2
     name: Viking
     clubId: viking
-    played: 20
-    wins: 15
+    played: 22
+    wins: 17
     draws: 2
     losses: 3
-    goalsFor: 51
+    goalsFor: 56
     goalsAgainst: 20
-    points: 47
+    points: 53
+    outcome: none
+  - position: 2
+    name: Bodø/Glimt
+    clubId: bodo-glimt
+    played: 22
+    wins: 17
+    draws: 2
+    losses: 3
+    goalsFor: 56
+    goalsAgainst: 20
+    points: 53
     outcome: none
   - position: 3
-    name: Molde
-    clubId: molde-fk
-    played: 21
-    wins: 11
-    draws: 3
-    losses: 7
-    goalsFor: 44
-    goalsAgainst: 32
-    points: 36
-    outcome: none
-  - position: 4
     name: Tromsø
     clubId: tromso
-    played: 20
-    wins: 10
-    draws: 5
+    played: 22
+    wins: 11
+    draws: 6
     losses: 5
-    goalsFor: 37
-    goalsAgainst: 27
-    points: 35
+    goalsFor: 41
+    goalsAgainst: 30
+    points: 39
+    outcome: none
+  - position: 4
+    name: Molde
+    clubId: molde-fk
+    played: 22
+    wins: 11
+    draws: 4
+    losses: 7
+    goalsFor: 46
+    goalsAgainst: 34
+    points: 37
     outcome: none
   - position: 5
     name: Rosenborg
     clubId: rosenborg-bk
-    played: 21
+    played: 22
     wins: 10
-    draws: 3
+    draws: 4
     losses: 8
-    goalsFor: 39
-    goalsAgainst: 30
-    points: 33
+    goalsFor: 40
+    goalsAgainst: 31
+    points: 34
     outcome: none
   - position: 6
     name: Lillestrøm
     clubId: lillestrom
-    played: 20
+    played: 22
     wins: 10
-    draws: 2
-    losses: 8
-    goalsFor: 28
-    goalsAgainst: 26
-    points: 32
-    outcome: none
-  - position: 7
-    name: Fredrikstad
-    clubId: fredrikstad
-    played: 20
-    wins: 8
     draws: 3
     losses: 9
-    goalsFor: 24
+    goalsFor: 30
     goalsAgainst: 31
-    points: 27
+    points: 33
     outcome: none
-  - position: 8
+  - position: 7
     name: Brann
     clubId: sk-brann
-    played: 20
-    wins: 8
+    played: 22
+    wins: 9
     draws: 2
-    losses: 10
-    goalsFor: 37
-    goalsAgainst: 31
-    points: 26
+    losses: 11
+    goalsFor: 39
+    goalsAgainst: 34
+    points: 29
+    outcome: none
+  - position: 8
+    name: Fredrikstad
+    clubId: fredrikstad
+    played: 22
+    wins: 8
+    draws: 5
+    losses: 9
+    goalsFor: 26
+    goalsAgainst: 33
+    points: 29
     outcome: none
   - position: 9
     name: Sarpsborg 08
     clubId: sarpsborg-08
-    played: 21
-    wins: 6
+    played: 22
+    wins: 7
     draws: 7
     losses: 8
-    goalsFor: 24
-    goalsAgainst: 29
-    points: 25
+    goalsFor: 28
+    goalsAgainst: 31
+    points: 28
     outcome: none
   - position: 10
     name: KFUM
     clubId: kfum
-    played: 21
-    wins: 7
+    played: 22
+    wins: 8
     draws: 4
     losses: 10
-    goalsFor: 25
-    goalsAgainst: 35
-    points: 25
+    goalsFor: 27
+    goalsAgainst: 36
+    points: 28
     outcome: none
   - position: 11
     name: Hamarkameratene
     clubId: hamarkameratene
-    played: 20
-    wins: 6
+    played: 22
+    wins: 7
     draws: 5
-    losses: 9
-    goalsFor: 27
-    goalsAgainst: 41
-    points: 23
-    outcome: none
-  - position: 12
-    name: Vålerenga
-    clubId: valerenga
-    played: 20
-    wins: 6
-    draws: 4
     losses: 10
-    goalsFor: 33
-    goalsAgainst: 42
-    points: 22
-    outcome: none
-  - position: 13
-    name: Aalesund
-    clubId: aalesunds-fk
-    played: 21
-    wins: 4
-    draws: 9
-    losses: 8
     goalsFor: 33
     goalsAgainst: 46
-    points: 21
+    points: 26
     outcome: none
-  - position: 14
+  - position: 12
     name: Sandefjord
     clubId: sandefjord
-    played: 20
-    wins: 5
-    draws: 5
+    played: 22
+    wins: 6
+    draws: 6
     losses: 10
-    goalsFor: 18
-    goalsAgainst: 27
-    points: 20
+    goalsFor: 22
+    goalsAgainst: 28
+    points: 24
+    outcome: none
+  - position: 13
+    name: Vålerenga
+    clubId: valerenga
+    played: 22
+    wins: 6
+    draws: 5
+    losses: 11
+    goalsFor: 35
+    goalsAgainst: 45
+    points: 23
+    outcome: none
+  - position: 14
+    name: Aalesund
+    clubId: aalesunds-fk
+    played: 22
+    wins: 4
+    draws: 9
+    losses: 9
+    goalsFor: 35
+    goalsAgainst: 50
+    points: 21
     outcome: none
   - position: 15
     name: Kristiansund
     clubId: kristiansund
-    played: 21
+    played: 22
     wins: 5
     draws: 4
-    losses: 12
-    goalsFor: 21
-    goalsAgainst: 40
+    losses: 13
+    goalsFor: 22
+    goalsAgainst: 43
     points: 19
     outcome: none
   - position: 16
     name: Start
     clubId: start
-    played: 20
+    played: 22
     wins: 4
     draws: 4
-    losses: 12
-    goalsFor: 22
-    goalsAgainst: 41
+    losses: 14
+    goalsFor: 24
+    goalsAgainst: 48
     points: 16
     outcome: none
 progression:
@@ -279,17 +279,22 @@ progression:
     played: 20
     goalDifference: -14
   - round: 22
-    position: 13
+    position: 14
     points: 21
     played: 21
     goalDifference: -13
+  - round: 23
+    position: 14
+    points: 21
+    played: 22
+    goalDifference: -15
 providers:
   - providerId: fotmob
     url: https://www.fotmob.com/leagues/59/table?season=2026
-    retrievedAt: 2026-09-20
+    retrievedAt: 2026-10-13
     fields:
       - table
       - progression
     note: Lest med fotmob-table@1. Tabellen er hentet; kurven er regnet ut av divisjonens runder i samme svar.
 sources: []
-note: "Tabellen er hentet mens sesongen pågår: 163 av 240 kamper i divisjonen er spilt. Ingen rad har utfall ennå."
+note: "Tabellen er hentet mens sesongen pågår: 176 av 240 kamper i divisjonen er spilt. Ingen rad har utfall ennå."
