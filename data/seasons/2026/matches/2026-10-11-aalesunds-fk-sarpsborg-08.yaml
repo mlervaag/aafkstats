@@ -2,7 +2,7 @@ id: 2026-10-11-aalesunds-fk-sarpsborg-08
 date: 2026-10-11
 dateConfidence: exact
 kickoff: 17:00
-status: scheduled
+status: played
 competition:
   id: eliteserien
   season: 2026
@@ -10,27 +10,180 @@ competition:
   round: 23
 home:
   clubId: aalesunds-fk
-  score: null
-  halfTimeScore: null
+  score: 2
+  halfTimeScore: 0
 away:
   clubId: sarpsborg-08
-  score: null
-  halfTimeScore: null
+  score: 4
+  halfTimeScore: 1
 venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 4119
+referee: Svein Tore Sinnes
+events:
+  - minute: 5
+    type: goal
+    team: away
+    player: Eirik Wichne
+    assist: Sander Christiansen
+  - minute: 9
+    type: yellow_card
+    team: away
+    player: Bjørn Inge Utvik
+  - minute: 39
+    type: yellow_card
+    team: away
+    player: Sigurd Rosted
+  - minute: 51
+    type: goal
+    team: away
+    player: Sondre Sørli
+    assist: Noa Williams
+  - minute: 54
+    type: goal
+    team: away
+    player: Noa Williams
+  - minute: 62
+    type: substitution
+    team: home
+    player: Elias Heggland Myrlid
+    playerOff: Isak Gabriel Skotheim
+  - minute: 62
+    type: substitution
+    team: home
+    player: Sander Erik Kartum
+    playerOff: Endre Osenbroch
+  - minute: 65
+    type: penalty_goal
+    team: away
+    player: Olaus Jair Skarsem
+  - minute: 67
+    type: substitution
+    team: home
+    player: Philip Sandvik Aukland
+    playerOff: Cheikh Mbacke Diop
+  - minute: 70
+    type: substitution
+    team: away
+    player: Marius Lode
+    playerOff: Sigurd Rosted
+  - minute: 70
+    type: substitution
+    team: away
+    player: Aimar Sher
+    playerOff: Olaus Jair Skarsem
+  - minute: 70
+    type: substitution
+    team: away
+    player: Victor Halvorsen
+    playerOff: Andreas Nibe
+  - minute: 70
+    type: goal
+    team: home
+    player: Elias Hagen
+    assist: Marcus Haagensen Reed
+  - minute: 74
+    type: goal
+    team: home
+    player: Elias Hagen
+    assist: Marcus Haagensen Reed
+  - minute: 78
+    type: substitution
+    team: away
+    player: Anders Hiim
+    playerOff: Eirik Wichne
+  - minute: 78
+    type: substitution
+    team: away
+    player: Claus Niyukuri
+    playerOff: Noa Williams
+  - minute: 80
+    type: yellow_card
+    team: home
+    player: Ólafur Guðmundsson
+  - minute: 83
+    type: substitution
+    team: home
+    player: Jakob Nyland Ørsahl
+    playerOff: Marcus Haagensen Reed
+  - minute: 83
+    type: substitution
+    team: home
+    player: Paul Ngongo Iversen
+    playerOff: Philip Sandvik Aukland
 lineups:
   home:
-    starters: []
-    subs: []
+    formation: 5-3-2
+    starters:
+      - Luca Podlech
+      - Emil Engqvist
+      - Cheikh Mbacke Diop
+      - Ólafur Guðmundsson
+      - Kristoffer Nessø
+      - Uba Charles
+      - Mathias Christensen
+      - Elias Hagen
+      - Endre Osenbroch
+      - Isak Gabriel Skotheim
+      - Marcus Haagensen Reed
+    subs:
+      - Sander Erik Kartum
+      - Elias Heggland Myrlid
+      - Philip Sandvik Aukland
+      - Jakob Nyland Ørsahl
+      - Paul Ngongo Iversen
+      - Tor Erik Valderhaug Larsen
+      - Ulrik Valderhaug Syversen
+      - Mathias Kristensen
+      - Tobias Leikanger
+    coach: Kjetil Rekdal
   away:
-    starters: []
-    subs: []
+    formation: 4-4-2
+    starters:
+      - Leander Øy
+      - Eirik Wichne
+      - Bjørn Inge Utvik
+      - Sigurd Rosted
+      - Peter Reinhardsen
+      - Sondre Sørli
+      - Sander Christiansen
+      - Olaus Jair Skarsem
+      - Noa Williams
+      - Andreas Nibe
+      - Daniel Seland Karlsbakk
+    subs:
+      - Marius Lode
+      - Aimar Sher
+      - Victor Halvorsen
+      - Anders Hiim
+      - Claus Niyukuri
+      - Jacob Pryts
+      - Luca Høyland
+      - Bop Gueye
+      - Camil Mmaee
+    coach: Even Sel
+stats:
+  home:
+    possession: 53
+    shots: 23
+    shotsOnTarget: 7
+    corners: 8
+    fouls: 17
+    offsides: 0
+    xg: 1.72
+  away:
+    possession: 47
+    shots: 18
+    shotsOnTarget: 8
+    corners: 6
+    fouls: 14
+    offsides: 1
+    xg: 2.38
 externalReports: []
 providers:
   - providerId: fotmob
     url: https://www.fotmob.com/matches/aalesund-vs-sarpsborg-08/2d5vpy#5105022
-    retrievedAt: 2026-09-20
+    retrievedAt: 2026-10-13
     fields:
       - date
       - kickoff
@@ -38,9 +191,18 @@ providers:
       - competition
       - home.clubId
       - away.clubId
+      - home.score
+      - away.score
       - competition.round
+      - attendance
       - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
       - lineups
+    note: "Kildestatus: FT"
 sources: []
 confidence: probable
 conflicts: []
