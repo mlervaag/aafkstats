@@ -2,7 +2,7 @@ id: 2026-10-17-kristiansund-aalesunds-fk
 date: 2026-10-17
 dateConfidence: exact
 kickoff: 16:00
-status: scheduled
+status: played
 competition:
   id: eliteserien
   season: 2026
@@ -10,27 +10,171 @@ competition:
   round: 24
 home:
   clubId: kristiansund
-  score: null
-  halfTimeScore: null
+  score: 1
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
-  score: null
-  halfTimeScore: null
+  score: 4
+  halfTimeScore: 1
 venueId: nordmore-stadion
 neutralVenue: false
-events: []
+attendance: 2901
+referee: Mischa Huru
+events:
+  - minute: 17
+    type: yellow_card
+    team: away
+    player: Marcus Haagensen Reed
+  - minute: 27
+    type: goal
+    team: home
+    player: David Tufekčić
+    assist: Wilfred George Igor
+  - minute: 36
+    type: goal
+    team: away
+    player: Marcus Haagensen Reed
+    assist: Mathias Christensen
+  - minute: 61
+    type: substitution
+    team: away
+    player: Endre Osenbroch
+    playerOff: Sander Erik Kartum
+  - minute: 65
+    type: goal
+    team: away
+    player: Marcus Haagensen Reed
+  - minute: 67
+    type: substitution
+    team: home
+    player: Gustav Christensen
+    playerOff: Sander Svendsen
+  - minute: 68
+    type: substitution
+    team: away
+    player: Jakob Nyland Ørsahl
+    playerOff: Uba Charles
+  - minute: 68
+    type: substitution
+    team: away
+    player: Paul Ngongo Iversen
+    playerOff: Marcus Haagensen Reed
+  - minute: 69
+    type: yellow_card
+    team: home
+    player: David Tufekčić
+  - minute: 76
+    type: goal
+    team: away
+    player: Paul Ngongo Iversen
+    assist: Mathias Christensen
+  - minute: 79
+    type: yellow_card
+    team: away
+    player: Endre Osenbroch
+  - minute: 80
+    type: substitution
+    team: home
+    player: Adrian Kurd Rønning
+    playerOff: Júlíus Júlíusson
+  - minute: 80
+    type: substitution
+    team: home
+    player: Max Normann Williamsen
+    playerOff: Wilfred George Igor
+  - minute: 80
+    type: substitution
+    team: home
+    player: John Kitolano
+    playerOff: Zymer Bytyqi
+  - minute: 82
+    type: substitution
+    team: away
+    player: Stefano Holmquist Vecchia
+    playerOff: Isak Gabriel Skotheim
+  - minute: 88
+    type: goal
+    team: away
+    player: Mathias Christensen
+    assist: Stefano Holmquist Vecchia
+  - minute: 90
+    stoppage: 2
+    type: yellow_card
+    team: home
+    player: John Kitolano
 lineups:
   home:
-    starters: []
-    subs: []
+    formation: 4-2-3-1
+    starters:
+      - Michael Lansing
+      - Marius Elvius
+      - Júlíus Júlíusson
+      - Dan Ulvestad
+      - Jesper Isaksen
+      - Heine Gikling Bruseth
+      - Wilfred George Igor
+      - David Tufekčić
+      - Sander Svendsen
+      - Zymer Bytyqi
+      - Leander Alvheim
+    subs:
+      - Gustav Christensen
+      - John Kitolano
+      - Max Normann Williamsen
+      - Adrian Kurd Rønning
+      - Adrian Sæther
+      - Frederik Flex
+      - Haakon Haugen
+      - Syver Skundberg Skeide
+      - Tobias Hammer Svendsen
+    coach: Amund Skiri
   away:
-    starters: []
-    subs: []
+    formation: 5-3-2
+    starters:
+      - Luca Podlech
+      - Marius Andresen
+      - Cheikh Mbacke Diop
+      - Ólafur Guðmundsson
+      - Kristoffer Nessø
+      - Uba Charles
+      - Mathias Christensen
+      - Elias Hagen
+      - Sander Erik Kartum
+      - Isak Gabriel Skotheim
+      - Marcus Haagensen Reed
+    subs:
+      - Endre Osenbroch
+      - Jakob Nyland Ørsahl
+      - Paul Ngongo Iversen
+      - Stefano Holmquist Vecchia
+      - Tor Erik Valderhaug Larsen
+      - Emil Engqvist
+      - Mathias Kristensen
+      - Tobias Leikanger
+      - Elias Heggland Myrlid
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 60
+    shots: 15
+    shotsOnTarget: 3
+    corners: 4
+    fouls: 9
+    offsides: 1
+    xg: 1.29
+  away:
+    possession: 40
+    shots: 16
+    shotsOnTarget: 8
+    corners: 8
+    fouls: 16
+    offsides: 2
+    xg: 1.84
 externalReports: []
 providers:
   - providerId: fotmob
     url: https://www.fotmob.com/matches/aalesund-vs-kristiansund/2e4s7a#5105028
-    retrievedAt: 2026-10-13
+    retrievedAt: 2026-10-18
     fields:
       - date
       - kickoff
@@ -38,9 +182,18 @@ providers:
       - competition
       - home.clubId
       - away.clubId
+      - home.score
+      - away.score
       - competition.round
+      - attendance
       - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
       - lineups
+    note: "Kildestatus: FT"
 sources: []
 confidence: probable
 conflicts: []
