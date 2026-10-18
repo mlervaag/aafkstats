@@ -1,9 +1,9 @@
 providerId: fotmob
 externalId: "5105022"
 matchId: 2026-10-11-aalesunds-fk-sarpsborg-08
-retrievedAt: 2026-10-13
+retrievedAt: 2026-10-18
 adapter: fotmob@5
-payloadHash: sha256:8e564ba3ac208800f6cf528799ec72920e435815024b540e855a9d2768defac1
+payloadHash: sha256:0dbca632a3e5eac6aa96641881372bae19213ecc4bdb261080874ebb041b1dd9
 raw:
   externalId: "5105022"
   date: 2026-10-11
@@ -15,15 +15,10 @@ raw:
   awayId: "8509"
   homeScore: 2
   awayScore: 4
-  homeHalfTime: 0
-  awayHalfTime: 1
   competition: Eliteserien
   competitionId: "59"
   season: 2026
   round: 23
-  venue: Color Line Stadion
-  attendance: 4119
-  referee: Svein Tore Sinnes
   url: https://www.fotmob.com/matches/aalesund-vs-sarpsborg-08/2d5vpy#5105022
 normalized:
   date: 2026-10-11
@@ -33,15 +28,10 @@ normalized:
   away.clubId: sarpsborg-08
   home.score: 2
   away.score: 4
-  home.halfTimeScore: 0
-  away.halfTimeScore: 1
   competition.id: eliteserien
   competition.season: 2026
   competition.round: 23
   competition.stage: regular_season
-  venueId: color-line-stadion
-  attendance: 4119
-  referee.name: Svein Tore Sinnes
 fields:
   - date
   - kickoff
@@ -52,12 +42,4 @@ fields:
   - home.score
   - away.score
   - competition.round
-  - attendance
-  - venueId
-  - referee
-  - home.halfTimeScore
-  - away.halfTimeScore
-  - events
-  - stats
-  - lineups
 warnings: []
