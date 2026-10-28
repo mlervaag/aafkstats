@@ -118,6 +118,9 @@ async function main(): Promise<void> {
   }
 
   const written: string[] = [];
+  // Det en tørrkjøring ville skrevet. Uten denne meldte oppsummeringen «Ingenting
+  // endret seg» selv når kampen var hentet og planlagt, og ingen la ut en PR.
+  const pending: string[] = [];
   const stillOpen: Due[] = [];
   const plans: ReconcilePlan[] = [];
 
@@ -178,7 +181,10 @@ async function main(): Promise<void> {
     console.log(`  ${JSON.stringify(plan.summary)}`);
     plans.push(plan);
 
-    if (!args.write) continue;
+    if (!args.write) {
+      pending.push(...matches.filter((match) => !notYet.includes(match)).map((match) => `kamp: ${match.matchId}`));
+      continue;
+    }
     if (plan.issues.length > 0) throw new Error(`uløste reconcile-problemer for ${competitionId} ${season}; skriver ikke`);
     if (fetched.failures.length > 0) throw new Error(`ufullstendig høsting for ${competitionId} ${season}; skriver ikke`);
     await writePlan(root, plan);
@@ -214,7 +220,10 @@ async function main(): Promise<void> {
     }
     console.log(`  AaFK på ${result.position}. plass av ${result.teams} · ${result.playedInDivision} kamper spilt i divisjonen`);
     if (result.written) tables.push(result.relativePath);
-    else console.log("  (tørrkjøring — ingen fil skrevet)");
+    else {
+      console.log("  (tørrkjøring — ingen fil skrevet)");
+      pending.push(`tabell: ${result.relativePath}`);
+    }
   }
 
   // Kamptroppen leses av planen, ikke av disken: da svarer kontrollen likt i en
@@ -232,8 +241,8 @@ async function main(): Promise<void> {
     for (const player of arrivals) console.log(describeNewcomer(player));
   }
 
-  const people: { written: string[]; stillMissing: string[] } = unexplained.length === 0
-    ? { written: [], stillMissing: [] }
+  const people: { written: string[]; planned: string[]; stillMissing: string[] } = unexplained.length === 0
+    ? { written: [], planned: [], stillMissing: [] }
     : await lookUpArrivals({ archive, root, players: unexplained, write: args.write, retrievedAt: args.retrievedAt });
 
   // Etter alt som skrives, ikke bare etter kampene: en personfil som ikke
@@ -248,8 +257,13 @@ async function main(): Promise<void> {
   }
 
   console.log("\nOppsummering:");
+  pending.push(...people.planned.map((path) => `overgang: ${path}`));
   if (written.length === 0 && tables.length === 0 && people.written.length === 0) {
-    console.log("  Ingenting endret seg. Ingen filer skrevet.");
+    if (pending.length === 0) console.log("  Ingenting endret seg. Ingen filer skrevet.");
+    else {
+      console.log("  Det ER noe å oppdatere. Ingen filer skrevet (tørrkjøring). Ville skrevet:");
+      for (const line of pending) console.log(`  ${line}`);
+    }
   }
   for (const id of written) console.log(`  kamp: ${id}`);
   for (const path of tables) console.log(`  tabell: ${path}`);
@@ -298,7 +312,7 @@ interface LookupArgs {
  */
 async function lookUpArrivals(
   { archive, root, players, write, retrievedAt }: LookupArgs,
-): Promise<{ written: string[]; stillMissing: string[] }> {
+): Promise<{ written: string[]; planned: string[]; stillMissing: string[] }> {
   const seasons = new Set(players.map((player) => player.debut.season));
   console.log(`\nOverganger · slår opp ${players.length} nytt navn i vinduene for ${[...seasons].join(", ")}`);
 
@@ -317,6 +331,7 @@ async function lookUpArrivals(
   for (const issue of issues) console.error(`KONTROLL: ${issue}`);
 
   const written: string[] = [];
+  const wouldWrite: string[] = [];
   for (const arrival of found) {
     const { transfer } = arrival;
     const hvor = `${transfer.kind} fra ${transfer.club ?? "ukjent klubb"} (${transfer.date})`;
@@ -331,6 +346,7 @@ async function lookUpArrivals(
     const relative = `people/${arrival.personId}.yaml`;
     if (!write) {
       console.log(`  ${arrival.name}: ${hvor} → ${relative}${planned.fresh ? " (ny fil)" : ""} (tørrkjøring)`);
+      wouldWrite.push(relative);
       continue;
     }
     await mkdir(dirname(planned.absolute), { recursive: true });
@@ -343,7 +359,7 @@ async function lookUpArrivals(
     console.log(`  ${player.name}: ingen kildeført overgang i vinduene for ${player.season} — må føres for hånd`);
   }
 
-  return { written, stillMissing: missing.map((player) => player.name) };
+  return { written, planned: wouldWrite, stillMissing: missing.map((player) => player.name) };
 }
 
 /** Én linje per ny spiller: hvem han er, og hva arkivet vet om ankomsten. */
