@@ -1,33 +1,47 @@
 providerId: fotmob
 externalId: "5104935"
 matchId: 2026-10-25-sarpsborg-08-aalesunds-fk
-retrievedAt: 2026-10-18
+retrievedAt: 2026-10-28
 adapter: fotmob@5
-payloadHash: sha256:0943daade799881f6a4220d0d6685e457886d9d11d4fb2962ab494f282a4c819
+payloadHash: sha256:4e184e55b3070560ab9eb00459b1322e33a25df9f2613acc2c77491e892ab301
 raw:
   externalId: "5104935"
   date: 2026-10-25
   kickoff: 17:00
-  status: scheduled
+  status: FT
   home: Sarpsborg 08
   homeId: "8509"
   away: Aalesund
   awayId: "8404"
+  homeScore: 2
+  awayScore: 1
+  homeHalfTime: 0
+  awayHalfTime: 1
   competition: Eliteserien
   competitionId: "59"
   season: 2026
   round: 12
+  venue: Sarpsborg Stadion
+  attendance: 3504
+  referee: Mischa Huru
   url: https://www.fotmob.com/matches/aalesund-vs-sarpsborg-08/2d5vpy#5104935
 normalized:
   date: 2026-10-25
   kickoff: 17:00
-  status: scheduled
+  status: played
   home.clubId: sarpsborg-08
   away.clubId: aalesunds-fk
+  home.score: 2
+  away.score: 1
+  home.halfTimeScore: 0
+  away.halfTimeScore: 1
   competition.id: eliteserien
   competition.season: 2026
   competition.round: 12
   competition.stage: regular_season
+  venueId: sarpsborg-stadion
+  attendance: 3504
+  referee.name: Mischa Huru
 fields:
   - date
   - kickoff
@@ -35,5 +49,15 @@ fields:
   - competition
   - home.clubId
   - away.clubId
+  - home.score
+  - away.score
   - competition.round
+  - attendance
+  - venueId
+  - referee
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
 warnings: []

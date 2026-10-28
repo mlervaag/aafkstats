@@ -2,7 +2,7 @@ id: 2026-10-25-sarpsborg-08-aalesunds-fk
 date: 2026-10-25
 dateConfidence: exact
 kickoff: 17:00
-status: scheduled
+status: played
 competition:
   id: eliteserien
   season: 2026
@@ -10,27 +10,160 @@ competition:
   round: 12
 home:
   clubId: sarpsborg-08
-  score: null
-  halfTimeScore: null
+  score: 2
+  halfTimeScore: 0
 away:
   clubId: aalesunds-fk
-  score: null
-  halfTimeScore: null
+  score: 1
+  halfTimeScore: 1
 venueId: sarpsborg-stadion
 neutralVenue: false
-events: []
+attendance: 3504
+referee: Mischa Huru
+events:
+  - minute: 13
+    type: yellow_card
+    team: home
+    player: Sigurd Rosted
+  - minute: 19
+    type: goal
+    team: away
+    player: Mathias Christensen
+    assist: Sander Erik Kartum
+  - minute: 35
+    type: red_card
+    team: away
+    player: Ólafur Guðmundsson
+  - minute: 40
+    type: substitution
+    team: away
+    player: Emil Engqvist
+    playerOff: Stefano Holmquist Vecchia
+  - minute: 46
+    type: substitution
+    team: away
+    player: Paul Ngongo Iversen
+    playerOff: Isak Gabriel Skotheim
+  - minute: 46
+    type: substitution
+    team: home
+    player: Anders Hiim
+    playerOff: Noa Williams
+  - minute: 46
+    type: substitution
+    team: home
+    player: Bop Gueye
+    playerOff: Peter Reinhardsen
+  - minute: 48
+    type: yellow_card
+    team: away
+    player: Marius Andresen
+  - minute: 62
+    type: substitution
+    team: home
+    player: Marius Lode
+    playerOff: Bjørn Inge Utvik
+  - minute: 62
+    type: substitution
+    team: home
+    player: Aimar Sher
+    playerOff: Sander Christiansen
+  - minute: 79
+    type: substitution
+    team: home
+    player: Camil Mmaee
+    playerOff: Eirik Wichne
+  - minute: 80
+    type: yellow_card
+    team: home
+    player: Daniel Seland Karlsbakk
+  - minute: 84
+    type: substitution
+    team: away
+    player: Aleksander Hammer Kjelsen
+    playerOff: Marius Andresen
+  - minute: 85
+    type: goal
+    team: home
+    player: Camil Mmaee
+    assist: Daniel Seland Karlsbakk
+  - minute: 90
+    stoppage: 4
+    type: goal
+    team: home
+    player: Anders Hiim
 lineups:
   home:
-    starters: []
-    subs: []
+    formation: 4-4-2
+    starters:
+      - Leander Øy
+      - Eirik Wichne
+      - Bjørn Inge Utvik
+      - Sigurd Rosted
+      - Peter Reinhardsen
+      - Sondre Sørli
+      - Sander Christiansen
+      - Olaus Jair Skarsem
+      - Noa Williams
+      - Victor Halvorsen
+      - Daniel Seland Karlsbakk
+    subs:
+      - Anders Hiim
+      - Bop Gueye
+      - Marius Lode
+      - Aimar Sher
+      - Camil Mmaee
+      - Jacob Pryts
+      - Claus Niyukuri
+      - Luca Høyland
+      - Andreas Nibe
+    coach: Even Sel
   away:
-    starters: []
-    subs: []
+    formation: 5-3-2
+    starters:
+      - Luca Podlech
+      - Marius Andresen
+      - Cheikh Mbacke Diop
+      - Ólafur Guðmundsson
+      - Kristoffer Nessø
+      - Uba Charles
+      - Mathias Christensen
+      - Elias Hagen
+      - Sander Erik Kartum
+      - Isak Gabriel Skotheim
+      - Stefano Holmquist Vecchia
+    subs:
+      - Emil Engqvist
+      - Paul Ngongo Iversen
+      - Aleksander Hammer Kjelsen
+      - Tor Erik Valderhaug Larsen
+      - Endre Osenbroch
+      - Jakob Nyland Ørsahl
+      - Tobias Leikanger
+      - Elias Heggland Myrlid
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 72
+    shots: 34
+    shotsOnTarget: 6
+    corners: 20
+    fouls: 11
+    offsides: 1
+    xg: 2.99
+  away:
+    possession: 28
+    shots: 7
+    shotsOnTarget: 2
+    corners: 4
+    fouls: 8
+    offsides: 3
+    xg: 0.3
 externalReports: []
 providers:
   - providerId: fotmob
     url: https://www.fotmob.com/matches/aalesund-vs-sarpsborg-08/2d5vpy#5104935
-    retrievedAt: 2026-10-18
+    retrievedAt: 2026-10-28
     fields:
       - date
       - kickoff
@@ -38,9 +171,18 @@ providers:
       - competition
       - home.clubId
       - away.clubId
+      - home.score
+      - away.score
       - competition.round
+      - attendance
       - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
       - lineups
+    note: "Kildestatus: FT"
 sources: []
 confidence: probable
 conflicts: []
