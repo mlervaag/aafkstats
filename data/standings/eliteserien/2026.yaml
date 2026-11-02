@@ -4,24 +4,24 @@ table:
   - position: 1
     name: Viking
     clubId: viking
-    played: 24
+    played: 25
     wins: 19
     draws: 2
-    losses: 3
-    goalsFor: 62
-    goalsAgainst: 23
+    losses: 4
+    goalsFor: 64
+    goalsAgainst: 26
     points: 59
     outcome: none
   - position: 2
     name: Bodø/Glimt
     clubId: bodo-glimt
-    played: 24
-    wins: 18
+    played: 25
+    wins: 19
     draws: 2
     losses: 4
-    goalsFor: 58
-    goalsAgainst: 21
-    points: 56
+    goalsFor: 61
+    goalsAgainst: 23
+    points: 59
     outcome: none
   - position: 3
     name: Molde
@@ -298,13 +298,18 @@ progression:
     points: 24
     played: 24
     goalDifference: -13
+  - round: 25
+    position: 14
+    points: 24
+    played: 24
+    goalDifference: -13
 providers:
   - providerId: fotmob
     url: https://www.fotmob.com/leagues/59/table?season=2026
-    retrievedAt: 2026-10-28
+    retrievedAt: 2026-10-30
     fields:
       - table
       - progression
     note: Lest med fotmob-table@1. Tabellen er hentet; kurven er regnet ut av divisjonens runder i samme svar.
 sources: []
-note: "Tabellen er hentet mens sesongen pågår: 192 av 240 kamper i divisjonen er spilt. Ingen rad har utfall ennå."
+note: "Tabellen er hentet mens sesongen pågår: 193 av 240 kamper i divisjonen er spilt. Ingen rad har utfall ennå."
