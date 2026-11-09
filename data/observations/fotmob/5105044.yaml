@@ -1,33 +1,47 @@
 providerId: fotmob
 externalId: "5105044"
 matchId: 2026-11-08-lillestrom-aalesunds-fk
-retrievedAt: 2026-10-28
+retrievedAt: 2026-11-09
 adapter: fotmob@5
-payloadHash: sha256:621a63e123208d9f6313bf2a750df4ac443654016350eb80623233638ae25608
+payloadHash: sha256:6152f2be657bc0eb586ae95649b78ad3f30bd14e21a2acb73fc73eaa9cc81a37
 raw:
   externalId: "5105044"
   date: 2026-11-08
   kickoff: 17:00
-  status: scheduled
+  status: FT
   home: Lillestrøm
   homeId: "8476"
   away: Aalesund
   awayId: "8404"
+  homeScore: 3
+  awayScore: 2
+  homeHalfTime: 1
+  awayHalfTime: 2
   competition: Eliteserien
   competitionId: "59"
   season: 2026
   round: 26
+  venue: Åråsen Stadion
+  attendance: 6646
+  referee: Stian Røvig Sletner
   url: https://www.fotmob.com/matches/aalesund-vs-lillestrom/2ctxg4#5105044
 normalized:
   date: 2026-11-08
   kickoff: 17:00
-  status: scheduled
+  status: played
   home.clubId: lillestrom
   away.clubId: aalesunds-fk
+  home.score: 3
+  away.score: 2
+  home.halfTimeScore: 1
+  away.halfTimeScore: 2
   competition.id: eliteserien
   competition.season: 2026
   competition.round: 26
   competition.stage: regular_season
+  venueId: arasen-stadion
+  attendance: 6646
+  referee.name: Stian Røvig Sletner
 fields:
   - date
   - kickoff
@@ -35,5 +49,15 @@ fields:
   - competition
   - home.clubId
   - away.clubId
+  - home.score
+  - away.score
   - competition.round
+  - attendance
+  - venueId
+  - referee
+  - home.halfTimeScore
+  - away.halfTimeScore
+  - events
+  - stats
+  - lineups
 warnings: []
