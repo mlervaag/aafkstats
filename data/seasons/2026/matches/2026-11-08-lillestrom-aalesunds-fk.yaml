@@ -2,7 +2,7 @@ id: 2026-11-08-lillestrom-aalesunds-fk
 date: 2026-11-08
 dateConfidence: exact
 kickoff: 17:00
-status: scheduled
+status: played
 competition:
   id: eliteserien
   season: 2026
@@ -10,27 +10,171 @@ competition:
   round: 26
 home:
   clubId: lillestrom
-  score: null
-  halfTimeScore: null
+  score: 3
+  halfTimeScore: 1
 away:
   clubId: aalesunds-fk
-  score: null
-  halfTimeScore: null
-venueId: aaraasen-stadion
+  score: 2
+  halfTimeScore: 2
+venueId: arasen-stadion
 neutralVenue: false
-events: []
+attendance: 6646
+referee: Stian Røvig Sletner
+events:
+  - minute: 11
+    type: goal
+    team: home
+    player: Ruben Gabrielsen
+    assist: Frederik Elkær
+  - minute: 18
+    type: goal
+    team: away
+    player: Marcus Haagensen Reed
+  - minute: 37
+    type: goal
+    team: away
+    player: Marcus Haagensen Reed
+    assist: Mathias Christensen
+  - minute: 51
+    type: goal
+    team: home
+    player: Henrik Melland
+    assist: Thomas Lehne Olsen
+  - minute: 53
+    type: yellow_card
+    team: home
+    player: Hans Erik Ødegaard
+  - minute: 60
+    type: substitution
+    team: away
+    player: Ulrik Valderhaug Syversen
+    playerOff: Philip Sandvik Aukland
+  - minute: 60
+    type: substitution
+    team: away
+    player: Paul Ngongo Iversen
+    playerOff: Marcus Haagensen Reed
+  - minute: 60
+    type: yellow_card
+    team: home
+    player: Gustav Kjølstad Nyheim
+  - minute: 66
+    type: substitution
+    team: home
+    player: Kevin Martin Krygård
+    playerOff: Filip Ottosson
+  - minute: 66
+    type: substitution
+    team: home
+    player: Fredrik Gulbrandsen
+    playerOff: Camil Jebara
+  - minute: 66
+    type: substitution
+    team: home
+    player: Ylldren Ibrahimaj
+    playerOff: Henrik Melland
+  - minute: 73
+    type: substitution
+    team: away
+    player: Sander Erik Kartum
+    playerOff: Endre Osenbroch
+  - minute: 73
+    type: substitution
+    team: away
+    player: Isak Gabriel Skotheim
+    playerOff: Elias Heggland Myrlid
+  - minute: 78
+    type: yellow_card
+    team: away
+    player: Kristoffer Nessø
+  - minute: 81
+    type: substitution
+    team: home
+    player: Seun Akanji
+    playerOff: Gustav Nordh
+  - minute: 89
+    type: goal
+    team: home
+    player: Ruben Gabrielsen
+    assist: Fredrik Gulbrandsen
+  - minute: 90
+    stoppage: 2
+    type: substitution
+    team: home
+    player: Yaw Paintsil
+    playerOff: Thomas Lehne Olsen
 lineups:
   home:
-    starters: []
-    subs: []
+    formation: 4-3-3
+    starters:
+      - Pontus Dahlberg
+      - Sturla Ottesen
+      - Sander Moen Foss
+      - Ruben Gabrielsen
+      - Frederik Elkær
+      - Henrik Melland
+      - Filip Ottosson
+      - Gustav Kjølstad Nyheim
+      - Camil Jebara
+      - Thomas Lehne Olsen
+      - Gustav Nordh
+    subs:
+      - Kevin Martin Krygård
+      - Ylldren Ibrahimaj
+      - Fredrik Gulbrandsen
+      - Seun Akanji
+      - Yaw Paintsil
+      - Stefan Hagerup
+      - Stian Kristiansen
+      - Eric Kitolano
+      - Linus Alperud
+    coach: Hans Erik Ødegaard
   away:
-    starters: []
-    subs: []
+    formation: 3-5-2
+    starters:
+      - Tor Erik Valderhaug Larsen
+      - Marius Andresen
+      - Philip Sandvik Aukland
+      - Aleksander Hammer Kjelsen
+      - Kristoffer Nessø
+      - Mathias Christensen
+      - Elias Hagen
+      - Endre Osenbroch
+      - Uba Charles
+      - Marcus Haagensen Reed
+      - Elias Heggland Myrlid
+    subs:
+      - Ulrik Valderhaug Syversen
+      - Paul Ngongo Iversen
+      - Sander Erik Kartum
+      - Isak Gabriel Skotheim
+      - Philip Storås
+      - Emil Engqvist
+      - Theodor Kvalsund Pedersen
+      - Jakob Nyland Ørsahl
+    coach: Kjetil Rekdal
+stats:
+  home:
+    possession: 57
+    shots: 17
+    shotsOnTarget: 5
+    corners: 13
+    fouls: 10
+    offsides: 0
+    xg: 2.32
+  away:
+    possession: 43
+    shots: 16
+    shotsOnTarget: 5
+    corners: 3
+    fouls: 12
+    offsides: 0
+    xg: 1.79
 externalReports: []
 providers:
   - providerId: fotmob
     url: https://www.fotmob.com/matches/aalesund-vs-lillestrom/2ctxg4#5105044
-    retrievedAt: 2026-10-28
+    retrievedAt: 2026-11-09
     fields:
       - date
       - kickoff
@@ -38,9 +182,18 @@ providers:
       - competition
       - home.clubId
       - away.clubId
+      - home.score
+      - away.score
       - competition.round
+      - attendance
       - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
       - lineups
+    note: "Kildestatus: FT"
 sources: []
 confidence: probable
 conflicts: []

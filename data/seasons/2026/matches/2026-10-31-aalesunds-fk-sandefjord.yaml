@@ -2,7 +2,7 @@ id: 2026-10-31-aalesunds-fk-sandefjord
 date: 2026-10-31
 dateConfidence: exact
 kickoff: 18:00
-status: scheduled
+status: played
 competition:
   id: eliteserien
   season: 2026
@@ -10,27 +10,194 @@ competition:
   round: 25
 home:
   clubId: aalesunds-fk
-  score: null
-  halfTimeScore: null
+  score: 3
+  halfTimeScore: 2
 away:
   clubId: sandefjord
-  score: null
-  halfTimeScore: null
+  score: 4
+  halfTimeScore: 2
 venueId: color-line-stadion
 neutralVenue: false
-events: []
+attendance: 4044
+referee: Tore Hansen
+events:
+  - minute: 16
+    type: goal
+    team: away
+    player: Evangelos Patoulidis
+    assist: Jakob Maslø Dunsby
+  - minute: 30
+    type: goal
+    team: away
+    player: Jakob Maslø Dunsby
+  - minute: 32
+    type: yellow_card
+    team: away
+    player: Evangelos Patoulidis
+  - minute: 34
+    type: substitution
+    team: home
+    player: Endre Osenbroch
+    playerOff: Sander Erik Kartum
+  - minute: 34
+    type: substitution
+    team: home
+    player: Emil Engqvist
+    playerOff: Aleksander Hammer Kjelsen
+  - minute: 38
+    type: penalty_goal
+    team: home
+    player: Mathias Christensen
+  - minute: 39
+    type: yellow_card
+    team: away
+    player: Ervin Gigović
+  - minute: 42
+    type: yellow_card
+    team: home
+    player: Cheikh Mbacke Diop
+  - minute: 44
+    type: yellow_card
+    team: home
+    player: Paul Ngongo Iversen
+  - minute: 45
+    stoppage: 2
+    type: goal
+    team: home
+    player: Uba Charles
+    assist: Endre Osenbroch
+  - minute: 50
+    type: goal
+    team: away
+    player: Jakob Maslø Dunsby
+    assist: Evangelos Patoulidis
+  - minute: 54
+    type: goal
+    team: away
+    player: Oscar Forsmo Kapskarmo
+    assist: Evangelos Patoulidis
+  - minute: 56
+    type: substitution
+    team: home
+    player: Tor Erik Valderhaug Larsen
+    playerOff: Luca Podlech
+  - minute: 56
+    type: substitution
+    team: home
+    player: Stefano Holmquist Vecchia
+    playerOff: Paul Ngongo Iversen
+  - minute: 56
+    type: substitution
+    team: home
+    player: Elias Heggland Myrlid
+    playerOff: Isak Gabriel Skotheim
+  - minute: 76
+    type: goal
+    team: home
+    player: Elias Heggland Myrlid
+    assist: Mathias Christensen
+  - minute: 76
+    type: yellow_card
+    team: home
+    player: Elias Heggland Myrlid
+  - minute: 78
+    type: substitution
+    team: away
+    player: Håkon Krogelien
+    playerOff: Gustav Højbjerg
+  - minute: 78
+    type: substitution
+    team: away
+    player: Martin Hellan
+    playerOff: Fredrik Carson Pedersen
+  - minute: 82
+    type: red_card
+    team: away
+    player: Ervin Gigović
+  - minute: 86
+    type: yellow_card
+    team: away
+    player: Oscar Forsmo Kapskarmo
+  - minute: 87
+    type: substitution
+    team: away
+    player: Jakob Vester
+    playerOff: Evangelos Patoulidis
+  - minute: 90
+    type: yellow_card
+    team: home
+    player: Endre Osenbroch
 lineups:
   home:
-    starters: []
-    subs: []
+    formation: 3-5-2
+    starters:
+      - Luca Podlech
+      - Marius Andresen
+      - Cheikh Mbacke Diop
+      - Aleksander Hammer Kjelsen
+      - Kristoffer Nessø
+      - Mathias Christensen
+      - Elias Hagen
+      - Sander Erik Kartum
+      - Uba Charles
+      - Isak Gabriel Skotheim
+      - Paul Ngongo Iversen
+    subs:
+      - Emil Engqvist
+      - Endre Osenbroch
+      - Tor Erik Valderhaug Larsen
+      - Elias Heggland Myrlid
+      - Stefano Holmquist Vecchia
+      - Philip Sandvik Aukland
+      - Jakob Nyland Ørsahl
+      - Tobias Leikanger
+    coach: Kjetil Rekdal
   away:
-    starters: []
-    subs: []
+    formation: 4-3-3
+    starters:
+      - Elias Hadaya
+      - Fredrik Carson Pedersen
+      - Rasmus Holten
+      - Gustav Højbjerg
+      - Vetle Walle Egeli
+      - Edvard Sundbø Pettersen
+      - Tobias Borchgrevink Børkeeiet
+      - Ervin Gigović
+      - Evangelos Patoulidis
+      - Oscar Forsmo Kapskarmo
+      - Jakob Maslø Dunsby
+    subs:
+      - Håkon Krogelien
+      - Martin Hellan
+      - Jakob Vester
+      - Alf Lukas Grønneberg
+      - Henrik Barstad Skretteberg
+      - Daniel Skaarud
+      - Foster Apetorgbor
+      - Sebastian Holm Mathisen
+    coach: Andreas Tegström
+stats:
+  home:
+    possession: 36
+    shots: 17
+    shotsOnTarget: 5
+    corners: 7
+    fouls: 16
+    offsides: 1
+    xg: 2.24
+  away:
+    possession: 64
+    shots: 19
+    shotsOnTarget: 9
+    corners: 7
+    fouls: 12
+    offsides: 3
+    xg: 3.59
 externalReports: []
 providers:
   - providerId: fotmob
     url: https://www.fotmob.com/matches/aalesund-vs-sandefjord/2e68pk#5105039
-    retrievedAt: 2026-10-28
+    retrievedAt: 2026-11-09
     fields:
       - date
       - kickoff
@@ -38,9 +205,18 @@ providers:
       - competition
       - home.clubId
       - away.clubId
+      - home.score
+      - away.score
       - competition.round
+      - attendance
       - venueId
+      - referee
+      - home.halfTimeScore
+      - away.halfTimeScore
+      - events
+      - stats
       - lineups
+    note: "Kildestatus: FT"
 sources: []
 confidence: probable
 conflicts: []
