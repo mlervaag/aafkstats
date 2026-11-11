@@ -277,6 +277,128 @@ describe("Strukturell additivitet i arkivet", () => {
     });
   });
 
+  describe("planen for en kamp som ikke er spilt", () => {
+    /**
+     * Lillestrøm–AaFK 8. november 2026. FotMob oppga «Aaraasen Stadion» da
+     * terminlista ble hentet i august, og «Åråsen Stadion» da kampen var spilt.
+     * Rutinen etter kamp førte inn resultatet, og vernet stanset PR #275 på
+     * arenaen alene. Det arkivet har om en kamp som ikke er spilt er kildens
+     * plan, og den retter kilden til kampen går.
+     */
+    const terminfestet = {
+      id: "2026-11-08-lillestrom-aalesunds-fk",
+      date: "2026-11-08",
+      kickoff: "17:00",
+      status: "scheduled",
+      competition: { id: "eliteserien", season: 2026, stage: "regular_season", round: 26 },
+      home: { clubId: "lillestrom", score: null },
+      away: { clubId: "aalesunds-fk", score: null },
+      venueId: "aaraasen-stadion",
+      neutralVenue: false,
+      referee: "Oppsatt Dommer",
+      aliases: { fotmob: "5105044" },
+    };
+    const spilt = {
+      ...terminfestet,
+      status: "played",
+      home: { clubId: "lillestrom", score: 3 },
+      away: { clubId: "aalesunds-fk", score: 2 },
+      venueId: "arasen-stadion",
+      attendance: 6646,
+      referee: "Stian Røvig Sletner",
+    };
+    const audit = (base: Record<string, unknown>, head: Record<string, unknown>) => runArchivePreservationAudit([
+      {
+        domain: "match",
+        base: new Map([[String(base.id), base]]),
+        head: new Map([[String(head.id), head]]),
+      },
+    ]);
+
+    it("godtar at arenaen og dommeren er rettet når kampen føres inn som spilt", () => {
+      const result = audit(terminfestet, spilt);
+      expect(result.destructiveChanges).toBe(0);
+      expect(result.changes).toHaveLength(0);
+    });
+
+    it("godtar et flyttet avspark på en kamp som fortsatt står på terminlista", () => {
+      // Fredrikstad–AaFK 29. november 2026: TV-oppsettet flyttet avsparket fra
+      // 17:00 til 14:30. PR #258 og #261 ble stanset, og #262 måtte gi en
+      // dispensasjon for én kamp og ett felt.
+      const result = audit(terminfestet, { ...terminfestet, kickoff: "14:30" });
+      expect(result.destructiveChanges).toBe(0);
+    });
+
+    it("godtar ny runde og nøytral bane i den samme planen", () => {
+      const result = audit(terminfestet, {
+        ...terminfestet,
+        competition: { ...terminfestet.competition, round: 27 },
+        neutralVenue: true,
+      });
+      expect(result.destructiveChanges).toBe(0);
+    });
+
+    it("stanser de samme feltene når arkivet allerede har utfallet", () => {
+      // Arenaen og avsparket for en spilt kamp er historikk, ikke en plan.
+      for (const endring of [{ venueId: "aaraasen-stadion" }, { kickoff: "14:30" }, { referee: "En Annen" }]) {
+        const result = audit(spilt, { ...spilt, ...endring });
+        expect(result.destructiveChanges, JSON.stringify(endring)).toBe(1);
+      }
+    });
+
+    it("stanser et planfelt som forsvinner", () => {
+      const { venueId: _venueId, ...utenArena } = spilt;
+      const result = audit(terminfestet, utenArena);
+      expect(result.destructiveChanges).toBe(1);
+      expect(result.changes[0]).toMatchObject({ path: "venueId", changeType: "remove" });
+    });
+
+    it("lar lagene, konkurransen og datoen stå fast også før kampen er spilt", () => {
+      const endringer: Record<string, unknown>[] = [
+        { home: { clubId: "molde-fk", score: null } },
+        { competition: { ...terminfestet.competition, id: "nm" } },
+        { competition: { ...terminfestet.competition, season: 2027 } },
+        { date: "2026-11-09" },
+      ];
+      for (const endring of endringer) {
+        const result = audit(terminfestet, { ...terminfestet, ...endring });
+        expect(result.destructiveChanges, JSON.stringify(endring)).toBe(1);
+      }
+    });
+
+    it("regner en utsatt kamp som åpen: den kan terminfestes på nytt, spilles eller avlyses", () => {
+      const utsatt = { ...terminfestet, status: "postponed" };
+      for (const status of ["scheduled", "played", "abandoned", "awarded", "cancelled"]) {
+        const result = audit(utsatt, { ...utsatt, status, kickoff: "19:00" });
+        expect(result.destructiveChanges, status).toBe(0);
+      }
+    });
+
+    it("kjenner igjen en utsatt kamp på kildens ID når den spilles på ny dato", () => {
+      const utsatt = { ...terminfestet, status: "postponed" };
+      const result = audit(utsatt, {
+        ...spilt,
+        id: "2026-11-11-lillestrom-aalesunds-fk",
+        date: "2026-11-11",
+        kickoff: "19:00",
+      });
+      expect(result.destructiveChanges).toBe(0);
+      expect(result.filesDeleted).toBe(0);
+      expect(result.approvedMatchMoves).toBe(1);
+    });
+
+    it("gir ikke planfeltene fri i et annet domene", () => {
+      const result = runArchivePreservationAudit([
+        {
+          domain: "observation",
+          base: new Map([["o-1", { id: "o-1", status: "scheduled", kickoff: "17:00", venueId: "aaraasen-stadion" }]]),
+          head: new Map([["o-1", { id: "o-1", status: "scheduled", kickoff: "14:30", venueId: "arasen-stadion" }]]),
+        },
+      ]);
+      expect(result.destructiveChanges).toBe(2);
+    });
+  });
+
   it("bruker samme fritak kun for kamper, ikke for et likelydende statusfelt i et annet domene", () => {
     const result = runArchivePreservationAudit([
       {

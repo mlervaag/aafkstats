@@ -1,7 +1,7 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
-import { newcomers, squadKeys } from "@aafkstats/schema";
-import type { NewPlayer } from "@aafkstats/schema";
+import { newcomers, squadKeys, syncReadmeFile } from "@aafkstats/schema";
+import type { NewPlayer, ReadmeStatChange } from "@aafkstats/schema";
 import { crossValidate, loadArchive, repoRoot } from "@aafkstats/schema/load";
 import type { Archive } from "@aafkstats/schema/load";
 import { fetchFotmobSeason, FOTMOB_ADAPTER } from "../adapters/fotmob.js";
@@ -66,6 +66,16 @@ import { lookupArrivals, planPersonWrite } from "../transfer-lookup.js";
  * ingen melding står bak er en påstand arkivet ikke kan stå inne for. Finner
  * oppslaget ingenting, sier rutinen hvem det gjelder og lar det være — det er en
  * oppgave til et menneske, ikke en feil.
+ *
+ * ## Tallene i README følger med
+ *
+ * README har en tabell over hvor mange kamper, klubber, stadion og personer
+ * arkivet har, og en test som feller bygget når tallene ikke stemmer. Rutinen
+ * endrer nettopp de tallene: en overgang ført inn er én person mer, og en kamp
+ * spilt på en arena arkivet ikke kjente er ett stadion mer. Uten dette ble en
+ * kjøring som gjorde alt riktig rød i CI til noen rettet et tall for hånd.
+ * Rutinen retter derfor tallene i samme omgang, og sier fra at README.md hører
+ * til det som skal committes.
  *
  * ## Stille når ingenting har skjedd
  *
@@ -248,11 +258,21 @@ async function main(): Promise<void> {
   // Etter alt som skrives, ikke bare etter kampene: en personfil som ikke
   // validerer er like ødeleggende som en kampfil som ikke gjør det, og den
   // kommer sist.
+  let readme: ReadmeStatChange[] = [];
   if (args.write && (written.length > 0 || tables.length > 0 || people.written.length > 0)) {
     const after = await loadArchive(root);
     const afterIssues = [...after.issues, ...crossValidate(after)];
     if (afterIssues.length > 0) {
       throw new Error(`skrev filer, men arkivet har ${afterIssues.length} feil; se pnpm validate`);
+    }
+    // README beskriver det ekte arkivet. Kjøres rutinen mot et annet (fixture-
+    // arkivet i en test), har tallene derfra ingenting i README å gjøre.
+    if (root === resolve(repoRoot(), "data")) {
+      const synced = await syncReadmeFile(repoRoot(), after, { write: true });
+      readme = synced.changes;
+      for (const label of synced.missing) {
+        console.error(`KONTROLL: fant ikke raden for «${label}» i README.md. Tallet er ikke rettet.`);
+      }
     }
   }
 
@@ -268,11 +288,16 @@ async function main(): Promise<void> {
   for (const id of written) console.log(`  kamp: ${id}`);
   for (const path of tables) console.log(`  tabell: ${path}`);
   for (const path of people.written) console.log(`  overgang: ${path}`);
+  for (const change of readme) console.log(`  README.md: ${change.label} ${change.from} → ${change.to}`);
   if (!args.write && (due.length > 0 || leagues.length > 0)) {
     console.log(`  Kjør på nytt med --write for å skrive. Hentedato blir ${args.retrievedAt}.`);
   }
   if (args.write && (written.length > 0 || tables.length > 0 || people.written.length > 0)) {
-    console.log("  Neste steg: pnpm db:build && pnpm validate, og commit YAML-diffen.");
+    console.log(
+      readme.length > 0
+        ? "  Neste steg: pnpm db:build && pnpm validate, og commit YAML-diffen sammen med README.md."
+        : "  Neste steg: pnpm db:build && pnpm validate, og commit YAML-diffen.",
+    );
   }
   if (stillOpen.length > 0) {
     console.log(`  ${stillOpen.length} kamp(er) står fortsatt uten resultat. Kjør rutinen igjen senere.`);

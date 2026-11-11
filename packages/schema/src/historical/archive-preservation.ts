@@ -181,6 +181,12 @@ export interface StructuralDiffOptions {
    * før.
    */
   movedMatch?: boolean;
+  /**
+   * Kampen sto uten utfall i BASE — terminfestet eller utsatt. Da er det som
+   * står om den en plan, og kilden kan fortsatt rette planen. Se
+   * `OPEN_MATCH_PLAN_FIELDS`.
+   */
+  openMatch?: boolean;
 }
 
 /**
@@ -194,16 +200,75 @@ function isProviderRetrievedAtRefresh(path: string): boolean {
 }
 
 /**
- * Statusovergangene en kamp kan gjøre uten at noe går tapt: fra `scheduled`
- * til et hvilket som helst utfall kilden har konkludert med. Motsatt vei —
- * eller mellom to konkluderte statuser — er nettopp den typen stille
- * overskriving bevaringsvernet finnes for å fange, og skal fortsatt stanses.
+ * Statusene som betyr at kampen ikke har fått et utfall ennå.
+ *
+ * `postponed` hører hjemme her, ikke blant utfallene. En utsatt kamp er ikke
+ * avgjort — den venter på en ny dato, og blir spilt, avlyst eller dømt senere.
+ * Sto den som et utfall, ville arkivet ikke kunne føre inn kampen den dagen
+ * den faktisk ble spilt uten en dispensasjon for hver eneste utsettelse.
  */
-const MATCH_STATUS_OUTCOMES = new Set(["played", "abandoned", "awarded", "cancelled", "postponed"]);
+const OPEN_MATCH_STATUSES = new Set(["scheduled", "postponed"]);
 
+/** Statusene kilden kan konkludere med. Herfra går ingen vei tilbake uten et godkjent unntak. */
+const CONCLUDED_MATCH_STATUSES = new Set(["played", "abandoned", "awarded", "cancelled"]);
+
+/** Sto kampen uten utfall? Da er innholdet en plan, ikke et arkivert faktum. */
+function isOpenMatch(raw: unknown): boolean {
+  if (!isPlainObject(raw)) return false;
+  return typeof raw.status === "string" && OPEN_MATCH_STATUSES.has(raw.status);
+}
+
+/**
+ * Statusovergangene en kamp kan gjøre uten at noe går tapt: fra en åpen status
+ * (`scheduled`, `postponed`) til en annen åpen status eller til utfallet kilden
+ * har konkludert med. Motsatt vei — eller mellom to konkluderte statuser — er
+ * nettopp den typen stille overskriving bevaringsvernet finnes for å fange, og
+ * skal fortsatt stanses.
+ */
 function isMatchStatusOutcome(domain: ArchiveDomain | undefined, path: string, baseValue: unknown, headValue: unknown): boolean {
   if (domain !== "match" || path !== "/status") return false;
-  return baseValue === "scheduled" && typeof headValue === "string" && MATCH_STATUS_OUTCOMES.has(headValue);
+  if (typeof baseValue !== "string" || !OPEN_MATCH_STATUSES.has(baseValue)) return false;
+  return typeof headValue === "string" && (OPEN_MATCH_STATUSES.has(headValue) || CONCLUDED_MATCH_STATUSES.has(headValue));
+}
+
+/**
+ * Feltene som utgjør planen for en kamp som ikke er spilt, og bare de.
+ *
+ * ## Feilen dette retter
+ *
+ * Lillestrøm–AaFK sto på terminlista til 8. november 2026 med arenaen FotMob
+ * oppga i august, «Aaraasen Stadion». Da kampen var spilt, het arenaen
+ * «Åråsen Stadion» hos den samme kilden. Rutinen etter kamp førte inn
+ * resultatet, og vernet stanset hele kampen som en destruktiv endring av
+ * `venueId` (PR #275). Det samme skjedde to ganger med avsparket for
+ * Fredrikstad–AaFK, som TV-oppsettet flyttet fra 17:00 til 14:30 (PR #258 og
+ * #261), og ble da løst med en dispensasjon for én kamp og ett felt (PR #262).
+ *
+ * Ingen av delene er tap. Det arkivet har om en kamp som ikke er spilt, er
+ * kildens terminliste, og den retter kilden til kampen går. En dispensasjon
+ * per rettelse gjør enten rutinen rød hver gang ligaen flytter et avspark, eller
+ * lærer den som kjører rutinen å skrive tilbake den gamle verdien for å få
+ * grønt — og da står arkivet med et avspark kampen aldri hadde.
+ *
+ * ## Hvorfor akkurat disse
+ *
+ * Avspark, arena (og om den er nøytral), runde og dommer er det en terminliste
+ * sier om en kamp utover hvem som møtes og hvilken dag. Lagene og konkurransen
+ * er kampens identitet og er ikke med. Datoen er heller ikke med: ID-en er
+ * bygget av den, så en ny dato er en flytting og har sin egen kontroll
+ * (`MATCH_MOVE_FIELDS`), som krever kildens ID.
+ *
+ * ## Hva som fortsatt stanses
+ *
+ * Fritaket gjelder bare en verdi som byttes mot en annen. Et planfelt som
+ * forsvinner er fortsatt tap. Og det gjelder bare så lenge kampen sto uten
+ * utfall i BASE: har arkivet et resultat, er arenaen og avsparket historikk, og
+ * ingen kjøring skal kunne endre dem i det stille.
+ */
+const OPEN_MATCH_PLAN_FIELDS = new Set(["/kickoff", "/venueId", "/neutralVenue", "/competition/round", "/referee"]);
+
+function isOpenMatchPlanField(options: StructuralDiffOptions, path: string): boolean {
+  return options.openMatch === true && options.domain === "match" && OPEN_MATCH_PLAN_FIELDS.has(path);
 }
 
 /**
@@ -409,6 +474,11 @@ export function diffStructuralAdditivity(
     }
     if (isMatchMoveField(options, path)) {
       // Terminfeltene på en kamp som er gjenkjent som flyttet.
+      return out;
+    }
+    if (isOpenMatchPlanField(options, path)) {
+      // Planen for en kamp som ikke var spilt. Kilden retter terminlista til
+      // kampen går, og det er ikke arkivet som mister noe.
       return out;
     }
     if (isMatchStatusOutcome(options.domain, path, baseValue, headValue)) {
@@ -714,15 +784,19 @@ function newMatchesByAlias(input: ArchivePreservationInput): Map<string, { id: s
  *
  * To krav, og de er strenge med vilje. Kampen må være gjenkjent på kildens
  * egen ID — ikke på lag og dato, som er nettopp det som er endret. Og den må
- * ha stått som `scheduled` i BASE: en kamp arkivet allerede har et utfall for,
- * skal ingen kjøring kunne datere om i det stille. Resten kontrolleres av den
- * vanlige additivitetsdiffen mot den nye fila.
+ * ha stått uten utfall i BASE (`scheduled` eller `postponed`): en kamp arkivet
+ * allerede har et utfall for, skal ingen kjøring kunne datere om i det stille.
+ * Resten kontrolleres av den vanlige additivitetsdiffen mot den nye fila.
+ *
+ * En utsatt kamp er den som oftest flyttes — den har per definisjon ikke lenger
+ * datoen den sto med — så den må kunne gjenkjennes her på lik linje med en
+ * terminfestet.
  */
 function movedMatch(
   baseRaw: unknown,
   candidates: Map<string, { id: string; raw: unknown }>,
 ): { id: string; raw: unknown } | undefined {
-  if (!isPlainObject(baseRaw) || (baseRaw as Record<string, unknown>).status !== "scheduled") return undefined;
+  if (!isOpenMatch(baseRaw)) return undefined;
   for (const key of aliasKeys(baseRaw)) {
     const found = candidates.get(key);
     if (found) return found;
@@ -813,7 +887,8 @@ export function runArchivePreservationAudit(
           });
           // Den nye fila kontrolleres som om den var den gamle. En flytting som
           // også mister et felt er fortsatt tap, og skal fortsatt stanses.
-          for (const removal of diffStructuralAdditivity(baseRaw, moved.raw, "", { domain: "match", movedMatch: true })) {
+          // `movedMatch` krever en åpen kamp, så planfeltene kan også være rettet.
+          for (const removal of diffStructuralAdditivity(baseRaw, moved.raw, "", { domain: "match", movedMatch: true, openMatch: true })) {
             const normalizedPath = removal.path.replace(/^\//, "") || "root";
             const ex = findArchiveException(input.domain, id, normalizedPath, removal.changeType, exceptions, usedExceptions);
             changes.push({
@@ -893,7 +968,10 @@ export function runArchivePreservationAudit(
         continue;
       }
 
-      const removals = diffStructuralAdditivity(baseRaw, headRaw, "", { domain: input.domain });
+      const removals = diffStructuralAdditivity(baseRaw, headRaw, "", {
+        domain: input.domain,
+        openMatch: input.domain === "match" && isOpenMatch(baseRaw),
+      });
       for (const removal of removals) {
         const normalizedPath = removal.path.replace(/^\//, "") || "root";
 

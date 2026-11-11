@@ -164,6 +164,7 @@ rettighetsvurdering.
 | `pnpm build` | Bygger arkivfilen og deretter nettstedet |
 | `pnpm etter-kamp` | Holder sesongen à jour: egne kamper som er spilt, tabellen for hver seriesesong som pågår, og overgangen bak nye navn i kamptroppen |
 | `pnpm data:new-players` | Nye spillere i kamptroppen siste 30 dager, og om en overgang forklarer at de kom. `--sesong ÅR`, `--fra ÅÅÅÅ-MM-DD` eller `--alle` |
+| `pnpm data:readme-stats` | Sier om tallene i «Arkivet i tall» stemmer med arkivet. `-- --write` retter dem. `pnpm etter-kamp -- --write` gjør det av seg selv |
 | `pnpm ingest:fotmob -- --league ID --season ÅR --competition ID` | Tørrkjører én eksplisitt FotMob-sesong |
 | `pnpm ingest:rsssf -- --season ÅR --division SIDE --competition ID` | Tørrkjører én eksplisitt RSSSF-sesong |
 | `pnpm ingest:rsssf-discover -- --from ÅR --to ÅR` | Kartlegger hva RSSSF har. Skriver aldri data |

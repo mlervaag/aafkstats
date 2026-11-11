@@ -17,7 +17,8 @@ When tasked with modifying data or code, you MUST adhere to the following workfl
    - If you change the data model (`packages/schema`), you MUST update `packages/db/src/schema.sql`, `packages/db/src/build.ts`, and `packages/query/src/dataset.ts`. If `dataset.ts` is not updated, a test will intentionally fail because the LLM prompt must perfectly match the SQL views.
    - If you make structural or data model changes, you MUST update `docs/ARKITEKTUR.md` and/or `docs/DATAMODELL.md` to perfectly match the new reality.
    - If you import new data (e.g. adding matches, seasons, or sources), you MUST manually update the statistics and facts in:
-     - `README.md` (e.g., "Arkivet i tall" section: number of matches, seasons, etc.)
+     - `README.md` (e.g., "Arkivet i tall" section: number of matches, seasons, etc.). Run
+       `pnpm data:readme-stats -- --write` to correct the numbers, and commit `README.md` with the data.
      - `packages/db/README.md` (database stats)
      - `apps/web/app/om/page.tsx` (if data sources or legal permission statuses change)
 

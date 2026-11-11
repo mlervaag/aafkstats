@@ -29,7 +29,9 @@ If you add a field to the data model, it must be updated in **four** places:
 ## 4. Documentation and Governance Drift
 - Keep `README.md`, `docs/ARKITEKTUR.md`, and `docs/DATAMODELL.md` up-to-date with any architecture or data changes. 
 - If you import new data (e.g. adding matches, seasons, or sources), you MUST update the statistics and facts in:
-  - `README.md` (e.g., "Arkivet i tall" section: number of matches, seasons, clubs, venues, sources)
+  - `README.md` (e.g., "Arkivet i tall" section: number of matches, seasons, clubs, venues, sources).
+    Run `pnpm data:readme-stats -- --write` to correct the numbers instead of counting by hand, and
+    commit `README.md` with the data. `pnpm etter-kamp -- --write` already does this.
   - `packages/db/README.md` (database stats)
   - `apps/web/app/om/page.tsx` (if data sources or legal permission statuses change)
 - If you update the data model or change how data is structured, you MUST ensure that `docs/DATAMODELL.md` exactly matches the new schema changes.

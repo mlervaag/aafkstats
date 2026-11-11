@@ -3,7 +3,7 @@ import type { Archive } from "@aafkstats/schema/load";
 import { matchesDue, ongoingLeagues, plannedMatches, sourceForDue } from "../src/etter-kamp.js";
 import type { ReconcilePlan } from "../src/reconcile.js";
 
-function match(date: string, status: "played" | "scheduled", opponent = "hamarkameratene") {
+function match(date: string, status: "played" | "scheduled" | "postponed", opponent = "hamarkameratene") {
   return {
     id: `${date}-${opponent}-aalesunds-fk`, date, dateConfidence: "exact" as const, status,
     competition: { id: "eliteserien", season: 2026, stage: "regular_season" as const },
@@ -45,6 +45,13 @@ describe("matchesDue", () => {
 
   it("bryr seg ikke om kamper arkivet allerede har resultatet for", () => {
     expect(matchesDue(archive([match("2026-08-09", "played")]), "2026-08-09")).toEqual([]);
+  });
+
+  it("spør fortsatt etter en kamp som er utsatt", () => {
+    // Kilden meldte kampen som utsatt, og arkivet førte det. Den er like lite
+    // spilt som før, og må fortsatt stå i etterslepet til kilden har et utfall.
+    const due = matchesDue(archive([match("2026-08-09", "postponed")]), "2026-08-12");
+    expect(due.map((entry) => entry.date)).toEqual(["2026-08-09"]);
   });
 
   it("tar med etterslep, ikke bare gårsdagen", () => {
@@ -106,6 +113,13 @@ describe("ongoingLeagues", () => {
     const matches = [match("2026-08-09", "played"), match("2026-08-16", "scheduled")];
     expect(matchesDue(archive(matches), "2026-08-09")).toEqual([]);
     expect(ongoingLeagues(archive(matches))).toHaveLength(1);
+  });
+
+  it("holder sesongen åpen så lenge en kamp står som utsatt", () => {
+    // Er sesongens siste kamp utsatt, flytter tabellen seg fortsatt den dagen
+    // den blir spilt.
+    const leagues = ongoingLeagues(archive([match("2026-08-02", "played"), match("2026-08-09", "postponed")]));
+    expect(leagues).toHaveLength(1);
   });
 
   it("slutter av seg selv når siste runde er spilt", () => {

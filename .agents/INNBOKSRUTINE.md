@@ -85,6 +85,10 @@ pnpm lint
 pnpm test
 ```
 
+Legger endringen til en kamp, klubb, person, kilde eller et stadion, stemmer ikke lenger
+tallene i «Arkivet i tall» i README, og `pnpm test` feiler på det. Kjør
+`pnpm data:readme-stats -- --write` og ta `README.md` med i commiten.
+
 Gren `innboks/<repo>-<saksnummer>` (f.eks. `innboks/data-142`) fra `main`, én commit i norsk
 imperativ, draft-PR mot `main` etter [PR-malen](../.github/PULL_REQUEST_TEMPLATE.md). Skriv i
 PR-en hvilken sak den svarer på, hva du kontrollerte og hva som ikke lot seg kontrollere — det

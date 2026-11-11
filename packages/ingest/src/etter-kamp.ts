@@ -11,7 +11,7 @@ import type { ReconcilePlan } from "./reconcile.js";
 
 const OSLO = "Europe/Oslo";
 
-/** Kamper arkivet tror står på terminlista, men som datoen har gått fra. */
+/** Kamper arkivet tror står på terminlista — eller vet er utsatt — men som datoen har gått fra. */
 export interface Due {
   matchId: string;
   date: string;
@@ -26,6 +26,20 @@ export interface Due {
    * ikke lenger kildens dato, og et oppslag på dato finner ingenting.
    */
   externalId?: string;
+}
+
+/**
+ * Har kampen fortsatt ikke fått et utfall?
+ *
+ * En utsatt kamp er like åpen som en terminfestet. Kilden melder den som utsatt
+ * den dagen den skulle vært spilt, og arkivet fører det. Regnes den da som
+ * ferdig behandlet, er det ingen som spør etter den igjen: den faller ut av
+ * etterslepet, og er den sesongens siste, slutter tabellen også å oppdatere
+ * seg. Kampen blir spilt en vanlig tirsdag tre uker senere, og arkivet får
+ * aldri vite det.
+ */
+function isOpen(match: Pick<Match, "status">): boolean {
+  return match.status === "scheduled" || match.status === "postponed";
 }
 
 export function todayInOslo(now = new Date()): string {
@@ -50,7 +64,7 @@ export function todayInOslo(now = new Date()): string {
 export function matchesDue(archive: Archive, today: string, providerId = "fotmob"): Due[] {
   const AAFK = "aalesunds-fk";
   return archive.matches
-    .filter((match) => match.status === "scheduled" && match.date <= today)
+    .filter((match) => isOpen(match) && match.date <= today)
     .map((match) => {
       const opponentId = match.home.clubId === AAFK ? match.away.clubId : match.home.clubId;
       const club = archive.clubs.find((entry) => entry.id === opponentId);
@@ -122,7 +136,7 @@ export interface OngoingLeague {
 export function ongoingLeagues(archive: Archive): OngoingLeague[] {
   const seasons = new Map<string, OngoingLeague>();
   for (const match of archive.matches) {
-    if (match.status !== "scheduled") continue;
+    if (!isOpen(match)) continue;
     const competition = archive.competitions.find((entry) => entry.id === match.competition.id);
     if (competition?.type !== "league") continue;
     const leagueId = competition.aliases?.fotmob;

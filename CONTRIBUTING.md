@@ -226,7 +226,8 @@ andre lag møtes.
 
 Den kan derfor kjøres på et fast skjema. Har ingenting endret seg, skrives ingenting — en
 ny hentedato alene teller ikke som en endring. Er en kamp ikke ferdigspilt hos kilden,
-hopper rutinen over den og sier fra.
+hopper rutinen over den og sier fra. En kamp kilden har meldt som utsatt blir stående i
+etterslepet til den er spilt, avlyst eller dømt.
 
 Kampen kjennes igjen på kildens ID, ikke på datoen. Blir en kamp flyttet etter at
 terminlista er arkivert, finner rutinen den likevel — og siden kamp-ID-en er bygget av
@@ -253,8 +254,23 @@ Skotheim» — føres de som samme person, og skrivemåten fra oppstillingen leg
 så stallen finner fila. Det er en antakelse, og den skrives ut som `IDENTITET:` i loggen
 og står i pull requesten. Er den gal, er det én linje å fjerne.
 
-Etterpå: `pnpm db:build && pnpm validate`, og commit YAML-diffen. Arkivfilen bygges av CI
-og skal ikke committes.
+Tallene i «Arkivet i tall» i README følger med. En overgang ført inn er én person mer, og
+en kamp spilt på en arena arkivet ikke kjente er ett stadion mer — og en test feller
+bygget når README ikke stemmer med arkivet. Rutinen retter derfor tallene i samme omgang
+og skriver `README.md: personer 489 → 490` i oppsummeringen. Da hører `README.md` til
+det som skal committes. Utenom rutinen gjør `pnpm data:readme-stats -- --write` det samme.
+
+Bevaringsvernet i CI (`pnpm data:historical-preservation`) stanser endringer i kamper som
+allerede har et utfall, men ikke i planen for en kamp som ikke er spilt: flytter ligaen et
+avspark, eller oppgir kilden en annen arena når kampen er spilt, er det terminlista som er
+rettet. Skriv aldri tilbake den gamle verdien for å få grønn CI. Stanser vernet likevel
+noe rutinen har skrevet, er det en ekte uenighet om en spilt kamp, og den skal et menneske
+se på. Reglene står i
+[`docs/HISTORICAL_HARVEST_GUARDRAILS.md`](docs/HISTORICAL_HARVEST_GUARDRAILS.md).
+
+Etterpå: `pnpm db:build && pnpm validate`, og commit alt rutinen skrev — YAML-diffen under
+`data/`, og `README.md` når tallene er rettet. Arkivfilen bygges av CI og skal ikke
+committes.
 
 Kadensen hører ikke hjemme i repoet. Prosjektets begrunnelse for å hente fra FotMob er et
 avgrenset uttrekk, ikke regelmessig høsting — se `permissionNote` i

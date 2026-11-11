@@ -21,4 +21,5 @@ export * from "./nb-community-research-cases.js";
 export * from "./community-case-retirement.js";
 export * from "./community-case-integrity.js";
 export * from "./preservation-exceptions.js";
+export * from "./readme-stats.js";
 export * from "./historical/index.js";
