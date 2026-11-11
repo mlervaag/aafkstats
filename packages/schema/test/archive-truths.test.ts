@@ -4,6 +4,7 @@ import { canonicalClubKey } from "../src/identity.js";
 import { mayFetch, mayPublish } from "../src/entities.js";
 import { crossValidate, loadArchive } from "../src/load.js";
 import type { Archive } from "../src/load.js";
+import { syncReadmeStats } from "../src/readme-stats.js";
 
 /**
  * Regresjonstester mot det ekte arkivet, ikke mot en fixture.
@@ -428,6 +429,16 @@ describe("tallene i README", () => {
     const match = /(\d+)\s+stadion/.exec(readme);
     expect(match, "fant ingen stadiontall i README").not.toBeNull();
     expect(Number(match![1])).toBe(archive.venues.length);
+  });
+
+  it("kan rettes av pnpm data:readme-stats: hver rad blir funnet, og ingenting står igjen å rette", () => {
+    // Testene over er porten. Dette låser at verktøyet som retter tallene —
+    // og som rutinen etter kamp kjører av seg selv — ser de samme radene og
+    // regner de samme tallene. Finner det ikke en rad, retter det den heller
+    // ikke, og da er vi tilbake til å telle for hånd.
+    const result = syncReadmeStats(readme, archive);
+    expect(result.missing).toEqual([]);
+    expect(result.changes).toEqual([]);
   });
 
   it("skiller alle kildedokumenterte oppføringer fra dem uten kampkobling", () => {

@@ -70,6 +70,18 @@ Den kontrollerer at følgende elementer **ikke kan forsvinne uten et godkjent un
 10. **Personfiler:**
     - En hel personfil kan aldri slettes uten et godkjent unntak.
 
+### Kamper som ikke er spilt
+
+Kampene i `data/seasons/` vernes av det strukturelle additivitetsvernet: det som sto i `BASE`, skal stå i `HEAD`. Én gruppe kamper er likevel ikke historikk ennå. En kamp som står som `scheduled` eller `postponed` i `BASE`, har ikke fått et utfall, og det arkivet har om den er kildens terminliste. Den retter kilden til kampen går. Vernet godtar derfor dette uten unntak, og bare dette:
+
+- **Status:** fra `scheduled` eller `postponed` til en annen åpen status eller til et utfall (`played`, `abandoned`, `awarded`, `cancelled`). En utsatt kamp er ikke avgjort; den kan terminfestes på nytt og spilles.
+- **Planen:** `kickoff`, `venueId`, `neutralVenue`, `competition.round` og `referee` kan byttes mot en ny verdi. Slik stanset vernet Lillestrøm–AaFK i PR #275, der FotMob oppga «Aaraasen Stadion» på terminlista og «Åråsen Stadion» da kampen var spilt, og avsparket til Fredrikstad–AaFK i PR #258 og #261.
+- **Flytting:** får kampen ny dato, får den ny ID og ny fil. Den gamle fila regnes som flyttet, ikke slettet, når den nye kampen har samme ID hos kilden (`aliases`).
+
+Alt annet stanses som før. Et planfelt som forsvinner er tap. Lagene, konkurransen og sesongen er kampens identitet og kan ikke endres. Og har kampen et utfall i `BASE`, er arenaen, avsparket og dommeren historikk: da krever enhver endring et godkjent unntak.
+
+Dette er grunnen til at rutinen etter kamp (`pnpm etter-kamp`) kan kjøres på et fast skjema uten dispensasjoner. Den skal aldri skrive tilbake en gammel verdi for å få grønn CI.
+
 ### CLI-flagg
 ```sh
 # Sammenlign lokalt arbeidstre mot standard base (merge-base mot origin/main)

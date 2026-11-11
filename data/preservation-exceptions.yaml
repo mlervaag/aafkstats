@@ -3,17 +3,11 @@
 # Dokumenterte og godkjente unntak fra streng historisk additivitet.
 # Hvert unntak må være målrettet mot én konkret entitet og sti, og ha en menneskelesbar begrunnelse.
 # Brede wildcards (*, roles/*, etc.) er forbudt.
-exceptions:
-  - entity: match
-    id: 2026-11-29-fredrikstad-aalesunds-fk
-    path: kickoff
-    change: mutate
-    reason: >
-      FotMob har flyttet avsparket for runde 28 fra 17:00 til 14:30 (samme
-      dato og FotMob-ID, ikke en kampflytting — se historisk bevaringsvern
-      i CI, som avviste endringen i PR #258 og igjen i PR #261 uten dette
-      unntaket). Dette er en reell oppsettendring fra ligaen/TV, ikke tap
-      av arkivert informasjon, så et etterfølgende etter-kamp-oppslag kan
-      føre inn 14:30.
-    sources: []
-    approvedIn: 262
+#
+# Planen for en kamp som ikke er spilt (avspark, arena, runde, dommer) trenger
+# ikke unntak. Kilden retter terminlista til kampen går, og vernet godtar det
+# av seg selv — se OPEN_MATCH_PLAN_FIELDS i
+# packages/schema/src/historical/archive-preservation.ts. Unntaket som sto her
+# for avsparket til Fredrikstad–AaFK 29. november 2026 (godkjent i PR #262) er
+# derfor ryddet bort.
+exceptions: []
