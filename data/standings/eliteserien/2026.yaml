@@ -2,6 +2,17 @@ competitionId: eliteserien
 season: 2026
 table:
   - position: 1
+    name: Bodø/Glimt
+    clubId: bodo-glimt
+    played: 27
+    wins: 21
+    draws: 2
+    losses: 4
+    goalsFor: 67
+    goalsAgainst: 25
+    points: 65
+    outcome: none
+  - position: 2
     name: Viking
     clubId: viking
     played: 26
@@ -10,17 +21,6 @@ table:
     losses: 4
     goalsFor: 69
     goalsAgainst: 27
-    points: 62
-    outcome: none
-  - position: 2
-    name: Bodø/Glimt
-    clubId: bodo-glimt
-    played: 26
-    wins: 20
-    draws: 2
-    losses: 4
-    goalsFor: 63
-    goalsAgainst: 23
     points: 62
     outcome: none
   - position: 3
@@ -48,12 +48,12 @@ table:
   - position: 5
     name: Molde
     clubId: molde-fk
-    played: 26
+    played: 27
     wins: 13
     draws: 5
-    losses: 8
-    goalsFor: 64
-    goalsAgainst: 44
+    losses: 9
+    goalsFor: 66
+    goalsAgainst: 48
     points: 44
     outcome: none
   - position: 6
@@ -308,13 +308,18 @@ progression:
     points: 24
     played: 26
     goalDifference: -15
+  - round: 27
+    position: 15
+    points: 24
+    played: 26
+    goalDifference: -15
 providers:
   - providerId: fotmob
     url: https://www.fotmob.com/leagues/59/table?season=2026
-    retrievedAt: 2026-11-09
+    retrievedAt: 2026-11-20
     fields:
       - table
       - progression
     note: Lest med fotmob-table@1. Tabellen er hentet; kurven er regnet ut av divisjonens runder i samme svar.
 sources: []
-note: "Tabellen er hentet mens sesongen pågår: 208 av 240 kamper i divisjonen er spilt. Ingen rad har utfall ennå."
+note: "Tabellen er hentet mens sesongen pågår: 209 av 240 kamper i divisjonen er spilt. Ingen rad har utfall ennå."
