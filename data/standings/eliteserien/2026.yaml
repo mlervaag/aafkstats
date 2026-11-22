@@ -15,12 +15,12 @@ table:
   - position: 2
     name: Viking
     clubId: viking
-    played: 26
+    played: 27
     wins: 20
     draws: 2
-    losses: 4
-    goalsFor: 69
-    goalsAgainst: 27
+    losses: 5
+    goalsFor: 71
+    goalsAgainst: 30
     points: 62
     outcome: none
   - position: 3
@@ -59,13 +59,13 @@ table:
   - position: 6
     name: Tromsø
     clubId: tromso
-    played: 26
-    wins: 11
+    played: 27
+    wins: 12
     draws: 7
     losses: 8
-    goalsFor: 43
-    goalsAgainst: 40
-    points: 40
+    goalsFor: 46
+    goalsAgainst: 42
+    points: 43
     outcome: none
   - position: 7
     name: Brann
@@ -81,12 +81,12 @@ table:
   - position: 8
     name: Vålerenga
     clubId: valerenga
-    played: 26
+    played: 27
     wins: 9
     draws: 5
-    losses: 12
-    goalsFor: 43
-    goalsAgainst: 47
+    losses: 13
+    goalsFor: 44
+    goalsAgainst: 49
     points: 32
     outcome: none
   - position: 9
@@ -114,24 +114,24 @@ table:
   - position: 11
     name: Hamarkameratene
     clubId: hamarkameratene
-    played: 26
+    played: 27
     wins: 8
-    draws: 6
+    draws: 7
     losses: 12
     goalsFor: 38
     goalsAgainst: 53
-    points: 30
+    points: 31
     outcome: none
   - position: 12
     name: Fredrikstad
     clubId: fredrikstad
-    played: 26
+    played: 27
     wins: 8
-    draws: 6
+    draws: 7
     losses: 12
     goalsFor: 31
     goalsAgainst: 46
-    points: 30
+    points: 31
     outcome: none
   - position: 13
     name: Sandefjord
@@ -169,13 +169,13 @@ table:
   - position: 16
     name: Start
     clubId: start
-    played: 26
-    wins: 5
+    played: 27
+    wins: 6
     draws: 4
     losses: 17
-    goalsFor: 27
-    goalsAgainst: 59
-    points: 19
+    goalsFor: 29
+    goalsAgainst: 60
+    points: 22
     outcome: none
 progression:
   - round: 1
@@ -316,10 +316,10 @@ progression:
 providers:
   - providerId: fotmob
     url: https://www.fotmob.com/leagues/59/table?season=2026
-    retrievedAt: 2026-11-20
+    retrievedAt: 2026-11-21
     fields:
       - table
       - progression
     note: Lest med fotmob-table@1. Tabellen er hentet; kurven er regnet ut av divisjonens runder i samme svar.
 sources: []
-note: "Tabellen er hentet mens sesongen pågår: 209 av 240 kamper i divisjonen er spilt. Ingen rad har utfall ennå."
+note: "Tabellen er hentet mens sesongen pågår: 212 av 240 kamper i divisjonen er spilt. Ingen rad har utfall ennå."
