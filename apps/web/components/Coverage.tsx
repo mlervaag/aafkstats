@@ -100,7 +100,11 @@ export function CoverageStrip({ years }: { years: SeasonYear[] }) {
  */
 function stripTitle(year: number, entry: SeasonYear): string {
   const kamper = `${entry.totalMatches} ${entry.totalMatches === 1 ? "kamp" : "kamper"}`;
-  if (!entry.primary) return `${year}: ${entry.documentedResults} kildedokumenterte resultater uten full kampdato`;
+  if (!entry.primary) {
+    return entry.documentedResults === 1
+      ? `${year}: 1 kildedokumentert resultat uten full kampdato`
+      : `${year}: ${entry.documentedResults} kildedokumenterte resultater uten full kampdato`;
+  }
   if (entry.coverage?.status === "complete") {
     return `${year}: ${entry.primary.competition}, ${kamper}, komplett sesong`;
   }
@@ -480,7 +484,7 @@ export function CompetitionSpread() {
       {rows.map((row, index) => (
         <span key={row.type}>
           {index > 0 ? " " : ""}
-          {TYPE_LABELS[row.type] ?? row.type}: {row.matches} kamper
+          {TYPE_LABELS[row.type] ?? row.type}: {row.matches} {row.matches === 1 ? "kamp" : "kamper"}
           {row.first === row.last ? ` fra ${row.first}` : ` fra ${row.first} til ${row.last}`}.
         </span>
       ))}

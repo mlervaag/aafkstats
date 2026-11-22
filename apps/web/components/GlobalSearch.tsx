@@ -35,22 +35,28 @@ export function GlobalSearch() {
 
   function close() {
     dialogRef.current?.close();
+    pendingOpen.current = null;
     setQuery("");
   }
 
   // Enter før svaret på det som står i feltet er kommet, venter på det. Se
   // tilsvarende i AskBox.
-  const pendingOpen = useRef(false);
+  //
+  // Det som huskes er søket Enter gjaldt, ikke bare at Enter ble trykket. Et
+  // flagg alene overlevde at søket ble lukket eller teksten skrevet om, og
+  // åpnet da første treff på et helt annet søk — uten at noen trykket Enter.
+  const pendingOpen = useRef<string | null>(null);
   function openFirstResult() {
+    const current = query.trim();
     if (!fresh) {
-      pendingOpen.current = query.trim().length >= 2;
+      pendingOpen.current = current.length >= 2 ? current : null;
       return;
     }
-    pendingOpen.current = false;
+    pendingOpen.current = null;
     openFirstDirectResult(data);
   }
   useEffect(() => {
-    if (fresh && pendingOpen.current) openFirstResult();
+    if (fresh && pendingOpen.current !== null && pendingOpen.current === query.trim()) openFirstResult();
   }, [fresh]);
 
   return (
@@ -62,7 +68,10 @@ export function GlobalSearch() {
         ref={dialogRef}
         className="search-dialog"
         aria-labelledby="global-search-title"
-        onClose={() => setQuery("")}
+        onClose={() => {
+          pendingOpen.current = null;
+          setQuery("");
+        }}
         onClick={(event) => {
           if (event.target === event.currentTarget) close();
         }}
@@ -91,10 +100,13 @@ export function GlobalSearch() {
               value={query}
               maxLength={100}
               placeholder="Navn, kilde, motstander eller år …"
-              aria-controls="global-search-results"
+              aria-controls={show ? "global-search-results" : undefined}
               autoComplete="off"
               enterKeyHint="go"
-              onChange={(event) => setQuery(event.target.value)}
+              onChange={(event) => {
+                pendingOpen.current = null;
+                setQuery(event.target.value);
+              }}
               onKeyDown={(event) => {
                 if (event.key === "Enter" && !event.nativeEvent.isComposing) {
                   event.preventDefault();

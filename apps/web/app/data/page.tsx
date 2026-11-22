@@ -104,7 +104,10 @@ export default function DataPage() {
             </div>
           )}
 
-          <div className="table-scroll">
+          {/* Tabellene her er bredere enn en telefonskjerm. Uten tabIndex når ikke
+              tastaturet rulleflaten i alle nettlesere, og kolonnene til høyre
+              kan ikke leses. */}
+          <div className="table-scroll" tabIndex={0} role="region" aria-label={`Feltene i ${view.name}`}>
             <table>
               <thead>
                 <tr>
@@ -141,7 +144,7 @@ export default function DataPage() {
               <strong>{ex.question}</strong>
             </p>
             <div className="queries">
-              <pre>{ex.sql}</pre>
+              <pre tabIndex={0}>{ex.sql}</pre>
             </div>
           </div>
         ))}

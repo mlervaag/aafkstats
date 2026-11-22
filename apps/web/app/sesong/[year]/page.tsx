@@ -40,8 +40,11 @@ type Props = { params: Promise<{ year: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { year } = await params;
   const data = loadSeason(Number(year));
-  const lead = data?.summaries[0];
-  if (!lead) return pageMetadata(`Sesongen ${year}`, `${data?.sourceResults.length ?? 0} kildedokumenterte AaFK-resultater fra ${year}.`, `/sesong/${year}`);
+  // Et år arkivet ikke har: 404-siden vises, og skal ikke få en kanonisk
+  // adresse og en beskrivelse med «0 resultater».
+  if (!data) return { title: "Fant ikke siden" };
+  const lead = data.summaries[0];
+  if (!lead) return pageMetadata(`Sesongen ${year}`, `${data.sourceResults.length} kildedokumenterte AaFK-resultater fra ${year}.`, `/sesong/${year}`);
   return pageMetadata(
     seasonTitle({ ...lead, year: lead.season }),
     seasonDescription({ ...lead, year: lead.season }),
@@ -113,7 +116,7 @@ export default async function SeasonPage({ params }: Props) {
               </span>
             </h2>
 
-            <div className="stat-strip" aria-label={`Tall for ${summary.competition} ${year}`}>
+            <div className="stat-strip" role="group" aria-label={`Tall for ${summary.competition} ${year}`}>
               <Stat value={summary.wins} label="Seire" />
               <Stat value={summary.draws} label="Uavgjort" />
               <Stat value={summary.losses} label="Tap" />

@@ -35,14 +35,18 @@ describe("stripLiterals", () => {
     expect(stripLiterals("SELECT 1 -- DROP TABLE x\nFROM t")).not.toMatch(/DROP/i);
   });
 
-  it("nøytraliserer nestede blokkommentarer", () => {
-    const out = stripLiterals("SELECT /* ytre /* indre */ fortsatt inne */ 1");
+  it("avslutter blokkommentaren ved første */, slik SQLite gjør", () => {
+    // SQLite nester ikke kommentarer. Det som står etter første */ er SQL som
+    // kjøres, og skal derfor være synlig for kontrollene.
+    const out = stripLiterals("SELECT /* ytre /* indre */ fortsatt_ute */ 1");
     expect(out).not.toContain("indre");
-    expect(out).toContain("1");
+    expect(out).toContain("fortsatt_ute");
   });
 
-  it("nøytraliserer dollar-siterte strenger", () => {
-    expect(stripLiterals("SELECT $tag$ DROP TABLE x; $tag$")).not.toMatch(/DROP/i);
+  it("leser ikke dollar-sitering som streng", () => {
+    // $tag$ er en streng i Postgres og en parameter i SQLite. Teksten mellom to
+    // slike kjøres, og må ikke blankes.
+    expect(stripLiterals("SELECT $tag$ DROP TABLE x; $tag$")).toMatch(/DROP/i);
   });
 
   it("nøytraliserer siterte identifikatorer", () => {
@@ -185,6 +189,16 @@ describe("validateReadOnlySql — det som skal avvises", () => {
     rejects("SELECT * FROM `core_matches`");
     rejects('SELECT name FROM "sqlite_master"');
     rejects("SELECT name FROM [sqlite_master]");
+  });
+
+  it("avviser navn gjemt bak syntaks SQLite ikke har", () => {
+    // Vakta leste tidligere kommentarer og strenger som Postgres. SQLite gjør
+    // ikke det: alt under kjøres som vanlig SQL, og nådde core_ og sqlite_.
+    rejects("SELECT $a$, id FROM core_matches WHERE $a$ IS NULL");
+    rejects("SELECT $$, name, sql FROM sqlite_master WHERE $$ IS NULL");
+    rejects("SELECT * FROM /* /* */ core_matches /* */");
+    rejects("SELECT $a$, file FROM pragma_database_list WHERE $a$ IS NULL");
+    rejects("WITH /* /* */ RECURSIVE t(n) AS (SELECT 1 UNION ALL SELECT n + 1 FROM t) SELECT n FROM t /* */");
   });
 
   it("avviser PRAGMA-tabellfunksjonene", () => {

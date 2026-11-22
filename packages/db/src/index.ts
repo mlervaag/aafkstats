@@ -81,7 +81,33 @@ function requireArchive(path: string): string {
  * guardrailen rundt chattens SQL-tilgang.
  */
 export function open(path = archivePath()): Db {
-  return new DatabaseSync(requireArchive(path), { readOnly: true });
+  return withUnicodeCase(new DatabaseSync(requireArchive(path), { readOnly: true }));
+}
+
+/**
+ * Lar `lower()` og `upper()` kjenne hele alfabetet, ikke bare A–Z.
+ *
+ * SQLite folder bare ASCII: `lower('Åsane')` er fortsatt «Åsane». Alle søkene
+ * våre sammenligner `lower(kolonne)` med en nål som er gjort om til små
+ * bokstaver i JavaScript, der Å blir å. De to møttes aldri, og et søk på
+ * Åsane, Ørsta eller Øie ga null treff — i direktesøket, i API-et og i svarene
+ * fra språkmodellen, som da kunne påstå at AaFK aldri hadde møtt laget.
+ *
+ * Funksjonene erstattes på tilkoblingen framfor å skrives om i hver spørring:
+ * da gjelder rettelsen også SQL-en modellen skriver selv. `deterministic` må
+ * stå, ellers nekter SQLite å bruke dem i indekser og genererte kolonner.
+ *
+ * `LIKE` uten `lower()` rundt kolonnen er fortsatt bare ASCII-blind for
+ * store og små bokstaver. Søk derfor alltid som `lower(kolonne) LIKE nål`.
+ */
+export function withUnicodeCase(db: Db): Db {
+  db.function("lower", { deterministic: true }, (value) =>
+    typeof value === "string" ? value.toLocaleLowerCase("nb") : value,
+  );
+  db.function("upper", { deterministic: true }, (value) =>
+    typeof value === "string" ? value.toLocaleUpperCase("nb") : value,
+  );
+  return db;
 }
 
 /**
@@ -91,7 +117,7 @@ export function open(path = archivePath()): Db {
  * fra en forespørselssti. Alt som svarer på en HTTP-forespørsel skal bruke open().
  */
 export function openForBuild(path: string): Db {
-  return new DatabaseSync(path);
+  return withUnicodeCase(new DatabaseSync(path));
 }
 
 /**

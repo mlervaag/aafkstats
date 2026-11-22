@@ -143,7 +143,10 @@ const searchMatches = defineTool({
     limit: z.number().int().min(1).max(100).default(20),
   }),
   async run(input, ctx) {
-    const where: string[] = ["status = 'played'"];
+    // Samme regel som PLAYED_STATUSES i @aafkstats/db: en kamp avgjort på grønt
+    // bord har et resultat og teller i `opponents` og `seasons`. Med bare
+    // 'played' her ga søket én kamp færre enn summen modellen nettopp hadde lest.
+    const where: string[] = ["status IN ('played', 'awarded')"];
     if (input.season !== undefined) where.push(`season = ${input.season}`);
     if (input.seasonFrom !== undefined) where.push(`season >= ${input.seasonFrom}`);
     if (input.seasonTo !== undefined) where.push(`season <= ${input.seasonTo}`);

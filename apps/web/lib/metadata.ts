@@ -49,6 +49,9 @@ export function matchDescription(m: MatchMetaInput): string {
   if (!isPlayed(m.status)) {
     if (m.status === "cancelled") return `${m.competition} ${when}. Kampen ble avlyst.`;
     if (m.status === "postponed") return `${m.competition} ${when}. Kampen er utsatt.`;
+    // En avbrutt kamp ligger bak oss. «Ikke spilt ennå» lovet et resultat som
+    // aldri kommer.
+    if (m.status === "abandoned") return `${m.competition} ${when}${where}. Kampen ble avbrutt.`;
     return `${m.competition} ${when}${where}. Kampen er ikke spilt ennå.`;
   }
 

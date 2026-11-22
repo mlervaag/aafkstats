@@ -133,10 +133,12 @@ export function DirectResults({
   const shownTotal = data.people.length + data.observations.length + data.sources.length + Math.min(data.matches.length, maxMatches);
   const resultCount = shownTotal < total ? `${total} treff · viser ${shownTotal}` : `${total} treff`;
   return (
-    <div id={id} className="live-results" aria-live="polite">
+    <div id={id} className="live-results">
       <div className="live-results-heading">
         <strong>Direkte treff</strong>
-        <span className="small muted">
+        {/* Bare tellingen leses opp. Lå hele lista i den levende regionen, fikk
+            skjermleseren opptil førti treff opplest på nytt for hvert tastetrykk. */}
+        <span className="small muted" role="status">
           {state === "loading" ? "Søker …" : state === "error" ? "Feil" : resultCount}
         </span>
       </div>

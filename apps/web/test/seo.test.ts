@@ -3,6 +3,7 @@ import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { loadValidateAndBuild } from "@aafkstats/db/build";
+import { getDerivedPlayers } from "../lib/derived-players.js";
 import sitemap from "../app/sitemap.js";
 import { SITE_ORIGIN } from "../lib/site.js";
 import { loadMatchIndex, loadSeasonYears } from "../lib/archive.js";
@@ -52,6 +53,15 @@ describe("sitemap", () => {
     const urls = new Set(sitemap().map((entry) => entry.url));
     for (const match of loadMatchIndex()) {
       expect(urls.has(`${SITE_ORIGIN}/kamp/${match.matchId}`)).toBe(true);
+    }
+  });
+
+  it("har spillerne arkivet bare kjenner fra lagoppstillingene", () => {
+    // De har hver sin side, men sto ikke i sitemapet, og personlista har bare
+    // de seksti første kortene i HTML-en.
+    const urls = new Set(sitemap().map((entry) => entry.url));
+    for (const player of getDerivedPlayers()) {
+      expect(urls.has(`${SITE_ORIGIN}/personer/${player.id}`)).toBe(true);
     }
   });
 
@@ -176,6 +186,10 @@ describe("kampmetadata", () => {
   it("skiller avlyst fra utsatt fra ikke spilt", () => {
     expect(matchDescription({ ...upcoming, status: "cancelled" })).toContain("avlyst");
     expect(matchDescription({ ...upcoming, status: "postponed" })).toContain("utsatt");
+    // En avbrutt kamp ligger bak oss, og skal ikke love et resultat som kommer.
+    const abandoned = matchDescription({ ...upcoming, status: "abandoned" });
+    expect(abandoned).toContain("avbrutt");
+    expect(abandoned).not.toContain("ikke spilt ennå");
   });
 
   it("teller en kamp på grønt bord som spilt", () => {

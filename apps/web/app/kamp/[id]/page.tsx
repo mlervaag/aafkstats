@@ -250,7 +250,8 @@ function matchMetaInput(match: MatchDetail): MatchMetaInput {
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params;
   const match = getMatch(id);
-  if (!match) return { title: "Kamp" };
+  // Samme tittel som 404-siden, som er den som vises.
+  if (!match) return { title: "Fant ikke siden" };
 
   const meta = matchMetaInput(match);
   return pageMetadata(matchTitle(meta), matchDescription(meta), `/kamp/${id}`);
@@ -436,11 +437,15 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
         </p>
       </header>
 
-      <dl className="facts">
-        {match.venue_name && <><dt>Stadion</dt><dd>{match.venue_name}</dd></>}
-        {match.attendance !== null && <><dt>Tilskuere</dt><dd className="num">{match.attendance.toLocaleString("nb-NO")}</dd></>}
-        {match.referee && <><dt>Dommer</dt><dd>{match.referee}</dd></>}
-      </dl>
+      {/* Bare når det finnes noe å vise. Eldre kamper har ofte ingen av de
+          tre, og en tom liste tegnet likevel sin egen skillestrek. */}
+      {(match.venue_name || match.attendance !== null || match.referee) && (
+        <dl className="facts">
+          {match.venue_name && <><dt>Stadion</dt><dd>{match.venue_name}</dd></>}
+          {match.attendance !== null && <><dt>Tilskuere</dt><dd className="num">{match.attendance.toLocaleString("nb-NO")}</dd></>}
+          {match.referee && <><dt>Dommer</dt><dd>{match.referee}</dd></>}
+        </dl>
+      )}
 
       <MatchNewspaperArticles articles={newspaperArticles} />
 
@@ -507,7 +512,7 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
                   return (
                     <li key={`${entry.providerId}-${String(entry.value)}`} className={chosen ? "is-chosen" : undefined}>
                       <strong className="num">{entry.value === null ? "ingen verdi" : String(entry.value)}</strong>
-                      <span className="muted"> · {entry.providerId}</span>
+                      <span className="muted"> · {providerInfos.get(entry.providerId) ?? sourceInfos.get(entry.providerId) ?? entry.providerId}</span>
                       {chosen && <span className="conflict-chosen"> arkivet bruker denne</span>}
                       {entry.note && <span className="small muted conflict-note">{entry.note}</span>}
                     </li>
@@ -569,7 +574,7 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
         <p className="small muted">{confidenceNote(match.confidence, played)}</p>
       </section>
 
-      <nav className="match-nav" aria-label="Andre kamper i samme turnering">
+      <nav className="match-nav" aria-label="Andre kamper i samme konkurranse">
         {previous
           ? <a href={`/kamp/${previous.id}`}>← {previous.opponent_name}<span className="small muted"> {formatDateShort(previous.match_date)}</span></a>
           : <span />}

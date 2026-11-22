@@ -1,7 +1,7 @@
 "use client";
 
 import { Suspense, useEffect, useMemo, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { SourceCard } from "./SourceCard";
 import { SourceSeriesCard } from "./SourceSeriesCard";
 import { SOURCE_TYPES } from "./SourceTypeBadge";
@@ -153,7 +153,6 @@ export function SourceListClient({ sources }: SourceListClientProps) {
 }
 
 function SearchableSourceList({ sources }: SourceListClientProps) {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const urlQuery = searchParams.get("q") ?? "";
   const urlType = searchParams.get("type") ?? "all";
@@ -180,8 +179,13 @@ function SearchableSourceList({ sources }: SourceListClientProps) {
     if (filterType !== "all") params.set("type", filterType);
     if (filterDecade !== "all") params.set("tiar", filterDecade);
     const query = params.toString();
-    router.replace(query ? `/kilder?${query}` : "/kilder", { scroll: false });
-  }, [search, filterType, filterDecade, urlQuery, urlType, urlDecade, router]);
+    // Nettleserens egen historikk, ikke `router.replace`. Ruteren henter hele
+    // sida på nytt fra serveren når søkeparametrene endres — nesten en halv
+    // megabyte med kildeliste for hvert tastetrykk, for et filter som gjøres
+    // her i nettleseren uansett. `replaceState` endrer bare adressen, og Next
+    // holder `useSearchParams` i takt med den.
+    window.history.replaceState(null, "", query ? `/kilder?${query}` : "/kilder");
+  }, [search, filterType, filterDecade, urlQuery, urlType, urlDecade]);
 
   const types = useMemo(
     () => Array.from(new Set(sources.map((s) => s.source_type))).filter((t) => t !== "series").sort(),

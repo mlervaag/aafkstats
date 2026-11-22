@@ -13,6 +13,9 @@ import type { VerificationCaseView } from "@/lib/verifications";
 import { ResearchTaskPanel } from "./ResearchTaskPanel";
 import styles from "./VerificationExperience.module.css";
 
+/** En feilmelding serveren har skrevet, til forskjell fra en nettverksfeil. */
+class ServerMessage extends Error {}
+
 const CATEGORY_LABELS: Record<VerificationCaseView["category"], string> = {
   role: "Verv og klubbhistorie",
   identity: "Personidentitet",
@@ -402,8 +405,10 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
           company: "",
         }),
       });
-      const result = await response.json() as { error?: string; issueUrl?: string };
-      if (!response.ok) throw new Error(result.error ?? "Klarte ikke å sende inn svaret.");
+      // Et svar som ikke er JSON — en feilside fra en mellomstasjon — skal ende
+      // som den vanlige feilmeldingen, ikke som «Unexpected token '<'».
+      const result = await response.json().catch(() => ({})) as { error?: string; issueUrl?: string };
+      if (!response.ok) throw new ServerMessage(result.error ?? "Klarte ikke å sende inn svaret.");
       setSuccessUrl(result.issueUrl ?? "sendt");
       trackEvent("verification-submitted", {
         category: current.category,
@@ -433,7 +438,9 @@ export function VerificationExperience({ cases, startCaseId }: { cases: Verifica
         // Innsendingen er allerede fullført; opprydding av utkast er valgfri.
       }
     } catch (caught) {
-      setError(caught instanceof Error ? caught.message : "Klarte ikke å sende inn svaret.");
+      setError(caught instanceof ServerMessage
+        ? caught.message
+        : "Fikk ikke kontakt med arkivet. Sjekk nettforbindelsen og prøv igjen.");
       trackEvent("verification-submitted", {
         category: current.category,
         evidence: draft.evidenceKind,

@@ -70,21 +70,13 @@ export function stripLiterals(sql: string): string {
       continue;
     }
 
-    // Blokkommentar: /* ... */, og de kan nestes i Postgres
+    // Blokkommentar: /* ... */. SQLite nester dem ikke — kommentaren slutter ved
+    // første */. Vakta leste dem tidligere som Postgres gjør, og blanket da
+    // tekst SQLite faktisk kjører: FROM /* /* */ core_matches /* */ slapp
+    // gjennom navnekontrollen. Lexeren skal lese som motoren, ikke strengere.
     if (ch === "/" && next === "*") {
-      let depth = 1;
-      let j = i + 2;
-      while (j < sql.length && depth > 0) {
-        if (sql[j] === "/" && sql[j + 1] === "*") {
-          depth++;
-          j += 2;
-        } else if (sql[j] === "*" && sql[j + 1] === "/") {
-          depth--;
-          j += 2;
-        } else {
-          j++;
-        }
-      }
+      const end = sql.indexOf("*/", i + 2);
+      const j = end === -1 ? sql.length : end + 2;
       out += blank(j - i);
       i = j;
       continue;
@@ -126,18 +118,10 @@ export function stripLiterals(sql: string): string {
       continue;
     }
 
-    // Dollar-sitert streng: $$...$$ eller $tag$...$tag$
-    if (ch === "$") {
-      const tagMatch = /^\$[A-Za-z_][A-Za-z0-9_]*\$|^\$\$/.exec(sql.slice(i));
-      if (tagMatch) {
-        const tag = tagMatch[0];
-        const close = sql.indexOf(tag, i + tag.length);
-        const stop = close === -1 ? sql.length : close + tag.length;
-        out += blank(stop - i);
-        i = stop;
-        continue;
-      }
-    }
+    // Ingen dollar-sitering. $tag$...$tag$ er en streng i Postgres, men i SQLite
+    // er $navn en parameter, og alt mellom to slike er vanlig SQL som kjøres.
+    // Da den ble blanket her, kunne SELECT $a$, secret FROM core_matches WHERE
+    // $a$ IS NULL gjemme tabellnavnet for navnekontrollen.
 
     out += ch;
     i++;
@@ -201,19 +185,8 @@ export function revealIdentifiers(sql: string): string {
     }
 
     if (ch === "/" && next === "*") {
-      let depth = 1;
-      let j = i + 2;
-      while (j < sql.length && depth > 0) {
-        if (sql[j] === "/" && sql[j + 1] === "*") {
-          depth++;
-          j += 2;
-        } else if (sql[j] === "*" && sql[j + 1] === "/") {
-          depth--;
-          j += 2;
-        } else {
-          j++;
-        }
-      }
+      const end = sql.indexOf("*/", i + 2);
+      const j = end === -1 ? sql.length : end + 2;
       out += blank(j - i);
       i = j;
       continue;
@@ -233,18 +206,6 @@ export function revealIdentifiers(sql: string): string {
       out += blank(j - i);
       i = j;
       continue;
-    }
-
-    if (ch === "$") {
-      const tagMatch = /^\$[A-Za-z_][A-Za-z0-9_]*\$|^\$\$/.exec(sql.slice(i));
-      if (tagMatch) {
-        const tag = tagMatch[0];
-        const close = sql.indexOf(tag, i + tag.length);
-        const stop = close === -1 ? sql.length : close + tag.length;
-        out += blank(stop - i);
-        i = stop;
-        continue;
-      }
     }
 
     // De tre sitatformene SQLite godtar for identifikatorer.
@@ -379,6 +340,11 @@ const maxRows = Number(maxRowsRaw);
 const maxBytes = Number(maxBytesRaw);
 try {
   const db = new DatabaseSync(dbPath, { readOnly: true });
+  // Samme regel som withUnicodeCase i index.ts: SQLite folder bare ASCII, og
+  // uten dette finner ikke lower(opponent) LIKE '%åsane%' noe som helst.
+  // Skriptet kjører i en egen prosess og kan ikke importere funksjonen.
+  db.function("lower", { deterministic: true }, (v) => typeof v === "string" ? v.toLocaleLowerCase("nb") : v);
+  db.function("upper", { deterministic: true }, (v) => typeof v === "string" ? v.toLocaleUpperCase("nb") : v);
   const rows = db.prepare(sql).all();
   db.close();
   let truncated = rows.length > maxRows;

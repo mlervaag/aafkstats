@@ -4,6 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import { contributionIssueUrl, pageReference } from "@/lib/contribution-links";
 import { trackEvent } from "@/lib/analytics";
 
+/** En feilmelding serveren har skrevet, til forskjell fra en nettverksfeil. */
+class ServerMessage extends Error {}
+
 export type ContributionScope = "match" | "season" | "person";
 
 export interface ContributionDialogProps {
@@ -62,7 +65,7 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
 
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        throw new Error(data.error || "Noe gikk galt under innsending. Prøv igjen.");
+        throw new ServerMessage(data.error || "Noe gikk galt under innsending. Prøv igjen.");
       }
 
       setStatus("success");
@@ -73,7 +76,11 @@ export function ContributionDialog({ isOpen, onClose, scope, targetId, title }: 
       });
     } catch (err: unknown) {
       setStatus("error");
-      setErrorMsg(err instanceof Error ? err.message : String(err));
+      // Bare meldinger serveren selv har skrevet vises som de er. Alt annet er
+      // nettleserens egne feil — «Failed to fetch», «Load failed» — på engelsk.
+      setErrorMsg(err instanceof ServerMessage
+        ? err.message
+        : "Fikk ikke kontakt med arkivet. Sjekk nettforbindelsen og prøv igjen.");
       trackEvent("contribution-submitted", {
         scope,
         status: "error",

@@ -69,15 +69,17 @@ export function Carousel() {
     }
   }, []);
 
+  const autoplaying = !(isHovered || hasFocus || isPaused || prefersReducedMotion);
+
   useEffect(() => {
-    if (isHovered || hasFocus || isPaused || prefersReducedMotion) return;
+    if (!autoplaying) return;
 
     const interval = window.setInterval(() => {
       setCurrentIndex((index) => (index + 1) % images.length);
     }, AUTOPLAY_INTERVAL);
 
     return () => window.clearInterval(interval);
-  }, [currentIndex, hasFocus, isHovered, isPaused, prefersReducedMotion]);
+  }, [autoplaying, currentIndex]);
 
   const showPrevious = () => {
     setCurrentIndex((index) => (index === 0 ? images.length - 1 : index - 1));
@@ -134,7 +136,9 @@ export function Carousel() {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        <div className="carousel-images" aria-live="polite">
+        {/* Bare når leseren selv blar. Under automatisk visning ville
+            skjermleseren fått lest opp et nytt bilde hvert sjuende sekund. */}
+        <div className="carousel-images" aria-live={autoplaying ? "off" : "polite"}>
           {images.map((image, index) => {
             const isCurrent = index === currentIndex;
 
@@ -178,7 +182,7 @@ export function Carousel() {
       </div>
 
       <div className="carousel-controls">
-        <div className="carousel-dots" aria-label="Velg bilde">
+        <div className="carousel-dots" role="group" aria-label="Velg bilde">
           {images.map((image, index) => (
             <button
               key={image.src}

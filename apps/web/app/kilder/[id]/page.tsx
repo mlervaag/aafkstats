@@ -17,7 +17,7 @@ import {
   getSourceObservationUsages,
 } from "@/lib/sources";
 import { pageMetadata, sourceDescription } from "@/lib/metadata";
-import { formatDateShort } from "@/lib/date";
+import { formatDateShort, formatObservationDate } from "@/lib/date";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
@@ -290,7 +290,7 @@ export default async function SourceDetailPage({ params }: { params: Promise<{ i
             {observationUsages.map((observation) => (
               <li key={observation.id}>
                 <Link href={observation.url ?? `/kilder/${id}`}>
-                  <span className="match-date num">{observation.date ?? "Udatert"}</span>
+                  <span className="match-date num">{observation.date ? formatObservationDate(observation.date) : "Udatert"}</span>
                   <span className="match-opponent">{observation.title}</span>
                   <span className="match-meta muted">{observation.page ? `Side ${observation.page}` : "Kildehenvisning"}</span>
                 </Link>

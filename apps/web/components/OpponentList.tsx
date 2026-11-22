@@ -88,15 +88,24 @@ export function OpponentList({ opponents }: { opponents: OpponentSummary[] }) {
                 <strong>{opponent.opponent}</strong>
                 {opponent.city && <small>{opponent.city}</small>}
               </span>
-              <span className="record-line num">
-                {opponent.wins} S · {opponent.draws} U · {opponent.losses} T
-              </span>
-              <span className="num muted opponent-goals">
-                {opponent.goalsFor}–{opponent.goalsAgainst}
-              </span>
-              <span className="num muted">
-                {opponent.played} {opponent.played === 1 ? "kamp" : "kamper"}
-              </span>
+              {/* Et lag kan stå her uten en eneste spilt kamp — den ene kampen
+                  mot det ble avlyst. «0 S · 0 U · 0 T» og «0–0» leses da som
+                  en statistikk, og 0–0 som et resultat. */}
+              {opponent.played === 0 ? (
+                <span className="muted opponent-unplayed">Ingen spilte kamper</span>
+              ) : (
+                <>
+                  <span className="record-line num">
+                    {opponent.wins} S · {opponent.draws} U · {opponent.losses} T
+                  </span>
+                  <span className="num muted opponent-goals">
+                    {opponent.goalsFor}–{opponent.goalsAgainst}
+                  </span>
+                  <span className="num muted">
+                    {opponent.played} {opponent.played === 1 ? "kamp" : "kamper"}
+                  </span>
+                </>
+              )}
             </a>
           ))}
         </div>

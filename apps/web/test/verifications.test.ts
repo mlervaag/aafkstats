@@ -334,6 +334,44 @@ describe("verifiseringsinnsending", () => {
     });
   });
 
+  it("tar imot et langt avisfunn med baktikk uten å feile internt", async () => {
+    // Funn (1500) og kommentar (1000) er gyldige hver for seg, men ble satt
+    // sammen til en tekst som var lengre enn skjemaet for avisverifisering
+    // godtar — og et gyldig svar endte som «intern feil». Tre baktikk i teksten
+    // avsluttet dessuten kodeblokka rundt nyttelasten for tidlig.
+    process.env.GITHUB_INBOX_TOKEN = "test-token";
+    process.env.GITHUB_INBOX_REPO = "mlervaag/aafkstats";
+    const item = loadVerificationCase("nb-avis-1946-15-4ee1a1e2f3")!;
+    let createdBody = "";
+    vi.stubGlobal("fetch", vi.fn(async (input: string | URL | Request, init?: RequestInit) => {
+      const url = String(input);
+      if (url.includes("/search/issues")) return new Response(JSON.stringify({ items: [] }), { status: 200 });
+      if (url.includes("/issues?state=open")) return new Response(JSON.stringify([]), { status: 200 });
+      if (url.endsWith("/issues") && init?.method === "POST") {
+        createdBody = String(init.body);
+        return new Response(JSON.stringify({ html_url: "https://github.com/mlervaag/aafkstats/issues/1001" }), { status: 201 });
+      }
+      throw new Error(`Uventet GitHub-kall: ${url}`);
+    }));
+    const response = await POST(request({
+      caseId: item.id,
+      revision: item.revision,
+      answer: "inconclusive",
+      evidence: { kind: "listed_source", sourceKey: item.sources[0]!.key },
+      finding: `Siden er uleselig. \`\`\` ${"a".repeat(1200)}`,
+      comment: "b".repeat(900),
+      communityFinding: { reasons: ["Utydelig faksimile"], competition: "`", dateReadable: "uncertain" },
+      clientSubmissionId: "ab5e52d8-4c91-4b53-bb56-f83688b9db2a",
+      company: "",
+    }, "10.20.0.19"));
+    expect(response.status).toBe(200);
+    const issue = JSON.parse(createdBody) as { body: string };
+    const parsed = parseNewspaperVerificationIssue(issue.body);
+    expect(parsed.communityFinding.comment).toHaveLength(1500);
+    expect(parsed.communityFinding.comment).not.toContain("`");
+    expect(parsed.communityFinding.competition).toBeUndefined();
+  });
+
   it("avviser en foreldet revisjon med 409 før GitHub kalles", async () => {
     const fetchSpy = vi.fn();
     vi.stubGlobal("fetch", fetchSpy);

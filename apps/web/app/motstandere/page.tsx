@@ -34,7 +34,7 @@ export default function OpponentsPage() {
             teller alt: cup, europacup og treningskamper også — APOEL Nicosia sto
             i lista og hadde aldri spilt en seriekamp mot AaFK. */}
         <p className="lede">
-          Innbyrdes statistikk fra alle {played} kampene i arkivet, uansett konkurranse.
+          Innbyrdes statistikk fra alle {played.toLocaleString("nb-NO")} kampene i arkivet, uansett konkurranse.
           Målene er sett fra AaFKs side.
         </p>
       </header>

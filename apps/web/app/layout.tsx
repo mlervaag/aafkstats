@@ -5,7 +5,7 @@ import { GlobalSearch } from "@/components/GlobalSearch";
 import { JugendMark, JugendRule } from "@/components/Jugend";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/jsonld";
 import { CONTACT_EMAIL, SITE_NAME, SITE_ORIGIN } from "@/lib/site";
-import { MobileNavigation, PrimaryNavigation } from "@/components/SiteNavigation";
+import { MobileMenu, PrimaryNavigation } from "@/components/SiteNavigation";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -52,10 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="masthead-actions">
               <PrimaryNavigation />
               <GlobalSearch />
-              <details className="mobile-menu">
-                <summary className="header-control" role="button">Meny</summary>
-                <MobileNavigation />
-              </details>
+              <MobileMenu />
             </div>
           </div>
         </header>

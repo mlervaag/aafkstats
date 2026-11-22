@@ -578,7 +578,9 @@ function DerivedPlayerPage({ player }: { player: DerivedPlayer }) {
                 <thead>
                   <tr>
                     <th scope="col">Sesong</th>
-                    <th scope="col" className="num">Kamper</th>
+                    {/* «Kamptropper», som i faktaboksen ved siden av: tallet teller
+                        ganger spilleren sto i troppen, ikke kamper han spilte. */}
+                    <th scope="col" className="num">Kamptropper</th>
                     <th scope="col" className="num">Fra start</th>
                     <th scope="col" className="num">Mål</th>
                   </tr>

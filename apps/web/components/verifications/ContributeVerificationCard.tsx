@@ -65,7 +65,7 @@ export function ContributeVerificationCard({
           Du beskriver funnet og hvor du fant det. En redaktør vurderer dokumentasjonen
           før arkivet endres.
         </p>
-        <div className={styles.caseTypes} aria-label="Typer saker du kan kontrollere">
+        <div className={styles.caseTypes} role="group" aria-label="Typer saker du kan kontrollere">
           <a href="/mangler/saker?type=avisresearch">
             <strong>Avisresearch</strong>
             <span>{caseCount(researchCaseCount)}</span>

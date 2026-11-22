@@ -91,7 +91,7 @@ function SeasonCard({ entry }: { entry: SeasonYear }) {
       <a className="archive-card card-fragment" href={`/sesong/${year}`}>
         <span className="card-kicker">Historisk resultatliste</span>
         <strong className="card-title num">{year}</strong>
-        <span className="card-meta">{entry.documentedResults} kildedokumenterte resultater</span>
+        <span className="card-meta">{entry.documentedResults === 1 ? "1 kildedokumentert resultat" : `${entry.documentedResults} kildedokumenterte resultater`}</span>
         <span className="coverage-tag coverage-isolated">Dato og hjemme/borte mangler</span>
       </a>
     );

@@ -91,6 +91,18 @@ ingen roller og kan ikke gi leserett på viewene alene. Derfor leses spørringen
 
 Begge bevarer posisjonene, så feilmeldingene peker fortsatt på riktig sted.
 
+Begge leser spørringen **slik SQLite gjør**, ikke slik Postgres gjør. Blokkommentarer nester
+ikke, og `$tag$…$tag$` er ikke en streng: i SQLite er `$navn` en parameter, og teksten
+mellom to slike kjøres. En lexer som er «strengere» enn motoren blanker tekst motoren
+utfører, og da gjemmer `FROM /* /* */ core_matches /* */` navnet for filteret.
+
+## Store og små bokstaver
+
+SQLites `lower()` og `upper()` folder bare A–Z. `open()`, `openForBuild()` og prosessen bak
+`runSafeSql()` erstatter dem med varianter som kjenner hele alfabetet, slik at
+`lower(opponent) LIKE '%åsane%'` finner Åsane. `LIKE` alene er fortsatt bare blind for
+store og små bokstaver i ASCII — søk derfor alltid som `lower(kolonne) LIKE nål`.
+
 Navnefiltrene dekker navnerom, ikke lister: `sqlite_(?!version)\w+` i stedet for de kjente
 systemtabellene, og `pragma\w*` fordi PRAGMA også finnes som tabellverdifunksjon —
 `pragma_database_list` røper hvor arkivfilen ligger på disk.
