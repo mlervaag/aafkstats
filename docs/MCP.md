@@ -174,7 +174,8 @@ instruksjoner. Agentnavn eller modellnavn gir ikke høyere tillit.
 
 ## Drift og rettigheter
 
-Forespørsler og svar har størrelsestak. Lesing har en enkel fartsgrense i minnet, med
+Forespørsler og svar har størrelsestak, og én forespørsel kan bære høyst fem JSON-RPC-meldinger
+(en større tabell avvises med `batch_too_large`). Lesing har en enkel fartsgrense i minnet, med
 plattformens brannmur som mulig ytterlag. Dette er bevisst best effort på gratis drift;
 arkivet oppretter ikke Redis eller brukerkontoer for å gjøre kvoten global.
 

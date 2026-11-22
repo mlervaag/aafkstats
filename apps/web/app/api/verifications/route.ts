@@ -19,7 +19,26 @@ const MAX_BODY_BYTES = 20 * 1024;
 export const runtime = "nodejs";
 
 function quote(raw: string): string {
-  return raw.replace(/\r\n/g, "\n").split("\n").map((line) => `> ${line}`).join("\n");
+  // Et enslig vognretur er også et linjeskift i markdown; se samme funksjon i
+  // bidragsruta.
+  return raw.split(/\r\n|\r|\n/).map((line) => `> ${line}`).join("\n");
+}
+
+/** Lengste kommentar skjemaet for avisverifisering tar imot. */
+const MAX_NEWSPAPER_COMMENT = 1500;
+
+/**
+ * Funn og kommentar som én tekst i den strukturerte avisverifiseringen.
+ *
+ * Feltene er hver for seg innenfor grensene, men sammen kunne de bli lengre enn
+ * skjemaet de skrives inn i, og innsenderen fikk «intern feil» for et gyldig
+ * svar. Teksten står uavkortet i blokksitatet lenger ned i saken, så kuttet
+ * her mister ingenting. Baktikk fjernes fordi kodeblokka rundt nyttelasten
+ * ellers ender der innsenderen skrev tre av dem.
+ */
+function newspaperComment(finding: string | undefined, comment: string | undefined): string | undefined {
+  const joined = [finding, comment].filter(Boolean).join(" — ").replaceAll("`", "").trim();
+  return joined === "" ? undefined : joined.slice(0, MAX_NEWSPAPER_COMMENT);
 }
 
 function oneLine(raw: string, max = 160): string {
@@ -129,6 +148,12 @@ async function handlePost(req: Request) {
     }
 
     const answerLabel = data.answer === "yes" ? "JA" : data.answer === "no" ? "NEI" : "KAN IKKE BESTEMMES";
+    // Tom etter rensing betyr at feltet bare inneholdt baktikk; da utelates det
+    // framfor å feile skjemaets krav om minst ett tegn.
+    const newspaperCompetition = data.communityFinding?.competition
+      ? oneLine(data.communityFinding.competition, 120).replaceAll("`", "").trim()
+      : "";
+    const newspaperFindingComment = newspaperComment(data.finding, data.comment);
     const contributor = data.contributor ? oneLine(data.contributor, 100) : "Anonym";
     const issueBody = [
       marker,
@@ -153,9 +178,9 @@ async function handlePost(req: Request) {
             ...(data.communityFinding?.scoreAgreement === "no" ? { scoreConfirmed: false } : {}),
             ...(data.communityFinding?.matchDate ? { matchDate: data.communityFinding.matchDate } : {}),
             ...(data.communityFinding?.homeAway ? { homeAway: data.communityFinding.homeAway } : {}),
-            ...(data.communityFinding?.competition ? { competition: oneLine(data.communityFinding.competition, 120).replaceAll("`", "") } : {}),
+            ...(newspaperCompetition ? { competition: newspaperCompetition } : {}),
             ...(data.communityFinding?.reasons?.length ? { reason: data.communityFinding.reasons.map((reason) => oneLine(reason, 120).replaceAll("`", "")).join("; ") } : {}),
-            ...([data.finding, data.comment].filter(Boolean).length ? { comment: [data.finding, data.comment].filter(Boolean).join(" — ") } : {}),
+            ...(newspaperFindingComment ? { comment: newspaperFindingComment } : {}),
           },
         }),
       ] : []),

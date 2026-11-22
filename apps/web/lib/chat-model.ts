@@ -164,5 +164,8 @@ export interface ChatResult {
  * bruker denne, så forsvaret ikke gjelder bare hos den ene leverandøren.
  */
 export function wrapToolResult(toolName: string, content: unknown): string {
-  return `<arkivdata verktoy="${toolName}">\n${JSON.stringify(content)}\n</arkivdata>`;
+  // «<» skrives som \u003c. Det er samme JSON for modellen, men et notat som
+  // inneholder «</arkivdata>» kan da ikke lukke avgrenseren og fortsette utenfor.
+  const json = JSON.stringify(content).replace(/</g, "\\u003c");
+  return `<arkivdata verktoy="${toolName}">\n${json}\n</arkivdata>`;
 }

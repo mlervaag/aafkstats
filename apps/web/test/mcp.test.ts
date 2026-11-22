@@ -240,6 +240,17 @@ describe("offentlig stateless MCP", () => {
     expect(body.result.structuredContent).toMatchObject({ status: "pending_review", duplicate: false });
   });
 
+  it("avviser en tabell med mange meldinger før SDK-en kjører dem samtidig", async () => {
+    const call = (id: number) => ({ jsonrpc: "2.0", id, method: "tools/call", params: { name: "get_dataset_info", arguments: {} } });
+    const batch = await POST(new Request("https://aafkarkivet.no/mcp", {
+      method: "POST",
+      headers: { "content-type": "application/json", accept: "application/json, text/event-stream" },
+      body: JSON.stringify(Array.from({ length: 50 }, (_, index) => call(index + 1))),
+    }));
+    expect(batch.status).toBe(400);
+    expect(await batch.json()).toMatchObject({ error: "batch_too_large" });
+  });
+
   it("avviser store og cross-origin forespørsler før SDK-en", async () => {
     const large = await POST(new Request("https://aafkarkivet.no/mcp", { method: "POST", headers: { "content-type": "application/json" }, body: "x".repeat(70_000) }));
     expect(large.status).toBe(413);

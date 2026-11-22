@@ -41,6 +41,15 @@ const VERIFICATIONS_PER_HOUR = 20;
 const MCP_READS_PER_HOUR = 120;
 /** Offentlig REST er billig, men cache-busting skal ikke kunne spinne funksjonen fritt. */
 const API_READS_PER_HOUR = 300;
+/**
+ * Reservasjoner av kontrollsaker.
+ *
+ * En reservasjon skjuler saken for alle andre i tolv minutter. Uten et tak kunne
+ * ett skript reservere hver åpne sak om igjen og om igjen, og kontrollkøen sto
+ * tom for alle. En leser som arbeider seg gjennom saker, bruker én reservasjon
+ * per sak og én fornyelse hvert fjerde minutt — langt under dette.
+ */
+const CHECKOUTS_PER_HOUR = 30;
 const WINDOW_MS = 60 * 60 * 1000;
 /**
  * Tak på antall avsendere vi holder styr på samtidig.
@@ -54,12 +63,13 @@ const WINDOW_MS = 60 * 60 * 1000;
 const MAX_TRACKED = 5000;
 
 /** Hva som telles. Hver kvote har sitt eget vindu per avsender. */
-export type RateLimitBucket = "chat" | "bidrag" | "verifisering" | "mcp" | "api";
+export type RateLimitBucket = "chat" | "bidrag" | "verifisering" | "reservasjon" | "mcp" | "api";
 
 const LIMITS: Record<RateLimitBucket, number> = {
   chat: QUESTIONS_PER_HOUR,
   bidrag: CONTRIBUTIONS_PER_HOUR,
   verifisering: VERIFICATIONS_PER_HOUR,
+  reservasjon: CHECKOUTS_PER_HOUR,
   mcp: MCP_READS_PER_HOUR,
   api: API_READS_PER_HOUR,
 };
@@ -92,6 +102,9 @@ export function clientIp(req: Request): string {
 function tooManyMessage(bucket: RateLimitBucket): string {
   if (bucket === "api") {
     return `Du har brukt ${API_READS_PER_HOUR} API-kall denne timen. Prøv igjen om litt.`;
+  }
+  if (bucket === "reservasjon") {
+    return "For mange reservasjoner fra samme sted denne timen. Prøv igjen om litt.";
   }
   if (bucket !== "chat") {
     return `Du har sendt inn ${LIMITS[bucket]} svar denne timen. Prøv igjen om litt.`;

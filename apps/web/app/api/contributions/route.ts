@@ -39,7 +39,10 @@ const targetId = z
 const pageUrl = z
   .string()
   .max(200)
-  .regex(/^\/[^\s]*$/, "Ugyldig side.")
+  // Bare tegnene våre egne stier består av. «Alt uten mellomrom» slapp gjennom
+  // «//annen.test» (en adresse ut i verden) og markdown som
+  // «/[Instruks](https://annen.test)», som ble en ekte lenke i saken.
+  .regex(/^\/(?!\/)[A-Za-z0-9/_.~%-]*$/, "Ugyldig side.")
   .optional();
 
 /** Kildelenke fra bidragsyteren. Skal være http(s) eller ingenting. */
@@ -73,9 +76,10 @@ export const runtime = "nodejs";
  * hver linje får «> », så ingenting inni kan bryte ut av sin egen blokk.
  */
 function quote(raw: string): string {
+  // Et enslig vognretur er også et linjeskift i markdown. Ble det stående, fikk
+  // linja etter det ingen «> » og sto utenfor sitatet som en ekte overskrift.
   return raw
-    .replace(/\r\n/g, "\n")
-    .split("\n")
+    .split(/\r\n|\r|\n/)
     .map((line) => `> ${line}`)
     .join("\n");
 }
@@ -169,7 +173,7 @@ async function handlePost(req: Request) {
     const issueBody = [
       "**Type:** Observasjon",
       `**Kontekst:** ${scopeLabel} \`${data.targetId}\``,
-      `**Side:** ${data.pageUrl ?? "Ukjent"}`,
+      `**Side:** ${data.pageUrl ? `\`${data.pageUrl}\`` : "Ukjent"}`,
       "",
       "### Innsendt av",
       quote(contributor),

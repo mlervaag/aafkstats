@@ -3,6 +3,7 @@ import { mkdtempSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { loadValidateAndBuild } from "../src/build.js";
+import { one, open } from "../src/index.js";
 import { runSafeSql } from "../src/safe-sql.js";
 
 /**
@@ -42,6 +43,29 @@ describe("runSafeSql mot ekte arkivfil", () => {
     // is_home-filtreringen — og dermed hele AaFK-perspektivet — feil.
     expect(row.date).toBe("2005-09-18");
     expect(row.opponent).toBe("Rosenborg BK");
+  });
+
+  it("gjør om Æ, Ø og Å til små bokstaver", async () => {
+    // SQLites egen lower() folder bare A–Z. Søkene sammenligner lower(kolonne)
+    // med en nål som er gjort liten i JavaScript, så uten dette fant ingen
+    // Åsane eller Ørsta — verken direktesøket eller språkmodellen.
+    const r = await runSafeSql(
+      "SELECT lower('Åsane') AS liten, upper('ørsta') AS stor, lower('Åsane') LIKE '%åsane%' AS treff",
+      { dbPath },
+    );
+    expect(r.rows[0]).toEqual({ liten: "åsane", stor: "ØRSTA", treff: 1 });
+  });
+
+  it("gir samme bokstavfolding på tilkoblingen nettstedet bruker", () => {
+    const db = open(dbPath);
+    try {
+      expect(one<{ v: string }>(db, "SELECT lower('Øie') AS v")?.v).toBe("øie");
+      // Tall og NULL skal gå urørt gjennom, ikke bli til tekst.
+      expect(one<{ v: number | null }>(db, "SELECT lower(42) AS v")?.v).toBe(42);
+      expect(one<{ v: number | null }>(db, "SELECT lower(NULL) AS v")?.v).toBeNull();
+    } finally {
+      db.close();
+    }
   });
 
   it("gir datoer som rene kalenderdatoer, ikke tidsstempler", async () => {
