@@ -53,7 +53,7 @@ leser fra.
 
 | | |
 |---|---|
-| **1 724 kamper** | Kamper registrert totalt i arkivet |
+| **1 725 kamper** | Kamper registrert totalt i arkivet |
 | **2 149 kildedokumenterte resultatoppføringer** | Resultatobservasjoner bevart direkte fra historiske kilder; selve oppføringene teller ikke som kamper. **1 587 mangler fortsatt kobling til en kanonisk kamp.** |
 | **103 år med kanoniske kamper** | 1915–2026, år med minst én registrert kamp. Enkeltkamper tilbake til 1915, cupen til 1917, regionale kretskamper til 1920 og nasjonal serie til 1951 |
 | **108 år med historisk kampinformasjon** | De kanoniske årene over, pluss år som foreløpig bare har kildedokumenterte resultater. Sesongoversikten viser disse |
@@ -445,7 +445,7 @@ Kode under [MIT](LICENSE). Egne tekster og arkivets eget redaksjonelle innhold u
 ## Status
 
 Grunnmuren står: datamodell, database, guardrails, portal og datasettdokumentasjon.
-Arkivet dekker 1 724 kamper fra 1915 til i dag. FotMob gir kampdetaljer og hendelser for
+Arkivet dekker 1 725 kamper fra 1915 til i dag. FotMob gir kampdetaljer og hendelser for
 deler av perioden fra 2010, mens kampstatistikk finnes for deler av 2014–2026. Hovedfeltet
 gir direkte kamptreff mens brukeren skriver år og motstander; Enter sender i stedet teksten
 til AI-søket.
