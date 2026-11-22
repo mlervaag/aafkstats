@@ -24,5 +24,5 @@
 .empty { padding: 3rem 1rem; text-align: center; color: var(--muted); }
 .allMissing { display: flex; justify-content: space-between; gap: 1.5rem; align-items: center; margin-top: 2rem; padding: 1.15rem; background: var(--accent-soft); border-left: 3px solid var(--accent); }
 .allMissing p { max-width: 60ch; margin: 0.25rem 0 0; color: var(--muted); font-size: 0.875rem; }
-.allMissing a { flex: 0 0 auto; color: var(--accent); font-weight: 700; }
+.allMissing a { flex: 0 0 auto; color: var(--accent-ink); font-weight: 700; }
 @media (max-width: 720px) { .caseGuide { grid-template-columns: 1fr; } .filters { grid-template-columns: 1fr; } .list { grid-template-columns: 1fr; } .list a { min-height: 0; } .allMissing { align-items: flex-start; flex-direction: column; } }

@@ -49,9 +49,9 @@ export default function DevelopersPage() {
             skrivebeskyttede GET-ruter med JSON-svar, CORS og offentlig mellomlagring.
           </p>
           <p><strong>Finn de største dokumenterte seirene:</strong></p>
-          <div className="queries"><pre>{`curl "https://aafkarkivet.no/api/v1/results?ranking=largest_win&limit=10"`}</pre></div>
+          <div className="queries"><pre tabIndex={0}>{`curl "https://aafkarkivet.no/api/v1/results?ranking=largest_win&limit=10"`}</pre></div>
           <p><strong>Finn åpne saker fellesskapet kan undersøke:</strong></p>
-          <div className="queries"><pre>{`curl "https://aafkarkivet.no/api/v1/research/cases?limit=10"`}</pre></div>
+          <div className="queries"><pre tabIndex={0}>{`curl "https://aafkarkivet.no/api/v1/research/cases?limit=10"`}</pre></div>
           <p>
             Se også <a href="/api/v1/meta">metadata og datasettrevisjon</a> eller den
             komplette <a href="https://github.com/mlervaag/aafkstats/blob/main/docs/API.md">API-kontrakten på GitHub</a>.
@@ -87,7 +87,7 @@ export default function DevelopersPage() {
             Serveradressen er <code>https://aafkarkivet.no/mcp</code>. Innstillingsfilen
             varierer mellom klienter, men en vanlig konfigurasjon ser slik ut:
           </p>
-          <div className="queries"><pre>{mcpConfig}</pre></div>
+          <div className="queries"><pre tabIndex={0}>{mcpConfig}</pre></div>
           <p>
             MCP gir strukturerte verktøy for kamper, resultater, personer, overganger,
             stall og tabeller, kilder og åpne researchsaker. Konflikter og dekningshull

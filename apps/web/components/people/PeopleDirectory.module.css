@@ -25,7 +25,7 @@
   font-weight: 450;
   letter-spacing: 0;
 }
-.search input:focus-visible { outline: 3px solid color-mix(in srgb, var(--accent) 35%, transparent); outline-offset: 1px; }
+.search input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 
 .filters { display: flex; flex-wrap: wrap; gap: 0.45rem; }
 .filters button {
@@ -43,8 +43,11 @@
   font-size: 0.86rem;
   font-weight: 650;
 }
-.filters button span { font-variant-numeric: tabular-nums; opacity: 0.7; }
-.filters button[aria-pressed="true"] { color: white; background: var(--accent); border-color: var(--accent); }
+/* Tallet skilles fra etiketten med vekt, ikke gjennomsiktighet: 70 % av en
+   allerede dempet farge ga 2,9 i kontrast. Og teksten på valgt knapp følger
+   --on-accent, som er mørk i mørk modus — hvit på lys oransje ga 2,6. */
+.filters button span { font-variant-numeric: tabular-nums; font-weight: 500; }
+.filters button[aria-pressed="true"] { color: var(--on-accent); background: var(--accent); border-color: var(--accent); }
 
 .resultCount { margin: 1.2rem 0 0.7rem; color: var(--muted); font-size: 0.85rem; }
 .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; margin: 0; padding: 0; list-style: none; }
@@ -64,13 +67,13 @@
   transition: border-color 160ms ease, transform 160ms ease;
 }
 .grid a:hover { border-color: var(--accent); transform: translateY(-2px); }
-.monogram { display: grid; place-items: center; width: 3rem; aspect-ratio: 1; color: var(--accent); background: var(--accent-soft); border-radius: 50%; font-family: var(--font-display); font-weight: 750; }
+.monogram { display: grid; place-items: center; width: 3rem; aspect-ratio: 1; color: var(--accent-ink); background: var(--accent-soft); border-radius: 50%; font-family: var(--font-display); font-weight: 750; }
 .cardBody { min-width: 0; }
 .cardHeading { display: flex; gap: 0.7rem; align-items: baseline; justify-content: space-between; }
 .cardHeading h2 { overflow: hidden; margin: 0; font-size: 1.12rem; text-overflow: ellipsis; white-space: nowrap; }
 .cardHeading > span { flex: 0 0 auto; color: var(--muted); font-size: 0.78rem; }
 .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.55rem; }
-.tags span { padding: 0.18rem 0.48rem; color: var(--accent); background: var(--accent-soft); border-radius: var(--radius); font-size: 0.72rem; font-weight: 700; }
+.tags span { padding: 0.18rem 0.48rem; color: var(--accent-ink); background: var(--accent-soft); border-radius: var(--radius); font-size: 0.72rem; font-weight: 700; }
 .cardBody p { margin: 0.65rem 0 0; color: var(--muted); font-size: 0.82rem; }
 .arrow { color: var(--accent); font-size: 1.2rem; }
 .empty { padding: 3.5rem 1rem; text-align: center; border: 1px dashed var(--border); border-radius: var(--radius-lg); }

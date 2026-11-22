@@ -18,7 +18,8 @@ const getOpponent = cache(loadOpponent);
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
   const data = getOpponent(id);
-  if (!data) return { title: "Motstander" };
+  // Samme tittel som 404-siden, som er den som vises.
+  if (!data) return { title: "Fant ikke siden" };
   return pageMetadata(
     opponentTitle(data.summary),
     opponentDescription(data.summary),
@@ -68,7 +69,7 @@ export default async function OpponentPage({ params }: Props) {
           );
         })()}
       </header>
-      <div className="stat-strip" aria-label="Innbyrdes statistikk">
+      <div className="stat-strip" role="group" aria-label="Innbyrdes statistikk">
         <Stat value={summary.played} label="Kamper" />
         <Stat value={summary.wins} label="Seire" />
         <Stat value={summary.draws} label="Uavgjort" />

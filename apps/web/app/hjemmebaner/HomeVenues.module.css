@@ -22,6 +22,8 @@
 
 .record { margin-top: 1.1rem; padding: 0.85rem 1rem; background: var(--accent-soft); border-radius: var(--radius); }
 .record :global(.eyebrow) { margin: 0; }
+/* Kildebrikkene er liten tekst oppå den myke aksentflaten; se --accent-ink. */
+.record a { color: var(--accent-ink); }
 .recordNumber { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: baseline; margin: 0.3rem 0 0; }
 .recordNumber strong { color: var(--accent); font-family: var(--font-display); font-size: 1.5rem; }
 

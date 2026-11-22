@@ -119,9 +119,14 @@ export function AskBox() {
     show: showSearch,
     fresh: searchFresh,
   } = useDirectSearch(question, hasConversation);
-  const pendingSubmit = useRef(false);
+  // Søket Enter gjaldt, ikke bare at Enter ble trykket. Et flagg alene overlevde
+  // «Nytt spørsmål» og omskriving, og sendte da neste søk av gårde uoppfordret
+  // — i verste fall to bokstaver som et spørsmål til språkmodellen.
+  const pendingSubmit = useRef<string | null>(null);
   useEffect(() => {
-    if (searchFresh && pendingSubmit.current) submitFromKeyboard();
+    if (searchFresh && pendingSubmit.current !== null && pendingSubmit.current === question.trim()) {
+      submitFromKeyboard();
+    }
     // submitFromKeyboard leser gjeldende tilstand; det er bare overgangen til
     // ferskt svar som skal utløse den.
   }, [searchFresh]);
@@ -135,10 +140,10 @@ export function AskBox() {
     if (!searchFresh) {
       // Enter kom før svaret på det som står i feltet. Da venter vi på det i
       // stedet for å åpne et treff fra forrige søk eller ikke gjøre noe.
-      pendingSubmit.current = question.trim().length >= 2;
+      pendingSubmit.current = question.trim().length >= 2 ? question.trim() : null;
       return;
     }
-    pendingSubmit.current = false;
+    pendingSubmit.current = null;
     if (directResultCount(directResults) > 0) {
       openFirstDirectResult(directResults);
     } else if (question.trim() !== "" && !isLoading) {
@@ -153,6 +158,7 @@ export function AskBox() {
   function reset() {
     askRef.current?.abort();
     askRef.current = null;
+    pendingSubmit.current = null;
     setQuestion("");
     setTurns([]);
     setActiveTool(null);
@@ -163,6 +169,7 @@ export function AskBox() {
   async function ask(q: string, source: AskSource, previousTurns: ConversationTurn[] = []) {
     const trimmed = q.trim();
     if (trimmed === "" || isLoading) return;
+    pendingSubmit.current = null;
 
     askRef.current?.abort();
     const controller = new AbortController();
@@ -344,11 +351,16 @@ export function AskBox() {
           maxLength={1000}
           placeholder="Søk i arkivet …"
           aria-label="Søk i arkivet"
-          aria-controls="direkte-treff"
+          // Bare mens lista finnes. En peker til en id som ikke står i
+          // dokumentet er en feil skjermlesere melder fra om.
+          aria-controls={showSearch ? "direkte-treff" : undefined}
           autoComplete="off"
           enterKeyHint="search"
           disabled={hasConversation}
-          onChange={(event) => setQuestion(event.target.value)}
+          onChange={(event) => {
+            pendingSubmit.current = null;
+            setQuestion(event.target.value);
+          }}
           onKeyDown={(event) => {
             if (event.key === "Escape") reset();
             if (event.key === "Enter" && !event.nativeEvent.isComposing) {
@@ -377,7 +389,7 @@ export function AskBox() {
       )}
 
       {!hasConversation && (
-        <div className="suggestions" aria-label="Forslag til spørsmål">
+        <div className="suggestions" role="group" aria-label="Forslag til spørsmål">
           {suggestions.map((suggestion) => (
             <button
               key={suggestion}
@@ -455,7 +467,7 @@ export function AskBox() {
               </div>
 
               {turn.state === "done" && turn.followUp && (
-                <div className="answer-followup" aria-label="Forslag til oppfølging">
+                <div className="answer-followup" role="group" aria-label="Forslag til oppfølging">
                   <p>{turn.followUp.question}</p>
                   <div className="answer-followup-actions">
                     <button

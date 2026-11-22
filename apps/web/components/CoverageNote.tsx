@@ -19,7 +19,7 @@ export function coverageSentence(c: ArchiveCoverage): string {
         ? ` fra ${c.firstSeason}`
         : ` fra ${c.firstSeason} til ${c.lastSeason}`
       : "";
-  return `${c.matches} kamper${span}`;
+  return `${c.matches} ${c.matches === 1 ? "kamp" : "kamper"}${span}`;
 }
 
 /**

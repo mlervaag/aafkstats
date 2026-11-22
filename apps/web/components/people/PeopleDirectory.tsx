@@ -120,7 +120,7 @@ export function PeopleDirectory({ people }: { people: PersonSummary[] }) {
             placeholder="For eksempel Haller, trener eller Danmark"
           />
         </label>
-        <div className={styles.filters} aria-label="Filtrer personer">
+        <div className={styles.filters} role="group" aria-label="Filtrer personer">
           {FILTERS.map((entry) => (
             <button
               key={entry.id}

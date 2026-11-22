@@ -105,7 +105,7 @@ export function ResearchTaskPanel({ task, answer, selectedSourceResultKey, disab
         ) : task.category === "score_conflict" ? (
           <div className={styles.optionGrid}>
             {choice("newspaper_score", `Avisens resultat ${observed.score ? score(observed.score) : ""}`, "Aviskilden støtter dette resultatet for den konkrete kampen.")}
-            {choice("source_result_score", `Kildeoppføringens resultat ${score(lead.expectedScore)}`, "Den retrospective kildeoppføringen støttes best.")}
+            {choice("source_result_score", `Kildeoppføringens resultat ${score(lead.expectedScore)}`, "Den retrospektive kildeoppføringen støttes best.")}
             {choice("different_events", "Forskjellige kamper", "Resultatene beskriver to ulike møter.")}
             {choice("inconclusive", "Kan ikke bestemmes", "Kildene avgjør ikke konflikten.")}
           </div>

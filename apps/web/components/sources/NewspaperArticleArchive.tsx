@@ -156,7 +156,7 @@ export function NewspaperArticleArchive({ articles }: { articles: NewspaperArtic
             placeholder="For eksempel Molde, 1947 eller mai 1955"
           />
         </label>
-        <div className={styles.filters} aria-label="Filtrer avisarkivet på tiår">
+        <div className={styles.filters} role="group" aria-label="Filtrer avisarkivet på tiår">
           <button
             type="button"
             aria-pressed={decade === "all"}

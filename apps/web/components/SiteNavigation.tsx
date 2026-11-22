@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 
 type NavigationLink = {
@@ -42,7 +43,7 @@ export function PrimaryNavigation() {
   return <nav className="primary-nav" aria-label="Hovedmeny"><NavigationLinks links={primary} pathname={pathname} /></nav>;
 }
 
-export function MobileNavigation() {
+function MobileNavigation() {
   const pathname = usePathname();
   return (
     <nav aria-label="Mobilmeny">
@@ -50,5 +51,46 @@ export function MobileNavigation() {
       <span className="mobile-menu-divider">Prosjektet</span>
       <NavigationLinks links={project} pathname={pathname} />
     </nav>
+  );
+}
+
+/**
+ * Menyen på smale skjermer.
+ *
+ * `<details>` åpner og lukker seg selv uten skript, og gjør det fortsatt hvis
+ * skriptet ikke lastes. Det den ikke gjør, er å lukke seg når leseren trykker
+ * Escape eller et sted utenfor — menyen ble liggende over innholdet til man
+ * traff knappen igjen. De to tingene legges på her, og bare dem.
+ */
+export function MobileMenu() {
+  const ref = useRef<HTMLDetailsElement>(null);
+
+  useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      const menu = ref.current;
+      if (event.key !== "Escape" || !menu?.open) return;
+      menu.open = false;
+      // Fokus tilbake til knappen, så tastaturbrukeren ikke står igjen inne i
+      // en meny som er borte.
+      menu.querySelector("summary")?.focus();
+    }
+    function onPointerDown(event: PointerEvent) {
+      const menu = ref.current;
+      if (!menu?.open || !(event.target instanceof Node) || menu.contains(event.target)) return;
+      menu.open = false;
+    }
+    document.addEventListener("keydown", onKeyDown);
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("pointerdown", onPointerDown);
+    };
+  }, []);
+
+  return (
+    <details className="mobile-menu" ref={ref}>
+      <summary className="header-control" role="button">Meny</summary>
+      <MobileNavigation />
+    </details>
   );
 }

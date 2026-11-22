@@ -114,7 +114,7 @@ export function CaseDirectory({ cases, initialCategory = "all" }: { cases: Verif
       </div>
       <div className={styles.filters}>
         <label>Søk i sakene<input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Navn, år eller motstander" /></label>
-        <div className={styles.chips} aria-label="Filtrer etter type">
+        <div className={styles.chips} role="group" aria-label="Filtrer etter type">
           <button type="button" aria-pressed={category === "all"} onClick={() => setCategory("all")}>Alle</button>
           {categories.map((value) => <button type="button" aria-pressed={category === value} onClick={() => setCategory(value)} key={value}>{value.startsWith("research:") ? RESEARCH_LABELS[value.slice(9) as keyof typeof RESEARCH_LABELS] : value === "newspaper_match" ? "Kamp fra avis" : "Direkte kildekontroll"}</button>)}
         </div>

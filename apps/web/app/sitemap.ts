@@ -3,6 +3,7 @@ import type { MetadataRoute } from "next";
 import { archivePath } from "@aafkstats/db";
 import { loadMatchIndex, loadOpponents, loadSeasonYears } from "@/lib/archive";
 import { getSources } from "@/lib/sources";
+import { getDerivedPlayers } from "@/lib/derived-players";
 import { getPeople } from "@/lib/people";
 import { SITE_ORIGIN } from "@/lib/site";
 
@@ -72,6 +73,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: built,
       changeFrequency: "yearly" as const,
       priority: 0.4,
+    })),
+    // Spillere arkivet bare kjenner fra lagoppstillingene har også en side, og
+    // den nås ellers bare gjennom et filter i personlista — som bare har de
+    // seksti første kortene i HTML-en. Uten denne lista fant ingen søkemotor dem.
+    ...getDerivedPlayers().map((player) => ({
+      url: `${base}/personer/${player.id}`,
+      lastModified: built,
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
     })),
     // Kommende kamper er med. De har en egen side med dato og avspark, og det er
     // nettopp den opplysningen folk leter etter i dagene før en kamp.
